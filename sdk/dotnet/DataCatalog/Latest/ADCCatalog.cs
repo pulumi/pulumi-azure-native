@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
         /// Azure data catalog admin list.
         /// </summary>
         [Output("admins")]
-        public Output<ImmutableArray<Outputs.PrincipalsResponseResult>> Admins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrincipalsResponse>> Admins { get; private set; } = null!;
 
         /// <summary>
         /// Automatic unit adjustment enabled or not.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DataCatalog.Latest
         /// Azure data catalog user list.
         /// </summary>
         [Output("users")]
-        public Output<ImmutableArray<Outputs.PrincipalsResponseResult>> Users { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrincipalsResponse>> Users { get; private set; } = null!;
 
 
         /// <summary>

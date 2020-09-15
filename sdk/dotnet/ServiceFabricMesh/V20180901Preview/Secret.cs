@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Describes the properties of a secret resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SecretResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SecretResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

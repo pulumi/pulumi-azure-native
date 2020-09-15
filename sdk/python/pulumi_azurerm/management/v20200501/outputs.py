@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -49,14 +49,14 @@ class ManagementGroupChildInfoResponse(dict):
     The child information of a management group.
     """
     def __init__(__self__, *,
-                 children: Optional[List['outputs.ManagementGroupChildInfoResponse']] = None,
+                 children: Optional[Sequence['outputs.ManagementGroupChildInfoResponse']] = None,
                  display_name: Optional[str] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
         The child information of a management group.
-        :param List['ManagementGroupChildInfoResponseArgs'] children: The list of children.
+        :param Sequence['ManagementGroupChildInfoResponseArgs'] children: The list of children.
         :param str display_name: The friendly name of the child resource.
         :param str id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param str name: The name of the child entity.
@@ -75,7 +75,7 @@ class ManagementGroupChildInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def children(self) -> Optional[List['outputs.ManagementGroupChildInfoResponse']]:
+    def children(self) -> Optional[Sequence['outputs.ManagementGroupChildInfoResponse']]:
         """
         The list of children.
         """

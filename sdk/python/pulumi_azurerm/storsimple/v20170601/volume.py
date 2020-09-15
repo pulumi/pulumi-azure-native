@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Volume']
@@ -15,13 +15,13 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_record_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 access_control_record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  monitoring_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 size_in_bytes: Optional[pulumi.Input[float]] = None,
+                 size_in_bytes: Optional[pulumi.Input[int]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_status: Optional[pulumi.Input[str]] = None,
@@ -34,13 +34,13 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] monitoring_status: The monitoring status of the volume.
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
+        :param pulumi.Input[int] size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[str] volume_container_name: The volume container name.
         :param pulumi.Input[str] volume_name: The volume name.
         :param pulumi.Input[str] volume_status: The volume status.
@@ -128,7 +128,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessControlRecordIds")
-    def access_control_record_ids(self) -> pulumi.Output[List[str]]:
+    def access_control_record_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The IDs of the access control records, associated with the volume.
         """
@@ -136,7 +136,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyIds")
-    def backup_policy_ids(self) -> pulumi.Output[List[str]]:
+    def backup_policy_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The IDs of the backup policies, in which this volume is part of.
         """
@@ -184,7 +184,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[float]:
+    def size_in_bytes(self) -> pulumi.Output[int]:
         """
         The size of the volume in bytes.
         """

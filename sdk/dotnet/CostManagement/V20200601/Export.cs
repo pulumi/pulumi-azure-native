@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         /// Has the definition for the export.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.ExportDefinitionResponseResult> Definition { get; private set; } = null!;
+        public Output<Outputs.ExportDefinitionResponse> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
         [Output("deliveryInfo")]
-        public Output<Outputs.ExportDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+        public Output<Outputs.ExportDeliveryInfoResponse> DeliveryInfo { get; private set; } = null!;
 
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         /// If requested, has the most recent execution history for the export.
         /// </summary>
         [Output("runHistory")]
-        public Output<Outputs.ExportExecutionListResultResponseResult?> RunHistory { get; private set; } = null!;
+        public Output<Outputs.ExportExecutionListResultResponse?> RunHistory { get; private set; } = null!;
 
         /// <summary>
         /// Has schedule information for the export.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ExportScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ExportScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

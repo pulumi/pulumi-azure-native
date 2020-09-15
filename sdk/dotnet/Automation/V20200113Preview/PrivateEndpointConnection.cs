@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.Automation.V20200113Preview
         /// Private endpoint which the connection belongs to.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointPropertyResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointPropertyResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Connection State of the Private Endpoint Connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

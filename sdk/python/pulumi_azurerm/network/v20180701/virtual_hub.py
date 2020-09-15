@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 hub_virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 hub_virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] hub_virtual_network_connections: list of all vnet connections with this VirtualHub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
@@ -123,7 +123,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hubVirtualNetworkConnections")
-    def hub_virtual_network_connections(self) -> pulumi.Output[Optional[List['outputs.HubVirtualNetworkConnectionResponse']]]:
+    def hub_virtual_network_connections(self) -> pulumi.Output[Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]]:
         """
         list of all vnet connections with this VirtualHub.
         """

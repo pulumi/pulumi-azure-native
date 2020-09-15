@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -24,12 +24,12 @@ class AzureSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  tier: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         Azure SKU definition.
         :param pulumi.Input[str] name: SKU name.
         :param pulumi.Input[str] tier: SKU tier.
-        :param pulumi.Input[float] capacity: The number of instances of the cluster.
+        :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -62,14 +62,14 @@ class AzureSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of instances of the cluster.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -176,24 +176,24 @@ class LanguageExtensionArgs:
 @pulumi.input_type
 class LanguageExtensionsListArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[List[pulumi.Input['LanguageExtensionArgs']]]] = None):
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
         """
         The list of language extension objects.
-        :param pulumi.Input[List[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
+        :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[List[pulumi.Input['LanguageExtensionArgs']]]]:
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]:
         """
         The list of language extensions.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[List[pulumi.Input['LanguageExtensionArgs']]]]):
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
         pulumi.set(self, "value", value)
 
 
@@ -201,15 +201,15 @@ class LanguageExtensionsListArgs:
 class OptimizedAutoscaleArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
-                 maximum: pulumi.Input[float],
-                 minimum: pulumi.Input[float],
-                 version: pulumi.Input[float]):
+                 maximum: pulumi.Input[int],
+                 minimum: pulumi.Input[int],
+                 version: pulumi.Input[int]):
         """
         A class that contains the optimized auto scale definition.
         :param pulumi.Input[bool] is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
-        :param pulumi.Input[float] maximum: Maximum allowed instances count.
-        :param pulumi.Input[float] minimum: Minimum allowed instances count.
-        :param pulumi.Input[float] version: The version of the template defined, for instance 1.
+        :param pulumi.Input[int] maximum: Maximum allowed instances count.
+        :param pulumi.Input[int] minimum: Minimum allowed instances count.
+        :param pulumi.Input[int] version: The version of the template defined, for instance 1.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "maximum", maximum)
@@ -230,38 +230,38 @@ class OptimizedAutoscaleArgs:
 
     @property
     @pulumi.getter
-    def maximum(self) -> pulumi.Input[float]:
+    def maximum(self) -> pulumi.Input[int]:
         """
         Maximum allowed instances count.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: pulumi.Input[float]):
+    def maximum(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum", value)
 
     @property
     @pulumi.getter
-    def minimum(self) -> pulumi.Input[float]:
+    def minimum(self) -> pulumi.Input[int]:
         """
         Minimum allowed instances count.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: pulumi.Input[float]):
+    def minimum(self, value: pulumi.Input[int]):
         pulumi.set(self, "minimum", value)
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[float]:
+    def version(self) -> pulumi.Input[int]:
         """
         The version of the template defined, for instance 1.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[float]):
+    def version(self, value: pulumi.Input[int]):
         pulumi.set(self, "version", value)
 
 

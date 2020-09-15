@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetServiceResult:
         if notes and not isinstance(notes, str):
             raise TypeError("Expected argument 'notes' to be a str")
         pulumi.set(__self__, "notes", notes)
-        if quantity and not isinstance(quantity, float):
-            raise TypeError("Expected argument 'quantity' to be a float")
+        if quantity and not isinstance(quantity, int):
+            raise TypeError("Expected argument 'quantity' to be a int")
         pulumi.set(__self__, "quantity", quantity)
         if start_date and not isinstance(start_date, str):
             raise TypeError("Expected argument 'start_date' to be a str")
@@ -101,7 +101,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def quantity(self) -> Optional[float]:
+    def quantity(self) -> Optional[int]:
         """
         Windows IoT Device Service device allocation,
         """

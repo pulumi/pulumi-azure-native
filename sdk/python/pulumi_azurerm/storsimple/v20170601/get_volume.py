@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -41,8 +41,8 @@ class GetVolumeResult:
         if operation_status and not isinstance(operation_status, str):
             raise TypeError("Expected argument 'operation_status' to be a str")
         pulumi.set(__self__, "operation_status", operation_status)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -59,7 +59,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="accessControlRecordIds")
-    def access_control_record_ids(self) -> List[str]:
+    def access_control_record_ids(self) -> Sequence[str]:
         """
         The IDs of the access control records, associated with the volume.
         """
@@ -67,7 +67,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="backupPolicyIds")
-    def backup_policy_ids(self) -> List[str]:
+    def backup_policy_ids(self) -> Sequence[str]:
         """
         The IDs of the backup policies, in which this volume is part of.
         """
@@ -115,7 +115,7 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         The size of the volume in bytes.
         """

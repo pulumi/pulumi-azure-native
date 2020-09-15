@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['DataExport']
@@ -24,7 +24,7 @@ class DataExport(pulumi.CustomResource):
                  last_modified_date: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 table_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,7 +43,7 @@ class DataExport(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_date: Date and time when the export was last modified.
         :param pulumi.Input[str] resource_group_name: The workspace's resource group name.
         :param pulumi.Input[str] resource_id: The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-        :param pulumi.Input[List[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         :param pulumi.Input[str] workspace_name: The Log Analytics workspace name.
         """
         if __name__ is not None:
@@ -176,7 +176,7 @@ class DataExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def table_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
-        public readonly Outputs.CustomRuleListResponseResult? CustomRules;
+        public readonly Outputs.CustomRuleListResponse? CustomRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Describes Frontend Endpoints associated with this Web Application Firewall policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendEndpointLinkResponseResult> FrontendEndpointLinks;
+        public readonly ImmutableArray<Outputs.FrontendEndpointLinkResponse> FrontendEndpointLinks;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Describes managed rules inside the policy.
         /// </summary>
-        public readonly Outputs.ManagedRuleSetListResponseResult? ManagedRules;
+        public readonly Outputs.ManagedRuleSetListResponse? ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Describes settings for the policy.
         /// </summary>
-        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        public readonly Outputs.PolicySettingsResponse? PolicySettings;
         /// <summary>
         /// Provisioning state of the policy.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Describes Routing Rules associated with this Web Application Firewall policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RoutingRuleLinkResponseResult> RoutingRuleLinks;
+        public readonly ImmutableArray<Outputs.RoutingRuleLinkResponse> RoutingRuleLinks;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -87,25 +87,25 @@ namespace Pulumi.AzureRM.Network.Latest
 
         [OutputConstructor]
         private GetPolicyResult(
-            Outputs.CustomRuleListResponseResult? customRules,
+            Outputs.CustomRuleListResponse? customRules,
 
             string? etag,
 
-            ImmutableArray<Outputs.FrontendEndpointLinkResponseResult> frontendEndpointLinks,
+            ImmutableArray<Outputs.FrontendEndpointLinkResponse> frontendEndpointLinks,
 
             string? location,
 
-            Outputs.ManagedRuleSetListResponseResult? managedRules,
+            Outputs.ManagedRuleSetListResponse? managedRules,
 
             string name,
 
-            Outputs.PolicySettingsResponseResult? policySettings,
+            Outputs.PolicySettingsResponse? policySettings,
 
             string provisioningState,
 
             string resourceState,
 
-            ImmutableArray<Outputs.RoutingRuleLinkResponseResult> routingRuleLinks,
+            ImmutableArray<Outputs.RoutingRuleLinkResponse> routingRuleLinks,
 
             ImmutableDictionary<string, string>? tags,
 

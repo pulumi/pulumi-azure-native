@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponseResult? Backend;
+        public readonly Outputs.PipelineDiagnosticSettingsResponse? Backend;
         /// <summary>
         /// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
         /// </summary>
-        public readonly Outputs.PipelineDiagnosticSettingsResponseResult? Frontend;
+        public readonly Outputs.PipelineDiagnosticSettingsResponse? Frontend;
         /// <summary>
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// <summary>
         /// Sampling settings for Diagnostic.
         /// </summary>
-        public readonly Outputs.SamplingSettingsResponseResult? Sampling;
+        public readonly Outputs.SamplingSettingsResponse? Sampling;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         private GetApiDiagnosticResult(
             string? alwaysLog,
 
-            Outputs.PipelineDiagnosticSettingsResponseResult? backend,
+            Outputs.PipelineDiagnosticSettingsResponse? backend,
 
             bool? enableHttpCorrelationHeaders,
 
-            Outputs.PipelineDiagnosticSettingsResponseResult? frontend,
+            Outputs.PipelineDiagnosticSettingsResponse? frontend,
 
             string? httpCorrelationProtocol,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 
             string name,
 
-            Outputs.SamplingSettingsResponseResult? sampling,
+            Outputs.SamplingSettingsResponse? sampling,
 
             string type,
 

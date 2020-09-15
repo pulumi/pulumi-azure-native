@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -91,7 +91,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter(name="policyDefinitionGroups")
-    def policy_definition_groups(self) -> Optional[List['outputs.PolicyDefinitionGroupResponse']]:
+    def policy_definition_groups(self) -> Optional[Sequence['outputs.PolicyDefinitionGroupResponse']]:
         """
         The metadata describing groups of policy definition references within the policy set definition.
         """
@@ -99,7 +99,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> List['outputs.PolicyDefinitionReferenceResponse']:
+    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceResponse']:
         """
         An array of policy definition references.
         """

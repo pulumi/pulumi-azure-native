@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
         /// <summary>
         /// Read only system data
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.AzureData.V20190724Preview
 
             string? subscriptionId,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

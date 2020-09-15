@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// <summary>
         /// SystemData of SqlDatabase.
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
 
             string name,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['TopicAuthorizationRule']
@@ -18,7 +18,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,7 +31,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] topic_name: The topic name.
         """
         if __name__ is not None:
@@ -104,7 +104,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Output[List[str]]:
+    def rights(self) -> pulumi.Output[Sequence[str]]:
         """
         The rights associated with the rule.
         """

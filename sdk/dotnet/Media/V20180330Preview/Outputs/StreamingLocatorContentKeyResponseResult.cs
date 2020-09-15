@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview.Outputs
         /// <summary>
         /// Tracks which use this Content Key
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackSelectionResponseResult> Tracks;
+        public readonly ImmutableArray<Outputs.TrackSelectionResponse> Tracks;
         /// <summary>
         /// Encryption type of Content Key
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview.Outputs
 
             string? policyName,
 
-            ImmutableArray<Outputs.TrackSelectionResponseResult> tracks,
+            ImmutableArray<Outputs.TrackSelectionResponse> tracks,
 
             string type,
 

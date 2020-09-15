@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,13 +24,13 @@ class VirtualNetwork(pulumi.CustomResource):
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_allocations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
+                 virtual_network_peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,13 +46,13 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetArgs']]]] subnets: A list of subnets in a Virtual Network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]] subnets: A list of subnets in a Virtual Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: A list of peerings in a Virtual Network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkPeeringArgs']]]] virtual_network_peerings: A list of peerings in a Virtual Network.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -178,7 +178,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAllocations")
-    def ip_allocations(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def ip_allocations(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         Array of IpAllocation which reference this VNET.
         """
@@ -218,7 +218,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Optional[List['outputs.SubnetResponse']]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetResponse']]]:
         """
         A list of subnets in a Virtual Network.
         """
@@ -242,7 +242,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkPeerings")
-    def virtual_network_peerings(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkPeeringResponse']]]:
+    def virtual_network_peerings(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]]:
         """
         A list of peerings in a Virtual Network.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -49,15 +49,15 @@ __all__ = [
 class AddRemoveReplicaScalingMechanismArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 max_count: pulumi.Input[float],
-                 min_count: pulumi.Input[float],
-                 scale_increment: pulumi.Input[float]):
+                 max_count: pulumi.Input[int],
+                 min_count: pulumi.Input[int],
+                 scale_increment: pulumi.Input[int]):
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
         :param pulumi.Input[str] kind: The type of auto scaling mechanism.
-        :param pulumi.Input[float] max_count: Maximum number of containers (scale up won't be performed above this number).
-        :param pulumi.Input[float] min_count: Minimum number of containers (scale down won't be performed below this number).
-        :param pulumi.Input[float] scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
+        :param pulumi.Input[int] max_count: Maximum number of containers (scale up won't be performed above this number).
+        :param pulumi.Input[int] min_count: Minimum number of containers (scale down won't be performed below this number).
+        :param pulumi.Input[int] scale_increment: Each time auto scaling is performed, this number of containers will be added or removed.
         """
         pulumi.set(__self__, "kind", 'AddRemoveReplica')
         pulumi.set(__self__, "max_count", max_count)
@@ -78,38 +78,38 @@ class AddRemoveReplicaScalingMechanismArgs:
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> pulumi.Input[float]:
+    def max_count(self) -> pulumi.Input[int]:
         """
         Maximum number of containers (scale up won't be performed above this number).
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: pulumi.Input[float]):
+    def max_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_count", value)
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> pulumi.Input[float]:
+    def min_count(self) -> pulumi.Input[int]:
         """
         Minimum number of containers (scale down won't be performed below this number).
         """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: pulumi.Input[float]):
+    def min_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_count", value)
 
     @property
     @pulumi.getter(name="scaleIncrement")
-    def scale_increment(self) -> pulumi.Input[float]:
+    def scale_increment(self) -> pulumi.Input[int]:
         """
         Each time auto scaling is performed, this number of containers will be added or removed.
         """
         return pulumi.get(self, "scale_increment")
 
     @scale_increment.setter
-    def scale_increment(self, value: pulumi.Input[float]):
+    def scale_increment(self, value: pulumi.Input[int]):
         pulumi.set(self, "scale_increment", value)
 
 
@@ -333,14 +333,14 @@ class AverageLoadScalingTriggerArgs:
                  kind: pulumi.Input[str],
                  lower_load_threshold: pulumi.Input[float],
                  metric: pulumi.Input['AutoScalingResourceMetricArgs'],
-                 scale_interval_in_seconds: pulumi.Input[float],
+                 scale_interval_in_seconds: pulumi.Input[int],
                  upper_load_threshold: pulumi.Input[float]):
         """
         Describes the average load trigger used for auto scaling.
         :param pulumi.Input[str] kind: The type of auto scaling trigger
         :param pulumi.Input[float] lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
         :param pulumi.Input['AutoScalingResourceMetricArgs'] metric: Description of the metric that is used for scaling.
-        :param pulumi.Input[float] scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
+        :param pulumi.Input[int] scale_interval_in_seconds: Scale interval that indicates how often will this trigger be checked.
         :param pulumi.Input[float] upper_load_threshold: Upper load threshold (if average load is above this threshold, service will scale up).
         """
         pulumi.set(__self__, "kind", 'AverageLoad')
@@ -387,14 +387,14 @@ class AverageLoadScalingTriggerArgs:
 
     @property
     @pulumi.getter(name="scaleIntervalInSeconds")
-    def scale_interval_in_seconds(self) -> pulumi.Input[float]:
+    def scale_interval_in_seconds(self) -> pulumi.Input[int]:
         """
         Scale interval that indicates how often will this trigger be checked.
         """
         return pulumi.get(self, "scale_interval_in_seconds")
 
     @scale_interval_in_seconds.setter
-    def scale_interval_in_seconds(self, value: pulumi.Input[float]):
+    def scale_interval_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "scale_interval_in_seconds", value)
 
     @property
@@ -551,33 +551,33 @@ class ContainerCodePackagePropertiesArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
-                 commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]] = None,
                  entrypoint: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  image_registry_credential: Optional[pulumi.Input['ImageRegistryCredentialArgs']] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]] = None,
-                 reliable_collections_refs: Optional[pulumi.Input[List[pulumi.Input['ReliableCollectionsRefArgs']]]] = None,
-                 settings: Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]] = None,
-                 volume_refs: Optional[pulumi.Input[List[pulumi.Input['VolumeReferenceArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[List[pulumi.Input['ApplicationScopedVolumeArgs']]]] = None):
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]] = None,
+                 reliable_collections_refs: Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]] = None,
+                 volume_refs: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]] = None):
         """
         Describes a container and its runtime properties.
         :param pulumi.Input[str] image: The Container image to use.
         :param pulumi.Input[str] name: The name of the code package.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: The resources required by this container.
-        :param pulumi.Input[List[pulumi.Input[str]]] commands: Command array to execute within the container in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Command array to execute within the container in exec form.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]] endpoints: The endpoints exposed by this container.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]] endpoints: The endpoints exposed by this container.
         :param pulumi.Input[str] entrypoint: Override for the default entry point in the container.
-        :param pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in this container
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in this container
         :param pulumi.Input['ImageRegistryCredentialArgs'] image_registry_credential: Image registry credential.
-        :param pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]] labels: The labels to set in this container.
-        :param pulumi.Input[List[pulumi.Input['ReliableCollectionsRefArgs']]] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-        :param pulumi.Input[List[pulumi.Input['SettingArgs']]] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
-        :param pulumi.Input[List[pulumi.Input['VolumeReferenceArgs']]] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-        :param pulumi.Input[List[pulumi.Input['ApplicationScopedVolumeArgs']]] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]] labels: The labels to set in this container.
+        :param pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]] reliable_collections_refs: A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['SettingArgs']]] settings: The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]] volume_refs: Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]] volumes: Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -643,14 +643,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def commands(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Command array to execute within the container in exec form.
         """
         return pulumi.get(self, "commands")
 
     @commands.setter
-    def commands(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "commands", value)
 
     @property
@@ -667,14 +667,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]:
         """
         The endpoints exposed by this container.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['EndpointPropertiesArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -691,14 +691,14 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in this container
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -715,62 +715,62 @@ class ContainerCodePackagePropertiesArgs:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]]:
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]:
         """
         The labels to set in this container.
         """
         return pulumi.get(self, "labels")
 
     @labels.setter
-    def labels(self, value: Optional[pulumi.Input[List[pulumi.Input['ContainerLabelArgs']]]]):
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgs']]]]):
         pulumi.set(self, "labels", value)
 
     @property
     @pulumi.getter(name="reliableCollectionsRefs")
-    def reliable_collections_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['ReliableCollectionsRefArgs']]]]:
+    def reliable_collections_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]:
         """
         A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
         """
         return pulumi.get(self, "reliable_collections_refs")
 
     @reliable_collections_refs.setter
-    def reliable_collections_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['ReliableCollectionsRefArgs']]]]):
+    def reliable_collections_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgs']]]]):
         pulumi.set(self, "reliable_collections_refs", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]:
         """
         The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\secrets". The path for Linux container is "/var/secrets".
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[List[pulumi.Input['SettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SettingArgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
     @pulumi.getter(name="volumeRefs")
-    def volume_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['VolumeReferenceArgs']]]]:
+    def volume_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]]:
         """
         Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
         """
         return pulumi.get(self, "volume_refs")
 
     @volume_refs.setter
-    def volume_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['VolumeReferenceArgs']]]]):
+    def volume_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgs']]]]):
         pulumi.set(self, "volume_refs", value)
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[List[pulumi.Input['ApplicationScopedVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]:
         """
         Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[List[pulumi.Input['ApplicationScopedVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -815,14 +815,14 @@ class ContainerLabelArgs:
 @pulumi.input_type
 class DiagnosticsDescriptionArgs:
     def __init__(__self__, *,
-                 default_sink_refs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sinks: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
         """
         Describes the diagnostics options available
-        :param pulumi.Input[List[pulumi.Input[str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param pulumi.Input[bool] enabled: Status of whether or not sinks are enabled.
-        :param pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
         """
         if default_sink_refs is not None:
             pulumi.set(__self__, "default_sink_refs", default_sink_refs)
@@ -833,14 +833,14 @@ class DiagnosticsDescriptionArgs:
 
     @property
     @pulumi.getter(name="defaultSinkRefs")
-    def default_sink_refs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def default_sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         """
         return pulumi.get(self, "default_sink_refs")
 
     @default_sink_refs.setter
-    def default_sink_refs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def default_sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "default_sink_refs", value)
 
     @property
@@ -857,14 +857,14 @@ class DiagnosticsDescriptionArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]:
         """
         List of supported sinks that can be referenced.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]]):
         pulumi.set(self, "sinks", value)
 
 
@@ -872,11 +872,11 @@ class DiagnosticsDescriptionArgs:
 class DiagnosticsRefArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sink_refs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
         :param pulumi.Input[bool] enabled: Status of whether or not sinks are enabled.
-        :param pulumi.Input[List[pulumi.Input[str]]] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -897,14 +897,14 @@ class DiagnosticsRefArgs:
 
     @property
     @pulumi.getter(name="sinkRefs")
-    def sink_refs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def sink_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
         return pulumi.get(self, "sink_refs")
 
     @sink_refs.setter
-    def sink_refs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def sink_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "sink_refs", value)
 
 
@@ -912,11 +912,11 @@ class DiagnosticsRefArgs:
 class EndpointPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 port: Optional[pulumi.Input[float]] = None):
+                 port: Optional[pulumi.Input[int]] = None):
         """
         Describes a container endpoint.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[float] port: Port used by the container.
+        :param pulumi.Input[int] port: Port used by the container.
         """
         pulumi.set(__self__, "name", name)
         if port is not None:
@@ -936,14 +936,14 @@ class EndpointPropertiesArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         Port used by the container.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
 
@@ -1067,14 +1067,14 @@ class GatewayDestinationArgs:
 @pulumi.input_type
 class HttpConfigArgs:
     def __init__(__self__, *,
-                 hosts: pulumi.Input[List[pulumi.Input['HttpHostConfigArgs']]],
+                 hosts: pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgs']]],
                  name: pulumi.Input[str],
-                 port: pulumi.Input[float]):
+                 port: pulumi.Input[int]):
         """
         Describes the http configuration for external connectivity for this network.
-        :param pulumi.Input[List[pulumi.Input['HttpHostConfigArgs']]] hosts: description for routing.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgs']]] hosts: description for routing.
         :param pulumi.Input[str] name: http gateway config name.
-        :param pulumi.Input[float] port: Specifies the port at which the service endpoint below needs to be exposed.
+        :param pulumi.Input[int] port: Specifies the port at which the service endpoint below needs to be exposed.
         """
         pulumi.set(__self__, "hosts", hosts)
         pulumi.set(__self__, "name", name)
@@ -1082,14 +1082,14 @@ class HttpConfigArgs:
 
     @property
     @pulumi.getter
-    def hosts(self) -> pulumi.Input[List[pulumi.Input['HttpHostConfigArgs']]]:
+    def hosts(self) -> pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgs']]]:
         """
         description for routing.
         """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
-    def hosts(self, value: pulumi.Input[List[pulumi.Input['HttpHostConfigArgs']]]):
+    def hosts(self, value: pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgs']]]):
         pulumi.set(self, "hosts", value)
 
     @property
@@ -1106,14 +1106,14 @@ class HttpConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Specifies the port at which the service endpoint below needs to be exposed.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
 
@@ -1121,11 +1121,11 @@ class HttpConfigArgs:
 class HttpHostConfigArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 routes: pulumi.Input[List[pulumi.Input['HttpRouteConfigArgs']]]):
+                 routes: pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]]):
         """
         Describes the hostname properties for http routing.
         :param pulumi.Input[str] name: http hostname config name.
-        :param pulumi.Input[List[pulumi.Input['HttpRouteConfigArgs']]] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routes", routes)
@@ -1144,14 +1144,14 @@ class HttpHostConfigArgs:
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Input[List[pulumi.Input['HttpRouteConfigArgs']]]:
+    def routes(self) -> pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]]:
         """
         Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: pulumi.Input[List[pulumi.Input['HttpRouteConfigArgs']]]):
+    def routes(self, value: pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]]):
         pulumi.set(self, "routes", value)
 
 
@@ -1321,11 +1321,11 @@ class HttpRouteMatchPathArgs:
 class HttpRouteMatchRuleArgs:
     def __init__(__self__, *,
                  path: pulumi.Input['HttpRouteMatchPathArgs'],
-                 headers: Optional[pulumi.Input[List[pulumi.Input['HttpRouteMatchHeaderArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]] = None):
         """
         Describes a rule for http route matching.
         :param pulumi.Input['HttpRouteMatchPathArgs'] path: Path to match for routing.
-        :param pulumi.Input[List[pulumi.Input['HttpRouteMatchHeaderArgs']]] headers: headers and their values to match in request.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]] headers: headers and their values to match in request.
         """
         pulumi.set(__self__, "path", path)
         if headers is not None:
@@ -1345,14 +1345,14 @@ class HttpRouteMatchRuleArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[List[pulumi.Input['HttpRouteMatchHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]:
         """
         headers and their values to match in request.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[List[pulumi.Input['HttpRouteMatchHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
 
@@ -1413,11 +1413,11 @@ class ImageRegistryCredentialArgs:
 @pulumi.input_type
 class NetworkRefArgs:
     def __init__(__self__, *,
-                 endpoint_refs: Optional[pulumi.Input[List[pulumi.Input['EndpointRefArgs']]]] = None,
+                 endpoint_refs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Describes a network reference in a service.
-        :param pulumi.Input[List[pulumi.Input['EndpointRefArgs']]] endpoint_refs: A list of endpoints that are exposed on this network.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]] endpoint_refs: A list of endpoints that are exposed on this network.
         :param pulumi.Input[str] name: Name of the network
         """
         if endpoint_refs is not None:
@@ -1427,14 +1427,14 @@ class NetworkRefArgs:
 
     @property
     @pulumi.getter(name="endpointRefs")
-    def endpoint_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['EndpointRefArgs']]]]:
+    def endpoint_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]]:
         """
         A list of endpoints that are exposed on this network.
         """
         return pulumi.get(self, "endpoint_refs")
 
     @endpoint_refs.setter
-    def endpoint_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['EndpointRefArgs']]]]):
+    def endpoint_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]]]):
         pulumi.set(self, "endpoint_refs", value)
 
     @property
@@ -1703,24 +1703,24 @@ class SecretResourcePropertiesArgs:
 @pulumi.input_type
 class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
-                 code_packages: pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
+                 code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
                  os_type: pulumi.Input[str],
-                 auto_scaling_policies: Optional[pulumi.Input[List[pulumi.Input['AutoScalingPolicyArgs']]]] = None,
+                 auto_scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_refs: Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]] = None,
-                 replica_count: Optional[pulumi.Input[float]] = None):
+                 network_refs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None):
         """
         This type describes a service resource.
-        :param pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param pulumi.Input[str] os_type: The operation system required by the code in service.
-        :param pulumi.Input[List[pulumi.Input['AutoScalingPolicyArgs']]] auto_scaling_policies: Auto scaling policies
+        :param pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]] auto_scaling_policies: Auto scaling policies
         :param pulumi.Input[str] description: User readable description of the service.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
         :param pulumi.Input[str] name: The name of the resource
-        :param pulumi.Input[List[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
-        :param pulumi.Input[float] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
+        :param pulumi.Input[int] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         pulumi.set(__self__, "code_packages", code_packages)
         pulumi.set(__self__, "os_type", os_type)
@@ -1739,14 +1739,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="codePackages")
-    def code_packages(self) -> pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]]:
+    def code_packages(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]]:
         """
         Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         """
         return pulumi.get(self, "code_packages")
 
     @code_packages.setter
-    def code_packages(self, value: pulumi.Input[List[pulumi.Input['ContainerCodePackagePropertiesArgs']]]):
+    def code_packages(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]]):
         pulumi.set(self, "code_packages", value)
 
     @property
@@ -1763,14 +1763,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="autoScalingPolicies")
-    def auto_scaling_policies(self) -> Optional[pulumi.Input[List[pulumi.Input['AutoScalingPolicyArgs']]]]:
+    def auto_scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]:
         """
         Auto scaling policies
         """
         return pulumi.get(self, "auto_scaling_policies")
 
     @auto_scaling_policies.setter
-    def auto_scaling_policies(self, value: Optional[pulumi.Input[List[pulumi.Input['AutoScalingPolicyArgs']]]]):
+    def auto_scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]]):
         pulumi.set(self, "auto_scaling_policies", value)
 
     @property
@@ -1811,26 +1811,26 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="networkRefs")
-    def network_refs(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]]:
+    def network_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]:
         """
         The names of the private networks that this service needs to be part of.
         """
         return pulumi.get(self, "network_refs")
 
     @network_refs.setter
-    def network_refs(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkRefArgs']]]]):
+    def network_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]]):
         pulumi.set(self, "network_refs", value)
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[float]]:
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of replicas of the service to create. Defaults to 1 if not specified.
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[float]]):
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replica_count", value)
 
 
@@ -1879,12 +1879,12 @@ class TcpConfigArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['GatewayDestinationArgs'],
                  name: pulumi.Input[str],
-                 port: pulumi.Input[float]):
+                 port: pulumi.Input[int]):
         """
         Describes the tcp configuration for external connectivity for this network.
         :param pulumi.Input['GatewayDestinationArgs'] destination: Describes destination endpoint for routing traffic.
         :param pulumi.Input[str] name: tcp gateway config name.
-        :param pulumi.Input[float] port: Specifies the port at which the service endpoint below needs to be exposed.
+        :param pulumi.Input[int] port: Specifies the port at which the service endpoint below needs to be exposed.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "name", name)
@@ -1916,14 +1916,14 @@ class TcpConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Specifies the port at which the service endpoint below needs to be exposed.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
 

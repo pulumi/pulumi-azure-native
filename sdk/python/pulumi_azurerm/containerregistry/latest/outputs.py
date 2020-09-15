@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -80,17 +80,17 @@ class AgentPropertiesResponse(dict):
     The properties that determine the run agent configuration.
     """
     def __init__(__self__, *,
-                 cpu: Optional[float] = None):
+                 cpu: Optional[int] = None):
         """
         The properties that determine the run agent configuration.
-        :param float cpu: The CPU configuration in terms of number of cores required for the run.
+        :param int cpu: The CPU configuration in terms of number of cores required for the run.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
 
     @property
     @pulumi.getter
-    def cpu(self) -> Optional[float]:
+    def cpu(self) -> Optional[int]:
         """
         The CPU configuration in terms of number of cores required for the run.
         """
@@ -156,14 +156,14 @@ class AuthInfoResponse(dict):
     def __init__(__self__, *,
                  token: str,
                  token_type: str,
-                 expires_in: Optional[float] = None,
+                 expires_in: Optional[int] = None,
                  refresh_token: Optional[str] = None,
                  scope: Optional[str] = None):
         """
         The authorization properties for accessing the source code repository.
         :param str token: The access token used to access the source control provider.
         :param str token_type: The type of Auth token.
-        :param float expires_in: Time in seconds that the token remains valid
+        :param int expires_in: Time in seconds that the token remains valid
         :param str refresh_token: The refresh token used to refresh the access token.
         :param str scope: The scope of the access token.
         """
@@ -194,7 +194,7 @@ class AuthInfoResponse(dict):
 
     @property
     @pulumi.getter(name="expiresIn")
-    def expires_in(self) -> Optional[float]:
+    def expires_in(self) -> Optional[int]:
         """
         Time in seconds that the token remains valid
         """
@@ -450,25 +450,25 @@ class DockerBuildStepResponse(dict):
     The Docker build step.
     """
     def __init__(__self__, *,
-                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  docker_file_path: str,
                  type: str,
-                 arguments: Optional[List['outputs.ArgumentResponse']] = None,
+                 arguments: Optional[Sequence['outputs.ArgumentResponse']] = None,
                  context_access_token: Optional[str] = None,
                  context_path: Optional[str] = None,
-                 image_names: Optional[List[str]] = None,
+                 image_names: Optional[Sequence[str]] = None,
                  is_push_enabled: Optional[bool] = None,
                  no_cache: Optional[bool] = None,
                  target: Optional[str] = None):
         """
         The Docker build step.
-        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str docker_file_path: The Docker file path relative to the source context.
         :param str type: The type of the step.
-        :param List['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
+        :param Sequence['ArgumentResponseArgs'] arguments: The collection of override arguments to be used when executing this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
-        :param List[str] image_names: The fully qualified image names including the repository and tag.
+        :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
         :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
         :param str target: The name of the target build stage for the docker build.
@@ -493,7 +493,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter(name="baseImageDependencies")
-    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyResponse']:
         """
         List of base image dependencies for a step.
         """
@@ -517,7 +517,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter
-    def arguments(self) -> Optional[List['outputs.ArgumentResponse']]:
+    def arguments(self) -> Optional[Sequence['outputs.ArgumentResponse']]:
         """
         The collection of override arguments to be used when executing this build step.
         """
@@ -541,7 +541,7 @@ class DockerBuildStepResponse(dict):
 
     @property
     @pulumi.getter(name="imageNames")
-    def image_names(self) -> Optional[List[str]]:
+    def image_names(self) -> Optional[Sequence[str]]:
         """
         The fully qualified image names including the repository and tag.
         """
@@ -581,22 +581,22 @@ class EncodedTaskStepResponse(dict):
     The properties of a encoded task step.
     """
     def __init__(__self__, *,
-                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  encoded_task_content: str,
                  type: str,
                  context_access_token: Optional[str] = None,
                  context_path: Optional[str] = None,
                  encoded_values_content: Optional[str] = None,
-                 values: Optional[List['outputs.SetValueResponse']] = None):
+                 values: Optional[Sequence['outputs.SetValueResponse']] = None):
         """
         The properties of a encoded task step.
-        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str encoded_task_content: Base64 encoded value of the template/definition file content.
         :param str type: The type of the step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param str encoded_values_content: Base64 encoded value of the parameters/values file content.
-        :param List['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
         pulumi.set(__self__, "encoded_task_content", encoded_task_content)
@@ -612,7 +612,7 @@ class EncodedTaskStepResponse(dict):
 
     @property
     @pulumi.getter(name="baseImageDependencies")
-    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyResponse']:
         """
         List of base image dependencies for a step.
         """
@@ -660,7 +660,7 @@ class EncodedTaskStepResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List['outputs.SetValueResponse']]:
+    def values(self) -> Optional[Sequence['outputs.SetValueResponse']]:
         """
         The collection of overridable values that can be passed when running a task.
         """
@@ -960,21 +960,21 @@ class FileTaskStepResponse(dict):
     The properties of a task step.
     """
     def __init__(__self__, *,
-                 base_image_dependencies: List['outputs.BaseImageDependencyResponse'],
+                 base_image_dependencies: Sequence['outputs.BaseImageDependencyResponse'],
                  task_file_path: str,
                  type: str,
                  context_access_token: Optional[str] = None,
                  context_path: Optional[str] = None,
-                 values: Optional[List['outputs.SetValueResponse']] = None,
+                 values: Optional[Sequence['outputs.SetValueResponse']] = None,
                  values_file_path: Optional[str] = None):
         """
         The properties of a task step.
-        :param List['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
+        :param Sequence['BaseImageDependencyResponseArgs'] base_image_dependencies: List of base image dependencies for a step.
         :param str task_file_path: The task template/definition file path relative to the source context.
         :param str type: The type of the step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
-        :param List['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
+        :param Sequence['SetValueResponseArgs'] values: The collection of overridable values that can be passed when running a task.
         :param str values_file_path: The task values/parameters file path relative to the source context.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
@@ -991,7 +991,7 @@ class FileTaskStepResponse(dict):
 
     @property
     @pulumi.getter(name="baseImageDependencies")
-    def base_image_dependencies(self) -> List['outputs.BaseImageDependencyResponse']:
+    def base_image_dependencies(self) -> Sequence['outputs.BaseImageDependencyResponse']:
         """
         List of base image dependencies for a step.
         """
@@ -1031,7 +1031,7 @@ class FileTaskStepResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List['outputs.SetValueResponse']]:
+    def values(self) -> Optional[Sequence['outputs.SetValueResponse']]:
         """
         The collection of overridable values that can be passed when running a task.
         """
@@ -1161,13 +1161,13 @@ class NetworkRuleSetResponse(dict):
     """
     def __init__(__self__, *,
                  default_action: str,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param List['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -1185,7 +1185,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         The IP ACL rules.
         """
@@ -1193,7 +1193,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The virtual network rules.
         """
@@ -1441,12 +1441,12 @@ class RetentionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  last_updated_time: str,
-                 days: Optional[float] = None,
+                 days: Optional[int] = None,
                  status: Optional[str] = None):
         """
         The retention policy for a container registry.
         :param str last_updated_time: The timestamp when the policy was last updated.
-        :param float days: The number of days to retain an untagged manifest after which it gets purged.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -1465,7 +1465,7 @@ class RetentionPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         The number of days to retain an untagged manifest after which it gets purged.
         """
@@ -1746,13 +1746,13 @@ class SourceTriggerResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  source_repository: 'outputs.SourcePropertiesResponse',
-                 source_trigger_events: List[str],
+                 source_trigger_events: Sequence[str],
                  status: Optional[str] = None):
         """
         The properties of a source based trigger.
         :param str name: The name of the trigger.
         :param 'SourcePropertiesResponseArgs' source_repository: The properties that describes the source(code) for the task.
-        :param List[str] source_trigger_events: The source event corresponding to the trigger.
+        :param Sequence[str] source_trigger_events: The source event corresponding to the trigger.
         :param str status: The current status of trigger.
         """
         pulumi.set(__self__, "name", name)
@@ -1779,7 +1779,7 @@ class SourceTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="sourceTriggerEvents")
-    def source_trigger_events(self) -> List[str]:
+    def source_trigger_events(self) -> Sequence[str]:
         """
         The source event corresponding to the trigger.
         """
@@ -1876,22 +1876,22 @@ class TargetResponseResult(dict):
     """
     def __init__(__self__, *,
                  digest: Optional[str] = None,
-                 length: Optional[float] = None,
+                 length: Optional[int] = None,
                  media_type: Optional[str] = None,
                  name: Optional[str] = None,
                  repository: Optional[str] = None,
-                 size: Optional[float] = None,
+                 size: Optional[int] = None,
                  tag: Optional[str] = None,
                  url: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The target of the event.
         :param str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-        :param float length: The number of bytes of the content. Same as Size field.
+        :param int length: The number of bytes of the content. Same as Size field.
         :param str media_type: The MIME type of the referenced object.
         :param str name: The name of the artifact.
         :param str repository: The repository name.
-        :param float size: The number of bytes of the content. Same as Length field.
+        :param int size: The number of bytes of the content. Same as Length field.
         :param str tag: The tag name.
         :param str url: The direct URL to the content.
         :param str version: The version of the artifact.
@@ -1925,7 +1925,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[float]:
+    def length(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Size field.
         """
@@ -1957,7 +1957,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Length field.
         """
@@ -2043,13 +2043,13 @@ class TriggerPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  base_image_trigger: Optional['outputs.BaseImageTriggerResponse'] = None,
-                 source_triggers: Optional[List['outputs.SourceTriggerResponse']] = None,
-                 timer_triggers: Optional[List['outputs.TimerTriggerResponse']] = None):
+                 source_triggers: Optional[Sequence['outputs.SourceTriggerResponse']] = None,
+                 timer_triggers: Optional[Sequence['outputs.TimerTriggerResponse']] = None):
         """
         The properties of a trigger.
         :param 'BaseImageTriggerResponseArgs' base_image_trigger: The trigger based on base image dependencies.
-        :param List['SourceTriggerResponseArgs'] source_triggers: The collection of triggers based on source code repository.
-        :param List['TimerTriggerResponseArgs'] timer_triggers: The collection of timer triggers.
+        :param Sequence['SourceTriggerResponseArgs'] source_triggers: The collection of triggers based on source code repository.
+        :param Sequence['TimerTriggerResponseArgs'] timer_triggers: The collection of timer triggers.
         """
         if base_image_trigger is not None:
             pulumi.set(__self__, "base_image_trigger", base_image_trigger)
@@ -2068,7 +2068,7 @@ class TriggerPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="sourceTriggers")
-    def source_triggers(self) -> Optional[List['outputs.SourceTriggerResponse']]:
+    def source_triggers(self) -> Optional[Sequence['outputs.SourceTriggerResponse']]:
         """
         The collection of triggers based on source code repository.
         """
@@ -2076,7 +2076,7 @@ class TriggerPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="timerTriggers")
-    def timer_triggers(self) -> Optional[List['outputs.TimerTriggerResponse']]:
+    def timer_triggers(self) -> Optional[Sequence['outputs.TimerTriggerResponse']]:
         """
         The collection of timer triggers.
         """

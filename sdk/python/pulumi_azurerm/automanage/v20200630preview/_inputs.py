@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -186,13 +186,13 @@ class ConfigurationProfilePreferencePropertiesArgs:
 @pulumi.input_type
 class ConfigurationProfilePreferenceVmBackupArgs:
     def __init__(__self__, *,
-                 instant_rp_retention_range_in_days: Optional[pulumi.Input[float]] = None,
+                 instant_rp_retention_range_in_days: Optional[pulumi.Input[int]] = None,
                  retention_policy: Optional[pulumi.Input[str]] = None,
                  schedule_policy: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Automanage configuration profile VM Backup preferences.
-        :param pulumi.Input[float] instant_rp_retention_range_in_days: Instant RP retention policy range in days
+        :param pulumi.Input[int] instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param pulumi.Input[str] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[str] schedule_policy: Backup schedule specified as part of backup policy.
         :param pulumi.Input[str] time_zone: TimeZone optional input as string. For example: Pacific Standard Time
@@ -208,14 +208,14 @@ class ConfigurationProfilePreferenceVmBackupArgs:
 
     @property
     @pulumi.getter(name="instantRpRetentionRangeInDays")
-    def instant_rp_retention_range_in_days(self) -> Optional[pulumi.Input[float]]:
+    def instant_rp_retention_range_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Instant RP retention policy range in days
         """
         return pulumi.get(self, "instant_rp_retention_range_in_days")
 
     @instant_rp_retention_range_in_days.setter
-    def instant_rp_retention_range_in_days(self, value: Optional[pulumi.Input[float]]):
+    def instant_rp_retention_range_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "instant_rp_retention_range_in_days", value)
 
     @property

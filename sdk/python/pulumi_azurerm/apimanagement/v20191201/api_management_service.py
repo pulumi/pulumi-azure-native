@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,13 +17,13 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]]] = None,
                  api_version_constraint: Optional[pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']]] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  disable_gateway: Optional[pulumi.Input[bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[bool]] = None,
-                 hostname_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
@@ -43,13 +43,13 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiVersionConstraintArgs']] api_version_constraint: Control Plane Apis version constraint for the API Management service.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateConfigurationArgs']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
         :param pulumi.Input[bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
         :param pulumi.Input[bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceIdentityArgs']] identity: Managed service identity of the Api Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
@@ -151,7 +151,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.AdditionalLocationResponse']]]:
+    def additional_locations(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalLocationResponse']]]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -167,7 +167,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Output[Optional[List['outputs.CertificateConfigurationResponse']]]:
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateConfigurationResponse']]]:
         """
         List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         """
@@ -239,7 +239,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> pulumi.Output[Optional[List['outputs.HostnameConfigurationResponse']]]:
+    def hostname_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.HostnameConfigurationResponse']]]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -295,7 +295,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIPAddresses")
-    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
         """
@@ -311,7 +311,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
         """

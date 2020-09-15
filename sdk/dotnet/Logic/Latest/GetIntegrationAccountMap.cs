@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// <summary>
         /// The content link.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult ContentLink;
+        public readonly Outputs.ContentLinkResponse ContentLink;
         /// <summary>
         /// The content type.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// <summary>
         /// The parameters schema of integration account map.
         /// </summary>
-        public readonly Outputs.IntegrationAccountMapPropertiesResponseParametersSchemaResult? ParametersSchema;
+        public readonly Outputs.IntegrationAccountMapPropertiesResponseParametersSchema? ParametersSchema;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Logic.Latest
 
             string? content,
 
-            Outputs.ContentLinkResponseResult contentLink,
+            Outputs.ContentLinkResponse contentLink,
 
             string? contentType,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Logic.Latest
 
             string name,
 
-            Outputs.IntegrationAccountMapPropertiesResponseParametersSchemaResult? parametersSchema,
+            Outputs.IntegrationAccountMapPropertiesResponseParametersSchema? parametersSchema,
 
             ImmutableDictionary<string, string>? tags,
 

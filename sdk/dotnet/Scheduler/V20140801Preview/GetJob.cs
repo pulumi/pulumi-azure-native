@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Scheduler.V20140801Preview
         /// <summary>
         /// Gets or sets the job properties.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponseResult Properties;
+        public readonly Outputs.JobPropertiesResponse Properties;
         /// <summary>
         /// Gets the job resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Scheduler.V20140801Preview
         private GetJobResult(
             string name,
 
-            Outputs.JobPropertiesResponseResult properties,
+            Outputs.JobPropertiesResponse properties,
 
             string type)
         {

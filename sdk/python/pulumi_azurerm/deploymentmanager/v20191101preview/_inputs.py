@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -135,11 +135,11 @@ class HealthCheckStepPropertiesArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
         Identity for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: The list of identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of identities.
         :param pulumi.Input[str] type: The identity type.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
@@ -147,14 +147,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of identities.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -250,14 +250,14 @@ class RestHealthCheckArgs:
 @pulumi.input_type
 class RestHealthCheckStepAttributesArgs:
     def __init__(__self__, *,
-                 health_checks: pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]],
+                 health_checks: pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]],
                  healthy_state_duration: pulumi.Input[str],
                  type: pulumi.Input[str],
                  max_elastic_duration: Optional[pulumi.Input[str]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
         """
         Defines the REST health check step properties.
-        :param pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]] health_checks: The list of checks that form the health check step.
+        :param pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]] health_checks: The list of checks that form the health check step.
         :param pulumi.Input[str] healthy_state_duration: The duration in ISO 8601 format for which the resource is expected to be continuously healthy. If maxElasticDuration is specified, healthy state duration is enforced after the detection of first healthy signal.
         :param pulumi.Input[str] type: The type of health check.
         :param pulumi.Input[str] max_elastic_duration: The duration in ISO 8601 format for which the health check waits for the resource to become healthy. Health check fails if it doesn't. Health check starts to enforce healthyStateDuration once resource becomes healthy.
@@ -273,14 +273,14 @@ class RestHealthCheckStepAttributesArgs:
 
     @property
     @pulumi.getter(name="healthChecks")
-    def health_checks(self) -> pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]]:
+    def health_checks(self) -> pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]]:
         """
         The list of checks that form the health check step.
         """
         return pulumi.get(self, "health_checks")
 
     @health_checks.setter
-    def health_checks(self, value: pulumi.Input[List[pulumi.Input['RestHealthCheckArgs']]]):
+    def health_checks(self, value: pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]]):
         pulumi.set(self, "health_checks", value)
 
     @property
@@ -389,11 +389,11 @@ class RestRequestArgs:
 class RestResponseArgs:
     def __init__(__self__, *,
                  regex: Optional[pulumi.Input['RestResponseRegexArgs']] = None,
-                 success_status_codes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 success_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The properties that make up the expected REST response
         :param pulumi.Input['RestResponseRegexArgs'] regex: The regular expressions to match the response content with.
-        :param pulumi.Input[List[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
@@ -414,14 +414,14 @@ class RestResponseArgs:
 
     @property
     @pulumi.getter(name="successStatusCodes")
-    def success_status_codes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def success_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
         """
         return pulumi.get(self, "success_status_codes")
 
     @success_status_codes.setter
-    def success_status_codes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def success_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "success_status_codes", value)
 
 
@@ -429,11 +429,11 @@ class RestResponseArgs:
 class RestResponseRegexArgs:
     def __init__(__self__, *,
                  match_quantifier: Optional[pulumi.Input[str]] = None,
-                 matches: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The regular expressions to match the response content with.
         :param pulumi.Input[str] match_quantifier: Indicates whether any or all of the expressions should match with the response content.
-        :param pulumi.Input[List[pulumi.Input[str]]] matches: The list of regular expressions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] matches: The list of regular expressions.
         """
         if match_quantifier is not None:
             pulumi.set(__self__, "match_quantifier", match_quantifier)
@@ -454,14 +454,14 @@ class RestResponseRegexArgs:
 
     @property
     @pulumi.getter
-    def matches(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of regular expressions.
         """
         return pulumi.get(self, "matches")
 
     @matches.setter
-    def matches(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "matches", value)
 
 
@@ -603,16 +603,16 @@ class StepGroupArgs:
     def __init__(__self__, *,
                  deployment_target_id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 depends_on_step_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 post_deployment_steps: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]] = None,
-                 pre_deployment_steps: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]] = None):
+                 depends_on_step_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 post_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None,
+                 pre_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None):
         """
         The properties that define a Step group in a rollout.
         :param pulumi.Input[str] deployment_target_id: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
         :param pulumi.Input[str] name: The name of the step group.
-        :param pulumi.Input[List[pulumi.Input[str]]] depends_on_step_groups: The list of step group names on which this step group depends on.
-        :param pulumi.Input[List[pulumi.Input['PrePostStepArgs']]] post_deployment_steps: The list of steps to be run after deploying the target.
-        :param pulumi.Input[List[pulumi.Input['PrePostStepArgs']]] pre_deployment_steps: The list of steps to be run before deploying the target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on_step_groups: The list of step group names on which this step group depends on.
+        :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] post_deployment_steps: The list of steps to be run after deploying the target.
+        :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
         pulumi.set(__self__, "deployment_target_id", deployment_target_id)
         pulumi.set(__self__, "name", name)
@@ -649,38 +649,38 @@ class StepGroupArgs:
 
     @property
     @pulumi.getter(name="dependsOnStepGroups")
-    def depends_on_step_groups(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def depends_on_step_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of step group names on which this step group depends on.
         """
         return pulumi.get(self, "depends_on_step_groups")
 
     @depends_on_step_groups.setter
-    def depends_on_step_groups(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def depends_on_step_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "depends_on_step_groups", value)
 
     @property
     @pulumi.getter(name="postDeploymentSteps")
-    def post_deployment_steps(self) -> Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]:
+    def post_deployment_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]:
         """
         The list of steps to be run after deploying the target.
         """
         return pulumi.get(self, "post_deployment_steps")
 
     @post_deployment_steps.setter
-    def post_deployment_steps(self, value: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]):
+    def post_deployment_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]):
         pulumi.set(self, "post_deployment_steps", value)
 
     @property
     @pulumi.getter(name="preDeploymentSteps")
-    def pre_deployment_steps(self) -> Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]:
+    def pre_deployment_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]:
         """
         The list of steps to be run before deploying the target.
         """
         return pulumi.get(self, "pre_deployment_steps")
 
     @pre_deployment_steps.setter
-    def pre_deployment_steps(self, value: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]):
+    def pre_deployment_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]):
         pulumi.set(self, "pre_deployment_steps", value)
 
 

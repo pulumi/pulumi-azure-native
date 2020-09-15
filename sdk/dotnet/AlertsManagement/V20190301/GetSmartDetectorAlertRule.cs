@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
         /// <summary>
         /// The alert rule actions.
         /// </summary>
-        public readonly Outputs.ActionGroupsInformationResponseResult ActionGroups;
+        public readonly Outputs.ActionGroupsInformationResponse ActionGroups;
         /// <summary>
         /// The alert rule description.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
         /// <summary>
         /// The alert rule's detector.
         /// </summary>
-        public readonly Outputs.DetectorResponseResult Detector;
+        public readonly Outputs.DetectorResponse Detector;
         /// <summary>
         /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
         /// <summary>
         /// The alert rule throttling information.
         /// </summary>
-        public readonly Outputs.ThrottlingInformationResponseResult? Throttling;
+        public readonly Outputs.ThrottlingInformationResponse? Throttling;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -88,11 +88,11 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
 
         [OutputConstructor]
         private GetSmartDetectorAlertRuleResult(
-            Outputs.ActionGroupsInformationResponseResult actionGroups,
+            Outputs.ActionGroupsInformationResponse actionGroups,
 
             string? description,
 
-            Outputs.DetectorResponseResult detector,
+            Outputs.DetectorResponse detector,
 
             string frequency,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
 
             string state,
 
-            Outputs.ThrottlingInformationResponseResult? throttling,
+            Outputs.ThrottlingInformationResponse? throttling,
 
             string type)
         {

@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <summary>
         /// The dedicated host instance view.
         /// </summary>
-        public readonly Outputs.DedicatedHostInstanceViewResponseResult InstanceView;
+        public readonly Outputs.DedicatedHostInstanceViewResponse InstanceView;
         /// <summary>
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <summary>
         /// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <summary>
         /// A list of references to all virtual machines in the Dedicated Host.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> VirtualMachines;
 
         [OutputConstructor]
         private GetDedicatedHostResult(
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Compute.Latest
 
             string hostId,
 
-            Outputs.DedicatedHostInstanceViewResponseResult instanceView,
+            Outputs.DedicatedHostInstanceViewResponse instanceView,
 
             string? licenseType,
 
@@ -124,13 +124,13 @@ namespace Pulumi.AzureRM.Compute.Latest
 
             string provisioningTime,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> virtualMachines)
+            ImmutableArray<Outputs.SubResourceReadOnlyResponse> virtualMachines)
         {
             AutoReplaceOnFailure = autoReplaceOnFailure;
             HostId = hostId;

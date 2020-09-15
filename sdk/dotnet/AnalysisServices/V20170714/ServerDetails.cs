@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// A collection of AS server administrators
         /// </summary>
         [Output("asAdministrators")]
-        public Output<Outputs.ServerAdministratorsResponseResult?> AsAdministrators { get; private set; } = null!;
+        public Output<Outputs.ServerAdministratorsResponse?> AsAdministrators { get; private set; } = null!;
 
         /// <summary>
         /// The SAS container URI to the backup container.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// The gateway details configured for the AS server.
         /// </summary>
         [Output("gatewayDetails")]
-        public Output<Outputs.GatewayDetailsResponseResult?> GatewayDetails { get; private set; } = null!;
+        public Output<Outputs.GatewayDetailsResponse?> GatewayDetails { get; private set; } = null!;
 
         /// <summary>
         /// Location of the Analysis Services resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// The SKU of the Analysis Services resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.

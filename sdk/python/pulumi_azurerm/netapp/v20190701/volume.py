@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,15 +21,15 @@ class Volume(pulumi.CustomResource):
                  creation_token: Optional[pulumi.Input[str]] = None,
                  export_policy: Optional[pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mount_targets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
+                 mount_targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 protocol_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 usage_threshold: Optional[pulumi.Input[float]] = None,
+                 usage_threshold: Optional[pulumi.Input[int]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,15 +43,15 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[pulumi.InputType['VolumePropertiesExportPolicyArgs']] export_policy: Set of export policy rules
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountTargetPropertiesArgs']]]] mount_targets: List of mount targets
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[List[pulumi.Input[str]]] protocol_types: Set of protocol types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: Set of protocol types
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_level: The service level of the file system
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[Mapping[str, Any]] tags: Resource tags
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[int] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         if __name__ is not None:
@@ -174,7 +174,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountTargets")
-    def mount_targets(self) -> pulumi.Output[Optional[List['outputs.MountTargetPropertiesResponse']]]:
+    def mount_targets(self) -> pulumi.Output[Optional[Sequence['outputs.MountTargetPropertiesResponse']]]:
         """
         List of mount targets
         """
@@ -190,7 +190,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolTypes")
-    def protocol_types(self) -> pulumi.Output[Optional[List[str]]]:
+    def protocol_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Set of protocol types
         """
@@ -246,7 +246,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageThreshold")
-    def usage_threshold(self) -> pulumi.Output[float]:
+    def usage_threshold(self) -> pulumi.Output[int]:
         """
         Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
         """

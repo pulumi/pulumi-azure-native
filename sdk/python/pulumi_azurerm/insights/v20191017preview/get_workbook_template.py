@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetWorkbookTemplateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -59,7 +59,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter
-    def galleries(self) -> List['outputs.WorkbookTemplateGalleryResponse']:
+    def galleries(self) -> Sequence['outputs.WorkbookTemplateGalleryResponse']:
         """
         Workbook galleries supported by the template.
         """
@@ -67,7 +67,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter
-    def localized(self) -> Optional[Mapping[str, List['outputs.WorkbookTemplateLocalizedGalleryResponse']]]:
+    def localized(self) -> Optional[Mapping[str, Sequence['outputs.WorkbookTemplateLocalizedGalleryResponse']]]:
         """
         Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         """
@@ -91,7 +91,7 @@ class GetWorkbookTemplateResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
         """

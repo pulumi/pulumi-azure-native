@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -28,14 +28,14 @@ __all__ = [
 @pulumi.input_type
 class AdvancedScheduleArgs:
     def __init__(__self__, *,
-                 month_days: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 monthly_occurrences: Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]] = None,
-                 week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The properties of the create Advanced Schedule.
-        :param pulumi.Input[List[pulumi.Input[float]]] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Occurrences of days within a month.
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: Days of the week that the job should execute on.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
+        :param pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Occurrences of days within a month.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
             pulumi.set(__self__, "month_days", month_days)
@@ -46,38 +46,38 @@ class AdvancedScheduleArgs:
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Days of the month that the job should execute on. Must be between 1 and 31.
         """
         return pulumi.get(self, "month_days")
 
     @month_days.setter
-    def month_days(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "month_days", value)
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]:
+    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]:
         """
         Occurrences of days within a month.
         """
         return pulumi.get(self, "monthly_occurrences")
 
     @monthly_occurrences.setter
-    def monthly_occurrences(self, value: Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]):
+    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]):
         pulumi.set(self, "monthly_occurrences", value)
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Days of the week that the job should execute on.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -85,11 +85,11 @@ class AdvancedScheduleArgs:
 class AdvancedScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
                  day: Optional[pulumi.Input[str]] = None,
-                 occurrence: Optional[pulumi.Input[float]] = None):
+                 occurrence: Optional[pulumi.Input[int]] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
         :param pulumi.Input[str] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param pulumi.Input[float] occurrence: Occurrence of the week within the month. Must be between 1 and 5
+        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -110,27 +110,27 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[float]]:
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
         """
         Occurrence of the week within the month. Must be between 1 and 5
         """
         return pulumi.get(self, "occurrence")
 
     @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[float]]):
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
 class AzureQueryPropertiesArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 scope: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_settings: Optional[pulumi.Input['TagSettingsPropertiesArgs']] = None):
         """
         Azure query for the update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: List of locations to scope the query to.
-        :param pulumi.Input[List[pulumi.Input[str]]] scope: List of Subscription or Resource Group ARM Ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of locations to scope the query to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: List of Subscription or Resource Group ARM Ids.
         :param pulumi.Input['TagSettingsPropertiesArgs'] tag_settings: Tag settings for the VM.
         """
         if locations is not None:
@@ -142,26 +142,26 @@ class AzureQueryPropertiesArgs:
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of locations to scope the query to.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of Subscription or Resource Group ARM Ids.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def scope(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -220,15 +220,15 @@ class ErrorResponseArgs:
 @pulumi.input_type
 class LinuxPropertiesArgs:
     def __init__(__self__, *,
-                 excluded_package_name_masks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_package_name_masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_package_classifications: Optional[pulumi.Input[str]] = None,
-                 included_package_name_masks: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 included_package_name_masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None):
         """
         Linux specific update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_package_name_masks: packages excluded from the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_package_name_masks: packages excluded from the software update configuration.
         :param pulumi.Input[str] included_package_classifications: Update classifications included in the software update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] included_package_name_masks: packages included from the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_package_name_masks: packages included from the software update configuration.
         :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
         """
         if excluded_package_name_masks is not None:
@@ -242,14 +242,14 @@ class LinuxPropertiesArgs:
 
     @property
     @pulumi.getter(name="excludedPackageNameMasks")
-    def excluded_package_name_masks(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excluded_package_name_masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         packages excluded from the software update configuration.
         """
         return pulumi.get(self, "excluded_package_name_masks")
 
     @excluded_package_name_masks.setter
-    def excluded_package_name_masks(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excluded_package_name_masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_package_name_masks", value)
 
     @property
@@ -266,14 +266,14 @@ class LinuxPropertiesArgs:
 
     @property
     @pulumi.getter(name="includedPackageNameMasks")
-    def included_package_name_masks(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def included_package_name_masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         packages included from the software update configuration.
         """
         return pulumi.get(self, "included_package_name_masks")
 
     @included_package_name_masks.setter
-    def included_package_name_masks(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def included_package_name_masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_package_name_masks", value)
 
     @property
@@ -338,7 +338,7 @@ class SchedulePropertiesArgs:
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  expiry_time_offset_minutes: Optional[pulumi.Input[float]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  next_run: Optional[pulumi.Input[str]] = None,
@@ -353,7 +353,7 @@ class SchedulePropertiesArgs:
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
         :param pulumi.Input[float] expiry_time_offset_minutes: Gets or sets the expiry time's offset in minutes.
         :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
-        :param pulumi.Input[float] interval: Gets or sets the interval of the schedule.
+        :param pulumi.Input[int] interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[bool] is_enabled: Gets or sets a value indicating whether this schedule is enabled.
         :param pulumi.Input[str] last_modified_time: Gets or sets the last modified time.
         :param pulumi.Input[str] next_run: Gets or sets the next run time of the schedule.
@@ -462,14 +462,14 @@ class SchedulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[float]]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the interval of the schedule.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[float]]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -604,11 +604,11 @@ class SourceControlSecurityTokenPropertiesArgs:
 class TagSettingsPropertiesArgs:
     def __init__(__self__, *,
                  filter_operator: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
         Tag filter information for the VM.
         :param pulumi.Input[str] filter_operator: Filter VMs by Any or All specified tags.
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]] tags: Dictionary of tags with its list of values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Dictionary of tags with its list of values.
         """
         if filter_operator is not None:
             pulumi.set(__self__, "filter_operator", filter_operator)
@@ -629,26 +629,26 @@ class TagSettingsPropertiesArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
         """
         Dictionary of tags with its list of values.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class TargetPropertiesArgs:
     def __init__(__self__, *,
-                 azure_queries: Optional[pulumi.Input[List[pulumi.Input['AzureQueryPropertiesArgs']]]] = None,
-                 non_azure_queries: Optional[pulumi.Input[List[pulumi.Input['NonAzureQueryPropertiesArgs']]]] = None):
+                 azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgs']]]] = None,
+                 non_azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgs']]]] = None):
         """
         Group specific to the update configuration.
-        :param pulumi.Input[List[pulumi.Input['AzureQueryPropertiesArgs']]] azure_queries: List of Azure queries in the software update configuration.
-        :param pulumi.Input[List[pulumi.Input['NonAzureQueryPropertiesArgs']]] non_azure_queries: List of non Azure queries in the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgs']]] azure_queries: List of Azure queries in the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgs']]] non_azure_queries: List of non Azure queries in the software update configuration.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -657,40 +657,40 @@ class TargetPropertiesArgs:
 
     @property
     @pulumi.getter(name="azureQueries")
-    def azure_queries(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureQueryPropertiesArgs']]]]:
+    def azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgs']]]]:
         """
         List of Azure queries in the software update configuration.
         """
         return pulumi.get(self, "azure_queries")
 
     @azure_queries.setter
-    def azure_queries(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureQueryPropertiesArgs']]]]):
+    def azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureQueryPropertiesArgs']]]]):
         pulumi.set(self, "azure_queries", value)
 
     @property
     @pulumi.getter(name="nonAzureQueries")
-    def non_azure_queries(self) -> Optional[pulumi.Input[List[pulumi.Input['NonAzureQueryPropertiesArgs']]]]:
+    def non_azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgs']]]]:
         """
         List of non Azure queries in the software update configuration.
         """
         return pulumi.get(self, "non_azure_queries")
 
     @non_azure_queries.setter
-    def non_azure_queries(self, value: Optional[pulumi.Input[List[pulumi.Input['NonAzureQueryPropertiesArgs']]]]):
+    def non_azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NonAzureQueryPropertiesArgs']]]]):
         pulumi.set(self, "non_azure_queries", value)
 
 
 @pulumi.input_type
 class WindowsPropertiesArgs:
     def __init__(__self__, *,
-                 excluded_kb_numbers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 included_kb_numbers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 excluded_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_update_classifications: Optional[pulumi.Input[str]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None):
         """
         Windows specific update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_kb_numbers: KB numbers excluded from the software update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] included_kb_numbers: KB numbers included from the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_kb_numbers: KB numbers excluded from the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_kb_numbers: KB numbers included from the software update configuration.
         :param pulumi.Input[str] included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
         :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
         """
@@ -705,26 +705,26 @@ class WindowsPropertiesArgs:
 
     @property
     @pulumi.getter(name="excludedKbNumbers")
-    def excluded_kb_numbers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excluded_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         KB numbers excluded from the software update configuration.
         """
         return pulumi.get(self, "excluded_kb_numbers")
 
     @excluded_kb_numbers.setter
-    def excluded_kb_numbers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excluded_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_kb_numbers", value)
 
     @property
     @pulumi.getter(name="includedKbNumbers")
-    def included_kb_numbers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def included_kb_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         KB numbers included from the software update configuration.
         """
         return pulumi.get(self, "included_kb_numbers")
 
     @included_kb_numbers.setter
-    def included_kb_numbers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def included_kb_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_kb_numbers", value)
 
     @property
@@ -836,19 +836,19 @@ class TaskPropertiesArgs:
 class UpdateConfigurationArgs:
     def __init__(__self__, *,
                  operating_system: pulumi.Input[str],
-                 azure_virtual_machines: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 azure_virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
                  linux: Optional[pulumi.Input['LinuxPropertiesArgs']] = None,
-                 non_azure_computer_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  targets: Optional[pulumi.Input['TargetPropertiesArgs']] = None,
                  windows: Optional[pulumi.Input['WindowsPropertiesArgs']] = None):
         """
         Update specific properties of the software update configuration.
         :param pulumi.Input[str] operating_system: operating system of target machines
-        :param pulumi.Input[List[pulumi.Input[str]]] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         :param pulumi.Input[str] duration: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
         :param pulumi.Input['LinuxPropertiesArgs'] linux: Linux specific update configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_azure_computer_names: List of names of non-azure machines targeted by the software update configuration.
         :param pulumi.Input['TargetPropertiesArgs'] targets: Group targets for the software update configuration.
         :param pulumi.Input['WindowsPropertiesArgs'] windows: Windows specific update configuration.
         """
@@ -880,14 +880,14 @@ class UpdateConfigurationArgs:
 
     @property
     @pulumi.getter(name="azureVirtualMachines")
-    def azure_virtual_machines(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def azure_virtual_machines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         """
         return pulumi.get(self, "azure_virtual_machines")
 
     @azure_virtual_machines.setter
-    def azure_virtual_machines(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def azure_virtual_machines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "azure_virtual_machines", value)
 
     @property
@@ -916,14 +916,14 @@ class UpdateConfigurationArgs:
 
     @property
     @pulumi.getter(name="nonAzureComputerNames")
-    def non_azure_computer_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def non_azure_computer_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of names of non-azure machines targeted by the software update configuration.
         """
         return pulumi.get(self, "non_azure_computer_names")
 
     @non_azure_computer_names.setter
-    def non_azure_computer_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def non_azure_computer_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "non_azure_computer_names", value)
 
     @property

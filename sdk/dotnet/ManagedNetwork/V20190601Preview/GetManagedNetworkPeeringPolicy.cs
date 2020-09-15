@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// <summary>
         /// Gets or sets the properties of a Managed Network Policy
         /// </summary>
-        public readonly Outputs.ManagedNetworkPeeringPolicyPropertiesResponseResult Properties;
+        public readonly Outputs.ManagedNetworkPeeringPolicyPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 
             string name,
 
-            Outputs.ManagedNetworkPeeringPolicyPropertiesResponseResult properties,
+            Outputs.ManagedNetworkPeeringPolicyPropertiesResponse properties,
 
             string type)
         {

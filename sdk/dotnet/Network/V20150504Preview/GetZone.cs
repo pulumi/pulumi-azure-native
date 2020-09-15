@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
         /// <summary>
         /// Gets or sets the properties of the zone.
         /// </summary>
-        public readonly Outputs.ZonePropertiesResponseResult Properties;
+        public readonly Outputs.ZonePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
 
             string name,
 
-            Outputs.ZonePropertiesResponseResult properties,
+            Outputs.ZonePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

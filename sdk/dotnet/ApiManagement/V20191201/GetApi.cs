@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Version set details
         /// </summary>
-        public readonly Outputs.ApiVersionSetContractDetailsResponseResult? ApiVersionSet;
+        public readonly Outputs.ApiVersionSetContractDetailsResponse? ApiVersionSet;
         /// <summary>
         /// A resource identifier for the related ApiVersionSet.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Collection of authentication settings included into this API.
         /// </summary>
-        public readonly Outputs.AuthenticationSettingsContractResponseResult? AuthenticationSettings;
+        public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Protocols over which API is made available.
         /// </summary>
-        public readonly Outputs.SubscriptionKeyParameterNamesContractResponseResult? SubscriptionKeyParameterNames;
+        public readonly Outputs.SubscriptionKeyParameterNamesContractResponse? SubscriptionKeyParameterNames;
         /// <summary>
         /// Specifies whether an API or Product subscription is required for accessing the API.
         /// </summary>
@@ -138,11 +138,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
             string? apiVersionDescription,
 
-            Outputs.ApiVersionSetContractDetailsResponseResult? apiVersionSet,
+            Outputs.ApiVersionSetContractDetailsResponse? apiVersionSet,
 
             string? apiVersionSetId,
 
-            Outputs.AuthenticationSettingsContractResponseResult? authenticationSettings,
+            Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
 
             string? description,
 
@@ -162,7 +162,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
             string? sourceApiId,
 
-            Outputs.SubscriptionKeyParameterNamesContractResponseResult? subscriptionKeyParameterNames,
+            Outputs.SubscriptionKeyParameterNamesContractResponse? subscriptionKeyParameterNames,
 
             bool? subscriptionRequired,
 

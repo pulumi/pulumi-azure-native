@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetProfileResult:
         if fields and not isinstance(fields, list):
             raise TypeError("Expected argument 'fields' to be a list")
         pulumi.set(__self__, "fields", fields)
-        if instances_count and not isinstance(instances_count, float):
-            raise TypeError("Expected argument 'instances_count' to be a float")
+        if instances_count and not isinstance(instances_count, int):
+            raise TypeError("Expected argument 'instances_count' to be a int")
         pulumi.set(__self__, "instances_count", instances_count)
         if large_image and not isinstance(large_image, str):
             raise TypeError("Expected argument 'large_image' to be a str")
@@ -92,7 +92,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Mapping[str, List[str]]]:
+    def attributes(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         The attributes for the Type.
         """
@@ -124,7 +124,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[List['outputs.PropertyDefinitionResponse']]:
+    def fields(self) -> Optional[Sequence['outputs.PropertyDefinitionResponse']]:
         """
         The properties of the Profile.
         """
@@ -132,7 +132,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="instancesCount")
-    def instances_count(self) -> Optional[float]:
+    def instances_count(self) -> Optional[int]:
         """
         The instance count.
         """
@@ -204,7 +204,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter(name="strongIds")
-    def strong_ids(self) -> Optional[List['outputs.StrongIdResponse']]:
+    def strong_ids(self) -> Optional[Sequence['outputs.StrongIdResponse']]:
         """
         The strong IDs.
         """

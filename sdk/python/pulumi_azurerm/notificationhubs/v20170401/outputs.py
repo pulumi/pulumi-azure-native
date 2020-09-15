@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -331,9 +331,9 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
                  key_name: str,
                  modified_time: str,
                  primary_key: str,
-                 revision: float,
+                 revision: int,
                  secondary_key: str,
-                 rights: Optional[List[str]] = None):
+                 rights: Optional[Sequence[str]] = None):
         """
         SharedAccessAuthorizationRule properties.
         :param str claim_type: A string that describes the claim type
@@ -342,9 +342,9 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
         :param str key_name: A string that describes the authorization rule.
         :param str modified_time: The last modified time for this rule
         :param str primary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        :param float revision: The revision number for the rule
+        :param int revision: The revision number for the rule
         :param str secondary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        :param List[str] rights: The rights associated with the rule.
+        :param Sequence[str] rights: The rights associated with the rule.
         """
         pulumi.set(__self__, "claim_type", claim_type)
         pulumi.set(__self__, "claim_value", claim_value)
@@ -407,7 +407,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         """
         The revision number for the rule
         """
@@ -423,7 +423,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> Optional[Sequence[str]]:
         """
         The rights associated with the rule.
         """
@@ -447,11 +447,11 @@ class SharedAccessAuthorizationRuleResourceResponseResult(dict):
                  modified_time: str,
                  name: str,
                  primary_key: str,
-                 revision: float,
+                 revision: int,
                  secondary_key: str,
                  type: str,
                  location: Optional[str] = None,
-                 rights: Optional[List[str]] = None,
+                 rights: Optional[Sequence[str]] = None,
                  sku: Optional['outputs.SkuResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
@@ -464,11 +464,11 @@ class SharedAccessAuthorizationRuleResourceResponseResult(dict):
         :param str modified_time: The last modified time for this rule
         :param str name: Resource name
         :param str primary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        :param float revision: The revision number for the rule
+        :param int revision: The revision number for the rule
         :param str secondary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
         :param str type: Resource type
         :param str location: Resource location
-        :param List[str] rights: The rights associated with the rule.
+        :param Sequence[str] rights: The rights associated with the rule.
         :param 'SkuResponseArgs' sku: The sku of the created namespace
         :param Mapping[str, str] tags: Resource tags
         """
@@ -558,7 +558,7 @@ class SharedAccessAuthorizationRuleResourceResponseResult(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         """
         The revision number for the rule
         """
@@ -590,7 +590,7 @@ class SharedAccessAuthorizationRuleResourceResponseResult(dict):
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> Optional[Sequence[str]]:
         """
         The rights associated with the rule.
         """
@@ -620,14 +620,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         The Sku description for a namespace
         :param str name: Name of the notification hub sku
-        :param float capacity: The capacity of the resource
+        :param int capacity: The capacity of the resource
         :param str family: The Sku Family
         :param str size: The Sku size
         :param str tier: The tier of particular sku
@@ -652,7 +652,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The capacity of the resource
         """

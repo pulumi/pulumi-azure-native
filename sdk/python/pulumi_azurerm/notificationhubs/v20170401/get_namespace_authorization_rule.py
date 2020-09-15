@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetNamespaceAuthorizationRuleResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
-        if revision and not isinstance(revision, float):
-            raise TypeError("Expected argument 'revision' to be a float")
+        if revision and not isinstance(revision, int):
+            raise TypeError("Expected argument 'revision' to be a int")
         pulumi.set(__self__, "revision", revision)
         if rights and not isinstance(rights, list):
             raise TypeError("Expected argument 'rights' to be a list")
@@ -130,7 +130,7 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter
-    def revision(self) -> float:
+    def revision(self) -> int:
         """
         The revision number for the rule
         """
@@ -138,7 +138,7 @@ class GetNamespaceAuthorizationRuleResult:
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> Optional[Sequence[str]]:
         """
         The rights associated with the rule.
         """

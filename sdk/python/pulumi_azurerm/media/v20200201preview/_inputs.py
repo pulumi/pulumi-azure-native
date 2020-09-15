@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,13 +22,13 @@ __all__ = [
 class MediaGraphAssetSinkArgs:
     def __init__(__self__, *,
                  asset_name: pulumi.Input[str],
-                 inputs: pulumi.Input[List[pulumi.Input[str]]],
+                 inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  odata_type: pulumi.Input[str]):
         """
         Asset sink.
         :param pulumi.Input[str] asset_name: Asset name.
-        :param pulumi.Input[List[pulumi.Input[str]]] inputs: Sink inputs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: Sink inputs.
         :param pulumi.Input[str] name: Sink name.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         """
@@ -51,14 +51,14 @@ class MediaGraphAssetSinkArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def inputs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Sink inputs.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def inputs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "inputs", value)
 
     @property
@@ -143,11 +143,11 @@ class MediaGraphClearEndpointArgs:
 @pulumi.input_type
 class MediaGraphPemCertificateListArgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[List[pulumi.Input[str]]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input[str]]],
                  odata_type: pulumi.Input[str]):
         """
         A list of PEM formatted certificates.
-        :param pulumi.Input[List[pulumi.Input[str]]] certificates: PEM formatted public certificates, one per entry.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: PEM formatted public certificates, one per entry.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -155,14 +155,14 @@ class MediaGraphPemCertificateListArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         PEM formatted public certificates, one per entry.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "certificates", value)
 
     @property

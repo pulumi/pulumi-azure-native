@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Billing.V20180801Preview
         /// Has definition for the report.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.ReportDefinitionResponseResult> Definition { get; private set; } = null!;
+        public Output<Outputs.ReportDefinitionResponse> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Has delivery information for the report.
         /// </summary>
         [Output("deliveryInfo")]
-        public Output<Outputs.ReportDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+        public Output<Outputs.ReportDeliveryInfoResponse> DeliveryInfo { get; private set; } = null!;
 
         /// <summary>
         /// The format of the report being delivered.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Billing.V20180801Preview
         /// Has schedule information for the report.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ReportScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ReportScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

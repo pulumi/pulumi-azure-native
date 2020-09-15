@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -63,7 +63,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ApplianceArtifactResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ApplianceArtifactResponse']]:
         """
         The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         """
@@ -71,7 +71,7 @@ class GetApplianceDefinitionResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> List['outputs.ApplianceProviderAuthorizationResponse']:
+    def authorizations(self) -> Sequence['outputs.ApplianceProviderAuthorizationResponse']:
         """
         The appliance provider authorizations.
         """

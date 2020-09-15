@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -57,7 +57,7 @@ class ParameterDefinitionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 allowed_values: Optional[List[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[Sequence[Mapping[str, Any]]] = None,
                  default_value: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
@@ -65,7 +65,7 @@ class ParameterDefinitionResponse(dict):
         """
         Represent a parameter with constrains and metadata.
         :param str type: Allowed data types for Azure Resource Manager template parameters.
-        :param List[Mapping[str, Any]] allowed_values: Array of allowed values for this parameter.
+        :param Sequence[Mapping[str, Any]] allowed_values: Array of allowed values for this parameter.
         :param Mapping[str, Any] default_value: Default Value for this parameter.
         :param str description: Description of this parameter/resourceGroup.
         :param str display_name: DisplayName of this parameter/resourceGroup.
@@ -93,7 +93,7 @@ class ParameterDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[List[Mapping[str, Any]]]:
+    def allowed_values(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         Array of allowed values for this parameter.
         """
@@ -141,7 +141,7 @@ class ResourceGroupDefinitionResponse(dict):
     Represents an Azure resource group in a Blueprint definition.
     """
     def __init__(__self__, *,
-                 depends_on: Optional[List[str]] = None,
+                 depends_on: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  location: Optional[str] = None,
@@ -149,7 +149,7 @@ class ResourceGroupDefinitionResponse(dict):
                  strong_type: Optional[str] = None):
         """
         Represents an Azure resource group in a Blueprint definition.
-        :param List[str] depends_on: Artifacts which need to be deployed before this resource group.
+        :param Sequence[str] depends_on: Artifacts which need to be deployed before this resource group.
         :param str description: Description of this parameter/resourceGroup.
         :param str display_name: DisplayName of this parameter/resourceGroup.
         :param str location: Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.
@@ -171,7 +171,7 @@ class ResourceGroupDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List[str]]:
+    def depends_on(self) -> Optional[Sequence[str]]:
         """
         Artifacts which need to be deployed before this resource group.
         """

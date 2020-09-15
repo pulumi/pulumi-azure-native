@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -55,13 +55,13 @@ class ContentHashResponse(dict):
 class ContentLinkResponse(dict):
     def __init__(__self__, *,
                  content_hash: Optional['outputs.ContentHashResponse'] = None,
-                 content_size: Optional[float] = None,
+                 content_size: Optional[int] = None,
                  content_version: Optional[str] = None,
                  metadata: Optional[Mapping[str, Any]] = None,
                  uri: Optional[str] = None):
         """
         :param 'ContentHashResponseArgs' content_hash: Gets or sets the content hash.
-        :param float content_size: Gets or sets the content size.
+        :param int content_size: Gets or sets the content size.
         :param str content_version: Gets or sets the content version.
         :param Mapping[str, Any] metadata: Gets or sets the metadata.
         :param str uri: Gets or sets the content link URI.
@@ -87,7 +87,7 @@ class ContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[float]:
+    def content_size(self) -> Optional[int]:
         """
         Gets or sets the content size.
         """

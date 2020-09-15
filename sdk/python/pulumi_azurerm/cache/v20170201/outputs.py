@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -59,16 +59,16 @@ class RedisLinkedServerListResponse(dict):
     List of linked server Ids of a Redis cache.
     """
     def __init__(__self__, *,
-                 value: List['outputs.RedisLinkedServerResponse']):
+                 value: Sequence['outputs.RedisLinkedServerResponse']):
         """
         List of linked server Ids of a Redis cache.
-        :param List['RedisLinkedServerResponseArgs'] value: List of linked server Ids of a Redis cache.
+        :param Sequence['RedisLinkedServerResponseArgs'] value: List of linked server Ids of a Redis cache.
         """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.RedisLinkedServerResponse']:
+    def value(self) -> Sequence['outputs.RedisLinkedServerResponse']:
         """
         List of linked server Ids of a Redis cache.
         """
@@ -110,12 +110,12 @@ class ScheduleEntryResponse(dict):
     """
     def __init__(__self__, *,
                  day_of_week: str,
-                 start_hour_utc: float,
+                 start_hour_utc: int,
                  maintenance_window: Optional[str] = None):
         """
         Patch schedule entry for a Premium Redis Cache.
         :param str day_of_week: Day of the week when a cache can be patched.
-        :param float start_hour_utc: Start hour after which cache patching can start.
+        :param int start_hour_utc: Start hour after which cache patching can start.
         :param str maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
@@ -133,7 +133,7 @@ class ScheduleEntryResponse(dict):
 
     @property
     @pulumi.getter(name="startHourUtc")
-    def start_hour_utc(self) -> float:
+    def start_hour_utc(self) -> int:
         """
         Start hour after which cache patching can start.
         """
@@ -157,12 +157,12 @@ class SkuResponse(dict):
     SKU parameters supplied to the create Redis operation.
     """
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  family: str,
                  name: str):
         """
         SKU parameters supplied to the create Redis operation.
-        :param float capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
+        :param int capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
         :param str family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param str name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
@@ -172,7 +172,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
         """

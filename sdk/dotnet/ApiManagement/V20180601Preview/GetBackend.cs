@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Backend Credentials Contract Properties
         /// </summary>
-        public readonly Outputs.BackendCredentialsContractResponseResult? Credentials;
+        public readonly Outputs.BackendCredentialsContractResponse? Credentials;
         /// <summary>
         /// Backend Description.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Backend Properties contract
         /// </summary>
-        public readonly Outputs.BackendPropertiesResponseResult Properties;
+        public readonly Outputs.BackendPropertiesResponse Properties;
         /// <summary>
         /// Backend communication protocol.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Backend Proxy Contract Properties
         /// </summary>
-        public readonly Outputs.BackendProxyContractResponseResult? Proxy;
+        public readonly Outputs.BackendProxyContractResponse? Proxy;
         /// <summary>
         /// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Backend TLS Properties
         /// </summary>
-        public readonly Outputs.BackendTlsPropertiesResponseResult? Tls;
+        public readonly Outputs.BackendTlsPropertiesResponse? Tls;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -92,23 +92,23 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 
         [OutputConstructor]
         private GetBackendResult(
-            Outputs.BackendCredentialsContractResponseResult? credentials,
+            Outputs.BackendCredentialsContractResponse? credentials,
 
             string? description,
 
             string name,
 
-            Outputs.BackendPropertiesResponseResult properties,
+            Outputs.BackendPropertiesResponse properties,
 
             string protocol,
 
-            Outputs.BackendProxyContractResponseResult? proxy,
+            Outputs.BackendProxyContractResponse? proxy,
 
             string? resourceId,
 
             string? title,
 
-            Outputs.BackendTlsPropertiesResponseResult? tls,
+            Outputs.BackendTlsPropertiesResponse? tls,
 
             string type,
 

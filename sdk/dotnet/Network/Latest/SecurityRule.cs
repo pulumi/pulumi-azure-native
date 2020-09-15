@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The application security group specified as destination.
         /// </summary>
         [Output("destinationApplicationSecurityGroups")]
-        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult>> DestinationApplicationSecurityGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponse>> DestinationApplicationSecurityGroups { get; private set; } = null!;
 
         /// <summary>
         /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The application security group specified as source.
         /// </summary>
         [Output("sourceApplicationSecurityGroups")]
-        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult>> SourceApplicationSecurityGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationSecurityGroupResponse>> SourceApplicationSecurityGroups { get; private set; } = null!;
 
         /// <summary>
         /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.

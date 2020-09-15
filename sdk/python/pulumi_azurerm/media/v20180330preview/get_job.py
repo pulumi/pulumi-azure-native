@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -91,7 +91,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter
-    def outputs(self) -> List['outputs.JobOutputAssetResponse']:
+    def outputs(self) -> Sequence['outputs.JobOutputAssetResponse']:
         """
         The outputs for the Job.
         """

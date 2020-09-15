@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <summary>
         /// Provider properties.
         /// </summary>
-        public readonly Outputs.RecoveryServicesProviderPropertiesResponseResult Properties;
+        public readonly Outputs.RecoveryServicesProviderPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 
             string name,
 
-            Outputs.RecoveryServicesProviderPropertiesResponseResult properties,
+            Outputs.RecoveryServicesProviderPropertiesResponse properties,
 
             string type)
         {

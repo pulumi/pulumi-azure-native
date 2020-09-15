@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,13 +22,13 @@ class MediaGraphAssetSinkResponse(dict):
     """
     def __init__(__self__, *,
                  asset_name: str,
-                 inputs: List[str],
+                 inputs: Sequence[str],
                  name: str,
                  odata_type: str):
         """
         Asset sink
         :param str asset_name: Asset name
-        :param List[str] inputs: Sink inputs
+        :param Sequence[str] inputs: Sink inputs
         :param str name: Sink name
         :param str odata_type: The discriminator for derived types.
         """
@@ -47,7 +47,7 @@ class MediaGraphAssetSinkResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> List[str]:
+    def inputs(self) -> Sequence[str]:
         """
         Sink inputs
         """

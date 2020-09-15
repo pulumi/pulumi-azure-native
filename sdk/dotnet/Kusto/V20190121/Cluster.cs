@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         /// The SKU of the cluster.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AzureSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.AzureSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state of the resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         /// The cluster's external tenants.
         /// </summary>
         [Output("trustedExternalTenants")]
-        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponseResult>> TrustedExternalTenants { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponse>> TrustedExternalTenants { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -122,11 +122,11 @@ class IPv4FirewallSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  enable_power_bi_service: Optional[bool] = None,
-                 firewall_rules: Optional[List['outputs.IPv4FirewallRuleResponse']] = None):
+                 firewall_rules: Optional[Sequence['outputs.IPv4FirewallRuleResponse']] = None):
         """
         An array of firewall rules.
         :param bool enable_power_bi_service: The indicator of enabling PBI service.
-        :param List['IPv4FirewallRuleResponseArgs'] firewall_rules: An array of firewall rules.
+        :param Sequence['IPv4FirewallRuleResponseArgs'] firewall_rules: An array of firewall rules.
         """
         if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
@@ -143,7 +143,7 @@ class IPv4FirewallSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[List['outputs.IPv4FirewallRuleResponse']]:
+    def firewall_rules(self) -> Optional[Sequence['outputs.IPv4FirewallRuleResponse']]:
         """
         An array of firewall rules.
         """
@@ -160,12 +160,12 @@ class ResourceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
         :param str name: Name of the SKU level.
-        :param float capacity: The number of instances in the read only query pool.
+        :param int capacity: The number of instances in the read only query pool.
         :param str tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
@@ -184,7 +184,7 @@ class ResourceSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The number of instances in the read only query pool.
         """
@@ -208,17 +208,17 @@ class ServerAdministratorsResponse(dict):
     An array of administrator user identities.
     """
     def __init__(__self__, *,
-                 members: Optional[List[str]] = None):
+                 members: Optional[Sequence[str]] = None):
         """
         An array of administrator user identities.
-        :param List[str] members: An array of administrator user identities.
+        :param Sequence[str] members: An array of administrator user identities.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @property
     @pulumi.getter
-    def members(self) -> Optional[List[str]]:
+    def members(self) -> Optional[Sequence[str]]:
         """
         An array of administrator user identities.
         """

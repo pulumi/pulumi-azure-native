@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// The source virtual machine from which Image is created.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? SourceVirtualMachine;
+        public readonly Outputs.SubResourceResponse? SourceVirtualMachine;
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
-        public readonly Outputs.ImageStorageProfileResponseResult? StorageProfile;
+        public readonly Outputs.ImageStorageProfileResponse? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
             string provisioningState,
 
-            Outputs.SubResourceResponseResult? sourceVirtualMachine,
+            Outputs.SubResourceResponse? sourceVirtualMachine,
 
-            Outputs.ImageStorageProfileResponseResult? storageProfile,
+            Outputs.ImageStorageProfileResponse? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 

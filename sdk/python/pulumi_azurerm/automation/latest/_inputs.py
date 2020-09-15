@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -28,14 +28,14 @@ __all__ = [
 @pulumi.input_type
 class AdvancedScheduleArgs:
     def __init__(__self__, *,
-                 month_days: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 monthly_occurrences: Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]] = None,
-                 week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The properties of the create Advanced Schedule.
-        :param pulumi.Input[List[pulumi.Input[float]]] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Occurrences of days within a month.
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: Days of the week that the job should execute on.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
+        :param pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Occurrences of days within a month.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
             pulumi.set(__self__, "month_days", month_days)
@@ -46,38 +46,38 @@ class AdvancedScheduleArgs:
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def month_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Days of the month that the job should execute on. Must be between 1 and 31.
         """
         return pulumi.get(self, "month_days")
 
     @month_days.setter
-    def month_days(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def month_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "month_days", value)
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]:
+    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]:
         """
         Occurrences of days within a month.
         """
         return pulumi.get(self, "monthly_occurrences")
 
     @monthly_occurrences.setter
-    def monthly_occurrences(self, value: Optional[pulumi.Input[List[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]):
+    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdvancedScheduleMonthlyOccurrenceArgs']]]]):
         pulumi.set(self, "monthly_occurrences", value)
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Days of the week that the job should execute on.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -85,11 +85,11 @@ class AdvancedScheduleArgs:
 class AdvancedScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
                  day: Optional[pulumi.Input[str]] = None,
-                 occurrence: Optional[pulumi.Input[float]] = None):
+                 occurrence: Optional[pulumi.Input[int]] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
         :param pulumi.Input[str] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param pulumi.Input[float] occurrence: Occurrence of the week within the month. Must be between 1 and 5
+        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -110,14 +110,14 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[float]]:
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
         """
         Occurrence of the week within the month. Must be between 1 and 5
         """
         return pulumi.get(self, "occurrence")
 
     @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[float]]):
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "occurrence", value)
 
 
@@ -340,13 +340,13 @@ class DscConfigurationParameterArgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None,
                  is_mandatory: Optional[pulumi.Input[bool]] = None,
-                 position: Optional[pulumi.Input[float]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Definition of the configuration parameter type.
         :param pulumi.Input[str] default_value: Gets or sets the default value of parameter.
         :param pulumi.Input[bool] is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param pulumi.Input[float] position: Get or sets the position of the parameter.
+        :param pulumi.Input[int] position: Get or sets the position of the parameter.
         :param pulumi.Input[str] type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -384,14 +384,14 @@ class DscConfigurationParameterArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[float]]:
+    def position(self) -> Optional[pulumi.Input[int]]:
         """
         Get or sets the position of the parameter.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[float]]):
+    def position(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "position", value)
 
     @property
@@ -493,14 +493,14 @@ class RunbookDraftArgs:
                  draft_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
                  in_edit: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
-                 output_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] creation_time: Gets or sets the creation time of the runbook draft.
         :param pulumi.Input['ContentLinkArgs'] draft_content_link: Gets or sets the draft runbook content link.
         :param pulumi.Input[bool] in_edit: Gets or sets whether runbook is in edit mode.
         :param pulumi.Input[str] last_modified_time: Gets or sets the last modified time of the runbook draft.
-        :param pulumi.Input[List[pulumi.Input[str]]] output_types: Gets or sets the runbook output types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] output_types: Gets or sets the runbook output types.
         :param pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
@@ -566,14 +566,14 @@ class RunbookDraftArgs:
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def output_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the runbook output types.
         """
         return pulumi.get(self, "output_types")
 
     @output_types.setter
-    def output_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def output_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "output_types", value)
 
     @property
@@ -594,13 +594,13 @@ class RunbookParameterArgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None,
                  is_mandatory: Optional[pulumi.Input[bool]] = None,
-                 position: Optional[pulumi.Input[float]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Definition of the runbook parameter type.
         :param pulumi.Input[str] default_value: Gets or sets the default value of parameter.
         :param pulumi.Input[bool] is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param pulumi.Input[float] position: Get or sets the position of the parameter.
+        :param pulumi.Input[int] position: Get or sets the position of the parameter.
         :param pulumi.Input[str] type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -638,14 +638,14 @@ class RunbookParameterArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[float]]:
+    def position(self) -> Optional[pulumi.Input[int]]:
         """
         Get or sets the position of the parameter.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[float]]):
+    def position(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "position", value)
 
     @property
@@ -689,12 +689,12 @@ class ScheduleAssociationPropertyArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None):
         """
         The account SKU.
         :param pulumi.Input[str] name: Gets or sets the SKU name of the account.
-        :param pulumi.Input[float] capacity: Gets or sets the SKU capacity.
+        :param pulumi.Input[int] capacity: Gets or sets the SKU capacity.
         :param pulumi.Input[str] family: Gets or sets the SKU family.
         """
         pulumi.set(__self__, "name", name)
@@ -717,14 +717,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the SKU capacity.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

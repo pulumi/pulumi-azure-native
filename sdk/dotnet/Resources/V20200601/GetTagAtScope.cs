@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Resources.V20200601
         /// <summary>
         /// The set of tags.
         /// </summary>
-        public readonly Outputs.TagsResponseResult Properties;
+        public readonly Outputs.TagsResponse Properties;
         /// <summary>
         /// The type of the tags wrapper resource.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Resources.V20200601
         private GetTagAtScopeResult(
             string name,
 
-            Outputs.TagsResponseResult properties,
+            Outputs.TagsResponse properties,
 
             string type)
         {

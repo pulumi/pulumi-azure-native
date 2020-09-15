@@ -54,22 +54,22 @@ namespace Pulumi.AzureRM.Batch.V20190801
         /// <summary>
         /// Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationPackageReferenceResponseResult> ApplicationPackages;
+        public readonly ImmutableArray<Outputs.ApplicationPackageReferenceResponse> ApplicationPackages;
         /// <summary>
         /// This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
         /// </summary>
-        public readonly Outputs.AutoScaleRunResponseResult AutoScaleRun;
+        public readonly Outputs.AutoScaleRunResponse AutoScaleRun;
         /// <summary>
         /// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateReferenceResponseResult> Certificates;
+        public readonly ImmutableArray<Outputs.CertificateReferenceResponse> Certificates;
         public readonly string CreationTime;
         public readonly int CurrentDedicatedNodes;
         public readonly int CurrentLowPriorityNodes;
         /// <summary>
         /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         /// </summary>
-        public readonly Outputs.DeploymentConfigurationResponseResult? DeploymentConfiguration;
+        public readonly Outputs.DeploymentConfigurationResponse? DeploymentConfiguration;
         /// <summary>
         /// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         /// </summary>
@@ -93,11 +93,11 @@ namespace Pulumi.AzureRM.Batch.V20190801
         /// <summary>
         /// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MetadataItemResponseResult> Metadata;
+        public readonly ImmutableArray<Outputs.MetadataItemResponse> Metadata;
         /// <summary>
         /// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MountConfigurationResponseResult> MountConfiguration;
+        public readonly ImmutableArray<Outputs.MountConfigurationResponse> MountConfiguration;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -105,30 +105,30 @@ namespace Pulumi.AzureRM.Batch.V20190801
         /// <summary>
         /// The network configuration for a pool.
         /// </summary>
-        public readonly Outputs.NetworkConfigurationResponseResult? NetworkConfiguration;
+        public readonly Outputs.NetworkConfigurationResponse? NetworkConfiguration;
         public readonly string ProvisioningState;
         public readonly string ProvisioningStateTransitionTime;
         /// <summary>
         /// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
         /// </summary>
-        public readonly Outputs.ResizeOperationStatusResponseResult ResizeOperationStatus;
+        public readonly Outputs.ResizeOperationStatusResponse ResizeOperationStatus;
         /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
-        public readonly Outputs.ScaleSettingsResponseResult? ScaleSettings;
+        public readonly Outputs.ScaleSettingsResponse? ScaleSettings;
         /// <summary>
         /// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         /// </summary>
-        public readonly Outputs.StartTaskResponseResult? StartTask;
+        public readonly Outputs.StartTaskResponse? StartTask;
         /// <summary>
         /// If not specified, the default is spread.
         /// </summary>
-        public readonly Outputs.TaskSchedulingPolicyResponseResult? TaskSchedulingPolicy;
+        public readonly Outputs.TaskSchedulingPolicyResponse? TaskSchedulingPolicy;
         /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
-        public readonly ImmutableArray<Outputs.UserAccountResponseResult> UserAccounts;
+        public readonly ImmutableArray<Outputs.UserAccountResponse> UserAccounts;
         /// <summary>
         /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         /// </summary>
@@ -142,11 +142,11 @@ namespace Pulumi.AzureRM.Batch.V20190801
 
             ImmutableArray<string> applicationLicenses,
 
-            ImmutableArray<Outputs.ApplicationPackageReferenceResponseResult> applicationPackages,
+            ImmutableArray<Outputs.ApplicationPackageReferenceResponse> applicationPackages,
 
-            Outputs.AutoScaleRunResponseResult autoScaleRun,
+            Outputs.AutoScaleRunResponse autoScaleRun,
 
-            ImmutableArray<Outputs.CertificateReferenceResponseResult> certificates,
+            ImmutableArray<Outputs.CertificateReferenceResponse> certificates,
 
             string creationTime,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureRM.Batch.V20190801
 
             int currentLowPriorityNodes,
 
-            Outputs.DeploymentConfigurationResponseResult? deploymentConfiguration,
+            Outputs.DeploymentConfigurationResponse? deploymentConfiguration,
 
             string? displayName,
 
@@ -166,29 +166,29 @@ namespace Pulumi.AzureRM.Batch.V20190801
 
             int? maxTasksPerNode,
 
-            ImmutableArray<Outputs.MetadataItemResponseResult> metadata,
+            ImmutableArray<Outputs.MetadataItemResponse> metadata,
 
-            ImmutableArray<Outputs.MountConfigurationResponseResult> mountConfiguration,
+            ImmutableArray<Outputs.MountConfigurationResponse> mountConfiguration,
 
             string name,
 
-            Outputs.NetworkConfigurationResponseResult? networkConfiguration,
+            Outputs.NetworkConfigurationResponse? networkConfiguration,
 
             string provisioningState,
 
             string provisioningStateTransitionTime,
 
-            Outputs.ResizeOperationStatusResponseResult resizeOperationStatus,
+            Outputs.ResizeOperationStatusResponse resizeOperationStatus,
 
-            Outputs.ScaleSettingsResponseResult? scaleSettings,
+            Outputs.ScaleSettingsResponse? scaleSettings,
 
-            Outputs.StartTaskResponseResult? startTask,
+            Outputs.StartTaskResponse? startTask,
 
-            Outputs.TaskSchedulingPolicyResponseResult? taskSchedulingPolicy,
+            Outputs.TaskSchedulingPolicyResponse? taskSchedulingPolicy,
 
             string type,
 
-            ImmutableArray<Outputs.UserAccountResponseResult> userAccounts,
+            ImmutableArray<Outputs.UserAccountResponse> userAccounts,
 
             string? vmSize)
         {

@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// <summary>
         /// The parameter values for the assigned policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? Parameters;
         /// <summary>
         /// The ID of the policy definition or policy set definition being assigned.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// <summary>
         /// The policy sku. This property is optional, obsolete, and will be ignored.
         /// </summary>
-        public readonly Outputs.PolicySkuResponseResult? Sku;
+        public readonly Outputs.PolicySkuResponse? Sku;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
 
             string? enforcementMode,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
@@ -110,13 +110,13 @@ namespace Pulumi.AzureRM.Authorization.V20190901
 
             ImmutableArray<string> notScopes,
 
-            ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
 
             string? policyDefinitionId,
 
             string? scope,
 
-            Outputs.PolicySkuResponseResult? sku,
+            Outputs.PolicySkuResponse? sku,
 
             string type)
         {

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// Schedule properties of the job.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.JobScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.JobScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

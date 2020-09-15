@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['IdentityProvider']
@@ -15,7 +15,7 @@ class IdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  identity_provider_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class IdentityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
         :param pulumi.Input[str] client_id: Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
         :param pulumi.Input[str] client_secret: Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
         :param pulumi.Input[str] identity_provider_name: Identity Provider Type identifier.
@@ -113,7 +113,7 @@ class IdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> pulumi.Output[Optional[List[str]]]:
+    def allowed_tenants(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Allowed Tenants when configuring Azure Active Directory login.
         """

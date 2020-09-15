@@ -84,11 +84,11 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <summary>
         /// The VHD from which the image is to be created.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesCustomResponseResult? Vhd;
+        public readonly Outputs.CustomImagePropertiesCustomResponse? Vhd;
         /// <summary>
         /// Properties for creating a custom image from a virtual machine.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesFromVmResponseResult? Vm;
+        public readonly Outputs.CustomImagePropertiesFromVmResponse? Vm;
 
         [OutputConstructor]
         private GetCustomImageResourceResult(
@@ -110,9 +110,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
 
             string? type,
 
-            Outputs.CustomImagePropertiesCustomResponseResult? vhd,
+            Outputs.CustomImagePropertiesCustomResponse? vhd,
 
-            Outputs.CustomImagePropertiesFromVmResponseResult? vm)
+            Outputs.CustomImagePropertiesFromVmResponse? vm)
         {
             Author = author;
             CreationDate = creationDate;

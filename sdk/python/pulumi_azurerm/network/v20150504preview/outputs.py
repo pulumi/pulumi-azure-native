@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -108,11 +108,11 @@ class MxRecordResponse(dict):
     """
     def __init__(__self__, *,
                  exchange: Optional[str] = None,
-                 preference: Optional[float] = None):
+                 preference: Optional[int] = None):
         """
         An MX record.
         :param str exchange: Gets or sets the domain name of the mail host, without a terminating dot.
-        :param float preference: Gets or sets the preference metric for this record.
+        :param int preference: Gets or sets the preference metric for this record.
         """
         if exchange is not None:
             pulumi.set(__self__, "exchange", exchange)
@@ -129,7 +129,7 @@ class MxRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def preference(self) -> Optional[float]:
+    def preference(self) -> Optional[int]:
         """
         Gets or sets the preference metric for this record.
         """
@@ -197,28 +197,28 @@ class RecordSetPropertiesResponse(dict):
     Represents the properties of the records in the RecordSet.
     """
     def __init__(__self__, *,
-                 a_aaa_records: Optional[List['outputs.AaaaRecordResponse']] = None,
-                 a_records: Optional[List['outputs.ARecordResponse']] = None,
+                 a_aaa_records: Optional[Sequence['outputs.AaaaRecordResponse']] = None,
+                 a_records: Optional[Sequence['outputs.ARecordResponse']] = None,
                  c_name_record: Optional['outputs.CnameRecordResponse'] = None,
-                 m_x_records: Optional[List['outputs.MxRecordResponse']] = None,
-                 n_s_records: Optional[List['outputs.NsRecordResponse']] = None,
-                 p_tr_records: Optional[List['outputs.PtrRecordResponse']] = None,
+                 m_x_records: Optional[Sequence['outputs.MxRecordResponse']] = None,
+                 n_s_records: Optional[Sequence['outputs.NsRecordResponse']] = None,
+                 p_tr_records: Optional[Sequence['outputs.PtrRecordResponse']] = None,
                  s_oa_record: Optional['outputs.SoaRecordResponse'] = None,
-                 s_rv_records: Optional[List['outputs.SrvRecordResponse']] = None,
-                 t_xt_records: Optional[List['outputs.TxtRecordResponse']] = None,
-                 ttl: Optional[float] = None):
+                 s_rv_records: Optional[Sequence['outputs.SrvRecordResponse']] = None,
+                 t_xt_records: Optional[Sequence['outputs.TxtRecordResponse']] = None,
+                 ttl: Optional[int] = None):
         """
         Represents the properties of the records in the RecordSet.
-        :param List['AaaaRecordResponseArgs'] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
-        :param List['ARecordResponseArgs'] a_records: Gets or sets the list of A records in the RecordSet.
+        :param Sequence['AaaaRecordResponseArgs'] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
+        :param Sequence['ARecordResponseArgs'] a_records: Gets or sets the list of A records in the RecordSet.
         :param 'CnameRecordResponseArgs' c_name_record: Gets or sets the CNAME record in the RecordSet.
-        :param List['MxRecordResponseArgs'] m_x_records: Gets or sets the list of MX records in the RecordSet.
-        :param List['NsRecordResponseArgs'] n_s_records: Gets or sets the list of NS records in the RecordSet.
-        :param List['PtrRecordResponseArgs'] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
+        :param Sequence['MxRecordResponseArgs'] m_x_records: Gets or sets the list of MX records in the RecordSet.
+        :param Sequence['NsRecordResponseArgs'] n_s_records: Gets or sets the list of NS records in the RecordSet.
+        :param Sequence['PtrRecordResponseArgs'] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
         :param 'SoaRecordResponseArgs' s_oa_record: Gets or sets the SOA record in the RecordSet.
-        :param List['SrvRecordResponseArgs'] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
-        :param List['TxtRecordResponseArgs'] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
-        :param float ttl: Gets or sets the TTL of the records in the RecordSet.
+        :param Sequence['SrvRecordResponseArgs'] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
+        :param Sequence['TxtRecordResponseArgs'] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
+        :param int ttl: Gets or sets the TTL of the records in the RecordSet.
         """
         if a_aaa_records is not None:
             pulumi.set(__self__, "a_aaa_records", a_aaa_records)
@@ -243,7 +243,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="aAAARecords")
-    def a_aaa_records(self) -> Optional[List['outputs.AaaaRecordResponse']]:
+    def a_aaa_records(self) -> Optional[Sequence['outputs.AaaaRecordResponse']]:
         """
         Gets or sets the list of AAAA records in the RecordSet.
         """
@@ -251,7 +251,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[List['outputs.ARecordResponse']]:
+    def a_records(self) -> Optional[Sequence['outputs.ARecordResponse']]:
         """
         Gets or sets the list of A records in the RecordSet.
         """
@@ -267,7 +267,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="mXRecords")
-    def m_x_records(self) -> Optional[List['outputs.MxRecordResponse']]:
+    def m_x_records(self) -> Optional[Sequence['outputs.MxRecordResponse']]:
         """
         Gets or sets the list of MX records in the RecordSet.
         """
@@ -275,7 +275,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="nSRecords")
-    def n_s_records(self) -> Optional[List['outputs.NsRecordResponse']]:
+    def n_s_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
         """
         Gets or sets the list of NS records in the RecordSet.
         """
@@ -283,7 +283,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="pTRRecords")
-    def p_tr_records(self) -> Optional[List['outputs.PtrRecordResponse']]:
+    def p_tr_records(self) -> Optional[Sequence['outputs.PtrRecordResponse']]:
         """
         Gets or sets the list of PTR records in the RecordSet.
         """
@@ -299,7 +299,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="sRVRecords")
-    def s_rv_records(self) -> Optional[List['outputs.SrvRecordResponse']]:
+    def s_rv_records(self) -> Optional[Sequence['outputs.SrvRecordResponse']]:
         """
         Gets or sets the list of SRV records in the RecordSet.
         """
@@ -307,7 +307,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="tXTRecords")
-    def t_xt_records(self) -> Optional[List['outputs.TxtRecordResponse']]:
+    def t_xt_records(self) -> Optional[Sequence['outputs.TxtRecordResponse']]:
         """
         Gets or sets the list of TXT records in the RecordSet.
         """
@@ -315,7 +315,7 @@ class RecordSetPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[float]:
+    def ttl(self) -> Optional[int]:
         """
         Gets or sets the TTL of the records in the RecordSet.
         """
@@ -332,21 +332,21 @@ class SoaRecordResponse(dict):
     """
     def __init__(__self__, *,
                  email: Optional[str] = None,
-                 expire_time: Optional[float] = None,
+                 expire_time: Optional[int] = None,
                  host: Optional[str] = None,
-                 minimum_ttl: Optional[float] = None,
-                 refresh_time: Optional[float] = None,
-                 retry_time: Optional[float] = None,
-                 serial_number: Optional[float] = None):
+                 minimum_ttl: Optional[int] = None,
+                 refresh_time: Optional[int] = None,
+                 retry_time: Optional[int] = None,
+                 serial_number: Optional[int] = None):
         """
         An SOA record.
         :param str email: Gets or sets the email for this record.
-        :param float expire_time: Gets or sets the expire time for this record.
+        :param int expire_time: Gets or sets the expire time for this record.
         :param str host: Gets or sets the domain name of the authoritative name server, without a terminating dot.
-        :param float minimum_ttl: Gets or sets the minimum TTL value for this record.
-        :param float refresh_time: Gets or sets the refresh value for this record.
-        :param float retry_time: Gets or sets the retry time for this record.
-        :param float serial_number: Gets or sets the serial number for this record.
+        :param int minimum_ttl: Gets or sets the minimum TTL value for this record.
+        :param int refresh_time: Gets or sets the refresh value for this record.
+        :param int retry_time: Gets or sets the retry time for this record.
+        :param int serial_number: Gets or sets the serial number for this record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -373,7 +373,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[float]:
+    def expire_time(self) -> Optional[int]:
         """
         Gets or sets the expire time for this record.
         """
@@ -389,7 +389,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="minimumTTL")
-    def minimum_ttl(self) -> Optional[float]:
+    def minimum_ttl(self) -> Optional[int]:
         """
         Gets or sets the minimum TTL value for this record.
         """
@@ -397,7 +397,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[float]:
+    def refresh_time(self) -> Optional[int]:
         """
         Gets or sets the refresh value for this record.
         """
@@ -405,7 +405,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[float]:
+    def retry_time(self) -> Optional[int]:
         """
         Gets or sets the retry time for this record.
         """
@@ -413,7 +413,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[float]:
+    def serial_number(self) -> Optional[int]:
         """
         Gets or sets the serial number for this record.
         """
@@ -429,16 +429,16 @@ class SrvRecordResponse(dict):
     An SRV record.
     """
     def __init__(__self__, *,
-                 port: Optional[float] = None,
-                 priority: Optional[float] = None,
+                 port: Optional[int] = None,
+                 priority: Optional[int] = None,
                  target: Optional[str] = None,
-                 weight: Optional[float] = None):
+                 weight: Optional[int] = None):
         """
         An SRV record.
-        :param float port: Gets or sets the port of the service for this record.
-        :param float priority: Gets or sets the priority metric for this record.
+        :param int port: Gets or sets the port of the service for this record.
+        :param int priority: Gets or sets the priority metric for this record.
         :param str target: Gets or sets the domain name of the target for this record, without a terminating dot.
-        :param float weight: Gets or sets the weight metric for this record.
+        :param int weight: Gets or sets the weight metric for this record.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -451,7 +451,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Gets or sets the port of the service for this record.
         """
@@ -459,7 +459,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Gets or sets the priority metric for this record.
         """
@@ -475,7 +475,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Gets or sets the weight metric for this record.
         """
@@ -491,17 +491,17 @@ class TxtRecordResponse(dict):
     A TXT record.
     """
     def __init__(__self__, *,
-                 value: Optional[List[str]] = None):
+                 value: Optional[Sequence[str]] = None):
         """
         A TXT record.
-        :param List[str] value: Gets or sets the text value of this record.
+        :param Sequence[str] value: Gets or sets the text value of this record.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List[str]]:
+    def value(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the text value of this record.
         """
@@ -517,12 +517,12 @@ class ZonePropertiesResponse(dict):
     Represents the properties of the zone.
     """
     def __init__(__self__, *,
-                 max_number_of_record_sets: Optional[float] = None,
-                 number_of_record_sets: Optional[float] = None):
+                 max_number_of_record_sets: Optional[int] = None,
+                 number_of_record_sets: Optional[int] = None):
         """
         Represents the properties of the zone.
-        :param float max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
-        :param float number_of_record_sets: Gets or sets the current number of record sets in this zone.
+        :param int max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
+        :param int number_of_record_sets: Gets or sets the current number of record sets in this zone.
         """
         if max_number_of_record_sets is not None:
             pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
@@ -531,7 +531,7 @@ class ZonePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> Optional[float]:
+    def max_number_of_record_sets(self) -> Optional[int]:
         """
         Gets or sets the maximum number of record sets that can be created in this zone.
         """
@@ -539,7 +539,7 @@ class ZonePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> Optional[float]:
+    def number_of_record_sets(self) -> Optional[int]:
         """
         Gets or sets the current number of record sets in this zone.
         """

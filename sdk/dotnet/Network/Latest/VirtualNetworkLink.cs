@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The reference of the virtual network.
         /// </summary>
         [Output("virtualNetwork")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.

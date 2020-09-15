@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// The reference to the public IP resource.
         /// </summary>
         [Output("publicIPAddress")]
-        public Output<Outputs.PublicIPAddressResponseResult?> PublicIPAddress { get; private set; } = null!;
+        public Output<Outputs.PublicIPAddressResponse?> PublicIPAddress { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubnetResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Ipconfiguration type.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -168,19 +168,19 @@ class CookiesMatchConditionParametersResponse(dict):
     Defines the parameters for Cookies match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for Cookies match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param str selector: Name of Cookies to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -193,7 +193,7 @@ class CookiesMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -230,7 +230,7 @@ class CookiesMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -247,17 +247,17 @@ class DeepCreatedOriginGroupResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 origins: List['outputs.ResourceReferenceResponse'],
+                 origins: Sequence['outputs.ResourceReferenceResponse'],
                  health_probe_settings: Optional['outputs.HealthProbeParametersResponse'] = None,
                  response_based_origin_error_detection_settings: Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse'] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[float] = None):
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[int] = None):
         """
         The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
         :param str name: Origin group name which must be unique within the endpoint.
-        :param List['ResourceReferenceResponseArgs'] origins: The source of the content being delivered via CDN within given origin group.
+        :param Sequence['ResourceReferenceResponseArgs'] origins: The source of the content being delivered via CDN within given origin group.
         :param 'HealthProbeParametersResponseArgs' health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param 'ResponseBasedOriginErrorDetectionParametersResponseArgs' response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-        :param float traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        :param int traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "origins", origins)
@@ -278,7 +278,7 @@ class DeepCreatedOriginGroupResponse(dict):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.ResourceReferenceResponse']:
+    def origins(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -302,7 +302,7 @@ class DeepCreatedOriginGroupResponse(dict):
 
     @property
     @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[float]:
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[int]:
         """
         Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
@@ -321,21 +321,21 @@ class DeepCreatedOriginResponse(dict):
                  host_name: str,
                  name: str,
                  enabled: Optional[bool] = None,
-                 http_port: Optional[float] = None,
-                 https_port: Optional[float] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
                  origin_host_header: Optional[str] = None,
-                 priority: Optional[float] = None,
-                 weight: Optional[float] = None):
+                 priority: Optional[int] = None,
+                 weight: Optional[int] = None):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param str host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
         :param str name: Origin name which must be unique within the endpoint. 
         :param bool enabled: Origin is enabled for load balancing or not. By default, origin is always enabled.
-        :param float http_port: The value of the HTTP port. Must be between 1 and 65535.
-        :param float https_port: The value of the HTTPS port. Must be between 1 and 65535.
+        :param int http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param int https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param str origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-        :param float priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-        :param float weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        :param int priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+        :param int weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -378,7 +378,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The value of the HTTP port. Must be between 1 and 65535.
         """
@@ -386,7 +386,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The value of the HTTPS port. Must be between 1 and 65535.
         """
@@ -402,7 +402,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
         """
@@ -410,7 +410,7 @@ class DeepCreatedOriginResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
@@ -930,15 +930,15 @@ class DeliveryRuleResponse(dict):
     A rule that specifies a set of actions and conditions
     """
     def __init__(__self__, *,
-                 actions: List[Any],
-                 order: float,
-                 conditions: Optional[List[Any]] = None,
+                 actions: Sequence[Any],
+                 order: int,
+                 conditions: Optional[Sequence[Any]] = None,
                  name: Optional[str] = None):
         """
         A rule that specifies a set of actions and conditions
-        :param List[Union['DeliveryRuleCacheExpirationActionResponseArgs', 'DeliveryRuleCacheKeyQueryStringActionResponseArgs', 'DeliveryRuleRequestHeaderActionResponseArgs', 'DeliveryRuleResponseHeaderActionResponseArgs', 'OriginGroupOverrideActionResponseArgs', 'UrlRedirectActionResponseArgs', 'UrlRewriteActionResponseArgs']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param float order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param List[Union['DeliveryRuleCookiesConditionResponseArgs', 'DeliveryRuleHttpVersionConditionResponseArgs', 'DeliveryRuleIsDeviceConditionResponseArgs', 'DeliveryRulePostArgsConditionResponseArgs', 'DeliveryRuleQueryStringConditionResponseArgs', 'DeliveryRuleRemoteAddressConditionResponseArgs', 'DeliveryRuleRequestBodyConditionResponseArgs', 'DeliveryRuleRequestHeaderConditionResponseArgs', 'DeliveryRuleRequestMethodConditionResponseArgs', 'DeliveryRuleRequestSchemeConditionResponseArgs', 'DeliveryRuleRequestUriConditionResponseArgs', 'DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlFileNameConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
+        :param Sequence[Union['DeliveryRuleCacheExpirationActionResponseArgs', 'DeliveryRuleCacheKeyQueryStringActionResponseArgs', 'DeliveryRuleRequestHeaderActionResponseArgs', 'DeliveryRuleResponseHeaderActionResponseArgs', 'OriginGroupOverrideActionResponseArgs', 'UrlRedirectActionResponseArgs', 'UrlRewriteActionResponseArgs']] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param int order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param Sequence[Union['DeliveryRuleCookiesConditionResponseArgs', 'DeliveryRuleHttpVersionConditionResponseArgs', 'DeliveryRuleIsDeviceConditionResponseArgs', 'DeliveryRulePostArgsConditionResponseArgs', 'DeliveryRuleQueryStringConditionResponseArgs', 'DeliveryRuleRemoteAddressConditionResponseArgs', 'DeliveryRuleRequestBodyConditionResponseArgs', 'DeliveryRuleRequestHeaderConditionResponseArgs', 'DeliveryRuleRequestMethodConditionResponseArgs', 'DeliveryRuleRequestSchemeConditionResponseArgs', 'DeliveryRuleRequestUriConditionResponseArgs', 'DeliveryRuleUrlFileExtensionConditionResponseArgs', 'DeliveryRuleUrlFileNameConditionResponseArgs', 'DeliveryRuleUrlPathConditionResponseArgs']] conditions: A list of conditions that must be matched for the actions to be executed
         :param str name: Name of the rule
         """
         pulumi.set(__self__, "actions", actions)
@@ -950,7 +950,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> List[Any]:
+    def actions(self) -> Sequence[Any]:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
@@ -958,7 +958,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
@@ -966,7 +966,7 @@ class DeliveryRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List[Any]]:
+    def conditions(self) -> Optional[Sequence[Any]]:
         """
         A list of conditions that must be matched for the actions to be executed
         """
@@ -1134,11 +1134,11 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
     A policy that specifies the delivery rules to be used for an endpoint.
     """
     def __init__(__self__, *,
-                 rules: List['outputs.DeliveryRuleResponse'],
+                 rules: Sequence['outputs.DeliveryRuleResponse'],
                  description: Optional[str] = None):
         """
         A policy that specifies the delivery rules to be used for an endpoint.
-        :param List['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
+        :param Sequence['DeliveryRuleResponseArgs'] rules: A list of the delivery rules.
         :param str description: User-friendly description of the policy.
         """
         pulumi.set(__self__, "rules", rules)
@@ -1147,7 +1147,7 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.DeliveryRuleResponse']:
+    def rules(self) -> Sequence['outputs.DeliveryRuleResponse']:
         """
         A list of the delivery rules.
         """
@@ -1172,12 +1172,12 @@ class GeoFilterResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 country_codes: List[str],
+                 country_codes: Sequence[str],
                  relative_path: str):
         """
         Rules defining user's geo access within a CDN endpoint.
         :param str action: Action of the geo filter, i.e. allow or block access.
-        :param List[str] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+        :param Sequence[str] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param str relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
         pulumi.set(__self__, "action", action)
@@ -1194,7 +1194,7 @@ class GeoFilterResponse(dict):
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> List[str]:
+    def country_codes(self) -> Sequence[str]:
         """
         Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         """
@@ -1273,13 +1273,13 @@ class HealthProbeParametersResponse(dict):
     The JSON object that contains the properties to send health probes to origin.
     """
     def __init__(__self__, *,
-                 probe_interval_in_seconds: Optional[float] = None,
+                 probe_interval_in_seconds: Optional[int] = None,
                  probe_path: Optional[str] = None,
                  probe_protocol: Optional[str] = None,
                  probe_request_type: Optional[str] = None):
         """
         The JSON object that contains the properties to send health probes to origin.
-        :param float probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
+        :param int probe_interval_in_seconds: The number of seconds between health probes.Default is 240sec.
         :param str probe_path: The path relative to the origin that is used to determine the health of the origin.
         :param str probe_protocol: Protocol to use for health probe.
         :param str probe_request_type: The type of health probe request that is made.
@@ -1295,7 +1295,7 @@ class HealthProbeParametersResponse(dict):
 
     @property
     @pulumi.getter(name="probeIntervalInSeconds")
-    def probe_interval_in_seconds(self) -> Optional[float]:
+    def probe_interval_in_seconds(self) -> Optional[int]:
         """
         The number of seconds between health probes.Default is 240sec.
         """
@@ -1335,12 +1335,12 @@ class HttpErrorRangeParametersResponse(dict):
     The JSON object that represents the range for http status codes
     """
     def __init__(__self__, *,
-                 begin: Optional[float] = None,
-                 end: Optional[float] = None):
+                 begin: Optional[int] = None,
+                 end: Optional[int] = None):
         """
         The JSON object that represents the range for http status codes
-        :param float begin: The inclusive start of the http status code range.
-        :param float end: The inclusive end of the http status code range.
+        :param int begin: The inclusive start of the http status code range.
+        :param int end: The inclusive end of the http status code range.
         """
         if begin is not None:
             pulumi.set(__self__, "begin", begin)
@@ -1349,7 +1349,7 @@ class HttpErrorRangeParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def begin(self) -> Optional[float]:
+    def begin(self) -> Optional[int]:
         """
         The inclusive start of the http status code range.
         """
@@ -1357,7 +1357,7 @@ class HttpErrorRangeParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def end(self) -> Optional[float]:
+    def end(self) -> Optional[int]:
         """
         The inclusive end of the http status code range.
         """
@@ -1373,13 +1373,13 @@ class HttpVersionMatchConditionParametersResponse(dict):
     Defines the parameters for HttpVersion match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for HttpVersion match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
         """
@@ -1391,7 +1391,7 @@ class HttpVersionMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1428,17 +1428,17 @@ class IsDeviceMatchConditionParametersResponse(dict):
     Defines the parameters for IsDevice match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for IsDevice match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1450,7 +1450,7 @@ class IsDeviceMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1479,7 +1479,7 @@ class IsDeviceMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1563,19 +1563,19 @@ class PostArgsMatchConditionParametersResponse(dict):
     Defines the parameters for PostArgs match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for PostArgs match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param str selector: Name of PostArg to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1588,7 +1588,7 @@ class PostArgsMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1625,7 +1625,7 @@ class PostArgsMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1641,17 +1641,17 @@ class QueryStringMatchConditionParametersResponse(dict):
     Defines the parameters for QueryString match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for QueryString match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1663,7 +1663,7 @@ class QueryStringMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1692,7 +1692,7 @@ class QueryStringMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1708,17 +1708,17 @@ class RemoteAddressMatchConditionParametersResponse(dict):
     Defines the parameters for RemoteAddress match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RemoteAddress match conditions
-        :param List[str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+        :param Sequence[str] match_values: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1730,7 +1730,7 @@ class RemoteAddressMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
         """
@@ -1759,7 +1759,7 @@ class RemoteAddressMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1775,17 +1775,17 @@ class RequestBodyMatchConditionParametersResponse(dict):
     Defines the parameters for RequestBody match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestBody match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1797,7 +1797,7 @@ class RequestBodyMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1826,7 +1826,7 @@ class RequestBodyMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1842,19 +1842,19 @@ class RequestHeaderMatchConditionParametersResponse(dict):
     Defines the parameters for RequestHeader match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestHeader match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param str selector: Name of Header to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -1867,7 +1867,7 @@ class RequestHeaderMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1904,7 +1904,7 @@ class RequestHeaderMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -1920,13 +1920,13 @@ class RequestMethodMatchConditionParametersResponse(dict):
     Defines the parameters for RequestMethod match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for RequestMethod match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
         """
@@ -1938,7 +1938,7 @@ class RequestMethodMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -1975,13 +1975,13 @@ class RequestSchemeMatchConditionParametersResponse(dict):
     Defines the parameters for RequestScheme match conditions 
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None):
         """
         Defines the parameters for RequestScheme match conditions 
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
         """
@@ -1993,7 +1993,7 @@ class RequestSchemeMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -2030,17 +2030,17 @@ class RequestUriMatchConditionParametersResponse(dict):
     Defines the parameters for RequestUri match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for RequestUri match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2052,7 +2052,7 @@ class RequestUriMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -2081,7 +2081,7 @@ class RequestUriMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -2123,14 +2123,14 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
     The JSON object that contains the properties to determine origin health using real requests/responses.
     """
     def __init__(__self__, *,
-                 http_error_ranges: Optional[List['outputs.HttpErrorRangeParametersResponse']] = None,
+                 http_error_ranges: Optional[Sequence['outputs.HttpErrorRangeParametersResponse']] = None,
                  response_based_detected_error_types: Optional[str] = None,
-                 response_based_failover_threshold_percentage: Optional[float] = None):
+                 response_based_failover_threshold_percentage: Optional[int] = None):
         """
         The JSON object that contains the properties to determine origin health using real requests/responses.
-        :param List['HttpErrorRangeParametersResponseArgs'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+        :param Sequence['HttpErrorRangeParametersResponseArgs'] http_error_ranges: The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         :param str response_based_detected_error_types: Type of response errors for real user requests for which origin will be deemed unhealthy
-        :param float response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
+        :param int response_based_failover_threshold_percentage: The percentage of failed requests in the sample where failover should trigger.
         """
         if http_error_ranges is not None:
             pulumi.set(__self__, "http_error_ranges", http_error_ranges)
@@ -2141,7 +2141,7 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="httpErrorRanges")
-    def http_error_ranges(self) -> Optional[List['outputs.HttpErrorRangeParametersResponse']]:
+    def http_error_ranges(self) -> Optional[Sequence['outputs.HttpErrorRangeParametersResponse']]:
         """
         The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
         """
@@ -2157,7 +2157,7 @@ class ResponseBasedOriginErrorDetectionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="responseBasedFailoverThresholdPercentage")
-    def response_based_failover_threshold_percentage(self) -> Optional[float]:
+    def response_based_failover_threshold_percentage(self) -> Optional[int]:
         """
         The percentage of failed requests in the sample where failover should trigger.
         """
@@ -2199,17 +2199,17 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
     Defines the parameters for UrlFileExtension match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlFileExtension match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2221,7 +2221,7 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -2250,7 +2250,7 @@ class UrlFileExtensionMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -2266,17 +2266,17 @@ class UrlFileNameMatchConditionParametersResponse(dict):
     Defines the parameters for UrlFilename match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlFilename match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2288,7 +2288,7 @@ class UrlFileNameMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -2317,7 +2317,7 @@ class UrlFileNameMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """
@@ -2333,17 +2333,17 @@ class UrlPathMatchConditionParametersResponse(dict):
     Defines the parameters for UrlPath match conditions
     """
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  odata_type: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Defines the parameters for UrlPath match conditions
-        :param List[str] match_values: The match value for the condition of the delivery rule
+        :param Sequence[str] match_values: The match value for the condition of the delivery rule
         :param str operator: Describes operator to be matched
         :param bool negate_condition: Describes if this is negate condition or not
-        :param List[str] transforms: List of transforms
+        :param Sequence[str] transforms: List of transforms
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "odata_type", odata_type)
@@ -2355,7 +2355,7 @@ class UrlPathMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         The match value for the condition of the delivery rule
         """
@@ -2384,7 +2384,7 @@ class UrlPathMatchConditionParametersResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms
         """

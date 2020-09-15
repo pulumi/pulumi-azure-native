@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -117,7 +117,7 @@ class GetDataExportResult:
 
     @property
     @pulumi.getter(name="tableNames")
-    def table_names(self) -> Optional[List[str]]:
+    def table_names(self) -> Optional[Sequence[str]]:
         """
         An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
         """

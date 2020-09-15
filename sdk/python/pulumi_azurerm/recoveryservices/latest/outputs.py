@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -156,19 +156,19 @@ class A2APolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
-                 crash_consistent_frequency_in_minutes: Optional[float] = None,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None,
                  multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[float] = None,
-                 recovery_point_threshold_in_minutes: Optional[float] = None):
+                 recovery_point_history: Optional[int] = None,
+                 recovery_point_threshold_in_minutes: Optional[int] = None):
         """
         A2A specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
-        :param float crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param float recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param float recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "instance_type", 'A2A')
         if app_consistent_frequency_in_minutes is not None:
@@ -192,7 +192,7 @@ class A2APolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -200,7 +200,7 @@ class A2APolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The crash consistent snapshot frequency in minutes.
         """
@@ -216,7 +216,7 @@ class A2APolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[float]:
+    def recovery_point_history(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -224,7 +224,7 @@ class A2APolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[float]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
         """
         The recovery point threshold in minutes.
         """
@@ -240,11 +240,11 @@ class A2AProtectedDiskDetailsResponse(dict):
     A2A protected disk details.
     """
     def __init__(__self__, *,
-                 allowed_disk_level_operation: Optional[List[str]] = None,
+                 allowed_disk_level_operation: Optional[Sequence[str]] = None,
                  data_pending_at_source_agent_in_mb: Optional[float] = None,
                  data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
                  dek_key_vault_arm_id: Optional[str] = None,
-                 disk_capacity_in_bytes: Optional[float] = None,
+                 disk_capacity_in_bytes: Optional[int] = None,
                  disk_name: Optional[str] = None,
                  disk_state: Optional[str] = None,
                  disk_type: Optional[str] = None,
@@ -254,7 +254,7 @@ class A2AProtectedDiskDetailsResponse(dict):
                  kek_key_vault_arm_id: Optional[str] = None,
                  key_identifier: Optional[str] = None,
                  monitoring_job_type: Optional[str] = None,
-                 monitoring_percentage_completion: Optional[float] = None,
+                 monitoring_percentage_completion: Optional[int] = None,
                  primary_disk_azure_storage_account_id: Optional[str] = None,
                  primary_staging_azure_storage_account_id: Optional[str] = None,
                  recovery_azure_storage_account_id: Optional[str] = None,
@@ -263,11 +263,11 @@ class A2AProtectedDiskDetailsResponse(dict):
                  secret_identifier: Optional[str] = None):
         """
         A2A protected disk details.
-        :param List[str] allowed_disk_level_operation: The disk level operations list.
+        :param Sequence[str] allowed_disk_level_operation: The disk level operations list.
         :param float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
         :param str dek_key_vault_arm_id: The KeyVault resource id for secret (BEK).
-        :param float disk_capacity_in_bytes: The disk capacity in bytes.
+        :param int disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_name: The disk name.
         :param str disk_state: The disk state.
         :param str disk_type: The type of disk.
@@ -277,7 +277,7 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param str kek_key_vault_arm_id: The KeyVault resource id for key (KEK).
         :param str key_identifier: The key URL / identifier (KEK).
         :param str monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-        :param float monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param int monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         :param str primary_disk_azure_storage_account_id: The primary disk storage account.
         :param str primary_staging_azure_storage_account_id: The primary staging storage account.
         :param str recovery_azure_storage_account_id: The recovery disk storage account.
@@ -330,7 +330,7 @@ class A2AProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
-    def allowed_disk_level_operation(self) -> Optional[List[str]]:
+    def allowed_disk_level_operation(self) -> Optional[Sequence[str]]:
         """
         The disk level operations list.
         """
@@ -362,7 +362,7 @@ class A2AProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[float]:
+    def disk_capacity_in_bytes(self) -> Optional[int]:
         """
         The disk capacity in bytes.
         """
@@ -442,7 +442,7 @@ class A2AProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="monitoringPercentageCompletion")
-    def monitoring_percentage_completion(self) -> Optional[float]:
+    def monitoring_percentage_completion(self) -> Optional[int]:
         """
         The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         """
@@ -506,11 +506,11 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
     A2A protected managed disk details.
     """
     def __init__(__self__, *,
-                 allowed_disk_level_operation: Optional[List[str]] = None,
+                 allowed_disk_level_operation: Optional[Sequence[str]] = None,
                  data_pending_at_source_agent_in_mb: Optional[float] = None,
                  data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
                  dek_key_vault_arm_id: Optional[str] = None,
-                 disk_capacity_in_bytes: Optional[float] = None,
+                 disk_capacity_in_bytes: Optional[int] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_state: Optional[str] = None,
@@ -521,7 +521,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
                  kek_key_vault_arm_id: Optional[str] = None,
                  key_identifier: Optional[str] = None,
                  monitoring_job_type: Optional[str] = None,
-                 monitoring_percentage_completion: Optional[float] = None,
+                 monitoring_percentage_completion: Optional[int] = None,
                  primary_staging_azure_storage_account_id: Optional[str] = None,
                  recovery_disk_encryption_set_id: Optional[str] = None,
                  recovery_replica_disk_account_type: Optional[str] = None,
@@ -534,11 +534,11 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
                  tfo_disk_name: Optional[str] = None):
         """
         A2A protected managed disk details.
-        :param List[str] allowed_disk_level_operation: The disk level operations list.
+        :param Sequence[str] allowed_disk_level_operation: The disk level operations list.
         :param float data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
         :param float data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
         :param str dek_key_vault_arm_id: The KeyVault resource id for secret (BEK).
-        :param float disk_capacity_in_bytes: The disk capacity in bytes.
+        :param int disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The managed disk Arm id.
         :param str disk_name: The disk name.
         :param str disk_state: The disk state.
@@ -549,7 +549,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         :param str kek_key_vault_arm_id: The KeyVault resource id for key (KEK).
         :param str key_identifier: The key URL / identifier (KEK).
         :param str monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-        :param float monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param int monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         :param str primary_staging_azure_storage_account_id: The primary staging storage account.
         :param str recovery_disk_encryption_set_id: The recovery disk encryption set Id.
         :param str recovery_replica_disk_account_type: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
@@ -616,7 +616,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
-    def allowed_disk_level_operation(self) -> Optional[List[str]]:
+    def allowed_disk_level_operation(self) -> Optional[Sequence[str]]:
         """
         The disk level operations list.
         """
@@ -648,7 +648,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[float]:
+    def disk_capacity_in_bytes(self) -> Optional[int]:
         """
         The disk capacity in bytes.
         """
@@ -736,7 +736,7 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="monitoringPercentageCompletion")
-    def monitoring_percentage_completion(self) -> Optional[float]:
+    def monitoring_percentage_completion(self) -> Optional[int]:
         """
         The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         """
@@ -919,14 +919,14 @@ class A2AReplicationDetailsResponse(dict):
                  lifecycle_id: Optional[str] = None,
                  management_id: Optional[str] = None,
                  monitoring_job_type: Optional[str] = None,
-                 monitoring_percentage_completion: Optional[float] = None,
+                 monitoring_percentage_completion: Optional[int] = None,
                  multi_vm_group_create_option: Optional[str] = None,
                  multi_vm_group_id: Optional[str] = None,
                  multi_vm_group_name: Optional[str] = None,
                  os_type: Optional[str] = None,
                  primary_fabric_location: Optional[str] = None,
-                 protected_disks: Optional[List['outputs.A2AProtectedDiskDetailsResponse']] = None,
-                 protected_managed_disks: Optional[List['outputs.A2AProtectedManagedDiskDetailsResponse']] = None,
+                 protected_disks: Optional[Sequence['outputs.A2AProtectedDiskDetailsResponse']] = None,
+                 protected_managed_disks: Optional[Sequence['outputs.A2AProtectedManagedDiskDetailsResponse']] = None,
                  recovery_availability_set: Optional[str] = None,
                  recovery_availability_zone: Optional[str] = None,
                  recovery_azure_resource_group_id: Optional[str] = None,
@@ -937,13 +937,13 @@ class A2AReplicationDetailsResponse(dict):
                  recovery_fabric_location: Optional[str] = None,
                  recovery_fabric_object_id: Optional[str] = None,
                  recovery_proximity_placement_group_id: Optional[str] = None,
-                 rpo_in_seconds: Optional[float] = None,
+                 rpo_in_seconds: Optional[int] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
                  test_failover_recovery_fabric_object_id: Optional[str] = None,
                  tfo_azure_vm_name: Optional[str] = None,
-                 unprotected_disks: Optional[List['outputs.A2AUnprotectedDiskDetailsResponse']] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 unprotected_disks: Optional[Sequence['outputs.A2AUnprotectedDiskDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None,
                  vm_synced_config_details: Optional['outputs.AzureToAzureVmSyncedConfigDetailsResponse'] = None):
@@ -963,14 +963,14 @@ class A2AReplicationDetailsResponse(dict):
         :param str lifecycle_id: An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
         :param str management_id: The management Id.
         :param str monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-        :param float monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param int monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         :param str multi_vm_group_create_option: Whether Multi VM group is auto created or specified by user.
         :param str multi_vm_group_id: The multi vm group Id.
         :param str multi_vm_group_name: The multi vm group name.
         :param str os_type: The type of operating system.
         :param str primary_fabric_location: Primary fabric location.
-        :param List['A2AProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param List['A2AProtectedManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
+        :param Sequence['A2AProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['A2AProtectedManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
         :param str recovery_availability_set: The recovery availability set.
         :param str recovery_availability_zone: The recovery availability zone.
         :param str recovery_azure_resource_group_id: The recovery resource group.
@@ -981,13 +981,13 @@ class A2AReplicationDetailsResponse(dict):
         :param str recovery_fabric_location: The recovery fabric location.
         :param str recovery_fabric_object_id: The recovery fabric object Id.
         :param str recovery_proximity_placement_group_id: The recovery proximity placement group Id.
-        :param float rpo_in_seconds: The last RPO value in seconds.
+        :param int rpo_in_seconds: The last RPO value in seconds.
         :param str selected_recovery_azure_network_id: The recovery virtual network.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
         :param str test_failover_recovery_fabric_object_id: The test failover fabric object Id.
         :param str tfo_azure_vm_name: The test failover VM name.
-        :param List['A2AUnprotectedDiskDetailsResponseArgs'] unprotected_disks: The list of unprotected disks.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The virtual machine nic details.
+        :param Sequence['A2AUnprotectedDiskDetailsResponseArgs'] unprotected_disks: The list of unprotected disks.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The virtual machine nic details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         :param 'AzureToAzureVmSyncedConfigDetailsResponseArgs' vm_synced_config_details: The synced configuration details.
@@ -1185,7 +1185,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="monitoringPercentageCompletion")
-    def monitoring_percentage_completion(self) -> Optional[float]:
+    def monitoring_percentage_completion(self) -> Optional[int]:
         """
         The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
         """
@@ -1233,7 +1233,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedDisks")
-    def protected_disks(self) -> Optional[List['outputs.A2AProtectedDiskDetailsResponse']]:
+    def protected_disks(self) -> Optional[Sequence['outputs.A2AProtectedDiskDetailsResponse']]:
         """
         The list of protected disks.
         """
@@ -1241,7 +1241,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedManagedDisks")
-    def protected_managed_disks(self) -> Optional[List['outputs.A2AProtectedManagedDiskDetailsResponse']]:
+    def protected_managed_disks(self) -> Optional[Sequence['outputs.A2AProtectedManagedDiskDetailsResponse']]:
         """
         The list of protected managed disks.
         """
@@ -1329,7 +1329,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         The last RPO value in seconds.
         """
@@ -1369,7 +1369,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="unprotectedDisks")
-    def unprotected_disks(self) -> Optional[List['outputs.A2AUnprotectedDiskDetailsResponse']]:
+    def unprotected_disks(self) -> Optional[Sequence['outputs.A2AUnprotectedDiskDetailsResponse']]:
         """
         The list of unprotected disks.
         """
@@ -1377,7 +1377,7 @@ class A2AReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The virtual machine nic details.
         """
@@ -1417,17 +1417,17 @@ class A2AUnprotectedDiskDetailsResponse(dict):
     A2A unprotected disk details.
     """
     def __init__(__self__, *,
-                 disk_lun_id: Optional[float] = None):
+                 disk_lun_id: Optional[int] = None):
         """
         A2A unprotected disk details.
-        :param float disk_lun_id: The source lun Id for the data disk.
+        :param int disk_lun_id: The source lun Id for the data disk.
         """
         if disk_lun_id is not None:
             pulumi.set(__self__, "disk_lun_id", disk_lun_id)
 
     @property
     @pulumi.getter(name="diskLunId")
-    def disk_lun_id(self) -> Optional[float]:
+    def disk_lun_id(self) -> Optional[int]:
         """
         The source lun Id for the data disk.
         """
@@ -1444,12 +1444,12 @@ class AzureFabricSpecificDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 container_ids: Optional[List[str]] = None,
+                 container_ids: Optional[Sequence[str]] = None,
                  location: Optional[str] = None):
         """
         Azure Fabric Specific Details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param List[str] container_ids: The container Ids for the Azure fabric.
+        :param Sequence[str] container_ids: The container Ids for the Azure fabric.
         :param str location: The Location for the Azure fabric.
         """
         pulumi.set(__self__, "instance_type", 'Azure')
@@ -1468,7 +1468,7 @@ class AzureFabricSpecificDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="containerIds")
-    def container_ids(self) -> Optional[List[str]]:
+    def container_ids(self) -> Optional[Sequence[str]]:
         """
         The container Ids for the Azure fabric.
         """
@@ -1496,14 +1496,14 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
                  resource_state_sync_time: str,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information about Azure File Share backup item.
         :param str resource_state: Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
         :param str resource_state_sync_time: The resource state sync time for this backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float recovery_point_count: Number of available backup copies associated with this backup item.
+        :param int recovery_point_count: Number of available backup copies associated with this backup item.
         """
         pulumi.set(__self__, "resource_state", resource_state)
         pulumi.set(__self__, "resource_state_sync_time", resource_state_sync_time)
@@ -1548,7 +1548,7 @@ class AzureFileshareProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of available backup copies associated with this backup item.
         """
@@ -1829,15 +1829,15 @@ class AzureIaaSVMHealthDetailsResponse(dict):
     Azure IaaS VM workload-specific Health Details.
     """
     def __init__(__self__, *,
-                 code: float,
+                 code: int,
                  message: str,
-                 recommendations: List[str],
+                 recommendations: Sequence[str],
                  title: str):
         """
         Azure IaaS VM workload-specific Health Details.
-        :param float code: Health Code
+        :param int code: Health Code
         :param str message: Health Message
-        :param List[str] recommendations: Health Recommended Actions
+        :param Sequence[str] recommendations: Health Recommended Actions
         :param str title: Health Title
         """
         pulumi.set(__self__, "code", code)
@@ -1847,7 +1847,7 @@ class AzureIaaSVMHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> float:
+    def code(self) -> int:
         """
         Health Code
         """
@@ -1863,7 +1863,7 @@ class AzureIaaSVMHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         Health Recommended Actions
         """
@@ -1889,12 +1889,12 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_inconsistent: Optional[bool] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this backup item.
         :param bool policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
-        :param float recovery_point_count: Number of backup copies available for this backup item.
+        :param int recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1921,7 +1921,7 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies available for this backup item.
         """
@@ -1947,7 +1947,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  extended_info: Optional['outputs.AzureIaaSVMProtectedItemExtendedInfoResponse'] = None,
                  extended_properties: Optional['outputs.ExtendedPropertiesResponse'] = None,
                  friendly_name: Optional[str] = None,
-                 health_details: Optional[List['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
+                 health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
                  health_status: Optional[str] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
@@ -1975,7 +1975,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param 'AzureIaaSVMProtectedItemExtendedInfoResponseArgs' extended_info: Additional information for this backup item.
         :param 'ExtendedPropertiesResponseArgs' extended_properties: Extended Properties for Azure IaasVM Backup.
         :param str friendly_name: Friendly name of the VM represented by this backup item.
-        :param List['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
+        :param Sequence['AzureIaaSVMHealthDetailsResponseArgs'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
@@ -2126,7 +2126,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="healthDetails")
-    def health_details(self) -> Optional[List['outputs.AzureIaaSVMHealthDetailsResponse']]:
+    def health_details(self) -> Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']]:
         """
         Health details on this backup item.
         """
@@ -2263,13 +2263,13 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
         Azure VM (also known as IaaS VM) workload-specific backup policy.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy with the details on backup copy retention ranges.
         :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The backup schedule specified as part of backup policy.
         """
@@ -2292,7 +2292,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -2590,12 +2590,12 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Sql specific protected item.
         :param str oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param str policy_state: State of the backup policy associated with this backup item.
-        :param float recovery_point_count: Number of available backup copies associated with this backup item.
+        :param int recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -2622,7 +2622,7 @@ class AzureSqlProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of available backup copies associated with this backup item.
         """
@@ -2856,12 +2856,12 @@ class AzureSqlProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None):
         """
          The Azure SQL workload-specific backup policy.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The retention policy details.
         """
         if backup_management_type is not None:
@@ -2881,7 +2881,7 @@ class AzureSqlProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -2909,7 +2909,7 @@ class AzureStorageContainerResponse(dict):
                  container_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[float] = None,
+                 protected_item_count: Optional[int] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
@@ -2923,7 +2923,7 @@ class AzureStorageContainerResponse(dict):
                Backup is VMAppContainer
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param float protected_item_count: Number of items backed up in this container.
+        :param int protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str source_resource_id: Fully qualified ARM url.
@@ -2985,7 +2985,7 @@ class AzureStorageContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of items backed up in this container.
         """
@@ -3082,11 +3082,11 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
     Azure to Azure VM synced configuration details.
     """
     def __init__(__self__, *,
-                 input_endpoints: Optional[List['outputs.InputEndpointResponse']] = None,
+                 input_endpoints: Optional[Sequence['outputs.InputEndpointResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure to Azure VM synced configuration details.
-        :param List['InputEndpointResponseArgs'] input_endpoints: The Azure VM input endpoints.
+        :param Sequence['InputEndpointResponseArgs'] input_endpoints: The Azure VM input endpoints.
         :param Mapping[str, str] tags: The Azure VM tags.
         """
         if input_endpoints is not None:
@@ -3096,7 +3096,7 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="inputEndpoints")
-    def input_endpoints(self) -> Optional[List['outputs.InputEndpointResponse']]:
+    def input_endpoints(self) -> Optional[Sequence['outputs.InputEndpointResponse']]:
         """
         The Azure VM input endpoints.
         """
@@ -3244,12 +3244,12 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this backup item.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float recovery_point_count: Number of backup copies available for this backup item.
+        :param int recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -3276,7 +3276,7 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies available for this backup item.
         """
@@ -3631,12 +3631,12 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  host_server_name: Optional[str] = None,
                  inquiry_info: Optional['outputs.InquiryInfoResponse'] = None,
-                 nodes_list: Optional[List['outputs.DistributedNodesInfoResponse']] = None):
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
         :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param List['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -3663,7 +3663,7 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[List['outputs.DistributedNodesInfoResponse']]:
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
         """
         List of the nodes in case of distributed container.
         """
@@ -4015,11 +4015,11 @@ class DPMProtectedItemExtendedInfoResponse(dict):
                  oldest_recovery_point: Optional[str] = None,
                  on_premise_latest_recovery_point: Optional[str] = None,
                  on_premise_oldest_recovery_point: Optional[str] = None,
-                 on_premise_recovery_point_count: Optional[float] = None,
+                 on_premise_recovery_point_count: Optional[int] = None,
                  protectable_object_load_path: Optional[Mapping[str, str]] = None,
                  protected: Optional[bool] = None,
                  protection_group_name: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None,
+                 recovery_point_count: Optional[int] = None,
                  total_disk_storage_size_in_bytes: Optional[str] = None):
         """
         Additional information of DPM Protected item.
@@ -4031,11 +4031,11 @@ class DPMProtectedItemExtendedInfoResponse(dict):
         :param str oldest_recovery_point: Oldest cloud recovery point time.
         :param str on_premise_latest_recovery_point: latest disk recovery point time.
         :param str on_premise_oldest_recovery_point: Oldest disk recovery point time.
-        :param float on_premise_recovery_point_count: disk recovery point count.
+        :param int on_premise_recovery_point_count: disk recovery point count.
         :param Mapping[str, str] protectable_object_load_path: Attribute to provide information on various DBs.
         :param bool protected: To check if backup item is disk protected.
         :param str protection_group_name: Protection group name of the backup item.
-        :param float recovery_point_count: cloud recovery point count.
+        :param int recovery_point_count: cloud recovery point count.
         :param str total_disk_storage_size_in_bytes: total Disk storage in bytes.
         """
         if disk_storage_used_in_bytes is not None:
@@ -4133,7 +4133,7 @@ class DPMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="onPremiseRecoveryPointCount")
-    def on_premise_recovery_point_count(self) -> Optional[float]:
+    def on_premise_recovery_point_count(self) -> Optional[int]:
         """
         disk recovery point count.
         """
@@ -4165,7 +4165,7 @@ class DPMProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         cloud recovery point count.
         """
@@ -4418,17 +4418,17 @@ class DailyRetentionFormatResponse(dict):
     Daily retention format.
     """
     def __init__(__self__, *,
-                 days_of_the_month: Optional[List['outputs.DayResponse']] = None):
+                 days_of_the_month: Optional[Sequence['outputs.DayResponse']] = None):
         """
         Daily retention format.
-        :param List['DayResponseArgs'] days_of_the_month: List of days of the month.
+        :param Sequence['DayResponseArgs'] days_of_the_month: List of days of the month.
         """
         if days_of_the_month is not None:
             pulumi.set(__self__, "days_of_the_month", days_of_the_month)
 
     @property
     @pulumi.getter(name="daysOfTheMonth")
-    def days_of_the_month(self) -> Optional[List['outputs.DayResponse']]:
+    def days_of_the_month(self) -> Optional[Sequence['outputs.DayResponse']]:
         """
         List of days of the month.
         """
@@ -4445,11 +4445,11 @@ class DailyRetentionScheduleResponse(dict):
     """
     def __init__(__self__, *,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Daily retention schedule.
         :param 'RetentionDurationResponseArgs' retention_duration: The retention duration of retention policy.
-        :param List[str] retention_times: The retention times of retention policy.
+        :param Sequence[str] retention_times: The retention times of retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -4466,7 +4466,7 @@ class DailyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         The retention times of retention policy.
         """
@@ -4556,7 +4556,7 @@ class DayResponse(dict):
     Day of the week.
     """
     def __init__(__self__, *,
-                 date: Optional[float] = None,
+                 date: Optional[int] = None,
                  is_last: Optional[bool] = None):
         """
         Day of the week.
@@ -4568,7 +4568,7 @@ class DayResponse(dict):
 
     @property
     @pulumi.getter
-    def date(self) -> Optional[float]:
+    def date(self) -> Optional[int]:
         return pulumi.get(self, "date")
 
     @property
@@ -4586,13 +4586,13 @@ class DiskDetailsResponse(dict):
     On-prem disk details data.
     """
     def __init__(__self__, *,
-                 max_size_mb: Optional[float] = None,
+                 max_size_mb: Optional[int] = None,
                  vhd_id: Optional[str] = None,
                  vhd_name: Optional[str] = None,
                  vhd_type: Optional[str] = None):
         """
         On-prem disk details data.
-        :param float max_size_mb: The hard disk max size in MB.
+        :param int max_size_mb: The hard disk max size in MB.
         :param str vhd_id: The VHD Id.
         :param str vhd_name: The VHD name.
         :param str vhd_type: The type of the volume.
@@ -4608,7 +4608,7 @@ class DiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="maxSizeMB")
-    def max_size_mb(self) -> Optional[float]:
+    def max_size_mb(self) -> Optional[int]:
         """
         The hard disk max size in MB.
         """
@@ -4645,10 +4645,10 @@ class DiskDetailsResponse(dict):
 @pulumi.output_type
 class DiskExclusionPropertiesResponse(dict):
     def __init__(__self__, *,
-                 disk_lun_list: Optional[List[float]] = None,
+                 disk_lun_list: Optional[Sequence[int]] = None,
                  is_inclusion_list: Optional[bool] = None):
         """
-        :param List[float] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        :param Sequence[int] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param bool is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
         if disk_lun_list is not None:
@@ -4658,7 +4658,7 @@ class DiskExclusionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="diskLunList")
-    def disk_lun_list(self) -> Optional[List[float]]:
+    def disk_lun_list(self) -> Optional[Sequence[int]]:
         """
         List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         """
@@ -4739,11 +4739,11 @@ class DpmContainerResponse(dict):
                  container_id: Optional[str] = None,
                  container_type: Optional[str] = None,
                  dpm_agent_version: Optional[str] = None,
-                 dpm_servers: Optional[List[str]] = None,
+                 dpm_servers: Optional[Sequence[str]] = None,
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[float] = None,
+                 protected_item_count: Optional[int] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  upgrade_available: Optional[bool] = None):
@@ -4757,11 +4757,11 @@ class DpmContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
         :param str dpm_agent_version: Backup engine Agent version
-        :param List[str] dpm_servers: List of BackupEngines protecting the container
+        :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
         :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param float protected_item_count: Number of protected items in the BackupEngine
+        :param int protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
@@ -4838,7 +4838,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="dpmServers")
-    def dpm_servers(self) -> Optional[List[str]]:
+    def dpm_servers(self) -> Optional[Sequence[str]]:
         """
         List of BackupEngines protecting the container
         """
@@ -4870,7 +4870,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of protected items in the BackupEngine
         """
@@ -4962,12 +4962,12 @@ class ErrorDetailResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 recommendations: List[str]):
+                 recommendations: Sequence[str]):
         """
         Error Detail class which encapsulates Code, Message and Recommendations.
         :param str code: Error code.
         :param str message: Error Message related to the Code.
-        :param List[str] recommendations: List of recommendation strings.
+        :param Sequence[str] recommendations: List of recommendation strings.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -4991,7 +4991,7 @@ class ErrorDetailResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         List of recommendation strings.
         """
@@ -5038,7 +5038,7 @@ class FabricPropertiesResponse(dict):
                  encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health: Optional[str] = None,
-                 health_error_details: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  internal_identifier: Optional[str] = None,
                  rollover_encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None):
         """
@@ -5048,7 +5048,7 @@ class FabricPropertiesResponse(dict):
         :param 'EncryptionDetailsResponseArgs' encryption_details: Encryption details for the fabric.
         :param str friendly_name: Friendly name of the fabric.
         :param str health: Health of fabric.
-        :param List['HealthErrorResponseArgs'] health_error_details: Fabric health error details.
+        :param Sequence['HealthErrorResponseArgs'] health_error_details: Fabric health error details.
         :param str internal_identifier: Dra Registration Id.
         :param 'EncryptionDetailsResponseArgs' rollover_encryption_details: Rollover encryption details for the fabric.
         """
@@ -5111,7 +5111,7 @@ class FabricPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrorDetails")
-    def health_error_details(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_error_details(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         Fabric health error details.
         """
@@ -5312,7 +5312,7 @@ class GenericProtectedItemResponse(dict):
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  policy_state: Optional[str] = None,
-                 protected_item_id: Optional[float] = None,
+                 protected_item_id: Optional[int] = None,
                  protection_state: Optional[str] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
                  source_resource_id: Optional[str] = None,
@@ -5334,7 +5334,7 @@ class GenericProtectedItemResponse(dict):
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param float protected_item_id: Data Plane Service ID of the protected item.
+        :param int protected_item_id: Data Plane Service ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -5502,7 +5502,7 @@ class GenericProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[float]:
+    def protected_item_id(self) -> Optional[int]:
         """
         Data Plane Service ID of the protected item.
         """
@@ -5560,7 +5560,7 @@ class HealthErrorResponse(dict):
                  error_message: Optional[str] = None,
                  error_source: Optional[str] = None,
                  error_type: Optional[str] = None,
-                 inner_health_errors: Optional[List['outputs.InnerHealthErrorResponse']] = None,
+                 inner_health_errors: Optional[Sequence['outputs.InnerHealthErrorResponse']] = None,
                  possible_causes: Optional[str] = None,
                  recommended_action: Optional[str] = None,
                  recovery_provider_error_message: Optional[str] = None,
@@ -5577,7 +5577,7 @@ class HealthErrorResponse(dict):
         :param str error_message: Error message.
         :param str error_source: Source of error.
         :param str error_type: Type of error.
-        :param List['InnerHealthErrorResponseArgs'] inner_health_errors: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+        :param Sequence['InnerHealthErrorResponseArgs'] inner_health_errors: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
         :param str possible_causes: Possible causes of error.
         :param str recommended_action: Recommended action to resolve error.
         :param str recovery_provider_error_message: DRA error message.
@@ -5696,7 +5696,7 @@ class HealthErrorResponse(dict):
 
     @property
     @pulumi.getter(name="innerHealthErrors")
-    def inner_health_errors(self) -> Optional[List['outputs.InnerHealthErrorResponse']]:
+    def inner_health_errors(self) -> Optional[Sequence['outputs.InnerHealthErrorResponse']]:
         """
         The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
         """
@@ -5746,20 +5746,20 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
     def __init__(__self__, *,
                  instance_type: str,
                  active_storage_account_id: Optional[str] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[float] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
                  encryption: Optional[str] = None,
                  online_replication_start_time: Optional[str] = None,
-                 recovery_point_history_duration_in_hours: Optional[float] = None,
-                 replication_interval: Optional[float] = None):
+                 recovery_point_history_duration_in_hours: Optional[int] = None,
+                 replication_interval: Optional[int] = None):
         """
         Hyper-V Replica Azure specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
         :param str active_storage_account_id: The active storage account Id.
-        :param float application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
+        :param int application_consistent_snapshot_frequency_in_hours: The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         :param str encryption: A value indicating whether encryption is enabled for virtual machines in this cloud.
         :param str online_replication_start_time: The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-        :param float recovery_point_history_duration_in_hours: The duration (in hours) to which point the recovery history needs to be maintained.
-        :param float replication_interval: The replication interval.
+        :param int recovery_point_history_duration_in_hours: The duration (in hours) to which point the recovery history needs to be maintained.
+        :param int replication_interval: The replication interval.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
         if active_storage_account_id is not None:
@@ -5793,7 +5793,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[float]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[int]:
         """
         The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
         """
@@ -5817,7 +5817,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistoryDurationInHours")
-    def recovery_point_history_duration_in_hours(self) -> Optional[float]:
+    def recovery_point_history_duration_in_hours(self) -> Optional[int]:
         """
         The duration (in hours) to which point the recovery history needs to be maintained.
         """
@@ -5825,7 +5825,7 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="replicationInterval")
-    def replication_interval(self) -> Optional[float]:
+    def replication_interval(self) -> Optional[int]:
         """
         The replication interval.
         """
@@ -5842,7 +5842,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 azure_vm_disk_details: Optional[List['outputs.AzureVmDiskDetailsResponse']] = None,
+                 azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
                  enable_rdp_on_target_option: Optional[str] = None,
                  encryption: Optional[str] = None,
                  initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
@@ -5856,22 +5856,22 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
                  recovery_azure_storage_account: Optional[str] = None,
                  recovery_azure_vm_size: Optional[str] = None,
                  recovery_azure_vm_name: Optional[str] = None,
-                 rpo_in_seconds: Optional[float] = None,
+                 rpo_in_seconds: Optional[int] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
-                 source_vm_cpu_count: Optional[float] = None,
-                 source_vm_ram_size_in_mb: Optional[float] = None,
+                 source_vm_cpu_count: Optional[int] = None,
+                 source_vm_ram_size_in_mb: Optional[int] = None,
                  target_availability_zone: Optional[str] = None,
                  target_proximity_placement_group_id: Optional[str] = None,
                  use_managed_disks: Optional[str] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
         Hyper V Replica Azure provider specific settings.
         :param str instance_type: Gets the Instance type.
-        :param List['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
         :param str enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param str encryption: The encryption info.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
@@ -5885,16 +5885,16 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str recovery_azure_storage_account: The recovery Azure storage account.
         :param str recovery_azure_vm_size: The Recovery Azure VM size.
         :param str recovery_azure_vm_name: Recovery Azure given name.
-        :param float rpo_in_seconds: Last RPO value.
+        :param int rpo_in_seconds: Last RPO value.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
-        :param float source_vm_cpu_count: The CPU count of the VM on the primary side.
-        :param float source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
+        :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param str target_availability_zone: The target availability zone.
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -5962,7 +5962,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="azureVmDiskDetails")
-    def azure_vm_disk_details(self) -> Optional[List['outputs.AzureVmDiskDetailsResponse']]:
+    def azure_vm_disk_details(self) -> Optional[Sequence['outputs.AzureVmDiskDetailsResponse']]:
         """
         Azure VM Disk details.
         """
@@ -6074,7 +6074,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         Last RPO value.
         """
@@ -6098,7 +6098,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmCpuCount")
-    def source_vm_cpu_count(self) -> Optional[float]:
+    def source_vm_cpu_count(self) -> Optional[int]:
         """
         The CPU count of the VM on the primary side.
         """
@@ -6106,7 +6106,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmRamSizeInMB")
-    def source_vm_ram_size_in_mb(self) -> Optional[float]:
+    def source_vm_ram_size_in_mb(self) -> Optional[int]:
         """
         The RAM size of the VM on the primary side.
         """
@@ -6146,7 +6146,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -6179,29 +6179,29 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 allowed_authentication_type: Optional[float] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[float] = None,
+                 allowed_authentication_type: Optional[int] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
                  compression: Optional[str] = None,
                  initial_replication_method: Optional[str] = None,
                  offline_replication_export_path: Optional[str] = None,
                  offline_replication_import_path: Optional[str] = None,
                  online_replication_start_time: Optional[str] = None,
-                 recovery_points: Optional[float] = None,
+                 recovery_points: Optional[int] = None,
                  replica_deletion_option: Optional[str] = None,
-                 replication_port: Optional[float] = None):
+                 replication_port: Optional[int] = None):
         """
         Base class for HyperVReplica policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float allowed_authentication_type: A value indicating the authentication type.
-        :param float application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param int allowed_authentication_type: A value indicating the authentication type.
+        :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
         :param str initial_replication_method: A value indicating whether IR is online.
         :param str offline_replication_export_path: A value indicating the offline IR export path.
         :param str offline_replication_import_path: A value indicating the offline IR import path.
         :param str online_replication_start_time: A value indicating the online IR start time.
-        :param float recovery_points: A value indicating the number of recovery points.
+        :param int recovery_points: A value indicating the number of recovery points.
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-        :param float replication_port: A value indicating the recovery HTTPS port.
+        :param int replication_port: A value indicating the recovery HTTPS port.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplicaBasePolicyDetails')
         if allowed_authentication_type is not None:
@@ -6235,7 +6235,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[float]:
+    def allowed_authentication_type(self) -> Optional[int]:
         """
         A value indicating the authentication type.
         """
@@ -6243,7 +6243,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[float]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[int]:
         """
         A value indicating the application consistent frequency.
         """
@@ -6291,7 +6291,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[float]:
+    def recovery_points(self) -> Optional[int]:
         """
         A value indicating the number of recovery points.
         """
@@ -6307,7 +6307,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[float]:
+    def replication_port(self) -> Optional[int]:
         """
         A value indicating the recovery HTTPS port.
         """
@@ -6326,9 +6326,9 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
                  instance_type: str,
                  initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
                  last_replicated_time: Optional[str] = None,
-                 v_m_disk_details: Optional[List['outputs.DiskDetailsResponse']] = None,
+                 v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
@@ -6336,9 +6336,9 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param List['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -6384,7 +6384,7 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vMDiskDetails")
-    def v_m_disk_details(self) -> Optional[List['outputs.DiskDetailsResponse']]:
+    def v_m_disk_details(self) -> Optional[Sequence['outputs.DiskDetailsResponse']]:
         """
         VM disk details.
         """
@@ -6400,7 +6400,7 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -6433,31 +6433,31 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 allowed_authentication_type: Optional[float] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[float] = None,
+                 allowed_authentication_type: Optional[int] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
                  compression: Optional[str] = None,
                  initial_replication_method: Optional[str] = None,
                  offline_replication_export_path: Optional[str] = None,
                  offline_replication_import_path: Optional[str] = None,
                  online_replication_start_time: Optional[str] = None,
-                 recovery_points: Optional[float] = None,
+                 recovery_points: Optional[int] = None,
                  replica_deletion_option: Optional[str] = None,
-                 replication_frequency_in_seconds: Optional[float] = None,
-                 replication_port: Optional[float] = None):
+                 replication_frequency_in_seconds: Optional[int] = None,
+                 replication_port: Optional[int] = None):
         """
         Hyper-V Replica Blue specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float allowed_authentication_type: A value indicating the authentication type.
-        :param float application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param int allowed_authentication_type: A value indicating the authentication type.
+        :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
         :param str initial_replication_method: A value indicating whether IR is online.
         :param str offline_replication_export_path: A value indicating the offline IR export path.
         :param str offline_replication_import_path: A value indicating the offline IR import path.
         :param str online_replication_start_time: A value indicating the online IR start time.
-        :param float recovery_points: A value indicating the number of recovery points.
+        :param int recovery_points: A value indicating the number of recovery points.
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-        :param float replication_frequency_in_seconds: A value indicating the replication interval.
-        :param float replication_port: A value indicating the recovery HTTPS port.
+        :param int replication_frequency_in_seconds: A value indicating the replication interval.
+        :param int replication_port: A value indicating the recovery HTTPS port.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
         if allowed_authentication_type is not None:
@@ -6493,7 +6493,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[float]:
+    def allowed_authentication_type(self) -> Optional[int]:
         """
         A value indicating the authentication type.
         """
@@ -6501,7 +6501,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[float]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[int]:
         """
         A value indicating the application consistent frequency.
         """
@@ -6549,7 +6549,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[float]:
+    def recovery_points(self) -> Optional[int]:
         """
         A value indicating the number of recovery points.
         """
@@ -6565,7 +6565,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="replicationFrequencyInSeconds")
-    def replication_frequency_in_seconds(self) -> Optional[float]:
+    def replication_frequency_in_seconds(self) -> Optional[int]:
         """
         A value indicating the replication interval.
         """
@@ -6573,7 +6573,7 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[float]:
+    def replication_port(self) -> Optional[int]:
         """
         A value indicating the recovery HTTPS port.
         """
@@ -6592,9 +6592,9 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
                  instance_type: str,
                  initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
                  last_replicated_time: Optional[str] = None,
-                 v_m_disk_details: Optional[List['outputs.DiskDetailsResponse']] = None,
+                 v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
@@ -6602,9 +6602,9 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param List['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -6650,7 +6650,7 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vMDiskDetails")
-    def v_m_disk_details(self) -> Optional[List['outputs.DiskDetailsResponse']]:
+    def v_m_disk_details(self) -> Optional[Sequence['outputs.DiskDetailsResponse']]:
         """
         VM disk details.
         """
@@ -6666,7 +6666,7 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -6699,29 +6699,29 @@ class HyperVReplicaPolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 allowed_authentication_type: Optional[float] = None,
-                 application_consistent_snapshot_frequency_in_hours: Optional[float] = None,
+                 allowed_authentication_type: Optional[int] = None,
+                 application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
                  compression: Optional[str] = None,
                  initial_replication_method: Optional[str] = None,
                  offline_replication_export_path: Optional[str] = None,
                  offline_replication_import_path: Optional[str] = None,
                  online_replication_start_time: Optional[str] = None,
-                 recovery_points: Optional[float] = None,
+                 recovery_points: Optional[int] = None,
                  replica_deletion_option: Optional[str] = None,
-                 replication_port: Optional[float] = None):
+                 replication_port: Optional[int] = None):
         """
         Hyper-V Replica Blue specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float allowed_authentication_type: A value indicating the authentication type.
-        :param float application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
+        :param int allowed_authentication_type: A value indicating the authentication type.
+        :param int application_consistent_snapshot_frequency_in_hours: A value indicating the application consistent frequency.
         :param str compression: A value indicating whether compression has to be enabled.
         :param str initial_replication_method: A value indicating whether IR is online.
         :param str offline_replication_export_path: A value indicating the offline IR export path.
         :param str offline_replication_import_path: A value indicating the offline IR import path.
         :param str online_replication_start_time: A value indicating the online IR start time.
-        :param float recovery_points: A value indicating the number of recovery points.
+        :param int recovery_points: A value indicating the number of recovery points.
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-        :param float replication_port: A value indicating the recovery HTTPS port.
+        :param int replication_port: A value indicating the recovery HTTPS port.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
         if allowed_authentication_type is not None:
@@ -6755,7 +6755,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedAuthenticationType")
-    def allowed_authentication_type(self) -> Optional[float]:
+    def allowed_authentication_type(self) -> Optional[int]:
         """
         A value indicating the authentication type.
         """
@@ -6763,7 +6763,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInHours")
-    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[float]:
+    def application_consistent_snapshot_frequency_in_hours(self) -> Optional[int]:
         """
         A value indicating the application consistent frequency.
         """
@@ -6811,7 +6811,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPoints")
-    def recovery_points(self) -> Optional[float]:
+    def recovery_points(self) -> Optional[int]:
         """
         A value indicating the number of recovery points.
         """
@@ -6827,7 +6827,7 @@ class HyperVReplicaPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="replicationPort")
-    def replication_port(self) -> Optional[float]:
+    def replication_port(self) -> Optional[int]:
         """
         A value indicating the recovery HTTPS port.
         """
@@ -6846,9 +6846,9 @@ class HyperVReplicaReplicationDetailsResponse(dict):
                  instance_type: str,
                  initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
                  last_replicated_time: Optional[str] = None,
-                 v_m_disk_details: Optional[List['outputs.DiskDetailsResponse']] = None,
+                 v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
@@ -6856,9 +6856,9 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         :param str instance_type: Gets the Instance type.
         :param 'InitialReplicationDetailsResponseArgs' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
-        :param List['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
+        :param Sequence['DiskDetailsResponseArgs'] v_m_disk_details: VM disk details.
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -6904,7 +6904,7 @@ class HyperVReplicaReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vMDiskDetails")
-    def v_m_disk_details(self) -> Optional[List['outputs.DiskDetailsResponse']]:
+    def v_m_disk_details(self) -> Optional[Sequence['outputs.DiskDetailsResponse']]:
         """
         VM disk details.
         """
@@ -6920,7 +6920,7 @@ class HyperVReplicaReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -6977,12 +6977,12 @@ class IPConfigResponse(dict):
     IP configuration details.
     """
     def __init__(__self__, *,
-                 l_b_backend_address_pool_ids: Optional[List[str]] = None,
+                 l_b_backend_address_pool_ids: Optional[Sequence[str]] = None,
                  public_ip_address_id: Optional[str] = None,
                  static_ip_address: Optional[str] = None):
         """
         IP configuration details.
-        :param List[str] l_b_backend_address_pool_ids: The backend address pools associated with the IP configuration.
+        :param Sequence[str] l_b_backend_address_pool_ids: The backend address pools associated with the IP configuration.
         :param str public_ip_address_id: The Id of the public IP address associated with the IP configuration.
         :param str static_ip_address: The static IP address of the IP configuration.
         """
@@ -6995,7 +6995,7 @@ class IPConfigResponse(dict):
 
     @property
     @pulumi.getter(name="lBBackendAddressPoolIds")
-    def l_b_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def l_b_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         The backend address pools associated with the IP configuration.
         """
@@ -7377,19 +7377,19 @@ class InMageAzureV2PolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
-                 crash_consistent_frequency_in_minutes: Optional[float] = None,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None,
                  multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[float] = None,
-                 recovery_point_threshold_in_minutes: Optional[float] = None):
+                 recovery_point_history: Optional[int] = None,
+                 recovery_point_threshold_in_minutes: Optional[int] = None):
         """
         InMage Azure v2 specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
-        :param float crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param float recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param float recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "instance_type", 'InMageAzureV2')
         if app_consistent_frequency_in_minutes is not None:
@@ -7413,7 +7413,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -7421,7 +7421,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The crash consistent snapshot frequency in minutes.
         """
@@ -7437,7 +7437,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[float]:
+    def recovery_point_history(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -7445,7 +7445,7 @@ class InMageAzureV2PolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[float]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
         """
         The recovery point threshold in minutes.
         """
@@ -7461,36 +7461,36 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
     InMageAzureV2 protected disk details.
     """
     def __init__(__self__, *,
-                 disk_capacity_in_bytes: Optional[float] = None,
+                 disk_capacity_in_bytes: Optional[int] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_resized: Optional[str] = None,
-                 file_system_capacity_in_bytes: Optional[float] = None,
+                 file_system_capacity_in_bytes: Optional[int] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mega_bytes: Optional[float] = None,
-                 resync_duration_in_seconds: Optional[float] = None,
-                 resync_progress_percentage: Optional[float] = None,
+                 resync_duration_in_seconds: Optional[int] = None,
+                 resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
-                 rpo_in_seconds: Optional[float] = None,
+                 rpo_in_seconds: Optional[int] = None,
                  source_data_in_mega_bytes: Optional[float] = None,
                  target_data_in_mega_bytes: Optional[float] = None):
         """
         InMageAzureV2 protected disk details.
-        :param float disk_capacity_in_bytes: The disk capacity in bytes.
+        :param int disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_resized: A value indicating whether disk is resized.
-        :param float file_system_capacity_in_bytes: The disk file system capacity in bytes.
+        :param int file_system_capacity_in_bytes: The disk file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mega_bytes: The PS data transit in MB.
-        :param float resync_duration_in_seconds: The resync duration in seconds.
-        :param float resync_progress_percentage: The resync progress percentage.
+        :param int resync_duration_in_seconds: The resync duration in seconds.
+        :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
-        :param float rpo_in_seconds: The RPO in seconds.
+        :param int rpo_in_seconds: The RPO in seconds.
         :param float source_data_in_mega_bytes: The source data transit in MB.
         :param float target_data_in_mega_bytes: The target data transit in MB.
         """
@@ -7527,7 +7527,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[float]:
+    def disk_capacity_in_bytes(self) -> Optional[int]:
         """
         The disk capacity in bytes.
         """
@@ -7559,7 +7559,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="fileSystemCapacityInBytes")
-    def file_system_capacity_in_bytes(self) -> Optional[float]:
+    def file_system_capacity_in_bytes(self) -> Optional[int]:
         """
         The disk file system capacity in bytes.
         """
@@ -7599,7 +7599,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncDurationInSeconds")
-    def resync_duration_in_seconds(self) -> Optional[float]:
+    def resync_duration_in_seconds(self) -> Optional[int]:
         """
         The resync duration in seconds.
         """
@@ -7607,7 +7607,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncProgressPercentage")
-    def resync_progress_percentage(self) -> Optional[float]:
+    def resync_progress_percentage(self) -> Optional[int]:
         """
         The resync progress percentage.
         """
@@ -7623,7 +7623,7 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         The RPO in seconds.
         """
@@ -7659,9 +7659,9 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  process_server_name: str,
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
-                 azure_vm_disk_details: Optional[List['outputs.AzureVmDiskDetailsResponse']] = None,
+                 azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
                  compressed_data_rate_in_mb: Optional[float] = None,
-                 datastores: Optional[List[str]] = None,
+                 datastores: Optional[Sequence[str]] = None,
                  discovery_type: Optional[str] = None,
                  disk_resized: Optional[str] = None,
                  enable_rdp_on_target_option: Optional[str] = None,
@@ -7681,8 +7681,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  os_type: Optional[str] = None,
                  os_version: Optional[str] = None,
                  process_server_id: Optional[str] = None,
-                 protected_disks: Optional[List['outputs.InMageAzureV2ProtectedDiskDetailsResponse']] = None,
-                 protected_managed_disks: Optional[List['outputs.InMageAzureV2ManagedDiskDetailsResponse']] = None,
+                 protected_disks: Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']] = None,
+                 protected_managed_disks: Optional[Sequence['outputs.InMageAzureV2ManagedDiskDetailsResponse']] = None,
                  protection_stage: Optional[str] = None,
                  recovery_availability_set_id: Optional[str] = None,
                  recovery_azure_log_storage_account_id: Optional[str] = None,
@@ -7691,23 +7691,23 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  recovery_azure_vm_name: Optional[str] = None,
                  recovery_azure_vm_size: Optional[str] = None,
                  replica_id: Optional[str] = None,
-                 resync_progress_percentage: Optional[float] = None,
-                 rpo_in_seconds: Optional[float] = None,
+                 resync_progress_percentage: Optional[int] = None,
+                 rpo_in_seconds: Optional[int] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
-                 source_vm_cpu_count: Optional[float] = None,
-                 source_vm_ram_size_in_mb: Optional[float] = None,
+                 source_vm_cpu_count: Optional[int] = None,
+                 source_vm_ram_size_in_mb: Optional[int] = None,
                  target_availability_zone: Optional[str] = None,
                  target_proximity_placement_group_id: Optional[str] = None,
                  target_vm_id: Optional[str] = None,
                  uncompressed_data_rate_in_mb: Optional[float] = None,
                  use_managed_disks: Optional[str] = None,
                  v_center_infrastructure_id: Optional[str] = None,
-                 validation_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  vhd_name: Optional[str] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
@@ -7716,9 +7716,9 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str process_server_name: The process server name.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent version.
-        :param List['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
+        :param Sequence['AzureVmDiskDetailsResponseArgs'] azure_vm_disk_details: Azure VM Disk details.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
-        :param List[str] datastores: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+        :param Sequence[str] datastores: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
         :param str discovery_type: A value indicating the discovery type of the machine. Value can be vCenter or physical.
         :param str disk_resized: A value indicating whether any disk is resized for this VM.
         :param str enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
@@ -7738,8 +7738,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str os_type: The type of the OS on the VM.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param List['InMageAzureV2ProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
-        :param List['InMageAzureV2ManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
+        :param Sequence['InMageAzureV2ProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageAzureV2ManagedDiskDetailsResponseArgs'] protected_managed_disks: The list of protected managed disks.
         :param str protection_stage: The protection stage.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
@@ -7748,23 +7748,23 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str recovery_azure_vm_name: Recovery Azure given name.
         :param str recovery_azure_vm_size: The Recovery Azure VM size.
         :param str replica_id: The replica id of the protected item.
-        :param float resync_progress_percentage: The resync progress percentage.
-        :param float rpo_in_seconds: The RPO in seconds.
+        :param int resync_progress_percentage: The resync progress percentage.
+        :param int rpo_in_seconds: The RPO in seconds.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
-        :param float source_vm_cpu_count: The CPU count of the VM on the primary side.
-        :param float source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
+        :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param str target_availability_zone: The target availability zone.
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str target_vm_id: The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param List['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
+        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
         :param str vhd_name: The OS disk VHD name.
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -7911,7 +7911,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="azureVMDiskDetails")
-    def azure_vm_disk_details(self) -> Optional[List['outputs.AzureVmDiskDetailsResponse']]:
+    def azure_vm_disk_details(self) -> Optional[Sequence['outputs.AzureVmDiskDetailsResponse']]:
         """
         Azure VM Disk details.
         """
@@ -7927,7 +7927,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def datastores(self) -> Optional[List[str]]:
+    def datastores(self) -> Optional[Sequence[str]]:
         """
         The data stores of the on-premise machine. Value can be list of strings that contain data store names.
         """
@@ -8087,7 +8087,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedDisks")
-    def protected_disks(self) -> Optional[List['outputs.InMageAzureV2ProtectedDiskDetailsResponse']]:
+    def protected_disks(self) -> Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']]:
         """
         The list of protected disks.
         """
@@ -8095,7 +8095,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedManagedDisks")
-    def protected_managed_disks(self) -> Optional[List['outputs.InMageAzureV2ManagedDiskDetailsResponse']]:
+    def protected_managed_disks(self) -> Optional[Sequence['outputs.InMageAzureV2ManagedDiskDetailsResponse']]:
         """
         The list of protected managed disks.
         """
@@ -8167,7 +8167,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncProgressPercentage")
-    def resync_progress_percentage(self) -> Optional[float]:
+    def resync_progress_percentage(self) -> Optional[int]:
         """
         The resync progress percentage.
         """
@@ -8175,7 +8175,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         The RPO in seconds.
         """
@@ -8207,7 +8207,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmCpuCount")
-    def source_vm_cpu_count(self) -> Optional[float]:
+    def source_vm_cpu_count(self) -> Optional[int]:
         """
         The CPU count of the VM on the primary side.
         """
@@ -8215,7 +8215,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmRamSizeInMB")
-    def source_vm_ram_size_in_mb(self) -> Optional[float]:
+    def source_vm_ram_size_in_mb(self) -> Optional[int]:
         """
         The RAM size of the VM on the primary side.
         """
@@ -8271,7 +8271,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="validationErrors")
-    def validation_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def validation_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         The validation errors of the on-premise machine Value can be list of validation errors.
         """
@@ -8295,7 +8295,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -8328,17 +8328,17 @@ class InMageBasePolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
                  multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[float] = None,
-                 recovery_point_threshold_in_minutes: Optional[float] = None):
+                 recovery_point_history: Optional[int] = None,
+                 recovery_point_threshold_in_minutes: Optional[int] = None):
         """
         Base class for the policies of providers using InMage replication.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param float recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param float recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "instance_type", 'InMageBasePolicyDetails')
         if app_consistent_frequency_in_minutes is not None:
@@ -8360,7 +8360,7 @@ class InMageBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -8376,7 +8376,7 @@ class InMageBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[float]:
+    def recovery_point_history(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -8384,7 +8384,7 @@ class InMageBasePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[float]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
         """
         The recovery point threshold in minutes.
         """
@@ -8401,17 +8401,17 @@ class InMagePolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
                  multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[float] = None,
-                 recovery_point_threshold_in_minutes: Optional[float] = None):
+                 recovery_point_history: Optional[int] = None,
+                 recovery_point_threshold_in_minutes: Optional[int] = None):
         """
         InMage specific protection profile details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param float recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param float recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "instance_type", 'InMage')
         if app_consistent_frequency_in_minutes is not None:
@@ -8433,7 +8433,7 @@ class InMagePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -8449,7 +8449,7 @@ class InMagePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[float]:
+    def recovery_point_history(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -8457,7 +8457,7 @@ class InMagePolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[float]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
         """
         The recovery point threshold in minutes.
         """
@@ -8473,36 +8473,36 @@ class InMageProtectedDiskDetailsResponse(dict):
     InMage protected disk details.
     """
     def __init__(__self__, *,
-                 disk_capacity_in_bytes: Optional[float] = None,
+                 disk_capacity_in_bytes: Optional[int] = None,
                  disk_id: Optional[str] = None,
                  disk_name: Optional[str] = None,
                  disk_resized: Optional[str] = None,
-                 file_system_capacity_in_bytes: Optional[float] = None,
+                 file_system_capacity_in_bytes: Optional[int] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mb: Optional[float] = None,
-                 resync_duration_in_seconds: Optional[float] = None,
-                 resync_progress_percentage: Optional[float] = None,
+                 resync_duration_in_seconds: Optional[int] = None,
+                 resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
-                 rpo_in_seconds: Optional[float] = None,
+                 rpo_in_seconds: Optional[int] = None,
                  source_data_in_mb: Optional[float] = None,
                  target_data_in_mb: Optional[float] = None):
         """
         InMage protected disk details.
-        :param float disk_capacity_in_bytes: The disk capacity in bytes.
+        :param int disk_capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_resized: A value indicating whether disk is resized.
-        :param float file_system_capacity_in_bytes: The file system capacity in bytes.
+        :param int file_system_capacity_in_bytes: The file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mb: The PS data transit in MB.
-        :param float resync_duration_in_seconds: The resync duration in seconds.
-        :param float resync_progress_percentage: The resync progress percentage.
+        :param int resync_duration_in_seconds: The resync duration in seconds.
+        :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
-        :param float rpo_in_seconds: The RPO in seconds.
+        :param int rpo_in_seconds: The RPO in seconds.
         :param float source_data_in_mb: The source data transit in MB.
         :param float target_data_in_mb: The target data transit in MB.
         """
@@ -8539,7 +8539,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
-    def disk_capacity_in_bytes(self) -> Optional[float]:
+    def disk_capacity_in_bytes(self) -> Optional[int]:
         """
         The disk capacity in bytes.
         """
@@ -8571,7 +8571,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="fileSystemCapacityInBytes")
-    def file_system_capacity_in_bytes(self) -> Optional[float]:
+    def file_system_capacity_in_bytes(self) -> Optional[int]:
         """
         The file system capacity in bytes.
         """
@@ -8611,7 +8611,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncDurationInSeconds")
-    def resync_duration_in_seconds(self) -> Optional[float]:
+    def resync_duration_in_seconds(self) -> Optional[int]:
         """
         The resync duration in seconds.
         """
@@ -8619,7 +8619,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resyncProgressPercentage")
-    def resync_progress_percentage(self) -> Optional[float]:
+    def resync_progress_percentage(self) -> Optional[int]:
         """
         The resync progress percentage.
         """
@@ -8635,7 +8635,7 @@ class InMageProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         The RPO in seconds.
         """
@@ -8673,7 +8673,7 @@ class InMageReplicationDetailsResponse(dict):
                  azure_storage_account_id: Optional[str] = None,
                  compressed_data_rate_in_mb: Optional[float] = None,
                  consistency_points: Optional[Mapping[str, str]] = None,
-                 datastores: Optional[List[str]] = None,
+                 datastores: Optional[Sequence[str]] = None,
                  discovery_type: Optional[str] = None,
                  disk_resized: Optional[str] = None,
                  infrastructure_vm_id: Optional[str] = None,
@@ -8688,21 +8688,21 @@ class InMageReplicationDetailsResponse(dict):
                  os_details: Optional['outputs.OSDiskDetailsResponse'] = None,
                  os_version: Optional[str] = None,
                  process_server_id: Optional[str] = None,
-                 protected_disks: Optional[List['outputs.InMageProtectedDiskDetailsResponse']] = None,
+                 protected_disks: Optional[Sequence['outputs.InMageProtectedDiskDetailsResponse']] = None,
                  protection_stage: Optional[str] = None,
                  reboot_after_update_status: Optional[str] = None,
                  replica_id: Optional[str] = None,
                  resync_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
                  retention_window_end: Optional[str] = None,
                  retention_window_start: Optional[str] = None,
-                 rpo_in_seconds: Optional[float] = None,
-                 source_vm_cpu_count: Optional[float] = None,
-                 source_vm_ram_size_in_mb: Optional[float] = None,
+                 rpo_in_seconds: Optional[int] = None,
+                 source_vm_cpu_count: Optional[int] = None,
+                 source_vm_ram_size_in_mb: Optional[int] = None,
                  uncompressed_data_rate_in_mb: Optional[float] = None,
                  v_center_infrastructure_id: Optional[str] = None,
-                 validation_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  vm_id: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMNicDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
@@ -8713,7 +8713,7 @@ class InMageReplicationDetailsResponse(dict):
         :param str azure_storage_account_id: A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Mapping[str, str] consistency_points: The collection of Consistency points.
-        :param List[str] datastores: The data stores of the on-premise machine Value can be list of strings that contain data store names
+        :param Sequence[str] datastores: The data stores of the on-premise machine Value can be list of strings that contain data store names
         :param str discovery_type: A value indicating the discovery type of the machine.
         :param str disk_resized: A value indicating whether any disk is resized for this VM.
         :param str infrastructure_vm_id: The infrastructure VM Id.
@@ -8728,21 +8728,21 @@ class InMageReplicationDetailsResponse(dict):
         :param 'OSDiskDetailsResponseArgs' os_details: The OS details.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
-        :param List['InMageProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['InMageProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
         :param str protection_stage: The protection stage.
         :param str reboot_after_update_status: A value indicating whether the source server requires a restart after update.
         :param str replica_id: The replica id of the protected item.
         :param 'InitialReplicationDetailsResponseArgs' resync_details: The resync details of the machine
         :param str retention_window_end: The retention window end time.
         :param str retention_window_start: The retention window start time.
-        :param float rpo_in_seconds: The RPO in seconds.
-        :param float source_vm_cpu_count: The CPU count of the VM on the primary side.
-        :param float source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param int rpo_in_seconds: The RPO in seconds.
+        :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
+        :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param List['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
+        :param Sequence['HealthErrorResponseArgs'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
         :param str vm_id: The virtual machine Id.
-        :param List['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
+        :param Sequence['VMNicDetailsResponseArgs'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
@@ -8872,7 +8872,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def datastores(self) -> Optional[List[str]]:
+    def datastores(self) -> Optional[Sequence[str]]:
         """
         The data stores of the on-premise machine Value can be list of strings that contain data store names
         """
@@ -8992,7 +8992,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedDisks")
-    def protected_disks(self) -> Optional[List['outputs.InMageProtectedDiskDetailsResponse']]:
+    def protected_disks(self) -> Optional[Sequence['outputs.InMageProtectedDiskDetailsResponse']]:
         """
         The list of protected disks.
         """
@@ -9048,7 +9048,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="rpoInSeconds")
-    def rpo_in_seconds(self) -> Optional[float]:
+    def rpo_in_seconds(self) -> Optional[int]:
         """
         The RPO in seconds.
         """
@@ -9056,7 +9056,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmCpuCount")
-    def source_vm_cpu_count(self) -> Optional[float]:
+    def source_vm_cpu_count(self) -> Optional[int]:
         """
         The CPU count of the VM on the primary side.
         """
@@ -9064,7 +9064,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceVmRamSizeInMB")
-    def source_vm_ram_size_in_mb(self) -> Optional[float]:
+    def source_vm_ram_size_in_mb(self) -> Optional[int]:
         """
         The RAM size of the VM on the primary side.
         """
@@ -9088,7 +9088,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="validationErrors")
-    def validation_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def validation_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         The validation errors of the on-premise machine Value can be list of validation errors
         """
@@ -9104,7 +9104,7 @@ class InMageReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMNicDetailsResponse']]:
         """
         The PE Network details.
         """
@@ -9333,15 +9333,15 @@ class InputEndpointResponse(dict):
     """
     def __init__(__self__, *,
                  endpoint_name: Optional[str] = None,
-                 private_port: Optional[float] = None,
+                 private_port: Optional[int] = None,
                  protocol: Optional[str] = None,
-                 public_port: Optional[float] = None):
+                 public_port: Optional[int] = None):
         """
         Azure VM input endpoint details.
         :param str endpoint_name: The input endpoint name.
-        :param float private_port: The input endpoint private port.
+        :param int private_port: The input endpoint private port.
         :param str protocol: The input endpoint protocol.
-        :param float public_port: The input endpoint public port.
+        :param int public_port: The input endpoint public port.
         """
         if endpoint_name is not None:
             pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -9362,7 +9362,7 @@ class InputEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="privatePort")
-    def private_port(self) -> Optional[float]:
+    def private_port(self) -> Optional[int]:
         """
         The input endpoint private port.
         """
@@ -9378,7 +9378,7 @@ class InputEndpointResponse(dict):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[float]:
+    def public_port(self) -> Optional[int]:
         """
         The input endpoint public port.
         """
@@ -9395,12 +9395,12 @@ class InquiryInfoResponse(dict):
     """
     def __init__(__self__, *,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
-                 inquiry_details: Optional[List['outputs.WorkloadInquiryDetailsResponse']] = None,
+                 inquiry_details: Optional[Sequence['outputs.WorkloadInquiryDetailsResponse']] = None,
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
         :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param List['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -9422,7 +9422,7 @@ class InquiryInfoResponse(dict):
 
     @property
     @pulumi.getter(name="inquiryDetails")
-    def inquiry_details(self) -> Optional[List['outputs.WorkloadInquiryDetailsResponse']]:
+    def inquiry_details(self) -> Optional[Sequence['outputs.WorkloadInquiryDetailsResponse']]:
         """
         Inquiry Details which will have workload specific details.
         For e.g. - For SQL and oracle this will contain different details.
@@ -9497,11 +9497,11 @@ class KPIResourceHealthDetailsResponse(dict):
     KPI Resource Health Details
     """
     def __init__(__self__, *,
-                 resource_health_details: Optional[List['outputs.ResourceHealthDetailsResponse']] = None,
+                 resource_health_details: Optional[Sequence['outputs.ResourceHealthDetailsResponse']] = None,
                  resource_health_status: Optional[str] = None):
         """
         KPI Resource Health Details
-        :param List['ResourceHealthDetailsResponseArgs'] resource_health_details: Resource Health Status
+        :param Sequence['ResourceHealthDetailsResponseArgs'] resource_health_details: Resource Health Status
         :param str resource_health_status: Resource Health Status
         """
         if resource_health_details is not None:
@@ -9511,7 +9511,7 @@ class KPIResourceHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="resourceHealthDetails")
-    def resource_health_details(self) -> Optional[List['outputs.ResourceHealthDetailsResponse']]:
+    def resource_health_details(self) -> Optional[Sequence['outputs.ResourceHealthDetailsResponse']]:
         """
         Resource Health Status
         """
@@ -9635,15 +9635,15 @@ class MABContainerHealthDetailsResponse(dict):
     MAB workload-specific Health Details.
     """
     def __init__(__self__, *,
-                 code: Optional[float] = None,
+                 code: Optional[int] = None,
                  message: Optional[str] = None,
-                 recommendations: Optional[List[str]] = None,
+                 recommendations: Optional[Sequence[str]] = None,
                  title: Optional[str] = None):
         """
         MAB workload-specific Health Details.
-        :param float code: Health Code
+        :param int code: Health Code
         :param str message: Health Message
-        :param List[str] recommendations: Health Recommended Actions
+        :param Sequence[str] recommendations: Health Recommended Actions
         :param str title: Health Title
         """
         if code is not None:
@@ -9657,7 +9657,7 @@ class MABContainerHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[float]:
+    def code(self) -> Optional[int]:
         """
         Health Code
         """
@@ -9673,7 +9673,7 @@ class MABContainerHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> Optional[List[str]]:
+    def recommendations(self) -> Optional[Sequence[str]]:
         """
         Health Recommended Actions
         """
@@ -9698,14 +9698,14 @@ class MabContainerExtendedInfoResponse(dict):
     """
     def __init__(__self__, *,
                  backup_item_type: Optional[str] = None,
-                 backup_items: Optional[List[str]] = None,
+                 backup_items: Optional[Sequence[str]] = None,
                  last_backup_status: Optional[str] = None,
                  last_refreshed_at: Optional[str] = None,
                  policy_name: Optional[str] = None):
         """
         Additional information of the container.
         :param str backup_item_type: Type of backup items associated with this container.
-        :param List[str] backup_items: List of backup items associated with this container.
+        :param Sequence[str] backup_items: List of backup items associated with this container.
         :param str last_backup_status: Latest backup status of this container.
         :param str last_refreshed_at: Time stamp when this container was refreshed.
         :param str policy_name: Backup policy associated with this container.
@@ -9731,7 +9731,7 @@ class MabContainerExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[List[str]]:
+    def backup_items(self) -> Optional[Sequence[str]]:
         """
         List of backup items associated with this container.
         """
@@ -9775,13 +9775,13 @@ class MabContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_health_state: Optional[str] = None,
-                 container_id: Optional[float] = None,
+                 container_id: Optional[int] = None,
                  container_type: Optional[str] = None,
                  extended_info: Optional['outputs.MabContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 mab_container_health_details: Optional[List['outputs.MABContainerHealthDetailsResponse']] = None,
-                 protected_item_count: Optional[float] = None,
+                 mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
+                 protected_item_count: Optional[int] = None,
                  registration_status: Optional[str] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -9789,7 +9789,7 @@ class MabContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
-        :param float container_id: ContainerID represents the container.
+        :param int container_id: ContainerID represents the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -9797,8 +9797,8 @@ class MabContainerResponse(dict):
         :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param List['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
-        :param float protected_item_count: Number of items backed up in this container.
+        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param int protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         if agent_version is not None:
@@ -9860,7 +9860,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[float]:
+    def container_id(self) -> Optional[int]:
         """
         ContainerID represents the container.
         """
@@ -9903,7 +9903,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="mabContainerHealthDetails")
-    def mab_container_health_details(self) -> Optional[List['outputs.MABContainerHealthDetailsResponse']]:
+    def mab_container_health_details(self) -> Optional[Sequence['outputs.MABContainerHealthDetailsResponse']]:
         """
         Health details on this mab container.
         """
@@ -9911,7 +9911,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of items backed up in this container.
         """
@@ -9937,12 +9937,12 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  last_refreshed_at: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
-                 recovery_point_count: Optional[float] = None):
+                 recovery_point_count: Optional[int] = None):
         """
         Additional information on the backed up item.
         :param str last_refreshed_at: Last time when the agent data synced to service.
         :param str oldest_recovery_point: The oldest backup copy available.
-        :param float recovery_point_count: Number of backup copies associated with the backup item.
+        :param int recovery_point_count: Number of backup copies associated with the backup item.
         """
         if last_refreshed_at is not None:
             pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
@@ -9969,7 +9969,7 @@ class MabFileFolderProtectedItemExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[float]:
+    def recovery_point_count(self) -> Optional[int]:
         """
         Number of backup copies associated with the backup item.
         """
@@ -9991,7 +9991,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
-                 deferred_delete_sync_time_in_utc: Optional[float] = None,
+                 deferred_delete_sync_time_in_utc: Optional[int] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
@@ -10014,7 +10014,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param float deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param int deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponseArgs' extended_info: Additional information with this backup item.
@@ -10122,7 +10122,7 @@ class MabFileFolderProtectedItemResponse(dict):
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[float]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[int]:
         """
         Sync time for deferred deletion in UTC
         """
@@ -10251,13 +10251,13 @@ class MabProtectionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  backup_management_type: Optional[str] = None,
-                 protected_items_count: Optional[float] = None,
+                 protected_items_count: Optional[int] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
         The backup policy for the file or folder container.
         :param str backup_management_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param float protected_items_count: The number of items associated with this policy.
+        :param int protected_items_count: The number of items associated with this policy.
         :param Union['LongTermRetentionPolicyResponseArgs', 'SimpleRetentionPolicyResponseArgs'] retention_policy: The details specified in the Retention policy.
         :param Union['LongTermSchedulePolicyResponseArgs', 'SimpleSchedulePolicyResponseArgs'] schedule_policy: The schedule specified in the backup policy.
         """
@@ -10280,7 +10280,7 @@ class MabProtectionPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemsCount")
-    def protected_items_count(self) -> Optional[float]:
+    def protected_items_count(self) -> Optional[int]:
         """
         The number of items associated with this policy.
         """
@@ -10315,9 +10315,9 @@ class MasterTargetServerResponse(dict):
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
-                 data_stores: Optional[List['outputs.DataStoreResponse']] = None,
-                 disk_count: Optional[float] = None,
-                 health_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 data_stores: Optional[Sequence['outputs.DataStoreResponse']] = None,
+                 disk_count: Optional[int] = None,
+                 health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  id: Optional[str] = None,
                  ip_address: Optional[str] = None,
                  last_heartbeat: Optional[str] = None,
@@ -10327,17 +10327,17 @@ class MasterTargetServerResponse(dict):
                  name: Optional[str] = None,
                  os_type: Optional[str] = None,
                  os_version: Optional[str] = None,
-                 retention_volumes: Optional[List['outputs.RetentionVolumeResponse']] = None,
-                 validation_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 retention_volumes: Optional[Sequence['outputs.RetentionVolumeResponse']] = None,
+                 validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  version_status: Optional[str] = None):
         """
         Details of a Master Target Server.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The version of the scout component on the server.
         :param 'VersionDetailsResponseArgs' agent_version_details: Agent version details.
-        :param List['DataStoreResponseArgs'] data_stores: The list of data stores in the fabric.
-        :param float disk_count: Disk count of the master target.
-        :param List['HealthErrorResponseArgs'] health_errors: Health errors.
+        :param Sequence['DataStoreResponseArgs'] data_stores: The list of data stores in the fabric.
+        :param int disk_count: Disk count of the master target.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: Health errors.
         :param str id: The server Id.
         :param str ip_address: The IP address of the server.
         :param str last_heartbeat: The last heartbeat received from the server.
@@ -10347,8 +10347,8 @@ class MasterTargetServerResponse(dict):
         :param str name: The server name.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the master target.
-        :param List['RetentionVolumeResponseArgs'] retention_volumes: The retention volumes of Master target Server.
-        :param List['HealthErrorResponseArgs'] validation_errors: Validation errors.
+        :param Sequence['RetentionVolumeResponseArgs'] retention_volumes: The retention volumes of Master target Server.
+        :param Sequence['HealthErrorResponseArgs'] validation_errors: Validation errors.
         :param str version_status: Version status
         """
         if agent_expiry_date is not None:
@@ -10414,7 +10414,7 @@ class MasterTargetServerResponse(dict):
 
     @property
     @pulumi.getter(name="dataStores")
-    def data_stores(self) -> Optional[List['outputs.DataStoreResponse']]:
+    def data_stores(self) -> Optional[Sequence['outputs.DataStoreResponse']]:
         """
         The list of data stores in the fabric.
         """
@@ -10422,7 +10422,7 @@ class MasterTargetServerResponse(dict):
 
     @property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> Optional[float]:
+    def disk_count(self) -> Optional[int]:
         """
         Disk count of the master target.
         """
@@ -10430,7 +10430,7 @@ class MasterTargetServerResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrors")
-    def health_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         Health errors.
         """
@@ -10510,7 +10510,7 @@ class MasterTargetServerResponse(dict):
 
     @property
     @pulumi.getter(name="retentionVolumes")
-    def retention_volumes(self) -> Optional[List['outputs.RetentionVolumeResponse']]:
+    def retention_volumes(self) -> Optional[Sequence['outputs.RetentionVolumeResponse']]:
         """
         The retention volumes of Master target Server.
         """
@@ -10518,7 +10518,7 @@ class MasterTargetServerResponse(dict):
 
     @property
     @pulumi.getter(name="validationErrors")
-    def validation_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def validation_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         Validation errors.
         """
@@ -10542,10 +10542,10 @@ class MigrationItemPropertiesResponse(dict):
     Migration item properties.
     """
     def __init__(__self__, *,
-                 allowed_operations: List[str],
+                 allowed_operations: Sequence[str],
                  current_job: 'outputs.CurrentJobDetailsResponse',
                  health: str,
-                 health_errors: List['outputs.HealthErrorResponse'],
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
                  machine_name: str,
                  migration_state: str,
                  migration_state_description: str,
@@ -10557,10 +10557,10 @@ class MigrationItemPropertiesResponse(dict):
                  provider_specific_details: Optional['outputs.VMwareCbtMigrationDetailsResponse'] = None):
         """
         Migration item properties.
-        :param List[str] allowed_operations: The allowed operations on the migration item, based on the current migration state of the item.
+        :param Sequence[str] allowed_operations: The allowed operations on the migration item, based on the current migration state of the item.
         :param 'CurrentJobDetailsResponseArgs' current_job: The current job details.
         :param str health: The consolidated health.
-        :param List['HealthErrorResponseArgs'] health_errors: The list of health errors.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The list of health errors.
         :param str machine_name: The on-premise virtual machine name.
         :param str migration_state: The migration status.
         :param str migration_state_description: The migration state description.
@@ -10588,7 +10588,7 @@ class MigrationItemPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> List[str]:
+    def allowed_operations(self) -> Sequence[str]:
         """
         The allowed operations on the migration item, based on the current migration state of the item.
         """
@@ -10612,7 +10612,7 @@ class MigrationItemPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrors")
-    def health_errors(self) -> List['outputs.HealthErrorResponse']:
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
         """
         The list of health errors.
         """
@@ -10754,14 +10754,14 @@ class MonthlyRetentionScheduleResponse(dict):
                  retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
                  retention_schedule_format_type: Optional[str] = None,
                  retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         The monthly retention schedule.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of the retention policy.
         :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the monthly retention policy.
         :param str retention_schedule_format_type: Retention schedule format type for monthly retention policy.
         :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the monthly retention policy.
-        :param List[str] retention_times: Retention times of the retention policy.
+        :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if retention_duration is not None:
             pulumi.set(__self__, "retention_duration", retention_duration)
@@ -10808,7 +10808,7 @@ class MonthlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times of the retention policy.
         """
@@ -11282,37 +11282,37 @@ class ProcessServerResponse(dict):
                  mars_communication_status: str,
                  mars_registration_status: str,
                  ps_stats_refresh_time: str,
-                 throughput_in_bytes: float,
-                 throughput_in_m_bps: float,
+                 throughput_in_bytes: int,
+                 throughput_in_m_bps: int,
                  throughput_status: str,
-                 throughput_upload_pending_data_in_bytes: float,
+                 throughput_upload_pending_data_in_bytes: int,
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
-                 available_memory_in_bytes: Optional[float] = None,
-                 available_space_in_bytes: Optional[float] = None,
+                 available_memory_in_bytes: Optional[int] = None,
+                 available_space_in_bytes: Optional[int] = None,
                  cpu_load: Optional[str] = None,
                  cpu_load_status: Optional[str] = None,
                  friendly_name: Optional[str] = None,
-                 health_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  host_id: Optional[str] = None,
                  id: Optional[str] = None,
                  ip_address: Optional[str] = None,
                  last_heartbeat: Optional[str] = None,
                  machine_count: Optional[str] = None,
                  memory_usage_status: Optional[str] = None,
-                 mobility_service_updates: Optional[List['outputs.MobilityServiceUpdateResponse']] = None,
+                 mobility_service_updates: Optional[Sequence['outputs.MobilityServiceUpdateResponse']] = None,
                  os_type: Optional[str] = None,
                  os_version: Optional[str] = None,
                  ps_service_status: Optional[str] = None,
                  replication_pair_count: Optional[str] = None,
                  space_usage_status: Optional[str] = None,
                  ssl_cert_expiry_date: Optional[str] = None,
-                 ssl_cert_expiry_remaining_days: Optional[float] = None,
+                 ssl_cert_expiry_remaining_days: Optional[int] = None,
                  system_load: Optional[str] = None,
                  system_load_status: Optional[str] = None,
-                 total_memory_in_bytes: Optional[float] = None,
-                 total_space_in_bytes: Optional[float] = None,
+                 total_memory_in_bytes: Optional[int] = None,
+                 total_space_in_bytes: Optional[int] = None,
                  version_status: Optional[str] = None):
         """
         Details of the Process Server.
@@ -11320,37 +11320,37 @@ class ProcessServerResponse(dict):
         :param str mars_communication_status: The MARS communication status.
         :param str mars_registration_status: The MARS registration status.
         :param str ps_stats_refresh_time: The process server stats refresh time.
-        :param float throughput_in_bytes: The throughput in bytes.
-        :param float throughput_in_m_bps: The throughput in MBps.
+        :param int throughput_in_bytes: The throughput in bytes.
+        :param int throughput_in_m_bps: The throughput in MBps.
         :param str throughput_status: The throughput status.
-        :param float throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
+        :param int throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The version of the scout component on the server.
         :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
-        :param float available_memory_in_bytes: The available memory.
-        :param float available_space_in_bytes: The available space.
+        :param int available_memory_in_bytes: The available memory.
+        :param int available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
         :param str cpu_load_status: The CPU load status.
         :param str friendly_name: The Process Server's friendly name.
-        :param List['HealthErrorResponseArgs'] health_errors: Health errors.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: Health errors.
         :param str host_id: The agent generated Id.
         :param str id: The Process Server Id.
         :param str ip_address: The IP address of the server.
         :param str last_heartbeat: The last heartbeat received from the server.
         :param str machine_count: The servers configured with this PS.
         :param str memory_usage_status: The memory usage status.
-        :param List['MobilityServiceUpdateResponseArgs'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
+        :param Sequence['MobilityServiceUpdateResponseArgs'] mobility_service_updates: The list of the mobility service updates available on the Process Server.
         :param str os_type: The OS type of the server.
         :param str os_version: OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
         :param str ps_service_status: The PS service status.
         :param str replication_pair_count: The number of replication pairs configured in this PS.
         :param str space_usage_status: The space usage status.
         :param str ssl_cert_expiry_date: The PS SSL cert expiry date.
-        :param float ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
+        :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
         :param str system_load: The percentage of the system load.
         :param str system_load_status: The system load status.
-        :param float total_memory_in_bytes: The total memory.
-        :param float total_space_in_bytes: The total space.
+        :param int total_memory_in_bytes: The total memory.
+        :param int total_space_in_bytes: The total space.
         :param str version_status: Version status
         """
         pulumi.set(__self__, "health", health)
@@ -11452,7 +11452,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputInBytes")
-    def throughput_in_bytes(self) -> float:
+    def throughput_in_bytes(self) -> int:
         """
         The throughput in bytes.
         """
@@ -11460,7 +11460,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputInMBps")
-    def throughput_in_m_bps(self) -> float:
+    def throughput_in_m_bps(self) -> int:
         """
         The throughput in MBps.
         """
@@ -11476,7 +11476,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="throughputUploadPendingDataInBytes")
-    def throughput_upload_pending_data_in_bytes(self) -> float:
+    def throughput_upload_pending_data_in_bytes(self) -> int:
         """
         The uploading pending data in bytes.
         """
@@ -11508,7 +11508,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
-    def available_memory_in_bytes(self) -> Optional[float]:
+    def available_memory_in_bytes(self) -> Optional[int]:
         """
         The available memory.
         """
@@ -11516,7 +11516,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="availableSpaceInBytes")
-    def available_space_in_bytes(self) -> Optional[float]:
+    def available_space_in_bytes(self) -> Optional[int]:
         """
         The available space.
         """
@@ -11548,7 +11548,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrors")
-    def health_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         Health errors.
         """
@@ -11604,7 +11604,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="mobilityServiceUpdates")
-    def mobility_service_updates(self) -> Optional[List['outputs.MobilityServiceUpdateResponse']]:
+    def mobility_service_updates(self) -> Optional[Sequence['outputs.MobilityServiceUpdateResponse']]:
         """
         The list of the mobility service updates available on the Process Server.
         """
@@ -11660,7 +11660,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="sslCertExpiryRemainingDays")
-    def ssl_cert_expiry_remaining_days(self) -> Optional[float]:
+    def ssl_cert_expiry_remaining_days(self) -> Optional[int]:
         """
         CS SSL cert expiry date.
         """
@@ -11684,7 +11684,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="totalMemoryInBytes")
-    def total_memory_in_bytes(self) -> Optional[float]:
+    def total_memory_in_bytes(self) -> Optional[int]:
         """
         The total memory.
         """
@@ -11692,7 +11692,7 @@ class ProcessServerResponse(dict):
 
     @property
     @pulumi.getter(name="totalSpaceInBytes")
-    def total_space_in_bytes(self) -> Optional[float]:
+    def total_space_in_bytes(self) -> Optional[int]:
         """
         The total space.
         """
@@ -11717,7 +11717,7 @@ class ProtectionContainerMappingPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  health: Optional[str] = None,
-                 health_error_details: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  policy_friendly_name: Optional[str] = None,
                  policy_id: Optional[str] = None,
                  provider_specific_details: Optional[Any] = None,
@@ -11730,7 +11730,7 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         """
         Protection container mapping properties.
         :param str health: Health of pairing.
-        :param List['HealthErrorResponseArgs'] health_error_details: Health error.
+        :param Sequence['HealthErrorResponseArgs'] health_error_details: Health error.
         :param str policy_friendly_name: Friendly name of replication policy.
         :param str policy_id: Policy ARM Id.
         :param Union['A2AProtectionContainerMappingDetailsResponseArgs', 'VMwareCbtProtectionContainerMappingDetailsResponseArgs'] provider_specific_details: Provider specific provider details.
@@ -11774,7 +11774,7 @@ class ProtectionContainerMappingPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrorDetails")
-    def health_error_details(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_error_details(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         Health error.
         """
@@ -11863,19 +11863,19 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
-                 crash_consistent_frequency_in_minutes: Optional[float] = None,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None,
                  multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[float] = None,
-                 recovery_point_threshold_in_minutes: Optional[float] = None):
+                 recovery_point_history: Optional[int] = None,
+                 recovery_point_threshold_in_minutes: Optional[int] = None):
         """
         RCM based Azure migration specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
-        :param float crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param float recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param float recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
+        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
+        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
         pulumi.set(__self__, "instance_type", 'RcmAzureMigration')
         if app_consistent_frequency_in_minutes is not None:
@@ -11899,7 +11899,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -11907,7 +11907,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The crash consistent snapshot frequency in minutes.
         """
@@ -11923,7 +11923,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[float]:
+    def recovery_point_history(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -11931,7 +11931,7 @@ class RcmAzureMigrationPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[float]:
+    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
         """
         The recovery point threshold in minutes.
         """
@@ -11998,14 +11998,14 @@ class RecoveryPlanActionResponse(dict):
     def __init__(__self__, *,
                  action_name: str,
                  custom_details: Any,
-                 failover_directions: List[str],
-                 failover_types: List[str]):
+                 failover_directions: Sequence[str],
+                 failover_types: Sequence[str]):
         """
         Recovery plan action details.
         :param str action_name: The action name.
         :param Union['RecoveryPlanAutomationRunbookActionDetailsResponseArgs', 'RecoveryPlanManualActionDetailsResponseArgs', 'RecoveryPlanScriptActionDetailsResponseArgs'] custom_details: The custom details.
-        :param List[str] failover_directions: The list of failover directions.
-        :param List[str] failover_types: The list of failover types.
+        :param Sequence[str] failover_directions: The list of failover directions.
+        :param Sequence[str] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "custom_details", custom_details)
@@ -12030,7 +12030,7 @@ class RecoveryPlanActionResponse(dict):
 
     @property
     @pulumi.getter(name="failoverDirections")
-    def failover_directions(self) -> List[str]:
+    def failover_directions(self) -> Sequence[str]:
         """
         The list of failover directions.
         """
@@ -12038,7 +12038,7 @@ class RecoveryPlanActionResponse(dict):
 
     @property
     @pulumi.getter(name="failoverTypes")
-    def failover_types(self) -> List[str]:
+    def failover_types(self) -> Sequence[str]:
         """
         The list of failover types.
         """
@@ -12115,15 +12115,15 @@ class RecoveryPlanGroupResponse(dict):
     """
     def __init__(__self__, *,
                  group_type: str,
-                 end_group_actions: Optional[List['outputs.RecoveryPlanActionResponse']] = None,
-                 replication_protected_items: Optional[List['outputs.RecoveryPlanProtectedItemResponse']] = None,
-                 start_group_actions: Optional[List['outputs.RecoveryPlanActionResponse']] = None):
+                 end_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None,
+                 replication_protected_items: Optional[Sequence['outputs.RecoveryPlanProtectedItemResponse']] = None,
+                 start_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None):
         """
         Recovery plan group details.
         :param str group_type: The group type.
-        :param List['RecoveryPlanActionResponseArgs'] end_group_actions: The end group actions.
-        :param List['RecoveryPlanProtectedItemResponseArgs'] replication_protected_items: The list of protected items.
-        :param List['RecoveryPlanActionResponseArgs'] start_group_actions: The start group actions.
+        :param Sequence['RecoveryPlanActionResponseArgs'] end_group_actions: The end group actions.
+        :param Sequence['RecoveryPlanProtectedItemResponseArgs'] replication_protected_items: The list of protected items.
+        :param Sequence['RecoveryPlanActionResponseArgs'] start_group_actions: The start group actions.
         """
         pulumi.set(__self__, "group_type", group_type)
         if end_group_actions is not None:
@@ -12143,7 +12143,7 @@ class RecoveryPlanGroupResponse(dict):
 
     @property
     @pulumi.getter(name="endGroupActions")
-    def end_group_actions(self) -> Optional[List['outputs.RecoveryPlanActionResponse']]:
+    def end_group_actions(self) -> Optional[Sequence['outputs.RecoveryPlanActionResponse']]:
         """
         The end group actions.
         """
@@ -12151,7 +12151,7 @@ class RecoveryPlanGroupResponse(dict):
 
     @property
     @pulumi.getter(name="replicationProtectedItems")
-    def replication_protected_items(self) -> Optional[List['outputs.RecoveryPlanProtectedItemResponse']]:
+    def replication_protected_items(self) -> Optional[Sequence['outputs.RecoveryPlanProtectedItemResponse']]:
         """
         The list of protected items.
         """
@@ -12159,7 +12159,7 @@ class RecoveryPlanGroupResponse(dict):
 
     @property
     @pulumi.getter(name="startGroupActions")
-    def start_group_actions(self) -> Optional[List['outputs.RecoveryPlanActionResponse']]:
+    def start_group_actions(self) -> Optional[Sequence['outputs.RecoveryPlanActionResponse']]:
         """
         The start group actions.
         """
@@ -12212,14 +12212,14 @@ class RecoveryPlanPropertiesResponse(dict):
     Recovery plan custom details.
     """
     def __init__(__self__, *,
-                 provider_specific_details: List['outputs.RecoveryPlanA2ADetailsResponse'],
-                 allowed_operations: Optional[List[str]] = None,
+                 provider_specific_details: Sequence['outputs.RecoveryPlanA2ADetailsResponse'],
+                 allowed_operations: Optional[Sequence[str]] = None,
                  current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
                  current_scenario_status: Optional[str] = None,
                  current_scenario_status_description: Optional[str] = None,
                  failover_deployment_model: Optional[str] = None,
                  friendly_name: Optional[str] = None,
-                 groups: Optional[List['outputs.RecoveryPlanGroupResponse']] = None,
+                 groups: Optional[Sequence['outputs.RecoveryPlanGroupResponse']] = None,
                  last_planned_failover_time: Optional[str] = None,
                  last_test_failover_time: Optional[str] = None,
                  last_unplanned_failover_time: Optional[str] = None,
@@ -12227,17 +12227,17 @@ class RecoveryPlanPropertiesResponse(dict):
                  primary_fabric_id: Optional[str] = None,
                  recovery_fabric_friendly_name: Optional[str] = None,
                  recovery_fabric_id: Optional[str] = None,
-                 replication_providers: Optional[List[str]] = None):
+                 replication_providers: Optional[Sequence[str]] = None):
         """
         Recovery plan custom details.
-        :param List['RecoveryPlanA2ADetailsResponseArgs'] provider_specific_details: The provider id and provider specific details.
-        :param List[str] allowed_operations: The list of allowed operations.
+        :param Sequence['RecoveryPlanA2ADetailsResponseArgs'] provider_specific_details: The provider id and provider specific details.
+        :param Sequence[str] allowed_operations: The list of allowed operations.
         :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario details.
         :param str current_scenario_status: The recovery plan status.
         :param str current_scenario_status_description: The recovery plan status description.
         :param str failover_deployment_model: The failover deployment model.
         :param str friendly_name: The friendly name.
-        :param List['RecoveryPlanGroupResponseArgs'] groups: The recovery plan groups.
+        :param Sequence['RecoveryPlanGroupResponseArgs'] groups: The recovery plan groups.
         :param str last_planned_failover_time: The start time of the last planned failover.
         :param str last_test_failover_time: The start time of the last test failover.
         :param str last_unplanned_failover_time: The start time of the last unplanned failover.
@@ -12245,7 +12245,7 @@ class RecoveryPlanPropertiesResponse(dict):
         :param str primary_fabric_id: The primary fabric Id.
         :param str recovery_fabric_friendly_name: The recovery fabric friendly name.
         :param str recovery_fabric_id: The recovery fabric Id.
-        :param List[str] replication_providers: The list of replication providers.
+        :param Sequence[str] replication_providers: The list of replication providers.
         """
         pulumi.set(__self__, "provider_specific_details", provider_specific_details)
         if allowed_operations is not None:
@@ -12281,7 +12281,7 @@ class RecoveryPlanPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="providerSpecificDetails")
-    def provider_specific_details(self) -> List['outputs.RecoveryPlanA2ADetailsResponse']:
+    def provider_specific_details(self) -> Sequence['outputs.RecoveryPlanA2ADetailsResponse']:
         """
         The provider id and provider specific details.
         """
@@ -12289,7 +12289,7 @@ class RecoveryPlanPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> Optional[List[str]]:
+    def allowed_operations(self) -> Optional[Sequence[str]]:
         """
         The list of allowed operations.
         """
@@ -12337,7 +12337,7 @@ class RecoveryPlanPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[List['outputs.RecoveryPlanGroupResponse']]:
+    def groups(self) -> Optional[Sequence['outputs.RecoveryPlanGroupResponse']]:
         """
         The recovery plan groups.
         """
@@ -12401,7 +12401,7 @@ class RecoveryPlanPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="replicationProviders")
-    def replication_providers(self) -> Optional[List[str]]:
+    def replication_providers(self) -> Optional[Sequence[str]]:
         """
         The list of replication providers.
         """
@@ -12514,16 +12514,16 @@ class RecoveryServicesProviderPropertiesResponse(dict):
     Recovery services provider properties.
     """
     def __init__(__self__, *,
-                 allowed_scenarios: Optional[List[str]] = None,
+                 allowed_scenarios: Optional[Sequence[str]] = None,
                  authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
                  connection_status: Optional[str] = None,
                  dra_identifier: Optional[str] = None,
                  fabric_friendly_name: Optional[str] = None,
                  fabric_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
-                 health_error_details: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  last_heart_beat: Optional[str] = None,
-                 protected_item_count: Optional[float] = None,
+                 protected_item_count: Optional[int] = None,
                  provider_version: Optional[str] = None,
                  provider_version_details: Optional['outputs.VersionDetailsResponse'] = None,
                  provider_version_expiry_date: Optional[str] = None,
@@ -12532,16 +12532,16 @@ class RecoveryServicesProviderPropertiesResponse(dict):
                  server_version: Optional[str] = None):
         """
         Recovery services provider properties.
-        :param List[str] allowed_scenarios: The scenarios allowed on this provider.
+        :param Sequence[str] allowed_scenarios: The scenarios allowed on this provider.
         :param 'IdentityProviderDetailsResponseArgs' authentication_identity_details: The authentication identity details.
         :param str connection_status: A value indicating whether DRA is responsive.
         :param str dra_identifier: The DRA Id.
         :param str fabric_friendly_name: The fabric friendly name.
         :param str fabric_type: Type of the site.
         :param str friendly_name: Friendly name of the DRA.
-        :param List['HealthErrorResponseArgs'] health_error_details: The recovery services provider health error details.
+        :param Sequence['HealthErrorResponseArgs'] health_error_details: The recovery services provider health error details.
         :param str last_heart_beat: Time when last heartbeat was sent by the DRA.
-        :param float protected_item_count: Number of protected VMs currently managed by the DRA.
+        :param int protected_item_count: Number of protected VMs currently managed by the DRA.
         :param str provider_version: The provider version.
         :param 'VersionDetailsResponseArgs' provider_version_details: The provider version details.
         :param str provider_version_expiry_date: Expiry date of the version.
@@ -12584,7 +12584,7 @@ class RecoveryServicesProviderPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="allowedScenarios")
-    def allowed_scenarios(self) -> Optional[List[str]]:
+    def allowed_scenarios(self) -> Optional[Sequence[str]]:
         """
         The scenarios allowed on this provider.
         """
@@ -12640,7 +12640,7 @@ class RecoveryServicesProviderPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrorDetails")
-    def health_error_details(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_error_details(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         The recovery services provider health error details.
         """
@@ -12656,7 +12656,7 @@ class RecoveryServicesProviderPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of protected VMs currently managed by the DRA.
         """
@@ -12721,12 +12721,12 @@ class ReplicationProtectedItemPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  active_location: Optional[str] = None,
-                 allowed_operations: Optional[List[str]] = None,
+                 allowed_operations: Optional[Sequence[str]] = None,
                  current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
                  failover_health: Optional[str] = None,
                  failover_recovery_point_id: Optional[str] = None,
                  friendly_name: Optional[str] = None,
-                 health_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  last_successful_failover_time: Optional[str] = None,
                  last_successful_test_failover_time: Optional[str] = None,
                  policy_friendly_name: Optional[str] = None,
@@ -12750,12 +12750,12 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         """
         Replication protected item custom data details.
         :param str active_location: The Current active location of the PE.
-        :param List[str] allowed_operations: The allowed operations on the Replication protected item.
+        :param Sequence[str] allowed_operations: The allowed operations on the Replication protected item.
         :param 'CurrentScenarioDetailsResponseArgs' current_scenario: The current scenario.
         :param str failover_health: The consolidated failover health for the VM.
         :param str failover_recovery_point_id: The recovery point ARM Id to which the Vm was failed over.
         :param str friendly_name: The name.
-        :param List['HealthErrorResponseArgs'] health_errors: List of health errors.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: List of health errors.
         :param str last_successful_failover_time: The Last successful failover time.
         :param str last_successful_test_failover_time: The Last successful test failover time.
         :param str policy_friendly_name: The name of Policy governing this PE.
@@ -12842,7 +12842,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> Optional[List[str]]:
+    def allowed_operations(self) -> Optional[Sequence[str]]:
         """
         The allowed operations on the Replication protected item.
         """
@@ -12882,7 +12882,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrors")
-    def health_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         List of health errors.
         """
@@ -13058,15 +13058,15 @@ class ResourceHealthDetailsResponse(dict):
     Health Details for backup items.
     """
     def __init__(__self__, *,
-                 code: float,
+                 code: int,
                  message: str,
-                 recommendations: List[str],
+                 recommendations: Sequence[str],
                  title: str):
         """
         Health Details for backup items.
-        :param float code: Health Code
+        :param int code: Health Code
         :param str message: Health Message
-        :param List[str] recommendations: Health Recommended Actions
+        :param Sequence[str] recommendations: Health Recommended Actions
         :param str title: Health Title
         """
         pulumi.set(__self__, "code", code)
@@ -13076,7 +13076,7 @@ class ResourceHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> float:
+    def code(self) -> int:
         """
         Health Code
         """
@@ -13092,7 +13092,7 @@ class ResourceHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         Health Recommended Actions
         """
@@ -13116,11 +13116,11 @@ class RetentionDurationResponse(dict):
     Retention duration.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  duration_type: Optional[str] = None):
         """
         Retention duration.
-        :param float count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
+        :param int count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
                   For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
         :param str duration_type: The retention duration type of the retention policy.
         """
@@ -13131,7 +13131,7 @@ class RetentionDurationResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
            For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
@@ -13156,15 +13156,15 @@ class RetentionVolumeResponse(dict):
     The retention details of the MT.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: Optional[float] = None,
-                 free_space_in_bytes: Optional[float] = None,
-                 threshold_percentage: Optional[float] = None,
+                 capacity_in_bytes: Optional[int] = None,
+                 free_space_in_bytes: Optional[int] = None,
+                 threshold_percentage: Optional[int] = None,
                  volume_name: Optional[str] = None):
         """
         The retention details of the MT.
-        :param float capacity_in_bytes: The volume capacity.
-        :param float free_space_in_bytes: The free space available in this volume.
-        :param float threshold_percentage: The threshold percentage.
+        :param int capacity_in_bytes: The volume capacity.
+        :param int free_space_in_bytes: The free space available in this volume.
+        :param int threshold_percentage: The threshold percentage.
         :param str volume_name: The volume name.
         """
         if capacity_in_bytes is not None:
@@ -13178,7 +13178,7 @@ class RetentionVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> Optional[float]:
+    def capacity_in_bytes(self) -> Optional[int]:
         """
         The volume capacity.
         """
@@ -13186,7 +13186,7 @@ class RetentionVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="freeSpaceInBytes")
-    def free_space_in_bytes(self) -> Optional[float]:
+    def free_space_in_bytes(self) -> Optional[int]:
         """
         The free space available in this volume.
         """
@@ -13194,7 +13194,7 @@ class RetentionVolumeResponse(dict):
 
     @property
     @pulumi.getter(name="thresholdPercentage")
-    def threshold_percentage(self) -> Optional[float]:
+    def threshold_percentage(self) -> Optional[int]:
         """
         The threshold percentage.
         """
@@ -13295,17 +13295,17 @@ class SimpleSchedulePolicyResponse(dict):
     """
     def __init__(__self__, *,
                  schedule_policy_type: Optional[str] = None,
-                 schedule_run_days: Optional[List[str]] = None,
+                 schedule_run_days: Optional[Sequence[str]] = None,
                  schedule_run_frequency: Optional[str] = None,
-                 schedule_run_times: Optional[List[str]] = None,
-                 schedule_weekly_frequency: Optional[float] = None):
+                 schedule_run_times: Optional[Sequence[str]] = None,
+                 schedule_weekly_frequency: Optional[int] = None):
         """
         Simple policy schedule.
         :param str schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param List[str] schedule_run_days: This list is the days of the week when the schedule runs.
+        :param Sequence[str] schedule_run_days: This list is the days of the week when the schedule runs.
         :param str schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
-        :param List[str] schedule_run_times: List of times, during a day, when the schedule runs.
-        :param float schedule_weekly_frequency: The number of times per week the schedule runs.
+        :param Sequence[str] schedule_run_times: List of times, during a day, when the schedule runs.
+        :param int schedule_weekly_frequency: The number of times per week the schedule runs.
         """
         if schedule_policy_type is not None:
             pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
@@ -13328,7 +13328,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleRunDays")
-    def schedule_run_days(self) -> Optional[List[str]]:
+    def schedule_run_days(self) -> Optional[Sequence[str]]:
         """
         This list is the days of the week when the schedule runs.
         """
@@ -13344,7 +13344,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleRunTimes")
-    def schedule_run_times(self) -> Optional[List[str]]:
+    def schedule_run_times(self) -> Optional[Sequence[str]]:
         """
         List of times, during a day, when the schedule runs.
         """
@@ -13352,7 +13352,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleWeeklyFrequency")
-    def schedule_weekly_frequency(self) -> Optional[float]:
+    def schedule_weekly_frequency(self) -> Optional[int]:
         """
         The number of times per week the schedule runs.
         """
@@ -13535,7 +13535,7 @@ class VCenterPropertiesResponse(dict):
                  discovery_status: Optional[str] = None,
                  fabric_arm_resource_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
-                 health_errors: Optional[List['outputs.HealthErrorResponse']] = None,
+                 health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  infrastructure_id: Optional[str] = None,
                  internal_id: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -13548,7 +13548,7 @@ class VCenterPropertiesResponse(dict):
         :param str discovery_status: The VCenter discovery status.
         :param str fabric_arm_resource_name: The ARM resource name of the fabric containing this VCenter.
         :param str friendly_name: Friendly name of the vCenter.
-        :param List['HealthErrorResponseArgs'] health_errors: The health errors for this VCenter.
+        :param Sequence['HealthErrorResponseArgs'] health_errors: The health errors for this VCenter.
         :param str infrastructure_id: The infrastructure Id of vCenter.
         :param str internal_id: VCenter internal ID.
         :param str ip_address: The IP address of the vCenter.
@@ -13606,7 +13606,7 @@ class VCenterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="healthErrors")
-    def health_errors(self) -> Optional[List['outputs.HealthErrorResponse']]:
+    def health_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
         The health errors for this VCenter.
         """
@@ -13683,7 +13683,7 @@ class VMNicDetailsResponse(dict):
                  ip_address_type: Optional[str] = None,
                  nic_id: Optional[str] = None,
                  primary_nic_static_ip_address: Optional[str] = None,
-                 recovery_lb_backend_address_pool_ids: Optional[List[str]] = None,
+                 recovery_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
                  recovery_network_security_group_id: Optional[str] = None,
                  recovery_nic_ip_address_type: Optional[str] = None,
                  recovery_nic_name: Optional[str] = None,
@@ -13696,7 +13696,7 @@ class VMNicDetailsResponse(dict):
                  reuse_existing_nic: Optional[bool] = None,
                  selection_type: Optional[str] = None,
                  source_nic_arm_id: Optional[str] = None,
-                 tfo_ip_configs: Optional[List['outputs.IPConfigResponse']] = None,
+                 tfo_ip_configs: Optional[Sequence['outputs.IPConfigResponse']] = None,
                  tfo_network_security_group_id: Optional[str] = None,
                  tfo_recovery_nic_name: Optional[str] = None,
                  tfo_recovery_nic_resource_group_name: Optional[str] = None,
@@ -13712,7 +13712,7 @@ class VMNicDetailsResponse(dict):
         :param str ip_address_type: Ip address type.
         :param str nic_id: The nic Id.
         :param str primary_nic_static_ip_address: Primary nic static IP address.
-        :param List[str] recovery_lb_backend_address_pool_ids: The target backend address pools for the NIC.
+        :param Sequence[str] recovery_lb_backend_address_pool_ids: The target backend address pools for the NIC.
         :param str recovery_network_security_group_id: The id of the NSG associated with the NIC.
         :param str recovery_nic_ip_address_type: IP allocation type for recovery VM.
         :param str recovery_nic_name: The name of the NIC to be used when creating target NICs.
@@ -13725,7 +13725,7 @@ class VMNicDetailsResponse(dict):
         :param bool reuse_existing_nic: A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
         :param str selection_type: Selection type for failover.
         :param str source_nic_arm_id: The source nic ARM Id.
-        :param List['IPConfigResponseArgs'] tfo_ip_configs: The IP configurations to be used by NIC during test failover.
+        :param Sequence['IPConfigResponseArgs'] tfo_ip_configs: The IP configurations to be used by NIC during test failover.
         :param str tfo_network_security_group_id: The NSG to be used by NIC during test failover.
         :param str tfo_recovery_nic_name: The name of the NIC to be used when creating target NICs in TFO.
         :param str tfo_recovery_nic_resource_group_name: The resource group of the NIC to be used when creating target NICs in TFO.
@@ -13832,7 +13832,7 @@ class VMNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryLBBackendAddressPoolIds")
-    def recovery_lb_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def recovery_lb_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         The target backend address pools for the NIC.
         """
@@ -13936,7 +13936,7 @@ class VMNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="tfoIPConfigs")
-    def tfo_ip_configs(self) -> Optional[List['outputs.IPConfigResponse']]:
+    def tfo_ip_configs(self) -> Optional[Sequence['outputs.IPConfigResponse']]:
         """
         The IP configurations to be used by NIC during test failover.
         """
@@ -14025,14 +14025,14 @@ class VMwareCbtMigrationDetailsResponse(dict):
                  target_location: str,
                  vmware_machine_id: str,
                  license_type: Optional[str] = None,
-                 protected_disks: Optional[List['outputs.VMwareCbtProtectedDiskDetailsResponse']] = None,
+                 protected_disks: Optional[Sequence['outputs.VMwareCbtProtectedDiskDetailsResponse']] = None,
                  target_availability_set_id: Optional[str] = None,
                  target_boot_diagnostics_storage_account_id: Optional[str] = None,
                  target_network_id: Optional[str] = None,
                  target_resource_group_id: Optional[str] = None,
                  target_vm_name: Optional[str] = None,
                  target_vm_size: Optional[str] = None,
-                 vm_nics: Optional[List['outputs.VMwareCbtNicDetailsResponse']] = None):
+                 vm_nics: Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']] = None):
         """
         VMwareCbt provider specific settings
         :param str data_mover_run_as_account_id: The data mover RunAs account Id.
@@ -14044,14 +14044,14 @@ class VMwareCbtMigrationDetailsResponse(dict):
         :param str target_location: The target location.
         :param str vmware_machine_id: The ARM Id of the VM discovered in VMware.
         :param str license_type: License Type of the VM to be used.
-        :param List['VMwareCbtProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
+        :param Sequence['VMwareCbtProtectedDiskDetailsResponseArgs'] protected_disks: The list of protected disks.
         :param str target_availability_set_id: The target availability set Id.
         :param str target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
         :param str target_network_id: The target network Id.
         :param str target_resource_group_id: The target resource group Id.
         :param str target_vm_name: Target VM name.
         :param str target_vm_size: The target VM size.
-        :param List['VMwareCbtNicDetailsResponseArgs'] vm_nics: The network details.
+        :param Sequence['VMwareCbtNicDetailsResponseArgs'] vm_nics: The network details.
         """
         pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
         pulumi.set(__self__, "instance_type", 'VMwareCbt')
@@ -14154,7 +14154,7 @@ class VMwareCbtMigrationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="protectedDisks")
-    def protected_disks(self) -> Optional[List['outputs.VMwareCbtProtectedDiskDetailsResponse']]:
+    def protected_disks(self) -> Optional[Sequence['outputs.VMwareCbtProtectedDiskDetailsResponse']]:
         """
         The list of protected disks.
         """
@@ -14210,7 +14210,7 @@ class VMwareCbtMigrationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Optional[List['outputs.VMwareCbtNicDetailsResponse']]:
+    def vm_nics(self) -> Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']]:
         """
         The network details.
         """
@@ -14344,7 +14344,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
     VMwareCbt protected disk details.
     """
     def __init__(__self__, *,
-                 capacity_in_bytes: float,
+                 capacity_in_bytes: int,
                  disk_id: str,
                  disk_name: str,
                  disk_path: str,
@@ -14356,7 +14356,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
                  disk_type: Optional[str] = None):
         """
         VMwareCbt protected disk details.
-        :param float capacity_in_bytes: The disk capacity in bytes.
+        :param int capacity_in_bytes: The disk capacity in bytes.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_path: The disk path.
@@ -14381,7 +14381,7 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="capacityInBytes")
-    def capacity_in_bytes(self) -> float:
+    def capacity_in_bytes(self) -> int:
         """
         The disk capacity in bytes.
         """
@@ -14565,8 +14565,8 @@ class VMwareDetailsResponse(dict):
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
-                 available_memory_in_bytes: Optional[float] = None,
-                 available_space_in_bytes: Optional[float] = None,
+                 available_memory_in_bytes: Optional[int] = None,
+                 available_space_in_bytes: Optional[int] = None,
                  cpu_load: Optional[str] = None,
                  cpu_load_status: Optional[str] = None,
                  cs_service_status: Optional[str] = None,
@@ -14575,21 +14575,21 @@ class VMwareDetailsResponse(dict):
                  host_name: Optional[str] = None,
                  ip_address: Optional[str] = None,
                  last_heartbeat: Optional[str] = None,
-                 master_target_servers: Optional[List['outputs.MasterTargetServerResponse']] = None,
+                 master_target_servers: Optional[Sequence['outputs.MasterTargetServerResponse']] = None,
                  memory_usage_status: Optional[str] = None,
                  process_server_count: Optional[str] = None,
-                 process_servers: Optional[List['outputs.ProcessServerResponse']] = None,
+                 process_servers: Optional[Sequence['outputs.ProcessServerResponse']] = None,
                  protected_servers: Optional[str] = None,
                  ps_template_version: Optional[str] = None,
                  replication_pair_count: Optional[str] = None,
-                 run_as_accounts: Optional[List['outputs.RunAsAccountResponse']] = None,
+                 run_as_accounts: Optional[Sequence['outputs.RunAsAccountResponse']] = None,
                  space_usage_status: Optional[str] = None,
                  ssl_cert_expiry_date: Optional[str] = None,
-                 ssl_cert_expiry_remaining_days: Optional[float] = None,
+                 ssl_cert_expiry_remaining_days: Optional[int] = None,
                  system_load: Optional[str] = None,
                  system_load_status: Optional[str] = None,
-                 total_memory_in_bytes: Optional[float] = None,
-                 total_space_in_bytes: Optional[float] = None,
+                 total_memory_in_bytes: Optional[int] = None,
+                 total_space_in_bytes: Optional[int] = None,
                  version_status: Optional[str] = None,
                  web_load: Optional[str] = None,
                  web_load_status: Optional[str] = None):
@@ -14600,8 +14600,8 @@ class VMwareDetailsResponse(dict):
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent Version.
         :param 'VersionDetailsResponseArgs' agent_version_details: The agent version details.
-        :param float available_memory_in_bytes: The available memory.
-        :param float available_space_in_bytes: The available space.
+        :param int available_memory_in_bytes: The available memory.
+        :param int available_space_in_bytes: The available space.
         :param str cpu_load: The percentage of the CPU load.
         :param str cpu_load_status: The CPU load status.
         :param str cs_service_status: The CS service status.
@@ -14610,21 +14610,21 @@ class VMwareDetailsResponse(dict):
         :param str host_name: The host name.
         :param str ip_address: The IP address.
         :param str last_heartbeat: The last heartbeat received from CS server.
-        :param List['MasterTargetServerResponseArgs'] master_target_servers: The list of Master Target servers associated with the fabric.
+        :param Sequence['MasterTargetServerResponseArgs'] master_target_servers: The list of Master Target servers associated with the fabric.
         :param str memory_usage_status: The memory usage status.
         :param str process_server_count: The number of process servers.
-        :param List['ProcessServerResponseArgs'] process_servers: The list of Process Servers associated with the fabric.
+        :param Sequence['ProcessServerResponseArgs'] process_servers: The list of Process Servers associated with the fabric.
         :param str protected_servers: The number of protected servers.
         :param str ps_template_version: PS template version.
         :param str replication_pair_count: The number of replication pairs configured in this CS.
-        :param List['RunAsAccountResponseArgs'] run_as_accounts: The list of run as accounts created on the server.
+        :param Sequence['RunAsAccountResponseArgs'] run_as_accounts: The list of run as accounts created on the server.
         :param str space_usage_status: The space usage status.
         :param str ssl_cert_expiry_date: CS SSL cert expiry date.
-        :param float ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
+        :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
         :param str system_load: The percentage of the system load.
         :param str system_load_status: The system load status.
-        :param float total_memory_in_bytes: The total memory.
-        :param float total_space_in_bytes: The total space.
+        :param int total_memory_in_bytes: The total memory.
+        :param int total_space_in_bytes: The total space.
         :param str version_status: Version status
         :param str web_load: The web load.
         :param str web_load_status: The web load status.
@@ -14737,7 +14737,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
-    def available_memory_in_bytes(self) -> Optional[float]:
+    def available_memory_in_bytes(self) -> Optional[int]:
         """
         The available memory.
         """
@@ -14745,7 +14745,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="availableSpaceInBytes")
-    def available_space_in_bytes(self) -> Optional[float]:
+    def available_space_in_bytes(self) -> Optional[int]:
         """
         The available space.
         """
@@ -14817,7 +14817,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="masterTargetServers")
-    def master_target_servers(self) -> Optional[List['outputs.MasterTargetServerResponse']]:
+    def master_target_servers(self) -> Optional[Sequence['outputs.MasterTargetServerResponse']]:
         """
         The list of Master Target servers associated with the fabric.
         """
@@ -14841,7 +14841,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="processServers")
-    def process_servers(self) -> Optional[List['outputs.ProcessServerResponse']]:
+    def process_servers(self) -> Optional[Sequence['outputs.ProcessServerResponse']]:
         """
         The list of Process Servers associated with the fabric.
         """
@@ -14873,7 +14873,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="runAsAccounts")
-    def run_as_accounts(self) -> Optional[List['outputs.RunAsAccountResponse']]:
+    def run_as_accounts(self) -> Optional[Sequence['outputs.RunAsAccountResponse']]:
         """
         The list of run as accounts created on the server.
         """
@@ -14897,7 +14897,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sslCertExpiryRemainingDays")
-    def ssl_cert_expiry_remaining_days(self) -> Optional[float]:
+    def ssl_cert_expiry_remaining_days(self) -> Optional[int]:
         """
         CS SSL cert expiry date.
         """
@@ -14921,7 +14921,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalMemoryInBytes")
-    def total_memory_in_bytes(self) -> Optional[float]:
+    def total_memory_in_bytes(self) -> Optional[int]:
         """
         The total memory.
         """
@@ -14929,7 +14929,7 @@ class VMwareDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="totalSpaceInBytes")
-    def total_space_in_bytes(self) -> Optional[float]:
+    def total_space_in_bytes(self) -> Optional[int]:
         """
         The total space.
         """
@@ -15038,14 +15038,14 @@ class VaultPropertiesResponse(dict):
     Properties of the vault.
     """
     def __init__(__self__, *,
-                 private_endpoint_connections: List['outputs.PrivateEndpointConnectionVaultPropertiesResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse'],
                  private_endpoint_state_for_backup: str,
                  private_endpoint_state_for_site_recovery: str,
                  provisioning_state: str,
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
-        :param List['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
+        :param Sequence['PrivateEndpointConnectionVaultPropertiesResponseArgs'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
@@ -15060,7 +15060,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionVaultPropertiesResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse']:
         """
         List of private endpoint connection.
         """
@@ -15234,15 +15234,15 @@ class VmwareCbtPolicyDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[float] = None,
-                 crash_consistent_frequency_in_minutes: Optional[float] = None,
-                 recovery_point_history_in_minutes: Optional[float] = None):
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None,
+                 recovery_point_history_in_minutes: Optional[int] = None):
         """
         VMware Cbt specific policy details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
-        :param float app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
-        :param float crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
-        :param float recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
         pulumi.set(__self__, "instance_type", 'VMwareCbt')
         if app_consistent_frequency_in_minutes is not None:
@@ -15262,7 +15262,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The app consistent snapshot frequency in minutes.
         """
@@ -15270,7 +15270,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[float]:
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
         """
         The crash consistent snapshot frequency in minutes.
         """
@@ -15278,7 +15278,7 @@ class VmwareCbtPolicyDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="recoveryPointHistoryInMinutes")
-    def recovery_point_history_in_minutes(self) -> Optional[float]:
+    def recovery_point_history_in_minutes(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -15294,12 +15294,12 @@ class WeeklyRetentionFormatResponse(dict):
     Weekly retention format.
     """
     def __init__(__self__, *,
-                 days_of_the_week: Optional[List[str]] = None,
-                 weeks_of_the_month: Optional[List[str]] = None):
+                 days_of_the_week: Optional[Sequence[str]] = None,
+                 weeks_of_the_month: Optional[Sequence[str]] = None):
         """
         Weekly retention format.
-        :param List[str] days_of_the_week: List of days of the week.
-        :param List[str] weeks_of_the_month: List of weeks of the month.
+        :param Sequence[str] days_of_the_week: List of days of the week.
+        :param Sequence[str] weeks_of_the_month: List of weeks of the month.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -15308,7 +15308,7 @@ class WeeklyRetentionFormatResponse(dict):
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[List[str]]:
+    def days_of_the_week(self) -> Optional[Sequence[str]]:
         """
         List of days of the week.
         """
@@ -15316,7 +15316,7 @@ class WeeklyRetentionFormatResponse(dict):
 
     @property
     @pulumi.getter(name="weeksOfTheMonth")
-    def weeks_of_the_month(self) -> Optional[List[str]]:
+    def weeks_of_the_month(self) -> Optional[Sequence[str]]:
         """
         List of weeks of the month.
         """
@@ -15332,14 +15332,14 @@ class WeeklyRetentionScheduleResponse(dict):
     Weekly retention schedule.
     """
     def __init__(__self__, *,
-                 days_of_the_week: Optional[List[str]] = None,
+                 days_of_the_week: Optional[Sequence[str]] = None,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Weekly retention schedule.
-        :param List[str] days_of_the_week: List of the days of the week for the weekly retention policy.
+        :param Sequence[str] days_of_the_week: List of the days of the week for the weekly retention policy.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration of retention policy.
-        :param List[str] retention_times: Retention times of the retention policy.
+        :param Sequence[str] retention_times: Retention times of the retention policy.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -15350,7 +15350,7 @@ class WeeklyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[List[str]]:
+    def days_of_the_week(self) -> Optional[Sequence[str]]:
         """
         List of the days of the week for the weekly retention policy.
         """
@@ -15366,7 +15366,7 @@ class WeeklyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times of the retention policy.
         """
@@ -15383,12 +15383,12 @@ class WorkloadInquiryDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  inquiry_validation: Optional['outputs.InquiryValidationResponse'] = None,
-                 item_count: Optional[float] = None,
+                 item_count: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
         :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param float item_count: Contains the protectable item Count inside this Container.
+        :param int item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -15408,7 +15408,7 @@ class WorkloadInquiryDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[float]:
+    def item_count(self) -> Optional[int]:
         """
         Contains the protectable item Count inside this Container.
         """
@@ -15432,20 +15432,20 @@ class YearlyRetentionScheduleResponse(dict):
     Yearly retention schedule.
     """
     def __init__(__self__, *,
-                 months_of_year: Optional[List[str]] = None,
+                 months_of_year: Optional[Sequence[str]] = None,
                  retention_duration: Optional['outputs.RetentionDurationResponse'] = None,
                  retention_schedule_daily: Optional['outputs.DailyRetentionFormatResponse'] = None,
                  retention_schedule_format_type: Optional[str] = None,
                  retention_schedule_weekly: Optional['outputs.WeeklyRetentionFormatResponse'] = None,
-                 retention_times: Optional[List[str]] = None):
+                 retention_times: Optional[Sequence[str]] = None):
         """
         Yearly retention schedule.
-        :param List[str] months_of_year: List of the months of year for the yearly retention policy.
+        :param Sequence[str] months_of_year: List of the months of year for the yearly retention policy.
         :param 'RetentionDurationResponseArgs' retention_duration: Retention duration for the retention policy.
         :param 'DailyRetentionFormatResponseArgs' retention_schedule_daily: Daily retention format for the yearly retention policy.
         :param str retention_schedule_format_type: Retention schedule format for the yearly retention policy.
         :param 'WeeklyRetentionFormatResponseArgs' retention_schedule_weekly: Weekly retention format for the yearly retention policy.
-        :param List[str] retention_times: Retention times for the retention policy.
+        :param Sequence[str] retention_times: Retention times for the retention policy.
         """
         if months_of_year is not None:
             pulumi.set(__self__, "months_of_year", months_of_year)
@@ -15462,7 +15462,7 @@ class YearlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthsOfYear")
-    def months_of_year(self) -> Optional[List[str]]:
+    def months_of_year(self) -> Optional[Sequence[str]]:
         """
         List of the months of year for the yearly retention policy.
         """
@@ -15502,7 +15502,7 @@ class YearlyRetentionScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="retentionTimes")
-    def retention_times(self) -> Optional[List[str]]:
+    def retention_times(self) -> Optional[Sequence[str]]:
         """
         Retention times for the retention policy.
         """

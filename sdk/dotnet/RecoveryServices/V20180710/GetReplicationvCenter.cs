@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
         /// <summary>
         /// VCenter related data.
         /// </summary>
-        public readonly Outputs.VCenterPropertiesResponseResult Properties;
+        public readonly Outputs.VCenterPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
 
             string name,
 
-            Outputs.VCenterPropertiesResponseResult properties,
+            Outputs.VCenterPropertiesResponse properties,
 
             string type)
         {

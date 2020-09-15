@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -31,7 +31,7 @@ class Api(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-        :param pulumi.Input[List[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
@@ -263,7 +263,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> pulumi.Output[Optional[List[str]]]:
+    def protocols(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Describes on which protocols the operations in this API can be invoked.
         """

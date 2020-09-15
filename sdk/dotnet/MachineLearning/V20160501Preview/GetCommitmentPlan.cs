@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
         /// <summary>
         /// The commitment plan properties.
         /// </summary>
-        public readonly Outputs.CommitmentPlanPropertiesResponseResult Properties;
+        public readonly Outputs.CommitmentPlanPropertiesResponse Properties;
         /// <summary>
         /// The commitment plan SKU.
         /// </summary>
-        public readonly Outputs.ResourceSkuResponseResult? Sku;
+        public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
         /// User-defined tags for the resource.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureRM.MachineLearning.V20160501Preview
 
             string name,
 
-            Outputs.CommitmentPlanPropertiesResponseResult properties,
+            Outputs.CommitmentPlanPropertiesResponse properties,
 
-            Outputs.ResourceSkuResponseResult? sku,
+            Outputs.ResourceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

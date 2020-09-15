@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,21 +18,21 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 compute_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
-                 data_lake_store_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
+                 compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
+                 data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
                  default_data_lake_store_account: Optional[pulumi.Input[str]] = None,
                  firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
-                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
                  firewall_state: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_degree_of_parallelism: Optional[pulumi.Input[float]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[float]] = None,
-                 max_job_count: Optional[pulumi.Input[float]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[float]] = None,
+                 max_degree_of_parallelism: Optional[pulumi.Input[int]] = None,
+                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
+                 max_job_count: Optional[pulumi.Input[int]] = None,
+                 min_priority_per_job: Optional[pulumi.Input[int]] = None,
                  new_tier: Optional[pulumi.Input[str]] = None,
-                 query_store_retention: Optional[pulumi.Input[float]] = None,
+                 query_store_retention: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,21 +43,21 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]] compute_policies: The list of compute policies associated with this account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]] compute_policies: The list of compute policies associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
         :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this account.
         :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this account.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[float] max_degree_of_parallelism: The maximum supported degree of parallelism for this account.
-        :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum supported degree of parallelism per job for this account.
-        :param pulumi.Input[float] max_job_count: The maximum supported jobs running under the account at the same time.
-        :param pulumi.Input[float] min_priority_per_job: The minimum supported priority per job for this account.
+        :param pulumi.Input[int] max_degree_of_parallelism: The maximum supported degree of parallelism for this account.
+        :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum supported degree of parallelism per job for this account.
+        :param pulumi.Input[int] max_job_count: The maximum supported jobs running under the account at the same time.
+        :param pulumi.Input[int] min_priority_per_job: The minimum supported priority per job for this account.
         :param pulumi.Input[str] new_tier: The commitment tier for the next month.
-        :param pulumi.Input[float] query_store_retention: The number of days that job metadata is retained.
+        :param pulumi.Input[int] query_store_retention: The number of days that job metadata is retained.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
@@ -151,7 +151,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computePolicies")
-    def compute_policies(self) -> pulumi.Output[List['outputs.ComputePolicyResponse']]:
+    def compute_policies(self) -> pulumi.Output[Sequence['outputs.ComputePolicyResponse']]:
         """
         The list of compute policies associated with this account.
         """
@@ -175,7 +175,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLakeStoreAccounts")
-    def data_lake_store_accounts(self) -> pulumi.Output[List['outputs.DataLakeStoreAccountInformationResponse']]:
+    def data_lake_store_accounts(self) -> pulumi.Output[Sequence['outputs.DataLakeStoreAccountInformationResponse']]:
         """
         The list of Data Lake Store accounts associated with this account.
         """
@@ -207,7 +207,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> pulumi.Output[List['outputs.FirewallRuleResponse']]:
+    def firewall_rules(self) -> pulumi.Output[Sequence['outputs.FirewallRuleResponse']]:
         """
         The list of firewall rules associated with this account.
         """
@@ -239,7 +239,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> pulumi.Output[float]:
+    def max_degree_of_parallelism(self) -> pulumi.Output[int]:
         """
         The maximum supported degree of parallelism for this account.
         """
@@ -247,7 +247,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[float]:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Output[int]:
         """
         The maximum supported degree of parallelism per job for this account.
         """
@@ -255,7 +255,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> pulumi.Output[float]:
+    def max_job_count(self) -> pulumi.Output[int]:
         """
         The maximum supported jobs running under the account at the same time.
         """
@@ -263,7 +263,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> pulumi.Output[float]:
+    def min_priority_per_job(self) -> pulumi.Output[int]:
         """
         The minimum supported priority per job for this account.
         """
@@ -295,7 +295,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> pulumi.Output[float]:
+    def query_store_retention(self) -> pulumi.Output[int]:
         """
         The number of days that job metadata is retained.
         """
@@ -311,7 +311,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[List['outputs.StorageAccountInformationResponse']]:
+    def storage_accounts(self) -> pulumi.Output[Sequence['outputs.StorageAccountInformationResponse']]:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
@@ -319,7 +319,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemMaxDegreeOfParallelism")
-    def system_max_degree_of_parallelism(self) -> pulumi.Output[float]:
+    def system_max_degree_of_parallelism(self) -> pulumi.Output[int]:
         """
         The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         """
@@ -327,7 +327,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemMaxJobCount")
-    def system_max_job_count(self) -> pulumi.Output[float]:
+    def system_max_job_count(self) -> pulumi.Output[int]:
         """
         The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """

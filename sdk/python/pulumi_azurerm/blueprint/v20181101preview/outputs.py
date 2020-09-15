@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -29,13 +29,13 @@ class AssignmentLockSettingsResponse(dict):
     Defines how resources deployed by a blueprint assignment are locked.
     """
     def __init__(__self__, *,
-                 excluded_actions: Optional[List[str]] = None,
-                 excluded_principals: Optional[List[str]] = None,
+                 excluded_actions: Optional[Sequence[str]] = None,
+                 excluded_principals: Optional[Sequence[str]] = None,
                  mode: Optional[str] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
-        :param List[str] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-        :param List[str] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+        :param Sequence[str] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
+        :param Sequence[str] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         :param str mode: Lock mode.
         """
         if excluded_actions is not None:
@@ -47,7 +47,7 @@ class AssignmentLockSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="excludedActions")
-    def excluded_actions(self) -> Optional[List[str]]:
+    def excluded_actions(self) -> Optional[Sequence[str]]:
         """
         List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         """
@@ -55,7 +55,7 @@ class AssignmentLockSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="excludedPrincipals")
-    def excluded_principals(self) -> Optional[List[str]]:
+    def excluded_principals(self) -> Optional[Sequence[str]]:
         """
         List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         """
@@ -80,12 +80,12 @@ class AssignmentStatusResponse(dict):
     """
     def __init__(__self__, *,
                  last_modified: str,
-                 managed_resources: List[str],
+                 managed_resources: Sequence[str],
                  time_created: str):
         """
         The status of a blueprint assignment. This field is readonly.
         :param str last_modified: Last modified time of this blueprint definition.
-        :param List[str] managed_resources: List of resources that were created by the blueprint assignment.
+        :param Sequence[str] managed_resources: List of resources that were created by the blueprint assignment.
         :param str time_created: Creation time of this blueprint definition.
         """
         pulumi.set(__self__, "last_modified", last_modified)
@@ -102,7 +102,7 @@ class AssignmentStatusResponse(dict):
 
     @property
     @pulumi.getter(name="managedResources")
-    def managed_resources(self) -> List[str]:
+    def managed_resources(self) -> Sequence[str]:
         """
         List of resources that were created by the blueprint assignment.
         """
@@ -224,7 +224,7 @@ class ParameterDefinitionResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 allowed_values: Optional[List[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[Sequence[Mapping[str, Any]]] = None,
                  default_value: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
@@ -232,7 +232,7 @@ class ParameterDefinitionResponse(dict):
         """
         Represent a parameter with constrains and metadata.
         :param str type: Allowed data types for Resource Manager template parameters.
-        :param List[Mapping[str, Any]] allowed_values: Array of allowed values for this parameter.
+        :param Sequence[Mapping[str, Any]] allowed_values: Array of allowed values for this parameter.
         :param Mapping[str, Any] default_value: Default Value for this parameter.
         :param str description: Description of this parameter/resourceGroup.
         :param str display_name: DisplayName of this parameter/resourceGroup.
@@ -260,7 +260,7 @@ class ParameterDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[List[Mapping[str, Any]]]:
+    def allowed_values(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         Array of allowed values for this parameter.
         """
@@ -346,7 +346,7 @@ class ResourceGroupDefinitionResponse(dict):
     Represents an Azure resource group in a blueprint definition.
     """
     def __init__(__self__, *,
-                 depends_on: Optional[List[str]] = None,
+                 depends_on: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  location: Optional[str] = None,
@@ -355,7 +355,7 @@ class ResourceGroupDefinitionResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Represents an Azure resource group in a blueprint definition.
-        :param List[str] depends_on: Artifacts which need to be deployed before this resource group.
+        :param Sequence[str] depends_on: Artifacts which need to be deployed before this resource group.
         :param str description: Description of this parameter/resourceGroup.
         :param str display_name: DisplayName of this parameter/resourceGroup.
         :param str location: Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
@@ -380,7 +380,7 @@ class ResourceGroupDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List[str]]:
+    def depends_on(self) -> Optional[Sequence[str]]:
         """
         Artifacts which need to be deployed before this resource group.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets Pools of backend IP addresses
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.BackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BackendAddressPoolResponse>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -30,25 +30,25 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets frontend IP addresses of the load balancer
         /// </summary>
         [Output("frontendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets inbound NAT pools
         /// </summary>
         [Output("inboundNatPools")]
-        public Output<ImmutableArray<Outputs.InboundNatPoolResponseResult>> InboundNatPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InboundNatPoolResponse>> InboundNatPools { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets list of inbound rules
         /// </summary>
         [Output("inboundNatRules")]
-        public Output<ImmutableArray<Outputs.InboundNatRuleResponseResult>> InboundNatRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InboundNatRuleResponse>> InboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets load balancing rules
         /// </summary>
         [Output("loadBalancingRules")]
-        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponseResult>> LoadBalancingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponse>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets outbound NAT rules
         /// </summary>
         [Output("outboundNatRules")]
-        public Output<ImmutableArray<Outputs.OutboundNatRuleResponseResult>> OutboundNatRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OutboundNatRuleResponse>> OutboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets list of Load balancer probes
         /// </summary>
         [Output("probes")]
-        public Output<ImmutableArray<Outputs.ProbeResponseResult>> Probes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProbeResponse>> Probes { get; private set; } = null!;
 
         /// <summary>
         /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed

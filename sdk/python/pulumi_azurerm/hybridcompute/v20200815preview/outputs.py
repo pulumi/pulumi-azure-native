@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,12 +27,12 @@ class ErrorDetailResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 details: Optional[List['outputs.ErrorDetailResponse']] = None,
+                 details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
                  target: Optional[str] = None):
         """
         :param str code: The error's code.
         :param str message: A human readable error message.
-        :param List['ErrorDetailResponseArgs'] details: Additional error details.
+        :param Sequence['ErrorDetailResponseArgs'] details: Additional error details.
         :param str target: Indicates which property in the request is responsible for the error.
         """
         pulumi.set(__self__, "code", code)
@@ -60,7 +60,7 @@ class ErrorDetailResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[List['outputs.ErrorDetailResponse']]:
+    def details(self) -> Optional[Sequence['outputs.ErrorDetailResponse']]:
         """
         Additional error details.
         """

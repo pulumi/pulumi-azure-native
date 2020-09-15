@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.KubernetesConfiguration.V20191101Preview
         /// Compliance Status of the Configuration
         /// </summary>
         [Output("complianceStatus")]
-        public Output<Outputs.ComplianceStatusResponseResult> ComplianceStatus { get; private set; } = null!;
+        public Output<Outputs.ComplianceStatusResponse> ComplianceStatus { get; private set; } = null!;
 
         /// <summary>
         /// Option to enable Helm Operator for this git configuration.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.KubernetesConfiguration.V20191101Preview
         /// Properties for Helm operator.
         /// </summary>
         [Output("helmOperatorProperties")]
-        public Output<Outputs.HelmOperatorPropertiesResponseResult?> HelmOperatorProperties { get; private set; } = null!;
+        public Output<Outputs.HelmOperatorPropertiesResponse?> HelmOperatorProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource name

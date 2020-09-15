@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The reference to the Virtual Network Tap resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkTapResponseResult? VirtualNetworkTap;
+        public readonly Outputs.VirtualNetworkTapResponse? VirtualNetworkTap;
 
         [OutputConstructor]
         private GetNetworkInterfaceTapConfigurationResult(
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string type,
 
-            Outputs.VirtualNetworkTapResponseResult? virtualNetworkTap)
+            Outputs.VirtualNetworkTapResponse? virtualNetworkTap)
         {
             Etag = etag;
             Name = name;

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -116,14 +116,14 @@ class RunbookDraftArgs:
                  draft_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
                  in_edit: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
-                 output_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] creation_time: Gets or sets the creation time of the runbook draft.
         :param pulumi.Input['ContentLinkArgs'] draft_content_link: Gets or sets the draft runbook content link.
         :param pulumi.Input[bool] in_edit: Gets or sets whether runbook is in edit mode.
         :param pulumi.Input[str] last_modified_time: Gets or sets the last modified time of the runbook draft.
-        :param pulumi.Input[List[pulumi.Input[str]]] output_types: Gets or sets the runbook output types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] output_types: Gets or sets the runbook output types.
         :param pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
@@ -189,14 +189,14 @@ class RunbookDraftArgs:
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def output_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the runbook output types.
         """
         return pulumi.get(self, "output_types")
 
     @output_types.setter
-    def output_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def output_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "output_types", value)
 
     @property
@@ -217,13 +217,13 @@ class RunbookParameterArgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None,
                  is_mandatory: Optional[pulumi.Input[bool]] = None,
-                 position: Optional[pulumi.Input[float]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Definition of the runbook parameter type.
         :param pulumi.Input[str] default_value: Gets or sets the default value of parameter.
         :param pulumi.Input[bool] is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param pulumi.Input[float] position: Get or sets the position of the parameter.
+        :param pulumi.Input[int] position: Get or sets the position of the parameter.
         :param pulumi.Input[str] type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -261,14 +261,14 @@ class RunbookParameterArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input[float]]:
+    def position(self) -> Optional[pulumi.Input[int]]:
         """
         Get or sets the position of the parameter.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input[float]]):
+    def position(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "position", value)
 
     @property

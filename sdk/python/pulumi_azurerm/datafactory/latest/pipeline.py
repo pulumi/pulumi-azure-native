@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,9 +17,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activities: Optional[pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
-                 concurrency: Optional[pulumi.Input[float]] = None,
+                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 concurrency: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[pulumi.InputType['PipelineFolderArgs']]] = None,
@@ -36,9 +36,9 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]] activities: List of activities in pipeline.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Pipeline.
-        :param pulumi.Input[float] concurrency: The max number of concurrent runs for the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ControlActivityArgs'], pulumi.InputType['ExecutionActivityArgs']]]]] activities: List of activities in pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] annotations: List of tags that can be used for describing the Pipeline.
+        :param pulumi.Input[int] concurrency: The max number of concurrent runs for the pipeline.
         :param pulumi.Input[str] description: The description of the pipeline.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[pulumi.InputType['PipelineFolderArgs']] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
@@ -113,7 +113,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def activities(self) -> pulumi.Output[Optional[List[Any]]]:
+    def activities(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         """
         List of activities in pipeline.
         """
@@ -121,7 +121,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> pulumi.Output[Optional[List[Mapping[str, Any]]]]:
+    def annotations(self) -> pulumi.Output[Optional[Sequence[Mapping[str, Any]]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
@@ -129,7 +129,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def concurrency(self) -> pulumi.Output[Optional[float]]:
+    def concurrency(self) -> pulumi.Output[Optional[int]]:
         """
         The max number of concurrent runs for the pipeline.
         """

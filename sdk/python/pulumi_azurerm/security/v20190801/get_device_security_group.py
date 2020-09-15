@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,7 +42,7 @@ class GetDeviceSecurityGroupResult:
 
     @property
     @pulumi.getter(name="allowlistRules")
-    def allowlist_rules(self) -> Optional[List['outputs.AllowlistCustomAlertRuleResponse']]:
+    def allowlist_rules(self) -> Optional[Sequence['outputs.AllowlistCustomAlertRuleResponse']]:
         """
         The allow-list custom alert rules.
         """
@@ -50,7 +50,7 @@ class GetDeviceSecurityGroupResult:
 
     @property
     @pulumi.getter(name="denylistRules")
-    def denylist_rules(self) -> Optional[List['outputs.DenylistCustomAlertRuleResponse']]:
+    def denylist_rules(self) -> Optional[Sequence['outputs.DenylistCustomAlertRuleResponse']]:
         """
         The deny-list custom alert rules.
         """
@@ -66,7 +66,7 @@ class GetDeviceSecurityGroupResult:
 
     @property
     @pulumi.getter(name="thresholdRules")
-    def threshold_rules(self) -> Optional[List['outputs.ThresholdCustomAlertRuleResponse']]:
+    def threshold_rules(self) -> Optional[Sequence['outputs.ThresholdCustomAlertRuleResponse']]:
         """
         The list of custom alert threshold rules.
         """
@@ -74,7 +74,7 @@ class GetDeviceSecurityGroupResult:
 
     @property
     @pulumi.getter(name="timeWindowRules")
-    def time_window_rules(self) -> Optional[List['outputs.TimeWindowCustomAlertRuleResponse']]:
+    def time_window_rules(self) -> Optional[Sequence['outputs.TimeWindowCustomAlertRuleResponse']]:
         """
         The list of custom alert time-window rules.
         """

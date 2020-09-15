@@ -60,15 +60,15 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
         /// <summary>
         /// List of partner server information for the failover group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PartnerInfoResponseResult> PartnerServers;
+        public readonly ImmutableArray<Outputs.PartnerInfoResponse> PartnerServers;
         /// <summary>
         /// Read-only endpoint of the failover group instance.
         /// </summary>
-        public readonly Outputs.FailoverGroupReadOnlyEndpointResponseResult? ReadOnlyEndpoint;
+        public readonly Outputs.FailoverGroupReadOnlyEndpointResponse? ReadOnlyEndpoint;
         /// <summary>
         /// Read-write endpoint of the failover group instance.
         /// </summary>
-        public readonly Outputs.FailoverGroupReadWriteEndpointResponseResult ReadWriteEndpoint;
+        public readonly Outputs.FailoverGroupReadWriteEndpointResponse ReadWriteEndpoint;
         /// <summary>
         /// Local replication role of the failover group instance.
         /// </summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
 
             string name,
 
-            ImmutableArray<Outputs.PartnerInfoResponseResult> partnerServers,
+            ImmutableArray<Outputs.PartnerInfoResponse> partnerServers,
 
-            Outputs.FailoverGroupReadOnlyEndpointResponseResult? readOnlyEndpoint,
+            Outputs.FailoverGroupReadOnlyEndpointResponse? readOnlyEndpoint,
 
-            Outputs.FailoverGroupReadWriteEndpointResponseResult readWriteEndpoint,
+            Outputs.FailoverGroupReadWriteEndpointResponse readWriteEndpoint,
 
             string replicationRole,
 

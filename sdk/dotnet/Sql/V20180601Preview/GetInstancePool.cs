@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// <summary>
         /// The name and tier of the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource ID of the subnet to place this instance pool in.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
 
             string name,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string subnetId,
 

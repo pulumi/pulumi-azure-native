@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200701
         /// Settings for upgrading the agentpool
         /// </summary>
         [Output("upgradeSettings")]
-        public Output<Outputs.AgentPoolUpgradeSettingsResponseResult?> UpgradeSettings { get; private set; } = null!;
+        public Output<Outputs.AgentPoolUpgradeSettingsResponse?> UpgradeSettings { get; private set; } = null!;
 
         /// <summary>
         /// Size of agent VMs.

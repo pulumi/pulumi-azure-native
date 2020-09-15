@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// Describes the gallery unique name.
         /// </summary>
         [Output("identifier")]
-        public Output<Outputs.GalleryIdentifierResponseResult?> Identifier { get; private set; } = null!;
+        public Output<Outputs.GalleryIdentifierResponse?> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// Profile for gallery sharing to subscription or tenant
         /// </summary>
         [Output("sharingProfile")]
-        public Output<Outputs.SharingProfileResponseResult?> SharingProfile { get; private set; } = null!;
+        public Output<Outputs.SharingProfileResponse?> SharingProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

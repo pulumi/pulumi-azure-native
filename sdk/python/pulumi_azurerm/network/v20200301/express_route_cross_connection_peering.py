@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  ipv6_peering_config: Optional[pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']]] = None,
                  microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 vlan_id: Optional[pulumi.Input[float]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,7 +46,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['Ipv6ExpressRouteCircuitPeeringConfigArgs']] ipv6_peering_config: The IPv6 peering configuration.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[float] peer_asn: The peer ASN.
+        :param pulumi.Input[int] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] peering_type: The peering type.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
@@ -54,7 +54,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
         :param pulumi.Input[str] shared_key: The shared key.
         :param pulumi.Input[str] state: The peering state.
-        :param pulumi.Input[float] vlan_id: The VLAN ID.
+        :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,7 +128,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> pulumi.Output[float]:
+    def azure_asn(self) -> pulumi.Output[int]:
         """
         The Azure ASN.
         """
@@ -184,7 +184,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> pulumi.Output[Optional[float]]:
+    def peer_asn(self) -> pulumi.Output[Optional[int]]:
         """
         The peer ASN.
         """
@@ -256,7 +256,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> pulumi.Output[Optional[float]]:
+    def vlan_id(self) -> pulumi.Output[Optional[int]]:
         """
         The VLAN ID.
         """

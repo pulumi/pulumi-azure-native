@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Machine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_public_key: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MachineIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  location_data: Optional[pulumi.Input[pulumi.InputType['LocationDataArgs']]] = None,
@@ -35,7 +35,7 @@ class Machine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]] extensions: Machine Extensions information
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]]] extensions: Machine Extensions information
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['LocationDataArgs']] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] name: The name of the hybrid machine.
@@ -168,7 +168,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> pulumi.Output[List['outputs.ErrorDetailResponse']]:
+    def error_details(self) -> pulumi.Output[Sequence['outputs.ErrorDetailResponse']]:
         """
         Details about the error state.
         """
@@ -176,7 +176,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extensions(self) -> pulumi.Output[Optional[List['outputs.MachineExtensionInstanceViewResponse']]]:
+    def extensions(self) -> pulumi.Output[Optional[Sequence['outputs.MachineExtensionInstanceViewResponse']]]:
         """
         Machine Extensions information
         """
@@ -261,7 +261,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> pulumi.Output[List[str]]:
+    def private_link_scoped_resources(self) -> pulumi.Output[Sequence[str]]:
         """
         List of private link scoped resources associated with this machine.
         """

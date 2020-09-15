@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,14 +36,14 @@ class GetServerFarmResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
-            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, int):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a int")
         pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_sites and not isinstance(number_of_sites, float):
-            raise TypeError("Expected argument 'number_of_sites' to be a float")
+        if number_of_sites and not isinstance(number_of_sites, int):
+            raise TypeError("Expected argument 'number_of_sites' to be a int")
         pulumi.set(__self__, "number_of_sites", number_of_sites)
         if per_site_scaling and not isinstance(per_site_scaling, bool):
             raise TypeError("Expected argument 'per_site_scaling' to be a bool")
@@ -115,7 +115,7 @@ class GetServerFarmResult:
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> Optional[float]:
+    def maximum_number_of_workers(self) -> Optional[int]:
         """
         Maximum number of instances that can be assigned to this App Service Plan
         """
@@ -131,7 +131,7 @@ class GetServerFarmResult:
 
     @property
     @pulumi.getter(name="numberOfSites")
-    def number_of_sites(self) -> float:
+    def number_of_sites(self) -> int:
         """
         Number of web apps assigned to this App Service Plan
         """

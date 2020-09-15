@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -16,14 +16,14 @@ __all__ = [
 @pulumi.input_type
 class RemediationDeploymentSummaryArgs:
     def __init__(__self__, *,
-                 failed_deployments: Optional[pulumi.Input[float]] = None,
-                 successful_deployments: Optional[pulumi.Input[float]] = None,
-                 total_deployments: Optional[pulumi.Input[float]] = None):
+                 failed_deployments: Optional[pulumi.Input[int]] = None,
+                 successful_deployments: Optional[pulumi.Input[int]] = None,
+                 total_deployments: Optional[pulumi.Input[int]] = None):
         """
         The deployment status summary for all deployments created by the remediation.
-        :param pulumi.Input[float] failed_deployments: The number of deployments required by the remediation that have failed.
-        :param pulumi.Input[float] successful_deployments: The number of deployments required by the remediation that have succeeded.
-        :param pulumi.Input[float] total_deployments: The number of deployments required by the remediation.
+        :param pulumi.Input[int] failed_deployments: The number of deployments required by the remediation that have failed.
+        :param pulumi.Input[int] successful_deployments: The number of deployments required by the remediation that have succeeded.
+        :param pulumi.Input[int] total_deployments: The number of deployments required by the remediation.
         """
         if failed_deployments is not None:
             pulumi.set(__self__, "failed_deployments", failed_deployments)
@@ -34,62 +34,62 @@ class RemediationDeploymentSummaryArgs:
 
     @property
     @pulumi.getter(name="failedDeployments")
-    def failed_deployments(self) -> Optional[pulumi.Input[float]]:
+    def failed_deployments(self) -> Optional[pulumi.Input[int]]:
         """
         The number of deployments required by the remediation that have failed.
         """
         return pulumi.get(self, "failed_deployments")
 
     @failed_deployments.setter
-    def failed_deployments(self, value: Optional[pulumi.Input[float]]):
+    def failed_deployments(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failed_deployments", value)
 
     @property
     @pulumi.getter(name="successfulDeployments")
-    def successful_deployments(self) -> Optional[pulumi.Input[float]]:
+    def successful_deployments(self) -> Optional[pulumi.Input[int]]:
         """
         The number of deployments required by the remediation that have succeeded.
         """
         return pulumi.get(self, "successful_deployments")
 
     @successful_deployments.setter
-    def successful_deployments(self, value: Optional[pulumi.Input[float]]):
+    def successful_deployments(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "successful_deployments", value)
 
     @property
     @pulumi.getter(name="totalDeployments")
-    def total_deployments(self) -> Optional[pulumi.Input[float]]:
+    def total_deployments(self) -> Optional[pulumi.Input[int]]:
         """
         The number of deployments required by the remediation.
         """
         return pulumi.get(self, "total_deployments")
 
     @total_deployments.setter
-    def total_deployments(self, value: Optional[pulumi.Input[float]]):
+    def total_deployments(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_deployments", value)
 
 
 @pulumi.input_type
 class RemediationFiltersArgs:
     def __init__(__self__, *,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: The resource locations that will be remediated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The resource locations that will be remediated.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The resource locations that will be remediated.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
 
 

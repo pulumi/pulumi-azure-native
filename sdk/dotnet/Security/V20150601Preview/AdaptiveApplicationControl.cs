@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         public Output<string?> EnforcementMode { get; private set; } = null!;
 
         [Output("issues")]
-        public Output<ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult>> Issues { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse>> Issues { get; private set; } = null!;
 
         /// <summary>
         /// Location where the resource is stored
@@ -39,13 +39,13 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         public Output<string> Name { get; private set; } = null!;
 
         [Output("pathRecommendations")]
-        public Output<ImmutableArray<Outputs.PathRecommendationResponseResult>> PathRecommendations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PathRecommendationResponse>> PathRecommendations { get; private set; } = null!;
 
         /// <summary>
         /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
         [Output("protectionMode")]
-        public Output<Outputs.ProtectionModeResponseResult?> ProtectionMode { get; private set; } = null!;
+        public Output<Outputs.ProtectionModeResponse?> ProtectionMode { get; private set; } = null!;
 
         /// <summary>
         /// The recommendation status of the VM/server group or VM/server
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         public Output<string> Type { get; private set; } = null!;
 
         [Output("vmRecommendations")]
-        public Output<ImmutableArray<Outputs.VmRecommendationResponseResult>> VmRecommendations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VmRecommendationResponse>> VmRecommendations { get; private set; } = null!;
 
 
         /// <summary>

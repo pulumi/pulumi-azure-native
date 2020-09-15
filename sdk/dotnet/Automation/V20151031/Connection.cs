@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// Gets or sets the connectionType of the connection.
         /// </summary>
         [Output("connectionType")]
-        public Output<Outputs.ConnectionTypeAssociationPropertyResponseResult?> ConnectionType { get; private set; } = null!;
+        public Output<Outputs.ConnectionTypeAssociationPropertyResponse?> ConnectionType { get; private set; } = null!;
 
         /// <summary>
         /// Gets the creation time.

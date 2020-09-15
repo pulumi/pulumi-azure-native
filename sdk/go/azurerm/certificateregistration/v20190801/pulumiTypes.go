@@ -75,51 +75,6 @@ func (i AppServiceCertificateMap) ToAppServiceCertificateMapOutputWithContext(ct
 }
 
 // Key Vault container for a certificate that is purchased through Azure.
-type AppServiceCertificateOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificate)(nil)).Elem()
-}
-
-func (o AppServiceCertificateOutput) ToAppServiceCertificateOutput() AppServiceCertificateOutput {
-	return o
-}
-
-func (o AppServiceCertificateOutput) ToAppServiceCertificateOutputWithContext(ctx context.Context) AppServiceCertificateOutput {
-	return o
-}
-
-// Key Vault resource Id.
-func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
-}
-
-// Key Vault secret name.
-func (o AppServiceCertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
-}
-
-type AppServiceCertificateMapOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppServiceCertificate)(nil)).Elem()
-}
-
-func (o AppServiceCertificateMapOutput) ToAppServiceCertificateMapOutput() AppServiceCertificateMapOutput {
-	return o
-}
-
-func (o AppServiceCertificateMapOutput) ToAppServiceCertificateMapOutputWithContext(ctx context.Context) AppServiceCertificateMapOutput {
-	return o
-}
-
-func (o AppServiceCertificateMapOutput) MapIndex(k pulumi.StringInput) AppServiceCertificateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppServiceCertificate {
-		return vs[0].(map[string]AppServiceCertificate)[vs[1].(string)]
-	}).(AppServiceCertificateOutput)
-}
-
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponse struct {
 	// Key Vault resource Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -127,64 +82,6 @@ type AppServiceCertificateResponse struct {
 	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Status of the Key Vault secret.
 	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// AppServiceCertificateResponseInput is an input type that accepts AppServiceCertificateResponseArgs and AppServiceCertificateResponseOutput values.
-// You can construct a concrete instance of `AppServiceCertificateResponseInput` via:
-//
-//          AppServiceCertificateResponseArgs{...}
-type AppServiceCertificateResponseInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateResponseOutput() AppServiceCertificateResponseOutput
-	ToAppServiceCertificateResponseOutputWithContext(context.Context) AppServiceCertificateResponseOutput
-}
-
-// Key Vault container for a certificate that is purchased through Azure.
-type AppServiceCertificateResponseArgs struct {
-	// Key Vault resource Id.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key Vault secret name.
-	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
-	// Status of the Key Vault secret.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (AppServiceCertificateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateResponse)(nil)).Elem()
-}
-
-func (i AppServiceCertificateResponseArgs) ToAppServiceCertificateResponseOutput() AppServiceCertificateResponseOutput {
-	return i.ToAppServiceCertificateResponseOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateResponseArgs) ToAppServiceCertificateResponseOutputWithContext(ctx context.Context) AppServiceCertificateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseOutput)
-}
-
-// AppServiceCertificateResponseMapInput is an input type that accepts AppServiceCertificateResponseMap and AppServiceCertificateResponseMapOutput values.
-// You can construct a concrete instance of `AppServiceCertificateResponseMapInput` via:
-//
-//          AppServiceCertificateResponseMap{ "key": AppServiceCertificateResponseArgs{...} }
-type AppServiceCertificateResponseMapInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput
-	ToAppServiceCertificateResponseMapOutputWithContext(context.Context) AppServiceCertificateResponseMapOutput
-}
-
-type AppServiceCertificateResponseMap map[string]AppServiceCertificateResponseInput
-
-func (AppServiceCertificateResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppServiceCertificateResponse)(nil)).Elem()
-}
-
-func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput {
-	return i.ToAppServiceCertificateResponseMapOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseMapOutput)
 }
 
 // Key Vault container for a certificate that is purchased through Azure.
@@ -257,92 +154,6 @@ type CertificateDetailsResponse struct {
 	Thumbprint string `pulumi:"thumbprint"`
 	// Certificate Version.
 	Version int `pulumi:"version"`
-}
-
-// CertificateDetailsResponseInput is an input type that accepts CertificateDetailsResponseArgs and CertificateDetailsResponseOutput values.
-// You can construct a concrete instance of `CertificateDetailsResponseInput` via:
-//
-//          CertificateDetailsResponseArgs{...}
-type CertificateDetailsResponseInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsResponseOutput() CertificateDetailsResponseOutput
-	ToCertificateDetailsResponseOutputWithContext(context.Context) CertificateDetailsResponseOutput
-}
-
-// SSL certificate details.
-type CertificateDetailsResponseArgs struct {
-	// Certificate Issuer.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// Date Certificate is valid to.
-	NotAfter pulumi.StringInput `pulumi:"notAfter"`
-	// Date Certificate is valid from.
-	NotBefore pulumi.StringInput `pulumi:"notBefore"`
-	// Raw certificate data.
-	RawData pulumi.StringInput `pulumi:"rawData"`
-	// Certificate Serial Number.
-	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
-	// Certificate Signature algorithm.
-	SignatureAlgorithm pulumi.StringInput `pulumi:"signatureAlgorithm"`
-	// Certificate Subject.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// Certificate Thumbprint.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// Certificate Version.
-	Version pulumi.IntInput `pulumi:"version"`
-}
-
-func (CertificateDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDetailsResponse)(nil)).Elem()
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponseOutput() CertificateDetailsResponseOutput {
-	return i.ToCertificateDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponseOutputWithContext(ctx context.Context) CertificateDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponseOutput)
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return i.ToCertificateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponseOutput).ToCertificateDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// CertificateDetailsResponsePtrInput is an input type that accepts CertificateDetailsResponseArgs, CertificateDetailsResponsePtr and CertificateDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `CertificateDetailsResponsePtrInput` via:
-//
-//          CertificateDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificateDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput
-	ToCertificateDetailsResponsePtrOutputWithContext(context.Context) CertificateDetailsResponsePtrOutput
-}
-
-type certificateDetailsResponsePtrType CertificateDetailsResponseArgs
-
-func CertificateDetailsResponsePtr(v *CertificateDetailsResponseArgs) CertificateDetailsResponsePtrInput {
-	return (*certificateDetailsResponsePtrType)(v)
-}
-
-func (*certificateDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDetailsResponse)(nil)).Elem()
-}
-
-func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return i.ToCertificateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponsePtrOutput)
 }
 
 // SSL certificate details.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetConnectionMonitorResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if monitoring_interval_in_seconds and not isinstance(monitoring_interval_in_seconds, float):
-            raise TypeError("Expected argument 'monitoring_interval_in_seconds' to be a float")
+        if monitoring_interval_in_seconds and not isinstance(monitoring_interval_in_seconds, int):
+            raise TypeError("Expected argument 'monitoring_interval_in_seconds' to be a int")
         pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
         if monitoring_status and not isinstance(monitoring_status, str):
             raise TypeError("Expected argument 'monitoring_status' to be a str")
@@ -89,7 +89,7 @@ class GetConnectionMonitorResult:
 
     @property
     @pulumi.getter(name="monitoringIntervalInSeconds")
-    def monitoring_interval_in_seconds(self) -> Optional[float]:
+    def monitoring_interval_in_seconds(self) -> Optional[int]:
         """
         Monitoring interval in seconds.
         """

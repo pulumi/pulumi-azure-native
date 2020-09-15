@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview.Outputs
         /// <summary>
         /// Client secret for the Service Principal used by Kubernetes.
         /// </summary>
-        public readonly Outputs.ServicePrincipalPropertiesResponseResult ServicePrincipalConfiguration;
+        public readonly Outputs.ServicePrincipalPropertiesResponse ServicePrincipalConfiguration;
 
         [OutputConstructor]
         private ContainerServiceCredentialsResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170601Preview.Outputs
 
             string imagePullSecretName,
 
-            Outputs.ServicePrincipalPropertiesResponseResult servicePrincipalConfiguration)
+            Outputs.ServicePrincipalPropertiesResponse servicePrincipalConfiguration)
         {
             AcsKubeConfig = acsKubeConfig;
             ImagePullSecretName = imagePullSecretName;

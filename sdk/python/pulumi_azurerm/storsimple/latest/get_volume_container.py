@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetVolumeContainerResult:
     The volume container.
     """
     def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
-        if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, float):
-            raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a float")
+        if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, int):
+            raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a int")
         pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
         if bandwidth_setting_id and not isinstance(bandwidth_setting_id, str):
             raise TypeError("Expected argument 'bandwidth_setting_id' to be a str")
@@ -45,19 +45,19 @@ class GetVolumeContainerResult:
         if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
             raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
         pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
-        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, float):
-            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a float")
+        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, int):
+            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a int")
         pulumi.set(__self__, "total_cloud_storage_usage_in_bytes", total_cloud_storage_usage_in_bytes)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_count and not isinstance(volume_count, float):
-            raise TypeError("Expected argument 'volume_count' to be a float")
+        if volume_count and not isinstance(volume_count, int):
+            raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
 
     @property
     @pulumi.getter(name="bandWidthRateInMbps")
-    def band_width_rate_in_mbps(self) -> Optional[float]:
+    def band_width_rate_in_mbps(self) -> Optional[int]:
         """
         The bandwidth-rate set on the volume container.
         """
@@ -121,7 +121,7 @@ class GetVolumeContainerResult:
 
     @property
     @pulumi.getter(name="totalCloudStorageUsageInBytes")
-    def total_cloud_storage_usage_in_bytes(self) -> float:
+    def total_cloud_storage_usage_in_bytes(self) -> int:
         """
         The total cloud storage for the volume container.
         """
@@ -137,7 +137,7 @@ class GetVolumeContainerResult:
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> float:
+    def volume_count(self) -> int:
         """
         The number of volumes in the volume Container.
         """

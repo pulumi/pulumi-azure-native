@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,7 +29,7 @@ class ActiveDirectoryArgs:
     def __init__(__self__, *,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
                  ad_name: Optional[pulumi.Input[str]] = None,
-                 backup_operators: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  kdc_ip: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class ActiveDirectoryArgs:
         Active Directory
         :param pulumi.Input[str] active_directory_id: Id of the Active Directory
         :param pulumi.Input[str] ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
-        :param pulumi.Input[List[pulumi.Input[str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param pulumi.Input[str] dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param pulumi.Input[str] domain: Name of the Active Directory domain
         :param pulumi.Input[str] kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
@@ -105,14 +105,14 @@ class ActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="backupOperators")
-    def backup_operators(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def backup_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         """
         return pulumi.get(self, "backup_operators")
 
     @backup_operators.setter
-    def backup_operators(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def backup_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backup_operators", value)
 
     @property
@@ -227,16 +227,16 @@ class ActiveDirectoryArgs:
 @pulumi.input_type
 class DailyScheduleArgs:
     def __init__(__self__, *,
-                 hour: Optional[pulumi.Input[float]] = None,
-                 minute: Optional[pulumi.Input[float]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[float]] = None,
-                 used_bytes: Optional[pulumi.Input[float]] = None):
+                 hour: Optional[pulumi.Input[int]] = None,
+                 minute: Optional[pulumi.Input[int]] = None,
+                 snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+                 used_bytes: Optional[pulumi.Input[int]] = None):
         """
         Daily Schedule properties
-        :param pulumi.Input[float] hour: Indicates which hour in UTC timezone a snapshot should be taken
-        :param pulumi.Input[float] minute: Indicates which minute snapshot should be taken
-        :param pulumi.Input[float] snapshots_to_keep: Daily snapshot count to keep
-        :param pulumi.Input[float] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param pulumi.Input[int] hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param pulumi.Input[int] minute: Indicates which minute snapshot should be taken
+        :param pulumi.Input[int] snapshots_to_keep: Daily snapshot count to keep
+        :param pulumi.Input[int] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if hour is not None:
             pulumi.set(__self__, "hour", hour)
@@ -249,50 +249,50 @@ class DailyScheduleArgs:
 
     @property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[float]]:
+    def hour(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[float]]):
+    def hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hour", value)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
     @property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[float]]:
+    def snapshots_to_keep(self) -> Optional[pulumi.Input[int]]:
         """
         Daily snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[float]]):
+    def snapshots_to_keep(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[float]]:
+    def used_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[float]]):
+    def used_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -310,7 +310,7 @@ class ExportPolicyRuleArgs:
                  kerberos5p_read_write: Optional[pulumi.Input[bool]] = None,
                  nfsv3: Optional[pulumi.Input[bool]] = None,
                  nfsv41: Optional[pulumi.Input[bool]] = None,
-                 rule_index: Optional[pulumi.Input[float]] = None,
+                 rule_index: Optional[pulumi.Input[int]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
                  unix_read_write: Optional[pulumi.Input[bool]] = None):
         """
@@ -326,7 +326,7 @@ class ExportPolicyRuleArgs:
         :param pulumi.Input[bool] kerberos5p_read_write: Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
         :param pulumi.Input[bool] nfsv3: Allows NFSv3 protocol. Enable only for NFSv3 type volumes
         :param pulumi.Input[bool] nfsv41: Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-        :param pulumi.Input[float] rule_index: Order index
+        :param pulumi.Input[int] rule_index: Order index
         :param pulumi.Input[bool] unix_read_only: Read only access
         :param pulumi.Input[bool] unix_read_write: Read and write access
         """
@@ -493,14 +493,14 @@ class ExportPolicyRuleArgs:
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[pulumi.Input[float]]:
+    def rule_index(self) -> Optional[pulumi.Input[int]]:
         """
         Order index
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: Optional[pulumi.Input[float]]):
+    def rule_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rule_index", value)
 
     @property
@@ -531,14 +531,14 @@ class ExportPolicyRuleArgs:
 @pulumi.input_type
 class HourlyScheduleArgs:
     def __init__(__self__, *,
-                 minute: Optional[pulumi.Input[float]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[float]] = None,
-                 used_bytes: Optional[pulumi.Input[float]] = None):
+                 minute: Optional[pulumi.Input[int]] = None,
+                 snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+                 used_bytes: Optional[pulumi.Input[int]] = None):
         """
         Hourly Schedule properties
-        :param pulumi.Input[float] minute: Indicates which minute snapshot should be taken
-        :param pulumi.Input[float] snapshots_to_keep: Hourly snapshot count to keep
-        :param pulumi.Input[float] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param pulumi.Input[int] minute: Indicates which minute snapshot should be taken
+        :param pulumi.Input[int] snapshots_to_keep: Hourly snapshot count to keep
+        :param pulumi.Input[int] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
@@ -549,38 +549,38 @@ class HourlyScheduleArgs:
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
     @property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[float]]:
+    def snapshots_to_keep(self) -> Optional[pulumi.Input[int]]:
         """
         Hourly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[float]]):
+    def snapshots_to_keep(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[float]]:
+    def used_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[float]]):
+    def used_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -588,17 +588,17 @@ class HourlyScheduleArgs:
 class MonthlyScheduleArgs:
     def __init__(__self__, *,
                  days_of_month: Optional[pulumi.Input[str]] = None,
-                 hour: Optional[pulumi.Input[float]] = None,
-                 minute: Optional[pulumi.Input[float]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[float]] = None,
-                 used_bytes: Optional[pulumi.Input[float]] = None):
+                 hour: Optional[pulumi.Input[int]] = None,
+                 minute: Optional[pulumi.Input[int]] = None,
+                 snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+                 used_bytes: Optional[pulumi.Input[int]] = None):
         """
         Monthly Schedule properties
         :param pulumi.Input[str] days_of_month: Indicates which days of the month snapshot should be taken. A comma delimited string.
-        :param pulumi.Input[float] hour: Indicates which hour in UTC timezone a snapshot should be taken
-        :param pulumi.Input[float] minute: Indicates which minute snapshot should be taken
-        :param pulumi.Input[float] snapshots_to_keep: Monthly snapshot count to keep
-        :param pulumi.Input[float] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param pulumi.Input[int] hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param pulumi.Input[int] minute: Indicates which minute snapshot should be taken
+        :param pulumi.Input[int] snapshots_to_keep: Monthly snapshot count to keep
+        :param pulumi.Input[int] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if days_of_month is not None:
             pulumi.set(__self__, "days_of_month", days_of_month)
@@ -625,50 +625,50 @@ class MonthlyScheduleArgs:
 
     @property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[float]]:
+    def hour(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[float]]):
+    def hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hour", value)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
     @property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[float]]:
+    def snapshots_to_keep(self) -> Optional[pulumi.Input[int]]:
         """
         Monthly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[float]]):
+    def snapshots_to_keep(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[float]]:
+    def used_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[float]]):
+    def used_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "used_bytes", value)
 
 
@@ -872,12 +872,12 @@ class VolumeBackupPropertiesArgs:
 @pulumi.input_type
 class VolumeBackupsArgs:
     def __init__(__self__, *,
-                 backups_count: Optional[pulumi.Input[float]] = None,
+                 backups_count: Optional[pulumi.Input[int]] = None,
                  policy_enabled: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None):
         """
         Volume details using the backup policy
-        :param pulumi.Input[float] backups_count: Total count of backups for volume
+        :param pulumi.Input[int] backups_count: Total count of backups for volume
         :param pulumi.Input[bool] policy_enabled: Policy enabled
         :param pulumi.Input[str] volume_name: Volume name
         """
@@ -890,14 +890,14 @@ class VolumeBackupsArgs:
 
     @property
     @pulumi.getter(name="backupsCount")
-    def backups_count(self) -> Optional[pulumi.Input[float]]:
+    def backups_count(self) -> Optional[pulumi.Input[int]]:
         """
         Total count of backups for volume
         """
         return pulumi.get(self, "backups_count")
 
     @backups_count.setter
-    def backups_count(self, value: Optional[pulumi.Input[float]]):
+    def backups_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backups_count", value)
 
     @property
@@ -984,24 +984,24 @@ class VolumePropertiesDataProtectionArgs:
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
         """
         Set of export policy rules
-        :param pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
+        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
         """
         Export policy rule
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -1033,17 +1033,17 @@ class VolumeSnapshotPropertiesArgs:
 class WeeklyScheduleArgs:
     def __init__(__self__, *,
                  day: Optional[pulumi.Input[str]] = None,
-                 hour: Optional[pulumi.Input[float]] = None,
-                 minute: Optional[pulumi.Input[float]] = None,
-                 snapshots_to_keep: Optional[pulumi.Input[float]] = None,
-                 used_bytes: Optional[pulumi.Input[float]] = None):
+                 hour: Optional[pulumi.Input[int]] = None,
+                 minute: Optional[pulumi.Input[int]] = None,
+                 snapshots_to_keep: Optional[pulumi.Input[int]] = None,
+                 used_bytes: Optional[pulumi.Input[int]] = None):
         """
         Weekly Schedule properties, make a snapshot every week at a specific day or days
         :param pulumi.Input[str] day: Indicates which weekdays snapshot should be taken, accepts a comma separated list of week day names in english
-        :param pulumi.Input[float] hour: Indicates which hour in UTC timezone a snapshot should be taken
-        :param pulumi.Input[float] minute: Indicates which minute snapshot should be taken
-        :param pulumi.Input[float] snapshots_to_keep: Weekly snapshot count to keep
-        :param pulumi.Input[float] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
+        :param pulumi.Input[int] hour: Indicates which hour in UTC timezone a snapshot should be taken
+        :param pulumi.Input[int] minute: Indicates which minute snapshot should be taken
+        :param pulumi.Input[int] snapshots_to_keep: Weekly snapshot count to keep
+        :param pulumi.Input[int] used_bytes: Resource size in bytes, current storage usage for the volume in bytes
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -1070,50 +1070,50 @@ class WeeklyScheduleArgs:
 
     @property
     @pulumi.getter
-    def hour(self) -> Optional[pulumi.Input[float]]:
+    def hour(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which hour in UTC timezone a snapshot should be taken
         """
         return pulumi.get(self, "hour")
 
     @hour.setter
-    def hour(self, value: Optional[pulumi.Input[float]]):
+    def hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "hour", value)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[float]]:
+    def minute(self) -> Optional[pulumi.Input[int]]:
         """
         Indicates which minute snapshot should be taken
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[float]]):
+    def minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute", value)
 
     @property
     @pulumi.getter(name="snapshotsToKeep")
-    def snapshots_to_keep(self) -> Optional[pulumi.Input[float]]:
+    def snapshots_to_keep(self) -> Optional[pulumi.Input[int]]:
         """
         Weekly snapshot count to keep
         """
         return pulumi.get(self, "snapshots_to_keep")
 
     @snapshots_to_keep.setter
-    def snapshots_to_keep(self, value: Optional[pulumi.Input[float]]):
+    def snapshots_to_keep(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "snapshots_to_keep", value)
 
     @property
     @pulumi.getter(name="usedBytes")
-    def used_bytes(self) -> Optional[pulumi.Input[float]]:
+    def used_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         Resource size in bytes, current storage usage for the volume in bytes
         """
         return pulumi.get(self, "used_bytes")
 
     @used_bytes.setter
-    def used_bytes(self, value: Optional[pulumi.Input[float]]):
+    def used_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "used_bytes", value)
 
 

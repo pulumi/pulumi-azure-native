@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetProductResult:
         if subscription_required and not isinstance(subscription_required, bool):
             raise TypeError("Expected argument 'subscription_required' to be a bool")
         pulumi.set(__self__, "subscription_required", subscription_required)
-        if subscriptions_limit and not isinstance(subscriptions_limit, float):
-            raise TypeError("Expected argument 'subscriptions_limit' to be a float")
+        if subscriptions_limit and not isinstance(subscriptions_limit, int):
+            raise TypeError("Expected argument 'subscriptions_limit' to be a int")
         pulumi.set(__self__, "subscriptions_limit", subscriptions_limit)
         if terms and not isinstance(terms, str):
             raise TypeError("Expected argument 'terms' to be a str")
@@ -98,7 +98,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[float]:
+    def subscriptions_limit(self) -> Optional[int]:
         """
         Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         """

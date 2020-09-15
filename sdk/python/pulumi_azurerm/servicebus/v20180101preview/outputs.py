@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -164,12 +164,12 @@ class SBSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         SKU of the namespace.
         :param str name: Name of this SKU.
-        :param float capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+        :param int capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -188,7 +188,7 @@ class SBSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
         """

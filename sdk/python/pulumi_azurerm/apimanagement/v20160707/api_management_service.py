@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,11 +17,11 @@ class ApiManagementService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]]] = None,
                  addresser_email: Optional[pulumi.Input[str]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 hostname_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
+                 hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
@@ -39,11 +39,11 @@ class ApiManagementService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input[str] addresser_email: Addresser email.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
         :param pulumi.Input[str] etag: ETag of the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostnameConfigurationArgs']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Datacenter location of the API Management service.
         :param pulumi.Input[str] publisher_email: Publisher email.
         :param pulumi.Input[str] publisher_name: Publisher name.
@@ -135,7 +135,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.AdditionalRegionResponse']]]:
+    def additional_locations(self) -> pulumi.Output[Optional[Sequence['outputs.AdditionalRegionResponse']]]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -175,7 +175,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> pulumi.Output[Optional[List['outputs.HostnameConfigurationResponse']]]:
+    def hostname_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.HostnameConfigurationResponse']]]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -263,7 +263,7 @@ class ApiManagementService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticIPs")
-    def static_ips(self) -> pulumi.Output[List[str]]:
+    def static_ips(self) -> pulumi.Output[Sequence[str]]:
         """
         Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
         """

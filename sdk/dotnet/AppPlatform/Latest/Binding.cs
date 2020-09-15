@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
         /// Properties of the Binding resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BindingResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.BindingResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

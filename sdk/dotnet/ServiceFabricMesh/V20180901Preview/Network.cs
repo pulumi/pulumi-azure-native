@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Describes properties of a network resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NetworkResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.NetworkResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

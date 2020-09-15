@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,11 +27,11 @@ class ContainerServiceAgentPoolProfileResponse(dict):
                  fqdn: str,
                  name: str,
                  vm_size: str,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  dns_prefix: Optional[str] = None,
-                 os_disk_size_gb: Optional[float] = None,
+                 os_disk_size_gb: Optional[int] = None,
                  os_type: Optional[str] = None,
-                 ports: Optional[List[float]] = None,
+                 ports: Optional[Sequence[int]] = None,
                  storage_profile: Optional[str] = None,
                  vnet_subnet_id: Optional[str] = None):
         """
@@ -39,11 +39,11 @@ class ContainerServiceAgentPoolProfileResponse(dict):
         :param str fqdn: FQDN for the agent pool.
         :param str name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param str vm_size: Size of agent VMs.
-        :param float count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param str dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
-        :param float os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param List[float] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+        :param Sequence[int] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         :param str storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         :param str vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -91,7 +91,7 @@ class ContainerServiceAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
@@ -107,7 +107,7 @@ class ContainerServiceAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[float]:
+    def os_disk_size_gb(self) -> Optional[int]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
@@ -123,7 +123,7 @@ class ContainerServiceAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[List[float]]:
+    def ports(self) -> Optional[Sequence[int]]:
         """
         Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         """
@@ -240,16 +240,16 @@ class ContainerServiceSshConfigurationResponse(dict):
     SSH configuration for Linux-based VMs running on Azure.
     """
     def __init__(__self__, *,
-                 public_keys: List['outputs.ContainerServiceSshPublicKeyResponse']):
+                 public_keys: Sequence['outputs.ContainerServiceSshPublicKeyResponse']):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param List['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param Sequence['ContainerServiceSshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> List['outputs.ContainerServiceSshPublicKeyResponse']:
+    def public_keys(self) -> Sequence['outputs.ContainerServiceSshPublicKeyResponse']:
         """
         The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """

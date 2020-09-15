@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// A list of references to all availability sets in the proximity placement group.
         /// </summary>
         [Output("availabilitySets")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> AvailabilitySets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> AvailabilitySets { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// A list of references to all virtual machine scale sets in the proximity placement group.
         /// </summary>
         [Output("virtualMachineScaleSets")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachineScaleSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualMachineScaleSets { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to all virtual machines in the proximity placement group.
         /// </summary>
         [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

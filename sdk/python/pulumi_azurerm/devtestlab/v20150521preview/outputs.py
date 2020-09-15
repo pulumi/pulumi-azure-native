@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -34,14 +34,14 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
     Properties of an artifact deployment.
     """
     def __init__(__self__, *,
-                 artifacts_applied: Optional[float] = None,
+                 artifacts_applied: Optional[int] = None,
                  deployment_status: Optional[str] = None,
-                 total_artifacts: Optional[float] = None):
+                 total_artifacts: Optional[int] = None):
         """
         Properties of an artifact deployment.
-        :param float artifacts_applied: The total count of the artifacts that were successfully applied.
+        :param int artifacts_applied: The total count of the artifacts that were successfully applied.
         :param str deployment_status: The deployment status of the artifact.
-        :param float total_artifacts: The total count of the artifacts that were tentatively applied.
+        :param int total_artifacts: The total count of the artifacts that were tentatively applied.
         """
         if artifacts_applied is not None:
             pulumi.set(__self__, "artifacts_applied", artifacts_applied)
@@ -52,7 +52,7 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="artifactsApplied")
-    def artifacts_applied(self) -> Optional[float]:
+    def artifacts_applied(self) -> Optional[int]:
         """
         The total count of the artifacts that were successfully applied.
         """
@@ -68,7 +68,7 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="totalArtifacts")
-    def total_artifacts(self) -> Optional[float]:
+    def total_artifacts(self) -> Optional[int]:
         """
         The total count of the artifacts that were tentatively applied.
         """
@@ -85,11 +85,11 @@ class ArtifactInstallPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  artifact_id: Optional[str] = None,
-                 parameters: Optional[List['outputs.ArtifactParameterPropertiesResponse']] = None):
+                 parameters: Optional[Sequence['outputs.ArtifactParameterPropertiesResponse']] = None):
         """
         Properties of an artifact.
         :param str artifact_id: The artifact's identifier.
-        :param List['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
         """
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
@@ -106,7 +106,7 @@ class ArtifactInstallPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ArtifactParameterPropertiesResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ArtifactParameterPropertiesResponse']]:
         """
         The parameters of the artifact.
         """
@@ -382,17 +382,17 @@ class HourDetailsResponse(dict):
     Properties of an hourly schedule.
     """
     def __init__(__self__, *,
-                 minute: Optional[float] = None):
+                 minute: Optional[int] = None):
         """
         Properties of an hourly schedule.
-        :param float minute: Minutes of the hour the schedule will run.
+        :param int minute: Minutes of the hour the schedule will run.
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[float]:
+    def minute(self) -> Optional[int]:
         """
         Minutes of the hour the schedule will run.
         """
@@ -432,7 +432,7 @@ class LabVirtualMachineResponse(dict):
     """
     def __init__(__self__, *,
                  artifact_deployment_status: Optional['outputs.ArtifactDeploymentStatusPropertiesResponse'] = None,
-                 artifacts: Optional[List['outputs.ArtifactInstallPropertiesResponse']] = None,
+                 artifacts: Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']] = None,
                  compute_id: Optional[str] = None,
                  created_by_user: Optional[str] = None,
                  created_by_user_id: Optional[str] = None,
@@ -459,7 +459,7 @@ class LabVirtualMachineResponse(dict):
         """
         A virtual machine.
         :param 'ArtifactDeploymentStatusPropertiesResponseArgs' artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param List['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
         :param str compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param str created_by_user: The email address of creator of the virtual machine.
         :param str created_by_user_id: The object identifier of the creator of the virtual machine.
@@ -545,7 +545,7 @@ class LabVirtualMachineResponse(dict):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -866,11 +866,11 @@ class WeekDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  time: Optional[str] = None,
-                 weekdays: Optional[List[str]] = None):
+                 weekdays: Optional[Sequence[str]] = None):
         """
         Properties of a weekly schedule.
         :param str time: The time of the day.
-        :param List[str] weekdays: The days of the week.
+        :param Sequence[str] weekdays: The days of the week.
         """
         if time is not None:
             pulumi.set(__self__, "time", time)
@@ -887,7 +887,7 @@ class WeekDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Optional[List[str]]:
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The days of the week.
         """

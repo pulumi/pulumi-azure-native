@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -192,20 +192,20 @@ class BootDiagnosticsArgs:
 class DataDiskArgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
-                 lun: pulumi.Input[float],
+                 lun: pulumi.Input[int],
                  name: pulumi.Input[str],
                  vhd: pulumi.Input['VirtualHardDiskArgs'],
                  caching: Optional[pulumi.Input[str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None):
         """
         Describes a data disk.
         :param pulumi.Input[str] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-        :param pulumi.Input[float] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param pulumi.Input[str] name: The disk name.
         :param pulumi.Input['VirtualHardDiskArgs'] vhd: The virtual hard disk.
         :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param pulumi.Input[float] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -233,14 +233,14 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter
-    def lun(self) -> pulumi.Input[float]:
+    def lun(self) -> pulumi.Input[int]:
         """
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: pulumi.Input[float]):
+    def lun(self, value: pulumi.Input[int]):
         pulumi.set(self, "lun", value)
 
     @property
@@ -281,14 +281,14 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @property
@@ -727,24 +727,24 @@ class NetworkInterfaceReferenceArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceReferenceArgs']]]] = None):
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]] = None):
         """
         Specifies the network interfaces of the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['NetworkInterfaceReferenceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceReferenceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]]:
         """
         Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceReferenceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
 
@@ -755,7 +755,7 @@ class OSDiskArgs:
                  name: pulumi.Input[str],
                  vhd: pulumi.Input['VirtualHardDiskArgs'],
                  caching: Optional[pulumi.Input[str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['DiskEncryptionSettingsArgs']] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  os_type: Optional[pulumi.Input[str]] = None):
@@ -765,7 +765,7 @@ class OSDiskArgs:
         :param pulumi.Input[str] name: The disk name.
         :param pulumi.Input['VirtualHardDiskArgs'] vhd: The virtual hard disk.
         :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param pulumi.Input[float] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['DiskEncryptionSettingsArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
@@ -834,14 +834,14 @@ class OSDiskArgs:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @property
@@ -889,7 +889,7 @@ class OSProfileArgs:
                  computer_name: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  linux_configuration: Optional[pulumi.Input['LinuxConfigurationArgs']] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the virtual machine.
@@ -898,7 +898,7 @@ class OSProfileArgs:
         :param pulumi.Input[str] computer_name: Specifies the host OS name of the virtual machine. <br><br> This name cannot be updated after the VM is created. <br><br> **Max-length (Windows):** 15 characters <br><br> **Max-length (Linux):** 64 characters. <br><br> For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).
         :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]] secrets: Specifies set of certificates that should be installed onto the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] secrets: Specifies set of certificates that should be installed onto the virtual machine.
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
@@ -978,14 +978,14 @@ class OSProfileArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
         """
         Specifies set of certificates that should be installed onto the virtual machine.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -1076,12 +1076,12 @@ class PlanArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
-        :param pulumi.Input[float] capacity: Specifies the number of virtual machines in the scale set.
+        :param pulumi.Input[int] capacity: Specifies the number of virtual machines in the scale set.
         :param pulumi.Input[str] name: The sku name.
         :param pulumi.Input[str] tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -1094,14 +1094,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of virtual machines in the scale set.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -1132,24 +1132,24 @@ class SkuArgs:
 @pulumi.input_type
 class SshConfigurationArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]] = None):
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]]:
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         The list of SSH public keys used to authenticate with linux based VMs.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]]):
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
@@ -1196,12 +1196,12 @@ class SshPublicKeyArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 data_disks: Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]] = None,
                  image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
                  os_disk: Optional[pulumi.Input['OSDiskArgs']] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param pulumi.Input[List[pulumi.Input['DataDiskArgs']]] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         :param pulumi.Input['OSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -1214,14 +1214,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]]:
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]:
         """
         Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
         return pulumi.get(self, "data_disks")
 
     @data_disks.setter
-    def data_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['DataDiskArgs']]]]):
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]):
         pulumi.set(self, "data_disks", value)
 
     @property
@@ -1340,11 +1340,11 @@ class VaultCertificateArgs:
 class VaultSecretGroupArgs:
     def __init__(__self__, *,
                  source_vault: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 vault_certificates: Optional[pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]] = None):
+                 vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]]] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
         :param pulumi.Input['SubResourceArgs'] source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -1365,14 +1365,14 @@ class VaultSecretGroupArgs:
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]]:
+    def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]]]:
         """
         The list of key vault references in SourceVault which contain certificates.
         """
         return pulumi.get(self, "vault_certificates")
 
     @vault_certificates.setter
-    def vault_certificates(self, value: Optional[pulumi.Input[List[pulumi.Input['VaultCertificateArgs']]]]):
+    def vault_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VaultCertificateArgs']]]]):
         pulumi.set(self, "vault_certificates", value)
 
 
@@ -1404,15 +1404,15 @@ class VirtualHardDiskArgs:
 class VirtualMachineExtensionInstanceViewArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]] = None,
-                 substatuses: Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]] = None,
+                 substatuses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None):
         """
         The instance view of a virtual machine extension.
         :param pulumi.Input[str] name: The virtual machine extension name.
-        :param pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]] statuses: The resource status information.
-        :param pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]] substatuses: The resource status information.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]] statuses: The resource status information.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]] substatuses: The resource status information.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
@@ -1441,26 +1441,26 @@ class VirtualMachineExtensionInstanceViewArgs:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]]:
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]]:
         """
         The resource status information.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]]):
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @property
     @pulumi.getter
-    def substatuses(self) -> Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]]:
+    def substatuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]]:
         """
         The resource status information.
         """
         return pulumi.get(self, "substatuses")
 
     @substatuses.setter
-    def substatuses(self, value: Optional[pulumi.Input[List[pulumi.Input['InstanceViewStatusArgs']]]]):
+    def substatuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceViewStatusArgs']]]]):
         pulumi.set(self, "substatuses", value)
 
     @property
@@ -1651,24 +1651,24 @@ class VirtualMachineScaleSetExtensionArgs:
 @pulumi.input_type
 class VirtualMachineScaleSetExtensionProfileArgs:
     def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
         """
         Describes a virtual machine scale set extension profile.
-        :param pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
         """
         The virtual machine scale set child extension resources.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
         pulumi.set(self, "extensions", value)
 
 
@@ -1677,18 +1677,18 @@ class VirtualMachineScaleSetIPConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  subnet: pulumi.Input['ApiEntityReferenceArgs'],
-                 application_gateway_backend_address_pools: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]] = None,
+                 application_gateway_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 load_balancer_backend_address_pools: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]] = None,
-                 load_balancer_inbound_nat_pools: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]] = None):
+                 load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
         """
         Describes a virtual machine scale set network profile's IP configuration.
         :param pulumi.Input[str] name: The IP configuration name.
         :param pulumi.Input['ApiEntityReferenceArgs'] subnet: The subnet.
-        :param pulumi.Input[List[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: The application gateway backend address pools.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: The application gateway backend address pools.
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: The load balancer backend address pools.
-        :param pulumi.Input[List[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: The load balancer inbound nat pools.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: The load balancer backend address pools.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: The load balancer inbound nat pools.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subnet", subnet)
@@ -1727,14 +1727,14 @@ class VirtualMachineScaleSetIPConfigurationArgs:
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPools")
-    def application_gateway_backend_address_pools(self) -> Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]:
+    def application_gateway_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         The application gateway backend address pools.
         """
         return pulumi.get(self, "application_gateway_backend_address_pools")
 
     @application_gateway_backend_address_pools.setter
-    def application_gateway_backend_address_pools(self, value: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]):
+    def application_gateway_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "application_gateway_backend_address_pools", value)
 
     @property
@@ -1751,26 +1751,26 @@ class VirtualMachineScaleSetIPConfigurationArgs:
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]:
+    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         The load balancer backend address pools.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
     @load_balancer_backend_address_pools.setter
-    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]):
+    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "load_balancer_backend_address_pools", value)
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatPools")
-    def load_balancer_inbound_nat_pools(self) -> Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]:
+    def load_balancer_inbound_nat_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
         """
         The load balancer inbound nat pools.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_pools")
 
     @load_balancer_inbound_nat_pools.setter
-    def load_balancer_inbound_nat_pools(self, value: Optional[pulumi.Input[List[pulumi.Input['SubResourceArgs']]]]):
+    def load_balancer_inbound_nat_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "load_balancer_inbound_nat_pools", value)
 
 
@@ -1801,13 +1801,13 @@ class VirtualMachineScaleSetIdentityArgs:
 @pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
         Describes a virtual machine scale set network profile's network configurations.
-        :param pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]] ip_configurations: The virtual machine scale set IP Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]] ip_configurations: The virtual machine scale set IP Configuration.
         :param pulumi.Input[str] name: The network configuration name.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[bool] primary: Whether this is a primary NIC on a virtual machine.
@@ -1821,14 +1821,14 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]]:
         """
         The virtual machine scale set IP Configuration.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -1871,24 +1871,24 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
 @pulumi.input_type
 class VirtualMachineScaleSetNetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interface_configurations: Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]] = None):
+                 network_interface_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]] = None):
         """
         Describes a virtual machine scale set network profile.
-        :param pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]] network_interface_configurations: The list of network configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]] network_interface_configurations: The list of network configurations.
         """
         if network_interface_configurations is not None:
             pulumi.set(__self__, "network_interface_configurations", network_interface_configurations)
 
     @property
     @pulumi.getter(name="networkInterfaceConfigurations")
-    def network_interface_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]:
+    def network_interface_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]:
         """
         The list of network configurations.
         """
         return pulumi.get(self, "network_interface_configurations")
 
     @network_interface_configurations.setter
-    def network_interface_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]):
+    def network_interface_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetNetworkConfigurationArgs']]]]):
         pulumi.set(self, "network_interface_configurations", value)
 
 
@@ -1900,7 +1900,7 @@ class VirtualMachineScaleSetOSDiskArgs:
                  caching: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
-                 vhd_containers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 vhd_containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Describes a virtual machine scale set operating system disk.
         :param pulumi.Input[str] create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
@@ -1908,7 +1908,7 @@ class VirtualMachineScaleSetOSDiskArgs:
         :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input['VirtualHardDiskArgs'] image: The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
         :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-        :param pulumi.Input[List[pulumi.Input[str]]] vhd_containers: The list of virtual hard disk container uris.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vhd_containers: The list of virtual hard disk container uris.
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "name", name)
@@ -1983,14 +1983,14 @@ class VirtualMachineScaleSetOSDiskArgs:
 
     @property
     @pulumi.getter(name="vhdContainers")
-    def vhd_containers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def vhd_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of virtual hard disk container uris.
         """
         return pulumi.get(self, "vhd_containers")
 
     @vhd_containers.setter
-    def vhd_containers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def vhd_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vhd_containers", value)
 
 
@@ -2002,7 +2002,7 @@ class VirtualMachineScaleSetOSProfileArgs:
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
                  linux_configuration: Optional[pulumi.Input['LinuxConfigurationArgs']] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]] = None,
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         Describes a virtual machine scale set OS profile.
@@ -2011,7 +2011,7 @@ class VirtualMachineScaleSetOSProfileArgs:
         :param pulumi.Input[str] computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         :param pulumi.Input[str] custom_data: A base-64 encoded string of custom data.
         :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: The Linux Configuration of the OS profile.
-        :param pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]] secrets: The List of certificates for addition to the VM.
+        :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] secrets: The List of certificates for addition to the VM.
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: The Windows Configuration of the OS profile.
         """
         if admin_password is not None:
@@ -2091,14 +2091,14 @@ class VirtualMachineScaleSetOSProfileArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]:
         """
         The List of certificates for addition to the VM.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[List[pulumi.Input['VaultSecretGroupArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -2229,24 +2229,24 @@ class VirtualMachineScaleSetVMProfileArgs:
 @pulumi.input_type
 class WinRMConfigurationArgs:
     def __init__(__self__, *,
-                 listeners: Optional[pulumi.Input[List[pulumi.Input['WinRMListenerArgs']]]] = None):
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgs']]]] = None):
         """
         Describes Windows Remote Management configuration of the VM
-        :param pulumi.Input[List[pulumi.Input['WinRMListenerArgs']]] listeners: The list of Windows Remote Management listeners
+        :param pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgs']]] listeners: The list of Windows Remote Management listeners
         """
         if listeners is not None:
             pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
-    def listeners(self) -> Optional[pulumi.Input[List[pulumi.Input['WinRMListenerArgs']]]]:
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgs']]]]:
         """
         The list of Windows Remote Management listeners
         """
         return pulumi.get(self, "listeners")
 
     @listeners.setter
-    def listeners(self, value: Optional[pulumi.Input[List[pulumi.Input['WinRMListenerArgs']]]]):
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WinRMListenerArgs']]]]):
         pulumi.set(self, "listeners", value)
 
 
@@ -2293,14 +2293,14 @@ class WinRMListenerArgs:
 @pulumi.input_type
 class WindowsConfigurationArgs:
     def __init__(__self__, *,
-                 additional_unattend_content: Optional[pulumi.Input[List[pulumi.Input['AdditionalUnattendContentArgs']]]] = None,
+                 additional_unattend_content: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalUnattendContentArgs']]]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  win_rm: Optional[pulumi.Input['WinRMConfigurationArgs']] = None):
         """
         Specifies Windows operating system settings on the virtual machine.
-        :param pulumi.Input[List[pulumi.Input['AdditionalUnattendContentArgs']]] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        :param pulumi.Input[Sequence[pulumi.Input['AdditionalUnattendContentArgs']]] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         :param pulumi.Input[bool] enable_automatic_updates: Indicates whether virtual machine is enabled for automatic updates.
         :param pulumi.Input[bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param pulumi.Input[str] time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
@@ -2319,14 +2319,14 @@ class WindowsConfigurationArgs:
 
     @property
     @pulumi.getter(name="additionalUnattendContent")
-    def additional_unattend_content(self) -> Optional[pulumi.Input[List[pulumi.Input['AdditionalUnattendContentArgs']]]]:
+    def additional_unattend_content(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalUnattendContentArgs']]]]:
         """
         Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         """
         return pulumi.get(self, "additional_unattend_content")
 
     @additional_unattend_content.setter
-    def additional_unattend_content(self, value: Optional[pulumi.Input[List[pulumi.Input['AdditionalUnattendContentArgs']]]]):
+    def additional_unattend_content(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalUnattendContentArgs']]]]):
         pulumi.set(self, "additional_unattend_content", value)
 
     @property

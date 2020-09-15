@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 protocol_custom_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]]] = None,
+                 protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,7 +34,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProtocolCustomSettingsFormatArgs']]]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -123,7 +123,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> pulumi.Output[Optional[List['outputs.ProtocolCustomSettingsFormatResponse']]]:
+    def protocol_custom_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ProtocolCustomSettingsFormatResponse']]]:
         """
         The protocol-specific DDoS policy customization parameters.
         """
@@ -139,7 +139,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def public_ip_addresses(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// The list of step groups that define the orchestration.
         /// </summary>
         [Output("stepGroups")]
-        public Output<ImmutableArray<Outputs.StepGroupResponseResult>> StepGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StepGroupResponse>> StepGroups { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

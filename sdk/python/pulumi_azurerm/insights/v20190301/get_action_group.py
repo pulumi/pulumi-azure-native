@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -72,7 +72,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="armRoleReceivers")
-    def arm_role_receivers(self) -> Optional[List['outputs.ArmRoleReceiverResponse']]:
+    def arm_role_receivers(self) -> Optional[Sequence['outputs.ArmRoleReceiverResponse']]:
         """
         The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
         """
@@ -80,7 +80,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="automationRunbookReceivers")
-    def automation_runbook_receivers(self) -> Optional[List['outputs.AutomationRunbookReceiverResponse']]:
+    def automation_runbook_receivers(self) -> Optional[Sequence['outputs.AutomationRunbookReceiverResponse']]:
         """
         The list of AutomationRunbook receivers that are part of this action group.
         """
@@ -88,7 +88,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureAppPushReceivers")
-    def azure_app_push_receivers(self) -> Optional[List['outputs.AzureAppPushReceiverResponse']]:
+    def azure_app_push_receivers(self) -> Optional[Sequence['outputs.AzureAppPushReceiverResponse']]:
         """
         The list of AzureAppPush receivers that are part of this action group.
         """
@@ -96,7 +96,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureFunctionReceivers")
-    def azure_function_receivers(self) -> Optional[List['outputs.AzureFunctionReceiverResponse']]:
+    def azure_function_receivers(self) -> Optional[Sequence['outputs.AzureFunctionReceiverResponse']]:
         """
         The list of azure function receivers that are part of this action group.
         """
@@ -104,7 +104,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="emailReceivers")
-    def email_receivers(self) -> Optional[List['outputs.EmailReceiverResponse']]:
+    def email_receivers(self) -> Optional[Sequence['outputs.EmailReceiverResponse']]:
         """
         The list of email receivers that are part of this action group.
         """
@@ -128,7 +128,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="itsmReceivers")
-    def itsm_receivers(self) -> Optional[List['outputs.ItsmReceiverResponse']]:
+    def itsm_receivers(self) -> Optional[Sequence['outputs.ItsmReceiverResponse']]:
         """
         The list of ITSM receivers that are part of this action group.
         """
@@ -144,7 +144,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="logicAppReceivers")
-    def logic_app_receivers(self) -> Optional[List['outputs.LogicAppReceiverResponse']]:
+    def logic_app_receivers(self) -> Optional[Sequence['outputs.LogicAppReceiverResponse']]:
         """
         The list of logic app receivers that are part of this action group.
         """
@@ -160,7 +160,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="smsReceivers")
-    def sms_receivers(self) -> Optional[List['outputs.SmsReceiverResponse']]:
+    def sms_receivers(self) -> Optional[Sequence['outputs.SmsReceiverResponse']]:
         """
         The list of SMS receivers that are part of this action group.
         """
@@ -184,7 +184,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="voiceReceivers")
-    def voice_receivers(self) -> Optional[List['outputs.VoiceReceiverResponse']]:
+    def voice_receivers(self) -> Optional[Sequence['outputs.VoiceReceiverResponse']]:
         """
         The list of voice receivers that are part of this action group.
         """
@@ -192,7 +192,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> Optional[List['outputs.WebhookReceiverResponse']]:
+    def webhook_receivers(self) -> Optional[Sequence['outputs.WebhookReceiverResponse']]:
         """
         The list of webhook receivers that are part of this action group.
         """

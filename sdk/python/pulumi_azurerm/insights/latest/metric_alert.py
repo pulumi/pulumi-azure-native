@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class MetricAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
                  criteria: Optional[pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,8 +26,8 @@ class MetricAlert(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 severity: Optional[pulumi.Input[float]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 severity: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_region: Optional[pulumi.Input[str]] = None,
                  target_resource_type: Optional[pulumi.Input[str]] = None,
@@ -40,7 +40,7 @@ class MetricAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
         :param pulumi.Input[Union[pulumi.InputType['MetricAlertMultipleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['MetricAlertSingleResourceMultipleMetricCriteriaArgs'], pulumi.InputType['WebtestLocationAvailabilityCriteriaArgs']]] criteria: defines the specific alert criteria information.
         :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
@@ -49,8 +49,8 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
-        :param pulumi.Input[float] severity: Alert severity {0, 1, 2, 3, 4}
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[int] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
         :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
@@ -137,7 +137,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[List['outputs.MetricAlertActionResponse']]]:
+    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.MetricAlertActionResponse']]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -209,7 +209,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         the list of resource id's that this metric alert is scoped to.
         """
@@ -217,7 +217,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Output[float]:
+    def severity(self) -> pulumi.Output[int]:
         """
         Alert severity {0, 1, 2, 3, 4}
         """

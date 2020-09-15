@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -72,14 +72,14 @@ class GetJobResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
+        if node_count and not isinstance(node_count, int):
+            raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
         if output_directories and not isinstance(output_directories, list):
             raise TypeError("Expected argument 'output_directories' to be a list")
         pulumi.set(__self__, "output_directories", output_directories)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -169,7 +169,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentSettingResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentSettingResponse']]:
         """
         Batch AI services sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE, For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS.
         """
@@ -209,7 +209,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="inputDirectories")
-    def input_directories(self) -> Optional[List['outputs.InputDirectoryResponse']]:
+    def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryResponse']]:
         return pulumi.get(self, "input_directories")
 
     @property
@@ -238,7 +238,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> Optional[int]:
         """
         The job will be gang scheduled on that many compute nodes
         """
@@ -246,12 +246,12 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="outputDirectories")
-    def output_directories(self) -> Optional[List['outputs.OutputDirectoryResponse']]:
+    def output_directories(self) -> Optional[Sequence['outputs.OutputDirectoryResponse']]:
         return pulumi.get(self, "output_directories")
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
         """

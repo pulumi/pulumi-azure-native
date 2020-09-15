@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// This element contains all the errors encountered by various compute nodes during node setup.
         /// </summary>
         [Output("errors")]
-        public Output<ImmutableArray<Outputs.BatchAIErrorResponseResult>> Errors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BatchAIErrorResponse>> Errors { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -51,13 +51,13 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         /// </summary>
         [Output("nodeSetup")]
-        public Output<Outputs.NodeSetupResponseResult?> NodeSetup { get; private set; } = null!;
+        public Output<Outputs.NodeSetupResponse?> NodeSetup { get; private set; } = null!;
 
         /// <summary>
         /// Counts of various compute node states on the cluster.
         /// </summary>
         [Output("nodeStateCounts")]
-        public Output<Outputs.NodeStateCountsResponseResult> NodeStateCounts { get; private set; } = null!;
+        public Output<Outputs.NodeStateCountsResponse> NodeStateCounts { get; private set; } = null!;
 
         /// <summary>
         /// Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
         /// </summary>
         [Output("scaleSettings")]
-        public Output<Outputs.ScaleSettingsResponseResult?> ScaleSettings { get; private set; } = null!;
+        public Output<Outputs.ScaleSettingsResponse?> ScaleSettings { get; private set; } = null!;
 
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.ResourceIdResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource
@@ -96,13 +96,13 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// Settings for user account that gets created on each on the nodes of a cluster.
         /// </summary>
         [Output("userAccountSettings")]
-        public Output<Outputs.UserAccountSettingsResponseResult?> UserAccountSettings { get; private set; } = null!;
+        public Output<Outputs.UserAccountSettingsResponse?> UserAccountSettings { get; private set; } = null!;
 
         /// <summary>
         /// Settings for OS image.
         /// </summary>
         [Output("virtualMachineConfiguration")]
-        public Output<Outputs.VirtualMachineConfigurationResponseResult?> VirtualMachineConfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineConfigurationResponse?> VirtualMachineConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.

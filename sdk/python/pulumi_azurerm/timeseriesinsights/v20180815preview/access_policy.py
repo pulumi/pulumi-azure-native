@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['AccessPolicy']
@@ -20,7 +20,7 @@ class AccessPolicy(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  principal_object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: The list of roles the principal is assigned on the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The list of roles the principal is assigned on the environment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,7 +119,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[Optional[List[str]]]:
+    def roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of roles the principal is assigned on the environment.
         """

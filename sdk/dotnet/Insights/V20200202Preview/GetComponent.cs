@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Insights.V20200202Preview
         /// <summary>
         /// List of linked private link scope resources.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> PrivateLinkScopedResources;
+        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> PrivateLinkScopedResources;
         /// <summary>
         /// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureRM.Insights.V20200202Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> privateLinkScopedResources,
+            ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
 
             string provisioningState,
 

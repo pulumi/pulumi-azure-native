@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,16 +51,16 @@ class AdditionalLocationResponse(dict):
     def __init__(__self__, *,
                  gateway_regional_url: str,
                  location: str,
-                 private_ip_addresses: List[str],
-                 public_ip_addresses: List[str],
+                 private_ip_addresses: Sequence[str],
+                 public_ip_addresses: Sequence[str],
                  sku: 'outputs.ApiManagementServiceSkuPropertiesResponse',
                  virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None):
         """
         Description of an additional API Management resource location.
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
-        :param List[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
-        :param List[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param Sequence[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
+        :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param 'ApiManagementServiceSkuPropertiesResponseArgs' sku: SKU properties of the API Management service.
         :param 'VirtualNetworkConfigurationResponseArgs' virtual_network_configuration: Virtual network configuration for the location.
         """
@@ -90,7 +90,7 @@ class AdditionalLocationResponse(dict):
 
     @property
     @pulumi.getter(name="privateIPAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> Sequence[str]:
         """
         Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
         """
@@ -98,7 +98,7 @@ class AdditionalLocationResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List[str]:
+    def public_ip_addresses(self) -> Sequence[str]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
@@ -178,11 +178,11 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         API Management service resource SKU properties.
         :param str name: Name of the Sku.
-        :param float capacity: Capacity of the SKU (number of deployed units of the SKU).
+        :param int capacity: Capacity of the SKU (number of deployed units of the SKU).
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -198,7 +198,7 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Capacity of the SKU (number of deployed units of the SKU).
         """
@@ -375,15 +375,15 @@ class BackendCredentialsContractResponse(dict):
     """
     def __init__(__self__, *,
                  authorization: Optional['outputs.BackendAuthorizationHeaderCredentialsResponse'] = None,
-                 certificate: Optional[List[str]] = None,
-                 header: Optional[Mapping[str, List[str]]] = None,
-                 query: Optional[Mapping[str, List[str]]] = None):
+                 certificate: Optional[Sequence[str]] = None,
+                 header: Optional[Mapping[str, Sequence[str]]] = None,
+                 query: Optional[Mapping[str, Sequence[str]]] = None):
         """
         Details of the Credentials used to connect to Backend.
         :param 'BackendAuthorizationHeaderCredentialsResponseArgs' authorization: Authorization header authentication
-        :param List[str] certificate: List of Client Certificate Thumbprint.
-        :param Mapping[str, List[str]] header: Header Parameter description.
-        :param Mapping[str, List[str]] query: Query Parameter description.
+        :param Sequence[str] certificate: List of Client Certificate Thumbprint.
+        :param Mapping[str, Sequence[str]] header: Header Parameter description.
+        :param Mapping[str, Sequence[str]] query: Query Parameter description.
         """
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
@@ -404,7 +404,7 @@ class BackendCredentialsContractResponse(dict):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional[List[str]]:
+    def certificate(self) -> Optional[Sequence[str]]:
         """
         List of Client Certificate Thumbprint.
         """
@@ -412,7 +412,7 @@ class BackendCredentialsContractResponse(dict):
 
     @property
     @pulumi.getter
-    def header(self) -> Optional[Mapping[str, List[str]]]:
+    def header(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         Header Parameter description.
         """
@@ -420,7 +420,7 @@ class BackendCredentialsContractResponse(dict):
 
     @property
     @pulumi.getter
-    def query(self) -> Optional[Mapping[str, List[str]]]:
+    def query(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         Query Parameter description.
         """
@@ -512,17 +512,17 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  client_certificatethumbprint: str,
-                 management_endpoints: List[str],
-                 max_partition_resolution_retries: Optional[float] = None,
-                 server_certificate_thumbprints: Optional[List[str]] = None,
-                 server_x509_names: Optional[List['outputs.X509CertificateNameResponse']] = None):
+                 management_endpoints: Sequence[str],
+                 max_partition_resolution_retries: Optional[int] = None,
+                 server_certificate_thumbprints: Optional[Sequence[str]] = None,
+                 server_x509_names: Optional[Sequence['outputs.X509CertificateNameResponse']] = None):
         """
         Properties of the Service Fabric Type Backend.
         :param str client_certificatethumbprint: The client certificate thumbprint for the management endpoint.
-        :param List[str] management_endpoints: The cluster management endpoint.
-        :param float max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
-        :param List[str] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
-        :param List['X509CertificateNameResponseArgs'] server_x509_names: Server X509 Certificate Names Collection
+        :param Sequence[str] management_endpoints: The cluster management endpoint.
+        :param int max_partition_resolution_retries: Maximum number of retries while attempting resolve the partition.
+        :param Sequence[str] server_certificate_thumbprints: Thumbprints of certificates cluster management service uses for tls communication
+        :param Sequence['X509CertificateNameResponseArgs'] server_x509_names: Server X509 Certificate Names Collection
         """
         pulumi.set(__self__, "client_certificatethumbprint", client_certificatethumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
@@ -543,7 +543,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="managementEndpoints")
-    def management_endpoints(self) -> List[str]:
+    def management_endpoints(self) -> Sequence[str]:
         """
         The cluster management endpoint.
         """
@@ -551,7 +551,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxPartitionResolutionRetries")
-    def max_partition_resolution_retries(self) -> Optional[float]:
+    def max_partition_resolution_retries(self) -> Optional[int]:
         """
         Maximum number of retries while attempting resolve the partition.
         """
@@ -559,7 +559,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="serverCertificateThumbprints")
-    def server_certificate_thumbprints(self) -> Optional[List[str]]:
+    def server_certificate_thumbprints(self) -> Optional[Sequence[str]]:
         """
         Thumbprints of certificates cluster management service uses for tls communication
         """
@@ -567,7 +567,7 @@ class BackendServiceFabricClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="serverX509Names")
-    def server_x509_names(self) -> Optional[List['outputs.X509CertificateNameResponse']]:
+    def server_x509_names(self) -> Optional[Sequence['outputs.X509CertificateNameResponse']]:
         """
         Server X509 Certificate Names Collection
         """
@@ -621,17 +621,17 @@ class BodyDiagnosticSettingsResponse(dict):
     Body logging settings.
     """
     def __init__(__self__, *,
-                 bytes: Optional[float] = None):
+                 bytes: Optional[int] = None):
         """
         Body logging settings.
-        :param float bytes: Number of request body bytes to log.
+        :param int bytes: Number of request body bytes to log.
         """
         if bytes is not None:
             pulumi.set(__self__, "bytes", bytes)
 
     @property
     @pulumi.getter
-    def bytes(self) -> Optional[float]:
+    def bytes(self) -> Optional[int]:
         """
         Number of request body bytes to log.
         """
@@ -986,11 +986,11 @@ class HttpMessageDiagnosticResponse(dict):
     """
     def __init__(__self__, *,
                  body: Optional['outputs.BodyDiagnosticSettingsResponse'] = None,
-                 headers: Optional[List[str]] = None):
+                 headers: Optional[Sequence[str]] = None):
         """
         Http message diagnostic settings.
         :param 'BodyDiagnosticSettingsResponseArgs' body: Body logging settings.
-        :param List[str] headers: Array of HTTP Headers to log.
+        :param Sequence[str] headers: Array of HTTP Headers to log.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -1007,7 +1007,7 @@ class HttpMessageDiagnosticResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[List[str]]:
+    def headers(self) -> Optional[Sequence[str]]:
         """
         Array of HTTP Headers to log.
         """
@@ -1061,11 +1061,11 @@ class OpenIdAuthenticationSettingsContractResponse(dict):
     API OAuth2 Authentication settings details.
     """
     def __init__(__self__, *,
-                 bearer_token_sending_methods: Optional[List[str]] = None,
+                 bearer_token_sending_methods: Optional[Sequence[str]] = None,
                  openid_provider_id: Optional[str] = None):
         """
         API OAuth2 Authentication settings details.
-        :param List[str] bearer_token_sending_methods: How to send token to the server.
+        :param Sequence[str] bearer_token_sending_methods: How to send token to the server.
         :param str openid_provider_id: OAuth authorization server identifier.
         """
         if bearer_token_sending_methods is not None:
@@ -1075,7 +1075,7 @@ class OpenIdAuthenticationSettingsContractResponse(dict):
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[List[str]]:
+    def bearer_token_sending_methods(self) -> Optional[Sequence[str]]:
         """
         How to send token to the server.
         """
@@ -1104,7 +1104,7 @@ class ParameterContractResponse(dict):
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
                  required: Optional[bool] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         Operation parameters details.
         :param str name: Parameter name.
@@ -1112,7 +1112,7 @@ class ParameterContractResponse(dict):
         :param str default_value: Default parameter value.
         :param str description: Parameter description.
         :param bool required: Specifies whether parameter is required or not.
-        :param List[str] values: Parameter values.
+        :param Sequence[str] values: Parameter values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -1167,7 +1167,7 @@ class ParameterContractResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         Parameter values.
         """
@@ -1222,14 +1222,14 @@ class RepresentationContractResponse(dict):
     """
     def __init__(__self__, *,
                  content_type: str,
-                 form_parameters: Optional[List['outputs.ParameterContractResponse']] = None,
+                 form_parameters: Optional[Sequence['outputs.ParameterContractResponse']] = None,
                  sample: Optional[str] = None,
                  schema_id: Optional[str] = None,
                  type_name: Optional[str] = None):
         """
         Operation request/response representation details.
         :param str content_type: Specifies a registered or custom content type for this representation, e.g. application/xml.
-        :param List['ParameterContractResponseArgs'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+        :param Sequence['ParameterContractResponseArgs'] form_parameters: Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         :param str sample: An example of the representation.
         :param str schema_id: Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
         :param str type_name: Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
@@ -1254,7 +1254,7 @@ class RepresentationContractResponse(dict):
 
     @property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def form_parameters(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
         """
@@ -1295,15 +1295,15 @@ class RequestContractResponse(dict):
     """
     def __init__(__self__, *,
                  description: Optional[str] = None,
-                 headers: Optional[List['outputs.ParameterContractResponse']] = None,
-                 query_parameters: Optional[List['outputs.ParameterContractResponse']] = None,
-                 representations: Optional[List['outputs.RepresentationContractResponse']] = None):
+                 headers: Optional[Sequence['outputs.ParameterContractResponse']] = None,
+                 query_parameters: Optional[Sequence['outputs.ParameterContractResponse']] = None,
+                 representations: Optional[Sequence['outputs.RepresentationContractResponse']] = None):
         """
         Operation request details.
         :param str description: Operation request description.
-        :param List['ParameterContractResponseArgs'] headers: Collection of operation request headers.
-        :param List['ParameterContractResponseArgs'] query_parameters: Collection of operation request query parameters.
-        :param List['RepresentationContractResponseArgs'] representations: Collection of operation request representations.
+        :param Sequence['ParameterContractResponseArgs'] headers: Collection of operation request headers.
+        :param Sequence['ParameterContractResponseArgs'] query_parameters: Collection of operation request query parameters.
+        :param Sequence['RepresentationContractResponseArgs'] representations: Collection of operation request representations.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -1324,7 +1324,7 @@ class RequestContractResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def headers(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of operation request headers.
         """
@@ -1332,7 +1332,7 @@ class RequestContractResponse(dict):
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def query_parameters(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of operation request query parameters.
         """
@@ -1340,7 +1340,7 @@ class RequestContractResponse(dict):
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[List['outputs.RepresentationContractResponse']]:
+    def representations(self) -> Optional[Sequence['outputs.RepresentationContractResponse']]:
         """
         Collection of operation request representations.
         """
@@ -1356,16 +1356,16 @@ class ResponseContractResponse(dict):
     Operation response details.
     """
     def __init__(__self__, *,
-                 status_code: float,
+                 status_code: int,
                  description: Optional[str] = None,
-                 headers: Optional[List['outputs.ParameterContractResponse']] = None,
-                 representations: Optional[List['outputs.RepresentationContractResponse']] = None):
+                 headers: Optional[Sequence['outputs.ParameterContractResponse']] = None,
+                 representations: Optional[Sequence['outputs.RepresentationContractResponse']] = None):
         """
         Operation response details.
-        :param float status_code: Operation response HTTP status code.
+        :param int status_code: Operation response HTTP status code.
         :param str description: Operation response description.
-        :param List['ParameterContractResponseArgs'] headers: Collection of operation response headers.
-        :param List['RepresentationContractResponseArgs'] representations: Collection of operation response representations.
+        :param Sequence['ParameterContractResponseArgs'] headers: Collection of operation response headers.
+        :param Sequence['RepresentationContractResponseArgs'] representations: Collection of operation response representations.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:
@@ -1377,7 +1377,7 @@ class ResponseContractResponse(dict):
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> float:
+    def status_code(self) -> int:
         """
         Operation response HTTP status code.
         """
@@ -1393,7 +1393,7 @@ class ResponseContractResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def headers(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of operation response headers.
         """
@@ -1401,7 +1401,7 @@ class ResponseContractResponse(dict):
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[List['outputs.RepresentationContractResponse']]:
+    def representations(self) -> Optional[Sequence['outputs.RepresentationContractResponse']]:
         """
         Collection of operation response representations.
         """

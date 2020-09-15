@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <summary>
         /// Properties of the storage mapping object.
         /// </summary>
-        public readonly Outputs.StorageClassificationMappingPropertiesResponseResult Properties;
+        public readonly Outputs.StorageClassificationMappingPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 
             string name,
 
-            Outputs.StorageClassificationMappingPropertiesResponseResult properties,
+            Outputs.StorageClassificationMappingPropertiesResponse properties,
 
             string type)
         {

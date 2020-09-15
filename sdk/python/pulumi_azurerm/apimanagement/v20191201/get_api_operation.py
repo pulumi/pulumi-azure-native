@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -102,7 +102,7 @@ class GetApiOperationResult:
 
     @property
     @pulumi.getter
-    def responses(self) -> Optional[List['outputs.ResponseContractResponse']]:
+    def responses(self) -> Optional[Sequence['outputs.ResponseContractResponse']]:
         """
         Array of Operation responses.
         """
@@ -110,7 +110,7 @@ class GetApiOperationResult:
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[List['outputs.ParameterContractResponse']]:
+    def template_parameters(self) -> Optional[Sequence['outputs.ParameterContractResponse']]:
         """
         Collection of URL template parameters.
         """

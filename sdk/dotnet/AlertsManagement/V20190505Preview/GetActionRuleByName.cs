@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
         /// <summary>
         /// action rule properties
         /// </summary>
-        public readonly Union<Outputs.ActionGroupResponseResult, Union<Outputs.DiagnosticsResponseResult, Outputs.SuppressionResponseResult>> Properties;
+        public readonly Union<Outputs.ActionGroupResponse, Union<Outputs.DiagnosticsResponse, Outputs.SuppressionResponse>> Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
 
             string name,
 
-            Union<Outputs.ActionGroupResponseResult, Union<Outputs.DiagnosticsResponseResult, Outputs.SuppressionResponseResult>> properties,
+            Union<Outputs.ActionGroupResponse, Union<Outputs.DiagnosticsResponse, Outputs.SuppressionResponse>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

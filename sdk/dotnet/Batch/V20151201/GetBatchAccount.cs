@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Batch.V20151201
         /// <summary>
         /// The properties and status of any auto storage account associated with the account.
         /// </summary>
-        public readonly Outputs.AutoStoragePropertiesResponseResult? AutoStorage;
+        public readonly Outputs.AutoStoragePropertiesResponse? AutoStorage;
         /// <summary>
         /// The core quota for this Batch account.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Batch.V20151201
 
             int activeJobAndJobScheduleQuota,
 
-            Outputs.AutoStoragePropertiesResponseResult? autoStorage,
+            Outputs.AutoStoragePropertiesResponse? autoStorage,
 
             int coreQuota,
 

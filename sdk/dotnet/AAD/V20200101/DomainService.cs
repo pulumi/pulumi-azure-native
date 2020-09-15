@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// DomainSecurity Settings
         /// </summary>
         [Output("domainSecuritySettings")]
-        public Output<Outputs.DomainSecuritySettingsResponseResult?> DomainSecuritySettings { get; private set; } = null!;
+        public Output<Outputs.DomainSecuritySettingsResponse?> DomainSecuritySettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource etag
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// Secure LDAP Settings
         /// </summary>
         [Output("ldapsSettings")]
-        public Output<Outputs.LdapsSettingsResponseResult?> LdapsSettings { get; private set; } = null!;
+        public Output<Outputs.LdapsSettingsResponse?> LdapsSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// Notification Settings
         /// </summary>
         [Output("notificationSettings")]
-        public Output<Outputs.NotificationSettingsResponseResult?> NotificationSettings { get; private set; } = null!;
+        public Output<Outputs.NotificationSettingsResponse?> NotificationSettings { get; private set; } = null!;
 
         /// <summary>
         /// the current deployment or provisioning state, which only appears in the response.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Aad.V20200101
         /// List of ReplicaSets
         /// </summary>
         [Output("replicaSets")]
-        public Output<ImmutableArray<Outputs.ReplicaSetResponseResult>> ReplicaSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ReplicaSetResponse>> ReplicaSets { get; private set; } = null!;
 
         /// <summary>
         /// SyncOwner ReplicaSet Id

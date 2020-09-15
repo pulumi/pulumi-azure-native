@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class Job(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
         :param pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
         :param pulumi.Input[str] job_name: The Job name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
@@ -163,7 +163,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[List['outputs.JobOutputAssetResponse']]:
+    def outputs(self) -> pulumi.Output[Sequence['outputs.JobOutputAssetResponse']]:
         """
         The outputs for the Job.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetRedisResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -57,17 +57,17 @@ class GetRedisResult:
         if redis_version and not isinstance(redis_version, str):
             raise TypeError("Expected argument 'redis_version' to be a str")
         pulumi.set(__self__, "redis_version", redis_version)
-        if replicas_per_master and not isinstance(replicas_per_master, float):
-            raise TypeError("Expected argument 'replicas_per_master' to be a float")
+        if replicas_per_master and not isinstance(replicas_per_master, int):
+            raise TypeError("Expected argument 'replicas_per_master' to be a int")
         pulumi.set(__self__, "replicas_per_master", replicas_per_master)
-        if shard_count and not isinstance(shard_count, float):
-            raise TypeError("Expected argument 'shard_count' to be a float")
+        if shard_count and not isinstance(shard_count, int):
+            raise TypeError("Expected argument 'shard_count' to be a int")
         pulumi.set(__self__, "shard_count", shard_count)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if ssl_port and not isinstance(ssl_port, float):
-            raise TypeError("Expected argument 'ssl_port' to be a float")
+        if ssl_port and not isinstance(ssl_port, int):
+            raise TypeError("Expected argument 'ssl_port' to be a int")
         pulumi.set(__self__, "ssl_port", ssl_port)
         if static_ip and not isinstance(static_ip, str):
             raise TypeError("Expected argument 'static_ip' to be a str")
@@ -114,7 +114,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def instances(self) -> List['outputs.RedisInstanceDetailsResponse']:
+    def instances(self) -> Sequence['outputs.RedisInstanceDetailsResponse']:
         """
         List of the Redis instances associated with the cache
         """
@@ -122,7 +122,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="linkedServers")
-    def linked_servers(self) -> List['outputs.RedisLinkedServerResponse']:
+    def linked_servers(self) -> Sequence['outputs.RedisLinkedServerResponse']:
         """
         List of the linked servers associated with the cache
         """
@@ -154,7 +154,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Redis non-SSL port.
         """
@@ -186,7 +186,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="replicasPerMaster")
-    def replicas_per_master(self) -> Optional[float]:
+    def replicas_per_master(self) -> Optional[int]:
         """
         The number of replicas to be created per master.
         """
@@ -194,7 +194,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[float]:
+    def shard_count(self) -> Optional[int]:
         """
         The number of shards to be created on a Premium Cluster Cache.
         """
@@ -210,7 +210,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> float:
+    def ssl_port(self) -> int:
         """
         Redis SSL port.
         """
@@ -258,7 +258,7 @@ class GetRedisResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """

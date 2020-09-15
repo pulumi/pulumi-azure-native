@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Gateway location.
         /// </summary>
-        public readonly Outputs.ResourceLocationDataContractResponseResult? LocationData;
+        public readonly Outputs.ResourceLocationDataContractResponse? LocationData;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         private GetGatewayResult(
             string? description,
 
-            Outputs.ResourceLocationDataContractResponseResult? locationData,
+            Outputs.ResourceLocationDataContractResponse? locationData,
 
             string name,
 

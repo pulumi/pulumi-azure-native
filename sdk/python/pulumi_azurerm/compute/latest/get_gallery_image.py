@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -110,7 +110,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[List['outputs.GalleryImageFeatureResponse']]:
+    def features(self) -> Optional[Sequence['outputs.GalleryImageFeatureResponse']]:
         """
         A list of gallery image features.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  managed_virtual_network: Optional[pulumi.Input[str]] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
+                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
@@ -182,7 +182,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateEndpointConnectionResponse']]]:
+    def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
         """
         Private endpoint connections to the workspace
         """

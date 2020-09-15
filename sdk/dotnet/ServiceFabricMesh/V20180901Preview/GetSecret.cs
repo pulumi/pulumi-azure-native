@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Describes the properties of a secret resource.
         /// </summary>
-        public readonly Outputs.SecretResourcePropertiesResponseResult Properties;
+        public readonly Outputs.SecretResourcePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 
             string name,
 
-            Outputs.SecretResourcePropertiesResponseResult properties,
+            Outputs.SecretResourcePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

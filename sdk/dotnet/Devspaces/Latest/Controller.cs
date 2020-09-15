@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.DevSpaces.Latest
         /// Model representing SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags for the Azure resource.

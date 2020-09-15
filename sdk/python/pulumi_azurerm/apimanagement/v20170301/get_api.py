@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -168,7 +168,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[List[str]]:
+    def protocols(self) -> Optional[Sequence[str]]:
         """
         Describes on which protocols the operations in this API can be invoked.
         """

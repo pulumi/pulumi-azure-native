@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// <summary>
         /// The owners of the lock.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementLockOwnerResponseResult> Owners;
+        public readonly ImmutableArray<Outputs.ManagementLockOwnerResponse> Owners;
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
 
             string? notes,
 
-            ImmutableArray<Outputs.ManagementLockOwnerResponseResult> owners,
+            ImmutableArray<Outputs.ManagementLockOwnerResponse> owners,
 
             string type)
         {

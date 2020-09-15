@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// <summary>
         /// The content link.
         /// </summary>
-        public readonly Outputs.IntegrationAccountContentLinkResponseResult ContentLink;
+        public readonly Outputs.IntegrationAccountContentLinkResponse ContentLink;
         /// <summary>
         /// The content type.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
 
             ImmutableDictionary<string, object>? content,
 
-            Outputs.IntegrationAccountContentLinkResponseResult contentLink,
+            Outputs.IntegrationAccountContentLinkResponse contentLink,
 
             string? contentType,
 

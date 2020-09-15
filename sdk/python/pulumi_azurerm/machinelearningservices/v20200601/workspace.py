@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -30,7 +30,7 @@ class Workspace(pulumi.CustomResource):
                  key_vault: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shared_private_link_resources: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
+                 shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  storage_account: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -56,7 +56,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedPrivateLinkResourceArgs']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the workspace.
         :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Contains resource tags defined as key/value pairs.
@@ -258,7 +258,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         The list of private endpoint connections in the workspace.
         """
@@ -266,7 +266,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkCount")
-    def private_link_count(self) -> pulumi.Output[float]:
+    def private_link_count(self) -> pulumi.Output[int]:
         """
         Count of private connections in the workspace
         """
@@ -290,7 +290,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
-    def shared_private_link_resources(self) -> pulumi.Output[Optional[List['outputs.SharedPrivateLinkResourceResponse']]]:
+    def shared_private_link_resources(self) -> pulumi.Output[Optional[Sequence['outputs.SharedPrivateLinkResourceResponse']]]:
         """
         The list of shared private link resources in this workspace.
         """

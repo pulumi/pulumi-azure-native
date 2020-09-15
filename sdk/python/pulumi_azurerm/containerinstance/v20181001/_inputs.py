@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -109,23 +109,23 @@ class ContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
-                 command: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 ports: Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 volume_mounts: Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]] = None):
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         A container instance.
         :param pulumi.Input[str] image: The name of the image used to create the container instance.
         :param pulumi.Input[str] name: The user-provided name of the container instance.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
-        :param pulumi.Input[List[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
-        :param pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
         :param pulumi.Input['ContainerProbeArgs'] liveness_probe: The liveness probe.
-        :param pulumi.Input[List[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
         :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
-        :param pulumi.Input[List[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -181,26 +181,26 @@ class ContainerArgs:
 
     @property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The commands to execute within the container instance in exec form.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "command", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in the container instance.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -217,14 +217,14 @@ class ContainerArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]:
         """
         The exposed ports on the container instance.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -241,38 +241,38 @@ class ContainerArgs:
 
     @property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]]:
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
         """
         The volume mounts available to the container instance.
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]]):
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
 
 
 @pulumi.input_type
 class ContainerExecArgs:
     def __init__(__self__, *,
-                 command: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The container execution command, for liveness or readiness probe
-        :param pulumi.Input[List[pulumi.Input[str]]] command: The commands to execute within the container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container.
         """
         if command is not None:
             pulumi.set(__self__, "command", command)
 
     @property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The commands to execute within the container.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "command", value)
 
 
@@ -350,12 +350,12 @@ class ContainerGroupNetworkProfileArgs:
 @pulumi.input_type
 class ContainerHttpGetArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  path: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
         """
         The container Http Get settings, for liveness or readiness probe
-        :param pulumi.Input[float] port: The port number to probe.
+        :param pulumi.Input[int] port: The port number to probe.
         :param pulumi.Input[str] path: The path to probe.
         :param pulumi.Input[str] scheme: The scheme.
         """
@@ -367,14 +367,14 @@ class ContainerHttpGetArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number to probe.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -405,11 +405,11 @@ class ContainerHttpGetArgs:
 @pulumi.input_type
 class ContainerPortArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         The port exposed on the container instance.
-        :param pulumi.Input[float] port: The port number exposed within the container group.
+        :param pulumi.Input[int] port: The port number exposed within the container group.
         :param pulumi.Input[str] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -418,14 +418,14 @@ class ContainerPortArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number exposed within the container group.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -445,21 +445,21 @@ class ContainerPortArgs:
 class ContainerProbeArgs:
     def __init__(__self__, *,
                  exec_: Optional[pulumi.Input['ContainerExecArgs']] = None,
-                 failure_threshold: Optional[pulumi.Input[float]] = None,
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
                  http_get: Optional[pulumi.Input['ContainerHttpGetArgs']] = None,
-                 initial_delay_seconds: Optional[pulumi.Input[float]] = None,
-                 period_seconds: Optional[pulumi.Input[float]] = None,
-                 success_threshold: Optional[pulumi.Input[float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[float]] = None):
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         The container probe, for liveness or readiness
         :param pulumi.Input['ContainerExecArgs'] exec_: The execution command to probe
-        :param pulumi.Input[float] failure_threshold: The failure threshold.
+        :param pulumi.Input[int] failure_threshold: The failure threshold.
         :param pulumi.Input['ContainerHttpGetArgs'] http_get: The Http Get settings to probe
-        :param pulumi.Input[float] initial_delay_seconds: The initial delay seconds.
-        :param pulumi.Input[float] period_seconds: The period seconds.
-        :param pulumi.Input[float] success_threshold: The success threshold.
-        :param pulumi.Input[float] timeout_seconds: The timeout seconds.
+        :param pulumi.Input[int] initial_delay_seconds: The initial delay seconds.
+        :param pulumi.Input[int] period_seconds: The period seconds.
+        :param pulumi.Input[int] success_threshold: The success threshold.
+        :param pulumi.Input[int] timeout_seconds: The timeout seconds.
         """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
@@ -490,14 +490,14 @@ class ContainerProbeArgs:
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[float]]:
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         The failure threshold.
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[float]]):
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @property
@@ -514,62 +514,62 @@ class ContainerProbeArgs:
 
     @property
     @pulumi.getter(name="initialDelaySeconds")
-    def initial_delay_seconds(self) -> Optional[pulumi.Input[float]]:
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The initial delay seconds.
         """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
-    def initial_delay_seconds(self, value: Optional[pulumi.Input[float]]):
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "initial_delay_seconds", value)
 
     @property
     @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[pulumi.Input[float]]:
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The period seconds.
         """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
-    def period_seconds(self, value: Optional[pulumi.Input[float]]):
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "period_seconds", value)
 
     @property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input[float]]:
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         The success threshold.
         """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input[float]]):
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "success_threshold", value)
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[float]]:
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The timeout seconds.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[float]]):
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
 @pulumi.input_type
 class DnsConfigurationArgs:
     def __init__(__self__, *,
-                 name_servers: pulumi.Input[List[pulumi.Input[str]]],
+                 name_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  options: Optional[pulumi.Input[str]] = None,
                  search_domains: Optional[pulumi.Input[str]] = None):
         """
         DNS configuration for the container group.
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: The DNS servers for the container group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: The DNS servers for the container group.
         :param pulumi.Input[str] options: The DNS options for the container group.
         :param pulumi.Input[str] search_domains: The DNS search domains for hostname lookup in the container group.
         """
@@ -581,14 +581,14 @@ class DnsConfigurationArgs:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def name_servers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The DNS servers for the container group.
         """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
-    def name_servers(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def name_servers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "name_servers", value)
 
     @property
@@ -729,11 +729,11 @@ class GitRepoVolumeArgs:
 @pulumi.input_type
 class GpuResourceArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float],
+                 count: pulumi.Input[int],
                  sku: pulumi.Input[str]):
         """
         The GPU resource.
-        :param pulumi.Input[float] count: The count of the GPU resource.
+        :param pulumi.Input[int] count: The count of the GPU resource.
         :param pulumi.Input[str] sku: The SKU of the GPU resource.
         """
         pulumi.set(__self__, "count", count)
@@ -741,14 +741,14 @@ class GpuResourceArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         The count of the GPU resource.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
     @property
@@ -821,13 +821,13 @@ class ImageRegistryCredentialArgs:
 @pulumi.input_type
 class IpAddressArgs:
     def __init__(__self__, *,
-                 ports: pulumi.Input[List[pulumi.Input['PortArgs']]],
+                 ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
                  type: pulumi.Input[str],
                  dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None):
         """
         IP address for the container group.
-        :param pulumi.Input[List[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
+        :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
         :param pulumi.Input[str] type: Specifies if the IP is exposed to the public internet or private VNET.
         :param pulumi.Input[str] dns_name_label: The Dns name label for the IP.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
@@ -841,14 +841,14 @@ class IpAddressArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> pulumi.Input[List[pulumi.Input['PortArgs']]]:
+    def ports(self) -> pulumi.Input[Sequence[pulumi.Input['PortArgs']]]:
         """
         The list of ports exposed on the container group.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: pulumi.Input[List[pulumi.Input['PortArgs']]]):
+    def ports(self, value: pulumi.Input[Sequence[pulumi.Input['PortArgs']]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -961,11 +961,11 @@ class LogAnalyticsArgs:
 @pulumi.input_type
 class PortArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         The port exposed on the container group.
-        :param pulumi.Input[float] port: The port number.
+        :param pulumi.Input[int] port: The port number.
         :param pulumi.Input[str] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -974,14 +974,14 @@ class PortArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property

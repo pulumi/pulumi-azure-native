@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['PartnerRegistration']
@@ -15,7 +15,7 @@ class PartnerRegistration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorized_azure_subscription_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_azure_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  customer_service_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logo_uri: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class PartnerRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_azure_subscription_ids: List of Azure subscription Ids that are authorized to create a partner namespace
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_azure_subscription_ids: List of Azure subscription Ids that are authorized to create a partner namespace
                associated with this partner registration. This is an optional property. Creating
                partner namespaces is always permitted under the same Azure subscription as the one used
                for creating the partner registration.
@@ -132,7 +132,7 @@ class PartnerRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizedAzureSubscriptionIds")
-    def authorized_azure_subscription_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def authorized_azure_subscription_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Azure subscription Ids that are authorized to create a partner namespace
         associated with this partner registration. This is an optional property. Creating

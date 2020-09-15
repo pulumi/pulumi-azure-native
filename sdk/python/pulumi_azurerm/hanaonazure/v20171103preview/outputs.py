@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,13 +24,13 @@ class DiskResponse(dict):
     Specifies the disk information fo the HANA instance
     """
     def __init__(__self__, *,
-                 lun: float,
-                 disk_size_gb: Optional[float] = None,
+                 lun: int,
+                 disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None):
         """
         Specifies the disk information fo the HANA instance
-        :param float lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-        :param float disk_size_gb: Specifies the size of an empty data disk in gigabytes.
+        :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param str name: The disk name.
         """
         pulumi.set(__self__, "lun", lun)
@@ -41,7 +41,7 @@ class DiskResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         """
@@ -49,7 +49,7 @@ class DiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of an empty data disk in gigabytes.
         """
@@ -136,11 +136,11 @@ class NetworkProfileResponse(dict):
     """
     def __init__(__self__, *,
                  circuit_id: str,
-                 network_interfaces: Optional[List['outputs.IpAddressResponse']] = None):
+                 network_interfaces: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         Specifies the network settings for the HANA instance disks.
         :param str circuit_id: Specifies the circuit id for connecting to express route.
-        :param List['IpAddressResponseArgs'] network_interfaces: Specifies the network interfaces for the HANA instance.
+        :param Sequence['IpAddressResponseArgs'] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
         pulumi.set(__self__, "circuit_id", circuit_id)
         if network_interfaces is not None:
@@ -156,7 +156,7 @@ class NetworkProfileResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.IpAddressResponse']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.IpAddressResponse']]:
         """
         Specifies the network interfaces for the HANA instance.
         """
@@ -233,11 +233,11 @@ class StorageProfileResponse(dict):
     """
     def __init__(__self__, *,
                  nfs_ip_address: str,
-                 os_disks: Optional[List['outputs.DiskResponse']] = None):
+                 os_disks: Optional[Sequence['outputs.DiskResponse']] = None):
         """
         Specifies the storage settings for the HANA instance disks.
         :param str nfs_ip_address: IP Address to connect to storage.
-        :param List['DiskResponseArgs'] os_disks: Specifies information about the operating system disk used by the hana instance.
+        :param Sequence['DiskResponseArgs'] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
         pulumi.set(__self__, "nfs_ip_address", nfs_ip_address)
         if os_disks is not None:
@@ -253,7 +253,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="osDisks")
-    def os_disks(self) -> Optional[List['outputs.DiskResponse']]:
+    def os_disks(self) -> Optional[Sequence['outputs.DiskResponse']]:
         """
         Specifies information about the operating system disk used by the hana instance.
         """

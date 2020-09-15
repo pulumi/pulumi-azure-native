@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The Live Event access policies.
         /// </summary>
         [Output("crossSiteAccessPolicies")]
-        public Output<Outputs.CrossSiteAccessPoliciesResponseResult?> CrossSiteAccessPolicies { get; private set; } = null!;
+        public Output<Outputs.CrossSiteAccessPoliciesResponse?> CrossSiteAccessPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The Live Event description.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The Live Event encoding.
         /// </summary>
         [Output("encoding")]
-        public Output<Outputs.LiveEventEncodingResponseResult?> Encoding { get; private set; } = null!;
+        public Output<Outputs.LiveEventEncodingResponse?> Encoding { get; private set; } = null!;
 
         /// <summary>
         /// The Live Event input.
         /// </summary>
         [Output("input")]
-        public Output<Outputs.LiveEventInputResponseResult> Input { get; private set; } = null!;
+        public Output<Outputs.LiveEventInputResponse> Input { get; private set; } = null!;
 
         /// <summary>
         /// The exact time the Live Event was last modified.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The Live Event preview.
         /// </summary>
         [Output("preview")]
-        public Output<Outputs.LiveEventPreviewResponseResult?> Preview { get; private set; } = null!;
+        public Output<Outputs.LiveEventPreviewResponse?> Preview { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the Live Event.

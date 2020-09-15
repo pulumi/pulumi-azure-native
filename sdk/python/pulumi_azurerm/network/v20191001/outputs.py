@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -28,17 +28,17 @@ class CustomRuleListResponse(dict):
     Defines contents of custom rules
     """
     def __init__(__self__, *,
-                 rules: Optional[List['outputs.CustomRuleResponse']] = None):
+                 rules: Optional[Sequence['outputs.CustomRuleResponse']] = None):
         """
         Defines contents of custom rules
-        :param List['CustomRuleResponseArgs'] rules: List of rules
+        :param Sequence['CustomRuleResponseArgs'] rules: List of rules
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.CustomRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.CustomRuleResponse']]:
         """
         List of rules
         """
@@ -55,23 +55,23 @@ class CustomRuleResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 match_conditions: List['outputs.MatchConditionResponse'],
-                 priority: float,
+                 match_conditions: Sequence['outputs.MatchConditionResponse'],
+                 priority: int,
                  rule_type: str,
                  enabled_state: Optional[str] = None,
                  name: Optional[str] = None,
-                 rate_limit_duration_in_minutes: Optional[float] = None,
-                 rate_limit_threshold: Optional[float] = None):
+                 rate_limit_duration_in_minutes: Optional[int] = None,
+                 rate_limit_threshold: Optional[int] = None):
         """
         Defines contents of a web application rule
         :param str action: Describes what action to be applied when rule matches.
-        :param List['MatchConditionResponseArgs'] match_conditions: List of match conditions.
-        :param float priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        :param Sequence['MatchConditionResponseArgs'] match_conditions: List of match conditions.
+        :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes type of rule.
         :param str enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         :param str name: Describes the name of the rule.
-        :param float rate_limit_duration_in_minutes: Time window for resetting the rate limit count. Default is 1 minute.
-        :param float rate_limit_threshold: Number of allowed requests per client within the time window.
+        :param int rate_limit_duration_in_minutes: Time window for resetting the rate limit count. Default is 1 minute.
+        :param int rate_limit_threshold: Number of allowed requests per client within the time window.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match_conditions", match_conditions)
@@ -96,7 +96,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> List['outputs.MatchConditionResponse']:
+    def match_conditions(self) -> Sequence['outputs.MatchConditionResponse']:
         """
         List of match conditions.
         """
@@ -104,7 +104,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         """
@@ -136,7 +136,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter(name="rateLimitDurationInMinutes")
-    def rate_limit_duration_in_minutes(self) -> Optional[float]:
+    def rate_limit_duration_in_minutes(self) -> Optional[int]:
         """
         Time window for resetting the rate limit count. Default is 1 minute.
         """
@@ -144,7 +144,7 @@ class CustomRuleResponse(dict):
 
     @property
     @pulumi.getter(name="rateLimitThreshold")
-    def rate_limit_threshold(self) -> Optional[float]:
+    def rate_limit_threshold(self) -> Optional[int]:
         """
         Number of allowed requests per client within the time window.
         """
@@ -234,13 +234,13 @@ class ManagedRuleGroupOverrideResponse(dict):
     """
     def __init__(__self__, *,
                  rule_group_name: str,
-                 exclusions: Optional[List['outputs.ManagedRuleExclusionResponse']] = None,
-                 rules: Optional[List['outputs.ManagedRuleOverrideResponse']] = None):
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group to override.
-        :param List['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the group.
-        :param List['ManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the group.
+        :param Sequence['ManagedRuleOverrideResponseArgs'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -258,7 +258,7 @@ class ManagedRuleGroupOverrideResponse(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.ManagedRuleExclusionResponse']]:
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
         """
         Describes the exclusions that are applied to all rules in the group.
         """
@@ -266,7 +266,7 @@ class ManagedRuleGroupOverrideResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.ManagedRuleOverrideResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.ManagedRuleOverrideResponse']]:
         """
         List of rules that will be disabled. If none specified, all rules in the group will be disabled.
         """
@@ -285,13 +285,13 @@ class ManagedRuleOverrideResponse(dict):
                  rule_id: str,
                  action: Optional[str] = None,
                  enabled_state: Optional[str] = None,
-                 exclusions: Optional[List['outputs.ManagedRuleExclusionResponse']] = None):
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None):
         """
         Defines a managed rule group override setting.
         :param str rule_id: Identifier for the managed rule.
         :param str action: Describes the override action to be applied when rule matches.
         :param str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-        :param List['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to this specific rule.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -327,7 +327,7 @@ class ManagedRuleOverrideResponse(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.ManagedRuleExclusionResponse']]:
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
         """
         Describes the exclusions that are applied to this specific rule.
         """
@@ -343,17 +343,17 @@ class ManagedRuleSetListResponse(dict):
     Defines the list of managed rule sets for the policy.
     """
     def __init__(__self__, *,
-                 managed_rule_sets: Optional[List['outputs.ManagedRuleSetResponse']] = None):
+                 managed_rule_sets: Optional[Sequence['outputs.ManagedRuleSetResponse']] = None):
         """
         Defines the list of managed rule sets for the policy.
-        :param List['ManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
+        :param Sequence['ManagedRuleSetResponseArgs'] managed_rule_sets: List of rule sets.
         """
         if managed_rule_sets is not None:
             pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
 
     @property
     @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[List['outputs.ManagedRuleSetResponse']]:
+    def managed_rule_sets(self) -> Optional[Sequence['outputs.ManagedRuleSetResponse']]:
         """
         List of rule sets.
         """
@@ -371,14 +371,14 @@ class ManagedRuleSetResponse(dict):
     def __init__(__self__, *,
                  rule_set_type: str,
                  rule_set_version: str,
-                 exclusions: Optional[List['outputs.ManagedRuleExclusionResponse']] = None,
-                 rule_group_overrides: Optional[List['outputs.ManagedRuleGroupOverrideResponse']] = None):
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']] = None):
         """
         Defines a managed rule set.
         :param str rule_set_type: Defines the rule set type to use.
         :param str rule_set_version: Defines the version of the rule set to use.
-        :param List['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the set.
-        :param List['ManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        :param Sequence['ManagedRuleExclusionResponseArgs'] exclusions: Describes the exclusions that are applied to all rules in the set.
+        :param Sequence['ManagedRuleGroupOverrideResponseArgs'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
         """
         pulumi.set(__self__, "rule_set_type", rule_set_type)
         pulumi.set(__self__, "rule_set_version", rule_set_version)
@@ -405,7 +405,7 @@ class ManagedRuleSetResponse(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.ManagedRuleExclusionResponse']]:
+    def exclusions(self) -> Optional[Sequence['outputs.ManagedRuleExclusionResponse']]:
         """
         Describes the exclusions that are applied to all rules in the set.
         """
@@ -413,7 +413,7 @@ class ManagedRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ruleGroupOverrides")
-    def rule_group_overrides(self) -> Optional[List['outputs.ManagedRuleGroupOverrideResponse']]:
+    def rule_group_overrides(self) -> Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']]:
         """
         Defines the rule group overrides to apply to the rule set.
         """
@@ -429,20 +429,20 @@ class MatchConditionResponse(dict):
     Define a match condition.
     """
     def __init__(__self__, *,
-                 match_value: List[str],
+                 match_value: Sequence[str],
                  match_variable: str,
                  operator: str,
                  negate_condition: Optional[bool] = None,
                  selector: Optional[str] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
         Define a match condition.
-        :param List[str] match_value: List of possible match values.
+        :param Sequence[str] match_value: List of possible match values.
         :param str match_variable: Request variable to compare with.
         :param str operator: Comparison type to use for matching with the variable value.
         :param bool negate_condition: Describes if the result of this condition should be negated.
         :param str selector: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-        :param List[str] transforms: List of transforms.
+        :param Sequence[str] transforms: List of transforms.
         """
         pulumi.set(__self__, "match_value", match_value)
         pulumi.set(__self__, "match_variable", match_variable)
@@ -456,7 +456,7 @@ class MatchConditionResponse(dict):
 
     @property
     @pulumi.getter(name="matchValue")
-    def match_value(self) -> List[str]:
+    def match_value(self) -> Sequence[str]:
         """
         List of possible match values.
         """
@@ -496,7 +496,7 @@ class MatchConditionResponse(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         List of transforms.
         """
@@ -513,14 +513,14 @@ class PolicySettingsResponse(dict):
     """
     def __init__(__self__, *,
                  custom_block_response_body: Optional[str] = None,
-                 custom_block_response_status_code: Optional[float] = None,
+                 custom_block_response_status_code: Optional[int] = None,
                  enabled_state: Optional[str] = None,
                  mode: Optional[str] = None,
                  redirect_url: Optional[str] = None):
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
         :param str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        :param float custom_block_response_status_code: If the action type is block, customer can override the response status code.
+        :param int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
         :param str mode: Describes if it is in detection mode or prevention mode at policy level.
         :param str redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -546,7 +546,7 @@ class PolicySettingsResponse(dict):
 
     @property
     @pulumi.getter(name="customBlockResponseStatusCode")
-    def custom_block_response_status_code(self) -> Optional[float]:
+    def custom_block_response_status_code(self) -> Optional[int]:
         """
         If the action type is block, customer can override the response status code.
         """

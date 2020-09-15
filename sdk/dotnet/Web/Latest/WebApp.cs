@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// If specified during app creation, the app is cloned from a source app.
         /// </summary>
         [Output("cloningInfo")]
-        public Output<Outputs.CloningInfoResponseResult?> CloningInfo { get; private set; } = null!;
+        public Output<Outputs.CloningInfoResponse?> CloningInfo { get; private set; } = null!;
 
         /// <summary>
         /// Size of the function container.
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
         [Output("hostNameSslStates")]
-        public Output<ImmutableArray<Outputs.HostNameSslStateResponseResult>> HostNameSslStates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostNameSslStateResponse>> HostNameSslStates { get; private set; } = null!;
 
         /// <summary>
         /// Hostnames associated with the app.
@@ -113,7 +113,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// App Service Environment to use for the app.
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse?> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// Managed service identity.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies an operation id if this site has a pending operation.
@@ -235,13 +235,13 @@ namespace Pulumi.AzureRM.Web.Latest
         /// Configuration of the app.
         /// </summary>
         [Output("siteConfig")]
-        public Output<Outputs.SiteConfigResponseResult?> SiteConfig { get; private set; } = null!;
+        public Output<Outputs.SiteConfigResponse?> SiteConfig { get; private set; } = null!;
 
         /// <summary>
         /// Status of the last deployment slot swap operation.
         /// </summary>
         [Output("slotSwapStatus")]
-        public Output<Outputs.SlotSwapStatusResponseResult> SlotSwapStatus { get; private set; } = null!;
+        public Output<Outputs.SlotSwapStatusResponse> SlotSwapStatus { get; private set; } = null!;
 
         /// <summary>
         /// Current state of the app.

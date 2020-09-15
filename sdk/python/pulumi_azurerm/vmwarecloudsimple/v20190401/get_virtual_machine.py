@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetVirtualMachineResult:
     Virtual machine model
     """
     def __init__(__self__, amount_of_ram=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
-        if amount_of_ram and not isinstance(amount_of_ram, float):
-            raise TypeError("Expected argument 'amount_of_ram' to be a float")
+        if amount_of_ram and not isinstance(amount_of_ram, int):
+            raise TypeError("Expected argument 'amount_of_ram' to be a int")
         pulumi.set(__self__, "amount_of_ram", amount_of_ram)
         if controllers and not isinstance(controllers, list):
             raise TypeError("Expected argument 'controllers' to be a list")
@@ -57,8 +57,8 @@ class GetVirtualMachineResult:
         if nics and not isinstance(nics, list):
             raise TypeError("Expected argument 'nics' to be a list")
         pulumi.set(__self__, "nics", nics)
-        if number_of_cores and not isinstance(number_of_cores, float):
-            raise TypeError("Expected argument 'number_of_cores' to be a float")
+        if number_of_cores and not isinstance(number_of_cores, int):
+            raise TypeError("Expected argument 'number_of_cores' to be a int")
         pulumi.set(__self__, "number_of_cores", number_of_cores)
         if password and not isinstance(password, str):
             raise TypeError("Expected argument 'password' to be a str")
@@ -102,7 +102,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="amountOfRam")
-    def amount_of_ram(self) -> float:
+    def amount_of_ram(self) -> int:
         """
         The amount of memory
         """
@@ -110,7 +110,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def controllers(self) -> List['outputs.VirtualDiskControllerResponse']:
+    def controllers(self) -> Sequence['outputs.VirtualDiskControllerResponse']:
         """
         The list of Virtual Disks' Controllers
         """
@@ -126,7 +126,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[List['outputs.VirtualDiskResponse']]:
+    def disks(self) -> Optional[Sequence['outputs.VirtualDiskResponse']]:
         """
         The list of Virtual Disks
         """
@@ -190,7 +190,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def nics(self) -> Optional[List['outputs.VirtualNicResponse']]:
+    def nics(self) -> Optional[Sequence['outputs.VirtualNicResponse']]:
         """
         The list of Virtual NICs
         """
@@ -198,7 +198,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="numberOfCores")
-    def number_of_cores(self) -> float:
+    def number_of_cores(self) -> int:
         """
         The number of CPU cores
         """
@@ -286,7 +286,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="vSphereNetworks")
-    def v_sphere_networks(self) -> Optional[List[str]]:
+    def v_sphere_networks(self) -> Optional[Sequence[str]]:
         """
         The list of Virtual VSphere Networks
         """

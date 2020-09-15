@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview.Outputs
         /// <summary>
         /// The artifacts for the service unit.
         /// </summary>
-        public readonly Outputs.ServiceUnitArtifactsResponseResult? Artifacts;
+        public readonly Outputs.ServiceUnitArtifactsResponse? Artifacts;
         /// <summary>
         /// Describes the type of ARM deployment to be performed on the resource.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview.Outputs
 
         [OutputConstructor]
         private ServiceUnitResponseResult(
-            Outputs.ServiceUnitArtifactsResponseResult? artifacts,
+            Outputs.ServiceUnitArtifactsResponse? artifacts,
 
             string deploymentMode,
 

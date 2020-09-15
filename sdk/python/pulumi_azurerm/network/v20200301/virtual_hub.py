@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -30,8 +30,8 @@ class VirtualHub(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                 virtual_hub_route_table_v2s: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
-                 virtual_network_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
+                 virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]]] = None,
+                 virtual_network_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]]] = None,
                  virtual_wan: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None,
@@ -55,8 +55,8 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The sku of this VirtualHub.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
@@ -244,7 +244,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubRouteTableV2s")
-    def virtual_hub_route_table_v2s(self) -> pulumi.Output[Optional[List['outputs.VirtualHubRouteTableV2Response']]]:
+    def virtual_hub_route_table_v2s(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualHubRouteTableV2Response']]]:
         """
         List of all virtual hub route table v2s associated with this VirtualHub.
         """
@@ -252,7 +252,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkConnections")
-    def virtual_network_connections(self) -> pulumi.Output[Optional[List['outputs.HubVirtualNetworkConnectionResponse']]]:
+    def virtual_network_connections(self) -> pulumi.Output[Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]]:
         """
         List of all vnet connections with this VirtualHub.
         """

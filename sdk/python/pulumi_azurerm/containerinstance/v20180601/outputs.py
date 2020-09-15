@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -100,17 +100,17 @@ class ContainerExecResponse(dict):
     The container execution command, for liveness or readiness probe
     """
     def __init__(__self__, *,
-                 command: Optional[List[str]] = None):
+                 command: Optional[Sequence[str]] = None):
         """
         The container execution command, for liveness or readiness probe
-        :param List[str] command: The commands to execute within the container.
+        :param Sequence[str] command: The commands to execute within the container.
         """
         if command is not None:
             pulumi.set(__self__, "command", command)
 
     @property
     @pulumi.getter
-    def command(self) -> Optional[List[str]]:
+    def command(self) -> Optional[Sequence[str]]:
         """
         The commands to execute within the container.
         """
@@ -152,11 +152,11 @@ class ContainerGroupResponseInstanceView(dict):
     The instance view of the container group. Only valid in response.
     """
     def __init__(__self__, *,
-                 events: List['outputs.EventResponse'],
+                 events: Sequence['outputs.EventResponse'],
                  state: str):
         """
         The instance view of the container group. Only valid in response.
-        :param List['EventResponseArgs'] events: The events of this container group.
+        :param Sequence['EventResponseArgs'] events: The events of this container group.
         :param str state: The state of the container group. Only valid in response.
         """
         pulumi.set(__self__, "events", events)
@@ -164,7 +164,7 @@ class ContainerGroupResponseInstanceView(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List['outputs.EventResponse']:
+    def events(self) -> Sequence['outputs.EventResponse']:
         """
         The events of this container group.
         """
@@ -188,12 +188,12 @@ class ContainerHttpGetResponse(dict):
     The container Http Get settings, for liveness or readiness probe
     """
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  path: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
         The container Http Get settings, for liveness or readiness probe
-        :param float port: The port number to probe.
+        :param int port: The port number to probe.
         :param str path: The path to probe.
         :param str scheme: The scheme.
         """
@@ -205,7 +205,7 @@ class ContainerHttpGetResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number to probe.
         """
@@ -237,11 +237,11 @@ class ContainerPortResponse(dict):
     The port exposed on the container instance.
     """
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  protocol: Optional[str] = None):
         """
         The port exposed on the container instance.
-        :param float port: The port number exposed within the container group.
+        :param int port: The port number exposed within the container group.
         :param str protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -250,7 +250,7 @@ class ContainerPortResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number exposed within the container group.
         """
@@ -275,21 +275,21 @@ class ContainerProbeResponse(dict):
     """
     def __init__(__self__, *,
                  exec_: Optional['outputs.ContainerExecResponse'] = None,
-                 failure_threshold: Optional[float] = None,
+                 failure_threshold: Optional[int] = None,
                  http_get: Optional['outputs.ContainerHttpGetResponse'] = None,
-                 initial_delay_seconds: Optional[float] = None,
-                 period_seconds: Optional[float] = None,
-                 success_threshold: Optional[float] = None,
-                 timeout_seconds: Optional[float] = None):
+                 initial_delay_seconds: Optional[int] = None,
+                 period_seconds: Optional[int] = None,
+                 success_threshold: Optional[int] = None,
+                 timeout_seconds: Optional[int] = None):
         """
         The container probe, for liveness or readiness
         :param 'ContainerExecResponseArgs' exec_: The execution command to probe
-        :param float failure_threshold: The failure threshold.
+        :param int failure_threshold: The failure threshold.
         :param 'ContainerHttpGetResponseArgs' http_get: The Http Get settings to probe
-        :param float initial_delay_seconds: The initial delay seconds.
-        :param float period_seconds: The period seconds.
-        :param float success_threshold: The success threshold.
-        :param float timeout_seconds: The timeout seconds.
+        :param int initial_delay_seconds: The initial delay seconds.
+        :param int period_seconds: The period seconds.
+        :param int success_threshold: The success threshold.
+        :param int timeout_seconds: The timeout seconds.
         """
         if exec_ is not None:
             pulumi.set(__self__, "exec_", exec_)
@@ -316,7 +316,7 @@ class ContainerProbeResponse(dict):
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[float]:
+    def failure_threshold(self) -> Optional[int]:
         """
         The failure threshold.
         """
@@ -332,7 +332,7 @@ class ContainerProbeResponse(dict):
 
     @property
     @pulumi.getter(name="initialDelaySeconds")
-    def initial_delay_seconds(self) -> Optional[float]:
+    def initial_delay_seconds(self) -> Optional[int]:
         """
         The initial delay seconds.
         """
@@ -340,7 +340,7 @@ class ContainerProbeResponse(dict):
 
     @property
     @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[float]:
+    def period_seconds(self) -> Optional[int]:
         """
         The period seconds.
         """
@@ -348,7 +348,7 @@ class ContainerProbeResponse(dict):
 
     @property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[float]:
+    def success_threshold(self) -> Optional[int]:
         """
         The success threshold.
         """
@@ -356,7 +356,7 @@ class ContainerProbeResponse(dict):
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[float]:
+    def timeout_seconds(self) -> Optional[int]:
         """
         The timeout seconds.
         """
@@ -373,15 +373,15 @@ class ContainerPropertiesResponseInstanceView(dict):
     """
     def __init__(__self__, *,
                  current_state: 'outputs.ContainerStateResponse',
-                 events: List['outputs.EventResponse'],
+                 events: Sequence['outputs.EventResponse'],
                  previous_state: 'outputs.ContainerStateResponse',
-                 restart_count: float):
+                 restart_count: int):
         """
         The instance view of the container instance. Only valid in response.
         :param 'ContainerStateResponseArgs' current_state: Current container instance state.
-        :param List['EventResponseArgs'] events: The events of the container instance.
+        :param Sequence['EventResponseArgs'] events: The events of the container instance.
         :param 'ContainerStateResponseArgs' previous_state: Previous container instance state.
-        :param float restart_count: The number of times that the container instance has been restarted.
+        :param int restart_count: The number of times that the container instance has been restarted.
         """
         pulumi.set(__self__, "current_state", current_state)
         pulumi.set(__self__, "events", events)
@@ -398,7 +398,7 @@ class ContainerPropertiesResponseInstanceView(dict):
 
     @property
     @pulumi.getter
-    def events(self) -> List['outputs.EventResponse']:
+    def events(self) -> Sequence['outputs.EventResponse']:
         """
         The events of the container instance.
         """
@@ -414,7 +414,7 @@ class ContainerPropertiesResponseInstanceView(dict):
 
     @property
     @pulumi.getter(name="restartCount")
-    def restart_count(self) -> float:
+    def restart_count(self) -> int:
         """
         The number of times that the container instance has been restarted.
         """
@@ -434,24 +434,24 @@ class ContainerResponse(dict):
                  instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
                  name: str,
                  resources: 'outputs.ResourceRequirementsResponse',
-                 command: Optional[List[str]] = None,
-                 environment_variables: Optional[List['outputs.EnvironmentVariableResponse']] = None,
+                 command: Optional[Sequence[str]] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
                  liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
-                 ports: Optional[List['outputs.ContainerPortResponse']] = None,
+                 ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
                  readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
-                 volume_mounts: Optional[List['outputs.VolumeMountResponse']] = None):
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         A container instance.
         :param str image: The name of the image used to create the container instance.
         :param 'ContainerPropertiesResponseInstanceViewArgs' instance_view: The instance view of the container instance. Only valid in response.
         :param str name: The user-provided name of the container instance.
         :param 'ResourceRequirementsResponseArgs' resources: The resource requirements of the container instance.
-        :param List[str] command: The commands to execute within the container instance in exec form.
-        :param List['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in the container instance.
+        :param Sequence[str] command: The commands to execute within the container instance in exec form.
+        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: The environment variables to set in the container instance.
         :param 'ContainerProbeResponseArgs' liveness_probe: The liveness probe.
-        :param List['ContainerPortResponseArgs'] ports: The exposed ports on the container instance.
+        :param Sequence['ContainerPortResponseArgs'] ports: The exposed ports on the container instance.
         :param 'ContainerProbeResponseArgs' readiness_probe: The readiness probe.
-        :param List['VolumeMountResponseArgs'] volume_mounts: The volume mounts available to the container instance.
+        :param Sequence['VolumeMountResponseArgs'] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "instance_view", instance_view)
@@ -504,7 +504,7 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter
-    def command(self) -> Optional[List[str]]:
+    def command(self) -> Optional[Sequence[str]]:
         """
         The commands to execute within the container instance in exec form.
         """
@@ -512,7 +512,7 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
         The environment variables to set in the container instance.
         """
@@ -528,7 +528,7 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[List['outputs.ContainerPortResponse']]:
+    def ports(self) -> Optional[Sequence['outputs.ContainerPortResponse']]:
         """
         The exposed ports on the container instance.
         """
@@ -544,7 +544,7 @@ class ContainerResponse(dict):
 
     @property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[List['outputs.VolumeMountResponse']]:
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
         """
         The volume mounts available to the container instance.
         """
@@ -561,14 +561,14 @@ class ContainerStateResponse(dict):
     """
     def __init__(__self__, *,
                  detail_status: Optional[str] = None,
-                 exit_code: Optional[float] = None,
+                 exit_code: Optional[int] = None,
                  finish_time: Optional[str] = None,
                  start_time: Optional[str] = None,
                  state: Optional[str] = None):
         """
         The container instance state.
         :param str detail_status: The human-readable status of the container instance state.
-        :param float exit_code: The container instance exit codes correspond to those from the `docker run` command.
+        :param int exit_code: The container instance exit codes correspond to those from the `docker run` command.
         :param str finish_time: The date-time when the container instance state finished.
         :param str start_time: The date-time when the container instance state started.
         :param str state: The state of the container instance.
@@ -594,7 +594,7 @@ class ContainerStateResponse(dict):
 
     @property
     @pulumi.getter(name="exitCode")
-    def exit_code(self) -> Optional[float]:
+    def exit_code(self) -> Optional[int]:
         """
         The container instance exit codes correspond to those from the `docker run` command.
         """
@@ -683,7 +683,7 @@ class EventResponse(dict):
     A container group or container instance event.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  first_timestamp: Optional[str] = None,
                  last_timestamp: Optional[str] = None,
                  message: Optional[str] = None,
@@ -691,7 +691,7 @@ class EventResponse(dict):
                  type: Optional[str] = None):
         """
         A container group or container instance event.
-        :param float count: The count of the event.
+        :param int count: The count of the event.
         :param str first_timestamp: The date-time of the earliest logged event.
         :param str last_timestamp: The date-time of the latest logged event.
         :param str message: The event message.
@@ -713,7 +713,7 @@ class EventResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         The count of the event.
         """
@@ -867,14 +867,14 @@ class IpAddressResponse(dict):
     """
     def __init__(__self__, *,
                  fqdn: str,
-                 ports: List['outputs.PortResponse'],
+                 ports: Sequence['outputs.PortResponse'],
                  type: str,
                  dns_name_label: Optional[str] = None,
                  ip: Optional[str] = None):
         """
         IP address for the container group.
         :param str fqdn: The FQDN for the IP.
-        :param List['PortResponseArgs'] ports: The list of ports exposed on the container group.
+        :param Sequence['PortResponseArgs'] ports: The list of ports exposed on the container group.
         :param str type: Specifies if the IP is exposed to the public internet.
         :param str dns_name_label: The Dns name label for the IP.
         :param str ip: The IP exposed to the public internet.
@@ -897,7 +897,7 @@ class IpAddressResponse(dict):
 
     @property
     @pulumi.getter
-    def ports(self) -> List['outputs.PortResponse']:
+    def ports(self) -> Sequence['outputs.PortResponse']:
         """
         The list of ports exposed on the container group.
         """
@@ -973,11 +973,11 @@ class PortResponse(dict):
     The port exposed on the container group.
     """
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  protocol: Optional[str] = None):
         """
         The port exposed on the container group.
-        :param float port: The port number.
+        :param int port: The port number.
         :param str protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -986,7 +986,7 @@ class PortResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number.
         """

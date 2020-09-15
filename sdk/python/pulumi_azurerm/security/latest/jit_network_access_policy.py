@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,9 +20,9 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                  asc_location: Optional[pulumi.Input[str]] = None,
                  jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessRequestArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machines: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
+                 virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JitNetworkAccessPolicyVirtualMachineArgs']]]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,7 +131,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requests(self) -> pulumi.Output[Optional[List['outputs.JitNetworkAccessRequestResponse']]]:
+    def requests(self) -> pulumi.Output[Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]]:
         return pulumi.get(self, "requests")
 
     @property
@@ -144,7 +144,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Output[List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']]:
+    def virtual_machines(self) -> pulumi.Output[Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']]:
         """
         Configurations for Microsoft.Compute/virtualMachines resource type.
         """

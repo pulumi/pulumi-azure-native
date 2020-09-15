@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Product']
@@ -23,7 +23,7 @@ class Product(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[float]] = None,
+                 subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,7 +41,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         :param pulumi.Input[bool] subscription_required: Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
-        :param pulumi.Input[float] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
+        :param pulumi.Input[int] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         :param pulumi.Input[str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
         if __name__ is not None:
@@ -157,7 +157,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> pulumi.Output[Optional[float]]:
+    def subscriptions_limit(self) -> pulumi.Output[Optional[int]]:
         """
         Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of true.
         """

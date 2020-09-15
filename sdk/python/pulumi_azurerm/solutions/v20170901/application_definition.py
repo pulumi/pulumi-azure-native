@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,8 +18,8 @@ class ApplicationDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_name: Optional[pulumi.Input[str]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -42,8 +42,8 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationProviderAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
         :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] description: The managed application definition description.
         :param pulumi.Input[str] display_name: The managed application definition display name.
@@ -129,7 +129,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ApplicationArtifactResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationArtifactResponse']]]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -137,7 +137,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[List['outputs.ApplicationProviderAuthorizationResponse']]:
+    def authorizations(self) -> pulumi.Output[Sequence['outputs.ApplicationProviderAuthorizationResponse']]:
         """
         The managed application provider authorizations.
         """

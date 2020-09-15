@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -56,9 +56,9 @@ class AutoScaleSettingsResponse(dict):
     The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
     """
     def __init__(__self__, *,
-                 maximum_node_count: float,
-                 minimum_node_count: float,
-                 initial_node_count: Optional[float] = None):
+                 maximum_node_count: int,
+                 minimum_node_count: int,
+                 initial_node_count: Optional[int] = None):
         """
         The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
         """
@@ -69,17 +69,17 @@ class AutoScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maximumNodeCount")
-    def maximum_node_count(self) -> float:
+    def maximum_node_count(self) -> int:
         return pulumi.get(self, "maximum_node_count")
 
     @property
     @pulumi.getter(name="minimumNodeCount")
-    def minimum_node_count(self) -> float:
+    def minimum_node_count(self) -> int:
         return pulumi.get(self, "minimum_node_count")
 
     @property
     @pulumi.getter(name="initialNodeCount")
-    def initial_node_count(self) -> Optional[float]:
+    def initial_node_count(self) -> Optional[int]:
         return pulumi.get(self, "initial_node_count")
 
     def _translate_property(self, prop):
@@ -263,12 +263,12 @@ class BatchAIErrorResponse(dict):
     """
     def __init__(__self__, *,
                  code: Optional[str] = None,
-                 details: Optional[List['outputs.NameValuePairResponse']] = None,
+                 details: Optional[Sequence['outputs.NameValuePairResponse']] = None,
                  message: Optional[str] = None):
         """
         An error response from the Batch AI service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param List['NameValuePairResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['NameValuePairResponseArgs'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         """
         if code is not None:
@@ -288,7 +288,7 @@ class BatchAIErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def details(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         A list of additional details about the error.
         """
@@ -315,14 +315,14 @@ class CNTKsettingsResponse(dict):
                  command_line_args: Optional[str] = None,
                  config_file_path: Optional[str] = None,
                  language_type: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  python_script_file_path: Optional[str] = None):
         """
         Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
         :param str config_file_path: This property can be specified only if the languageType is 'BrainScript'.
         :param str language_type: Valid values are 'BrainScript' or 'Python'.
-        :param float process_count: The default value for this property is equal to nodeCount property
+        :param int process_count: The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: This property can be specified only if the languageType is 'Python'.
         :param str python_script_file_path: This property can be specified only if the languageType is 'Python'.
         """
@@ -362,7 +362,7 @@ class CNTKsettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         The default value for this property is equal to nodeCount property
         """
@@ -396,13 +396,13 @@ class CaffeSettingsResponse(dict):
     def __init__(__self__, *,
                  command_line_args: Optional[str] = None,
                  config_file_path: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  python_script_file_path: Optional[str] = None):
         """
         Specifies the settings for Caffe job.
         :param str config_file_path: This property cannot be specified if pythonScriptFilePath is specified.
-        :param float process_count: The default value for this property is equal to nodeCount property
+        :param int process_count: The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: This property can be specified only if the pythonScriptFilePath is specified.
         :param str python_script_file_path: This property cannot be specified if configFilePath is specified.
         """
@@ -432,7 +432,7 @@ class CaffeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         The default value for this property is equal to nodeCount property
         """
@@ -466,11 +466,11 @@ class ChainerSettingsResponse(dict):
     def __init__(__self__, *,
                  python_script_file_path: str,
                  command_line_args: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None):
         """
         Specifies the settings for Chainer job.
-        :param float process_count: The default value for this property is equal to nodeCount property
+        :param int process_count: The default value for this property is equal to nodeCount property
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
         if command_line_args is not None:
@@ -492,7 +492,7 @@ class ChainerSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         The default value for this property is equal to nodeCount property
         """
@@ -561,8 +561,8 @@ class DataDisksResponse(dict):
     """
     def __init__(__self__, *,
                  caching_type: str,
-                 disk_count: float,
-                 disk_size_in_gb: float,
+                 disk_count: int,
+                 disk_size_in_gb: int,
                  storage_account_type: str):
         """
         Settings for the data disk which would be created for the File Server.
@@ -579,12 +579,12 @@ class DataDisksResponse(dict):
 
     @property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> float:
+    def disk_count(self) -> int:
         return pulumi.get(self, "disk_count")
 
     @property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> float:
+    def disk_size_in_gb(self) -> int:
         return pulumi.get(self, "disk_size_in_gb")
 
     @property
@@ -633,13 +633,13 @@ class FileResponseResult(dict):
     def __init__(__self__, *,
                  download_url: str,
                  name: str,
-                 content_length: Optional[float] = None,
+                 content_length: Optional[int] = None,
                  last_modified: Optional[str] = None):
         """
         Properties of the file.
         :param str download_url: This will be returned only if the model has been archived. During job run, this won't be returned and customers can use SSH tunneling to download. Users can use Get Remote Login Information API to get the IP address and port information of all the compute nodes running the job.
         :param str name: file name
-        :param float content_length: The file size.
+        :param int content_length: The file size.
         :param str last_modified: The time at which the file was last modified.
         """
         pulumi.set(__self__, "download_url", download_url)
@@ -667,7 +667,7 @@ class FileResponseResult(dict):
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> Optional[float]:
+    def content_length(self) -> Optional[int]:
         """
         The file size.
         """
@@ -913,13 +913,13 @@ class JobPropertiesResponseExecutionInfo(dict):
     def __init__(__self__, *,
                  start_time: str,
                  end_time: Optional[str] = None,
-                 errors: Optional[List['outputs.BatchAIErrorResponse']] = None,
-                 exit_code: Optional[float] = None):
+                 errors: Optional[Sequence['outputs.BatchAIErrorResponse']] = None,
+                 exit_code: Optional[int] = None):
         """
         Contains information about the execution of a job in the Azure Batch service.
         :param str start_time: 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
         :param str end_time: This property is only returned if the job is in completed state.
-        :param float exit_code: This property is only returned if the job is in completed state.
+        :param int exit_code: This property is only returned if the job is in completed state.
         """
         pulumi.set(__self__, "start_time", start_time)
         if end_time is not None:
@@ -947,12 +947,12 @@ class JobPropertiesResponseExecutionInfo(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[List['outputs.BatchAIErrorResponse']]:
+    def errors(self) -> Optional[Sequence['outputs.BatchAIErrorResponse']]:
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter(name="exitCode")
-    def exit_code(self) -> Optional[float]:
+    def exit_code(self) -> Optional[int]:
         """
         This property is only returned if the job is in completed state.
         """
@@ -1000,11 +1000,11 @@ class ManualScaleSettingsResponse(dict):
     Manual scale settings for the cluster.
     """
     def __init__(__self__, *,
-                 target_node_count: float,
+                 target_node_count: int,
                  node_deallocation_option: Optional[str] = None):
         """
         Manual scale settings for the cluster.
-        :param float target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+        :param int target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
         :param str node_deallocation_option: The default value is requeue.
         """
         pulumi.set(__self__, "target_node_count", target_node_count)
@@ -1013,7 +1013,7 @@ class ManualScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="targetNodeCount")
-    def target_node_count(self) -> float:
+    def target_node_count(self) -> int:
         """
         Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
         """
@@ -1083,14 +1083,14 @@ class MountVolumesResponse(dict):
     Details of volumes to mount on the cluster.
     """
     def __init__(__self__, *,
-                 azure_blob_file_systems: Optional[List['outputs.AzureBlobFileSystemReferenceResponse']] = None,
-                 azure_file_shares: Optional[List['outputs.AzureFileShareReferenceResponse']] = None,
-                 file_servers: Optional[List['outputs.FileServerReferenceResponse']] = None,
-                 unmanaged_file_systems: Optional[List['outputs.UnmanagedFileSystemReferenceResponse']] = None):
+                 azure_blob_file_systems: Optional[Sequence['outputs.AzureBlobFileSystemReferenceResponse']] = None,
+                 azure_file_shares: Optional[Sequence['outputs.AzureFileShareReferenceResponse']] = None,
+                 file_servers: Optional[Sequence['outputs.FileServerReferenceResponse']] = None,
+                 unmanaged_file_systems: Optional[Sequence['outputs.UnmanagedFileSystemReferenceResponse']] = None):
         """
         Details of volumes to mount on the cluster.
-        :param List['AzureBlobFileSystemReferenceResponseArgs'] azure_blob_file_systems: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-        :param List['AzureFileShareReferenceResponseArgs'] azure_file_shares: References to Azure File Shares that are to be mounted to the cluster nodes.
+        :param Sequence['AzureBlobFileSystemReferenceResponseArgs'] azure_blob_file_systems: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+        :param Sequence['AzureFileShareReferenceResponseArgs'] azure_file_shares: References to Azure File Shares that are to be mounted to the cluster nodes.
         """
         if azure_blob_file_systems is not None:
             pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
@@ -1103,7 +1103,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="azureBlobFileSystems")
-    def azure_blob_file_systems(self) -> Optional[List['outputs.AzureBlobFileSystemReferenceResponse']]:
+    def azure_blob_file_systems(self) -> Optional[Sequence['outputs.AzureBlobFileSystemReferenceResponse']]:
         """
         References to Azure Blob FUSE that are to be mounted to the cluster nodes.
         """
@@ -1111,7 +1111,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="azureFileShares")
-    def azure_file_shares(self) -> Optional[List['outputs.AzureFileShareReferenceResponse']]:
+    def azure_file_shares(self) -> Optional[Sequence['outputs.AzureFileShareReferenceResponse']]:
         """
         References to Azure File Shares that are to be mounted to the cluster nodes.
         """
@@ -1119,12 +1119,12 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="fileServers")
-    def file_servers(self) -> Optional[List['outputs.FileServerReferenceResponse']]:
+    def file_servers(self) -> Optional[Sequence['outputs.FileServerReferenceResponse']]:
         return pulumi.get(self, "file_servers")
 
     @property
     @pulumi.getter(name="unmanagedFileSystems")
-    def unmanaged_file_systems(self) -> Optional[List['outputs.UnmanagedFileSystemReferenceResponse']]:
+    def unmanaged_file_systems(self) -> Optional[Sequence['outputs.UnmanagedFileSystemReferenceResponse']]:
         return pulumi.get(self, "unmanaged_file_systems")
 
     def _translate_property(self, prop):
@@ -1205,11 +1205,11 @@ class NodeStateCountsResponse(dict):
     Counts of various compute node states on the cluster.
     """
     def __init__(__self__, *,
-                 idle_node_count: float,
-                 leaving_node_count: float,
-                 preparing_node_count: float,
-                 running_node_count: float,
-                 unusable_node_count: float):
+                 idle_node_count: int,
+                 leaving_node_count: int,
+                 preparing_node_count: int,
+                 running_node_count: int,
+                 unusable_node_count: int):
         """
         Counts of various compute node states on the cluster.
         """
@@ -1221,27 +1221,27 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="idleNodeCount")
-    def idle_node_count(self) -> float:
+    def idle_node_count(self) -> int:
         return pulumi.get(self, "idle_node_count")
 
     @property
     @pulumi.getter(name="leavingNodeCount")
-    def leaving_node_count(self) -> float:
+    def leaving_node_count(self) -> int:
         return pulumi.get(self, "leaving_node_count")
 
     @property
     @pulumi.getter(name="preparingNodeCount")
-    def preparing_node_count(self) -> float:
+    def preparing_node_count(self) -> int:
         return pulumi.get(self, "preparing_node_count")
 
     @property
     @pulumi.getter(name="runningNodeCount")
-    def running_node_count(self) -> float:
+    def running_node_count(self) -> int:
         return pulumi.get(self, "running_node_count")
 
     @property
     @pulumi.getter(name="unusableNodeCount")
-    def unusable_node_count(self) -> float:
+    def unusable_node_count(self) -> int:
         return pulumi.get(self, "unusable_node_count")
 
     def _translate_property(self, prop):
@@ -1476,7 +1476,7 @@ class SetupTaskResponse(dict):
     def __init__(__self__, *,
                  command_line: str,
                  std_out_err_path_prefix: str,
-                 environment_variables: Optional[List['outputs.EnvironmentSettingResponse']] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentSettingResponse']] = None,
                  run_elevated: Optional[bool] = None):
         """
         Specifies a setup task which can be used to customize the compute nodes of the cluster.
@@ -1504,7 +1504,7 @@ class SetupTaskResponse(dict):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentSettingResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentSettingResponse']]:
         return pulumi.get(self, "environment_variables")
 
     @property
@@ -1523,11 +1523,11 @@ class SshConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  user_account_settings: 'outputs.UserAccountSettingsResponse',
-                 public_ips_to_allow: Optional[List[str]] = None):
+                 public_ips_to_allow: Optional[Sequence[str]] = None):
         """
         SSH configuration settings for the VM
         :param 'UserAccountSettingsResponseArgs' user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
-        :param List[str] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
+        :param Sequence[str] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
         """
         pulumi.set(__self__, "user_account_settings", user_account_settings)
         if public_ips_to_allow is not None:
@@ -1543,7 +1543,7 @@ class SshConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[List[str]]:
+    def public_ips_to_allow(self) -> Optional[Sequence[str]]:
         """
         Default value is '*' can be used to match all source IPs. Maximum number of publicIPs that can be specified are 400.
         """
@@ -1562,16 +1562,16 @@ class TensorFlowSettingsResponse(dict):
                  master_command_line_args: str,
                  python_script_file_path: str,
                  parameter_server_command_line_args: Optional[str] = None,
-                 parameter_server_count: Optional[float] = None,
+                 parameter_server_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  worker_command_line_args: Optional[str] = None,
-                 worker_count: Optional[float] = None):
+                 worker_count: Optional[int] = None):
         """
         Specifies the settings for TensorFlow job.
         :param str parameter_server_command_line_args: This property is optional for single machine training.
-        :param float parameter_server_count: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
+        :param int parameter_server_count: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
         :param str worker_command_line_args: This property is optional for single machine training.
-        :param float worker_count: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+        :param int worker_count: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
         """
         pulumi.set(__self__, "master_command_line_args", master_command_line_args)
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
@@ -1606,7 +1606,7 @@ class TensorFlowSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="parameterServerCount")
-    def parameter_server_count(self) -> Optional[float]:
+    def parameter_server_count(self) -> Optional[int]:
         """
         If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
         """
@@ -1627,7 +1627,7 @@ class TensorFlowSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[float]:
+    def worker_count(self) -> Optional[int]:
         """
         If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
         """

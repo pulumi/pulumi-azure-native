@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -105,7 +105,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="dataEndpointHostNames")
-    def data_endpoint_host_names(self) -> List[str]:
+    def data_endpoint_host_names(self) -> Sequence[str]:
         """
         List of host names that will serve data when dataEndpointEnabled is true.
         """
@@ -169,7 +169,7 @@ class GetRegistryResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections for a container registry.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,16 +20,16 @@ class CaptureDescriptionArgs:
                  destination: Optional[pulumi.Input['DestinationArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
-                 size_limit_in_bytes: Optional[pulumi.Input[float]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 size_limit_in_bytes: Optional[pulumi.Input[int]] = None,
                  skip_empty_archives: Optional[pulumi.Input[bool]] = None):
         """
         Properties to configure capture description for eventhub
         :param pulumi.Input['DestinationArgs'] destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
         :param pulumi.Input[bool] enabled: A value that indicates whether capture description is enabled. 
         :param pulumi.Input[str] encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-        :param pulumi.Input[float] interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-        :param pulumi.Input[float] size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+        :param pulumi.Input[int] interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+        :param pulumi.Input[int] size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         :param pulumi.Input[bool] skip_empty_archives: A value that indicates whether to Skip Empty Archives
         """
         if destination is not None:
@@ -83,26 +83,26 @@ class CaptureDescriptionArgs:
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
     @pulumi.getter(name="sizeLimitInBytes")
-    def size_limit_in_bytes(self) -> Optional[pulumi.Input[float]]:
+    def size_limit_in_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         """
         return pulumi.get(self, "size_limit_in_bytes")
 
     @size_limit_in_bytes.setter
-    def size_limit_in_bytes(self, value: Optional[pulumi.Input[float]]):
+    def size_limit_in_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_limit_in_bytes", value)
 
     @property
@@ -194,12 +194,12 @@ class DestinationArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SKU parameters supplied to the create namespace operation
         :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[float] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param pulumi.Input[int] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
         :param pulumi.Input[str] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -222,14 +222,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The Event Hubs throughput units, value should be 0 to 20 throughput units.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

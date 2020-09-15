@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Cache.V20160401
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         /// </summary>
         [Output("accessKeys")]
-        public Output<Outputs.RedisAccessKeysResponseResult> AccessKeys { get; private set; } = null!;
+        public Output<Outputs.RedisAccessKeysResponse> AccessKeys { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Cache.V20160401
         /// The SKU of the Redis cache to deploy.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Redis SSL port.

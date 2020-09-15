@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringIdResponseResult ExpressRouteCircuitPeering;
+        public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20190901
 
             bool? enableInternetSecurity,
 
-            Outputs.ExpressRouteCircuitPeeringIdResponseResult expressRouteCircuitPeering,
+            Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
             string name,
 

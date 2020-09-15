@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Auto-pausing properties
         /// </summary>
         [Output("autoPause")]
-        public Output<Outputs.AutoPausePropertiesResponseResult?> AutoPause { get; private set; } = null!;
+        public Output<Outputs.AutoPausePropertiesResponse?> AutoPause { get; private set; } = null!;
 
         /// <summary>
         /// Auto-scaling properties
         /// </summary>
         [Output("autoScale")]
-        public Output<Outputs.AutoScalePropertiesResponseResult?> AutoScale { get; private set; } = null!;
+        public Output<Outputs.AutoScalePropertiesResponse?> AutoScale { get; private set; } = null!;
 
         /// <summary>
         /// The time when the Big Data pool was created.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// Library version requirements
         /// </summary>
         [Output("libraryRequirements")]
-        public Output<Outputs.LibraryRequirementsResponseResult?> LibraryRequirements { get; private set; } = null!;
+        public Output<Outputs.LibraryRequirementsResponse?> LibraryRequirements { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

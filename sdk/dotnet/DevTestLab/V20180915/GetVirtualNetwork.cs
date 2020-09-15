@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The allowed subnets of the virtual network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetResponseResult> AllowedSubnets;
+        public readonly ImmutableArray<Outputs.SubnetResponse> AllowedSubnets;
         /// <summary>
         /// The creation date of the virtual network.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The external subnet properties.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExternalSubnetResponseResult> ExternalSubnets;
+        public readonly ImmutableArray<Outputs.ExternalSubnetResponse> ExternalSubnets;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The subnet overrides of the virtual network.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetOverrideResponseResult> SubnetOverrides;
+        public readonly ImmutableArray<Outputs.SubnetOverrideResponse> SubnetOverrides;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            ImmutableArray<Outputs.SubnetResponseResult> allowedSubnets,
+            ImmutableArray<Outputs.SubnetResponse> allowedSubnets,
 
             string createdDate,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
             string? externalProviderResourceId,
 
-            ImmutableArray<Outputs.ExternalSubnetResponseResult> externalSubnets,
+            ImmutableArray<Outputs.ExternalSubnetResponse> externalSubnets,
 
             string? location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubnetOverrideResponseResult> subnetOverrides,
+            ImmutableArray<Outputs.SubnetOverrideResponse> subnetOverrides,
 
             ImmutableDictionary<string, string>? tags,
 

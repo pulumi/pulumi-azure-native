@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// A common class for general resource information
         /// </summary>
         [Output("localNetworkGateway2")]
-        public Output<Outputs.LocalNetworkGatewayResponseResult?> LocalNetworkGateway2 { get; private set; } = null!;
+        public Output<Outputs.LocalNetworkGatewayResponse?> LocalNetworkGateway2 { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// The reference to peerings resource.
         /// </summary>
         [Output("peer")]
-        public Output<Outputs.SubResourceResponseResult?> Peer { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> Peer { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -120,13 +120,13 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// A common class for general resource information
         /// </summary>
         [Output("virtualNetworkGateway1")]
-        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway1 { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewayResponse?> VirtualNetworkGateway1 { get; private set; } = null!;
 
         /// <summary>
         /// A common class for general resource information
         /// </summary>
         [Output("virtualNetworkGateway2")]
-        public Output<Outputs.VirtualNetworkGatewayResponseResult?> VirtualNetworkGateway2 { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewayResponse?> VirtualNetworkGateway2 { get; private set; } = null!;
 
 
         /// <summary>

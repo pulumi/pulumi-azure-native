@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The ExpressRoute circuit peering.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringIdResponseResult ExpressRouteCircuitPeering;
+        public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20181001
         private GetExpressRouteConnectionResult(
             string? authorizationKey,
 
-            Outputs.ExpressRouteCircuitPeeringIdResponseResult expressRouteCircuitPeering,
+            Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
             string name,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases_info: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]]] = None,
+                 databases_info: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo
         :param pulumi.Input[str] group_name: Name of the resource group
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
@@ -125,7 +125,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databasesInfo")
-    def databases_info(self) -> pulumi.Output[Optional[List['outputs.DatabaseInfoResponse']]]:
+    def databases_info(self) -> pulumi.Output[Optional[Sequence['outputs.DatabaseInfoResponse']]]:
         """
         List of DatabaseInfo
         """

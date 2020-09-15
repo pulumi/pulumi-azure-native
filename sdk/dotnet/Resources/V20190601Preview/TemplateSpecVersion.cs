@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
         /// An array of Template Spec artifacts.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TemplateSpecTemplateArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// Template Spec version description.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Resources.V20190601Preview
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

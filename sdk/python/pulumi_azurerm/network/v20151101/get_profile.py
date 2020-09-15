@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -59,7 +59,7 @@ class GetProfileResult:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.EndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.EndpointResponse']]:
         """
         Gets or sets the list of endpoints in the Traffic Manager profile.
         """

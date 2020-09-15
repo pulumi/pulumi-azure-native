@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -196,7 +196,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containmentState")
-    def containment_state(self) -> pulumi.Output[float]:
+    def containment_state(self) -> pulumi.Output[int]:
         """
         The containment state of the database.
         """
@@ -342,7 +342,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendedIndex")
-    def recommended_index(self) -> pulumi.Output[List['outputs.RecommendedIndexResponse']]:
+    def recommended_index(self) -> pulumi.Output[Sequence['outputs.RecommendedIndexResponse']]:
         """
         The recommended indices for this database.
         """
@@ -410,7 +410,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceTierAdvisors")
-    def service_tier_advisors(self) -> pulumi.Output[List['outputs.ServiceTierAdvisorResponse']]:
+    def service_tier_advisors(self) -> pulumi.Output[Sequence['outputs.ServiceTierAdvisorResponse']]:
         """
         The list of service tier advisors for this database. Expanded property
         """
@@ -450,7 +450,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> pulumi.Output[List['outputs.TransparentDataEncryptionResponse']]:
+    def transparent_data_encryption(self) -> pulumi.Output[Sequence['outputs.TransparentDataEncryptionResponse']]:
         """
         The transparent data encryption info for this database.
         """

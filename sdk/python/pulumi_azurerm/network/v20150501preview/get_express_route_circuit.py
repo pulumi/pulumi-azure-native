@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationResponse']]:
         """
         Gets or sets list of authorizations
         """
@@ -106,7 +106,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         Gets or sets list of peerings
         """

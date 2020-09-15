@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['RegisteredServer']
@@ -24,7 +24,7 @@ class RegisteredServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_certificate: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 server_managementt_error_code: Optional[pulumi.Input[float]] = None,
+                 server_managementt_error_code: Optional[pulumi.Input[int]] = None,
                  server_os_version: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class RegisteredServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] server_certificate: Registered Server Certificate
         :param pulumi.Input[str] server_id: Registered Server serverId
-        :param pulumi.Input[float] server_managementt_error_code: Registered Server Management Error Code
+        :param pulumi.Input[int] server_managementt_error_code: Registered Server Management Error Code
         :param pulumi.Input[str] server_os_version: Registered Server OS Version
         :param pulumi.Input[str] server_role: Registered Server serverRole
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -191,7 +191,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverManagementtErrorCode")
-    def server_managementt_error_code(self) -> pulumi.Output[Optional[float]]:
+    def server_managementt_error_code(self) -> pulumi.Output[Optional[int]]:
         """
         Registered Server Management Error Code
         """

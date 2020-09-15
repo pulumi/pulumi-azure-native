@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// <summary>
         /// A collection of references to application gateways.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayResponseResult> ApplicationGateways;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayResponse> ApplicationGateways;
         /// <summary>
         /// Describes custom rules inside the policy
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> CustomRules;
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> CustomRules;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// <summary>
         /// Describes  policySettings for policy
         /// </summary>
-        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        public readonly Outputs.PolicySettingsResponse? PolicySettings;
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.
         /// </summary>
@@ -79,9 +79,9 @@ namespace Pulumi.AzureRM.Network.V20181201
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
-            ImmutableArray<Outputs.ApplicationGatewayResponseResult> applicationGateways,
+            ImmutableArray<Outputs.ApplicationGatewayResponse> applicationGateways,
 
-            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> customRules,
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse> customRules,
 
             string? etag,
 
@@ -89,7 +89,7 @@ namespace Pulumi.AzureRM.Network.V20181201
 
             string name,
 
-            Outputs.PolicySettingsResponseResult? policySettings,
+            Outputs.PolicySettingsResponse? policySettings,
 
             string provisioningState,
 

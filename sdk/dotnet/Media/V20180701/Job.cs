@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The inputs for the Job.
         /// </summary>
         [Output("input")]
-        public Output<Union<Outputs.JobInputClipResponseResult, Outputs.JobInputsResponseResult>> Input { get; private set; } = null!;
+        public Output<Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse>> Input { get; private set; } = null!;
 
         /// <summary>
         /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The outputs for the Job.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableArray<Outputs.JobOutputAssetResponseResult>> Outputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JobOutputAssetResponse>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.

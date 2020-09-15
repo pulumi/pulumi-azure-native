@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -83,8 +83,8 @@ class ApiConnectionDefinitionResponseProperties(dict):
                  display_name: Optional[str] = None,
                  non_secret_parameter_values: Optional[Mapping[str, str]] = None,
                  parameter_values: Optional[Mapping[str, str]] = None,
-                 statuses: Optional[List['outputs.ConnectionStatusDefinitionResponse']] = None,
-                 test_links: Optional[List['outputs.ApiConnectionTestLinkResponse']] = None):
+                 statuses: Optional[Sequence['outputs.ConnectionStatusDefinitionResponse']] = None,
+                 test_links: Optional[Sequence['outputs.ApiConnectionTestLinkResponse']] = None):
         """
         :param str changed_time: Timestamp of last connection change
         :param str created_time: Timestamp of the connection creation
@@ -92,8 +92,8 @@ class ApiConnectionDefinitionResponseProperties(dict):
         :param str display_name: Display name
         :param Mapping[str, str] non_secret_parameter_values: Dictionary of nonsecret parameter values
         :param Mapping[str, str] parameter_values: Dictionary of parameter values
-        :param List['ConnectionStatusDefinitionResponseArgs'] statuses: Status of the connection
-        :param List['ApiConnectionTestLinkResponseArgs'] test_links: Links to test the API connection
+        :param Sequence['ConnectionStatusDefinitionResponseArgs'] statuses: Status of the connection
+        :param Sequence['ApiConnectionTestLinkResponseArgs'] test_links: Links to test the API connection
         """
         if api is not None:
             pulumi.set(__self__, "api", api)
@@ -169,7 +169,7 @@ class ApiConnectionDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.ConnectionStatusDefinitionResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.ConnectionStatusDefinitionResponse']]:
         """
         Status of the connection
         """
@@ -177,7 +177,7 @@ class ApiConnectionDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter(name="testLinks")
-    def test_links(self) -> Optional[List['outputs.ApiConnectionTestLinkResponse']]:
+    def test_links(self) -> Optional[Sequence['outputs.ApiConnectionTestLinkResponse']]:
         """
         Links to test the API connection
         """
@@ -339,7 +339,7 @@ class ApiOAuthSettingsResponse(dict):
                  identity_provider: Optional[str] = None,
                  properties: Optional[Mapping[str, Any]] = None,
                  redirect_url: Optional[str] = None,
-                 scopes: Optional[List[str]] = None):
+                 scopes: Optional[Sequence[str]] = None):
         """
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
@@ -348,7 +348,7 @@ class ApiOAuthSettingsResponse(dict):
         :param str identity_provider: Identity provider
         :param Mapping[str, Any] properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
-        :param List[str] scopes: OAuth scopes
+        :param Sequence[str] scopes: OAuth scopes
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -415,7 +415,7 @@ class ApiOAuthSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         OAuth scopes
         """
@@ -752,16 +752,16 @@ class AutoHealTriggersResponse(dict):
     Triggers for auto-heal.
     """
     def __init__(__self__, *,
-                 private_bytes_in_kb: Optional[float] = None,
+                 private_bytes_in_kb: Optional[int] = None,
                  requests: Optional['outputs.RequestsBasedTriggerResponse'] = None,
                  slow_requests: Optional['outputs.SlowRequestsBasedTriggerResponse'] = None,
-                 status_codes: Optional[List['outputs.StatusCodesBasedTriggerResponse']] = None):
+                 status_codes: Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']] = None):
         """
         Triggers for auto-heal.
-        :param float private_bytes_in_kb: A rule based on private bytes.
+        :param int private_bytes_in_kb: A rule based on private bytes.
         :param 'RequestsBasedTriggerResponseArgs' requests: A rule based on total requests.
         :param 'SlowRequestsBasedTriggerResponseArgs' slow_requests: A rule based on request execution time.
-        :param List['StatusCodesBasedTriggerResponseArgs'] status_codes: A rule based on status codes.
+        :param Sequence['StatusCodesBasedTriggerResponseArgs'] status_codes: A rule based on status codes.
         """
         if private_bytes_in_kb is not None:
             pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
@@ -774,7 +774,7 @@ class AutoHealTriggersResponse(dict):
 
     @property
     @pulumi.getter(name="privateBytesInKB")
-    def private_bytes_in_kb(self) -> Optional[float]:
+    def private_bytes_in_kb(self) -> Optional[int]:
         """
         A rule based on private bytes.
         """
@@ -798,7 +798,7 @@ class AutoHealTriggersResponse(dict):
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[List['outputs.StatusCodesBasedTriggerResponse']]:
+    def status_codes(self) -> Optional[Sequence['outputs.StatusCodesBasedTriggerResponse']]:
         """
         A rule based on status codes.
         """
@@ -814,41 +814,41 @@ class BackupItemResponseResult(dict):
     Backup description.
     """
     def __init__(__self__, *,
-                 backup_id: float,
+                 backup_id: int,
                  blob_name: str,
                  correlation_id: str,
                  created: str,
-                 databases: List['outputs.DatabaseBackupSettingResponseResult'],
+                 databases: Sequence['outputs.DatabaseBackupSettingResponseResult'],
                  finished_time_stamp: str,
                  id: str,
                  last_restore_time_stamp: str,
                  log: str,
                  name: str,
                  scheduled: bool,
-                 size_in_bytes: float,
+                 size_in_bytes: int,
                  status: str,
                  storage_account_url: str,
                  type: str,
-                 website_size_in_bytes: float,
+                 website_size_in_bytes: int,
                  kind: Optional[str] = None):
         """
         Backup description.
-        :param float backup_id: Id of the backup.
+        :param int backup_id: Id of the backup.
         :param str blob_name: Name of the blob which contains data for this backup.
         :param str correlation_id: Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
         :param str created: Timestamp of the backup creation.
-        :param List['DatabaseBackupSettingResponseArgs'] databases: List of databases included in the backup.
+        :param Sequence['DatabaseBackupSettingResponseArgs'] databases: List of databases included in the backup.
         :param str finished_time_stamp: Timestamp when this backup finished.
         :param str id: Resource Id.
         :param str last_restore_time_stamp: Timestamp of a last restore operation which used this backup.
         :param str log: Details regarding this backup. Might contain an error message.
         :param str name: Resource Name.
         :param bool scheduled: True if this backup has been created due to a schedule being triggered.
-        :param float size_in_bytes: Size of the backup in bytes.
+        :param int size_in_bytes: Size of the backup in bytes.
         :param str status: Backup status.
         :param str storage_account_url: SAS URL for the storage account container which contains this backup.
         :param str type: Resource type.
-        :param float website_size_in_bytes: Size of the original web app which has been backed up.
+        :param int website_size_in_bytes: Size of the original web app which has been backed up.
         :param str kind: Kind of resource.
         """
         pulumi.set(__self__, "backup_id", backup_id)
@@ -872,7 +872,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> float:
+    def backup_id(self) -> int:
         """
         Id of the backup.
         """
@@ -904,7 +904,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter
-    def databases(self) -> List['outputs.DatabaseBackupSettingResponseResult']:
+    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponseResult']:
         """
         List of databases included in the backup.
         """
@@ -960,7 +960,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         Size of the backup in bytes.
         """
@@ -992,7 +992,7 @@ class BackupItemResponseResult(dict):
 
     @property
     @pulumi.getter(name="websiteSizeInBytes")
-    def website_size_in_bytes(self) -> float:
+    def website_size_in_bytes(self) -> int:
         """
         Size of the original web app which has been backed up.
         """
@@ -1013,19 +1013,19 @@ class BackupScheduleResponseResult(dict):
     Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
     """
     def __init__(__self__, *,
-                 frequency_interval: float,
+                 frequency_interval: int,
                  frequency_unit: str,
                  keep_at_least_one_backup: bool,
                  last_execution_time: str,
-                 retention_period_in_days: float,
+                 retention_period_in_days: int,
                  start_time: Optional[str] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
-        :param float frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+        :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         :param str frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         :param str last_execution_time: Last time when this schedule was triggered.
-        :param float retention_period_in_days: After how many days backups should be deleted.
+        :param int retention_period_in_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -1038,7 +1038,7 @@ class BackupScheduleResponseResult(dict):
 
     @property
     @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> float:
+    def frequency_interval(self) -> int:
         """
         How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
         """
@@ -1070,7 +1070,7 @@ class BackupScheduleResponseResult(dict):
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> float:
+    def retention_period_in_days(self) -> int:
         """
         After how many days backups should be deleted.
         """
@@ -1452,7 +1452,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
     def __init__(__self__, *,
                  backend_uri: Optional[str] = None,
                  connection_gateway_installation: Optional['outputs.ConnectionGatewayReferenceResponse'] = None,
-                 contact_information: Optional[List[str]] = None,
+                 contact_information: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  machine_name: Optional[str] = None,
@@ -1460,7 +1460,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
         """
         :param str backend_uri: The URI of the backend
         :param 'ConnectionGatewayReferenceResponseArgs' connection_gateway_installation: The gateway installation reference
-        :param List[str] contact_information: The gateway admin
+        :param Sequence[str] contact_information: The gateway admin
         :param str description: The gateway description
         :param str display_name: The gateway display name
         :param str machine_name: The machine name of the gateway
@@ -1499,7 +1499,7 @@ class ConnectionGatewayDefinitionResponseProperties(dict):
 
     @property
     @pulumi.getter(name="contactInformation")
-    def contact_information(self) -> Optional[List[str]]:
+    def contact_information(self) -> Optional[Sequence[str]]:
         """
         The gateway admin
         """
@@ -1756,11 +1756,11 @@ class CorsSettingsResponse(dict):
     Cross-Origin Resource Sharing (CORS) settings for the app.
     """
     def __init__(__self__, *,
-                 allowed_origins: Optional[List[str]] = None,
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings for the app.
-        :param List[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin
                calls (for example: http://example.com:12345). Use "*" to allow all.
         :param bool support_credentials: Gets or sets whether CORS requests with credentials are allowed. See 
                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
@@ -1773,7 +1773,7 @@ class CorsSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[List[str]]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin
         calls (for example: http://example.com:12345). Use "*" to allow all.
@@ -1804,12 +1804,12 @@ class CustomApiPropertiesDefinitionResponse(dict):
                  api_type: Optional[str] = None,
                  backend_service: Optional['outputs.ApiResourceBackendServiceResponse'] = None,
                  brand_color: Optional[str] = None,
-                 capabilities: Optional[List[str]] = None,
+                 capabilities: Optional[Sequence[str]] = None,
                  connection_parameters: Optional[Mapping[str, 'outputs.ConnectionParameterResponse']] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  icon_uri: Optional[str] = None,
-                 runtime_urls: Optional[List[str]] = None,
+                 runtime_urls: Optional[Sequence[str]] = None,
                  swagger: Optional[Mapping[str, Any]] = None,
                  wsdl_definition: Optional['outputs.WsdlDefinitionResponse'] = None):
         """
@@ -1818,12 +1818,12 @@ class CustomApiPropertiesDefinitionResponse(dict):
         :param str api_type: The API type
         :param 'ApiResourceBackendServiceResponseArgs' backend_service: The API backend service
         :param str brand_color: Brand color
-        :param List[str] capabilities: The custom API capabilities
+        :param Sequence[str] capabilities: The custom API capabilities
         :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
         :param str description: The custom API description
         :param str display_name: The display name
         :param str icon_uri: The icon URI
-        :param List[str] runtime_urls: Runtime URLs
+        :param Sequence[str] runtime_urls: Runtime URLs
         :param Mapping[str, Any] swagger: The JSON representation of the swagger
         :param 'WsdlDefinitionResponseArgs' wsdl_definition: The WSDL definition
         """
@@ -1886,7 +1886,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List[str]]:
+    def capabilities(self) -> Optional[Sequence[str]]:
         """
         The custom API capabilities
         """
@@ -1926,7 +1926,7 @@ class CustomApiPropertiesDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[List[str]]:
+    def runtime_urls(self) -> Optional[Sequence[str]]:
         """
         Runtime URLs
         """
@@ -2014,17 +2014,17 @@ class ExperimentsResponse(dict):
     Routing rules in production experiments.
     """
     def __init__(__self__, *,
-                 ramp_up_rules: Optional[List['outputs.RampUpRuleResponse']] = None):
+                 ramp_up_rules: Optional[Sequence['outputs.RampUpRuleResponse']] = None):
         """
         Routing rules in production experiments.
-        :param List['RampUpRuleResponseArgs'] ramp_up_rules: List of ramp-up rules.
+        :param Sequence['RampUpRuleResponseArgs'] ramp_up_rules: List of ramp-up rules.
         """
         if ramp_up_rules is not None:
             pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
 
     @property
     @pulumi.getter(name="rampUpRules")
-    def ramp_up_rules(self) -> Optional[List['outputs.RampUpRuleResponse']]:
+    def ramp_up_rules(self) -> Optional[Sequence['outputs.RampUpRuleResponse']]:
         """
         List of ramp-up rules.
         """
@@ -2296,20 +2296,20 @@ class IpSecurityRestrictionResponse(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  description: Optional[str] = None,
-                 headers: Optional[Mapping[str, List[str]]] = None,
+                 headers: Optional[Mapping[str, Sequence[str]]] = None,
                  ip_address: Optional[str] = None,
                  name: Optional[str] = None,
-                 priority: Optional[float] = None,
+                 priority: Optional[int] = None,
                  subnet_mask: Optional[str] = None,
-                 subnet_traffic_tag: Optional[float] = None,
+                 subnet_traffic_tag: Optional[int] = None,
                  tag: Optional[str] = None,
                  vnet_subnet_resource_id: Optional[str] = None,
-                 vnet_traffic_tag: Optional[float] = None):
+                 vnet_traffic_tag: Optional[int] = None):
         """
         IP security restriction on an app.
         :param str action: Allow or Deny access for this IP range.
         :param str description: IP restriction rule description.
-        :param Mapping[str, List[str]] headers: IP restriction rule headers.
+        :param Mapping[str, Sequence[str]] headers: IP restriction rule headers.
                X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
                The matching logic is ..
                - If the property is null or empty (default), all hosts(or lack of) are allowed.
@@ -2330,12 +2330,12 @@ class IpSecurityRestrictionResponse(dict):
                CIDR notation such as ipv4/mask (leading bit match). For CIDR,
                SubnetMask property must not be specified.
         :param str name: IP restriction rule name.
-        :param float priority: Priority of IP restriction rule.
+        :param int priority: Priority of IP restriction rule.
         :param str subnet_mask: Subnet mask for the range of IP addresses the restriction is valid for.
-        :param float subnet_traffic_tag: (internal) Subnet traffic tag
+        :param int subnet_traffic_tag: (internal) Subnet traffic tag
         :param str tag: Defines what this IP filter will be used for. This is to support IP filtering on proxies.
         :param str vnet_subnet_resource_id: Virtual network resource id
-        :param float vnet_traffic_tag: (internal) Vnet traffic tag
+        :param int vnet_traffic_tag: (internal) Vnet traffic tag
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -2378,7 +2378,7 @@ class IpSecurityRestrictionResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, List[str]]]:
+    def headers(self) -> Optional[Mapping[str, Sequence[str]]]:
         """
         IP restriction rule headers.
         X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
@@ -2420,7 +2420,7 @@ class IpSecurityRestrictionResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority of IP restriction rule.
         """
@@ -2436,7 +2436,7 @@ class IpSecurityRestrictionResponse(dict):
 
     @property
     @pulumi.getter(name="subnetTrafficTag")
-    def subnet_traffic_tag(self) -> Optional[float]:
+    def subnet_traffic_tag(self) -> Optional[int]:
         """
         (internal) Subnet traffic tag
         """
@@ -2460,7 +2460,7 @@ class IpSecurityRestrictionResponse(dict):
 
     @property
     @pulumi.getter(name="vnetTrafficTag")
-    def vnet_traffic_tag(self) -> Optional[float]:
+    def vnet_traffic_tag(self) -> Optional[int]:
         """
         (internal) Vnet traffic tag
         """
@@ -2605,7 +2605,7 @@ class NetworkAccessControlEntryResponse(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  description: Optional[str] = None,
-                 order: Optional[float] = None,
+                 order: Optional[int] = None,
                  remote_subnet: Optional[str] = None):
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -2628,7 +2628,7 @@ class NetworkAccessControlEntryResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[float]:
+    def order(self) -> Optional[int]:
         return pulumi.get(self, "order")
 
     @property
@@ -2810,7 +2810,7 @@ class RampUpRuleResponse(dict):
     def __init__(__self__, *,
                  action_host_name: Optional[str] = None,
                  change_decision_callback_url: Optional[str] = None,
-                 change_interval_in_minutes: Optional[float] = None,
+                 change_interval_in_minutes: Optional[int] = None,
                  change_step: Optional[float] = None,
                  max_reroute_percentage: Optional[float] = None,
                  min_reroute_percentage: Optional[float] = None,
@@ -2821,7 +2821,7 @@ class RampUpRuleResponse(dict):
         :param str action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
         :param str change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
                https://www.siteextensions.net/packages/TiPCallback/
-        :param float change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
+        :param int change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
         :param float change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
                <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
                can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
@@ -2866,7 +2866,7 @@ class RampUpRuleResponse(dict):
 
     @property
     @pulumi.getter(name="changeIntervalInMinutes")
-    def change_interval_in_minutes(self) -> Optional[float]:
+    def change_interval_in_minutes(self) -> Optional[int]:
         """
         Specifies interval in minutes to reevaluate ReroutePercentage.
         """
@@ -2924,11 +2924,11 @@ class RequestsBasedTriggerResponse(dict):
     Trigger based on total requests.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  time_interval: Optional[str] = None):
         """
         Trigger based on total requests.
-        :param float count: Request Count.
+        :param int count: Request Count.
         :param str time_interval: Time interval.
         """
         if count is not None:
@@ -2938,7 +2938,7 @@ class RequestsBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Request Count.
         """
@@ -2967,22 +2967,22 @@ class SiteConfigResponse(dict):
                  api_definition: Optional['outputs.ApiDefinitionInfoResponse'] = None,
                  api_management_config: Optional['outputs.ApiManagementConfigResponse'] = None,
                  app_command_line: Optional[str] = None,
-                 app_settings: Optional[List['outputs.NameValuePairResponse']] = None,
+                 app_settings: Optional[Sequence['outputs.NameValuePairResponse']] = None,
                  auto_heal_enabled: Optional[bool] = None,
                  auto_heal_rules: Optional['outputs.AutoHealRulesResponse'] = None,
                  auto_swap_slot_name: Optional[str] = None,
-                 connection_strings: Optional[List['outputs.ConnStringInfoResponse']] = None,
+                 connection_strings: Optional[Sequence['outputs.ConnStringInfoResponse']] = None,
                  cors: Optional['outputs.CorsSettingsResponse'] = None,
-                 default_documents: Optional[List[str]] = None,
+                 default_documents: Optional[Sequence[str]] = None,
                  detailed_error_logging_enabled: Optional[bool] = None,
                  document_root: Optional[str] = None,
                  experiments: Optional['outputs.ExperimentsResponse'] = None,
                  ftps_state: Optional[str] = None,
-                 handler_mappings: Optional[List['outputs.HandlerMappingResponse']] = None,
+                 handler_mappings: Optional[Sequence['outputs.HandlerMappingResponse']] = None,
                  health_check_path: Optional[str] = None,
                  http20_enabled: Optional[bool] = None,
                  http_logging_enabled: Optional[bool] = None,
-                 ip_security_restrictions: Optional[List['outputs.IpSecurityRestrictionResponse']] = None,
+                 ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
                  java_container: Optional[str] = None,
                  java_container_version: Optional[str] = None,
                  java_version: Optional[str] = None,
@@ -2990,16 +2990,16 @@ class SiteConfigResponse(dict):
                  linux_fx_version: Optional[str] = None,
                  load_balancing: Optional[str] = None,
                  local_my_sql_enabled: Optional[bool] = None,
-                 logs_directory_size_limit: Optional[float] = None,
+                 logs_directory_size_limit: Optional[int] = None,
                  managed_pipeline_mode: Optional[str] = None,
-                 managed_service_identity_id: Optional[float] = None,
+                 managed_service_identity_id: Optional[int] = None,
                  min_tls_version: Optional[str] = None,
                  net_framework_version: Optional[str] = None,
                  node_version: Optional[str] = None,
-                 number_of_workers: Optional[float] = None,
+                 number_of_workers: Optional[int] = None,
                  php_version: Optional[str] = None,
                  power_shell_version: Optional[str] = None,
-                 pre_warmed_instance_count: Optional[float] = None,
+                 pre_warmed_instance_count: Optional[int] = None,
                  publishing_username: Optional[str] = None,
                  push: Optional['outputs.PushSettingsResponse'] = None,
                  python_version: Optional[str] = None,
@@ -3007,16 +3007,16 @@ class SiteConfigResponse(dict):
                  remote_debugging_version: Optional[str] = None,
                  request_tracing_enabled: Optional[bool] = None,
                  request_tracing_expiration_time: Optional[str] = None,
-                 scm_ip_security_restrictions: Optional[List['outputs.IpSecurityRestrictionResponse']] = None,
+                 scm_ip_security_restrictions: Optional[Sequence['outputs.IpSecurityRestrictionResponse']] = None,
                  scm_ip_security_restrictions_use_main: Optional[bool] = None,
                  scm_type: Optional[str] = None,
                  tracing_options: Optional[str] = None,
                  use32_bit_worker_process: Optional[bool] = None,
-                 virtual_applications: Optional[List['outputs.VirtualApplicationResponse']] = None,
+                 virtual_applications: Optional[Sequence['outputs.VirtualApplicationResponse']] = None,
                  vnet_name: Optional[str] = None,
                  web_sockets_enabled: Optional[bool] = None,
                  windows_fx_version: Optional[str] = None,
-                 x_managed_service_identity_id: Optional[float] = None):
+                 x_managed_service_identity_id: Optional[int] = None):
         """
         Configuration of an App Service app.
         :param 'SiteMachineKeyResponseArgs' machine_key: Site MachineKey.
@@ -3024,22 +3024,22 @@ class SiteConfigResponse(dict):
         :param 'ApiDefinitionInfoResponseArgs' api_definition: Information about the formal API definition for the app.
         :param 'ApiManagementConfigResponseArgs' api_management_config: Azure API management settings linked to the app.
         :param str app_command_line: App command line to launch.
-        :param List['NameValuePairResponseArgs'] app_settings: Application settings.
+        :param Sequence['NameValuePairResponseArgs'] app_settings: Application settings.
         :param bool auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
         :param 'AutoHealRulesResponseArgs' auto_heal_rules: Auto Heal rules.
         :param str auto_swap_slot_name: Auto-swap slot name.
-        :param List['ConnStringInfoResponseArgs'] connection_strings: Connection strings.
+        :param Sequence['ConnStringInfoResponseArgs'] connection_strings: Connection strings.
         :param 'CorsSettingsResponseArgs' cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param List[str] default_documents: Default documents.
+        :param Sequence[str] default_documents: Default documents.
         :param bool detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
         :param str document_root: Document root.
         :param 'ExperimentsResponseArgs' experiments: This is work around for polymorphic types.
         :param str ftps_state: State of FTP / FTPS service
-        :param List['HandlerMappingResponseArgs'] handler_mappings: Handler mappings.
+        :param Sequence['HandlerMappingResponseArgs'] handler_mappings: Handler mappings.
         :param str health_check_path: Health check path
         :param bool http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
         :param bool http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-        :param List['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: IP security restrictions for main.
+        :param Sequence['IpSecurityRestrictionResponseArgs'] ip_security_restrictions: IP security restrictions for main.
         :param str java_container: Java container.
         :param str java_container_version: Java container version.
         :param str java_version: Java version.
@@ -3047,16 +3047,16 @@ class SiteConfigResponse(dict):
         :param str linux_fx_version: Linux App Framework and version
         :param str load_balancing: Site load balancing.
         :param bool local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-        :param float logs_directory_size_limit: HTTP logs directory size limit.
+        :param int logs_directory_size_limit: HTTP logs directory size limit.
         :param str managed_pipeline_mode: Managed pipeline mode.
-        :param float managed_service_identity_id: Managed Service Identity Id
+        :param int managed_service_identity_id: Managed Service Identity Id
         :param str min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
         :param str net_framework_version: .NET Framework version.
         :param str node_version: Version of Node.js.
-        :param float number_of_workers: Number of workers.
+        :param int number_of_workers: Number of workers.
         :param str php_version: Version of PHP.
         :param str power_shell_version: Version of PowerShell.
-        :param float pre_warmed_instance_count: Number of preWarmed instances.
+        :param int pre_warmed_instance_count: Number of preWarmed instances.
                This setting only applies to the Consumption and Elastic Plans
         :param str publishing_username: Publishing user name.
         :param 'PushSettingsResponseArgs' push: Push endpoint settings.
@@ -3065,16 +3065,16 @@ class SiteConfigResponse(dict):
         :param str remote_debugging_version: Remote debugging version.
         :param bool request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
         :param str request_tracing_expiration_time: Request tracing expiration time.
-        :param List['IpSecurityRestrictionResponseArgs'] scm_ip_security_restrictions: IP security restrictions for scm.
+        :param Sequence['IpSecurityRestrictionResponseArgs'] scm_ip_security_restrictions: IP security restrictions for scm.
         :param bool scm_ip_security_restrictions_use_main: IP security restrictions for scm to use main.
         :param str scm_type: SCM type.
         :param str tracing_options: Tracing options.
         :param bool use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-        :param List['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications.
+        :param Sequence['VirtualApplicationResponseArgs'] virtual_applications: Virtual applications.
         :param str vnet_name: Virtual Network name.
         :param bool web_sockets_enabled: <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
         :param str windows_fx_version: Xenon App Framework and version
-        :param float x_managed_service_identity_id: Explicit Managed Service Identity Id
+        :param int x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
         pulumi.set(__self__, "machine_key", machine_key)
         if always_on is not None:
@@ -3228,7 +3228,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def app_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         Application settings.
         """
@@ -3260,7 +3260,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[List['outputs.ConnStringInfoResponse']]:
+    def connection_strings(self) -> Optional[Sequence['outputs.ConnStringInfoResponse']]:
         """
         Connection strings.
         """
@@ -3276,7 +3276,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[List[str]]:
+    def default_documents(self) -> Optional[Sequence[str]]:
         """
         Default documents.
         """
@@ -3316,7 +3316,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="handlerMappings")
-    def handler_mappings(self) -> Optional[List['outputs.HandlerMappingResponse']]:
+    def handler_mappings(self) -> Optional[Sequence['outputs.HandlerMappingResponse']]:
         """
         Handler mappings.
         """
@@ -3348,7 +3348,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="ipSecurityRestrictions")
-    def ip_security_restrictions(self) -> Optional[List['outputs.IpSecurityRestrictionResponse']]:
+    def ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
         """
         IP security restrictions for main.
         """
@@ -3412,7 +3412,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="logsDirectorySizeLimit")
-    def logs_directory_size_limit(self) -> Optional[float]:
+    def logs_directory_size_limit(self) -> Optional[int]:
         """
         HTTP logs directory size limit.
         """
@@ -3428,7 +3428,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="managedServiceIdentityId")
-    def managed_service_identity_id(self) -> Optional[float]:
+    def managed_service_identity_id(self) -> Optional[int]:
         """
         Managed Service Identity Id
         """
@@ -3460,7 +3460,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfWorkers")
-    def number_of_workers(self) -> Optional[float]:
+    def number_of_workers(self) -> Optional[int]:
         """
         Number of workers.
         """
@@ -3484,7 +3484,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="preWarmedInstanceCount")
-    def pre_warmed_instance_count(self) -> Optional[float]:
+    def pre_warmed_instance_count(self) -> Optional[int]:
         """
         Number of preWarmed instances.
         This setting only applies to the Consumption and Elastic Plans
@@ -3549,7 +3549,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="scmIpSecurityRestrictions")
-    def scm_ip_security_restrictions(self) -> Optional[List['outputs.IpSecurityRestrictionResponse']]:
+    def scm_ip_security_restrictions(self) -> Optional[Sequence['outputs.IpSecurityRestrictionResponse']]:
         """
         IP security restrictions for scm.
         """
@@ -3589,7 +3589,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[List['outputs.VirtualApplicationResponse']]:
+    def virtual_applications(self) -> Optional[Sequence['outputs.VirtualApplicationResponse']]:
         """
         Virtual applications.
         """
@@ -3621,7 +3621,7 @@ class SiteConfigResponse(dict):
 
     @property
     @pulumi.getter(name="xManagedServiceIdentityId")
-    def x_managed_service_identity_id(self) -> Optional[float]:
+    def x_managed_service_identity_id(self) -> Optional[int]:
         """
         Explicit Managed Service Identity Id
         """
@@ -3637,13 +3637,13 @@ class SiteLimitsResponse(dict):
     Metric limits set on an app.
     """
     def __init__(__self__, *,
-                 max_disk_size_in_mb: Optional[float] = None,
-                 max_memory_in_mb: Optional[float] = None,
+                 max_disk_size_in_mb: Optional[int] = None,
+                 max_memory_in_mb: Optional[int] = None,
                  max_percentage_cpu: Optional[float] = None):
         """
         Metric limits set on an app.
-        :param float max_disk_size_in_mb: Maximum allowed disk size usage in MB.
-        :param float max_memory_in_mb: Maximum allowed memory usage in MB.
+        :param int max_disk_size_in_mb: Maximum allowed disk size usage in MB.
+        :param int max_memory_in_mb: Maximum allowed memory usage in MB.
         :param float max_percentage_cpu: Maximum allowed CPU usage percentage.
         """
         if max_disk_size_in_mb is not None:
@@ -3655,7 +3655,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
-    def max_disk_size_in_mb(self) -> Optional[float]:
+    def max_disk_size_in_mb(self) -> Optional[int]:
         """
         Maximum allowed disk size usage in MB.
         """
@@ -3663,7 +3663,7 @@ class SiteLimitsResponse(dict):
 
     @property
     @pulumi.getter(name="maxMemoryInMb")
-    def max_memory_in_mb(self) -> Optional[float]:
+    def max_memory_in_mb(self) -> Optional[int]:
         """
         Maximum allowed memory usage in MB.
         """
@@ -3749,15 +3749,15 @@ class SkuCapacityResponse(dict):
     Description of the App Service plan scale options.
     """
     def __init__(__self__, *,
-                 default: Optional[float] = None,
-                 maximum: Optional[float] = None,
-                 minimum: Optional[float] = None,
+                 default: Optional[int] = None,
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None,
                  scale_type: Optional[str] = None):
         """
         Description of the App Service plan scale options.
-        :param float default: Default number of workers for this App Service plan SKU.
-        :param float maximum: Maximum number of workers for this App Service plan SKU.
-        :param float minimum: Minimum number of workers for this App Service plan SKU.
+        :param int default: Default number of workers for this App Service plan SKU.
+        :param int maximum: Maximum number of workers for this App Service plan SKU.
+        :param int minimum: Minimum number of workers for this App Service plan SKU.
         :param str scale_type: Available scale configurations for an App Service plan.
         """
         if default is not None:
@@ -3771,7 +3771,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def default(self) -> Optional[float]:
+    def default(self) -> Optional[int]:
         """
         Default number of workers for this App Service plan SKU.
         """
@@ -3779,7 +3779,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def maximum(self) -> Optional[float]:
+    def maximum(self) -> Optional[int]:
         """
         Maximum number of workers for this App Service plan SKU.
         """
@@ -3787,7 +3787,7 @@ class SkuCapacityResponse(dict):
 
     @property
     @pulumi.getter
-    def minimum(self) -> Optional[float]:
+    def minimum(self) -> Optional[int]:
         """
         Minimum number of workers for this App Service plan SKU.
         """
@@ -3811,20 +3811,20 @@ class SkuDescriptionResponse(dict):
     Description of a SKU for a scalable resource.
     """
     def __init__(__self__, *,
-                 capabilities: Optional[List['outputs.CapabilityResponse']] = None,
-                 capacity: Optional[float] = None,
+                 capabilities: Optional[Sequence['outputs.CapabilityResponse']] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
-                 locations: Optional[List[str]] = None,
+                 locations: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  size: Optional[str] = None,
                  sku_capacity: Optional['outputs.SkuCapacityResponse'] = None,
                  tier: Optional[str] = None):
         """
         Description of a SKU for a scalable resource.
-        :param List['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
-        :param float capacity: Current number of instances assigned to the resource.
+        :param Sequence['CapabilityResponseArgs'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param int capacity: Current number of instances assigned to the resource.
         :param str family: Family code of the resource SKU.
-        :param List[str] locations: Locations of the SKU.
+        :param Sequence[str] locations: Locations of the SKU.
         :param str name: Name of the resource SKU.
         :param str size: Size specifier of the resource SKU.
         :param 'SkuCapacityResponseArgs' sku_capacity: Min, max, and default scale values of the SKU.
@@ -3849,7 +3849,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List['outputs.CapabilityResponse']]:
+    def capabilities(self) -> Optional[Sequence['outputs.CapabilityResponse']]:
         """
         Capabilities of the SKU, e.g., is traffic manager enabled?
         """
@@ -3857,7 +3857,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Current number of instances assigned to the resource.
         """
@@ -3873,7 +3873,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[List[str]]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         Locations of the SKU.
         """
@@ -3968,12 +3968,12 @@ class SlowRequestsBasedTriggerResponse(dict):
     Trigger based on request execution time.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
+                 count: Optional[int] = None,
                  time_interval: Optional[str] = None,
                  time_taken: Optional[str] = None):
         """
         Trigger based on request execution time.
-        :param float count: Request Count.
+        :param int count: Request Count.
         :param str time_interval: Time interval.
         :param str time_taken: Time taken.
         """
@@ -3986,7 +3986,7 @@ class SlowRequestsBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Request Count.
         """
@@ -4018,29 +4018,29 @@ class StampCapacityResponse(dict):
     Class containing stamp capacity information
     """
     def __init__(__self__, *,
-                 available_capacity: Optional[float] = None,
+                 available_capacity: Optional[int] = None,
                  compute_mode: Optional[str] = None,
                  exclude_from_capacity_allocation: Optional[bool] = None,
                  is_applicable_for_all_compute_modes: Optional[bool] = None,
                  name: Optional[str] = None,
                  site_mode: Optional[str] = None,
-                 total_capacity: Optional[float] = None,
+                 total_capacity: Optional[int] = None,
                  unit: Optional[str] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Class containing stamp capacity information
-        :param float available_capacity: Available capacity (# of machines, bytes of storage etc...)
+        :param int available_capacity: Available capacity (# of machines, bytes of storage etc...)
         :param str compute_mode: Shared/Dedicated workers
         :param bool exclude_from_capacity_allocation: If true it includes basic sites
                            Basic sites are not used for capacity allocation.
         :param bool is_applicable_for_all_compute_modes: Is capacity applicable for all sites?
         :param str name: Name of the stamp
         :param str site_mode: Shared or Dedicated
-        :param float total_capacity: Total capacity (# of machines, bytes of storage etc...)
+        :param int total_capacity: Total capacity (# of machines, bytes of storage etc...)
         :param str unit: Name of the unit
         :param str worker_size: Size of the machines
-        :param float worker_size_id: Size Id of machines: 
+        :param int worker_size_id: Size Id of machines: 
                            0 - Small
                            1 - Medium
                            2 - Large
@@ -4068,7 +4068,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="availableCapacity")
-    def available_capacity(self) -> Optional[float]:
+    def available_capacity(self) -> Optional[int]:
         """
         Available capacity (# of machines, bytes of storage etc...)
         """
@@ -4117,7 +4117,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="totalCapacity")
-    def total_capacity(self) -> Optional[float]:
+    def total_capacity(self) -> Optional[int]:
         """
         Total capacity (# of machines, bytes of storage etc...)
         """
@@ -4141,7 +4141,7 @@ class StampCapacityResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Size Id of machines: 
                     0 - Small
@@ -4311,18 +4311,18 @@ class StatusCodesBasedTriggerResponse(dict):
     Trigger based on status code.
     """
     def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 status: Optional[float] = None,
-                 sub_status: Optional[float] = None,
+                 count: Optional[int] = None,
+                 status: Optional[int] = None,
+                 sub_status: Optional[int] = None,
                  time_interval: Optional[str] = None,
-                 win32_status: Optional[float] = None):
+                 win32_status: Optional[int] = None):
         """
         Trigger based on status code.
-        :param float count: Request Count.
-        :param float status: HTTP status code.
-        :param float sub_status: Request Sub Status.
+        :param int count: Request Count.
+        :param int status: HTTP status code.
+        :param int sub_status: Request Sub Status.
         :param str time_interval: Time interval.
-        :param float win32_status: Win32 error code.
+        :param int win32_status: Win32 error code.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -4337,7 +4337,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Request Count.
         """
@@ -4345,7 +4345,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> Optional[int]:
         """
         HTTP status code.
         """
@@ -4353,7 +4353,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="subStatus")
-    def sub_status(self) -> Optional[float]:
+    def sub_status(self) -> Optional[int]:
         """
         Request Sub Status.
         """
@@ -4369,7 +4369,7 @@ class StatusCodesBasedTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="win32Status")
-    def win32_status(self) -> Optional[float]:
+    def win32_status(self) -> Optional[int]:
         """
         Win32 error code.
         """
@@ -4387,13 +4387,13 @@ class VirtualApplicationResponse(dict):
     def __init__(__self__, *,
                  physical_path: Optional[str] = None,
                  preload_enabled: Optional[bool] = None,
-                 virtual_directories: Optional[List['outputs.VirtualDirectoryResponse']] = None,
+                 virtual_directories: Optional[Sequence['outputs.VirtualDirectoryResponse']] = None,
                  virtual_path: Optional[str] = None):
         """
         Virtual application in an app.
         :param str physical_path: Physical path.
         :param bool preload_enabled: <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-        :param List['VirtualDirectoryResponseArgs'] virtual_directories: Virtual directories for virtual application.
+        :param Sequence['VirtualDirectoryResponseArgs'] virtual_directories: Virtual directories for virtual application.
         :param str virtual_path: Virtual path.
         """
         if physical_path is not None:
@@ -4423,7 +4423,7 @@ class VirtualApplicationResponse(dict):
 
     @property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[List['outputs.VirtualDirectoryResponse']]:
+    def virtual_directories(self) -> Optional[Sequence['outputs.VirtualDirectoryResponse']]:
         """
         Virtual directories for virtual application.
         """
@@ -4486,14 +4486,14 @@ class VirtualIPMappingResponse(dict):
     """
     def __init__(__self__, *,
                  in_use: Optional[bool] = None,
-                 internal_http_port: Optional[float] = None,
-                 internal_https_port: Optional[float] = None,
+                 internal_http_port: Optional[int] = None,
+                 internal_https_port: Optional[int] = None,
                  virtual_ip: Optional[str] = None):
         """
         Class that represents a VIP mapping
         :param bool in_use: Is VIP mapping in use
-        :param float internal_http_port: Internal HTTP port
-        :param float internal_https_port: Internal HTTPS port
+        :param int internal_http_port: Internal HTTP port
+        :param int internal_https_port: Internal HTTPS port
         :param str virtual_ip: Virtual IP address
         """
         if in_use is not None:
@@ -4515,7 +4515,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpPort")
-    def internal_http_port(self) -> Optional[float]:
+    def internal_http_port(self) -> Optional[int]:
         """
         Internal HTTP port
         """
@@ -4523,7 +4523,7 @@ class VirtualIPMappingResponse(dict):
 
     @property
     @pulumi.getter(name="internalHttpsPort")
-    def internal_https_port(self) -> Optional[float]:
+    def internal_https_port(self) -> Optional[int]:
         """
         Internal HTTPS port
         """
@@ -4717,29 +4717,29 @@ class WorkerPoolResponse(dict):
                  location: str,
                  compute_mode: Optional[str] = None,
                  id: Optional[str] = None,
-                 instance_names: Optional[List[str]] = None,
+                 instance_names: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
                  sku: Optional['outputs.SkuDescriptionResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None,
-                 worker_count: Optional[float] = None,
+                 worker_count: Optional[int] = None,
                  worker_size: Optional[str] = None,
-                 worker_size_id: Optional[float] = None):
+                 worker_size_id: Optional[int] = None):
         """
         Worker pool of a hostingEnvironment (App Service Environment)
         :param str location: Resource Location
         :param str compute_mode: Shared or dedicated web app hosting
         :param str id: Resource Id
-        :param List[str] instance_names: Names of all instances in the worker pool (read only)
+        :param Sequence[str] instance_names: Names of all instances in the worker pool (read only)
         :param str kind: Kind of resource
         :param str name: Resource Name
         :param 'SkuDescriptionResponseArgs' sku: Describes a sku for a scalable resource
         :param Mapping[str, str] tags: Resource tags
         :param str type: Resource type
-        :param float worker_count: Number of instances in the worker pool
+        :param int worker_count: Number of instances in the worker pool
         :param str worker_size: VM size of the worker pool instances
-        :param float worker_size_id: Worker size id for referencing this worker pool
+        :param int worker_size_id: Worker size id for referencing this worker pool
         """
         pulumi.set(__self__, "location", location)
         if compute_mode is not None:
@@ -4791,7 +4791,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="instanceNames")
-    def instance_names(self) -> Optional[List[str]]:
+    def instance_names(self) -> Optional[Sequence[str]]:
         """
         Names of all instances in the worker pool (read only)
         """
@@ -4839,7 +4839,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[float]:
+    def worker_count(self) -> Optional[int]:
         """
         Number of instances in the worker pool
         """
@@ -4855,7 +4855,7 @@ class WorkerPoolResponse(dict):
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[float]:
+    def worker_size_id(self) -> Optional[int]:
         """
         Worker size id for referencing this worker pool
         """
@@ -4934,11 +4934,11 @@ class WsdlServiceResponse(dict):
     """
     def __init__(__self__, *,
                  qualified_name: str,
-                 endpoint_qualified_names: Optional[List[str]] = None):
+                 endpoint_qualified_names: Optional[Sequence[str]] = None):
         """
         The service with name and endpoint names
         :param str qualified_name: The service's qualified name
-        :param List[str] endpoint_qualified_names: List of the endpoints' qualified names
+        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
         """
         pulumi.set(__self__, "qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
@@ -4954,7 +4954,7 @@ class WsdlServiceResponse(dict):
 
     @property
     @pulumi.getter(name="endpointQualifiedNames")
-    def endpoint_qualified_names(self) -> Optional[List[str]]:
+    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
         """
         List of the endpoints' qualified names
         """

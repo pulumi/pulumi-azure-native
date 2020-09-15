@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The mappings between Interaction and Relationship fields.
         /// </summary>
         [Output("mappings")]
-        public Output<ImmutableArray<Outputs.RelationshipLinkFieldMappingResponseResult>> Mappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RelationshipLinkFieldMappingResponse>> Mappings { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The property references for the Profile of the Relationship.
         /// </summary>
         [Output("profilePropertyReferences")]
-        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult>> ProfilePropertyReferences { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponse>> ProfilePropertyReferences { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The property references for the Related Profile of the Relationship.
         /// </summary>
         [Output("relatedProfilePropertyReferences")]
-        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult>> RelatedProfilePropertyReferences { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponse>> RelatedProfilePropertyReferences { get; private set; } = null!;
 
         /// <summary>
         /// The relationship guid id.

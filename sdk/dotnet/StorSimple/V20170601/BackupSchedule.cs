@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// The schedule recurrence.
         /// </summary>
         [Output("scheduleRecurrence")]
-        public Output<Outputs.ScheduleRecurrenceResponseResult> ScheduleRecurrence { get; private set; } = null!;
+        public Output<Outputs.ScheduleRecurrenceResponse> ScheduleRecurrence { get; private set; } = null!;
 
         /// <summary>
         /// The schedule status.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['WebAppDeployment']
@@ -27,7 +27,7 @@ class WebAppDeployment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +48,7 @@ class WebAppDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] start_time: Start time.
-        :param pulumi.Input[float] status: Deployment status.
+        :param pulumi.Input[int] status: Deployment status.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -195,7 +195,7 @@ class WebAppDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[float]]:
+    def status(self) -> pulumi.Output[Optional[int]]:
         """
         Deployment status.
         """

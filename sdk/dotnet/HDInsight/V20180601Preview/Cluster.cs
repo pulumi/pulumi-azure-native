@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// The identity of the cluster, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ClusterIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ClusterIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview
         /// The properties of the cluster.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterGetPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterGetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

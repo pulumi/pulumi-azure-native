@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,8 +18,8 @@ class ApplicationDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_name: Optional[pulumi.Input[str]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]]] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  deployment_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  management_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']]] = None,
                  notification_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -46,8 +46,8 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationDefinitionArtifactArgs']]]] artifacts: The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAuthorizationArgs']]]] authorizations: The managed application provider authorizations.
         :param pulumi.Input[Mapping[str, Any]] create_ui_definition: The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[pulumi.InputType['ApplicationDeploymentPolicyArgs']] deployment_policy: The managed application deployment policy.
         :param pulumi.Input[str] description: The managed application definition description.
@@ -61,7 +61,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationManagementPolicyArgs']] management_policy: The managed application management policy that determines publisher's access to the managed resource group.
         :param pulumi.Input[pulumi.InputType['ApplicationNotificationPolicyArgs']] notification_policy: The managed application notification policy.
         :param pulumi.Input[str] package_file_uri: The managed application definition package file Uri. Use this element
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]] policies: The managed application provider policies.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPolicyArgs']]]] policies: The managed application provider policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -139,7 +139,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ApplicationDefinitionArtifactResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationDefinitionArtifactResponse']]]:
         """
         The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         """
@@ -147,7 +147,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[List['outputs.ApplicationAuthorizationResponse']]]:
+    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationAuthorizationResponse']]]:
         """
         The managed application provider authorizations.
         """
@@ -267,7 +267,7 @@ class ApplicationDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policies(self) -> pulumi.Output[Optional[List['outputs.ApplicationPolicyResponse']]]:
+    def policies(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationPolicyResponse']]]:
         """
         The managed application provider policies.
         """

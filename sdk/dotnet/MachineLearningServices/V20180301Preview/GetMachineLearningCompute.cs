@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Union<Outputs.AKSResponseResult, Union<Outputs.BatchAIResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>> Properties;
+        public readonly Union<Outputs.AKSResponse, Union<Outputs.BatchAIResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>> Properties;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20180301Preview
 
         [OutputConstructor]
         private GetMachineLearningComputeResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
             string name,
 
-            Union<Outputs.AKSResponseResult, Union<Outputs.BatchAIResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>> properties,
+            Union<Outputs.AKSResponse, Union<Outputs.BatchAIResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20180301
         /// List of custom headers.
         /// </summary>
         [Output("customHeaders")]
-        public Output<ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeadersResult>> CustomHeaders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.

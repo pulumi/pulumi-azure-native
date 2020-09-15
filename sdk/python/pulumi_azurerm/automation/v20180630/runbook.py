@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class Runbook(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  draft: Optional[pulumi.Input[pulumi.InputType['RunbookDraftArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 log_activity_trace: Optional[pulumi.Input[float]] = None,
+                 log_activity_trace: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[str] description: Gets or sets the description of the runbook.
         :param pulumi.Input[pulumi.InputType['RunbookDraftArgs']] draft: Gets or sets the draft runbook properties.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
-        :param pulumi.Input[float] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
+        :param pulumi.Input[int] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
         :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
         :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[str] name: Gets or sets the name of the resource.
@@ -160,7 +160,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobCount")
-    def job_count(self) -> pulumi.Output[Optional[float]]:
+    def job_count(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the job count of the runbook.
         """
@@ -192,7 +192,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logActivityTrace")
-    def log_activity_trace(self) -> pulumi.Output[Optional[float]]:
+    def log_activity_trace(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the option to log activity trace of the runbook.
         """
@@ -224,7 +224,7 @@ class Runbook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> pulumi.Output[Optional[List[str]]]:
+    def output_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Gets or sets the runbook output types.
         """

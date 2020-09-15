@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190505Preview
         /// action rule properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.ActionGroupResponseResult, Union<Outputs.DiagnosticsResponseResult, Outputs.SuppressionResponseResult>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.ActionGroupResponse, Union<Outputs.DiagnosticsResponse, Outputs.SuppressionResponse>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

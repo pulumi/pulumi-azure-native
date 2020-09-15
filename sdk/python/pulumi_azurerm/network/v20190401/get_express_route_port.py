@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetExpressRoutePortResult:
         if allocation_date and not isinstance(allocation_date, str):
             raise TypeError("Expected argument 'allocation_date' to be a str")
         pulumi.set(__self__, "allocation_date", allocation_date)
-        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
-            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
+        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, int):
+            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a int")
         pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if circuits and not isinstance(circuits, list):
             raise TypeError("Expected argument 'circuits' to be a list")
@@ -80,7 +80,7 @@ class GetExpressRoutePortResult:
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> Optional[float]:
+    def bandwidth_in_gbps(self) -> Optional[int]:
         """
         Bandwidth of procured ports in Gbps.
         """
@@ -88,7 +88,7 @@ class GetExpressRoutePortResult:
 
     @property
     @pulumi.getter
-    def circuits(self) -> List['outputs.SubResourceResponse']:
+    def circuits(self) -> Sequence['outputs.SubResourceResponse']:
         """
         Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         """
@@ -120,7 +120,7 @@ class GetExpressRoutePortResult:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[List['outputs.ExpressRouteLinkResponse']]:
+    def links(self) -> Optional[Sequence['outputs.ExpressRouteLinkResponse']]:
         """
         The set of physical links of the ExpressRoutePort resource.
         """

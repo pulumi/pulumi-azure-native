@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Security.Latest
         /// Links relevant to the assessment
         /// </summary>
         [Output("links")]
-        public Output<Outputs.AssessmentLinksResponseResult?> Links { get; private set; } = null!;
+        public Output<Outputs.AssessmentLinksResponse?> Links { get; private set; } = null!;
 
         /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
         [Output("metadata")]
-        public Output<Outputs.SecurityAssessmentMetadataPropertiesResponseResult?> Metadata { get; private set; } = null!;
+        public Output<Outputs.SecurityAssessmentMetadataPropertiesResponse?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.Security.Latest
         /// Data regarding 3rd party partner integration
         /// </summary>
         [Output("partnersData")]
-        public Output<Outputs.SecurityAssessmentPartnerDataResponseResult?> PartnersData { get; private set; } = null!;
+        public Output<Outputs.SecurityAssessmentPartnerDataResponse?> PartnersData { get; private set; } = null!;
 
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
         [Output("resourceDetails")]
-        public Output<Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult>> ResourceDetails { get; private set; } = null!;
+        public Output<Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse>> ResourceDetails { get; private set; } = null!;
 
         /// <summary>
         /// The result of the assessment
         /// </summary>
         [Output("status")]
-        public Output<Outputs.AssessmentStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.AssessmentStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

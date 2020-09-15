@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// The Key Policy options.
         /// </summary>
         [Output("options")]
-        public Output<ImmutableArray<Outputs.ContentKeyPolicyOptionResponseResult>> Options { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContentKeyPolicyOptionResponse>> Options { get; private set; } = null!;
 
         /// <summary>
         /// The legacy Policy ID.

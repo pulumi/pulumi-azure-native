@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.SecurityInsights.V20190101Preview
         /// Describes a user that the case is assigned to
         /// </summary>
         [Output("owner")]
-        public Output<Outputs.UserInfoResponseResult?> Owner { get; private set; } = null!;
+        public Output<Outputs.UserInfoResponse?> Owner { get; private set; } = null!;
 
         /// <summary>
         /// List of related alert identifiers

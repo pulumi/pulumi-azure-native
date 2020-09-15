@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// The workspace provider authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         /// </summary>
         [Output("createdBy")]
-        public Output<Outputs.CreatedByResponseResult?> CreatedBy { get; private set; } = null!;
+        public Output<Outputs.CreatedByResponse?> CreatedBy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the date and time when the workspace is created.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// The workspace's custom parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<Outputs.WorkspaceCustomParametersResponseResult?> Parameters { get; private set; } = null!;
+        public Output<Outputs.WorkspaceCustomParametersResponse?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The workspace provisioning state.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The details of Managed Identity of Storage Account
         /// </summary>
         [Output("storageAccountIdentity")]
-        public Output<Outputs.ManagedIdentityConfigurationResponseResult?> StorageAccountIdentity { get; private set; } = null!;
+        public Output<Outputs.ManagedIdentityConfigurationResponse?> StorageAccountIdentity { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
         /// </summary>
         [Output("updatedBy")]
-        public Output<Outputs.CreatedByResponseResult?> UpdatedBy { get; private set; } = null!;
+        public Output<Outputs.CreatedByResponse?> UpdatedBy { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the databricks workspace in databricks control plane.

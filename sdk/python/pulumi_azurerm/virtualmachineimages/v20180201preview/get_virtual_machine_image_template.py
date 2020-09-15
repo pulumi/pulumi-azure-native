@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def customize(self) -> Optional[List['outputs.ImageTemplateShellCustomizerResponse']]:
+    def customize(self) -> Optional[Sequence['outputs.ImageTemplateShellCustomizerResponse']]:
         """
         Specifies the properties used to describe the customization steps of the image, like Image source etc
         """
@@ -59,7 +59,7 @@ class GetVirtualMachineImageTemplateResult:
 
     @property
     @pulumi.getter
-    def distribute(self) -> List[Any]:
+    def distribute(self) -> Sequence[Any]:
         """
         The distribution targets where the image output needs to go to.
         """

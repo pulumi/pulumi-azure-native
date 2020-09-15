@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Peering.V20190801Preview
         /// The properties that define a direct peering.
         /// </summary>
         [Output("direct")]
-        public Output<Outputs.PeeringPropertiesDirectResponseResult?> Direct { get; private set; } = null!;
+        public Output<Outputs.PeeringPropertiesDirectResponse?> Direct { get; private set; } = null!;
 
         /// <summary>
         /// The properties that define an exchange peering.
         /// </summary>
         [Output("exchange")]
-        public Output<Outputs.PeeringPropertiesExchangeResponseResult?> Exchange { get; private set; } = null!;
+        public Output<Outputs.PeeringPropertiesExchangeResponse?> Exchange { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the peering.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Peering.V20190801Preview
         /// The SKU that defines the tier and kind of the peering.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PeeringSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.PeeringSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -105,11 +105,11 @@ class MxRecordResponse(dict):
     """
     def __init__(__self__, *,
                  exchange: Optional[str] = None,
-                 preference: Optional[float] = None):
+                 preference: Optional[int] = None):
         """
         An MX record.
         :param str exchange: The domain name of the mail host for this MX record.
-        :param float preference: The preference value for this MX record.
+        :param int preference: The preference value for this MX record.
         """
         if exchange is not None:
             pulumi.set(__self__, "exchange", exchange)
@@ -126,7 +126,7 @@ class MxRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def preference(self) -> Optional[float]:
+    def preference(self) -> Optional[int]:
         """
         The preference value for this MX record.
         """
@@ -169,21 +169,21 @@ class SoaRecordResponse(dict):
     """
     def __init__(__self__, *,
                  email: Optional[str] = None,
-                 expire_time: Optional[float] = None,
+                 expire_time: Optional[int] = None,
                  host: Optional[str] = None,
-                 minimum_ttl: Optional[float] = None,
-                 refresh_time: Optional[float] = None,
-                 retry_time: Optional[float] = None,
-                 serial_number: Optional[float] = None):
+                 minimum_ttl: Optional[int] = None,
+                 refresh_time: Optional[int] = None,
+                 retry_time: Optional[int] = None,
+                 serial_number: Optional[int] = None):
         """
         An SOA record.
         :param str email: The email contact for this SOA record.
-        :param float expire_time: The expire time for this SOA record.
+        :param int expire_time: The expire time for this SOA record.
         :param str host: The domain name of the authoritative name server for this SOA record.
-        :param float minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        :param float refresh_time: The refresh value for this SOA record.
-        :param float retry_time: The retry time for this SOA record.
-        :param float serial_number: The serial number for this SOA record.
+        :param int minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        :param int refresh_time: The refresh value for this SOA record.
+        :param int retry_time: The retry time for this SOA record.
+        :param int serial_number: The serial number for this SOA record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -210,7 +210,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[float]:
+    def expire_time(self) -> Optional[int]:
         """
         The expire time for this SOA record.
         """
@@ -226,7 +226,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[float]:
+    def minimum_ttl(self) -> Optional[int]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
@@ -234,7 +234,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[float]:
+    def refresh_time(self) -> Optional[int]:
         """
         The refresh value for this SOA record.
         """
@@ -242,7 +242,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[float]:
+    def retry_time(self) -> Optional[int]:
         """
         The retry time for this SOA record.
         """
@@ -250,7 +250,7 @@ class SoaRecordResponse(dict):
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[float]:
+    def serial_number(self) -> Optional[int]:
         """
         The serial number for this SOA record.
         """
@@ -266,16 +266,16 @@ class SrvRecordResponse(dict):
     An SRV record.
     """
     def __init__(__self__, *,
-                 port: Optional[float] = None,
-                 priority: Optional[float] = None,
+                 port: Optional[int] = None,
+                 priority: Optional[int] = None,
                  target: Optional[str] = None,
-                 weight: Optional[float] = None):
+                 weight: Optional[int] = None):
         """
         An SRV record.
-        :param float port: The port value for this SRV record.
-        :param float priority: The priority value for this SRV record.
+        :param int port: The port value for this SRV record.
+        :param int priority: The priority value for this SRV record.
         :param str target: The target domain name for this SRV record.
-        :param float weight: The weight value for this SRV record.
+        :param int weight: The weight value for this SRV record.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -288,7 +288,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The port value for this SRV record.
         """
@@ -296,7 +296,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         The priority value for this SRV record.
         """
@@ -312,7 +312,7 @@ class SrvRecordResponse(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         The weight value for this SRV record.
         """
@@ -354,17 +354,17 @@ class TxtRecordResponse(dict):
     A TXT record.
     """
     def __init__(__self__, *,
-                 value: Optional[List[str]] = None):
+                 value: Optional[Sequence[str]] = None):
         """
         A TXT record.
-        :param List[str] value: The text value of this TXT record.
+        :param Sequence[str] value: The text value of this TXT record.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List[str]]:
+    def value(self) -> Optional[Sequence[str]]:
         """
         The text value of this TXT record.
         """

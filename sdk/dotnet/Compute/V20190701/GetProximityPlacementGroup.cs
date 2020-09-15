@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// <summary>
         /// A list of references to all availability sets in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> AvailabilitySets;
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> AvailabilitySets;
         /// <summary>
         /// Describes colocation status of the Proximity Placement Group.
         /// </summary>
-        public readonly Outputs.InstanceViewStatusResponseResult? ColocationStatus;
+        public readonly Outputs.InstanceViewStatusResponse? ColocationStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -76,17 +76,17 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// <summary>
         /// A list of references to all virtual machine scale sets in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> VirtualMachineScaleSets;
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> VirtualMachineScaleSets;
         /// <summary>
         /// A list of references to all virtual machines in the proximity placement group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> VirtualMachines;
+        public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> VirtualMachines;
 
         [OutputConstructor]
         private GetProximityPlacementGroupResult(
-            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> availabilitySets,
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> availabilitySets,
 
-            Outputs.InstanceViewStatusResponseResult? colocationStatus,
+            Outputs.InstanceViewStatusResponse? colocationStatus,
 
             string location,
 
@@ -98,9 +98,9 @@ namespace Pulumi.AzureRM.Compute.V20190701
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> virtualMachineScaleSets,
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> virtualMachineScaleSets,
 
-            ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult> virtualMachines)
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> virtualMachines)
         {
             AvailabilitySets = availabilitySets;
             ColocationStatus = colocationStatus;

@@ -30,19 +30,19 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// The map account properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MapsAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MapsAccountPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of this account.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

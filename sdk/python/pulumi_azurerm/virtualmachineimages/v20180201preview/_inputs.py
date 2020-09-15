@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -244,7 +244,7 @@ class ImageTemplatePlatformImageSourceArgs:
 class ImageTemplateSharedImageDistributorArgs:
     def __init__(__self__, *,
                  gallery_image_id: pulumi.Input[str],
-                 replication_regions: pulumi.Input[List[pulumi.Input[str]]],
+                 replication_regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  run_output_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -276,11 +276,11 @@ class ImageTemplateSharedImageDistributorArgs:
 
     @property
     @pulumi.getter(name="replicationRegions")
-    def replication_regions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def replication_regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "replication_regions")
 
     @replication_regions.setter
-    def replication_regions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def replication_regions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "replication_regions", value)
 
     @property

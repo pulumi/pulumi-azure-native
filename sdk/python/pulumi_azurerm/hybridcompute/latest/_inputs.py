@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -204,14 +204,14 @@ class GuestConfigurationAssignmentPropertiesArgs:
 @pulumi.input_type
 class GuestConfigurationNavigationArgs:
     def __init__(__self__, *,
-                 configuration_parameter: Optional[pulumi.Input[List[pulumi.Input['ConfigurationParameterArgs']]]] = None,
+                 configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  configuration_setting: Optional[pulumi.Input['ConfigurationSettingArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
-        :param pulumi.Input[List[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
         :param pulumi.Input['ConfigurationSettingArgs'] configuration_setting: The configuration setting for the guest configuration.
         :param pulumi.Input[str] kind: Kind of the guest configuration. For example:DSC
         :param pulumi.Input[str] name: Name of the guest configuration.
@@ -230,14 +230,14 @@ class GuestConfigurationNavigationArgs:
 
     @property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[pulumi.Input[List[pulumi.Input['ConfigurationParameterArgs']]]]:
+    def configuration_parameter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]:
         """
         The configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_parameter")
 
     @configuration_parameter.setter
-    def configuration_parameter(self, value: Optional[pulumi.Input[List[pulumi.Input['ConfigurationParameterArgs']]]]):
+    def configuration_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
         pulumi.set(self, "configuration_parameter", value)
 
     @property

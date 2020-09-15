@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetPipelineResult:
         if annotations and not isinstance(annotations, list):
             raise TypeError("Expected argument 'annotations' to be a list")
         pulumi.set(__self__, "annotations", annotations)
-        if concurrency and not isinstance(concurrency, float):
-            raise TypeError("Expected argument 'concurrency' to be a float")
+        if concurrency and not isinstance(concurrency, int):
+            raise TypeError("Expected argument 'concurrency' to be a int")
         pulumi.set(__self__, "concurrency", concurrency)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -57,7 +57,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def activities(self) -> Optional[List[Any]]:
+    def activities(self) -> Optional[Sequence[Any]]:
         """
         List of activities in pipeline.
         """
@@ -65,7 +65,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Pipeline.
         """
@@ -73,7 +73,7 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
-    def concurrency(self) -> Optional[float]:
+    def concurrency(self) -> Optional[int]:
         """
         The max number of concurrent runs for the pipeline.
         """

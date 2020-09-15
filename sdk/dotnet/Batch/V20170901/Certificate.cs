@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Batch.V20170901
         /// This is only returned when the certificate provisioningState is 'Failed'.
         /// </summary>
         [Output("deleteCertificateError")]
-        public Output<Outputs.DeleteCertificateErrorResponseResult> DeleteCertificateError { get; private set; } = null!;
+        public Output<Outputs.DeleteCertificateErrorResponse> DeleteCertificateError { get; private set; } = null!;
 
         /// <summary>
         /// The ETag of the resource, used for concurrency statements.

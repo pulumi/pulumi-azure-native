@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
         /// The list of logs settings.
         /// </summary>
         [Output("logs")]
-        public Output<ImmutableArray<Outputs.LogSettingsResponseResult>> Logs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name

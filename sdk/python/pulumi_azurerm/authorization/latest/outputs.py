@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -102,13 +102,13 @@ class ParameterDefinitionsValueResponse(dict):
     The definition of a parameter that can be provided to the policy.
     """
     def __init__(__self__, *,
-                 allowed_values: Optional[List[Mapping[str, Any]]] = None,
+                 allowed_values: Optional[Sequence[Mapping[str, Any]]] = None,
                  default_value: Optional[Mapping[str, Any]] = None,
                  metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
                  type: Optional[str] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param List[Mapping[str, Any]] allowed_values: The allowed values for the parameter.
+        :param Sequence[Mapping[str, Any]] allowed_values: The allowed values for the parameter.
         :param Mapping[str, Any] default_value: The default value for the parameter if no value is provided.
         :param 'ParameterDefinitionsValueResponseMetadataArgs' metadata: General metadata for the parameter.
         :param str type: The data type of the parameter.
@@ -124,7 +124,7 @@ class ParameterDefinitionsValueResponse(dict):
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[List[Mapping[str, Any]]]:
+    def allowed_values(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         The allowed values for the parameter.
         """
@@ -228,12 +228,12 @@ class PermissionResponse(dict):
     Role definition permissions.
     """
     def __init__(__self__, *,
-                 actions: Optional[List[str]] = None,
-                 not_actions: Optional[List[str]] = None):
+                 actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None):
         """
         Role definition permissions.
-        :param List[str] actions: Allowed actions.
-        :param List[str] not_actions: Denied actions.
+        :param Sequence[str] actions: Allowed actions.
+        :param Sequence[str] not_actions: Denied actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -242,7 +242,7 @@ class PermissionResponse(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[str]]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         Allowed actions.
         """
@@ -250,7 +250,7 @@ class PermissionResponse(dict):
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[List[str]]:
+    def not_actions(self) -> Optional[Sequence[str]]:
         """
         Denied actions.
         """
@@ -340,13 +340,13 @@ class PolicyDefinitionReferenceResponse(dict):
     """
     def __init__(__self__, *,
                  policy_definition_id: str,
-                 group_names: Optional[List[str]] = None,
+                 group_names: Optional[Sequence[str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterValuesValueResponse']] = None,
                  policy_definition_reference_id: Optional[str] = None):
         """
         The policy definition reference.
         :param str policy_definition_id: The ID of the policy definition or policy set definition.
-        :param List[str] group_names: The name of the groups that this policy definition reference belongs to.
+        :param Sequence[str] group_names: The name of the groups that this policy definition reference belongs to.
         :param Mapping[str, 'ParameterValuesValueResponseArgs'] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
@@ -368,7 +368,7 @@ class PolicyDefinitionReferenceResponse(dict):
 
     @property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> Optional[List[str]]:
+    def group_names(self) -> Optional[Sequence[str]]:
         """
         The name of the groups that this policy definition reference belongs to.
         """

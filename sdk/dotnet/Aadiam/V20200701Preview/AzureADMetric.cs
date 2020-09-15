@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Aadiam.V20200701Preview
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.AzureADMetricsPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.AzureADMetricsPropertiesFormatResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

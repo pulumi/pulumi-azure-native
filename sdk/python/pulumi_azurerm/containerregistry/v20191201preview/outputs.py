@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -653,13 +653,13 @@ class NetworkRuleSetResponse(dict):
     """
     def __init__(__self__, *,
                  default_action: str,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param List['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -677,7 +677,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         The IP ACL rules.
         """
@@ -685,7 +685,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The virtual network rules.
         """
@@ -701,14 +701,14 @@ class PipelineRunRequestResponse(dict):
     The request properties provided for a pipeline run.
     """
     def __init__(__self__, *,
-                 artifacts: Optional[List[str]] = None,
+                 artifacts: Optional[Sequence[str]] = None,
                  catalog_digest: Optional[str] = None,
                  pipeline_resource_id: Optional[str] = None,
                  source: Optional['outputs.PipelineRunSourcePropertiesResponse'] = None,
                  target: Optional['outputs.PipelineRunTargetPropertiesResponse'] = None):
         """
         The request properties provided for a pipeline run.
-        :param List[str] artifacts: List of source artifacts to be transferred by the pipeline. 
+        :param Sequence[str] artifacts: List of source artifacts to be transferred by the pipeline. 
                Specify an image by repository ('hello-world'). This will use the 'latest' tag.
                Specify an image by tag ('hello-world:latest').
                Specify an image by sha256-based manifest digest ('hello-world@sha256:abc123').
@@ -730,7 +730,7 @@ class PipelineRunRequestResponse(dict):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List[str]]:
+    def artifacts(self) -> Optional[Sequence[str]]:
         """
         List of source artifacts to be transferred by the pipeline. 
         Specify an image by repository ('hello-world'). This will use the 'latest' tag.
@@ -783,7 +783,7 @@ class PipelineRunResponseResponse(dict):
     def __init__(__self__, *,
                  catalog_digest: Optional[str] = None,
                  finish_time: Optional[str] = None,
-                 imported_artifacts: Optional[List[str]] = None,
+                 imported_artifacts: Optional[Sequence[str]] = None,
                  pipeline_run_error_message: Optional[str] = None,
                  progress: Optional['outputs.ProgressPropertiesResponse'] = None,
                  source: Optional['outputs.ImportPipelineSourcePropertiesResponse'] = None,
@@ -795,7 +795,7 @@ class PipelineRunResponseResponse(dict):
         The response properties returned for a pipeline run.
         :param str catalog_digest: The digest of the tar used to transfer the artifacts.
         :param str finish_time: The time the pipeline run finished.
-        :param List[str] imported_artifacts: The artifacts imported in the pipeline run.
+        :param Sequence[str] imported_artifacts: The artifacts imported in the pipeline run.
         :param str pipeline_run_error_message: The detailed error message for the pipeline run in the case of failure.
         :param 'ProgressPropertiesResponseArgs' progress: The current progress of the copy operation.
         :param 'ImportPipelineSourcePropertiesResponseArgs' source: The source of the pipeline run.
@@ -843,7 +843,7 @@ class PipelineRunResponseResponse(dict):
 
     @property
     @pulumi.getter(name="importedArtifacts")
-    def imported_artifacts(self) -> Optional[List[str]]:
+    def imported_artifacts(self) -> Optional[Sequence[str]]:
         """
         The artifacts imported in the pipeline run.
         """
@@ -1433,12 +1433,12 @@ class RetentionPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  last_updated_time: str,
-                 days: Optional[float] = None,
+                 days: Optional[int] = None,
                  status: Optional[str] = None):
         """
         The retention policy for a container registry.
         :param str last_updated_time: The timestamp when the policy was last updated.
-        :param float days: The number of days to retain an untagged manifest after which it gets purged.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -1457,7 +1457,7 @@ class RetentionPolicyResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[float]:
+    def days(self) -> Optional[int]:
         """
         The number of days to retain an untagged manifest after which it gets purged.
         """
@@ -1625,22 +1625,22 @@ class TargetResponseResult(dict):
     """
     def __init__(__self__, *,
                  digest: Optional[str] = None,
-                 length: Optional[float] = None,
+                 length: Optional[int] = None,
                  media_type: Optional[str] = None,
                  name: Optional[str] = None,
                  repository: Optional[str] = None,
-                 size: Optional[float] = None,
+                 size: Optional[int] = None,
                  tag: Optional[str] = None,
                  url: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The target of the event.
         :param str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-        :param float length: The number of bytes of the content. Same as Size field.
+        :param int length: The number of bytes of the content. Same as Size field.
         :param str media_type: The MIME type of the referenced object.
         :param str name: The name of the artifact.
         :param str repository: The repository name.
-        :param float size: The number of bytes of the content. Same as Length field.
+        :param int size: The number of bytes of the content. Same as Length field.
         :param str tag: The tag name.
         :param str url: The direct URL to the content.
         :param str version: The version of the artifact.
@@ -1674,7 +1674,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[float]:
+    def length(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Size field.
         """
@@ -1706,7 +1706,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Length field.
         """

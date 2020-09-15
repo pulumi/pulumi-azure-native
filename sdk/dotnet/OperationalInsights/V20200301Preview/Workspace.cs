@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// List of linked private link scope resources.
         /// </summary>
         [Output("privateLinkScopedResources")]
-        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult>> PrivateLinkScopedResources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponse>> PrivateLinkScopedResources { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the workspace.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// The SKU of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.WorkspaceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.WorkspaceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200301Preview
         /// The daily volume cap for ingestion.
         /// </summary>
         [Output("workspaceCapping")]
-        public Output<Outputs.WorkspaceCappingResponseResult?> WorkspaceCapping { get; private set; } = null!;
+        public Output<Outputs.WorkspaceCappingResponse?> WorkspaceCapping { get; private set; } = null!;
 
 
         /// <summary>

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20180901Preview
         /// The artifacts for the service unit.
         /// </summary>
         [Output("artifacts")]
-        public Output<Outputs.ServiceUnitArtifactsResponseResult?> Artifacts { get; private set; } = null!;
+        public Output<Outputs.ServiceUnitArtifactsResponse?> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// Describes the type of ARM deployment to be performed on the resource.

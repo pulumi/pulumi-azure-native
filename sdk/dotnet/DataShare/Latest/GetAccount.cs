@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DataShare.Latest
         /// <summary>
         /// Identity Info on the Account
         /// </summary>
-        public readonly Outputs.IdentityResponseResult Identity;
+        public readonly Outputs.IdentityResponse Identity;
         /// <summary>
         /// Location of the azure resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataShare.Latest
         private GetAccountResult(
             string createdAt,
 
-            Outputs.IdentityResponseResult identity,
+            Outputs.IdentityResponse identity,
 
             string? location,
 

@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The properties of the Relationship.
         /// </summary>
         [Output("fields")]
-        public Output<ImmutableArray<Outputs.PropertyDefinitionResponseResult>> Fields { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PropertyDefinitionResponse>> Fields { get; private set; } = null!;
 
         /// <summary>
         /// Optional property to be used to map fields in profile to their strong ids in related profile.
         /// </summary>
         [Output("lookupMappings")]
-        public Output<ImmutableArray<Outputs.RelationshipTypeMappingResponseResult>> LookupMappings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RelationshipTypeMappingResponse>> LookupMappings { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

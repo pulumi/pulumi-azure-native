@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,14 +26,14 @@ class GetEventHubResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if message_retention_in_days and not isinstance(message_retention_in_days, float):
-            raise TypeError("Expected argument 'message_retention_in_days' to be a float")
+        if message_retention_in_days and not isinstance(message_retention_in_days, int):
+            raise TypeError("Expected argument 'message_retention_in_days' to be a int")
         pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if partition_count and not isinstance(partition_count, float):
-            raise TypeError("Expected argument 'partition_count' to be a float")
+        if partition_count and not isinstance(partition_count, int):
+            raise TypeError("Expected argument 'partition_count' to be a int")
         pulumi.set(__self__, "partition_count", partition_count)
         if partition_ids and not isinstance(partition_ids, list):
             raise TypeError("Expected argument 'partition_ids' to be a list")
@@ -66,7 +66,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
-    def message_retention_in_days(self) -> Optional[float]:
+    def message_retention_in_days(self) -> Optional[int]:
         """
         Number of days to retain the events for this Event Hub.
         """
@@ -82,7 +82,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[float]:
+    def partition_count(self) -> Optional[int]:
         """
         Number of partitions created for the Event Hub.
         """
@@ -90,7 +90,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> Sequence[str]:
         """
         Current number of shards on the Event Hub.
         """

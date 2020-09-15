@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetTopicResult:
         if enable_partitioning and not isinstance(enable_partitioning, bool):
             raise TypeError("Expected argument 'enable_partitioning' to be a bool")
         pulumi.set(__self__, "enable_partitioning", enable_partitioning)
-        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, float):
-            raise TypeError("Expected argument 'max_size_in_megabytes' to be a float")
+        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
+            raise TypeError("Expected argument 'max_size_in_megabytes' to be a int")
         pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -57,14 +57,14 @@ class GetTopicResult:
         if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
             raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
         pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if subscription_count and not isinstance(subscription_count, float):
-            raise TypeError("Expected argument 'subscription_count' to be a float")
+        if subscription_count and not isinstance(subscription_count, int):
+            raise TypeError("Expected argument 'subscription_count' to be a int")
         pulumi.set(__self__, "subscription_count", subscription_count)
         if support_ordering and not isinstance(support_ordering, bool):
             raise TypeError("Expected argument 'support_ordering' to be a bool")
@@ -150,7 +150,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> Optional[float]:
+    def max_size_in_megabytes(self) -> Optional[int]:
         """
         Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         """
@@ -174,7 +174,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         Size of the topic, in bytes.
         """
@@ -190,7 +190,7 @@ class GetTopicResult:
 
     @property
     @pulumi.getter(name="subscriptionCount")
-    def subscription_count(self) -> float:
+    def subscription_count(self) -> int:
         """
         Number of subscriptions.
         """

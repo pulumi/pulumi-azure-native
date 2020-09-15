@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -378,13 +378,13 @@ class NetworkRuleSetResponse(dict):
     """
     def __init__(__self__, *,
                  default_action: str,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
-        :param List['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
+        :param Sequence['IPRuleResponseArgs'] ip_rules: The IP ACL rules.
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: The virtual network rules.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -402,7 +402,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         The IP ACL rules.
         """
@@ -410,7 +410,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         The virtual network rules.
         """
@@ -676,22 +676,22 @@ class TargetResponseResult(dict):
     """
     def __init__(__self__, *,
                  digest: Optional[str] = None,
-                 length: Optional[float] = None,
+                 length: Optional[int] = None,
                  media_type: Optional[str] = None,
                  name: Optional[str] = None,
                  repository: Optional[str] = None,
-                 size: Optional[float] = None,
+                 size: Optional[int] = None,
                  tag: Optional[str] = None,
                  url: Optional[str] = None,
                  version: Optional[str] = None):
         """
         The target of the event.
         :param str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-        :param float length: The number of bytes of the content. Same as Size field.
+        :param int length: The number of bytes of the content. Same as Size field.
         :param str media_type: The MIME type of the referenced object.
         :param str name: The name of the artifact.
         :param str repository: The repository name.
-        :param float size: The number of bytes of the content. Same as Length field.
+        :param int size: The number of bytes of the content. Same as Length field.
         :param str tag: The tag name.
         :param str url: The direct URL to the content.
         :param str version: The version of the artifact.
@@ -725,7 +725,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[float]:
+    def length(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Size field.
         """
@@ -757,7 +757,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Length field.
         """

@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         ///             a source web app
         /// </summary>
         [Output("cloningInfo")]
-        public Output<Outputs.CloningInfoResponseResult?> CloningInfo { get; private set; } = null!;
+        public Output<Outputs.CloningInfoResponse?> CloningInfo { get; private set; } = null!;
 
         /// <summary>
         /// Size of a function container
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
         /// </summary>
         [Output("hostNameSslStates")]
-        public Output<ImmutableArray<Outputs.HostNameSslStateResponseResult>> HostNameSslStates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostNameSslStateResponse>> HostNameSslStates { get; private set; } = null!;
 
         /// <summary>
         /// Hostnames associated with web app
@@ -95,7 +95,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Specification for the hosting environment (App Service Environment) to use for the web app
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse?> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// Site is a default container
@@ -174,7 +174,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Configuration of web app
         /// </summary>
         [Output("siteConfig")]
-        public Output<Outputs.SiteConfigResponseResult?> SiteConfig { get; private set; } = null!;
+        public Output<Outputs.SiteConfigResponse?> SiteConfig { get; private set; } = null!;
 
         /// <summary>
         /// State of the web app

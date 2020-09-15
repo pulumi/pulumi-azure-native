@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from ._inputs import *
 
@@ -16,19 +16,19 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confidence: Optional[pulumi.Input[float]] = None,
+                 confidence: Optional[pulumi.Input[int]] = None,
                  created: Optional[pulumi.Input[str]] = None,
                  created_by_ref: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 external_references: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 granular_markings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
-                 indicator_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 kill_chain_phases: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
+                 external_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
+                 indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,8 +38,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revoked: Optional[pulumi.Input[bool]] = None,
                  source: Optional[pulumi.Input[str]] = None,
-                 threat_intelligence_tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 threat_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 threat_intelligence_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -51,19 +51,19 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] confidence: Confidence of threat intelligence entity
+        :param pulumi.Input[int] confidence: Confidence of threat intelligence entity
         :param pulumi.Input[str] created: Created by
         :param pulumi.Input[str] created_by_ref: Created by reference of threat intelligence entity
         :param pulumi.Input[str] description: Description of a threat intelligence entity
         :param pulumi.Input[str] display_name: Display name of a threat intelligence entity
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] external_id: External ID of threat intelligence entity
-        :param pulumi.Input[List[pulumi.Input[str]]] external_references: External References
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
-        :param pulumi.Input[List[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_references: External References
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
         :param pulumi.Input[str] kind: The kind of the entity.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
         :param pulumi.Input[str] name: Threat Intelligence Identifier
@@ -73,8 +73,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[bool] revoked: Is threat intelligence entity revoked
         :param pulumi.Input[str] source: Source of a threat intelligence entity
-        :param pulumi.Input[List[pulumi.Input[str]]] threat_intelligence_tags: List of tags
-        :param pulumi.Input[List[pulumi.Input[str]]] threat_types: Threat types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_intelligence_tags: List of tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_types: Threat types
         :param pulumi.Input[str] valid_from: Valid from
         :param pulumi.Input[str] valid_until: Valid until
         :param pulumi.Input[str] workspace_name: The name of the workspace.

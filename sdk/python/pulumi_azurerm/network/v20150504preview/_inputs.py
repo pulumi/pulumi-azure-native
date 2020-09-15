@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -98,11 +98,11 @@ class CnameRecordArgs:
 class MxRecordArgs:
     def __init__(__self__, *,
                  exchange: Optional[pulumi.Input[str]] = None,
-                 preference: Optional[pulumi.Input[float]] = None):
+                 preference: Optional[pulumi.Input[int]] = None):
         """
         An MX record.
         :param pulumi.Input[str] exchange: Gets or sets the domain name of the mail host, without a terminating dot.
-        :param pulumi.Input[float] preference: Gets or sets the preference metric for this record.
+        :param pulumi.Input[int] preference: Gets or sets the preference metric for this record.
         """
         if exchange is not None:
             pulumi.set(__self__, "exchange", exchange)
@@ -123,14 +123,14 @@ class MxRecordArgs:
 
     @property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[float]]:
+    def preference(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the preference metric for this record.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[float]]):
+    def preference(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preference", value)
 
 
@@ -185,28 +185,28 @@ class PtrRecordArgs:
 @pulumi.input_type
 class RecordSetPropertiesArgs:
     def __init__(__self__, *,
-                 a_aaa_records: Optional[pulumi.Input[List[pulumi.Input['AaaaRecordArgs']]]] = None,
-                 a_records: Optional[pulumi.Input[List[pulumi.Input['ARecordArgs']]]] = None,
+                 a_aaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
+                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
                  c_name_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
-                 m_x_records: Optional[pulumi.Input[List[pulumi.Input['MxRecordArgs']]]] = None,
-                 n_s_records: Optional[pulumi.Input[List[pulumi.Input['NsRecordArgs']]]] = None,
-                 p_tr_records: Optional[pulumi.Input[List[pulumi.Input['PtrRecordArgs']]]] = None,
+                 m_x_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
+                 n_s_records: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
+                 p_tr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
                  s_oa_record: Optional[pulumi.Input['SoaRecordArgs']] = None,
-                 s_rv_records: Optional[pulumi.Input[List[pulumi.Input['SrvRecordArgs']]]] = None,
-                 t_xt_records: Optional[pulumi.Input[List[pulumi.Input['TxtRecordArgs']]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None):
+                 s_rv_records: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
+                 t_xt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None):
         """
         Represents the properties of the records in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['AaaaRecordArgs']]] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['ARecordArgs']]] a_records: Gets or sets the list of A records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]] a_aaa_records: Gets or sets the list of AAAA records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: Gets or sets the list of A records in the RecordSet.
         :param pulumi.Input['CnameRecordArgs'] c_name_record: Gets or sets the CNAME record in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['MxRecordArgs']]] m_x_records: Gets or sets the list of MX records in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['NsRecordArgs']]] n_s_records: Gets or sets the list of NS records in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['PtrRecordArgs']]] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]] m_x_records: Gets or sets the list of MX records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]] n_s_records: Gets or sets the list of NS records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]] p_tr_records: Gets or sets the list of PTR records in the RecordSet.
         :param pulumi.Input['SoaRecordArgs'] s_oa_record: Gets or sets the SOA record in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['SrvRecordArgs']]] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
-        :param pulumi.Input[List[pulumi.Input['TxtRecordArgs']]] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
-        :param pulumi.Input[float] ttl: Gets or sets the TTL of the records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]] s_rv_records: Gets or sets the list of SRV records in the RecordSet.
+        :param pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]] t_xt_records: Gets or sets the list of TXT records in the RecordSet.
+        :param pulumi.Input[int] ttl: Gets or sets the TTL of the records in the RecordSet.
         """
         if a_aaa_records is not None:
             pulumi.set(__self__, "a_aaa_records", a_aaa_records)
@@ -231,26 +231,26 @@ class RecordSetPropertiesArgs:
 
     @property
     @pulumi.getter(name="aAAARecords")
-    def a_aaa_records(self) -> Optional[pulumi.Input[List[pulumi.Input['AaaaRecordArgs']]]]:
+    def a_aaa_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]]:
         """
         Gets or sets the list of AAAA records in the RecordSet.
         """
         return pulumi.get(self, "a_aaa_records")
 
     @a_aaa_records.setter
-    def a_aaa_records(self, value: Optional[pulumi.Input[List[pulumi.Input['AaaaRecordArgs']]]]):
+    def a_aaa_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]]):
         pulumi.set(self, "a_aaa_records", value)
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[pulumi.Input[List[pulumi.Input['ARecordArgs']]]]:
+    def a_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]]:
         """
         Gets or sets the list of A records in the RecordSet.
         """
         return pulumi.get(self, "a_records")
 
     @a_records.setter
-    def a_records(self, value: Optional[pulumi.Input[List[pulumi.Input['ARecordArgs']]]]):
+    def a_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]]):
         pulumi.set(self, "a_records", value)
 
     @property
@@ -267,38 +267,38 @@ class RecordSetPropertiesArgs:
 
     @property
     @pulumi.getter(name="mXRecords")
-    def m_x_records(self) -> Optional[pulumi.Input[List[pulumi.Input['MxRecordArgs']]]]:
+    def m_x_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]]:
         """
         Gets or sets the list of MX records in the RecordSet.
         """
         return pulumi.get(self, "m_x_records")
 
     @m_x_records.setter
-    def m_x_records(self, value: Optional[pulumi.Input[List[pulumi.Input['MxRecordArgs']]]]):
+    def m_x_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]]):
         pulumi.set(self, "m_x_records", value)
 
     @property
     @pulumi.getter(name="nSRecords")
-    def n_s_records(self) -> Optional[pulumi.Input[List[pulumi.Input['NsRecordArgs']]]]:
+    def n_s_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]]:
         """
         Gets or sets the list of NS records in the RecordSet.
         """
         return pulumi.get(self, "n_s_records")
 
     @n_s_records.setter
-    def n_s_records(self, value: Optional[pulumi.Input[List[pulumi.Input['NsRecordArgs']]]]):
+    def n_s_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]]):
         pulumi.set(self, "n_s_records", value)
 
     @property
     @pulumi.getter(name="pTRRecords")
-    def p_tr_records(self) -> Optional[pulumi.Input[List[pulumi.Input['PtrRecordArgs']]]]:
+    def p_tr_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]]:
         """
         Gets or sets the list of PTR records in the RecordSet.
         """
         return pulumi.get(self, "p_tr_records")
 
     @p_tr_records.setter
-    def p_tr_records(self, value: Optional[pulumi.Input[List[pulumi.Input['PtrRecordArgs']]]]):
+    def p_tr_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]]):
         pulumi.set(self, "p_tr_records", value)
 
     @property
@@ -315,38 +315,38 @@ class RecordSetPropertiesArgs:
 
     @property
     @pulumi.getter(name="sRVRecords")
-    def s_rv_records(self) -> Optional[pulumi.Input[List[pulumi.Input['SrvRecordArgs']]]]:
+    def s_rv_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]]:
         """
         Gets or sets the list of SRV records in the RecordSet.
         """
         return pulumi.get(self, "s_rv_records")
 
     @s_rv_records.setter
-    def s_rv_records(self, value: Optional[pulumi.Input[List[pulumi.Input['SrvRecordArgs']]]]):
+    def s_rv_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]]):
         pulumi.set(self, "s_rv_records", value)
 
     @property
     @pulumi.getter(name="tXTRecords")
-    def t_xt_records(self) -> Optional[pulumi.Input[List[pulumi.Input['TxtRecordArgs']]]]:
+    def t_xt_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]]:
         """
         Gets or sets the list of TXT records in the RecordSet.
         """
         return pulumi.get(self, "t_xt_records")
 
     @t_xt_records.setter
-    def t_xt_records(self, value: Optional[pulumi.Input[List[pulumi.Input['TxtRecordArgs']]]]):
+    def t_xt_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]]):
         pulumi.set(self, "t_xt_records", value)
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[float]]:
+    def ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the TTL of the records in the RecordSet.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[float]]):
+    def ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ttl", value)
 
 
@@ -354,21 +354,21 @@ class RecordSetPropertiesArgs:
 class SoaRecordArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
-                 expire_time: Optional[pulumi.Input[float]] = None,
+                 expire_time: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[float]] = None,
-                 refresh_time: Optional[pulumi.Input[float]] = None,
-                 retry_time: Optional[pulumi.Input[float]] = None,
-                 serial_number: Optional[pulumi.Input[float]] = None):
+                 minimum_ttl: Optional[pulumi.Input[int]] = None,
+                 refresh_time: Optional[pulumi.Input[int]] = None,
+                 retry_time: Optional[pulumi.Input[int]] = None,
+                 serial_number: Optional[pulumi.Input[int]] = None):
         """
         An SOA record.
         :param pulumi.Input[str] email: Gets or sets the email for this record.
-        :param pulumi.Input[float] expire_time: Gets or sets the expire time for this record.
+        :param pulumi.Input[int] expire_time: Gets or sets the expire time for this record.
         :param pulumi.Input[str] host: Gets or sets the domain name of the authoritative name server, without a terminating dot.
-        :param pulumi.Input[float] minimum_ttl: Gets or sets the minimum TTL value for this record.
-        :param pulumi.Input[float] refresh_time: Gets or sets the refresh value for this record.
-        :param pulumi.Input[float] retry_time: Gets or sets the retry time for this record.
-        :param pulumi.Input[float] serial_number: Gets or sets the serial number for this record.
+        :param pulumi.Input[int] minimum_ttl: Gets or sets the minimum TTL value for this record.
+        :param pulumi.Input[int] refresh_time: Gets or sets the refresh value for this record.
+        :param pulumi.Input[int] retry_time: Gets or sets the retry time for this record.
+        :param pulumi.Input[int] serial_number: Gets or sets the serial number for this record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -399,14 +399,14 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[float]]:
+    def expire_time(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the expire time for this record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[float]]):
+    def expire_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expire_time", value)
 
     @property
@@ -423,66 +423,66 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="minimumTTL")
-    def minimum_ttl(self) -> Optional[pulumi.Input[float]]:
+    def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the minimum TTL value for this record.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[float]]):
+    def minimum_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[float]]:
+    def refresh_time(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the refresh value for this record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[float]]):
+    def refresh_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "refresh_time", value)
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[float]]:
+    def retry_time(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the retry time for this record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[float]]):
+    def retry_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_time", value)
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[float]]:
+    def serial_number(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the serial number for this record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[float]]):
+    def serial_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "serial_number", value)
 
 
 @pulumi.input_type
 class SrvRecordArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[float]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         An SRV record.
-        :param pulumi.Input[float] port: Gets or sets the port of the service for this record.
-        :param pulumi.Input[float] priority: Gets or sets the priority metric for this record.
+        :param pulumi.Input[int] port: Gets or sets the port of the service for this record.
+        :param pulumi.Input[int] priority: Gets or sets the priority metric for this record.
         :param pulumi.Input[str] target: Gets or sets the domain name of the target for this record, without a terminating dot.
-        :param pulumi.Input[float] weight: Gets or sets the weight metric for this record.
+        :param pulumi.Input[int] weight: Gets or sets the weight metric for this record.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -495,26 +495,26 @@ class SrvRecordArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the port of the service for this record.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the priority metric for this record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -531,50 +531,50 @@ class SrvRecordArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the weight metric for this record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class TxtRecordArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A TXT record.
-        :param pulumi.Input[List[pulumi.Input[str]]] value: Gets or sets the text value of this record.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] value: Gets or sets the text value of this record.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the text value of this record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class ZonePropertiesArgs:
     def __init__(__self__, *,
-                 max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
-                 number_of_record_sets: Optional[pulumi.Input[float]] = None):
+                 max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
+                 number_of_record_sets: Optional[pulumi.Input[int]] = None):
         """
         Represents the properties of the zone.
-        :param pulumi.Input[float] max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
-        :param pulumi.Input[float] number_of_record_sets: Gets or sets the current number of record sets in this zone.
+        :param pulumi.Input[int] max_number_of_record_sets: Gets or sets the maximum number of record sets that can be created in this zone.
+        :param pulumi.Input[int] number_of_record_sets: Gets or sets the current number of record sets in this zone.
         """
         if max_number_of_record_sets is not None:
             pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
@@ -583,26 +583,26 @@ class ZonePropertiesArgs:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> Optional[pulumi.Input[float]]:
+    def max_number_of_record_sets(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the maximum number of record sets that can be created in this zone.
         """
         return pulumi.get(self, "max_number_of_record_sets")
 
     @max_number_of_record_sets.setter
-    def max_number_of_record_sets(self, value: Optional[pulumi.Input[float]]):
+    def max_number_of_record_sets(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_number_of_record_sets", value)
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> Optional[pulumi.Input[float]]:
+    def number_of_record_sets(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the current number of record sets in this zone.
         """
         return pulumi.get(self, "number_of_record_sets")
 
     @number_of_record_sets.setter
-    def number_of_record_sets(self, value: Optional[pulumi.Input[float]]):
+    def number_of_record_sets(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_record_sets", value)
 
 

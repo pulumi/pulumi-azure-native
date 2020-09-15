@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The deployment properties of the environment.
         /// </summary>
-        public readonly Outputs.EnvironmentDeploymentPropertiesResponseResult? DeploymentProperties;
+        public readonly Outputs.EnvironmentDeploymentPropertiesResponse? DeploymentProperties;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string createdByUser,
 
-            Outputs.EnvironmentDeploymentPropertiesResponseResult? deploymentProperties,
+            Outputs.EnvironmentDeploymentPropertiesResponse? deploymentProperties,
 
             string? location,
 

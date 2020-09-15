@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -67,7 +67,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -99,7 +99,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> Optional[Sequence['outputs.ResourceNavigationLinkResponse']]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -115,7 +115,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]:
+    def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]:
         """
         An array of service endpoints.
         """

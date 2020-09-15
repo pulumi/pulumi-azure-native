@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,8 +57,8 @@ class GetManagedClusterResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_agent_pools and not isinstance(max_agent_pools, float):
-            raise TypeError("Expected argument 'max_agent_pools' to be a float")
+        if max_agent_pools and not isinstance(max_agent_pools, int):
+            raise TypeError("Expected argument 'max_agent_pools' to be a int")
         pulumi.set(__self__, "max_agent_pools", max_agent_pools)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -103,7 +103,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]:
         """
         Properties of the agent pool.
         """
@@ -183,7 +183,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="maxAgentPools")
-    def max_agent_pools(self) -> float:
+    def max_agent_pools(self) -> int:
         """
         The max number of agent pools for the managed cluster.
         """

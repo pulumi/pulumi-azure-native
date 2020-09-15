@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetSavedSearchResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
+        if version and not isinstance(version, int):
+            raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
 
     @property
@@ -88,7 +88,7 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List['outputs.TagResponse']]:
+    def tags(self) -> Optional[Sequence['outputs.TagResponse']]:
         """
         The tags attached to the saved search.
         """
@@ -104,7 +104,7 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> Optional[int]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """

@@ -46,31 +46,31 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <summary>
         /// The collection of managed application artifacts.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
         /// <summary>
         /// The  read-only authorizations property that is retrieved from the application package.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponse> Authorizations;
         /// <summary>
         /// The managed application billing details.
         /// </summary>
-        public readonly Outputs.ApplicationBillingDetailsDefinitionResponseResult BillingDetails;
+        public readonly Outputs.ApplicationBillingDetailsDefinitionResponse BillingDetails;
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponseResult CreatedBy;
+        public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
         /// <summary>
         /// The read-only customer support property that is retrieved from the application package.
         /// </summary>
-        public readonly Outputs.ApplicationPackageContactResponseResult CustomerSupport;
+        public readonly Outputs.ApplicationPackageContactResponse CustomerSupport;
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The managed application Jit access policy.
         /// </summary>
-        public readonly Outputs.ApplicationJitAccessPolicyResponseResult? JitAccessPolicy;
+        public readonly Outputs.ApplicationJitAccessPolicyResponse? JitAccessPolicy;
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// The managed application provisioning state.
         /// </summary>
@@ -118,11 +118,11 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The read-only support URLs property that is retrieved from the application package.
         /// </summary>
-        public readonly Outputs.ApplicationPackageSupportUrlsResponseResult SupportUrls;
+        public readonly Outputs.ApplicationPackageSupportUrlsResponse SupportUrls;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -134,25 +134,25 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// <summary>
         /// The client entity that last updated the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponseResult UpdatedBy;
+        public readonly Outputs.ApplicationClientDetailsResponse UpdatedBy;
 
         [OutputConstructor]
         private GetApplicationResult(
             string? applicationDefinitionId,
 
-            ImmutableArray<Outputs.ApplicationArtifactResponseResult> artifacts,
+            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
 
-            ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> authorizations,
+            ImmutableArray<Outputs.ApplicationAuthorizationResponse> authorizations,
 
-            Outputs.ApplicationBillingDetailsDefinitionResponseResult billingDetails,
+            Outputs.ApplicationBillingDetailsDefinitionResponse billingDetails,
 
-            Outputs.ApplicationClientDetailsResponseResult createdBy,
+            Outputs.ApplicationClientDetailsResponse createdBy,
 
-            Outputs.ApplicationPackageContactResponseResult customerSupport,
+            Outputs.ApplicationPackageContactResponse customerSupport,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
-            Outputs.ApplicationJitAccessPolicyResponseResult? jitAccessPolicy,
+            Outputs.ApplicationJitAccessPolicyResponse? jitAccessPolicy,
 
             string kind,
 
@@ -170,21 +170,21 @@ namespace Pulumi.AzureRM.Solutions.V20190701
 
             ImmutableDictionary<string, object>? parameters,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             string provisioningState,
 
             string publisherTenantId,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
-            Outputs.ApplicationPackageSupportUrlsResponseResult supportUrls,
+            Outputs.ApplicationPackageSupportUrlsResponse supportUrls,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ApplicationClientDetailsResponseResult updatedBy)
+            Outputs.ApplicationClientDetailsResponse updatedBy)
         {
             ApplicationDefinitionId = applicationDefinitionId;
             Artifacts = artifacts;

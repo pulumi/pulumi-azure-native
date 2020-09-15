@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// <summary>
         /// List of application capacity metric description.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> Metrics;
+        public readonly ImmutableArray<Outputs.ApplicationMetricDescriptionResponse> Metrics;
         /// <summary>
         /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// <summary>
         /// Describes the policy for a monitored application upgrade.
         /// </summary>
-        public readonly Outputs.ApplicationUpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.ApplicationUpgradePolicyResponse? UpgradePolicy;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
 
             int? maximumNodes,
 
-            ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> metrics,
+            ImmutableArray<Outputs.ApplicationMetricDescriptionResponse> metrics,
 
             int? minimumNodes,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
 
             string? typeVersion,
 
-            Outputs.ApplicationUpgradePolicyResponseResult? upgradePolicy)
+            Outputs.ApplicationUpgradePolicyResponse? upgradePolicy)
         {
             Etag = etag;
             Location = location;

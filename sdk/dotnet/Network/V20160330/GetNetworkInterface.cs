@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets DNS Settings in  NetworkInterface
         /// </summary>
-        public readonly Outputs.NetworkInterfaceDnsSettingsResponseResult? DnsSettings;
+        public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
         /// <summary>
         /// Gets or sets whether IPForwarding is enabled on the NIC
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets list of IPConfigurations of the NetworkInterface
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
         /// Gets whether this is a primary NIC on a virtual machine
         /// </summary>
@@ -100,17 +100,17 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of a VirtualMachine
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualMachine;
+        public readonly Outputs.SubResourceResponse? VirtualMachine;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            Outputs.NetworkInterfaceDnsSettingsResponseResult? dnsSettings,
+            Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
 
             bool? enableIPForwarding,
 
             string? etag,
 
-            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string name,
 
-            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
             bool? primary,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualMachine)
+            Outputs.SubResourceResponse? virtualMachine)
         {
             DnsSettings = dnsSettings;
             EnableIPForwarding = enableIPForwarding;

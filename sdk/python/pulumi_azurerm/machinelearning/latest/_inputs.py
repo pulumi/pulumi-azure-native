@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -45,7 +45,7 @@ class AssetItemArgs:
                  input_ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputPortArgs']]]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  output_ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['OutputPortArgs']]]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]] = None):
         """
         Information about an asset associated with the web service.
         :param pulumi.Input['BlobLocationArgs'] location_info: Access information for the asset.
@@ -55,7 +55,7 @@ class AssetItemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['InputPortArgs']]] input_ports: Information about the asset's input ports.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: If the asset is a custom module, this holds the module's metadata.
         :param pulumi.Input[Mapping[str, pulumi.Input['OutputPortArgs']]] output_ports: Information about the asset's output ports.
-        :param pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]] parameters: If the asset is a custom module, this holds the module's parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]] parameters: If the asset is a custom module, this holds the module's parameters.
         """
         pulumi.set(__self__, "location_info", location_info)
         pulumi.set(__self__, "name", name)
@@ -157,14 +157,14 @@ class AssetItemArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]]:
         """
         If the asset is a custom module, this holds the module's parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -211,14 +211,14 @@ class BlobLocationArgs:
 class ColumnSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 enum: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 enum: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  format: Optional[pulumi.Input[str]] = None,
                  x_ms_isnullable: Optional[pulumi.Input[bool]] = None,
                  x_ms_isordered: Optional[pulumi.Input[bool]] = None):
         """
         Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
         :param pulumi.Input[str] type: Data type of the column.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] enum: If the data type is categorical, this provides the list of accepted categories.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] enum: If the data type is categorical, this provides the list of accepted categories.
         :param pulumi.Input[str] format: Additional format information for the data type.
         :param pulumi.Input[bool] x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param pulumi.Input[bool] x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
@@ -247,14 +247,14 @@ class ColumnSpecificationArgs:
 
     @property
     @pulumi.getter
-    def enum(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def enum(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         If the data type is categorical, this provides the list of accepted categories.
         """
         return pulumi.get(self, "enum")
 
     @enum.setter
-    def enum(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def enum(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "enum", value)
 
     @property
@@ -360,11 +360,11 @@ class DiagnosticsConfigurationArgs:
 class ExampleRequestArgs:
     def __init__(__self__, *,
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None,
-                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]]]]] = None):
+                 inputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]] = None):
         """
         Sample input data for the service's input(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] global_parameters: Sample input data for the web service's global parameters
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         if global_parameters is not None:
             pulumi.set(__self__, "global_parameters", global_parameters)
@@ -385,14 +385,14 @@ class ExampleRequestArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]]]]]:
+    def inputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]]:
         """
         Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]]]]]):
+    def inputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]]]]]):
         pulumi.set(self, "inputs", value)
 
 
@@ -543,12 +543,12 @@ class GraphNodeArgs:
 @pulumi.input_type
 class GraphPackageArgs:
     def __init__(__self__, *,
-                 edges: Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]] = None,
+                 edges: Optional[pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgs']]]] = None,
                  graph_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]]] = None,
                  nodes: Optional[pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]]] = None):
         """
         Defines the graph of modules making up the machine learning solution.
-        :param pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]] edges: The list of edges making up the graph.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgs']]] edges: The list of edges making up the graph.
         :param pulumi.Input[Mapping[str, pulumi.Input['GraphParameterArgs']]] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
         :param pulumi.Input[Mapping[str, pulumi.Input['GraphNodeArgs']]] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
         """
@@ -561,14 +561,14 @@ class GraphPackageArgs:
 
     @property
     @pulumi.getter
-    def edges(self) -> Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]]:
+    def edges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgs']]]]:
         """
         The list of edges making up the graph.
         """
         return pulumi.get(self, "edges")
 
     @edges.setter
-    def edges(self, value: Optional[pulumi.Input[List[pulumi.Input['GraphEdgeArgs']]]]):
+    def edges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphEdgeArgs']]]]):
         pulumi.set(self, "edges", value)
 
     @property
@@ -599,12 +599,12 @@ class GraphPackageArgs:
 @pulumi.input_type
 class GraphParameterArgs:
     def __init__(__self__, *,
-                 links: pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]],
+                 links: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
         Defines a global parameter in the graph.
-        :param pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]] links: Association links for this parameter to nodes in the graph.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]] links: Association links for this parameter to nodes in the graph.
         :param pulumi.Input[str] type: Graph parameter's type.
         :param pulumi.Input[str] description: Description of this graph parameter.
         """
@@ -615,14 +615,14 @@ class GraphParameterArgs:
 
     @property
     @pulumi.getter
-    def links(self) -> pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]]:
+    def links(self) -> pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]]:
         """
         Association links for this parameter to nodes in the graph.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: pulumi.Input[List[pulumi.Input['GraphParameterLinkArgs']]]):
+    def links(self, value: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]]):
         pulumi.set(self, "links", value)
 
     @property
@@ -739,11 +739,11 @@ class MachineLearningWorkspaceArgs:
 class ModeValueInfoArgs:
     def __init__(__self__, *,
                  interface_string: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]] = None):
         """
         Nested parameter definition.
         :param pulumi.Input[str] interface_string: The interface string name for the nested parameter.
-        :param pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]] parameters: The definition of the parameter.
+        :param pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]] parameters: The definition of the parameter.
         """
         if interface_string is not None:
             pulumi.set(__self__, "interface_string", interface_string)
@@ -764,14 +764,14 @@ class ModeValueInfoArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]]:
         """
         The definition of the parameter.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ModuleAssetParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModuleAssetParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -858,24 +858,24 @@ class OutputPortArgs:
 @pulumi.input_type
 class RealtimeConfigurationArgs:
     def __init__(__self__, *,
-                 max_concurrent_calls: Optional[pulumi.Input[float]] = None):
+                 max_concurrent_calls: Optional[pulumi.Input[int]] = None):
         """
         Holds the available configuration options for an Azure ML web service endpoint.
-        :param pulumi.Input[float] max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+        :param pulumi.Input[int] max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """
         if max_concurrent_calls is not None:
             pulumi.set(__self__, "max_concurrent_calls", max_concurrent_calls)
 
     @property
     @pulumi.getter(name="maxConcurrentCalls")
-    def max_concurrent_calls(self) -> Optional[pulumi.Input[float]]:
+    def max_concurrent_calls(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """
         return pulumi.get(self, "max_concurrent_calls")
 
     @max_concurrent_calls.setter
-    def max_concurrent_calls(self, value: Optional[pulumi.Input[float]]):
+    def max_concurrent_calls(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_concurrent_calls", value)
 
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The aliases.
         /// </summary>
         [Output("aliases")]
-        public Output<ImmutableArray<Outputs.KpiAliasResponseResult>> Aliases { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KpiAliasResponse>> Aliases { get; private set; } = null!;
 
         /// <summary>
         /// The calculation window.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The KPI extracts.
         /// </summary>
         [Output("extracts")]
-        public Output<ImmutableArray<Outputs.KpiExtractResponseResult>> Extracts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KpiExtractResponse>> Extracts { get; private set; } = null!;
 
         /// <summary>
         /// The filter expression for the KPI.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The KPI GroupByMetadata.
         /// </summary>
         [Output("groupByMetadata")]
-        public Output<ImmutableArray<Outputs.KpiGroupByMetadataResponseResult>> GroupByMetadata { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KpiGroupByMetadataResponse>> GroupByMetadata { get; private set; } = null!;
 
         /// <summary>
         /// The KPI name.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The participant profiles.
         /// </summary>
         [Output("participantProfilesMetadata")]
-        public Output<ImmutableArray<Outputs.KpiParticipantProfilesMetadataResponseResult>> ParticipantProfilesMetadata { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KpiParticipantProfilesMetadataResponse>> ParticipantProfilesMetadata { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state.
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.CustomerInsights.Latest
         /// The KPI thresholds.
         /// </summary>
         [Output("thresHolds")]
-        public Output<Outputs.KpiThresholdsResponseResult?> ThresHolds { get; private set; } = null!;
+        public Output<Outputs.KpiThresholdsResponse?> ThresHolds { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

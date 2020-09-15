@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// The FQDN of the DNS record associated with the public IP address.
         /// </summary>
         [Output("dnsSettings")]
-        public Output<Outputs.PublicIPAddressDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+        public Output<Outputs.PublicIPAddressDnsSettingsResponse?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// The IP configuration associated with the public IP address.
         /// </summary>
         [Output("ipConfiguration")]
-        public Output<Outputs.IPConfigurationResponseResult> IpConfiguration { get; private set; } = null!;
+        public Output<Outputs.IPConfigurationResponse> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// The public IP address SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PublicIPAddressSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PublicIPAddressSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

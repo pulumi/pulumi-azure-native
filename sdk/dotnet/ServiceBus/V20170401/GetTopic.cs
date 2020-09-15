@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// <summary>
         /// Message count details
         /// </summary>
-        public readonly Outputs.MessageCountDetailsResponseResult CountDetails;
+        public readonly Outputs.MessageCountDetailsResponse CountDetails;
         /// <summary>
         /// Exact time the message was created.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
             string? autoDeleteOnIdle,
 
-            Outputs.MessageCountDetailsResponseResult countDetails,
+            Outputs.MessageCountDetailsResponse countDetails,
 
             string createdAt,
 

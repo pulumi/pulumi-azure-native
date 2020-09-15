@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -70,7 +70,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[List['outputs.PrivateLinkServiceConnectionResponse']]:
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
         """
         A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         """
@@ -86,7 +86,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.NetworkInterfaceResponse']:
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
         """
         An array of references to the network interfaces created for this private endpoint.
         """
@@ -94,7 +94,7 @@ class GetPrivateEndpointResult:
 
     @property
     @pulumi.getter(name="privateLinkServiceConnections")
-    def private_link_service_connections(self) -> Optional[List['outputs.PrivateLinkServiceConnectionResponse']]:
+    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
         """
         A grouping of information about the connection to the remote resource.
         """

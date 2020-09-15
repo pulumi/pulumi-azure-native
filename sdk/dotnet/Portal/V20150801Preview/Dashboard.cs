@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Portal.V20150801Preview
         /// The dashboard lenses.
         /// </summary>
         [Output("lenses")]
-        public Output<ImmutableDictionary<string, Outputs.DashboardLensResponseResult>?> Lenses { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.DashboardLensResponse>?> Lenses { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

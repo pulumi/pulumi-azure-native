@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -157,7 +157,7 @@ class ExportPolicyRuleArgs:
                  cifs: Optional[pulumi.Input[bool]] = None,
                  nfsv3: Optional[pulumi.Input[bool]] = None,
                  nfsv4: Optional[pulumi.Input[bool]] = None,
-                 rule_index: Optional[pulumi.Input[float]] = None,
+                 rule_index: Optional[pulumi.Input[int]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
                  unix_read_write: Optional[pulumi.Input[bool]] = None):
         """
@@ -166,7 +166,7 @@ class ExportPolicyRuleArgs:
         :param pulumi.Input[bool] cifs: Allows CIFS protocol
         :param pulumi.Input[bool] nfsv3: Allows NFSv3 protocol
         :param pulumi.Input[bool] nfsv4: Allows NFSv4 protocol
-        :param pulumi.Input[float] rule_index: Order index
+        :param pulumi.Input[int] rule_index: Order index
         :param pulumi.Input[bool] unix_read_only: Read only access
         :param pulumi.Input[bool] unix_read_write: Read and write access
         """
@@ -235,14 +235,14 @@ class ExportPolicyRuleArgs:
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[pulumi.Input[float]]:
+    def rule_index(self) -> Optional[pulumi.Input[int]]:
         """
         Order index
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: Optional[pulumi.Input[float]]):
+    def rule_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rule_index", value)
 
     @property
@@ -273,7 +273,7 @@ class ExportPolicyRuleArgs:
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
         """
         Export policy rule
         """
@@ -282,11 +282,11 @@ class VolumePropertiesExportPolicyArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Portal.V20181001
         /// The cloud shell user settings properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.UserPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.UserPropertiesResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -41,7 +41,7 @@ class GetDashboardResult:
 
     @property
     @pulumi.getter
-    def lenses(self) -> Optional[List[Mapping[str, Any]]]:
+    def lenses(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         The dashboard lenses.
         """

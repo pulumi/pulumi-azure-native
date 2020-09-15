@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_agent_name: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['JobTargetArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTargetArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class JobTargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['JobTargetArgs']]]] members: Members of the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTargetArgs']]]] members: Members of the target group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] target_group_name: The name of the target group.
@@ -96,7 +96,7 @@ class JobTargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def members(self) -> pulumi.Output[List['outputs.JobTargetResponse']]:
+    def members(self) -> pulumi.Output[Sequence['outputs.JobTargetResponse']]:
         """
         Members of the target group.
         """

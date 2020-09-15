@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -44,7 +44,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
-    def application_group_references(self) -> Optional[List[str]]:
+    def application_group_references(self) -> Optional[Sequence[str]]:
         """
         List of applicationGroup resource Ids.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetLiveOutputResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if output_snap_time and not isinstance(output_snap_time, float):
-            raise TypeError("Expected argument 'output_snap_time' to be a float")
+        if output_snap_time and not isinstance(output_snap_time, int):
+            raise TypeError("Expected argument 'output_snap_time' to be a int")
         pulumi.set(__self__, "output_snap_time", output_snap_time)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -124,7 +124,7 @@ class GetLiveOutputResult:
 
     @property
     @pulumi.getter(name="outputSnapTime")
-    def output_snap_time(self) -> Optional[float]:
+    def output_snap_time(self) -> Optional[int]:
         """
         The output snapshot time.
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceDnsSettingsResponseResult? DnsSettings;
+        public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
         /// <summary>
         /// If the network interface is accelerated networking enabled.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// A reference to the interface endpoint to which the network interface is linked.
         /// </summary>
-        public readonly Outputs.InterfaceEndpointResponseResult InterfaceEndpoint;
+        public readonly Outputs.InterfaceEndpointResponse InterfaceEndpoint;
         /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
         /// Gets whether this is a primary network interface on a virtual machine.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// A list of TapConfigurations of the network interface.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult> TapConfigurations;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> TapConfigurations;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureRM.Network.V20181001
         /// <summary>
         /// The reference of a virtual machine.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult VirtualMachine;
+        public readonly Outputs.SubResourceResponse VirtualMachine;
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
-            Outputs.NetworkInterfaceDnsSettingsResponseResult? dnsSettings,
+            Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
 
             bool? enableAcceleratedNetworking,
 
@@ -130,9 +130,9 @@ namespace Pulumi.AzureRM.Network.V20181001
 
             ImmutableArray<string> hostedWorkloads,
 
-            Outputs.InterfaceEndpointResponseResult interfaceEndpoint,
+            Outputs.InterfaceEndpointResponse interfaceEndpoint,
 
-            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.Network.V20181001
 
             string name,
 
-            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
             bool? primary,
 
@@ -150,11 +150,11 @@ namespace Pulumi.AzureRM.Network.V20181001
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult> tapConfigurations,
+            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse> tapConfigurations,
 
             string type,
 
-            Outputs.SubResourceResponseResult virtualMachine)
+            Outputs.SubResourceResponse virtualMachine)
         {
             DnsSettings = dnsSettings;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -142,12 +142,12 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentNodeCount")
-    def current_node_count(self) -> pulumi.Output[float]:
+    def current_node_count(self) -> pulumi.Output[int]:
         return pulumi.get(self, "current_node_count")
 
     @property
     @pulumi.getter
-    def errors(self) -> pulumi.Output[Optional[List['outputs.BatchAIErrorResponse']]]:
+    def errors(self) -> pulumi.Output[Optional[Sequence['outputs.BatchAIErrorResponse']]]:
         """
         This element contains all the errors encountered by various compute nodes during node setup.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -612,14 +612,14 @@ class ServerPropertiesForRestoreArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Billing information related properties of a server.
         :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        :param pulumi.Input[float] capacity: The scale up/out capacity, representing server's compute units.
+        :param pulumi.Input[int] capacity: The scale up/out capacity, representing server's compute units.
         :param pulumi.Input[str] family: The family of hardware.
         :param pulumi.Input[str] size: The size code, to be interpreted by resource as appropriate.
         :param pulumi.Input[str] tier: The tier of the particular SKU, e.g. Basic.
@@ -648,14 +648,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The scale up/out capacity, representing server's compute units.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -698,16 +698,16 @@ class SkuArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 backup_retention_days: Optional[pulumi.Input[float]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
                  geo_redundant_backup: Optional[pulumi.Input[str]] = None,
                  storage_autogrow: Optional[pulumi.Input[str]] = None,
-                 storage_mb: Optional[pulumi.Input[float]] = None):
+                 storage_mb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
-        :param pulumi.Input[float] backup_retention_days: Backup retention days for the server.
+        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server.
         :param pulumi.Input[str] geo_redundant_backup: Enable Geo-redundant or not for server backup.
         :param pulumi.Input[str] storage_autogrow: Enable Storage Auto Grow.
-        :param pulumi.Input[float] storage_mb: Max storage allowed for a server.
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -720,14 +720,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @property
@@ -756,14 +756,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[pulumi.Input[float]]:
+    def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Max storage allowed for a server.
         """
         return pulumi.get(self, "storage_mb")
 
     @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[float]]):
+    def storage_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_mb", value)
 
 

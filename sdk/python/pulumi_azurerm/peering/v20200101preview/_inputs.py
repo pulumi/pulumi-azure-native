@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ __all__ = [
 @pulumi.input_type
 class BgpSessionArgs:
     def __init__(__self__, *,
-                 max_prefixes_advertised_v4: Optional[pulumi.Input[float]] = None,
-                 max_prefixes_advertised_v6: Optional[pulumi.Input[float]] = None,
+                 max_prefixes_advertised_v4: Optional[pulumi.Input[int]] = None,
+                 max_prefixes_advertised_v6: Optional[pulumi.Input[int]] = None,
                  md5_authentication_key: Optional[pulumi.Input[str]] = None,
                  microsoft_session_i_pv4_address: Optional[pulumi.Input[str]] = None,
                  microsoft_session_i_pv6_address: Optional[pulumi.Input[str]] = None,
@@ -34,8 +34,8 @@ class BgpSessionArgs:
                  session_prefix_v6: Optional[pulumi.Input[str]] = None):
         """
         The properties that define a BGP session.
-        :param pulumi.Input[float] max_prefixes_advertised_v4: The maximum number of prefixes advertised over the IPv4 session.
-        :param pulumi.Input[float] max_prefixes_advertised_v6: The maximum number of prefixes advertised over the IPv6 session.
+        :param pulumi.Input[int] max_prefixes_advertised_v4: The maximum number of prefixes advertised over the IPv4 session.
+        :param pulumi.Input[int] max_prefixes_advertised_v6: The maximum number of prefixes advertised over the IPv6 session.
         :param pulumi.Input[str] md5_authentication_key: The MD5 authentication key of the session.
         :param pulumi.Input[str] microsoft_session_i_pv4_address: The IPv4 session address on Microsoft's end.
         :param pulumi.Input[str] microsoft_session_i_pv6_address: The IPv6 session address on Microsoft's end.
@@ -65,26 +65,26 @@ class BgpSessionArgs:
 
     @property
     @pulumi.getter(name="maxPrefixesAdvertisedV4")
-    def max_prefixes_advertised_v4(self) -> Optional[pulumi.Input[float]]:
+    def max_prefixes_advertised_v4(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of prefixes advertised over the IPv4 session.
         """
         return pulumi.get(self, "max_prefixes_advertised_v4")
 
     @max_prefixes_advertised_v4.setter
-    def max_prefixes_advertised_v4(self, value: Optional[pulumi.Input[float]]):
+    def max_prefixes_advertised_v4(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_prefixes_advertised_v4", value)
 
     @property
     @pulumi.getter(name="maxPrefixesAdvertisedV6")
-    def max_prefixes_advertised_v6(self) -> Optional[pulumi.Input[float]]:
+    def max_prefixes_advertised_v6(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of prefixes advertised over the IPv6 session.
         """
         return pulumi.get(self, "max_prefixes_advertised_v6")
 
     @max_prefixes_advertised_v6.setter
-    def max_prefixes_advertised_v6(self, value: Optional[pulumi.Input[float]]):
+    def max_prefixes_advertised_v6(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_prefixes_advertised_v6", value)
 
     @property
@@ -231,18 +231,18 @@ class ContactDetailArgs:
 @pulumi.input_type
 class DirectConnectionArgs:
     def __init__(__self__, *,
-                 bandwidth_in_mbps: Optional[pulumi.Input[float]] = None,
+                 bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  bgp_session: Optional[pulumi.Input['BgpSessionArgs']] = None,
                  connection_identifier: Optional[pulumi.Input[str]] = None,
-                 peering_db_facility_id: Optional[pulumi.Input[float]] = None,
+                 peering_db_facility_id: Optional[pulumi.Input[int]] = None,
                  session_address_provider: Optional[pulumi.Input[str]] = None,
                  use_for_peering_service: Optional[pulumi.Input[bool]] = None):
         """
         The properties that define a direct connection.
-        :param pulumi.Input[float] bandwidth_in_mbps: The bandwidth of the connection.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth of the connection.
         :param pulumi.Input['BgpSessionArgs'] bgp_session: The BGP session associated with the connection.
         :param pulumi.Input[str] connection_identifier: The unique identifier (GUID) for the connection.
-        :param pulumi.Input[float] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
+        :param pulumi.Input[int] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         :param pulumi.Input[str] session_address_provider: The field indicating if Microsoft provides session ip addresses.
         :param pulumi.Input[bool] use_for_peering_service: The flag that indicates whether or not the connection is used for peering service.
         """
@@ -261,14 +261,14 @@ class DirectConnectionArgs:
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> Optional[pulumi.Input[float]]:
+    def bandwidth_in_mbps(self) -> Optional[pulumi.Input[int]]:
         """
         The bandwidth of the connection.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
 
     @bandwidth_in_mbps.setter
-    def bandwidth_in_mbps(self, value: Optional[pulumi.Input[float]]):
+    def bandwidth_in_mbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bandwidth_in_mbps", value)
 
     @property
@@ -297,14 +297,14 @@ class DirectConnectionArgs:
 
     @property
     @pulumi.getter(name="peeringDBFacilityId")
-    def peering_db_facility_id(self) -> Optional[pulumi.Input[float]]:
+    def peering_db_facility_id(self) -> Optional[pulumi.Input[int]]:
         """
         The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
         return pulumi.get(self, "peering_db_facility_id")
 
     @peering_db_facility_id.setter
-    def peering_db_facility_id(self, value: Optional[pulumi.Input[float]]):
+    def peering_db_facility_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "peering_db_facility_id", value)
 
     @property
@@ -337,12 +337,12 @@ class ExchangeConnectionArgs:
     def __init__(__self__, *,
                  bgp_session: Optional[pulumi.Input['BgpSessionArgs']] = None,
                  connection_identifier: Optional[pulumi.Input[str]] = None,
-                 peering_db_facility_id: Optional[pulumi.Input[float]] = None):
+                 peering_db_facility_id: Optional[pulumi.Input[int]] = None):
         """
         The properties that define an exchange connection.
         :param pulumi.Input['BgpSessionArgs'] bgp_session: The BGP session associated with the connection.
         :param pulumi.Input[str] connection_identifier: The unique identifier (GUID) for the connection.
-        :param pulumi.Input[float] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
+        :param pulumi.Input[int] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
         if bgp_session is not None:
             pulumi.set(__self__, "bgp_session", bgp_session)
@@ -377,26 +377,26 @@ class ExchangeConnectionArgs:
 
     @property
     @pulumi.getter(name="peeringDBFacilityId")
-    def peering_db_facility_id(self) -> Optional[pulumi.Input[float]]:
+    def peering_db_facility_id(self) -> Optional[pulumi.Input[int]]:
         """
         The PeeringDB.com ID of the facility at which the connection has to be set up.
         """
         return pulumi.get(self, "peering_db_facility_id")
 
     @peering_db_facility_id.setter
-    def peering_db_facility_id(self, value: Optional[pulumi.Input[float]]):
+    def peering_db_facility_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "peering_db_facility_id", value)
 
 
 @pulumi.input_type
 class PeeringPropertiesDirectArgs:
     def __init__(__self__, *,
-                 connections: Optional[pulumi.Input[List[pulumi.Input['DirectConnectionArgs']]]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]]] = None,
                  direct_peering_type: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         The properties that define a direct peering.
-        :param pulumi.Input[List[pulumi.Input['DirectConnectionArgs']]] connections: The set of connections that constitute a direct peering.
+        :param pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]] connections: The set of connections that constitute a direct peering.
         :param pulumi.Input[str] direct_peering_type: The type of direct peering.
         :param pulumi.Input['SubResourceArgs'] peer_asn: The reference of the peer ASN.
         """
@@ -409,14 +409,14 @@ class PeeringPropertiesDirectArgs:
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[List[pulumi.Input['DirectConnectionArgs']]]]:
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]]]:
         """
         The set of connections that constitute a direct peering.
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input[List[pulumi.Input['DirectConnectionArgs']]]]):
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]]]):
         pulumi.set(self, "connections", value)
 
     @property
@@ -447,11 +447,11 @@ class PeeringPropertiesDirectArgs:
 @pulumi.input_type
 class PeeringPropertiesExchangeArgs:
     def __init__(__self__, *,
-                 connections: Optional[pulumi.Input[List[pulumi.Input['ExchangeConnectionArgs']]]] = None,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]]] = None,
                  peer_asn: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         The properties that define an exchange peering.
-        :param pulumi.Input[List[pulumi.Input['ExchangeConnectionArgs']]] connections: The set of connections that constitute an exchange peering.
+        :param pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]] connections: The set of connections that constitute an exchange peering.
         :param pulumi.Input['SubResourceArgs'] peer_asn: The reference of the peer ASN.
         """
         if connections is not None:
@@ -461,14 +461,14 @@ class PeeringPropertiesExchangeArgs:
 
     @property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[List[pulumi.Input['ExchangeConnectionArgs']]]]:
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]]]:
         """
         The set of connections that constitute an exchange peering.
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input[List[pulumi.Input['ExchangeConnectionArgs']]]]):
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExchangeConnectionArgs']]]]):
         pulumi.set(self, "connections", value)
 
     @property

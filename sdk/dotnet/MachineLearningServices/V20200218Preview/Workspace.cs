@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// The encryption settings of Azure ML workspace.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionPropertyResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name for this workspace. This name in mutable
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created

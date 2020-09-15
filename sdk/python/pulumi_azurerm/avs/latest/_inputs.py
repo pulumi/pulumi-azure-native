@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -185,23 +185,23 @@ class IdentitySourceArgs:
 @pulumi.input_type
 class ManagementClusterArgs:
     def __init__(__self__, *,
-                 cluster_size: pulumi.Input[float]):
+                 cluster_size: pulumi.Input[int]):
         """
         The properties of a default cluster
-        :param pulumi.Input[float] cluster_size: The cluster size
+        :param pulumi.Input[int] cluster_size: The cluster size
         """
         pulumi.set(__self__, "cluster_size", cluster_size)
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> pulumi.Input[float]:
+    def cluster_size(self) -> pulumi.Input[int]:
         """
         The cluster size
         """
         return pulumi.get(self, "cluster_size")
 
     @cluster_size.setter
-    def cluster_size(self, value: pulumi.Input[float]):
+    def cluster_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "cluster_size", value)
 
 

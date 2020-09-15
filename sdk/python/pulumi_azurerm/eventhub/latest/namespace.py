@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class Namespace(pulumi.CustomResource):
                  is_auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
                  kafka_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maximum_throughput_units: Optional[pulumi.Input[float]] = None,
+                 maximum_throughput_units: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -36,7 +36,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
         :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[float] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        :param pulumi.Input[int] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Properties of sku resource
@@ -138,7 +138,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> pulumi.Output[Optional[float]]:
+    def maximum_throughput_units(self) -> pulumi.Output[Optional[int]]:
         """
         Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
         """

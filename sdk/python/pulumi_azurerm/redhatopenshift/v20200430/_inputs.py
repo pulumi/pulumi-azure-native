@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -350,15 +350,15 @@ class ServicePrincipalProfileArgs:
 @pulumi.input_type
 class WorkerProfileArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         WorkerProfile represents a worker profile.
-        :param pulumi.Input[float] count: The number of worker VMs.  Must be between 3 and 20 (immutable).
-        :param pulumi.Input[float] disk_size_gb: The disk size of the worker VMs.  Must be 128 or greater (immutable).
+        :param pulumi.Input[int] count: The number of worker VMs.  Must be between 3 and 20 (immutable).
+        :param pulumi.Input[int] disk_size_gb: The disk size of the worker VMs.  Must be 128 or greater (immutable).
         :param pulumi.Input[str] name: The worker profile name.  Must be "worker" (immutable).
         :param pulumi.Input[str] subnet_id: The Azure resource ID of the worker subnet (immutable).
         :param pulumi.Input[str] vm_size: The size of the worker VMs (immutable).
@@ -376,26 +376,26 @@ class WorkerProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of worker VMs.  Must be between 3 and 20 (immutable).
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         The disk size of the worker VMs.  Must be 128 or greater (immutable).
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @property

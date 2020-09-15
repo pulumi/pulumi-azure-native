@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("datasource")]
-        public Output<Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>?> Datasource { get; private set; } = null!;
+        public Output<Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>?> Datasource { get; private set; } = null!;
 
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
         [Output("diagnostics")]
-        public Output<Outputs.DiagnosticsResponseResult> Diagnostics { get; private set; } = null!;
+        public Output<Outputs.DiagnosticsResponse> Diagnostics { get; private set; } = null!;
 
         /// <summary>
         /// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("serialization")]
-        public Output<Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Outputs.JsonSerializationResponseResult>>?> Serialization { get; private set; } = null!;
+        public Output<Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>?> Serialization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

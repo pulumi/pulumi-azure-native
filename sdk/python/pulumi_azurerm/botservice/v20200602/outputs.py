@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -150,9 +150,9 @@ class BotPropertiesResponse(dict):
     The parameters to provide for the Bot.
     """
     def __init__(__self__, *,
-                 configured_channels: List[str],
+                 configured_channels: Sequence[str],
                  display_name: str,
-                 enabled_channels: List[str],
+                 enabled_channels: Sequence[str],
                  endpoint: str,
                  endpoint_version: str,
                  msa_app_id: str,
@@ -161,13 +161,13 @@ class BotPropertiesResponse(dict):
                  developer_app_insights_api_key: Optional[str] = None,
                  developer_app_insights_application_id: Optional[str] = None,
                  icon_url: Optional[str] = None,
-                 luis_app_ids: Optional[List[str]] = None,
+                 luis_app_ids: Optional[Sequence[str]] = None,
                  luis_key: Optional[str] = None):
         """
         The parameters to provide for the Bot.
-        :param List[str] configured_channels: Collection of channels for which the bot is configured
+        :param Sequence[str] configured_channels: Collection of channels for which the bot is configured
         :param str display_name: The Name of the bot
-        :param List[str] enabled_channels: Collection of channels for which the bot is enabled
+        :param Sequence[str] enabled_channels: Collection of channels for which the bot is enabled
         :param str endpoint: The bot's endpoint
         :param str endpoint_version: The bot's endpoint version
         :param str msa_app_id: Microsoft App Id for the bot
@@ -176,7 +176,7 @@ class BotPropertiesResponse(dict):
         :param str developer_app_insights_api_key: The Application Insights Api Key
         :param str developer_app_insights_application_id: The Application Insights App Id
         :param str icon_url: The Icon Url of the bot
-        :param List[str] luis_app_ids: Collection of LUIS App Ids
+        :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
         """
         pulumi.set(__self__, "configured_channels", configured_channels)
@@ -202,7 +202,7 @@ class BotPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="configuredChannels")
-    def configured_channels(self) -> List[str]:
+    def configured_channels(self) -> Sequence[str]:
         """
         Collection of channels for which the bot is configured
         """
@@ -218,7 +218,7 @@ class BotPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="enabledChannels")
-    def enabled_channels(self) -> List[str]:
+    def enabled_channels(self) -> Sequence[str]:
         """
         Collection of channels for which the bot is enabled
         """
@@ -290,7 +290,7 @@ class BotPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> Optional[List[str]]:
+    def luis_app_ids(self) -> Optional[Sequence[str]]:
         """
         Collection of LUIS App Ids
         """
@@ -355,7 +355,7 @@ class ConnectionSettingPropertiesResponse(dict):
                  setting_id: str,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
-                 parameters: Optional[List['outputs.ConnectionSettingParameterResponse']] = None,
+                 parameters: Optional[Sequence['outputs.ConnectionSettingParameterResponse']] = None,
                  scopes: Optional[str] = None,
                  service_provider_display_name: Optional[str] = None,
                  service_provider_id: Optional[str] = None):
@@ -364,7 +364,7 @@ class ConnectionSettingPropertiesResponse(dict):
         :param str setting_id: Setting Id set by the service for the Connection Setting.
         :param str client_id: Client Id associated with the Connection Setting.
         :param str client_secret: Client Secret associated with the Connection Setting
-        :param List['ConnectionSettingParameterResponseArgs'] parameters: Service Provider Parameters associated with the Connection Setting
+        :param Sequence['ConnectionSettingParameterResponseArgs'] parameters: Service Provider Parameters associated with the Connection Setting
         :param str scopes: Scopes associated with the Connection Setting
         :param str service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param str service_provider_id: Service Provider Id associated with the Connection Setting
@@ -409,7 +409,7 @@ class ConnectionSettingPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ConnectionSettingParameterResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ConnectionSettingParameterResponse']]:
         """
         Service Provider Parameters associated with the Connection Setting
         """
@@ -449,17 +449,17 @@ class DirectLineChannelPropertiesResponse(dict):
     The parameters to provide for the Direct Line channel.
     """
     def __init__(__self__, *,
-                 sites: Optional[List['outputs.DirectLineSiteResponse']] = None):
+                 sites: Optional[Sequence['outputs.DirectLineSiteResponse']] = None):
         """
         The parameters to provide for the Direct Line channel.
-        :param List['DirectLineSiteResponseArgs'] sites: The list of Direct Line sites
+        :param Sequence['DirectLineSiteResponseArgs'] sites: The list of Direct Line sites
         """
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[List['outputs.DirectLineSiteResponse']]:
+    def sites(self) -> Optional[Sequence['outputs.DirectLineSiteResponse']]:
         """
         The list of Direct Line sites
         """
@@ -520,7 +520,7 @@ class DirectLineSiteResponse(dict):
                  site_id: str,
                  site_name: str,
                  is_secure_site_enabled: Optional[bool] = None,
-                 trusted_origins: Optional[List[str]] = None):
+                 trusted_origins: Optional[Sequence[str]] = None):
         """
         A site for the Direct Line channel
         :param bool is_enabled: Whether this site is enabled for DirectLine channel.
@@ -531,7 +531,7 @@ class DirectLineSiteResponse(dict):
         :param str site_id: Site Id
         :param str site_name: Site name
         :param bool is_secure_site_enabled: Whether this site is enabled for authentication with Bot Framework.
-        :param List[str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+        :param Sequence[str] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
@@ -611,7 +611,7 @@ class DirectLineSiteResponse(dict):
 
     @property
     @pulumi.getter(name="trustedOrigins")
-    def trusted_origins(self) -> Optional[List[str]]:
+    def trusted_origins(self) -> Optional[Sequence[str]]:
         """
         List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
@@ -826,7 +826,7 @@ class FacebookChannelPropertiesResponse(dict):
                  callback_url: str,
                  is_enabled: bool,
                  verify_token: str,
-                 pages: Optional[List['outputs.FacebookPageResponse']] = None):
+                 pages: Optional[Sequence['outputs.FacebookPageResponse']] = None):
         """
         The parameters to provide for the Facebook channel.
         :param str app_id: Facebook application id
@@ -834,7 +834,7 @@ class FacebookChannelPropertiesResponse(dict):
         :param str callback_url: Callback Url
         :param bool is_enabled: Whether this channel is enabled for the bot
         :param str verify_token: Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
-        :param List['FacebookPageResponseArgs'] pages: The list of Facebook pages
+        :param Sequence['FacebookPageResponseArgs'] pages: The list of Facebook pages
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -886,7 +886,7 @@ class FacebookChannelPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def pages(self) -> Optional[List['outputs.FacebookPageResponse']]:
+    def pages(self) -> Optional[Sequence['outputs.FacebookPageResponse']]:
         """
         The list of Facebook pages
         """
@@ -1073,12 +1073,12 @@ class LineChannelPropertiesResponse(dict):
     def __init__(__self__, *,
                  callback_url: str,
                  is_validated: bool,
-                 line_registrations: List['outputs.LineRegistrationResponse']):
+                 line_registrations: Sequence['outputs.LineRegistrationResponse']):
         """
         The parameters to provide for the Line channel.
         :param str callback_url: Callback Url to enter in line registration.
         :param bool is_validated: Whether this channel is validated for the bot
-        :param List['LineRegistrationResponseArgs'] line_registrations: The list of line channel registrations
+        :param Sequence['LineRegistrationResponseArgs'] line_registrations: The list of line channel registrations
         """
         pulumi.set(__self__, "callback_url", callback_url)
         pulumi.set(__self__, "is_validated", is_validated)
@@ -1102,7 +1102,7 @@ class LineChannelPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="lineRegistrations")
-    def line_registrations(self) -> List['outputs.LineRegistrationResponse']:
+    def line_registrations(self) -> Sequence['outputs.LineRegistrationResponse']:
         """
         The list of line channel registrations
         """
@@ -1372,7 +1372,7 @@ class ServiceProviderPropertiesResponseResult(dict):
                  icon_url: str,
                  id: str,
                  service_provider_name: str,
-                 parameters: Optional[List['outputs.ServiceProviderParameterResponseResult']] = None):
+                 parameters: Optional[Sequence['outputs.ServiceProviderParameterResponseResult']] = None):
         """
         The Object used to describe a Service Provider supported by Bot Service
         :param str dev_portal_url: Display Name of the Service Provider
@@ -1380,7 +1380,7 @@ class ServiceProviderPropertiesResponseResult(dict):
         :param str icon_url: Display Name of the Service Provider
         :param str id: Id for Service Provider
         :param str service_provider_name: Display Name of the Service Provider
-        :param List['ServiceProviderParameterResponseArgs'] parameters: The list of parameters for the Service Provider
+        :param Sequence['ServiceProviderParameterResponseArgs'] parameters: The list of parameters for the Service Provider
         """
         pulumi.set(__self__, "dev_portal_url", dev_portal_url)
         pulumi.set(__self__, "display_name", display_name)
@@ -1432,7 +1432,7 @@ class ServiceProviderPropertiesResponseResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ServiceProviderParameterResponseResult']]:
+    def parameters(self) -> Optional[Sequence['outputs.ServiceProviderParameterResponseResult']]:
         """
         The list of parameters for the Service Provider
         """
@@ -2018,11 +2018,11 @@ class WebChatChannelPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  web_chat_embed_code: str,
-                 sites: Optional[List['outputs.WebChatSiteResponse']] = None):
+                 sites: Optional[Sequence['outputs.WebChatSiteResponse']] = None):
         """
         The parameters to provide for the Web Chat channel.
         :param str web_chat_embed_code: Web chat control embed code
-        :param List['WebChatSiteResponseArgs'] sites: The list of Web Chat sites
+        :param Sequence['WebChatSiteResponseArgs'] sites: The list of Web Chat sites
         """
         pulumi.set(__self__, "web_chat_embed_code", web_chat_embed_code)
         if sites is not None:
@@ -2038,7 +2038,7 @@ class WebChatChannelPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[List['outputs.WebChatSiteResponse']]:
+    def sites(self) -> Optional[Sequence['outputs.WebChatSiteResponse']]:
         """
         The list of Web Chat sites
         """

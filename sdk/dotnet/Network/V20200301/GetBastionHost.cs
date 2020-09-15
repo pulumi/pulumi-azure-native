@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// IP configuration of the Bastion Host resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.BastionHostIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string etag,
 
-            ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.BastionHostIPConfigurationResponse> ipConfigurations,
 
             string? location,
 

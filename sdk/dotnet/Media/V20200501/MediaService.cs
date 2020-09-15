@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// The account encryption properties.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.AccountEncryptionResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.AccountEncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.MediaServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.MediaServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// The storage accounts for this resource.
         /// </summary>
         [Output("storageAccounts")]
-        public Output<ImmutableArray<Outputs.StorageAccountResponseResult>> StorageAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StorageAccountResponse>> StorageAccounts { get; private set; } = null!;
 
         [Output("storageAuthentication")]
         public Output<string?> StorageAuthentication { get; private set; } = null!;

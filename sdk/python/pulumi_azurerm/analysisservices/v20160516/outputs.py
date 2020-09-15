@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -56,17 +56,17 @@ class ServerAdministratorsResponse(dict):
     An array of administrator user identities
     """
     def __init__(__self__, *,
-                 members: Optional[List[str]] = None):
+                 members: Optional[Sequence[str]] = None):
         """
         An array of administrator user identities
-        :param List[str] members: An array of administrator user identities.
+        :param Sequence[str] members: An array of administrator user identities.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @property
     @pulumi.getter
-    def members(self) -> Optional[List[str]]:
+    def members(self) -> Optional[Sequence[str]]:
         """
         An array of administrator user identities.
         """

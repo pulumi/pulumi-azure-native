@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -76,7 +76,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="clientAccessRights")
-    def client_access_rights(self) -> Optional[List['outputs.ClientAccessRightResponse']]:
+    def client_access_rights(self) -> Optional[Sequence['outputs.ClientAccessRightResponse']]:
         """
         List of IP addresses and corresponding access rights on the share(required for NFS protocol).
         """
@@ -124,7 +124,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="shareMappings")
-    def share_mappings(self) -> List['outputs.MountPointMapResponse']:
+    def share_mappings(self) -> Sequence['outputs.MountPointMapResponse']:
         """
         Share mount point to the role.
         """
@@ -148,7 +148,7 @@ class GetShareResult:
 
     @property
     @pulumi.getter(name="userAccessRights")
-    def user_access_rights(self) -> Optional[List['outputs.UserAccessRightResponse']]:
+    def user_access_rights(self) -> Optional[Sequence['outputs.UserAccessRightResponse']]:
         """
         Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """

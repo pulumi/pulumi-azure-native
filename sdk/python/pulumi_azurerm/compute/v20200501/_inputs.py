@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -31,7 +31,7 @@ class CreationDataArgs:
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 upload_size_bytes: Optional[pulumi.Input[float]] = None):
+                 upload_size_bytes: Optional[pulumi.Input[int]] = None):
         """
         Data used when creating a disk.
         :param pulumi.Input[str] create_option: This enumerates the possible sources of a disk's creation.
@@ -40,7 +40,7 @@ class CreationDataArgs:
         :param pulumi.Input[str] source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param pulumi.Input[str] source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param pulumi.Input[str] storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-        :param pulumi.Input[float] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param pulumi.Input[int] upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         if gallery_image_reference is not None:
@@ -130,14 +130,14 @@ class CreationDataArgs:
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[pulumi.Input[float]]:
+    def upload_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         return pulumi.get(self, "upload_size_bytes")
 
     @upload_size_bytes.setter
-    def upload_size_bytes(self, value: Optional[pulumi.Input[float]]):
+    def upload_size_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "upload_size_bytes", value)
 
 
@@ -233,12 +233,12 @@ class EncryptionSetIdentityArgs:
 class EncryptionSettingsCollectionArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 encryption_settings: Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]] = None,
+                 encryption_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]] = None,
                  encryption_settings_version: Optional[pulumi.Input[str]] = None):
         """
         Encryption settings for disk or snapshot
         :param pulumi.Input[bool] enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param pulumi.Input[str] encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -261,14 +261,14 @@ class EncryptionSettingsCollectionArgs:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]]:
+    def encryption_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]]:
         """
         A collection of encryption settings, one for each disk volume.
         """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input[List[pulumi.Input['EncryptionSettingsElementArgs']]]]):
+    def encryption_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EncryptionSettingsElementArgs']]]]):
         pulumi.set(self, "encryption_settings", value)
 
     @property
@@ -328,11 +328,11 @@ class EncryptionSettingsElementArgs:
 class ImageDiskReferenceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 lun: Optional[pulumi.Input[float]] = None):
+                 lun: Optional[pulumi.Input[int]] = None):
         """
         The source image used for creating the disk.
         :param pulumi.Input[str] id: A relative uri containing either a Platform Image Repository or user image reference.
-        :param pulumi.Input[float] lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        :param pulumi.Input[int] lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         pulumi.set(__self__, "id", id)
         if lun is not None:
@@ -352,14 +352,14 @@ class ImageDiskReferenceArgs:
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[pulumi.Input[float]]:
+    def lun(self) -> Optional[pulumi.Input[int]]:
         """
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         return pulumi.get(self, "lun")
 
     @lun.setter
-    def lun(self, value: Optional[pulumi.Input[float]]):
+    def lun(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "lun", value)
 
 

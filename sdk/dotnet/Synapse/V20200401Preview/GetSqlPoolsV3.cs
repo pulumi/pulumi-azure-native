@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// <summary>
         /// The sql pool SKU. The list of SKUs may vary by region and support offer.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The Guid of the sql pool.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
         /// <summary>
         /// SystemData of SqlPool.
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.Synapse.V20200401Preview
 
             string requestedServiceObjectiveName,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string sqlPoolGuid,
 
             string status,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

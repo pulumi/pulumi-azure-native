@@ -13,17 +13,17 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
     /// <summary>
     /// The service with name and endpoint names
     /// </summary>
-    public sealed class WsdlServiceArgs : Pulumi.InvokeArgs
+    public sealed class WsdlServiceArgs : Pulumi.ResourceArgs
     {
         [Input("endpointQualifiedNames")]
-        private List<string>? _endpointQualifiedNames;
+        private InputList<string>? _endpointQualifiedNames;
 
         /// <summary>
         /// List of the endpoints' qualified names
         /// </summary>
-        public List<string> EndpointQualifiedNames
+        public InputList<string> EndpointQualifiedNames
         {
-            get => _endpointQualifiedNames ?? (_endpointQualifiedNames = new List<string>());
+            get => _endpointQualifiedNames ?? (_endpointQualifiedNames = new InputList<string>());
             set => _endpointQualifiedNames = value;
         }
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         /// The service's qualified name
         /// </summary>
         [Input("qualifiedName", required: true)]
-        public string QualifiedName { get; set; } = null!;
+        public Input<string> QualifiedName { get; set; } = null!;
 
         public WsdlServiceArgs()
         {

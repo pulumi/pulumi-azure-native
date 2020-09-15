@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -144,13 +144,13 @@ class NetworkAccessControlEntryArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[float]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
                  remote_subnet: Optional[pulumi.Input[str]] = None):
         """
         Network access control entry.
         :param pulumi.Input[str] action: Action object.
         :param pulumi.Input[str] description: Description of network access control entry.
-        :param pulumi.Input[float] order: Order of precedence.
+        :param pulumi.Input[int] order: Order of precedence.
         :param pulumi.Input[str] remote_subnet: Remote subnet.
         """
         if action is not None:
@@ -188,14 +188,14 @@ class NetworkAccessControlEntryArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[float]]:
+    def order(self) -> Optional[pulumi.Input[int]]:
         """
         Order of precedence.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[float]]):
+    def order(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -214,15 +214,15 @@ class NetworkAccessControlEntryArgs:
 @pulumi.input_type
 class SkuCapacityArgs:
     def __init__(__self__, *,
-                 default: Optional[pulumi.Input[float]] = None,
-                 maximum: Optional[pulumi.Input[float]] = None,
-                 minimum: Optional[pulumi.Input[float]] = None,
+                 default: Optional[pulumi.Input[int]] = None,
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None,
                  scale_type: Optional[pulumi.Input[str]] = None):
         """
         Description of the App Service plan scale options.
-        :param pulumi.Input[float] default: Default number of workers for this App Service plan SKU.
-        :param pulumi.Input[float] maximum: Maximum number of workers for this App Service plan SKU.
-        :param pulumi.Input[float] minimum: Minimum number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] default: Default number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] maximum: Maximum number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] minimum: Minimum number of workers for this App Service plan SKU.
         :param pulumi.Input[str] scale_type: Available scale configurations for an App Service plan.
         """
         if default is not None:
@@ -236,38 +236,38 @@ class SkuCapacityArgs:
 
     @property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[float]]:
+    def default(self) -> Optional[pulumi.Input[int]]:
         """
         Default number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[float]]):
+    def default(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default", value)
 
     @property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[float]]:
+    def maximum(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[float]]):
+    def maximum(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum", value)
 
     @property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[float]]:
+    def minimum(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum number of workers for this App Service plan SKU.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[float]]):
+    def minimum(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minimum", value)
 
     @property
@@ -286,20 +286,20 @@ class SkuCapacityArgs:
 @pulumi.input_type
 class SkuDescriptionArgs:
     def __init__(__self__, *,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]] = None,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  sku_capacity: Optional[pulumi.Input['SkuCapacityArgs']] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Description of a SKU for a scalable resource.
-        :param pulumi.Input[List[pulumi.Input['CapabilityArgs']]] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
-        :param pulumi.Input[float] capacity: Current number of instances assigned to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param pulumi.Input[int] capacity: Current number of instances assigned to the resource.
         :param pulumi.Input[str] family: Family code of the resource SKU.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: Locations of the SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Locations of the SKU.
         :param pulumi.Input[str] name: Name of the resource SKU.
         :param pulumi.Input[str] size: Size specifier of the resource SKU.
         :param pulumi.Input['SkuCapacityArgs'] sku_capacity: Min, max, and default scale values of the SKU.
@@ -324,26 +324,26 @@ class SkuDescriptionArgs:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
         """
         Capabilities of the SKU, e.g., is traffic manager enabled?
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[List[pulumi.Input['CapabilityArgs']]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Current number of instances assigned to the resource.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -360,14 +360,14 @@ class SkuDescriptionArgs:
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Locations of the SKU.
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
 
     @property
@@ -463,15 +463,15 @@ class VirtualNetworkProfileArgs:
 class WorkerPoolArgs:
     def __init__(__self__, *,
                  compute_mode: Optional[pulumi.Input[str]] = None,
-                 worker_count: Optional[pulumi.Input[float]] = None,
+                 worker_count: Optional[pulumi.Input[int]] = None,
                  worker_size: Optional[pulumi.Input[str]] = None,
-                 worker_size_id: Optional[pulumi.Input[float]] = None):
+                 worker_size_id: Optional[pulumi.Input[int]] = None):
         """
         Worker pool of an App Service Environment.
         :param pulumi.Input[str] compute_mode: Shared or dedicated app hosting.
-        :param pulumi.Input[float] worker_count: Number of instances in the worker pool.
+        :param pulumi.Input[int] worker_count: Number of instances in the worker pool.
         :param pulumi.Input[str] worker_size: VM size of the worker pool instances.
-        :param pulumi.Input[float] worker_size_id: Worker size ID for referencing this worker pool.
+        :param pulumi.Input[int] worker_size_id: Worker size ID for referencing this worker pool.
         """
         if compute_mode is not None:
             pulumi.set(__self__, "compute_mode", compute_mode)
@@ -496,14 +496,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[pulumi.Input[float]]:
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of instances in the worker pool.
         """
         return pulumi.get(self, "worker_count")
 
     @worker_count.setter
-    def worker_count(self, value: Optional[pulumi.Input[float]]):
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
     @property
@@ -520,14 +520,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="workerSizeId")
-    def worker_size_id(self) -> Optional[pulumi.Input[float]]:
+    def worker_size_id(self) -> Optional[pulumi.Input[int]]:
         """
         Worker size ID for referencing this worker pool.
         """
         return pulumi.get(self, "worker_size_id")
 
     @worker_size_id.setter
-    def worker_size_id(self, value: Optional[pulumi.Input[float]]):
+    def worker_size_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_size_id", value)
 
 

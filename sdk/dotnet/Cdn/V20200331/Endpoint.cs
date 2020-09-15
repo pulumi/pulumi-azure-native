@@ -24,19 +24,19 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// A reference to the origin group.
         /// </summary>
         [Output("defaultOriginGroup")]
-        public Output<Outputs.ResourceReferenceResponseResult?> DefaultOriginGroup { get; private set; } = null!;
+        public Output<Outputs.ResourceReferenceResponse?> DefaultOriginGroup { get; private set; } = null!;
 
         /// <summary>
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
         [Output("deliveryPolicy")]
-        public Output<Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult?> DeliveryPolicy { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy?> DeliveryPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
         [Output("geoFilters")]
-        public Output<ImmutableArray<Outputs.GeoFilterResponseResult>> GeoFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GeoFilterResponse>> GeoFilters { get; private set; } = null!;
 
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         /// </summary>
         [Output("originGroups")]
-        public Output<ImmutableArray<Outputs.DeepCreatedOriginGroupResponseResult>> OriginGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginGroupResponse>> OriginGroups { get; private set; } = null!;
 
         /// <summary>
         /// The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// The source of the content being delivered via CDN.
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponse>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
@@ -144,13 +144,13 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// List of keys used to validate the signed URL hashes.
         /// </summary>
         [Output("urlSigningKeys")]
-        public Output<ImmutableArray<Outputs.UrlSigningKeyResponseResult>> UrlSigningKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UrlSigningKeyResponse>> UrlSigningKeys { get; private set; } = null!;
 
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
         [Output("webApplicationFirewallPolicyLink")]
-        public Output<Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult?> WebApplicationFirewallPolicyLink { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink?> WebApplicationFirewallPolicyLink { get; private set; } = null!;
 
 
         /// <summary>

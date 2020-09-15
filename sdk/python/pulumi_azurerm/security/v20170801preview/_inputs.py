@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,12 +20,12 @@ __all__ = [
 @pulumi.input_type
 class AllowlistCustomAlertRuleArgs:
     def __init__(__self__, *,
-                 allowlist_values: pulumi.Input[List[pulumi.Input[str]]],
+                 allowlist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is allowed
-        :param pulumi.Input[List[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Whether the custom alert is enabled.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
@@ -35,14 +35,14 @@ class AllowlistCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="allowlistValues")
-    def allowlist_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowlist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The values to allow. The format of the values depends on the rule type.
         """
         return pulumi.get(self, "allowlist_values")
 
     @allowlist_values.setter
-    def allowlist_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowlist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowlist_values", value)
 
     @property
@@ -73,12 +73,12 @@ class AllowlistCustomAlertRuleArgs:
 @pulumi.input_type
 class DenylistCustomAlertRuleArgs:
     def __init__(__self__, *,
-                 denylist_values: pulumi.Input[List[pulumi.Input[str]]],
+                 denylist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is denied
-        :param pulumi.Input[List[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Whether the custom alert is enabled.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
@@ -88,14 +88,14 @@ class DenylistCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="denylistValues")
-    def denylist_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def denylist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The values to deny. The format of the values depends on the rule type.
         """
         return pulumi.get(self, "denylist_values")
 
     @denylist_values.setter
-    def denylist_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def denylist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "denylist_values", value)
 
     @property
@@ -165,14 +165,14 @@ class RecommendationConfigurationPropertiesArgs:
 class ThresholdCustomAlertRuleArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
-                 max_threshold: pulumi.Input[float],
-                 min_threshold: pulumi.Input[float],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
         :param pulumi.Input[bool] is_enabled: Whether the custom alert is enabled.
-        :param pulumi.Input[float] max_threshold: The maximum threshold.
-        :param pulumi.Input[float] min_threshold: The minimum threshold.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -194,26 +194,26 @@ class ThresholdCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> pulumi.Input[float]:
+    def max_threshold(self) -> pulumi.Input[int]:
         """
         The maximum threshold.
         """
         return pulumi.get(self, "max_threshold")
 
     @max_threshold.setter
-    def max_threshold(self, value: pulumi.Input[float]):
+    def max_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_threshold", value)
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> pulumi.Input[float]:
+    def min_threshold(self) -> pulumi.Input[int]:
         """
         The minimum threshold.
         """
         return pulumi.get(self, "min_threshold")
 
     @min_threshold.setter
-    def min_threshold(self, value: pulumi.Input[float]):
+    def min_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_threshold", value)
 
     @property
@@ -233,15 +233,15 @@ class ThresholdCustomAlertRuleArgs:
 class TimeWindowCustomAlertRuleArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
-                 max_threshold: pulumi.Input[float],
-                 min_threshold: pulumi.Input[float],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
                  time_window_size: pulumi.Input[str]):
         """
         A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
         :param pulumi.Input[bool] is_enabled: Whether the custom alert is enabled.
-        :param pulumi.Input[float] max_threshold: The maximum threshold.
-        :param pulumi.Input[float] min_threshold: The minimum threshold.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         :param pulumi.Input[str] time_window_size: The time window size in iso8601 format.
         """
@@ -265,26 +265,26 @@ class TimeWindowCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> pulumi.Input[float]:
+    def max_threshold(self) -> pulumi.Input[int]:
         """
         The maximum threshold.
         """
         return pulumi.get(self, "max_threshold")
 
     @max_threshold.setter
-    def max_threshold(self, value: pulumi.Input[float]):
+    def max_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_threshold", value)
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> pulumi.Input[float]:
+    def min_threshold(self) -> pulumi.Input[int]:
         """
         The minimum threshold.
         """
         return pulumi.get(self, "min_threshold")
 
     @min_threshold.setter
-    def min_threshold(self, value: pulumi.Input[float]):
+    def min_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_threshold", value)
 
     @property
@@ -316,11 +316,11 @@ class TimeWindowCustomAlertRuleArgs:
 class UserDefinedResourcesPropertiesArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
-                 query_subscriptions: pulumi.Input[List[pulumi.Input[str]]]):
+                 query_subscriptions: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Properties of the solution's user defined resources.
         :param pulumi.Input[str] query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-        :param pulumi.Input[List[pulumi.Input[str]]] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "query_subscriptions", query_subscriptions)
@@ -339,14 +339,14 @@ class UserDefinedResourcesPropertiesArgs:
 
     @property
     @pulumi.getter(name="querySubscriptions")
-    def query_subscriptions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def query_subscriptions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Azure subscription ids on which the user defined resources query should be executed.
         """
         return pulumi.get(self, "query_subscriptions")
 
     @query_subscriptions.setter
-    def query_subscriptions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def query_subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "query_subscriptions", value)
 
 

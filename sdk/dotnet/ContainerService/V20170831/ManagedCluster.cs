@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// Properties of the agent pool.
         /// </summary>
         [Output("agentPoolProfiles")]
-        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse>> AgentPoolProfiles { get; private set; } = null!;
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
         [Output("linuxProfile")]
-        public Output<Outputs.ContainerServiceLinuxProfileResponseResult?> LinuxProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceLinuxProfileResponse?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         /// </summary>
         [Output("servicePrincipalProfile")]
-        public Output<Outputs.ContainerServiceServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerServiceServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Office 365 Policy.
         /// </summary>
         [Output("o365Policy")]
-        public Output<Outputs.Office365PolicyPropertiesResponseResult?> O365Policy { get; private set; } = null!;
+        public Output<Outputs.Office365PolicyPropertiesResponse?> O365Policy { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.

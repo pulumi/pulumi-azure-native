@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ApiEntityResponse(dict):
                  location: str,
                  api_definition_url: Optional[str] = None,
                  backend_service: Optional['outputs.BackendServiceDefinitionResponse'] = None,
-                 capabilities: Optional[List[str]] = None,
+                 capabilities: Optional[Sequence[str]] = None,
                  changed_time: Optional[str] = None,
                  connection_parameters: Optional[Mapping[str, 'outputs.ConnectionParameterResponse']] = None,
                  created_time: Optional[str] = None,
@@ -49,8 +49,8 @@ class ApiEntityResponse(dict):
                  name: Optional[str] = None,
                  path: Optional[str] = None,
                  policies: Optional['outputs.ApiPoliciesResponse'] = None,
-                 protocols: Optional[List[str]] = None,
-                 runtime_urls: Optional[List[str]] = None,
+                 protocols: Optional[Sequence[str]] = None,
+                 runtime_urls: Optional[Sequence[str]] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None):
         """
@@ -58,7 +58,7 @@ class ApiEntityResponse(dict):
         :param str location: Resource Location
         :param str api_definition_url: API definition Url - url where the swagger can be downloaded from
         :param 'BackendServiceDefinitionResponseArgs' backend_service: Backend service definition
-        :param List[str] capabilities: Capabilities
+        :param Sequence[str] capabilities: Capabilities
         :param str changed_time: Timestamp of last connection change.
         :param Mapping[str, 'ConnectionParameterResponseArgs'] connection_parameters: Connection parameters
         :param str created_time: Timestamp of the connection creation
@@ -69,8 +69,8 @@ class ApiEntityResponse(dict):
         :param str name: Resource Name
         :param str path: the URL path of this API when exposed via APIM
         :param 'ApiPoliciesResponseArgs' policies: API policies
-        :param List[str] protocols: Protocols supported by the front end - http/https
-        :param List[str] runtime_urls: Read only property returning the runtime endpoints where the API can be called
+        :param Sequence[str] protocols: Protocols supported by the front end - http/https
+        :param Sequence[str] runtime_urls: Read only property returning the runtime endpoints where the API can be called
         :param Mapping[str, str] tags: Resource tags
         :param str type: Resource type
         """
@@ -136,7 +136,7 @@ class ApiEntityResponse(dict):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List[str]]:
+    def capabilities(self) -> Optional[Sequence[str]]:
         """
         Capabilities
         """
@@ -224,7 +224,7 @@ class ApiEntityResponse(dict):
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[List[str]]:
+    def protocols(self) -> Optional[Sequence[str]]:
         """
         Protocols supported by the front end - http/https
         """
@@ -232,7 +232,7 @@ class ApiEntityResponse(dict):
 
     @property
     @pulumi.getter(name="runtimeUrls")
-    def runtime_urls(self) -> Optional[List[str]]:
+    def runtime_urls(self) -> Optional[Sequence[str]]:
         """
         Read only property returning the runtime endpoints where the API can be called
         """
@@ -320,7 +320,7 @@ class ApiOAuthSettingsResponse(dict):
                  identity_provider: Optional[str] = None,
                  properties: Optional[Mapping[str, Any]] = None,
                  redirect_url: Optional[str] = None,
-                 scopes: Optional[List[str]] = None):
+                 scopes: Optional[Sequence[str]] = None):
         """
         OAuth settings for the connection provider
         :param str client_id: Resource provider client id
@@ -329,7 +329,7 @@ class ApiOAuthSettingsResponse(dict):
         :param str identity_provider: Identity provider
         :param Mapping[str, Any] properties: Read only properties for this oauth setting.
         :param str redirect_url: Url
-        :param List[str] scopes: OAuth scopes
+        :param Sequence[str] scopes: OAuth scopes
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -396,7 +396,7 @@ class ApiOAuthSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         OAuth scopes
         """
@@ -584,7 +584,7 @@ class BackendServiceDefinitionResponse(dict):
     """
     def __init__(__self__, *,
                  location: str,
-                 hosting_environment_service_urls: Optional[List['outputs.HostingEnvironmentServiceDescriptionsResponse']] = None,
+                 hosting_environment_service_urls: Optional[Sequence['outputs.HostingEnvironmentServiceDescriptionsResponse']] = None,
                  id: Optional[str] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
@@ -594,7 +594,7 @@ class BackendServiceDefinitionResponse(dict):
         """
         API definitions with backend urls
         :param str location: Resource Location
-        :param List['HostingEnvironmentServiceDescriptionsResponseArgs'] hosting_environment_service_urls: Service Urls per Hosting environment
+        :param Sequence['HostingEnvironmentServiceDescriptionsResponseArgs'] hosting_environment_service_urls: Service Urls per Hosting environment
         :param str id: Resource Id
         :param str kind: Kind of resource
         :param str name: Resource Name
@@ -628,7 +628,7 @@ class BackendServiceDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="hostingEnvironmentServiceUrls")
-    def hosting_environment_service_urls(self) -> Optional[List['outputs.HostingEnvironmentServiceDescriptionsResponse']]:
+    def hosting_environment_service_urls(self) -> Optional[Sequence['outputs.HostingEnvironmentServiceDescriptionsResponse']]:
         """
         Service Urls per Hosting environment
         """
@@ -1669,14 +1669,14 @@ class SkuDescriptionResponse(dict):
     Describes a sku for a scalable resource
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  name: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes a sku for a scalable resource
-        :param float capacity: Current number of instances assigned to the resource
+        :param int capacity: Current number of instances assigned to the resource
         :param str family: Family code of the resource sku
         :param str name: Name of the resource sku
         :param str size: Size specifier of the resource sku
@@ -1695,7 +1695,7 @@ class SkuDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Current number of instances assigned to the resource
         """

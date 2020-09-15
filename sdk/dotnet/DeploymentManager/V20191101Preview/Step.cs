@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DeploymentManager.V20191101Preview
         /// The properties that define the step.
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.HealthCheckStepPropertiesResponseResult, Outputs.WaitStepPropertiesResponseResult>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.HealthCheckStepPropertiesResponse, Outputs.WaitStepPropertiesResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

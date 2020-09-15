@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['RegisteredServer']
@@ -249,7 +249,7 @@ class RegisteredServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverManagementErrorCode")
-    def server_management_error_code(self) -> pulumi.Output[Optional[float]]:
+    def server_management_error_code(self) -> pulumi.Output[Optional[int]]:
         """
         Registered Server Management Error Code
         """

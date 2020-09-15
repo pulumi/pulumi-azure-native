@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the link to definition.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult? DefinitionLink;
+        public readonly Outputs.ContentLinkResponse? DefinitionLink;
         /// <summary>
         /// Gets or sets the resource location.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the parameters.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? Parameters;
         /// <summary>
         /// Gets or sets the link to parameters.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult? ParametersLink;
+        public readonly Outputs.ContentLinkResponse? ParametersLink;
         /// <summary>
         /// Gets the provisioning state.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// <summary>
         /// Gets or sets the sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Gets or sets the state.
         /// </summary>
@@ -110,19 +110,19 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
 
             ImmutableDictionary<string, object>? definition,
 
-            Outputs.ContentLinkResponseResult? definitionLink,
+            Outputs.ContentLinkResponse? definitionLink,
 
             string? location,
 
             string? name,
 
-            ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.WorkflowParameterResponse>? parameters,
 
-            Outputs.ContentLinkResponseResult? parametersLink,
+            Outputs.ContentLinkResponse? parametersLink,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? state,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_load_balancer_front_end_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']]] = None,
                  destination_network_interface_ip_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]] = None,
-                 destination_port: Optional[pulumi.Input[float]] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']] destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']] destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
-        :param pulumi.Input[float] destination_port: The VXLAN destination port that will receive the tapped traffic.
+        :param pulumi.Input[int] destination_port: The VXLAN destination port that will receive the tapped traffic.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -121,7 +121,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> pulumi.Output[Optional[float]]:
+    def destination_port(self) -> pulumi.Output[Optional[int]]:
         """
         The VXLAN destination port that will receive the tapped traffic.
         """
@@ -153,7 +153,7 @@ class VirtualNetworkTap(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceTapConfigurations")
-    def network_interface_tap_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceTapConfigurationResponse']]:
+    def network_interface_tap_configurations(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceTapConfigurationResponse']]:
         """
         Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         """

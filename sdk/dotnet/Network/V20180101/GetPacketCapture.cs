@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// </summary>
         public readonly int? BytesToCapturePerPacket;
         public readonly string? Etag;
-        public readonly ImmutableArray<Outputs.PacketCaptureFilterResponseResult> Filters;
+        public readonly ImmutableArray<Outputs.PacketCaptureFilterResponse> Filters;
         /// <summary>
         /// Name of the packet capture.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20180101
         /// <summary>
         /// Describes the storage location for a packet capture session.
         /// </summary>
-        public readonly Outputs.PacketCaptureStorageLocationResponseResult StorageLocation;
+        public readonly Outputs.PacketCaptureStorageLocationResponse StorageLocation;
         /// <summary>
         /// The ID of the targeted resource, only VM is currently supported.
         /// </summary>
@@ -86,13 +86,13 @@ namespace Pulumi.AzureRM.Network.V20180101
 
             string? etag,
 
-            ImmutableArray<Outputs.PacketCaptureFilterResponseResult> filters,
+            ImmutableArray<Outputs.PacketCaptureFilterResponse> filters,
 
             string name,
 
             string? provisioningState,
 
-            Outputs.PacketCaptureStorageLocationResponseResult storageLocation,
+            Outputs.PacketCaptureStorageLocationResponse storageLocation,
 
             string target,
 

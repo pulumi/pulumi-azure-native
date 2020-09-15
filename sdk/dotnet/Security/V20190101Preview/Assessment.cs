@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// Links relevant to the assessment
         /// </summary>
         [Output("links")]
-        public Output<Outputs.AssessmentLinksResponseResult?> Links { get; private set; } = null!;
+        public Output<Outputs.AssessmentLinksResponse?> Links { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// Details of the resource that was assessed
         /// </summary>
         [Output("resourceDetails")]
-        public Output<Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult>> ResourceDetails { get; private set; } = null!;
+        public Output<Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse>> ResourceDetails { get; private set; } = null!;
 
         /// <summary>
         /// The result of the assessment
         /// </summary>
         [Output("status")]
-        public Output<Outputs.AssessmentStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.AssessmentStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

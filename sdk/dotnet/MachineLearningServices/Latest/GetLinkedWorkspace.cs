@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// <summary>
         /// LinkedWorkspace specific properties.
         /// </summary>
-        public readonly Outputs.LinkedWorkspacePropsResponseResult Properties;
+        public readonly Outputs.LinkedWorkspacePropsResponse Properties;
         /// <summary>
         /// Resource type of linked workspace.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         private GetLinkedWorkspaceResult(
             string name,
 
-            Outputs.LinkedWorkspacePropsResponseResult properties,
+            Outputs.LinkedWorkspacePropsResponse properties,
 
             string type)
         {

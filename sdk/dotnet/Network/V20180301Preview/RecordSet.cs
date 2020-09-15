@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.Network.V20180301Preview
         /// The list of A records in the record set.
         /// </summary>
         [Output("aRecords")]
-        public Output<ImmutableArray<Outputs.ARecordResponseResult>> ARecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ARecordResponse>> ARecords { get; private set; } = null!;
 
         /// <summary>
         /// The list of AAAA records in the record set.
         /// </summary>
         [Output("aaaaRecords")]
-        public Output<ImmutableArray<Outputs.AaaaRecordResponseResult>> AaaaRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AaaaRecordResponse>> AaaaRecords { get; private set; } = null!;
 
         /// <summary>
         /// The list of CAA records in the record set.
         /// </summary>
         [Output("caaRecords")]
-        public Output<ImmutableArray<Outputs.CaaRecordResponseResult>> CaaRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CaaRecordResponse>> CaaRecords { get; private set; } = null!;
 
         /// <summary>
         /// The CNAME record in the  record set.
         /// </summary>
         [Output("cnameRecord")]
-        public Output<Outputs.CnameRecordResponseResult?> CnameRecord { get; private set; } = null!;
+        public Output<Outputs.CnameRecordResponse?> CnameRecord { get; private set; } = null!;
 
         /// <summary>
         /// The etag of the record set.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20180301Preview
         /// The list of MX records in the record set.
         /// </summary>
         [Output("mxRecords")]
-        public Output<ImmutableArray<Outputs.MxRecordResponseResult>> MxRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MxRecordResponse>> MxRecords { get; private set; } = null!;
 
         /// <summary>
         /// The name of the record set.
@@ -72,25 +72,25 @@ namespace Pulumi.AzureRM.Network.V20180301Preview
         /// The list of NS records in the record set.
         /// </summary>
         [Output("nsRecords")]
-        public Output<ImmutableArray<Outputs.NsRecordResponseResult>> NsRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NsRecordResponse>> NsRecords { get; private set; } = null!;
 
         /// <summary>
         /// The list of PTR records in the record set.
         /// </summary>
         [Output("ptrRecords")]
-        public Output<ImmutableArray<Outputs.PtrRecordResponseResult>> PtrRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PtrRecordResponse>> PtrRecords { get; private set; } = null!;
 
         /// <summary>
         /// The SOA record in the record set.
         /// </summary>
         [Output("soaRecord")]
-        public Output<Outputs.SoaRecordResponseResult?> SoaRecord { get; private set; } = null!;
+        public Output<Outputs.SoaRecordResponse?> SoaRecord { get; private set; } = null!;
 
         /// <summary>
         /// The list of SRV records in the record set.
         /// </summary>
         [Output("srvRecords")]
-        public Output<ImmutableArray<Outputs.SrvRecordResponseResult>> SrvRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SrvRecordResponse>> SrvRecords { get; private set; } = null!;
 
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Network.V20180301Preview
         /// The list of TXT records in the record set.
         /// </summary>
         [Output("txtRecords")]
-        public Output<ImmutableArray<Outputs.TxtRecordResponseResult>> TxtRecords { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TxtRecordResponse>> TxtRecords { get; private set; } = null!;
 
         /// <summary>
         /// The type of the record set.

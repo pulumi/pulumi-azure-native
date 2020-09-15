@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for daily snapshots
         /// </summary>
-        public readonly Outputs.DailyScheduleResponseResult? DailySchedule;
+        public readonly Outputs.DailyScheduleResponse? DailySchedule;
         /// <summary>
         /// The property to decide policy is enabled or not
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for hourly snapshots
         /// </summary>
-        public readonly Outputs.HourlyScheduleResponseResult? HourlySchedule;
+        public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for monthly snapshots
         /// </summary>
-        public readonly Outputs.MonthlyScheduleResponseResult? MonthlySchedule;
+        public readonly Outputs.MonthlyScheduleResponse? MonthlySchedule;
         /// <summary>
         /// Snapshot policy name
         /// </summary>
@@ -84,19 +84,19 @@ namespace Pulumi.AzureRM.NetApp.V20200601
         /// <summary>
         /// Schedule for weekly snapshots
         /// </summary>
-        public readonly Outputs.WeeklyScheduleResponseResult? WeeklySchedule;
+        public readonly Outputs.WeeklyScheduleResponse? WeeklySchedule;
 
         [OutputConstructor]
         private GetsnapshotPolicyResult(
-            Outputs.DailyScheduleResponseResult? dailySchedule,
+            Outputs.DailyScheduleResponse? dailySchedule,
 
             bool? enabled,
 
-            Outputs.HourlyScheduleResponseResult? hourlySchedule,
+            Outputs.HourlyScheduleResponse? hourlySchedule,
 
             string location,
 
-            Outputs.MonthlyScheduleResponseResult? monthlySchedule,
+            Outputs.MonthlyScheduleResponse? monthlySchedule,
 
             string name,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.NetApp.V20200601
 
             string type,
 
-            Outputs.WeeklyScheduleResponseResult? weeklySchedule)
+            Outputs.WeeklyScheduleResponse? weeklySchedule)
         {
             DailySchedule = dailySchedule;
             Enabled = enabled;

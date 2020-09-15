@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// The artifact deployment status for the virtual machine.
         /// </summary>
         [Output("artifactDeploymentStatus")]
-        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponseResult?> ArtifactDeploymentStatus { get; private set; } = null!;
+        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponse?> ArtifactDeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
         [Output("galleryImageReference")]
-        public Output<Outputs.GalleryImageReferenceResponseResult?> GalleryImageReference { get; private set; } = null!;
+        public Output<Outputs.GalleryImageReferenceResponse?> GalleryImageReference { get; private set; } = null!;
 
         /// <summary>
         /// A value indicating whether this virtual machine uses an SSH key for authentication.

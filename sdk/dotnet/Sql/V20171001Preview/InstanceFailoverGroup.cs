@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// List of managed instance pairs in the failover group.
         /// </summary>
         [Output("managedInstancePairs")]
-        public Output<ImmutableArray<Outputs.ManagedInstancePairInfoResponseResult>> ManagedInstancePairs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ManagedInstancePairInfoResponse>> ManagedInstancePairs { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -30,19 +30,19 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// Partner region information for the failover group.
         /// </summary>
         [Output("partnerRegions")]
-        public Output<ImmutableArray<Outputs.PartnerRegionInfoResponseResult>> PartnerRegions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PartnerRegionInfoResponse>> PartnerRegions { get; private set; } = null!;
 
         /// <summary>
         /// Read-only endpoint of the failover group instance.
         /// </summary>
         [Output("readOnlyEndpoint")]
-        public Output<Outputs.InstanceFailoverGroupReadOnlyEndpointResponseResult?> ReadOnlyEndpoint { get; private set; } = null!;
+        public Output<Outputs.InstanceFailoverGroupReadOnlyEndpointResponse?> ReadOnlyEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Read-write endpoint of the failover group instance.
         /// </summary>
         [Output("readWriteEndpoint")]
-        public Output<Outputs.InstanceFailoverGroupReadWriteEndpointResponseResult> ReadWriteEndpoint { get; private set; } = null!;
+        public Output<Outputs.InstanceFailoverGroupReadWriteEndpointResponse> ReadWriteEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Local replication role of the failover group instance.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class SyncGroup(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  hub_database_password: Optional[pulumi.Input[str]] = None,
                  hub_database_user_name: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class SyncGroup(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database on which the sync group is hosted.
         :param pulumi.Input[str] hub_database_password: Password for the sync group hub database credential.
         :param pulumi.Input[str] hub_database_user_name: User name for the sync group hub database credential.
-        :param pulumi.Input[float] interval: Sync interval of the sync group.
+        :param pulumi.Input[int] interval: Sync interval of the sync group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SyncGroupSchemaArgs']] schema: Sync schema of the sync group.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -137,7 +137,7 @@ class SyncGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Output[Optional[float]]:
+    def interval(self) -> pulumi.Output[Optional[int]]:
         """
         Sync interval of the sync group.
         """

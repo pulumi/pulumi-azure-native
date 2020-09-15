@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -44,14 +44,14 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
     """
     def __init__(__self__, *,
                  endpoint_type: str,
-                 max_events_per_batch: Optional[float] = None,
-                 preferred_batch_size_in_kilobytes: Optional[float] = None,
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None,
                  resource_id: Optional[str] = None):
         """
         Information about the azure function destination for an event subscription.
         :param str endpoint_type: Type of the endpoint for the event subscription destination
-        :param float max_events_per_batch: Maximum number of events per batch.
-        :param float preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         :param str resource_id: The Azure Resource Id that represents the endpoint of the Azure Function destination of an event subscription.
         """
         pulumi.set(__self__, "endpoint_type", 'AzureFunction')
@@ -72,7 +72,7 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
 
     @property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[float]:
+    def max_events_per_batch(self) -> Optional[int]:
         """
         Maximum number of events per batch.
         """
@@ -80,7 +80,7 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
 
     @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[float]:
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
         """
         Preferred batch size in Kilobytes.
         """
@@ -190,15 +190,15 @@ class EventSubscriptionFilterResponse(dict):
     Filter for the Event Subscription
     """
     def __init__(__self__, *,
-                 advanced_filters: Optional[List[Any]] = None,
-                 included_event_types: Optional[List[str]] = None,
+                 advanced_filters: Optional[Sequence[Any]] = None,
+                 included_event_types: Optional[Sequence[str]] = None,
                  is_subject_case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription
-        :param List[Union['BoolEqualsAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
-        :param List[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponseArgs', 'NumberGreaterThanAdvancedFilterResponseArgs', 'NumberGreaterThanOrEqualsAdvancedFilterResponseArgs', 'NumberInAdvancedFilterResponseArgs', 'NumberLessThanAdvancedFilterResponseArgs', 'NumberLessThanOrEqualsAdvancedFilterResponseArgs', 'NumberNotInAdvancedFilterResponseArgs', 'StringBeginsWithAdvancedFilterResponseArgs', 'StringContainsAdvancedFilterResponseArgs', 'StringEndsWithAdvancedFilterResponseArgs', 'StringInAdvancedFilterResponseArgs', 'StringNotInAdvancedFilterResponseArgs']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
         :param str subject_begins_with: An optional string to filter events for an event subscription based on a resource path prefix.
@@ -220,7 +220,7 @@ class EventSubscriptionFilterResponse(dict):
 
     @property
     @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[List[Any]]:
+    def advanced_filters(self) -> Optional[Sequence[Any]]:
         """
         An array of advanced filters that are used for filtering event subscriptions.
         """
@@ -228,7 +228,7 @@ class EventSubscriptionFilterResponse(dict):
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> Optional[List[str]]:
+    def included_event_types(self) -> Optional[Sequence[str]]:
         """
         A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         """
@@ -577,12 +577,12 @@ class NumberInAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[float]] = None):
+                 values: Optional[Sequence[float]] = None):
         """
         NumberIn Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[float] values: The set of filter values.
+        :param Sequence[float] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'NumberIn')
         if key is not None:
@@ -608,7 +608,7 @@ class NumberInAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[float]]:
+    def values(self) -> Optional[Sequence[float]]:
         """
         The set of filter values.
         """
@@ -724,12 +724,12 @@ class NumberNotInAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[float]] = None):
+                 values: Optional[Sequence[float]] = None):
         """
         NumberNotIn Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[float] values: The set of filter values.
+        :param Sequence[float] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'NumberNotIn')
         if key is not None:
@@ -755,7 +755,7 @@ class NumberNotInAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[float]]:
+    def values(self) -> Optional[Sequence[float]]:
         """
         The set of filter values.
         """
@@ -771,12 +771,12 @@ class RetryPolicyResponse(dict):
     Information about the retry policy for an event subscription
     """
     def __init__(__self__, *,
-                 event_time_to_live_in_minutes: Optional[float] = None,
-                 max_delivery_attempts: Optional[float] = None):
+                 event_time_to_live_in_minutes: Optional[int] = None,
+                 max_delivery_attempts: Optional[int] = None):
         """
         Information about the retry policy for an event subscription
-        :param float event_time_to_live_in_minutes: Time To Live (in minutes) for events.
-        :param float max_delivery_attempts: Maximum number of delivery retry attempts for events.
+        :param int event_time_to_live_in_minutes: Time To Live (in minutes) for events.
+        :param int max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
         if event_time_to_live_in_minutes is not None:
             pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
@@ -785,7 +785,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="eventTimeToLiveInMinutes")
-    def event_time_to_live_in_minutes(self) -> Optional[float]:
+    def event_time_to_live_in_minutes(self) -> Optional[int]:
         """
         Time To Live (in minutes) for events.
         """
@@ -793,7 +793,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryAttempts")
-    def max_delivery_attempts(self) -> Optional[float]:
+    def max_delivery_attempts(self) -> Optional[int]:
         """
         Maximum number of delivery retry attempts for events.
         """
@@ -983,12 +983,12 @@ class StringBeginsWithAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         StringBeginsWith Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[str] values: The set of filter values.
+        :param Sequence[str] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'StringBeginsWith')
         if key is not None:
@@ -1014,7 +1014,7 @@ class StringBeginsWithAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The set of filter values.
         """
@@ -1032,12 +1032,12 @@ class StringContainsAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         StringContains Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[str] values: The set of filter values.
+        :param Sequence[str] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'StringContains')
         if key is not None:
@@ -1063,7 +1063,7 @@ class StringContainsAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The set of filter values.
         """
@@ -1081,12 +1081,12 @@ class StringEndsWithAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         StringEndsWith Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[str] values: The set of filter values.
+        :param Sequence[str] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'StringEndsWith')
         if key is not None:
@@ -1112,7 +1112,7 @@ class StringEndsWithAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The set of filter values.
         """
@@ -1130,12 +1130,12 @@ class StringInAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         StringIn Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[str] values: The set of filter values.
+        :param Sequence[str] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'StringIn')
         if key is not None:
@@ -1161,7 +1161,7 @@ class StringInAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The set of filter values.
         """
@@ -1179,12 +1179,12 @@ class StringNotInAdvancedFilterResponse(dict):
     def __init__(__self__, *,
                  operator_type: str,
                  key: Optional[str] = None,
-                 values: Optional[List[str]] = None):
+                 values: Optional[Sequence[str]] = None):
         """
         StringNotIn Advanced Filter.
         :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         :param str key: The field/property in the event based on which you want to filter.
-        :param List[str] values: The set of filter values.
+        :param Sequence[str] values: The set of filter values.
         """
         pulumi.set(__self__, "operator_type", 'StringNotIn')
         if key is not None:
@@ -1210,7 +1210,7 @@ class StringNotInAdvancedFilterResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         """
         The set of filter values.
         """
@@ -1231,8 +1231,8 @@ class WebHookEventSubscriptionDestinationResponse(dict):
                  azure_active_directory_application_id_or_uri: Optional[str] = None,
                  azure_active_directory_tenant_id: Optional[str] = None,
                  endpoint_url: Optional[str] = None,
-                 max_events_per_batch: Optional[float] = None,
-                 preferred_batch_size_in_kilobytes: Optional[float] = None):
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
         """
         Information about the webhook destination for an event subscription
         :param str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
@@ -1240,8 +1240,8 @@ class WebHookEventSubscriptionDestinationResponse(dict):
         :param str azure_active_directory_application_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
         :param str azure_active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
         :param str endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
-        :param float max_events_per_batch: Maximum number of events per batch.
-        :param float preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
         pulumi.set(__self__, "endpoint_base_url", endpoint_base_url)
         pulumi.set(__self__, "endpoint_type", 'WebHook')
@@ -1298,7 +1298,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
 
     @property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[float]:
+    def max_events_per_batch(self) -> Optional[int]:
         """
         Maximum number of events per batch.
         """
@@ -1306,7 +1306,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
 
     @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[float]:
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
         """
         Preferred batch size in Kilobytes.
         """

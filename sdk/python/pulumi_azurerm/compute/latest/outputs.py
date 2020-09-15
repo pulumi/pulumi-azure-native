@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -319,14 +319,14 @@ class ApiErrorResponse(dict):
     """
     def __init__(__self__, *,
                  code: Optional[str] = None,
-                 details: Optional[List['outputs.ApiErrorBaseResponse']] = None,
+                 details: Optional[Sequence['outputs.ApiErrorBaseResponse']] = None,
                  innererror: Optional['outputs.InnerErrorResponse'] = None,
                  message: Optional[str] = None,
                  target: Optional[str] = None):
         """
         Api error.
         :param str code: The error code.
-        :param List['ApiErrorBaseResponseArgs'] details: The Api error details
+        :param Sequence['ApiErrorBaseResponseArgs'] details: The Api error details
         :param 'InnerErrorResponseArgs' innererror: The Api inner error
         :param str message: The error message.
         :param str target: The target of the particular error.
@@ -352,7 +352,7 @@ class ApiErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[List['outputs.ApiErrorBaseResponse']]:
+    def details(self) -> Optional[Sequence['outputs.ApiErrorBaseResponse']]:
         """
         The Api error details
         """
@@ -468,13 +468,13 @@ class AssignmentReportResourceResponse(dict):
                  compliance_status: str,
                  properties: Mapping[str, Any],
                  resource_id: str,
-                 reasons: Optional[List['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
+                 reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
         """
         The guest configuration assignment resource.
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param Mapping[str, Any] properties: Properties of a guest configuration assignment resource.
         :param str resource_id: Name of the guest configuration assignment resource setting.
-        :param List['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
+        :param Sequence['AssignmentReportResourceComplianceReasonResponseArgs'] reasons: Compliance reason and reason code for a resource.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "properties", properties)
@@ -508,7 +508,7 @@ class AssignmentReportResourceResponse(dict):
 
     @property
     @pulumi.getter
-    def reasons(self) -> Optional[List['outputs.AssignmentReportResourceComplianceReasonResponse']]:
+    def reasons(self) -> Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']]:
         """
         Compliance reason and reason code for a resource.
         """
@@ -528,7 +528,7 @@ class AssignmentReportResponse(dict):
                  report_id: str,
                  start_time: str,
                  assignment: Optional['outputs.AssignmentInfoResponse'] = None,
-                 resources: Optional[List['outputs.AssignmentReportResourceResponse']] = None,
+                 resources: Optional[Sequence['outputs.AssignmentReportResourceResponse']] = None,
                  vm: Optional['outputs.VMInfoResponse'] = None):
         """
         :param str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
@@ -538,7 +538,7 @@ class AssignmentReportResponse(dict):
         :param str report_id: GUID that identifies the guest configuration assignment report under a subscription, resource group.
         :param str start_time: Start date and time of the guest configuration assignment compliance status check.
         :param 'AssignmentInfoResponseArgs' assignment: Configuration details of the guest configuration assignment.
-        :param List['AssignmentReportResourceResponseArgs'] resources: The list of resources for which guest configuration assignment compliance is checked.
+        :param Sequence['AssignmentReportResourceResponseArgs'] resources: The list of resources for which guest configuration assignment compliance is checked.
         :param 'VMInfoResponseArgs' vm: Information about the VM.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -612,7 +612,7 @@ class AssignmentReportResponse(dict):
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[List['outputs.AssignmentReportResourceResponse']]:
+    def resources(self) -> Optional[Sequence['outputs.AssignmentReportResourceResponse']]:
         """
         The list of resources for which guest configuration assignment compliance is checked.
         """
@@ -713,20 +713,20 @@ class AvailablePatchSummaryResponse(dict):
     """
     def __init__(__self__, *,
                  assessment_activity_id: str,
-                 critical_and_security_patch_count: float,
+                 critical_and_security_patch_count: int,
                  error: 'outputs.ApiErrorResponse',
                  last_modified_time: str,
-                 other_patch_count: float,
+                 other_patch_count: int,
                  reboot_pending: bool,
                  start_time: str,
                  status: str):
         """
         Describes the properties of an virtual machine instance view for available patch summary.
         :param str assessment_activity_id: The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
-        :param float critical_and_security_patch_count: The number of critical or security patches that have been detected as available and not yet installed.
+        :param int critical_and_security_patch_count: The number of critical or security patches that have been detected as available and not yet installed.
         :param 'ApiErrorResponseArgs' error: The errors that were encountered during execution of the operation. The details array contains the list of them.
         :param str last_modified_time: The UTC timestamp when the operation began.
-        :param float other_patch_count: The number of all available patches excluding critical and security.
+        :param int other_patch_count: The number of all available patches excluding critical and security.
         :param bool reboot_pending: The overall reboot status of the VM. It will be true when partially installed patches require a reboot to complete installation but the reboot has not yet occurred.
         :param str start_time: The UTC timestamp when the operation began.
         :param str status: The overall success or failure status of the operation. It remains "InProgress" until the operation completes. At that point it will become "Failed", "Succeeded", or "CompletedWithWarnings."
@@ -750,7 +750,7 @@ class AvailablePatchSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="criticalAndSecurityPatchCount")
-    def critical_and_security_patch_count(self) -> float:
+    def critical_and_security_patch_count(self) -> int:
         """
         The number of critical or security patches that have been detected as available and not yet installed.
         """
@@ -774,7 +774,7 @@ class AvailablePatchSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="otherPatchCount")
-    def other_patch_count(self) -> float:
+    def other_patch_count(self) -> int:
         """
         The number of all available patches excluding critical and security.
         """
@@ -1089,22 +1089,22 @@ class CreationDataResponse(dict):
                  source_unique_id: str,
                  gallery_image_reference: Optional['outputs.ImageDiskReferenceResponse'] = None,
                  image_reference: Optional['outputs.ImageDiskReferenceResponse'] = None,
-                 logical_sector_size: Optional[float] = None,
+                 logical_sector_size: Optional[int] = None,
                  source_resource_id: Optional[str] = None,
                  source_uri: Optional[str] = None,
                  storage_account_id: Optional[str] = None,
-                 upload_size_bytes: Optional[float] = None):
+                 upload_size_bytes: Optional[int] = None):
         """
         Data used when creating a disk.
         :param str create_option: This enumerates the possible sources of a disk's creation.
         :param str source_unique_id: If this field is set, this is the unique id identifying the source of this resource.
         :param 'ImageDiskReferenceResponseArgs' gallery_image_reference: Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         :param 'ImageDiskReferenceResponseArgs' image_reference: Disk source information.
-        :param float logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+        :param int logical_sector_size: Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         :param str source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param str source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
         :param str storage_account_id: Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-        :param float upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+        :param int upload_size_bytes: If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "source_unique_id", source_unique_id)
@@ -1157,7 +1157,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="logicalSectorSize")
-    def logical_sector_size(self) -> Optional[float]:
+    def logical_sector_size(self) -> Optional[int]:
         """
         Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
         """
@@ -1189,7 +1189,7 @@ class CreationDataResponse(dict):
 
     @property
     @pulumi.getter(name="uploadSizeBytes")
-    def upload_size_bytes(self) -> Optional[float]:
+    def upload_size_bytes(self) -> Optional[int]:
         """
         If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
         """
@@ -1205,11 +1205,11 @@ class DataDiskImageEncryptionResponse(dict):
     Contains encryption settings for a data disk image.
     """
     def __init__(__self__, *,
-                 lun: float,
+                 lun: int,
                  disk_encryption_set_id: Optional[str] = None):
         """
         Contains encryption settings for a data disk image.
-        :param float lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         :param str disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
         """
         pulumi.set(__self__, "lun", lun)
@@ -1218,7 +1218,7 @@ class DataDiskImageEncryptionResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
@@ -1243,11 +1243,11 @@ class DataDiskResponse(dict):
     """
     def __init__(__self__, *,
                  create_option: str,
-                 disk_iops_read_write: float,
-                 disk_m_bps_read_write: float,
-                 lun: float,
+                 disk_iops_read_write: int,
+                 disk_m_bps_read_write: int,
+                 lun: int,
                  caching: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  image: Optional['outputs.VirtualHardDiskResponse'] = None,
                  managed_disk: Optional['outputs.ManagedDiskParametersResponse'] = None,
                  name: Optional[str] = None,
@@ -1257,11 +1257,11 @@ class DataDiskResponse(dict):
         """
         Describes a data disk.
         :param str create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-        :param float disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-        :param float disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
-        :param float lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param int disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
+        :param int disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
+        :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param float disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param 'ManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
         :param str name: The disk name.
@@ -1300,7 +1300,7 @@ class DataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> float:
+    def disk_iops_read_write(self) -> int:
         """
         Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         """
@@ -1308,7 +1308,7 @@ class DataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> float:
+    def disk_m_bps_read_write(self) -> int:
         """
         Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.
         """
@@ -1316,7 +1316,7 @@ class DataDiskResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         """
@@ -1332,7 +1332,7 @@ class DataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -1434,17 +1434,17 @@ class DedicatedHostAvailableCapacityResponse(dict):
     Dedicated host unutilized capacity.
     """
     def __init__(__self__, *,
-                 allocatable_vms: Optional[List['outputs.DedicatedHostAllocatableVMResponse']] = None):
+                 allocatable_vms: Optional[Sequence['outputs.DedicatedHostAllocatableVMResponse']] = None):
         """
         Dedicated host unutilized capacity.
-        :param List['DedicatedHostAllocatableVMResponseArgs'] allocatable_vms: The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+        :param Sequence['DedicatedHostAllocatableVMResponseArgs'] allocatable_vms: The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
         """
         if allocatable_vms is not None:
             pulumi.set(__self__, "allocatable_vms", allocatable_vms)
 
     @property
     @pulumi.getter(name="allocatableVMs")
-    def allocatable_vms(self) -> Optional[List['outputs.DedicatedHostAllocatableVMResponse']]:
+    def allocatable_vms(self) -> Optional[Sequence['outputs.DedicatedHostAllocatableVMResponse']]:
         """
         The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
         """
@@ -1457,16 +1457,16 @@ class DedicatedHostAvailableCapacityResponse(dict):
 @pulumi.output_type
 class DedicatedHostGroupInstanceViewResponse(dict):
     def __init__(__self__, *,
-                 hosts: Optional[List['outputs.DedicatedHostInstanceViewWithNameResponse']] = None):
+                 hosts: Optional[Sequence['outputs.DedicatedHostInstanceViewWithNameResponse']] = None):
         """
-        :param List['DedicatedHostInstanceViewWithNameResponseArgs'] hosts: List of instance view of the dedicated hosts under the dedicated host group.
+        :param Sequence['DedicatedHostInstanceViewWithNameResponseArgs'] hosts: List of instance view of the dedicated hosts under the dedicated host group.
         """
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
 
     @property
     @pulumi.getter
-    def hosts(self) -> Optional[List['outputs.DedicatedHostInstanceViewWithNameResponse']]:
+    def hosts(self) -> Optional[Sequence['outputs.DedicatedHostInstanceViewWithNameResponse']]:
         """
         List of instance view of the dedicated hosts under the dedicated host group.
         """
@@ -1484,12 +1484,12 @@ class DedicatedHostInstanceViewResponse(dict):
     def __init__(__self__, *,
                  asset_id: str,
                  available_capacity: Optional['outputs.DedicatedHostAvailableCapacityResponse'] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None):
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
         """
         The instance view of a dedicated host.
         :param str asset_id: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
         :param 'DedicatedHostAvailableCapacityResponseArgs' available_capacity: Unutilized capacity of the dedicated host.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         """
         pulumi.set(__self__, "asset_id", asset_id)
         if available_capacity is not None:
@@ -1515,7 +1515,7 @@ class DedicatedHostInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -1534,13 +1534,13 @@ class DedicatedHostInstanceViewWithNameResponse(dict):
                  asset_id: str,
                  name: str,
                  available_capacity: Optional['outputs.DedicatedHostAvailableCapacityResponse'] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None):
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
         """
         The instance view of a dedicated host that includes the name of the dedicated host. It is used for the response to the instance view of a dedicated host group.
         :param str asset_id: Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
         :param str name: The name of the dedicated host.
         :param 'DedicatedHostAvailableCapacityResponseArgs' available_capacity: Unutilized capacity of the dedicated host.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         """
         pulumi.set(__self__, "asset_id", asset_id)
         pulumi.set(__self__, "name", name)
@@ -1575,7 +1575,7 @@ class DedicatedHostInstanceViewWithNameResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -1655,17 +1655,17 @@ class DisallowedResponse(dict):
     Describes the disallowed disk types.
     """
     def __init__(__self__, *,
-                 disk_types: Optional[List[str]] = None):
+                 disk_types: Optional[Sequence[str]] = None):
         """
         Describes the disallowed disk types.
-        :param List[str] disk_types: A list of disk types.
+        :param Sequence[str] disk_types: A list of disk types.
         """
         if disk_types is not None:
             pulumi.set(__self__, "disk_types", disk_types)
 
     @property
     @pulumi.getter(name="diskTypes")
-    def disk_types(self) -> Optional[List[str]]:
+    def disk_types(self) -> Optional[Sequence[str]]:
         """
         A list of disk types.
         """
@@ -1757,14 +1757,14 @@ class DiskInstanceViewResponse(dict):
     The instance view of the disk.
     """
     def __init__(__self__, *,
-                 encryption_settings: Optional[List['outputs.DiskEncryptionSettingsResponse']] = None,
+                 encryption_settings: Optional[Sequence['outputs.DiskEncryptionSettingsResponse']] = None,
                  name: Optional[str] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None):
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None):
         """
         The instance view of the disk.
-        :param List['DiskEncryptionSettingsResponseArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
+        :param Sequence['DiskEncryptionSettingsResponseArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         :param str name: The disk name.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         """
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
@@ -1775,7 +1775,7 @@ class DiskInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[List['outputs.DiskEncryptionSettingsResponse']]:
+    def encryption_settings(self) -> Optional[Sequence['outputs.DiskEncryptionSettingsResponse']]:
         """
         Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         """
@@ -1791,7 +1791,7 @@ class DiskInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -1844,11 +1844,11 @@ class EncryptionImagesResponse(dict):
     Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
     """
     def __init__(__self__, *,
-                 data_disk_images: Optional[List['outputs.DataDiskImageEncryptionResponse']] = None,
+                 data_disk_images: Optional[Sequence['outputs.DataDiskImageEncryptionResponse']] = None,
                  os_disk_image: Optional['outputs.OSDiskImageEncryptionResponse'] = None):
         """
         Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param List['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
+        :param Sequence['DataDiskImageEncryptionResponseArgs'] data_disk_images: A list of encryption specifications for data disk images.
         :param 'OSDiskImageEncryptionResponseArgs' os_disk_image: Contains encryption settings for an OS disk image.
         """
         if data_disk_images is not None:
@@ -1858,7 +1858,7 @@ class EncryptionImagesResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[List['outputs.DataDiskImageEncryptionResponse']]:
+    def data_disk_images(self) -> Optional[Sequence['outputs.DataDiskImageEncryptionResponse']]:
         """
         A list of encryption specifications for data disk images.
         """
@@ -1969,12 +1969,12 @@ class EncryptionSettingsCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  enabled: bool,
-                 encryption_settings: Optional[List['outputs.EncryptionSettingsElementResponse']] = None,
+                 encryption_settings: Optional[Sequence['outputs.EncryptionSettingsElementResponse']] = None,
                  encryption_settings_version: Optional[str] = None):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param List['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
         :param str encryption_settings_version: Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1993,7 +1993,7 @@ class EncryptionSettingsCollectionResponse(dict):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[List['outputs.EncryptionSettingsElementResponse']]:
+    def encryption_settings(self) -> Optional[Sequence['outputs.EncryptionSettingsElementResponse']]:
         """
         A collection of encryption settings, one for each disk volume.
         """
@@ -2061,9 +2061,9 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
                  enable_health_check: Optional[bool] = None,
                  end_of_life_date: Optional[str] = None,
                  exclude_from_latest: Optional[bool] = None,
-                 replica_count: Optional[float] = None,
+                 replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None,
-                 target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
         """
         The publishing profile of a gallery image version.
         :param str published_date: The timestamp for when the gallery image version is published.
@@ -2072,9 +2072,9 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
         :param bool enable_health_check: Optional. Whether or not this application reports health.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param List['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         pulumi.set(__self__, "source", source)
@@ -2143,7 +2143,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
@@ -2159,7 +2159,7 @@ class GalleryApplicationVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[List['outputs.TargetRegionResponse']]:
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -2213,14 +2213,14 @@ class GalleryDataDiskImageResponse(dict):
     This is the data disk image.
     """
     def __init__(__self__, *,
-                 lun: float,
-                 size_in_gb: float,
+                 lun: int,
+                 size_in_gb: int,
                  host_caching: Optional[str] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the data disk image.
-        :param float lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        :param float size_in_gb: This property indicates the size of the VHD to be created.
+        :param int lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -2233,7 +2233,7 @@ class GalleryDataDiskImageResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
         """
@@ -2241,7 +2241,7 @@ class GalleryDataDiskImageResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> float:
+    def size_in_gb(self) -> int:
         """
         This property indicates the size of the VHD to be created.
         """
@@ -2386,17 +2386,17 @@ class GalleryImageVersionPublishingProfileResponse(dict):
                  published_date: str,
                  end_of_life_date: Optional[str] = None,
                  exclude_from_latest: Optional[bool] = None,
-                 replica_count: Optional[float] = None,
+                 replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None,
-                 target_regions: Optional[List['outputs.TargetRegionResponse']] = None):
+                 target_regions: Optional[Sequence['outputs.TargetRegionResponse']] = None):
         """
         The publishing profile of a gallery image Version.
         :param str published_date: The timestamp for when the gallery image version is published.
         :param str end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param bool exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        :param float replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+        :param int replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
-        :param List['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
+        :param Sequence['TargetRegionResponseArgs'] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "published_date", published_date)
         if end_of_life_date is not None:
@@ -2436,7 +2436,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[float]:
+    def replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
         """
@@ -2452,7 +2452,7 @@ class GalleryImageVersionPublishingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[List['outputs.TargetRegionResponse']]:
+    def target_regions(self) -> Optional[Sequence['outputs.TargetRegionResponse']]:
         """
         The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
@@ -2468,12 +2468,12 @@ class GalleryImageVersionStorageProfileResponse(dict):
     This is the storage profile of a Gallery Image Version.
     """
     def __init__(__self__, *,
-                 data_disk_images: Optional[List['outputs.GalleryDataDiskImageResponse']] = None,
+                 data_disk_images: Optional[Sequence['outputs.GalleryDataDiskImageResponse']] = None,
                  os_disk_image: Optional['outputs.GalleryOSDiskImageResponse'] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the storage profile of a Gallery Image Version.
-        :param List['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
+        :param Sequence['GalleryDataDiskImageResponseArgs'] data_disk_images: A list of data disk images.
         :param 'GalleryOSDiskImageResponseArgs' os_disk_image: This is the OS disk image.
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -2486,7 +2486,7 @@ class GalleryImageVersionStorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskImages")
-    def data_disk_images(self) -> Optional[List['outputs.GalleryDataDiskImageResponse']]:
+    def data_disk_images(self) -> Optional[Sequence['outputs.GalleryDataDiskImageResponse']]:
         """
         A list of data disk images.
         """
@@ -2518,12 +2518,12 @@ class GalleryOSDiskImageResponse(dict):
     This is the OS disk image.
     """
     def __init__(__self__, *,
-                 size_in_gb: float,
+                 size_in_gb: int,
                  host_caching: Optional[str] = None,
                  source: Optional['outputs.GalleryArtifactVersionSourceResponse'] = None):
         """
         This is the OS disk image.
-        :param float size_in_gb: This property indicates the size of the VHD to be created.
+        :param int size_in_gb: This property indicates the size of the VHD to be created.
         :param str host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param 'GalleryArtifactVersionSourceResponseArgs' source: The gallery artifact version source.
         """
@@ -2535,7 +2535,7 @@ class GalleryOSDiskImageResponse(dict):
 
     @property
     @pulumi.getter(name="sizeInGB")
-    def size_in_gb(self) -> float:
+    def size_in_gb(self) -> int:
         """
         This property indicates the size of the VHD to be created.
         """
@@ -2685,7 +2685,7 @@ class GuestConfigurationNavigationResponse(dict):
     def __init__(__self__, *,
                  content_hash: str,
                  content_uri: str,
-                 configuration_parameter: Optional[List['outputs.ConfigurationParameterResponse']] = None,
+                 configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  kind: Optional[str] = None,
                  name: Optional[str] = None,
@@ -2694,7 +2694,7 @@ class GuestConfigurationNavigationResponse(dict):
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
-        :param List['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
+        :param Sequence['ConfigurationParameterResponseArgs'] configuration_parameter: The configuration parameters for the guest configuration.
         :param 'ConfigurationSettingResponseArgs' configuration_setting: The configuration setting for the guest configuration.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
@@ -2731,7 +2731,7 @@ class GuestConfigurationNavigationResponse(dict):
 
     @property
     @pulumi.getter(name="configurationParameter")
-    def configuration_parameter(self) -> Optional[List['outputs.ConfigurationParameterResponse']]:
+    def configuration_parameter(self) -> Optional[Sequence['outputs.ConfigurationParameterResponse']]:
         """
         The configuration parameters for the guest configuration.
         """
@@ -2805,21 +2805,21 @@ class ImageDataDiskResponse(dict):
     Describes a data disk.
     """
     def __init__(__self__, *,
-                 lun: float,
+                 lun: int,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
                  disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  managed_disk: Optional['outputs.SubResourceResponse'] = None,
                  snapshot: Optional['outputs.SubResourceResponse'] = None,
                  storage_account_type: Optional[str] = None):
         """
         Describes a data disk.
-        :param float lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str blob_uri: The Virtual Hard Disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param 'DiskEncryptionSetParametersResponseArgs' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed image disk.
-        :param float disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'SubResourceResponseArgs' managed_disk: The managedDisk.
         :param 'SubResourceResponseArgs' snapshot: The snapshot.
         :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
@@ -2842,7 +2842,7 @@ class ImageDataDiskResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         """
@@ -2874,7 +2874,7 @@ class ImageDataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -2915,11 +2915,11 @@ class ImageDiskReferenceResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 lun: Optional[float] = None):
+                 lun: Optional[int] = None):
         """
         The source image used for creating the disk.
         :param str id: A relative uri containing either a Platform Image Repository or user image reference.
-        :param float lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        :param int lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         pulumi.set(__self__, "id", id)
         if lun is not None:
@@ -2935,7 +2935,7 @@ class ImageDiskReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[float]:
+    def lun(self) -> Optional[int]:
         """
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
@@ -2956,7 +2956,7 @@ class ImageOSDiskResponse(dict):
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
                  disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  managed_disk: Optional['outputs.SubResourceResponse'] = None,
                  snapshot: Optional['outputs.SubResourceResponse'] = None,
                  storage_account_type: Optional[str] = None):
@@ -2967,7 +2967,7 @@ class ImageOSDiskResponse(dict):
         :param str blob_uri: The Virtual Hard Disk.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param 'DiskEncryptionSetParametersResponseArgs' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed image disk.
-        :param float disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'SubResourceResponseArgs' managed_disk: The managedDisk.
         :param 'SubResourceResponseArgs' snapshot: The snapshot.
         :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
@@ -3031,7 +3031,7 @@ class ImageOSDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -3206,12 +3206,12 @@ class ImageStorageProfileResponse(dict):
     Describes a storage profile.
     """
     def __init__(__self__, *,
-                 data_disks: Optional[List['outputs.ImageDataDiskResponse']] = None,
+                 data_disks: Optional[Sequence['outputs.ImageDataDiskResponse']] = None,
                  os_disk: Optional['outputs.ImageOSDiskResponse'] = None,
                  zone_resilient: Optional[bool] = None):
         """
         Describes a storage profile.
-        :param List['ImageDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['ImageDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param 'ImageOSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param bool zone_resilient: Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
         """
@@ -3224,7 +3224,7 @@ class ImageStorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.ImageDataDiskResponse']]:
+    def data_disks(self) -> Optional[Sequence['outputs.ImageDataDiskResponse']]:
         """
         Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -3513,14 +3513,14 @@ class LastPatchInstallationSummaryResponse(dict):
     """
     def __init__(__self__, *,
                  error: 'outputs.ApiErrorResponse',
-                 excluded_patch_count: float,
-                 failed_patch_count: float,
+                 excluded_patch_count: int,
+                 failed_patch_count: int,
                  installation_activity_id: str,
-                 installed_patch_count: float,
+                 installed_patch_count: int,
                  last_modified_time: str,
                  maintenance_window_exceeded: bool,
-                 not_selected_patch_count: float,
-                 pending_patch_count: float,
+                 not_selected_patch_count: int,
+                 pending_patch_count: int,
                  reboot_status: str,
                  start_time: str,
                  started_by: str,
@@ -3528,14 +3528,14 @@ class LastPatchInstallationSummaryResponse(dict):
         """
         Describes the properties of the last installed patch summary.
         :param 'ApiErrorResponseArgs' error: The errors that were encountered during execution of the operation. The details array contains the list of them.
-        :param float excluded_patch_count: The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
-        :param float failed_patch_count: The count of patches that failed installation.
+        :param int excluded_patch_count: The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
+        :param int failed_patch_count: The count of patches that failed installation.
         :param str installation_activity_id: The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.
-        :param float installed_patch_count: The count of patches that successfully installed.
+        :param int installed_patch_count: The count of patches that successfully installed.
         :param str last_modified_time: The UTC timestamp when the operation began.
         :param bool maintenance_window_exceeded: Describes whether the operation ran out of time before it completed all its intended actions
-        :param float not_selected_patch_count: The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
-        :param float pending_patch_count: The number of all available patches expected to be installed over the course of the patch installation operation.
+        :param int not_selected_patch_count: The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
+        :param int pending_patch_count: The number of all available patches expected to be installed over the course of the patch installation operation.
         :param str reboot_status: The reboot status of the machine after the patch operation. It will be in "NotNeeded" status if reboot is not needed after the patch operation. "Required" will be the status once the patch is applied and machine is required to reboot. "Started" will be the reboot status when the machine has started to reboot. "Failed" will be the status if the machine is failed to reboot. "Completed" will be the status once the machine is rebooted successfully
         :param str start_time: The UTC timestamp when the operation began.
         :param str started_by: The person or system account that started the operation
@@ -3565,7 +3565,7 @@ class LastPatchInstallationSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="excludedPatchCount")
-    def excluded_patch_count(self) -> float:
+    def excluded_patch_count(self) -> int:
         """
         The number of all available patches but excluded explicitly by a customer-specified exclusion list match.
         """
@@ -3573,7 +3573,7 @@ class LastPatchInstallationSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="failedPatchCount")
-    def failed_patch_count(self) -> float:
+    def failed_patch_count(self) -> int:
         """
         The count of patches that failed installation.
         """
@@ -3589,7 +3589,7 @@ class LastPatchInstallationSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="installedPatchCount")
-    def installed_patch_count(self) -> float:
+    def installed_patch_count(self) -> int:
         """
         The count of patches that successfully installed.
         """
@@ -3613,7 +3613,7 @@ class LastPatchInstallationSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="notSelectedPatchCount")
-    def not_selected_patch_count(self) -> float:
+    def not_selected_patch_count(self) -> int:
         """
         The number of all available patches but not going to be installed because it didn't match a classification or inclusion list entry.
         """
@@ -3621,7 +3621,7 @@ class LastPatchInstallationSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="pendingPatchCount")
-    def pending_patch_count(self) -> float:
+    def pending_patch_count(self) -> int:
         """
         The number of all available patches expected to be installed over the course of the patch installation operation.
         """
@@ -3905,17 +3905,17 @@ class NetworkProfileResponse(dict):
     Specifies the network interfaces of the virtual machine.
     """
     def __init__(__self__, *,
-                 network_interfaces: Optional[List['outputs.NetworkInterfaceReferenceResponse']] = None):
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceReferenceResponse']] = None):
         """
         Specifies the network interfaces of the virtual machine.
-        :param List['NetworkInterfaceReferenceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+        :param Sequence['NetworkInterfaceReferenceResponseArgs'] network_interfaces: Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[List['outputs.NetworkInterfaceReferenceResponse']]:
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceReferenceResponse']]:
         """
         Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
         """
@@ -3960,7 +3960,7 @@ class OSDiskResponse(dict):
                  create_option: str,
                  caching: Optional[str] = None,
                  diff_disk_settings: Optional['outputs.DiffDiskSettingsResponse'] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  encryption_settings: Optional['outputs.DiskEncryptionSettingsResponse'] = None,
                  image: Optional['outputs.VirtualHardDiskResponse'] = None,
                  managed_disk: Optional['outputs.ManagedDiskParametersResponse'] = None,
@@ -3973,7 +3973,7 @@ class OSDiskResponse(dict):
         :param str create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
         :param 'DiffDiskSettingsResponseArgs' diff_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
-        :param float disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'DiskEncryptionSettingsResponseArgs' encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         :param 'VirtualHardDiskResponseArgs' image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param 'ManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
@@ -4030,7 +4030,7 @@ class OSDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -4109,7 +4109,7 @@ class OSProfileResponse(dict):
                  custom_data: Optional[str] = None,
                  linux_configuration: Optional['outputs.LinuxConfigurationResponse'] = None,
                  require_guest_provision_signal: Optional[bool] = None,
-                 secrets: Optional[List['outputs.VaultSecretGroupResponse']] = None,
+                 secrets: Optional[Sequence['outputs.VaultSecretGroupResponse']] = None,
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
@@ -4120,7 +4120,7 @@ class OSProfileResponse(dict):
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param bool require_guest_provision_signal: Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
-        :param List['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
+        :param Sequence['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machine.
         :param 'WindowsConfigurationResponseArgs' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
@@ -4200,7 +4200,7 @@ class OSProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.VaultSecretGroupResponse']]:
+    def secrets(self) -> Optional[Sequence['outputs.VaultSecretGroupResponse']]:
         """
         Specifies set of certificates that should be installed onto the virtual machine.
         """
@@ -4504,13 +4504,13 @@ class RegionalReplicationStatusResponse(dict):
     """
     def __init__(__self__, *,
                  details: str,
-                 progress: float,
+                 progress: int,
                  region: str,
                  state: str):
         """
         This is the regional replication status.
         :param str details: The details of the replication status.
-        :param float progress: It indicates progress of the replication job.
+        :param int progress: It indicates progress of the replication job.
         :param str region: The region to which the gallery image version is being replicated to.
         :param str state: This is the regional replication state.
         """
@@ -4529,7 +4529,7 @@ class RegionalReplicationStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def progress(self) -> float:
+    def progress(self) -> int:
         """
         It indicates progress of the replication job.
         """
@@ -4562,11 +4562,11 @@ class ReplicationStatusResponse(dict):
     """
     def __init__(__self__, *,
                  aggregated_state: str,
-                 summary: List['outputs.RegionalReplicationStatusResponse']):
+                 summary: Sequence['outputs.RegionalReplicationStatusResponse']):
         """
         This is the replication status of the gallery image version.
         :param str aggregated_state: This is the aggregated replication status based on all the regional replication status flags.
-        :param List['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
+        :param Sequence['RegionalReplicationStatusResponseArgs'] summary: This is a summary of replication status for each region.
         """
         pulumi.set(__self__, "aggregated_state", aggregated_state)
         pulumi.set(__self__, "summary", summary)
@@ -4581,7 +4581,7 @@ class ReplicationStatusResponse(dict):
 
     @property
     @pulumi.getter
-    def summary(self) -> List['outputs.RegionalReplicationStatusResponse']:
+    def summary(self) -> Sequence['outputs.RegionalReplicationStatusResponse']:
         """
         This is a summary of replication status for each region.
         """
@@ -4597,12 +4597,12 @@ class ResourceRangeResponse(dict):
     Describes the resource range.
     """
     def __init__(__self__, *,
-                 max: Optional[float] = None,
-                 min: Optional[float] = None):
+                 max: Optional[int] = None,
+                 min: Optional[int] = None):
         """
         Describes the resource range.
-        :param float max: The maximum number of the resource.
-        :param float min: The minimum number of the resource.
+        :param int max: The maximum number of the resource.
+        :param int min: The minimum number of the resource.
         """
         if max is not None:
             pulumi.set(__self__, "max", max)
@@ -4611,7 +4611,7 @@ class ResourceRangeResponse(dict):
 
     @property
     @pulumi.getter
-    def max(self) -> Optional[float]:
+    def max(self) -> Optional[int]:
         """
         The maximum number of the resource.
         """
@@ -4619,7 +4619,7 @@ class ResourceRangeResponse(dict):
 
     @property
     @pulumi.getter
-    def min(self) -> Optional[float]:
+    def min(self) -> Optional[int]:
         """
         The minimum number of the resource.
         """
@@ -4635,15 +4635,15 @@ class RollingUpgradePolicyResponse(dict):
     The configuration parameters used while performing a rolling upgrade.
     """
     def __init__(__self__, *,
-                 max_batch_instance_percent: Optional[float] = None,
-                 max_unhealthy_instance_percent: Optional[float] = None,
-                 max_unhealthy_upgraded_instance_percent: Optional[float] = None,
+                 max_batch_instance_percent: Optional[int] = None,
+                 max_unhealthy_instance_percent: Optional[int] = None,
+                 max_unhealthy_upgraded_instance_percent: Optional[int] = None,
                  pause_time_between_batches: Optional[str] = None):
         """
         The configuration parameters used while performing a rolling upgrade.
-        :param float max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
-        :param float max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
-        :param float max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
+        :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
+        :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
+        :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
         """
         if max_batch_instance_percent is not None:
@@ -4657,7 +4657,7 @@ class RollingUpgradePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxBatchInstancePercent")
-    def max_batch_instance_percent(self) -> Optional[float]:
+    def max_batch_instance_percent(self) -> Optional[int]:
         """
         The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
         """
@@ -4665,7 +4665,7 @@ class RollingUpgradePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyInstancePercent")
-    def max_unhealthy_instance_percent(self) -> Optional[float]:
+    def max_unhealthy_instance_percent(self) -> Optional[int]:
         """
         The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
         """
@@ -4673,7 +4673,7 @@ class RollingUpgradePolicyResponse(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
-    def max_unhealthy_upgraded_instance_percent(self) -> Optional[float]:
+    def max_unhealthy_upgraded_instance_percent(self) -> Optional[int]:
         """
         The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
         """
@@ -4697,17 +4697,17 @@ class ScaleInPolicyResponse(dict):
     Describes a scale-in policy for a virtual machine scale set.
     """
     def __init__(__self__, *,
-                 rules: Optional[List[str]] = None):
+                 rules: Optional[Sequence[str]] = None):
         """
         Describes a scale-in policy for a virtual machine scale set.
-        :param List[str] rules: The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
+        :param Sequence[str] rules: The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List[str]]:
+    def rules(self) -> Optional[Sequence[str]]:
         """
         The rules to be followed when scaling-in a virtual machine scale set. <br><br> Possible values are: <br><br> **Default** When a virtual machine scale set is scaled in, the scale set will first be balanced across zones if it is a zonal scale set. Then, it will be balanced across Fault Domains as far as possible. Within each Fault Domain, the virtual machines chosen for removal will be the newest ones that are not protected from scale-in. <br><br> **OldestVM** When a virtual machine scale set is being scaled-in, the oldest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the oldest virtual machines that are not protected will be chosen for removal. <br><br> **NewestVM** When a virtual machine scale set is being scaled-in, the newest virtual machines that are not protected from scale-in will be chosen for removal. For zonal virtual machine scale sets, the scale set will first be balanced across zones. Within each zone, the newest virtual machines that are not protected will be chosen for removal. <br><br>
         """
@@ -4792,11 +4792,11 @@ class SharingProfileGroupResponse(dict):
     Group of the gallery sharing profile
     """
     def __init__(__self__, *,
-                 ids: Optional[List[str]] = None,
+                 ids: Optional[Sequence[str]] = None,
                  type: Optional[str] = None):
         """
         Group of the gallery sharing profile
-        :param List[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
+        :param Sequence[str] ids: A list of subscription/tenant ids the gallery is aimed to be shared to.
         :param str type: This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
         """
         if ids is not None:
@@ -4806,7 +4806,7 @@ class SharingProfileGroupResponse(dict):
 
     @property
     @pulumi.getter
-    def ids(self) -> Optional[List[str]]:
+    def ids(self) -> Optional[Sequence[str]]:
         """
         A list of subscription/tenant ids the gallery is aimed to be shared to.
         """
@@ -4830,11 +4830,11 @@ class SharingProfileResponse(dict):
     Profile for gallery sharing to subscription or tenant
     """
     def __init__(__self__, *,
-                 groups: List['outputs.SharingProfileGroupResponse'],
+                 groups: Sequence['outputs.SharingProfileGroupResponse'],
                  permissions: Optional[str] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param List['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
+        :param Sequence['SharingProfileGroupResponseArgs'] groups: A list of sharing profile groups.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         pulumi.set(__self__, "groups", groups)
@@ -4843,7 +4843,7 @@ class SharingProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> List['outputs.SharingProfileGroupResponse']:
+    def groups(self) -> Sequence['outputs.SharingProfileGroupResponse']:
         """
         A list of sharing profile groups.
         """
@@ -4867,12 +4867,12 @@ class SkuResponse(dict):
     Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Describes a virtual machine scale set sku. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
-        :param float capacity: Specifies the number of virtual machines in the scale set.
+        :param int capacity: Specifies the number of virtual machines in the scale set.
         :param str name: The sku name.
         :param str tier: Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
         """
@@ -4885,7 +4885,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Specifies the number of virtual machines in the scale set.
         """
@@ -4980,17 +4980,17 @@ class SshConfigurationResponse(dict):
     SSH configuration for Linux based VMs running on Azure
     """
     def __init__(__self__, *,
-                 public_keys: Optional[List['outputs.SshPublicKeyResponse']] = None):
+                 public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
-        :param List['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        :param Sequence['SshPublicKeyResponseArgs'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[List['outputs.SshPublicKeyResponse']]:
+    def public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyResponse']]:
         """
         The list of SSH public keys used to authenticate with linux based VMs.
         """
@@ -5044,12 +5044,12 @@ class StorageProfileResponse(dict):
     Specifies the storage settings for the virtual machine disks.
     """
     def __init__(__self__, *,
-                 data_disks: Optional[List['outputs.DataDiskResponse']] = None,
+                 data_disks: Optional[Sequence['outputs.DataDiskResponse']] = None,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.OSDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
-        :param List['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['DataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param 'ImageReferenceResponseArgs' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         :param 'OSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -5062,7 +5062,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.DataDiskResponse']]:
+    def data_disks(self) -> Optional[Sequence['outputs.DataDiskResponse']]:
         """
         Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -5173,13 +5173,13 @@ class TargetRegionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  encryption: Optional['outputs.EncryptionImagesResponse'] = None,
-                 regional_replica_count: Optional[float] = None,
+                 regional_replica_count: Optional[int] = None,
                  storage_account_type: Optional[str] = None):
         """
         Describes the target region information.
         :param str name: The name of the region.
         :param 'EncryptionImagesResponseArgs' encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-        :param float regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
+        :param int regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
         :param str storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
@@ -5208,7 +5208,7 @@ class TargetRegionResponse(dict):
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> Optional[float]:
+    def regional_replica_count(self) -> Optional[int]:
         """
         The number of replicas of the Image Version to be created per region. This property is updatable.
         """
@@ -5427,11 +5427,11 @@ class VaultSecretGroupResponse(dict):
     """
     def __init__(__self__, *,
                  source_vault: Optional['outputs.SubResourceResponse'] = None,
-                 vault_certificates: Optional[List['outputs.VaultCertificateResponse']] = None):
+                 vault_certificates: Optional[Sequence['outputs.VaultCertificateResponse']] = None):
         """
         Describes a set of certificates which are all in the same Key Vault.
         :param 'SubResourceResponseArgs' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-        :param List['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
+        :param Sequence['VaultCertificateResponseArgs'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
         if source_vault is not None:
             pulumi.set(__self__, "source_vault", source_vault)
@@ -5448,7 +5448,7 @@ class VaultSecretGroupResponse(dict):
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[List['outputs.VaultCertificateResponse']]:
+    def vault_certificates(self) -> Optional[Sequence['outputs.VaultCertificateResponse']]:
         """
         The list of key vault references in SourceVault which contain certificates.
         """
@@ -5490,13 +5490,13 @@ class VirtualMachineAgentInstanceViewResponse(dict):
     The instance view of the VM Agent running on the virtual machine.
     """
     def __init__(__self__, *,
-                 extension_handlers: Optional[List['outputs.VirtualMachineExtensionHandlerInstanceViewResponse']] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None,
+                 extension_handlers: Optional[Sequence['outputs.VirtualMachineExtensionHandlerInstanceViewResponse']] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
                  vm_agent_version: Optional[str] = None):
         """
         The instance view of the VM Agent running on the virtual machine.
-        :param List['VirtualMachineExtensionHandlerInstanceViewResponseArgs'] extension_handlers: The virtual machine extension handler instance view.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['VirtualMachineExtensionHandlerInstanceViewResponseArgs'] extension_handlers: The virtual machine extension handler instance view.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         :param str vm_agent_version: The VM Agent full version.
         """
         if extension_handlers is not None:
@@ -5508,7 +5508,7 @@ class VirtualMachineAgentInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="extensionHandlers")
-    def extension_handlers(self) -> Optional[List['outputs.VirtualMachineExtensionHandlerInstanceViewResponse']]:
+    def extension_handlers(self) -> Optional[Sequence['outputs.VirtualMachineExtensionHandlerInstanceViewResponse']]:
         """
         The virtual machine extension handler instance view.
         """
@@ -5516,7 +5516,7 @@ class VirtualMachineAgentInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -5591,15 +5591,15 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None,
-                 substatuses: Optional[List['outputs.InstanceViewStatusResponse']] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
+                 substatuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
                  type: Optional[str] = None,
                  type_handler_version: Optional[str] = None):
         """
         The instance view of a virtual machine extension.
         :param str name: The virtual machine extension name.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
-        :param List['InstanceViewStatusResponseArgs'] substatuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] substatuses: The resource status information.
         :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param str type_handler_version: Specifies the version of the script handler.
         """
@@ -5624,7 +5624,7 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -5632,7 +5632,7 @@ class VirtualMachineExtensionInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def substatuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def substatuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -5962,17 +5962,17 @@ class VirtualMachineInstanceViewResponse(dict):
                  vm_health: 'outputs.VirtualMachineHealthStatusResponse',
                  boot_diagnostics: Optional['outputs.BootDiagnosticsInstanceViewResponse'] = None,
                  computer_name: Optional[str] = None,
-                 disks: Optional[List['outputs.DiskInstanceViewResponse']] = None,
-                 extensions: Optional[List['outputs.VirtualMachineExtensionInstanceViewResponse']] = None,
+                 disks: Optional[Sequence['outputs.DiskInstanceViewResponse']] = None,
+                 extensions: Optional[Sequence['outputs.VirtualMachineExtensionInstanceViewResponse']] = None,
                  hyper_v_generation: Optional[str] = None,
                  maintenance_redeploy_status: Optional['outputs.MaintenanceRedeployStatusResponse'] = None,
                  os_name: Optional[str] = None,
                  os_version: Optional[str] = None,
                  patch_status: Optional['outputs.VirtualMachinePatchStatusResponse'] = None,
-                 platform_fault_domain: Optional[float] = None,
-                 platform_update_domain: Optional[float] = None,
+                 platform_fault_domain: Optional[int] = None,
+                 platform_update_domain: Optional[int] = None,
                  rdp_thumb_print: Optional[str] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
                  vm_agent: Optional['outputs.VirtualMachineAgentInstanceViewResponse'] = None):
         """
         The instance view of a virtual machine.
@@ -5980,17 +5980,17 @@ class VirtualMachineInstanceViewResponse(dict):
         :param 'VirtualMachineHealthStatusResponseArgs' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
         :param str computer_name: The computer name assigned to the virtual machine.
-        :param List['DiskInstanceViewResponseArgs'] disks: The virtual machine disk information.
-        :param List['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
+        :param Sequence['DiskInstanceViewResponseArgs'] disks: The virtual machine disk information.
+        :param Sequence['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
         :param str hyper_v_generation: Specifies the HyperVGeneration Type associated with a resource
         :param 'MaintenanceRedeployStatusResponseArgs' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
         :param str os_name: The Operating System running on the virtual machine.
         :param str os_version: The version of Operating System running on the virtual machine.
         :param 'VirtualMachinePatchStatusResponseArgs' patch_status: The status of virtual machine patch operations.
-        :param float platform_fault_domain: Specifies the fault domain of the virtual machine.
-        :param float platform_update_domain: Specifies the update domain of the virtual machine.
+        :param int platform_fault_domain: Specifies the fault domain of the virtual machine.
+        :param int platform_update_domain: Specifies the update domain of the virtual machine.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         :param 'VirtualMachineAgentInstanceViewResponseArgs' vm_agent: The VM Agent running on the virtual machine.
         """
         pulumi.set(__self__, "assigned_host", assigned_host)
@@ -6058,7 +6058,7 @@ class VirtualMachineInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[List['outputs.DiskInstanceViewResponse']]:
+    def disks(self) -> Optional[Sequence['outputs.DiskInstanceViewResponse']]:
         """
         The virtual machine disk information.
         """
@@ -6066,7 +6066,7 @@ class VirtualMachineInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.VirtualMachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.VirtualMachineExtensionInstanceViewResponse']]:
         """
         The extensions information.
         """
@@ -6114,7 +6114,7 @@ class VirtualMachineInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[float]:
+    def platform_fault_domain(self) -> Optional[int]:
         """
         Specifies the fault domain of the virtual machine.
         """
@@ -6122,7 +6122,7 @@ class VirtualMachineInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="platformUpdateDomain")
-    def platform_update_domain(self) -> Optional[float]:
+    def platform_update_domain(self) -> Optional[int]:
         """
         Specifies the update domain of the virtual machine.
         """
@@ -6138,7 +6138,7 @@ class VirtualMachineInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -6201,22 +6201,22 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
     """
     def __init__(__self__, *,
                  create_option: str,
-                 lun: float,
+                 lun: int,
                  caching: Optional[str] = None,
-                 disk_iops_read_write: Optional[float] = None,
-                 disk_m_bps_read_write: Optional[float] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_iops_read_write: Optional[int] = None,
+                 disk_m_bps_read_write: Optional[int] = None,
+                 disk_size_gb: Optional[int] = None,
                  managed_disk: Optional['outputs.VirtualMachineScaleSetManagedDiskParametersResponse'] = None,
                  name: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         Describes a virtual machine scale set data disk.
         :param str create_option: The create option.
-        :param float lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        :param int lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-        :param float disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-        :param float disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
-        :param float disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_iops_read_write: Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        :param int disk_m_bps_read_write: Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
+        :param int disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'VirtualMachineScaleSetManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
         :param str name: The disk name.
         :param bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
@@ -6248,7 +6248,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         """
@@ -6264,7 +6264,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> Optional[float]:
+    def disk_iops_read_write(self) -> Optional[int]:
         """
         Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         """
@@ -6272,7 +6272,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> Optional[float]:
+    def disk_m_bps_read_write(self) -> Optional[int]:
         """
         Specifies the bandwidth in MB per second for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
         """
@@ -6280,7 +6280,7 @@ class VirtualMachineScaleSetDataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -6320,11 +6320,11 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
     Describes a virtual machine scale set extension profile.
     """
     def __init__(__self__, *,
-                 extensions: Optional[List['outputs.VirtualMachineScaleSetExtensionResponse']] = None,
+                 extensions: Optional[Sequence['outputs.VirtualMachineScaleSetExtensionResponse']] = None,
                  extensions_time_budget: Optional[str] = None):
         """
         Describes a virtual machine scale set extension profile.
-        :param List['VirtualMachineScaleSetExtensionResponseArgs'] extensions: The virtual machine scale set child extension resources.
+        :param Sequence['VirtualMachineScaleSetExtensionResponseArgs'] extensions: The virtual machine scale set child extension resources.
         :param str extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
         """
         if extensions is not None:
@@ -6334,7 +6334,7 @@ class VirtualMachineScaleSetExtensionProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.VirtualMachineScaleSetExtensionResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.VirtualMachineScaleSetExtensionResponse']]:
         """
         The virtual machine scale set child extension resources.
         """
@@ -6366,7 +6366,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
                  force_update_tag: Optional[str] = None,
                  name: Optional[str] = None,
                  protected_settings: Optional[Mapping[str, Any]] = None,
-                 provision_after_extensions: Optional[List[str]] = None,
+                 provision_after_extensions: Optional[Sequence[str]] = None,
                  publisher: Optional[str] = None,
                  settings: Optional[Mapping[str, Any]] = None,
                  type_handler_version: Optional[str] = None):
@@ -6380,7 +6380,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
         :param str force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param str name: The name of the extension.
         :param Mapping[str, Any] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-        :param List[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param Sequence[str] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param str publisher: The name of the extension handler publisher.
         :param Mapping[str, Any] settings: Json formatted public settings for the extension.
         :param str type_handler_version: Specifies the version of the script handler.
@@ -6473,7 +6473,7 @@ class VirtualMachineScaleSetExtensionResponse(dict):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         Collection of extension names after which this extension needs to be provisioned.
         """
@@ -6514,11 +6514,11 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 application_gateway_backend_address_pools: Optional[List['outputs.SubResourceResponse']] = None,
-                 application_security_groups: Optional[List['outputs.SubResourceResponse']] = None,
+                 application_gateway_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 application_security_groups: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  id: Optional[str] = None,
-                 load_balancer_backend_address_pools: Optional[List['outputs.SubResourceResponse']] = None,
-                 load_balancer_inbound_nat_pools: Optional[List['outputs.SubResourceResponse']] = None,
+                 load_balancer_backend_address_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 load_balancer_inbound_nat_pools: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  primary: Optional[bool] = None,
                  private_ip_address_version: Optional[str] = None,
                  public_ip_address_configuration: Optional['outputs.VirtualMachineScaleSetPublicIPAddressConfigurationResponse'] = None,
@@ -6526,11 +6526,11 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
         """
         Describes a virtual machine scale set network profile's IP configuration.
         :param str name: The IP configuration name.
-        :param List['SubResourceResponseArgs'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-        :param List['SubResourceResponseArgs'] application_security_groups: Specifies an array of references to application security group.
+        :param Sequence['SubResourceResponseArgs'] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+        :param Sequence['SubResourceResponseArgs'] application_security_groups: Specifies an array of references to application security group.
         :param str id: Resource Id
-        :param List['SubResourceResponseArgs'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-        :param List['SubResourceResponseArgs'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+        :param Sequence['SubResourceResponseArgs'] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+        :param Sequence['SubResourceResponseArgs'] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         :param bool primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         :param str private_ip_address_version: Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
         :param 'VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs' public_ip_address_configuration: The publicIPAddressConfiguration.
@@ -6566,7 +6566,7 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPools")
-    def application_gateway_backend_address_pools(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def application_gateway_backend_address_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
         """
@@ -6574,7 +6574,7 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="applicationSecurityGroups")
-    def application_security_groups(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def application_security_groups(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Specifies an array of references to application security group.
         """
@@ -6590,7 +6590,7 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         """
@@ -6598,7 +6598,7 @@ class VirtualMachineScaleSetIPConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatPools")
-    def load_balancer_inbound_nat_pools(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def load_balancer_inbound_nat_pools(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
         """
@@ -6814,17 +6814,17 @@ class VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse(dict):
     Describes a virtual machines scale sets network configuration's DNS settings.
     """
     def __init__(__self__, *,
-                 dns_servers: Optional[List[str]] = None):
+                 dns_servers: Optional[Sequence[str]] = None):
         """
         Describes a virtual machines scale sets network configuration's DNS settings.
-        :param List[str] dns_servers: List of DNS servers IP addresses
+        :param Sequence[str] dns_servers: List of DNS servers IP addresses
         """
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         List of DNS servers IP addresses
         """
@@ -6840,7 +6840,7 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
     Describes a virtual machine scale set network profile's network configurations.
     """
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.VirtualMachineScaleSetIPConfigurationResponse'],
+                 ip_configurations: Sequence['outputs.VirtualMachineScaleSetIPConfigurationResponse'],
                  name: str,
                  dns_settings: Optional['outputs.VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse'] = None,
                  enable_accelerated_networking: Optional[bool] = None,
@@ -6850,7 +6850,7 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
                  primary: Optional[bool] = None):
         """
         Describes a virtual machine scale set network profile's network configurations.
-        :param List['VirtualMachineScaleSetIPConfigurationResponseArgs'] ip_configurations: Specifies the IP configurations of the network interface.
+        :param Sequence['VirtualMachineScaleSetIPConfigurationResponseArgs'] ip_configurations: Specifies the IP configurations of the network interface.
         :param str name: The network configuration name.
         :param 'VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseArgs' dns_settings: The dns settings to be applied on the network interfaces.
         :param bool enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
@@ -6876,7 +6876,7 @@ class VirtualMachineScaleSetNetworkConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.VirtualMachineScaleSetIPConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.VirtualMachineScaleSetIPConfigurationResponse']:
         """
         Specifies the IP configurations of the network interface.
         """
@@ -6949,11 +6949,11 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
     """
     def __init__(__self__, *,
                  health_probe: Optional['outputs.ApiEntityReferenceResponse'] = None,
-                 network_interface_configurations: Optional[List['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
+                 network_interface_configurations: Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
         """
         Describes a virtual machine scale set network profile.
         :param 'ApiEntityReferenceResponseArgs' health_probe: A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-        :param List['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
+        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
         """
         if health_probe is not None:
             pulumi.set(__self__, "health_probe", health_probe)
@@ -6970,7 +6970,7 @@ class VirtualMachineScaleSetNetworkProfileResponse(dict):
 
     @property
     @pulumi.getter(name="networkInterfaceConfigurations")
-    def network_interface_configurations(self) -> Optional[List['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']]:
+    def network_interface_configurations(self) -> Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']]:
         """
         The list of network configurations.
         """
@@ -6989,24 +6989,24 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
                  create_option: str,
                  caching: Optional[str] = None,
                  diff_disk_settings: Optional['outputs.DiffDiskSettingsResponse'] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  image: Optional['outputs.VirtualHardDiskResponse'] = None,
                  managed_disk: Optional['outputs.VirtualMachineScaleSetManagedDiskParametersResponse'] = None,
                  name: Optional[str] = None,
                  os_type: Optional[str] = None,
-                 vhd_containers: Optional[List[str]] = None,
+                 vhd_containers: Optional[Sequence[str]] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         Describes a virtual machine scale set operating system disk.
         :param str create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param str caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param 'DiffDiskSettingsResponseArgs' diff_disk_settings: Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
-        :param float disk_size_gb: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        :param int disk_size_gb: Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param 'VirtualHardDiskResponseArgs' image: Specifies information about the unmanaged user image to base the scale set on.
         :param 'VirtualMachineScaleSetManagedDiskParametersResponseArgs' managed_disk: The managed disk parameters.
         :param str name: The disk name.
         :param str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-        :param List[str] vhd_containers: Specifies the container urls that are used to store operating system disks for the scale set.
+        :param Sequence[str] vhd_containers: Specifies the container urls that are used to store operating system disks for the scale set.
         :param bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -7055,7 +7055,7 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         """
@@ -7095,7 +7095,7 @@ class VirtualMachineScaleSetOSDiskResponse(dict):
 
     @property
     @pulumi.getter(name="vhdContainers")
-    def vhd_containers(self) -> Optional[List[str]]:
+    def vhd_containers(self) -> Optional[Sequence[str]]:
         """
         Specifies the container urls that are used to store operating system disks for the scale set.
         """
@@ -7124,7 +7124,7 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
                  computer_name_prefix: Optional[str] = None,
                  custom_data: Optional[str] = None,
                  linux_configuration: Optional['outputs.LinuxConfigurationResponse'] = None,
-                 secrets: Optional[List['outputs.VaultSecretGroupResponse']] = None,
+                 secrets: Optional[Sequence['outputs.VaultSecretGroupResponse']] = None,
                  windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None):
         """
         Describes a virtual machine scale set OS profile.
@@ -7133,7 +7133,7 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
         :param str computer_name_prefix: Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         :param str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param 'LinuxConfigurationResponseArgs' linux_configuration: Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-        :param List['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machines in the scale set.
+        :param Sequence['VaultSecretGroupResponseArgs'] secrets: Specifies set of certificates that should be installed onto the virtual machines in the scale set.
         :param 'WindowsConfigurationResponseArgs' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
@@ -7193,7 +7193,7 @@ class VirtualMachineScaleSetOSProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.VaultSecretGroupResponse']]:
+    def secrets(self) -> Optional[Sequence['outputs.VaultSecretGroupResponse']]:
         """
         Specifies set of certificates that should be installed onto the virtual machines in the scale set.
         """
@@ -7244,16 +7244,16 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  dns_settings: Optional['outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse'] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
-                 ip_tags: Optional[List['outputs.VirtualMachineScaleSetIpTagResponse']] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 ip_tags: Optional[Sequence['outputs.VirtualMachineScaleSetIpTagResponse']] = None,
                  public_ip_address_version: Optional[str] = None,
                  public_ip_prefix: Optional['outputs.SubResourceResponse'] = None):
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
         :param str name: The publicIP address configuration name.
         :param 'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseArgs' dns_settings: The dns settings to be applied on the publicIP addresses .
-        :param float idle_timeout_in_minutes: The idle timeout of the public IP address.
-        :param List['VirtualMachineScaleSetIpTagResponseArgs'] ip_tags: The list of IP tags associated with the public IP address.
+        :param int idle_timeout_in_minutes: The idle timeout of the public IP address.
+        :param Sequence['VirtualMachineScaleSetIpTagResponseArgs'] ip_tags: The list of IP tags associated with the public IP address.
         :param str public_ip_address_version: Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
         :param 'SubResourceResponseArgs' public_ip_prefix: The PublicIPPrefix from which to allocate publicIP addresses.
         """
@@ -7287,7 +7287,7 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         The idle timeout of the public IP address.
         """
@@ -7295,7 +7295,7 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[List['outputs.VirtualMachineScaleSetIpTagResponse']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.VirtualMachineScaleSetIpTagResponse']]:
         """
         The list of IP tags associated with the public IP address.
         """
@@ -7327,12 +7327,12 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
     Describes a virtual machine scale set storage profile.
     """
     def __init__(__self__, *,
-                 data_disks: Optional[List['outputs.VirtualMachineScaleSetDataDiskResponse']] = None,
+                 data_disks: Optional[Sequence['outputs.VirtualMachineScaleSetDataDiskResponse']] = None,
                  image_reference: Optional['outputs.ImageReferenceResponse'] = None,
                  os_disk: Optional['outputs.VirtualMachineScaleSetOSDiskResponse'] = None):
         """
         Describes a virtual machine scale set storage profile.
-        :param List['VirtualMachineScaleSetDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        :param Sequence['VirtualMachineScaleSetDataDiskResponseArgs'] data_disks: Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param 'ImageReferenceResponseArgs' image_reference: Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         :param 'VirtualMachineScaleSetOSDiskResponseArgs' os_disk: Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -7345,7 +7345,7 @@ class VirtualMachineScaleSetStorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.VirtualMachineScaleSetDataDiskResponse']]:
+    def data_disks(self) -> Optional[Sequence['outputs.VirtualMachineScaleSetDataDiskResponse']]:
         """
         Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         """
@@ -7380,28 +7380,28 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
                  assigned_host: str,
                  vm_health: 'outputs.VirtualMachineHealthStatusResponse',
                  boot_diagnostics: Optional['outputs.BootDiagnosticsInstanceViewResponse'] = None,
-                 disks: Optional[List['outputs.DiskInstanceViewResponse']] = None,
-                 extensions: Optional[List['outputs.VirtualMachineExtensionInstanceViewResponse']] = None,
+                 disks: Optional[Sequence['outputs.DiskInstanceViewResponse']] = None,
+                 extensions: Optional[Sequence['outputs.VirtualMachineExtensionInstanceViewResponse']] = None,
                  maintenance_redeploy_status: Optional['outputs.MaintenanceRedeployStatusResponse'] = None,
                  placement_group_id: Optional[str] = None,
-                 platform_fault_domain: Optional[float] = None,
-                 platform_update_domain: Optional[float] = None,
+                 platform_fault_domain: Optional[int] = None,
+                 platform_update_domain: Optional[int] = None,
                  rdp_thumb_print: Optional[str] = None,
-                 statuses: Optional[List['outputs.InstanceViewStatusResponse']] = None,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
                  vm_agent: Optional['outputs.VirtualMachineAgentInstanceViewResponse'] = None):
         """
         The instance view of a virtual machine scale set VM.
         :param str assigned_host: Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. <br><br>Minimum api-version: 2020-06-01.
         :param 'VirtualMachineHealthStatusResponseArgs' vm_health: The health status for the VM.
         :param 'BootDiagnosticsInstanceViewResponseArgs' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-        :param List['DiskInstanceViewResponseArgs'] disks: The disks information.
-        :param List['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
+        :param Sequence['DiskInstanceViewResponseArgs'] disks: The disks information.
+        :param Sequence['VirtualMachineExtensionInstanceViewResponseArgs'] extensions: The extensions information.
         :param 'MaintenanceRedeployStatusResponseArgs' maintenance_redeploy_status: The Maintenance Operation status on the virtual machine.
         :param str placement_group_id: The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
-        :param float platform_fault_domain: The Fault Domain count.
-        :param float platform_update_domain: The Update Domain count.
+        :param int platform_fault_domain: The Fault Domain count.
+        :param int platform_update_domain: The Update Domain count.
         :param str rdp_thumb_print: The Remote desktop certificate thumbprint.
-        :param List['InstanceViewStatusResponseArgs'] statuses: The resource status information.
+        :param Sequence['InstanceViewStatusResponseArgs'] statuses: The resource status information.
         :param 'VirtualMachineAgentInstanceViewResponseArgs' vm_agent: The VM Agent running on the virtual machine.
         """
         pulumi.set(__self__, "assigned_host", assigned_host)
@@ -7453,7 +7453,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def disks(self) -> Optional[List['outputs.DiskInstanceViewResponse']]:
+    def disks(self) -> Optional[Sequence['outputs.DiskInstanceViewResponse']]:
         """
         The disks information.
         """
@@ -7461,7 +7461,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.VirtualMachineExtensionInstanceViewResponse']]:
+    def extensions(self) -> Optional[Sequence['outputs.VirtualMachineExtensionInstanceViewResponse']]:
         """
         The extensions information.
         """
@@ -7485,7 +7485,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> Optional[float]:
+    def platform_fault_domain(self) -> Optional[int]:
         """
         The Fault Domain count.
         """
@@ -7493,7 +7493,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
 
     @property
     @pulumi.getter(name="platformUpdateDomain")
-    def platform_update_domain(self) -> Optional[float]:
+    def platform_update_domain(self) -> Optional[int]:
         """
         The Update Domain count.
         """
@@ -7509,7 +7509,7 @@ class VirtualMachineScaleSetVMInstanceViewResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.InstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
         """
         The resource status information.
         """
@@ -7533,17 +7533,17 @@ class VirtualMachineScaleSetVMNetworkProfileConfigurationResponse(dict):
     Describes a virtual machine scale set VM network profile.
     """
     def __init__(__self__, *,
-                 network_interface_configurations: Optional[List['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
+                 network_interface_configurations: Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']] = None):
         """
         Describes a virtual machine scale set VM network profile.
-        :param List['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
+        :param Sequence['VirtualMachineScaleSetNetworkConfigurationResponseArgs'] network_interface_configurations: The list of network configurations.
         """
         if network_interface_configurations is not None:
             pulumi.set(__self__, "network_interface_configurations", network_interface_configurations)
 
     @property
     @pulumi.getter(name="networkInterfaceConfigurations")
-    def network_interface_configurations(self) -> Optional[List['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']]:
+    def network_interface_configurations(self) -> Optional[Sequence['outputs.VirtualMachineScaleSetNetworkConfigurationResponse']]:
         """
         The list of network configurations.
         """
@@ -7743,17 +7743,17 @@ class WinRMConfigurationResponse(dict):
     Describes Windows Remote Management configuration of the VM
     """
     def __init__(__self__, *,
-                 listeners: Optional[List['outputs.WinRMListenerResponse']] = None):
+                 listeners: Optional[Sequence['outputs.WinRMListenerResponse']] = None):
         """
         Describes Windows Remote Management configuration of the VM
-        :param List['WinRMListenerResponseArgs'] listeners: The list of Windows Remote Management listeners
+        :param Sequence['WinRMListenerResponseArgs'] listeners: The list of Windows Remote Management listeners
         """
         if listeners is not None:
             pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
-    def listeners(self) -> Optional[List['outputs.WinRMListenerResponse']]:
+    def listeners(self) -> Optional[Sequence['outputs.WinRMListenerResponse']]:
         """
         The list of Windows Remote Management listeners
         """
@@ -7807,7 +7807,7 @@ class WindowsConfigurationResponse(dict):
     Specifies Windows operating system settings on the virtual machine.
     """
     def __init__(__self__, *,
-                 additional_unattend_content: Optional[List['outputs.AdditionalUnattendContentResponse']] = None,
+                 additional_unattend_content: Optional[Sequence['outputs.AdditionalUnattendContentResponse']] = None,
                  enable_automatic_updates: Optional[bool] = None,
                  patch_settings: Optional['outputs.PatchSettingsResponse'] = None,
                  provision_vm_agent: Optional[bool] = None,
@@ -7815,7 +7815,7 @@ class WindowsConfigurationResponse(dict):
                  win_rm: Optional['outputs.WinRMConfigurationResponse'] = None):
         """
         Specifies Windows operating system settings on the virtual machine.
-        :param List['AdditionalUnattendContentResponseArgs'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+        :param Sequence['AdditionalUnattendContentResponseArgs'] additional_unattend_content: Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         :param bool enable_automatic_updates: Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
         :param 'PatchSettingsResponseArgs' patch_settings: Specifies settings related to in-guest patching (KBs).
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
@@ -7837,7 +7837,7 @@ class WindowsConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="additionalUnattendContent")
-    def additional_unattend_content(self) -> Optional[List['outputs.AdditionalUnattendContentResponse']]:
+    def additional_unattend_content(self) -> Optional[Sequence['outputs.AdditionalUnattendContentResponse']]:
         """
         Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,14 +17,14 @@ __all__ = [
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         The billing information of the resource.(e.g. basic vs. standard)
         :param pulumi.Input[str] name: The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
-        :param pulumi.Input[float] capacity: Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
+        :param pulumi.Input[int] capacity: Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
                possible for the resource this may be omitted.
         :param pulumi.Input[str] family: Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
@@ -54,7 +54,7 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
         possible for the resource this may be omitted.
@@ -62,7 +62,7 @@ class ResourceSkuArgs:
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// Authentication certificates of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult> AuthenticationCertificates;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponse> AuthenticationCertificates;
         /// <summary>
         /// Backend address pool of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> BackendAddressPools;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> BackendAddressPools;
         /// <summary>
         /// Backend http settings of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> BackendHttpSettingsCollection;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> BackendHttpSettingsCollection;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -58,19 +58,19 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// Frontend IP addresses of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> FrontendIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> FrontendIPConfigurations;
         /// <summary>
         /// Frontend ports of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> FrontendPorts;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> FrontendPorts;
         /// <summary>
         /// Subnets of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> GatewayIPConfigurations;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> GatewayIPConfigurations;
         /// <summary>
         /// HTTP listeners of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> HttpListeners;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> HttpListeners;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// Probes of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> Probes;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeResponse> Probes;
         /// <summary>
         /// Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// Request routing rules of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> RequestRoutingRules;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> RequestRoutingRules;
         /// <summary>
         /// Resource guid property of the ApplicationGateway resource
         /// </summary>
@@ -102,15 +102,15 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// Sku of application gateway resource
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySkuResponseResult? Sku;
+        public readonly Outputs.ApplicationGatewaySkuResponse? Sku;
         /// <summary>
         /// SSL certificates of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> SslCertificates;
+        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> SslCertificates;
         /// <summary>
         /// SSL policy of application gateway resource
         /// </summary>
-        public readonly Outputs.ApplicationGatewaySslPolicyResponseResult? SslPolicy;
+        public readonly Outputs.ApplicationGatewaySslPolicyResponse? SslPolicy;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -122,25 +122,25 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// <summary>
         /// URL path map of application gateway resource
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> UrlPathMaps;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse> UrlPathMaps;
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
-            ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult> authenticationCertificates,
+            ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponse> authenticationCertificates,
 
-            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> backendAddressPools,
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse> backendAddressPools,
 
-            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> backendHttpSettingsCollection,
+            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse> backendHttpSettingsCollection,
 
             string? etag,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> frontendIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse> frontendIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> frontendPorts,
+            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse> frontendPorts,
 
-            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> gatewayIPConfigurations,
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> gatewayIPConfigurations,
 
-            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> httpListeners,
+            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> httpListeners,
 
             string? location,
 
@@ -148,25 +148,25 @@ namespace Pulumi.AzureRM.Network.V20160601
 
             string operationalState,
 
-            ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> probes,
+            ImmutableArray<Outputs.ApplicationGatewayProbeResponse> probes,
 
             string? provisioningState,
 
-            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> requestRoutingRules,
+            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse> requestRoutingRules,
 
             string? resourceGuid,
 
-            Outputs.ApplicationGatewaySkuResponseResult? sku,
+            Outputs.ApplicationGatewaySkuResponse? sku,
 
-            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> sslCertificates,
+            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse> sslCertificates,
 
-            Outputs.ApplicationGatewaySslPolicyResponseResult? sslPolicy,
+            Outputs.ApplicationGatewaySslPolicyResponse? sslPolicy,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> urlPathMaps)
+            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse> urlPathMaps)
         {
             AuthenticationCertificates = authenticationCertificates;
             BackendAddressPools = backendAddressPools;

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['RouteFilterRule']
@@ -16,7 +16,7 @@ class RouteFilterRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
-                 communities: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class RouteFilterRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: The access type of the rule. Valid values are: 'Allow', 'Deny'
-        :param pulumi.Input[List[pulumi.Input[str]]] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -119,7 +119,7 @@ class RouteFilterRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def communities(self) -> pulumi.Output[List[str]]:
+    def communities(self) -> pulumi.Output[Sequence[str]]:
         """
         The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
         """

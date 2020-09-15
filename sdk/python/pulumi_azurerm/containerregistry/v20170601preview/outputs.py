@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -587,19 +587,19 @@ class TargetResponseResult(dict):
     """
     def __init__(__self__, *,
                  digest: Optional[str] = None,
-                 length: Optional[float] = None,
+                 length: Optional[int] = None,
                  media_type: Optional[str] = None,
                  repository: Optional[str] = None,
-                 size: Optional[float] = None,
+                 size: Optional[int] = None,
                  tag: Optional[str] = None,
                  url: Optional[str] = None):
         """
         The target of the event.
         :param str digest: The digest of the content, as defined by the Registry V2 HTTP API Specification.
-        :param float length: The number of bytes of the content. Same as Size field.
+        :param int length: The number of bytes of the content. Same as Size field.
         :param str media_type: The MIME type of the referenced object.
         :param str repository: The repository name.
-        :param float size: The number of bytes of the content. Same as Length field.
+        :param int size: The number of bytes of the content. Same as Length field.
         :param str tag: The tag name.
         :param str url: The direct URL to the content.
         """
@@ -628,7 +628,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[float]:
+    def length(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Size field.
         """
@@ -652,7 +652,7 @@ class TargetResponseResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> Optional[int]:
         """
         The number of bytes of the content. Same as Length field.
         """

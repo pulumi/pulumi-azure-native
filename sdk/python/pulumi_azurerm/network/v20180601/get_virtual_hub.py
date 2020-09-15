@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -67,7 +67,7 @@ class GetVirtualHubResult:
 
     @property
     @pulumi.getter(name="hubVirtualNetworkConnections")
-    def hub_virtual_network_connections(self) -> Optional[List['outputs.HubVirtualNetworkConnectionResponse']]:
+    def hub_virtual_network_connections(self) -> Optional[Sequence['outputs.HubVirtualNetworkConnectionResponse']]:
         """
         list of all vnet connections with this VirtualHub.
         """

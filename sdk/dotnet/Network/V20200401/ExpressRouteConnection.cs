@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// The ExpressRoute circuit peering.
         /// </summary>
         [Output("expressRouteCircuitPeering")]
-        public Output<Outputs.ExpressRouteCircuitPeeringIdResponseResult> ExpressRouteCircuitPeering { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitPeeringIdResponse> ExpressRouteCircuitPeering { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
         [Output("routingConfiguration")]
-        public Output<Outputs.RoutingConfigurationResponseResult?> RoutingConfiguration { get; private set; } = null!;
+        public Output<Outputs.RoutingConfigurationResponse?> RoutingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The routing weight associated to the connection.

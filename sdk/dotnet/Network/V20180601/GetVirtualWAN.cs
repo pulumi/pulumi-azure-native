@@ -70,8 +70,8 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// List of VirtualHubs in the VirtualWAN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualHubs;
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VpnSites;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualHubs;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VpnSites;
 
         [OutputConstructor]
         private GetVirtualWANResult(
@@ -89,9 +89,9 @@ namespace Pulumi.AzureRM.Network.V20180601
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> virtualHubs,
+            ImmutableArray<Outputs.SubResourceResponse> virtualHubs,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> vpnSites)
+            ImmutableArray<Outputs.SubResourceResponse> vpnSites)
         {
             DisableVpnEncryption = disableVpnEncryption;
             Etag = etag;

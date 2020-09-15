@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.NetApp.V20170815
         /// <summary>
         /// Export policy rule
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponseExportPolicyResult? ExportPolicy;
+        public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
         /// <summary>
         /// Unique FileSystem Identifier.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.NetApp.V20170815
         private GetVolumeResult(
             string creationToken,
 
-            Outputs.VolumePropertiesResponseExportPolicyResult? exportPolicy,
+            Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
 
             string fileSystemId,
 

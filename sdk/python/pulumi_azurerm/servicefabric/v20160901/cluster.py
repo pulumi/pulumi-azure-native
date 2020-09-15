@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,15 +19,15 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']]] = None,
                  certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
-                 client_certificate_common_names: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]]] = None,
-                 client_certificate_thumbprints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]]] = None,
+                 client_certificate_common_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]]] = None,
+                 client_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]]] = None,
                  cluster_code_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
-                 fabric_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
+                 fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
-                 node_types: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
+                 node_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
@@ -45,15 +45,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AzureActiveDirectoryArgs']] azure_active_directory: The settings to enable AAD authentication on the cluster
         :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] certificate: This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names:  List of client certificates to whitelist based on common names
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The client thumbprint details ,it is used for client access for cluster operation
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateCommonNameArgs']]]] client_certificate_common_names:  List of client certificates to whitelist based on common names
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: The client thumbprint details ,it is used for client access for cluster operation
         :param pulumi.Input[str] cluster_code_version: The ServiceFabric code version running in your cluster
         :param pulumi.Input[str] cluster_name: The name of the cluster resource
         :param pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']] diagnostics_storage_account_config: The storage diagnostics account configuration details
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: List of custom fabric settings to configure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: List of custom fabric settings to configure the cluster.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] management_endpoint: The http management endpoint of the cluster
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]] node_types: The list of node types that make up the cluster
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]] node_types: The list of node types that make up the cluster
         :param pulumi.Input[str] reliability_level: Cluster reliability level indicates replica set size of system service
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the resource belongs or get created
         :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] reverse_proxy_certificate: The server certificate used by reverse proxy
@@ -142,7 +142,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availableClusterVersions")
-    def available_cluster_versions(self) -> pulumi.Output[List['outputs.ClusterVersionDetailsResponse']]:
+    def available_cluster_versions(self) -> pulumi.Output[Sequence['outputs.ClusterVersionDetailsResponse']]:
         """
         The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
         """
@@ -166,7 +166,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> pulumi.Output[Optional[List['outputs.ClientCertificateCommonNameResponse']]]:
+    def client_certificate_common_names(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]]:
         """
          List of client certificates to whitelist based on common names
         """
@@ -174,7 +174,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> pulumi.Output[Optional[List['outputs.ClientCertificateThumbprintResponse']]]:
+    def client_certificate_thumbprints(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateThumbprintResponse']]]:
         """
         The client thumbprint details ,it is used for client access for cluster operation
         """
@@ -222,7 +222,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> pulumi.Output[Optional[List['outputs.SettingsSectionDescriptionResponse']]]:
+    def fabric_settings(self) -> pulumi.Output[Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]]:
         """
         List of custom fabric settings to configure the cluster.
         """
@@ -254,7 +254,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> pulumi.Output[List['outputs.NodeTypeDescriptionResponse']]:
+    def node_types(self) -> pulumi.Output[Sequence['outputs.NodeTypeDescriptionResponse']]:
         """
         The list of node types that make up the cluster
         """

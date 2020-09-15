@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// <summary>
         /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -84,19 +84,19 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200218Preview
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
             string name,
 
-            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponseResult privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string? provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

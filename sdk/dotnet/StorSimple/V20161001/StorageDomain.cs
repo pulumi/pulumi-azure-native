@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// The encryption key used to encrypt the data. This is a user secret.
         /// </summary>
         [Output("encryptionKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> EncryptionKey { get; private set; } = null!;
+        public Output<Outputs.AsymmetricEncryptedSecretResponse?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
         /// The encryption status "Enabled | Disabled".

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetMetricAlertResult:
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
-        if severity and not isinstance(severity, float):
-            raise TypeError("Expected argument 'severity' to be a float")
+        if severity and not isinstance(severity, int):
+            raise TypeError("Expected argument 'severity' to be a int")
         pulumi.set(__self__, "severity", severity)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -72,7 +72,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.MetricAlertActionResponse']]:
+    def actions(self) -> Optional[Sequence['outputs.MetricAlertActionResponse']]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """
@@ -144,7 +144,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[List[str]]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         the list of resource id's that this metric alert is scoped to.
         """
@@ -152,7 +152,7 @@ class GetMetricAlertResult:
 
     @property
     @pulumi.getter
-    def severity(self) -> float:
+    def severity(self) -> int:
         """
         Alert severity {0, 1, 2, 3, 4}
         """

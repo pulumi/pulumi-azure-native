@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class IotSecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_data_sources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 export: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 iot_hubs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 export: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 recommendations_configuration: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
+                 recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -37,12 +37,12 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[str] display_name: Resource display name.
-        :param pulumi.Input[List[pulumi.Input[str]]] export: List of additional export to workspace data options
-        :param pulumi.Input[List[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] export: List of additional export to workspace data options
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of recommendation configuration
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of recommendation configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] solution_name: The solution manager name
         :param pulumi.Input[str] status: Security solution status
@@ -120,7 +120,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDiscoveredResources")
-    def auto_discovered_resources(self) -> pulumi.Output[List[str]]:
+    def auto_discovered_resources(self) -> pulumi.Output[Sequence[str]]:
         """
         List of resources that were automatically discovered as relevant to the security solution.
         """
@@ -128,7 +128,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledDataSources")
-    def disabled_data_sources(self) -> pulumi.Output[Optional[List[str]]]:
+    def disabled_data_sources(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Disabled data sources. Disabling these data sources compromises the system.
         """
@@ -144,7 +144,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def export(self) -> pulumi.Output[Optional[List[str]]]:
+    def export(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of additional export to workspace data options
         """
@@ -152,7 +152,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iotHubs")
-    def iot_hubs(self) -> pulumi.Output[List[str]]:
+    def iot_hubs(self) -> pulumi.Output[Sequence[str]]:
         """
         IoT Hub resource IDs
         """
@@ -176,7 +176,7 @@ class IotSecuritySolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recommendationsConfiguration")
-    def recommendations_configuration(self) -> pulumi.Output[Optional[List['outputs.RecommendationConfigurationPropertiesResponse']]]:
+    def recommendations_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.RecommendationConfigurationPropertiesResponse']]]:
         """
         List of recommendation configuration
         """

@@ -66,11 +66,11 @@ namespace Pulumi.AzureRM.Network.V20180501
         /// <summary>
         /// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> RegistrationVirtualNetworks;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> RegistrationVirtualNetworks;
         /// <summary>
         /// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> ResolutionVirtualNetworks;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> ResolutionVirtualNetworks;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -98,9 +98,9 @@ namespace Pulumi.AzureRM.Network.V20180501
 
             int numberOfRecordSets,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> registrationVirtualNetworks,
+            ImmutableArray<Outputs.SubResourceResponse> registrationVirtualNetworks,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> resolutionVirtualNetworks,
+            ImmutableArray<Outputs.SubResourceResponse> resolutionVirtualNetworks,
 
             ImmutableDictionary<string, string>? tags,
 

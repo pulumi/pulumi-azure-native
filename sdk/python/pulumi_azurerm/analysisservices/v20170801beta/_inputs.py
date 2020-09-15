@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -100,11 +100,11 @@ class IPv4FirewallRuleArgs:
 class IPv4FirewallSettingsArgs:
     def __init__(__self__, *,
                  enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
-                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input['IPv4FirewallRuleArgs']]]] = None):
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]] = None):
         """
         An array of firewall rules.
         :param pulumi.Input[bool] enable_power_bi_service: The indicator of enabling PBI service.
-        :param pulumi.Input[List[pulumi.Input['IPv4FirewallRuleArgs']]] firewall_rules: An array of firewall rules.
+        :param pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]] firewall_rules: An array of firewall rules.
         """
         if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
@@ -125,14 +125,14 @@ class IPv4FirewallSettingsArgs:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IPv4FirewallRuleArgs']]]]:
+    def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]:
         """
         An array of firewall rules.
         """
         return pulumi.get(self, "firewall_rules")
 
     @firewall_rules.setter
-    def firewall_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IPv4FirewallRuleArgs']]]]):
+    def firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]]):
         pulumi.set(self, "firewall_rules", value)
 
 
@@ -140,12 +140,12 @@ class IPv4FirewallSettingsArgs:
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
         :param pulumi.Input[str] name: Name of the SKU level.
-        :param pulumi.Input[float] capacity: The number of instances in the read only query pool.
+        :param pulumi.Input[int] capacity: The number of instances in the read only query pool.
         :param pulumi.Input[str] tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
@@ -168,14 +168,14 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The number of instances in the read only query pool.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -194,24 +194,24 @@ class ResourceSkuArgs:
 @pulumi.input_type
 class ServerAdministratorsArgs:
     def __init__(__self__, *,
-                 members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         An array of administrator user identities.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: An array of administrator user identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: An array of administrator user identities.
         """
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An array of administrator user identities.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "members", value)
 
 

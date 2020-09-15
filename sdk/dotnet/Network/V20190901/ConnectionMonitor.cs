@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// Describes the destination of connection monitor.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.ConnectionMonitorDestinationResponseResult> Destination { get; private set; } = null!;
+        public Output<Outputs.ConnectionMonitorDestinationResponse> Destination { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// Describes the source of connection monitor.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.ConnectionMonitorSourceResponseResult> Source { get; private set; } = null!;
+        public Output<Outputs.ConnectionMonitorSourceResponse> Source { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the connection monitor was started.

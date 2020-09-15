@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
         /// <summary>
         /// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
         /// </summary>
-        public readonly Outputs.ManagementConfigurationPropertiesResponseResult Properties;
+        public readonly Outputs.ManagementConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
 
             string name,
 
-            Outputs.ManagementConfigurationPropertiesResponseResult properties,
+            Outputs.ManagementConfigurationPropertiesResponse properties,
 
             string type)
         {

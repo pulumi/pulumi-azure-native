@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         /// List of index keys
         /// </summary>
         [Output("indexes")]
-        public Output<ImmutableArray<Outputs.MongoIndexResponseResult>> Indexes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MongoIndexResponse>> Indexes { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

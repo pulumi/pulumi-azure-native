@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -181,7 +181,7 @@ class GetVirtualNetworkFunctionResult:
 
     @property
     @pulumi.getter(name="virtualNetworkFunctionUserConfigurations")
-    def virtual_network_function_user_configurations(self) -> Optional[List['outputs.VirtualNetworkFunctionUserConfigurationResponse']]:
+    def virtual_network_function_user_configurations(self) -> Optional[Sequence['outputs.VirtualNetworkFunctionUserConfigurationResponse']]:
         """
         The virtual network function configurations from the user.
         """

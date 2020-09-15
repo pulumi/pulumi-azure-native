@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// The SKU (pricing tier) of the CDN profile.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

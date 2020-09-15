@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,10 +19,10 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 hot_cache_period_in_days: Optional[pulumi.Input[float]] = None,
+                 hot_cache_period_in_days: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 soft_delete_period_in_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete_period_in_days: Optional[pulumi.Input[int]] = None,
                  statistics: Optional[pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -35,10 +35,10 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
-        :param pulumi.Input[float] hot_cache_period_in_days: The number of days of data that should be kept in cache for fast queries.
+        :param pulumi.Input[int] hot_cache_period_in_days: The number of days of data that should be kept in cache for fast queries.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
-        :param pulumi.Input[float] soft_delete_period_in_days: The number of days data should be kept before it stops being accessible to queries.
+        :param pulumi.Input[int] soft_delete_period_in_days: The number of days data should be kept before it stops being accessible to queries.
         :param pulumi.Input[pulumi.InputType['DatabaseStatisticsArgs']] statistics: The statistics of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -117,7 +117,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hotCachePeriodInDays")
-    def hot_cache_period_in_days(self) -> pulumi.Output[Optional[float]]:
+    def hot_cache_period_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days of data that should be kept in cache for fast queries.
         """
@@ -149,7 +149,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeletePeriodInDays")
-    def soft_delete_period_in_days(self) -> pulumi.Output[float]:
+    def soft_delete_period_in_days(self) -> pulumi.Output[int]:
         """
         The number of days data should be kept before it stops being accessible to queries.
         """

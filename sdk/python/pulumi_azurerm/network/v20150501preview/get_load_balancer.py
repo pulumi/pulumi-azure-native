@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[List['outputs.BackendAddressPoolResponse']]:
+    def backend_address_pools(self) -> Optional[Sequence['outputs.BackendAddressPoolResponse']]:
         """
         Gets or sets Pools of backend IP addresses
         """
@@ -82,7 +82,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.FrontendIpConfigurationResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIpConfigurationResponse']]:
         """
         Gets or sets frontend IP addresses of the load balancer
         """
@@ -90,7 +90,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="inboundNatPools")
-    def inbound_nat_pools(self) -> Optional[List['outputs.InboundNatPoolResponse']]:
+    def inbound_nat_pools(self) -> Optional[Sequence['outputs.InboundNatPoolResponse']]:
         """
         Gets or sets inbound NAT pools
         """
@@ -98,7 +98,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+    def inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNatRuleResponse']]:
         """
         Gets or sets list of inbound rules
         """
@@ -106,7 +106,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[List['outputs.LoadBalancingRuleResponse']]:
+    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleResponse']]:
         """
         Gets or sets load balancing rules
         """
@@ -130,7 +130,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="outboundNatRules")
-    def outbound_nat_rules(self) -> Optional[List['outputs.OutboundNatRuleResponse']]:
+    def outbound_nat_rules(self) -> Optional[Sequence['outputs.OutboundNatRuleResponse']]:
         """
         Gets or sets outbound NAT rules
         """
@@ -138,7 +138,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter
-    def probes(self) -> Optional[List['outputs.ProbeResponse']]:
+    def probes(self) -> Optional[Sequence['outputs.ProbeResponse']]:
         """
         Gets or sets list of Load balancer probes
         """

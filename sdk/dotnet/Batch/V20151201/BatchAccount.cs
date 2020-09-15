@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Batch.V20151201
         /// The properties and status of any auto storage account associated with the account.
         /// </summary>
         [Output("autoStorage")]
-        public Output<Outputs.AutoStoragePropertiesResponseResult?> AutoStorage { get; private set; } = null!;
+        public Output<Outputs.AutoStoragePropertiesResponse?> AutoStorage { get; private set; } = null!;
 
         /// <summary>
         /// The core quota for this Batch account.

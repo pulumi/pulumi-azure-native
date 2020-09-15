@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.HybridCompute.V20190802Preview
         /// Details about the error state.
         /// </summary>
         [Output("errorDetails")]
-        public Output<ImmutableArray<Outputs.ErrorDetailResponseResult>> ErrorDetails { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ErrorDetailResponse>> ErrorDetails { get; private set; } = null!;
 
         /// <summary>
         /// Machine Extensions information
         /// </summary>
         [Output("extensions")]
-        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponseResult>> Extensions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponse>> Extensions { get; private set; } = null!;
 
         /// <summary>
         /// The time of the last status change.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20190802Preview
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.OSProfileResponseResult?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.OSProfileResponse?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// The version of Operating System running on the hybrid machine.

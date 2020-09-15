@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <summary>
         /// Additional data on the incident
         /// </summary>
-        public readonly Outputs.IncidentAdditionalDataResponseResult AdditionalData;
+        public readonly Outputs.IncidentAdditionalDataResponse AdditionalData;
         /// <summary>
         /// The reason the incident was closed
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <summary>
         /// List of labels relevant to this incident
         /// </summary>
-        public readonly ImmutableArray<Outputs.IncidentLabelResponseResult> Labels;
+        public readonly ImmutableArray<Outputs.IncidentLabelResponse> Labels;
         /// <summary>
         /// The time of the last activity in the incident
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// <summary>
         /// Describes a user that the incident is assigned to
         /// </summary>
-        public readonly Outputs.IncidentOwnerInfoResponseResult? Owner;
+        public readonly Outputs.IncidentOwnerInfoResponse? Owner;
         /// <summary>
         /// List of resource ids of Analytic rules related to the incident
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 
         [OutputConstructor]
         private GetIncidentResult(
-            Outputs.IncidentAdditionalDataResponseResult additionalData,
+            Outputs.IncidentAdditionalDataResponse additionalData,
 
             string? classification,
 
@@ -148,7 +148,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 
             string incidentUrl,
 
-            ImmutableArray<Outputs.IncidentLabelResponseResult> labels,
+            ImmutableArray<Outputs.IncidentLabelResponse> labels,
 
             string? lastActivityTimeUtc,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 
             string name,
 
-            Outputs.IncidentOwnerInfoResponseResult? owner,
+            Outputs.IncidentOwnerInfoResponse? owner,
 
             ImmutableArray<string> relatedAnalyticRuleIds,
 

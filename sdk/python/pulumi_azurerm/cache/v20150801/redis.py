@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Redis(pulumi.CustomResource):
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shard_count: Optional[pulumi.Input[float]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  static_ip: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[str] redis_version: RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[float] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[int] shard_count: The number of shards to be created on a Premium Cluster Cache.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: What SKU of Redis cache to deploy.
         :param pulumi.Input[str] static_ip: Required when deploying a Redis cache inside an existing Azure Virtual Network.
         :param pulumi.Input[str] subnet: Required when deploying a Redis cache inside an existing Azure Virtual Network.
@@ -164,7 +164,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         Redis non-SSL port.
         """
@@ -196,7 +196,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> pulumi.Output[Optional[float]]:
+    def shard_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of shards to be created on a Premium Cluster Cache.
         """
@@ -212,7 +212,7 @@ class Redis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> pulumi.Output[Optional[float]]:
+    def ssl_port(self) -> pulumi.Output[Optional[int]]:
         """
         Redis SSL port.
         """

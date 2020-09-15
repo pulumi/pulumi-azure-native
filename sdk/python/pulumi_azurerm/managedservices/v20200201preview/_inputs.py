@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,13 +22,13 @@ class AuthorizationArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str],
-                 delegated_role_definition_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 delegated_role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id_display_name: Optional[pulumi.Input[str]] = None):
         """
         Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
         :param pulumi.Input[str] principal_id: Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
         :param pulumi.Input[str] role_definition_id: The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
-        :param pulumi.Input[List[pulumi.Input[str]]] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
         :param pulumi.Input[str] principal_id_display_name: Display name of the principal Id.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -64,14 +64,14 @@ class AuthorizationArgs:
 
     @property
     @pulumi.getter(name="delegatedRoleDefinitionIds")
-    def delegated_role_definition_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def delegated_role_definition_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
         """
         return pulumi.get(self, "delegated_role_definition_ids")
 
     @delegated_role_definition_ids.setter
-    def delegated_role_definition_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def delegated_role_definition_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "delegated_role_definition_ids", value)
 
     @property
@@ -290,17 +290,17 @@ class RegistrationAssignmentPropertiesArgs:
 @pulumi.input_type
 class RegistrationDefinitionPropertiesArgs:
     def __init__(__self__, *,
-                 authorizations: pulumi.Input[List[pulumi.Input['AuthorizationArgs']]],
+                 authorizations: pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]],
                  managed_by_tenant_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 eligible_authorizations: Optional[pulumi.Input[List[pulumi.Input['EligibleAuthorizationArgs']]]] = None,
+                 eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]] = None,
                  registration_definition_name: Optional[pulumi.Input[str]] = None):
         """
         Properties of a registration definition.
-        :param pulumi.Input[List[pulumi.Input['AuthorizationArgs']]] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]] authorizations: Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         :param pulumi.Input[str] managed_by_tenant_id: Id of the managedBy tenant.
         :param pulumi.Input[str] description: Description of the registration definition.
-        :param pulumi.Input[List[pulumi.Input['EligibleAuthorizationArgs']]] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
+        :param pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]] eligible_authorizations: Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         :param pulumi.Input[str] registration_definition_name: Name of the registration definition.
         """
         pulumi.set(__self__, "authorizations", authorizations)
@@ -314,14 +314,14 @@ class RegistrationDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Input[List[pulumi.Input['AuthorizationArgs']]]:
+    def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]:
         """
         Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: pulumi.Input[List[pulumi.Input['AuthorizationArgs']]]):
+    def authorizations(self, value: pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]):
         pulumi.set(self, "authorizations", value)
 
     @property
@@ -350,14 +350,14 @@ class RegistrationDefinitionPropertiesArgs:
 
     @property
     @pulumi.getter(name="eligibleAuthorizations")
-    def eligible_authorizations(self) -> Optional[pulumi.Input[List[pulumi.Input['EligibleAuthorizationArgs']]]]:
+    def eligible_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]]:
         """
         Eligible PIM authorization tuple containing principal id of the user/security group or service principal, id of the built-in role, and just-in-time access policy setting
         """
         return pulumi.get(self, "eligible_authorizations")
 
     @eligible_authorizations.setter
-    def eligible_authorizations(self, value: Optional[pulumi.Input[List[pulumi.Input['EligibleAuthorizationArgs']]]]):
+    def eligible_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]]):
         pulumi.set(self, "eligible_authorizations", value)
 
     @property

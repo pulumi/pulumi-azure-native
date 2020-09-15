@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         /// </summary>
         [Output("customerSecrets")]
-        public Output<ImmutableArray<Outputs.CustomerSecretResponseResult>> CustomerSecrets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CustomerSecretResponse>> CustomerSecrets { get; private set; } = null!;
 
         /// <summary>
         /// The arm id of the data store type.

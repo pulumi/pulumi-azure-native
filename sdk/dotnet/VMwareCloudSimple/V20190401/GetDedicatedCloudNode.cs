@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// Dedicated Cloud Nodes SKU
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Node status, indicates is private cloud set up on this node or not
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
             string purchaseId,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string status,
 

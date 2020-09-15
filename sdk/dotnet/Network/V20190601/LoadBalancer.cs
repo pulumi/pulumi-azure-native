@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// Collection of backend address pools used by a load balancer.
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.BackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BackendAddressPoolResponse>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -30,25 +30,25 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// Object representing the frontend IPs to be used for the load balancer.
         /// </summary>
         [Output("frontendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
         [Output("inboundNatPools")]
-        public Output<ImmutableArray<Outputs.InboundNatPoolResponseResult>> InboundNatPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InboundNatPoolResponse>> InboundNatPools { get; private set; } = null!;
 
         /// <summary>
         /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
         [Output("inboundNatRules")]
-        public Output<ImmutableArray<Outputs.InboundNatRuleResponseResult>> InboundNatRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InboundNatRuleResponse>> InboundNatRules { get; private set; } = null!;
 
         /// <summary>
         /// Object collection representing the load balancing rules Gets the provisioning.
         /// </summary>
         [Output("loadBalancingRules")]
-        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponseResult>> LoadBalancingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancingRuleResponse>> LoadBalancingRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// The outbound rules.
         /// </summary>
         [Output("outboundRules")]
-        public Output<ImmutableArray<Outputs.OutboundRuleResponseResult>> OutboundRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OutboundRuleResponse>> OutboundRules { get; private set; } = null!;
 
         /// <summary>
         /// Collection of probe objects used in the load balancer.
         /// </summary>
         [Output("probes")]
-        public Output<ImmutableArray<Outputs.ProbeResponseResult>> Probes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProbeResponse>> Probes { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// The load balancer SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.LoadBalancerSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.LoadBalancerSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

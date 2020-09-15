@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// API specific properties.
         /// </summary>
         [Output("apiProperties")]
-        public Output<Outputs.ApiPropertiesResponseResult?> ApiProperties { get; private set; } = null!;
+        public Output<Outputs.ApiPropertiesResponse?> ApiProperties { get; private set; } = null!;
 
         /// <summary>
         /// The object representing the policy for taking backups on an account.
         /// </summary>
         [Output("backupPolicy")]
-        public Output<Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>?> BackupPolicy { get; private set; } = null!;
+        public Output<Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         [Output("capabilities")]
-        public Output<ImmutableArray<Outputs.CapabilityResponseResult>> Capabilities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CapabilityResponse>> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// The consistency policy for the Cosmos DB database account.
         /// </summary>
         [Output("consistencyPolicy")]
-        public Output<Outputs.ConsistencyPolicyResponseResult?> ConsistencyPolicy { get; private set; } = null!;
+        public Output<Outputs.ConsistencyPolicyResponse?> ConsistencyPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The CORS policy for the Cosmos DB database account.
         /// </summary>
         [Output("cors")]
-        public Output<ImmutableArray<Outputs.CorsPolicyResponseResult>> Cors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CorsPolicyResponse>> Cors { get; private set; } = null!;
 
         /// <summary>
         /// Enum to indicate the mode of account creation.
@@ -108,13 +108,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
         [Output("failoverPolicies")]
-        public Output<ImmutableArray<Outputs.FailoverPolicyResponseResult>> FailoverPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FailoverPolicyResponse>> FailoverPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier assigned to the database account
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// List of IpRules.
         /// </summary>
         [Output("ipRules")]
-        public Output<ImmutableArray<Outputs.IpAddressOrRangeResponseResult>> IpRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpAddressOrRangeResponse>> IpRules { get; private set; } = null!;
 
         /// <summary>
         /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// An array that contains all of the locations enabled for the Cosmos DB account.
         /// </summary>
         [Output("locations")]
-        public Output<ImmutableArray<Outputs.LocationResponseResult>> Locations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationResponse>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the ARM resource.
@@ -168,7 +168,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// List of Private Endpoint Connections configured for the Cosmos DB account.
         /// </summary>
         [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
@@ -186,19 +186,19 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
         [Output("readLocations")]
-        public Output<ImmutableArray<Outputs.LocationResponseResult>> ReadLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationResponse>> ReadLocations { get; private set; } = null!;
 
         /// <summary>
         /// Parameters to indicate the information about the restore.
         /// </summary>
         [Output("restoreParameters")]
-        public Output<Outputs.RestoreParametersResponseResult?> RestoreParameters { get; private set; } = null!;
+        public Output<Outputs.RestoreParametersResponse?> RestoreParameters { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -216,13 +216,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// List of Virtual Network ACL rules configured for the Cosmos DB account.
         /// </summary>
         [Output("virtualNetworkRules")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponseResult>> VirtualNetworkRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponse>> VirtualNetworkRules { get; private set; } = null!;
 
         /// <summary>
         /// An array that contains the write location for the Cosmos DB account.
         /// </summary>
         [Output("writeLocations")]
-        public Output<ImmutableArray<Outputs.LocationResponseResult>> WriteLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationResponse>> WriteLocations { get; private set; } = null!;
 
 
         /// <summary>

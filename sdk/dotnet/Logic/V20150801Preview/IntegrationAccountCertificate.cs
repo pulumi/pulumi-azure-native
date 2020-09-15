@@ -27,7 +27,7 @@ namespace Pulumi.AzureRM.Logic.V20150801Preview
         /// The key details in the key vault.
         /// </summary>
         [Output("key")]
-        public Output<Outputs.KeyVaultKeyReferenceResponseResult?> Key { get; private set; } = null!;
+        public Output<Outputs.KeyVaultKeyReferenceResponse?> Key { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.

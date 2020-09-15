@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetStorageAccountResult:
         if blob_endpoint and not isinstance(blob_endpoint, str):
             raise TypeError("Expected argument 'blob_endpoint' to be a str")
         pulumi.set(__self__, "blob_endpoint", blob_endpoint)
-        if container_count and not isinstance(container_count, float):
-            raise TypeError("Expected argument 'container_count' to be a float")
+        if container_count and not isinstance(container_count, int):
+            raise TypeError("Expected argument 'container_count' to be a int")
         pulumi.set(__self__, "container_count", container_count)
         if data_policy and not isinstance(data_policy, str):
             raise TypeError("Expected argument 'data_policy' to be a str")
@@ -55,7 +55,7 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter(name="containerCount")
-    def container_count(self) -> float:
+    def container_count(self) -> int:
         """
         The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
         """

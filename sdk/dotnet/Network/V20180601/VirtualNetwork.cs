@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         /// </summary>
         [Output("addressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> AddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// The DDoS protection plan associated with the virtual network.
         /// </summary>
         [Output("ddosProtectionPlan")]
-        public Output<Outputs.SubResourceResponseResult?> DdosProtectionPlan { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> DdosProtectionPlan { get; private set; } = null!;
 
         /// <summary>
         /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         /// </summary>
         [Output("dhcpOptions")]
-        public Output<Outputs.DhcpOptionsResponseResult?> DhcpOptions { get; private set; } = null!;
+        public Output<Outputs.DhcpOptionsResponse?> DhcpOptions { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// A list of subnets in a Virtual Network.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// A list of peerings in a Virtual Network.
         /// </summary>
         [Output("virtualNetworkPeerings")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult>> VirtualNetworkPeerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponse>> VirtualNetworkPeerings { get; private set; } = null!;
 
 
         /// <summary>

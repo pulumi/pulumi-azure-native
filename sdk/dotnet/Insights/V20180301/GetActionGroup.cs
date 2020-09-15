@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// The list of AutomationRunbook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverResponseResult> AutomationRunbookReceivers;
+        public readonly ImmutableArray<Outputs.AutomationRunbookReceiverResponse> AutomationRunbookReceivers;
         /// <summary>
         /// The list of AzureAppPush receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureAppPushReceiverResponseResult> AzureAppPushReceivers;
+        public readonly ImmutableArray<Outputs.AzureAppPushReceiverResponse> AzureAppPushReceivers;
         /// <summary>
         /// The list of azure function receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFunctionReceiverResponseResult> AzureFunctionReceivers;
+        public readonly ImmutableArray<Outputs.AzureFunctionReceiverResponse> AzureFunctionReceivers;
         /// <summary>
         /// The list of email receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EmailReceiverResponseResult> EmailReceivers;
+        public readonly ImmutableArray<Outputs.EmailReceiverResponse> EmailReceivers;
         /// <summary>
         /// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ItsmReceiverResponseResult> ItsmReceivers;
+        public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// The list of logic app receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LogicAppReceiverResponseResult> LogicAppReceivers;
+        public readonly ImmutableArray<Outputs.LogicAppReceiverResponse> LogicAppReceivers;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// The list of SMS receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SmsReceiverResponseResult> SmsReceivers;
+        public readonly ImmutableArray<Outputs.SmsReceiverResponse> SmsReceivers;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,43 +94,43 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// <summary>
         /// The list of voice receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VoiceReceiverResponseResult> VoiceReceivers;
+        public readonly ImmutableArray<Outputs.VoiceReceiverResponse> VoiceReceivers;
         /// <summary>
         /// The list of webhook receivers that are part of this action group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebhookReceiverResponseResult> WebhookReceivers;
+        public readonly ImmutableArray<Outputs.WebhookReceiverResponse> WebhookReceivers;
 
         [OutputConstructor]
         private GetActionGroupResult(
-            ImmutableArray<Outputs.AutomationRunbookReceiverResponseResult> automationRunbookReceivers,
+            ImmutableArray<Outputs.AutomationRunbookReceiverResponse> automationRunbookReceivers,
 
-            ImmutableArray<Outputs.AzureAppPushReceiverResponseResult> azureAppPushReceivers,
+            ImmutableArray<Outputs.AzureAppPushReceiverResponse> azureAppPushReceivers,
 
-            ImmutableArray<Outputs.AzureFunctionReceiverResponseResult> azureFunctionReceivers,
+            ImmutableArray<Outputs.AzureFunctionReceiverResponse> azureFunctionReceivers,
 
-            ImmutableArray<Outputs.EmailReceiverResponseResult> emailReceivers,
+            ImmutableArray<Outputs.EmailReceiverResponse> emailReceivers,
 
             bool enabled,
 
             string groupShortName,
 
-            ImmutableArray<Outputs.ItsmReceiverResponseResult> itsmReceivers,
+            ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
 
             string location,
 
-            ImmutableArray<Outputs.LogicAppReceiverResponseResult> logicAppReceivers,
+            ImmutableArray<Outputs.LogicAppReceiverResponse> logicAppReceivers,
 
             string name,
 
-            ImmutableArray<Outputs.SmsReceiverResponseResult> smsReceivers,
+            ImmutableArray<Outputs.SmsReceiverResponse> smsReceivers,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VoiceReceiverResponseResult> voiceReceivers,
+            ImmutableArray<Outputs.VoiceReceiverResponse> voiceReceivers,
 
-            ImmutableArray<Outputs.WebhookReceiverResponseResult> webhookReceivers)
+            ImmutableArray<Outputs.WebhookReceiverResponse> webhookReceivers)
         {
             AutomationRunbookReceivers = automationRunbookReceivers;
             AzureAppPushReceivers = azureAppPushReceivers;

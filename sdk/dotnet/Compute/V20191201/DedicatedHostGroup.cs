@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
         [Output("hosts")]
-        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponseResult>> Hosts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponse>> Hosts { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

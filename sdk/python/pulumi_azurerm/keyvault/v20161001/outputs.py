@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -81,16 +81,16 @@ class PermissionsResponse(dict):
     Permissions the identity has for keys, secrets, certificates and storage.
     """
     def __init__(__self__, *,
-                 certificates: Optional[List[str]] = None,
-                 keys: Optional[List[str]] = None,
-                 secrets: Optional[List[str]] = None,
-                 storage: Optional[List[str]] = None):
+                 certificates: Optional[Sequence[str]] = None,
+                 keys: Optional[Sequence[str]] = None,
+                 secrets: Optional[Sequence[str]] = None,
+                 storage: Optional[Sequence[str]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
-        :param List[str] certificates: Permissions to certificates
-        :param List[str] keys: Permissions to keys
-        :param List[str] secrets: Permissions to secrets
-        :param List[str] storage: Permissions to storage accounts
+        :param Sequence[str] certificates: Permissions to certificates
+        :param Sequence[str] keys: Permissions to keys
+        :param Sequence[str] secrets: Permissions to secrets
+        :param Sequence[str] storage: Permissions to storage accounts
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -103,7 +103,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List[str]]:
+    def certificates(self) -> Optional[Sequence[str]]:
         """
         Permissions to certificates
         """
@@ -111,7 +111,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[List[str]]:
+    def keys(self) -> Optional[Sequence[str]]:
         """
         Permissions to keys
         """
@@ -119,7 +119,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List[str]]:
+    def secrets(self) -> Optional[Sequence[str]]:
         """
         Permissions to secrets
         """
@@ -127,7 +127,7 @@ class PermissionsResponse(dict):
 
     @property
     @pulumi.getter
-    def storage(self) -> Optional[List[str]]:
+    def storage(self) -> Optional[Sequence[str]]:
         """
         Permissions to storage accounts
         """
@@ -181,7 +181,7 @@ class VaultPropertiesResponse(dict):
     def __init__(__self__, *,
                  sku: 'outputs.SkuResponse',
                  tenant_id: str,
-                 access_policies: Optional[List['outputs.AccessPolicyEntryResponse']] = None,
+                 access_policies: Optional[Sequence['outputs.AccessPolicyEntryResponse']] = None,
                  create_mode: Optional[str] = None,
                  enable_purge_protection: Optional[bool] = None,
                  enable_soft_delete: Optional[bool] = None,
@@ -193,7 +193,7 @@ class VaultPropertiesResponse(dict):
         Properties of the vault
         :param 'SkuResponseArgs' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-        :param List['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        :param Sequence['AccessPolicyEntryResponseArgs'] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         :param str create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_soft_delete: Property specifying whether recoverable deletion is enabled for this key vault. Setting this property to true activates the soft delete feature, whereby vaults or vault entities can be recovered after deletion. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -239,7 +239,7 @@ class VaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[List['outputs.AccessPolicyEntryResponse']]:
+    def access_policies(self) -> Optional[Sequence['outputs.AccessPolicyEntryResponse']]:
         """
         An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
         """

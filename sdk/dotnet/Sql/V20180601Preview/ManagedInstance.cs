@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the instance pool this managed server belongs to.
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.Sql.V20180601Preview
         /// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource identifier of the source managed instance associated with create operation of this instance.

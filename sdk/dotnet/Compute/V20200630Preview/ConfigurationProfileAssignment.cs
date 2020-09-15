@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         /// Properties of the configuration profile assignment.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConfigurationProfileAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConfigurationProfileAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

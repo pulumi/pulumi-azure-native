@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['BackupPolicy']
@@ -20,7 +20,7 @@ class BackupPolicy(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volume_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[List[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -153,7 +153,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schedulesCount")
-    def schedules_count(self) -> pulumi.Output[float]:
+    def schedules_count(self) -> pulumi.Output[int]:
         """
         The count of schedules the backup policy contains.
         """
@@ -177,7 +177,7 @@ class BackupPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeIds")
-    def volume_ids(self) -> pulumi.Output[List[str]]:
+    def volume_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The path IDs of the volumes which are part of the backup policy.
         """

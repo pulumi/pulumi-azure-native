@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -62,7 +62,7 @@ class GetAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[List[str]]:
+    def roles(self) -> Optional[Sequence[str]]:
         """
         The list of roles the principal is assigned on the environment.
         """

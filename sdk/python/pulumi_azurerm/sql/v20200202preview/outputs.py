@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -94,14 +94,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         An ARM Resource SKU.
         :param str name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param float capacity: Capacity of the particular SKU.
+        :param int capacity: Capacity of the particular SKU.
         :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param str size: Size of the particular SKU
         :param str tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -126,7 +126,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Capacity of the particular SKU.
         """

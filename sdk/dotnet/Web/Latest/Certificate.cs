@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Web.Latest
         /// Specification for the App Service Environment to use for the certificate.
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// Certificate issue Date.

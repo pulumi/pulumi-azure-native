@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage.Latest
         /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
         [Output("policy")]
-        public Output<Outputs.ManagementPolicySchemaResponseResult> Policy { get; private set; } = null!;
+        public Output<Outputs.ManagementPolicySchemaResponse> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -93,7 +93,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="availableClusterVersions")
-    def available_cluster_versions(self) -> List['outputs.ClusterVersionDetailsResponse']:
+    def available_cluster_versions(self) -> Sequence['outputs.ClusterVersionDetailsResponse']:
         """
         The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
         """
@@ -117,7 +117,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> Optional[List['outputs.ClientCertificateCommonNameResponse']]:
+    def client_certificate_common_names(self) -> Optional[Sequence['outputs.ClientCertificateCommonNameResponse']]:
         """
          List of client certificates to whitelist based on common names
         """
@@ -125,7 +125,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> Optional[List['outputs.ClientCertificateThumbprintResponse']]:
+    def client_certificate_thumbprints(self) -> Optional[Sequence['outputs.ClientCertificateThumbprintResponse']]:
         """
         The client thumbprint details ,it is used for client access for cluster operation
         """
@@ -173,7 +173,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[List['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]:
         """
         List of custom fabric settings to configure the cluster.
         """
@@ -205,7 +205,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> List['outputs.NodeTypeDescriptionResponse']:
+    def node_types(self) -> Sequence['outputs.NodeTypeDescriptionResponse']:
         """
         The list of node types that make up the cluster
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -49,7 +49,7 @@ class AssetItemResponse(dict):
                  input_ports: Optional[Mapping[str, 'outputs.InputPortResponse']] = None,
                  metadata: Optional[Mapping[str, str]] = None,
                  output_ports: Optional[Mapping[str, 'outputs.OutputPortResponse']] = None,
-                 parameters: Optional[List['outputs.ModuleAssetParameterResponse']] = None):
+                 parameters: Optional[Sequence['outputs.ModuleAssetParameterResponse']] = None):
         """
         Information about an asset associated with the web service.
         :param 'BlobLocationResponseArgs' location_info: Access information for the asset.
@@ -59,7 +59,7 @@ class AssetItemResponse(dict):
         :param Mapping[str, 'InputPortResponseArgs'] input_ports: Information about the asset's input ports.
         :param Mapping[str, str] metadata: If the asset is a custom module, this holds the module's metadata.
         :param Mapping[str, 'OutputPortResponseArgs'] output_ports: Information about the asset's output ports.
-        :param List['ModuleAssetParameterResponseArgs'] parameters: If the asset is a custom module, this holds the module's parameters.
+        :param Sequence['ModuleAssetParameterResponseArgs'] parameters: If the asset is a custom module, this holds the module's parameters.
         """
         pulumi.set(__self__, "location_info", location_info)
         pulumi.set(__self__, "name", name)
@@ -133,7 +133,7 @@ class AssetItemResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ModuleAssetParameterResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ModuleAssetParameterResponse']]:
         """
         If the asset is a custom module, this holds the module's parameters.
         """
@@ -187,14 +187,14 @@ class ColumnSpecificationResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 enum: Optional[List[Mapping[str, Any]]] = None,
+                 enum: Optional[Sequence[Mapping[str, Any]]] = None,
                  format: Optional[str] = None,
                  x_ms_isnullable: Optional[bool] = None,
                  x_ms_isordered: Optional[bool] = None):
         """
         Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
         :param str type: Data type of the column.
-        :param List[Mapping[str, Any]] enum: If the data type is categorical, this provides the list of accepted categories.
+        :param Sequence[Mapping[str, Any]] enum: If the data type is categorical, this provides the list of accepted categories.
         :param str format: Additional format information for the data type.
         :param bool x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param bool x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
@@ -219,7 +219,7 @@ class ColumnSpecificationResponse(dict):
 
     @property
     @pulumi.getter
-    def enum(self) -> Optional[List[Mapping[str, Any]]]:
+    def enum(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         If the data type is categorical, this provides the list of accepted categories.
         """
@@ -322,11 +322,11 @@ class ExampleRequestResponse(dict):
     """
     def __init__(__self__, *,
                  global_parameters: Optional[Mapping[str, Mapping[str, Any]]] = None,
-                 inputs: Optional[Mapping[str, List[List[Mapping[str, Any]]]]] = None):
+                 inputs: Optional[Mapping[str, Sequence[Sequence[Mapping[str, Any]]]]] = None):
         """
         Sample input data for the service's input(s).
         :param Mapping[str, Mapping[str, Any]] global_parameters: Sample input data for the web service's global parameters
-        :param Mapping[str, List[List[Mapping[str, Any]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+        :param Mapping[str, Sequence[Sequence[Mapping[str, Any]]]] inputs: Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
         if global_parameters is not None:
             pulumi.set(__self__, "global_parameters", global_parameters)
@@ -343,7 +343,7 @@ class ExampleRequestResponse(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[Mapping[str, List[List[Mapping[str, Any]]]]]:
+    def inputs(self) -> Optional[Mapping[str, Sequence[Sequence[Mapping[str, Any]]]]]:
         """
         Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
         """
@@ -483,12 +483,12 @@ class GraphPackageResponse(dict):
     Defines the graph of modules making up the machine learning solution.
     """
     def __init__(__self__, *,
-                 edges: Optional[List['outputs.GraphEdgeResponse']] = None,
+                 edges: Optional[Sequence['outputs.GraphEdgeResponse']] = None,
                  graph_parameters: Optional[Mapping[str, 'outputs.GraphParameterResponse']] = None,
                  nodes: Optional[Mapping[str, 'outputs.GraphNodeResponse']] = None):
         """
         Defines the graph of modules making up the machine learning solution.
-        :param List['GraphEdgeResponseArgs'] edges: The list of edges making up the graph.
+        :param Sequence['GraphEdgeResponseArgs'] edges: The list of edges making up the graph.
         :param Mapping[str, 'GraphParameterResponseArgs'] graph_parameters: The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
         :param Mapping[str, 'GraphNodeResponseArgs'] nodes: The set of nodes making up the graph, provided as a nodeId to GraphNode map
         """
@@ -501,7 +501,7 @@ class GraphPackageResponse(dict):
 
     @property
     @pulumi.getter
-    def edges(self) -> Optional[List['outputs.GraphEdgeResponse']]:
+    def edges(self) -> Optional[Sequence['outputs.GraphEdgeResponse']]:
         """
         The list of edges making up the graph.
         """
@@ -569,12 +569,12 @@ class GraphParameterResponse(dict):
     Defines a global parameter in the graph.
     """
     def __init__(__self__, *,
-                 links: List['outputs.GraphParameterLinkResponse'],
+                 links: Sequence['outputs.GraphParameterLinkResponse'],
                  type: str,
                  description: Optional[str] = None):
         """
         Defines a global parameter in the graph.
-        :param List['GraphParameterLinkResponseArgs'] links: Association links for this parameter to nodes in the graph.
+        :param Sequence['GraphParameterLinkResponseArgs'] links: Association links for this parameter to nodes in the graph.
         :param str type: Graph parameter's type.
         :param str description: Description of this graph parameter.
         """
@@ -585,7 +585,7 @@ class GraphParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def links(self) -> List['outputs.GraphParameterLinkResponse']:
+    def links(self) -> Sequence['outputs.GraphParameterLinkResponse']:
         """
         Association links for this parameter to nodes in the graph.
         """
@@ -669,11 +669,11 @@ class ModeValueInfoResponse(dict):
     """
     def __init__(__self__, *,
                  interface_string: Optional[str] = None,
-                 parameters: Optional[List['outputs.ModuleAssetParameterResponse']] = None):
+                 parameters: Optional[Sequence['outputs.ModuleAssetParameterResponse']] = None):
         """
         Nested parameter definition.
         :param str interface_string: The interface string name for the nested parameter.
-        :param List['ModuleAssetParameterResponseArgs'] parameters: The definition of the parameter.
+        :param Sequence['ModuleAssetParameterResponseArgs'] parameters: The definition of the parameter.
         """
         if interface_string is not None:
             pulumi.set(__self__, "interface_string", interface_string)
@@ -690,7 +690,7 @@ class ModeValueInfoResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ModuleAssetParameterResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ModuleAssetParameterResponse']]:
         """
         The definition of the parameter.
         """
@@ -782,17 +782,17 @@ class RealtimeConfigurationResponse(dict):
     Holds the available configuration options for an Azure ML web service endpoint.
     """
     def __init__(__self__, *,
-                 max_concurrent_calls: Optional[float] = None):
+                 max_concurrent_calls: Optional[int] = None):
         """
         Holds the available configuration options for an Azure ML web service endpoint.
-        :param float max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+        :param int max_concurrent_calls: Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """
         if max_concurrent_calls is not None:
             pulumi.set(__self__, "max_concurrent_calls", max_concurrent_calls)
 
     @property
     @pulumi.getter(name="maxConcurrentCalls")
-    def max_concurrent_calls(self) -> Optional[float]:
+    def max_concurrent_calls(self) -> Optional[int]:
         """
         Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
         """

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// <summary>
         /// The Private Atlas resource properties.
         /// </summary>
-        public readonly Outputs.PrivateAtlasPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateAtlasPropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
 
             string name,
 
-            Outputs.PrivateAtlasPropertiesResponseResult properties,
+            Outputs.PrivateAtlasPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// <summary>
         /// The authorization properties for accessing the source code repository.
         /// </summary>
-        public readonly Outputs.SourceControlAuthInfoResponseResult? SourceControlAuthProperties;
+        public readonly Outputs.SourceControlAuthInfoResponse? SourceControlAuthProperties;
         /// <summary>
         /// The type of source control service.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
 
             string repositoryUrl,
 
-            Outputs.SourceControlAuthInfoResponseResult? sourceControlAuthProperties,
+            Outputs.SourceControlAuthInfoResponse? sourceControlAuthProperties,
 
             string sourceControlType)
         {

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// The list of event for which this notification is enabled.
         /// </summary>
         [Output("events")]
-        public Output<ImmutableArray<Outputs.EventResponseResult>> Events { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventResponse>> Events { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

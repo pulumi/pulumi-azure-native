@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -71,11 +71,11 @@ class LogSettingsArgs:
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[float],
+                 days: pulumi.Input[int],
                  enabled: pulumi.Input[bool]):
         """
         Specifies the retention policy for the log.
-        :param pulumi.Input[float] days: The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param pulumi.Input[int] days: The number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[bool] enabled: A value indicating whether the retention policy is enabled.
         """
         pulumi.set(__self__, "days", days)
@@ -83,14 +83,14 @@ class RetentionPolicyArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[float]:
+    def days(self) -> pulumi.Input[int]:
         """
         The number of days for the retention in days. A value of 0 will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[float]):
+    def days(self, value: pulumi.Input[int]):
         pulumi.set(self, "days", value)
 
     @property

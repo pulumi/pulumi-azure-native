@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Case(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  end_time_utc: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class Case(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the case
         :param pulumi.Input[str] end_time_utc: The end time of the case
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels relevant to this case
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this case
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] owner: Describes a user that the case is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -139,7 +139,7 @@ class Case(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caseNumber")
-    def case_number(self) -> pulumi.Output[float]:
+    def case_number(self) -> pulumi.Output[int]:
         """
         a sequential number
         """
@@ -195,7 +195,7 @@ class Case(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of labels relevant to this case
         """
@@ -235,7 +235,7 @@ class Case(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relatedAlertIds")
-    def related_alert_ids(self) -> pulumi.Output[List[str]]:
+    def related_alert_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         List of related alert identifiers
         """
@@ -267,7 +267,7 @@ class Case(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tactics(self) -> pulumi.Output[List[str]]:
+    def tactics(self) -> pulumi.Output[Sequence[str]]:
         """
         The tactics associated with case
         """
@@ -283,7 +283,7 @@ class Case(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalComments")
-    def total_comments(self) -> pulumi.Output[float]:
+    def total_comments(self) -> pulumi.Output[int]:
         """
         the number of total comments in the case
         """

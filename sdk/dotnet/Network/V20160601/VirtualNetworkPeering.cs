@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets the reference of the remote virtual network
         /// </summary>
         [Output("remoteVirtualNetwork")]
-        public Output<Outputs.SubResourceResponseResult?> RemoteVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

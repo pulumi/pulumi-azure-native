@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -116,7 +116,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> pulumi.Output[float]:
+    def active_job_and_job_schedule_quota(self) -> pulumi.Output[int]:
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @property
@@ -129,7 +129,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedCoreQuota")
-    def dedicated_core_quota(self) -> pulumi.Output[float]:
+    def dedicated_core_quota(self) -> pulumi.Output[int]:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -137,7 +137,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamily")
-    def dedicated_core_quota_per_vm_family(self) -> pulumi.Output[List['outputs.VirtualMachineFamilyCoreQuotaResponse']]:
+    def dedicated_core_quota_per_vm_family(self) -> pulumi.Output[Sequence['outputs.VirtualMachineFamilyCoreQuotaResponse']]:
         """
         A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -169,7 +169,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lowPriorityCoreQuota")
-    def low_priority_core_quota(self) -> pulumi.Output[float]:
+    def low_priority_core_quota(self) -> pulumi.Output[int]:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -193,7 +193,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> pulumi.Output[float]:
+    def pool_quota(self) -> pulumi.Output[int]:
         return pulumi.get(self, "pool_quota")
 
     @property

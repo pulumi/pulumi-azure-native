@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// <summary>
         /// Certificate parameters for securing custom HTTPS
         /// </summary>
-        public readonly Union<Outputs.CdnManagedHttpsParametersResponseResult, Outputs.UserManagedHttpsParametersResponseResult>? CustomHttpsParameters;
+        public readonly Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>? CustomHttpsParameters;
         /// <summary>
         /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 
         [OutputConstructor]
         private GetCustomDomainResult(
-            Union<Outputs.CdnManagedHttpsParametersResponseResult, Outputs.UserManagedHttpsParametersResponseResult>? customHttpsParameters,
+            Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>? customHttpsParameters,
 
             string customHttpsProvisioningState,
 

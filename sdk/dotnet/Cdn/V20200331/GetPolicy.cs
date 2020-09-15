@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
-        public readonly Outputs.CustomRuleListResponseResult? CustomRules;
+        public readonly Outputs.CustomRuleListResponse? CustomRules;
         /// <summary>
         /// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CdnEndpointResponseResult> EndpointLinks;
+        public readonly ImmutableArray<Outputs.CdnEndpointResponse> EndpointLinks;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <summary>
         /// Describes managed rules inside the policy.
         /// </summary>
-        public readonly Outputs.ManagedRuleSetListResponseResult? ManagedRules;
+        public readonly Outputs.ManagedRuleSetListResponse? ManagedRules;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <summary>
         /// Describes  policySettings for policy
         /// </summary>
-        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        public readonly Outputs.PolicySettingsResponse? PolicySettings;
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.
         /// </summary>
@@ -74,12 +74,12 @@ namespace Pulumi.AzureRM.Cdn.V20200331
         /// <summary>
         /// Describes rate limit rules inside the policy.
         /// </summary>
-        public readonly Outputs.RateLimitRuleListResponseResult? RateLimitRules;
+        public readonly Outputs.RateLimitRuleListResponse? RateLimitRules;
         public readonly string ResourceState;
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -91,27 +91,27 @@ namespace Pulumi.AzureRM.Cdn.V20200331
 
         [OutputConstructor]
         private GetPolicyResult(
-            Outputs.CustomRuleListResponseResult? customRules,
+            Outputs.CustomRuleListResponse? customRules,
 
-            ImmutableArray<Outputs.CdnEndpointResponseResult> endpointLinks,
+            ImmutableArray<Outputs.CdnEndpointResponse> endpointLinks,
 
             string? etag,
 
             string location,
 
-            Outputs.ManagedRuleSetListResponseResult? managedRules,
+            Outputs.ManagedRuleSetListResponse? managedRules,
 
             string name,
 
-            Outputs.PolicySettingsResponseResult? policySettings,
+            Outputs.PolicySettingsResponse? policySettings,
 
             string provisioningState,
 
-            Outputs.RateLimitRuleListResponseResult? rateLimitRules,
+            Outputs.RateLimitRuleListResponse? rateLimitRules,
 
             string resourceState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

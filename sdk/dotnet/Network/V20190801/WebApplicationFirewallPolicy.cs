@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// A collection of references to application gateways.
         /// </summary>
         [Output("applicationGateways")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayResponseResult>> ApplicationGateways { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayResponse>> ApplicationGateways { get; private set; } = null!;
 
         /// <summary>
         /// Describes custom rules inside the policy.
         /// </summary>
         [Output("customRules")]
-        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult>> CustomRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponse>> CustomRules { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Describes the managedRules structure
         /// </summary>
         [Output("managedRules")]
-        public Output<Outputs.ManagedRulesDefinitionResponseResult> ManagedRules { get; private set; } = null!;
+        public Output<Outputs.ManagedRulesDefinitionResponse> ManagedRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Describes policySettings for policy.
         /// </summary>
         [Output("policySettings")]
-        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+        public Output<Outputs.PolicySettingsResponse?> PolicySettings { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the web application firewall policy resource.

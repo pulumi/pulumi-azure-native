@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -22,7 +22,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
-                 max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-        :param pulumi.Input[float] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+        :param pulumi.Input[int] max_size_in_megabytes: Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -195,7 +195,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> pulumi.Output[Optional[float]]:
+    def max_size_in_megabytes(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         """
@@ -219,7 +219,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[float]:
+    def size_in_bytes(self) -> pulumi.Output[int]:
         """
         Size of the topic, in bytes.
         """
@@ -235,7 +235,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionCount")
-    def subscription_count(self) -> pulumi.Output[float]:
+    def subscription_count(self) -> pulumi.Output[int]:
         """
         Number of subscriptions.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,13 +18,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_key: Optional[pulumi.Input[str]] = None,
@@ -42,13 +42,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: allow classic operations
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: Gets or sets list of authorizations
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: Gets or sets list of authorizations
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: Gets or sets CircuitProvisioningState state of the resource 
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: Gets or sets list of peerings
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: Gets or sets list of peerings
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_key: Gets or sets ServiceKey
@@ -133,7 +133,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]]:
+    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationResponse']]]:
         """
         Gets or sets list of authorizations
         """
@@ -173,7 +173,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]]:
+    def peerings(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]]:
         """
         Gets or sets list of peerings
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The deployment properties of the environment.
         /// </summary>
         [Output("deploymentProperties")]
-        public Output<Outputs.EnvironmentDeploymentPropertiesResponseResult?> DeploymentProperties { get; private set; } = null!;
+        public Output<Outputs.EnvironmentDeploymentPropertiesResponse?> DeploymentProperties { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.

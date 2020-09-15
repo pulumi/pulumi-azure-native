@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,10 +19,10 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  api_properties: Optional[pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]] = None,
-                 capabilities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
                  connector_offer: Optional[pulumi.Input[str]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 cors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]]] = None,
                  database_account_offer_type: Optional[pulumi.Input[str]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
@@ -30,16 +30,16 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,10 +50,10 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[pulumi.InputType['ApiPropertiesArgs']] api_properties: API specific properties. Currently, supported only for MongoDB API.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
         :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]] cors: The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CorsPolicyArgs']]]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[str] database_account_offer_type: The offer type for the database
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_analytical_storage: Flag to indicate whether to enable storage analytics.
@@ -61,16 +61,16 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]] ip_rules: List of IpRules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -164,7 +164,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[List['outputs.CapabilityResponse']]]:
+    def capabilities(self) -> pulumi.Output[Optional[Sequence['outputs.CapabilityResponse']]]:
         """
         List of Cosmos DB capabilities for the account
         """
@@ -188,7 +188,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cors(self) -> pulumi.Output[Optional[List['outputs.CorsPolicyResponse']]]:
+    def cors(self) -> pulumi.Output[Optional[Sequence['outputs.CorsPolicyResponse']]]:
         """
         The CORS policy for the Cosmos DB database account.
         """
@@ -260,7 +260,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failoverPolicies")
-    def failover_policies(self) -> pulumi.Output[List['outputs.FailoverPolicyResponse']]:
+    def failover_policies(self) -> pulumi.Output[Sequence['outputs.FailoverPolicyResponse']]:
         """
         An array that contains the regions ordered by their failover priorities.
         """
@@ -268,7 +268,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> pulumi.Output[Optional[List['outputs.IpAddressOrRangeResponse']]]:
+    def ip_rules(self) -> pulumi.Output[Optional[Sequence['outputs.IpAddressOrRangeResponse']]]:
         """
         List of IpRules.
         """
@@ -308,7 +308,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
+    def locations(self) -> pulumi.Output[Sequence['outputs.LocationResponse']]:
         """
         An array that contains all of the locations enabled for the Cosmos DB account.
         """
@@ -324,7 +324,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         List of Private Endpoint Connections configured for the Cosmos DB account.
         """
@@ -348,7 +348,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readLocations")
-    def read_locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
+    def read_locations(self) -> pulumi.Output[Sequence['outputs.LocationResponse']]:
         """
         An array that contains of the read locations enabled for the Cosmos DB account.
         """
@@ -372,7 +372,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkRuleResponse']]]:
+    def virtual_network_rules(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkRuleResponse']]]:
         """
         List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
@@ -380,7 +380,7 @@ class DatabaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeLocations")
-    def write_locations(self) -> pulumi.Output[List['outputs.LocationResponse']]:
+    def write_locations(self) -> pulumi.Output[Sequence['outputs.LocationResponse']]:
         """
         An array that contains the write location for the Cosmos DB account.
         """

@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.Management.V20200201
         /// <summary>
         /// The list of children.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> Children;
+        public readonly ImmutableArray<Outputs.ManagementGroupChildInfoResponse> Children;
         /// <summary>
         /// The details of a management group.
         /// </summary>
-        public readonly Outputs.ManagementGroupDetailsResponseResult? Details;
+        public readonly Outputs.ManagementGroupDetailsResponse? Details;
         /// <summary>
         /// The friendly name of the management group.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Management.V20200201
         /// <summary>
         /// The path from the root to the current group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponseResult> Path;
+        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponse> Path;
         /// <summary>
         /// The role definitions associated with the management group.
         /// </summary>
@@ -86,15 +86,15 @@ namespace Pulumi.AzureRM.Management.V20200201
 
         [OutputConstructor]
         private GetManagementGroupResult(
-            ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> children,
+            ImmutableArray<Outputs.ManagementGroupChildInfoResponse> children,
 
-            Outputs.ManagementGroupDetailsResponseResult? details,
+            Outputs.ManagementGroupDetailsResponse? details,
 
             string? displayName,
 
             string name,
 
-            ImmutableArray<Outputs.ManagementGroupPathElementResponseResult> path,
+            ImmutableArray<Outputs.ManagementGroupPathElementResponse> path,
 
             ImmutableArray<string> roles,
 

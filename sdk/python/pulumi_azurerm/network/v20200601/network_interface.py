@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']]] = None,
@@ -39,7 +39,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIPConfigurationArgs']]]] ip_configurations: A list of IPConfigurations of the network interface.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[pulumi.InputType['NetworkSecurityGroupArgs']] network_security_group: The reference to the NetworkSecurityGroup resource.
@@ -157,7 +157,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedWorkloads")
-    def hosted_workloads(self) -> pulumi.Output[List[str]]:
+    def hosted_workloads(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of references to linked BareMetal resources.
         """
@@ -165,7 +165,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.NetworkInterfaceIPConfigurationResponse']]]:
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]]:
         """
         A list of IPConfigurations of the network interface.
         """
@@ -245,7 +245,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tapConfigurations")
-    def tap_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceTapConfigurationResponse']]:
+    def tap_configurations(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceTapConfigurationResponse']]:
         """
         A list of TapConfigurations of the network interface.
         """

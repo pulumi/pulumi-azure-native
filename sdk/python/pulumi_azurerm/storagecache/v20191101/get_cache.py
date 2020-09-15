@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetCacheResult:
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
     def __init__(__self__, cache_size_gb=None, health=None, location=None, mount_addresses=None, name=None, provisioning_state=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
-        if cache_size_gb and not isinstance(cache_size_gb, float):
-            raise TypeError("Expected argument 'cache_size_gb' to be a float")
+        if cache_size_gb and not isinstance(cache_size_gb, int):
+            raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
         if health and not isinstance(health, dict):
             raise TypeError("Expected argument 'health' to be a dict")
@@ -57,7 +57,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="cacheSizeGB")
-    def cache_size_gb(self) -> Optional[float]:
+    def cache_size_gb(self) -> Optional[int]:
         """
         The size of this Cache, in GB.
         """
@@ -81,7 +81,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> List[str]:
+    def mount_addresses(self) -> Sequence[str]:
         """
         Array of IP addresses that can be used by clients mounting this Cache.
         """

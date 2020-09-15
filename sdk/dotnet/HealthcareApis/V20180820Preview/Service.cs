@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20180820Preview
         /// The common properties of a service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ServicesPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ServicesPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

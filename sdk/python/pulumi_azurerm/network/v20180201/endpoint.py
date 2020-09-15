@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Endpoint']
@@ -20,14 +20,14 @@ class Endpoint(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  endpoint_status: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
-                 geo_mapping: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None,
+                 weight: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,14 +41,14 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_name: The name of the Traffic Manager endpoint to be created or updated.
         :param pulumi.Input[str] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
-        :param pulumi.Input[List[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-        :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-        :param pulumi.Input[float] priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+        :param pulumi.Input[int] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        :param pulumi.Input[int] priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager endpoint to be created or updated.
         :param pulumi.Input[str] target: The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-        :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        :param pulumi.Input[int] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,7 +142,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoMapping")
-    def geo_mapping(self) -> pulumi.Output[Optional[List[str]]]:
+    def geo_mapping(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
@@ -150,7 +150,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> pulumi.Output[Optional[float]]:
+    def min_child_endpoints(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         """
@@ -166,7 +166,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         """
@@ -198,7 +198,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Output[Optional[float]]:
+    def weight(self) -> pulumi.Output[Optional[int]]:
         """
         The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """

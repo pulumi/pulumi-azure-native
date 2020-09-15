@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.EventGrid.V20170615Preview
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Outputs.EventSubscriptionDestinationResponseResult?> Destination { get; private set; } = null!;
+        public Output<Outputs.EventSubscriptionDestinationResponse?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Information about the filter for the event subscription.
         /// </summary>
         [Output("filter")]
-        public Output<Outputs.EventSubscriptionFilterResponseResult?> Filter { get; private set; } = null!;
+        public Output<Outputs.EventSubscriptionFilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
         /// List of user defined labels.

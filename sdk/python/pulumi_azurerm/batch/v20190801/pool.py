@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,22 +18,22 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 application_licenses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 application_packages: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
+                 application_licenses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 application_packages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
                  deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  inter_node_communication: Optional[pulumi.Input[str]] = None,
-                 max_tasks_per_node: Optional[pulumi.Input[float]] = None,
-                 metadata: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
-                 mount_configuration: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]]] = None,
+                 max_tasks_per_node: Optional[pulumi.Input[int]] = None,
+                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
+                 mount_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
                  start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
                  task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
-                 user_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
+                 user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,15 +44,15 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
-        :param pulumi.Input[List[pulumi.Input[str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input[str] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-        :param pulumi.Input[float] max_tasks_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
+        :param pulumi.Input[int] max_tasks_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MountConfigurationArgs']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         :param pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']] network_configuration: The network configuration for a pool.
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
@@ -153,7 +153,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationLicenses")
-    def application_licenses(self) -> pulumi.Output[Optional[List[str]]]:
+    def application_licenses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         """
@@ -161,7 +161,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationPackages")
-    def application_packages(self) -> pulumi.Output[Optional[List['outputs.ApplicationPackageReferenceResponse']]]:
+    def application_packages(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationPackageReferenceResponse']]]:
         """
         Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         """
@@ -177,7 +177,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Output[Optional[List['outputs.CertificateReferenceResponse']]]:
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateReferenceResponse']]]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
@@ -190,12 +190,12 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentDedicatedNodes")
-    def current_dedicated_nodes(self) -> pulumi.Output[float]:
+    def current_dedicated_nodes(self) -> pulumi.Output[int]:
         return pulumi.get(self, "current_dedicated_nodes")
 
     @property
     @pulumi.getter(name="currentLowPriorityNodes")
-    def current_low_priority_nodes(self) -> pulumi.Output[float]:
+    def current_low_priority_nodes(self) -> pulumi.Output[int]:
         return pulumi.get(self, "current_low_priority_nodes")
 
     @property
@@ -240,7 +240,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxTasksPerNode")
-    def max_tasks_per_node(self) -> pulumi.Output[Optional[float]]:
+    def max_tasks_per_node(self) -> pulumi.Output[Optional[int]]:
         """
         The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         """
@@ -248,7 +248,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[List['outputs.MetadataItemResponse']]]:
+    def metadata(self) -> pulumi.Output[Optional[Sequence['outputs.MetadataItemResponse']]]:
         """
         The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         """
@@ -256,7 +256,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountConfiguration")
-    def mount_configuration(self) -> pulumi.Output[Optional[List['outputs.MountConfigurationResponse']]]:
+    def mount_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.MountConfigurationResponse']]]:
         """
         This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         """
@@ -330,7 +330,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userAccounts")
-    def user_accounts(self) -> pulumi.Output[Optional[List['outputs.UserAccountResponse']]]:
+    def user_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.UserAccountResponse']]]:
         return pulumi.get(self, "user_accounts")
 
     @property

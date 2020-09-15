@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// List of all p2s connection configurations of the gateway.
         /// </summary>
         [Output("p2SConnectionConfigurations")]
-        public Output<ImmutableArray<Outputs.P2SConnectionConfigurationResponseResult>> P2SConnectionConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.P2SConnectionConfigurationResponse>> P2SConnectionConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the P2S VPN gateway resource.
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// The VirtualHub to which the gateway belongs.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
         /// <summary>
         /// All P2S VPN clients' connection health status.
         /// </summary>
         [Output("vpnClientConnectionHealth")]
-        public Output<Outputs.VpnClientConnectionHealthResponseResult> VpnClientConnectionHealth { get; private set; } = null!;
+        public Output<Outputs.VpnClientConnectionHealthResponse> VpnClientConnectionHealth { get; private set; } = null!;
 
         /// <summary>
         /// The scale unit for this p2s vpn gateway.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
         [Output("vpnServerConfiguration")]
-        public Output<Outputs.SubResourceResponseResult?> VpnServerConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VpnServerConfiguration { get; private set; } = null!;
 
 
         /// <summary>

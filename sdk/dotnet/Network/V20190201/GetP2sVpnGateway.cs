@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// <summary>
         /// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponseResult? CustomRoutes;
+        public readonly Outputs.AddressSpaceResponse? CustomRoutes;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// <summary>
         /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? P2SVpnServerConfiguration;
+        public readonly Outputs.SubResourceResponse? P2SVpnServerConfiguration;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// <summary>
         /// The VirtualHub to which the gateway belongs
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
         /// <summary>
         /// The reference of the address space resource which represents Address space for P2S VpnClient.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponseResult? VpnClientAddressPool;
+        public readonly Outputs.AddressSpaceResponse? VpnClientAddressPool;
         /// <summary>
         /// All P2S VPN clients' connection health status.
         /// </summary>
-        public readonly Outputs.VpnClientConnectionHealthResponseResult VpnClientConnectionHealth;
+        public readonly Outputs.VpnClientConnectionHealthResponse VpnClientConnectionHealth;
         /// <summary>
         /// The scale unit for this p2s vpn gateway.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.V20190201
 
         [OutputConstructor]
         private GetP2sVpnGatewayResult(
-            Outputs.AddressSpaceResponseResult? customRoutes,
+            Outputs.AddressSpaceResponse? customRoutes,
 
             string etag,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.Network.V20190201
 
             string name,
 
-            Outputs.SubResourceResponseResult? p2SVpnServerConfiguration,
+            Outputs.SubResourceResponse? p2SVpnServerConfiguration,
 
             string? provisioningState,
 
@@ -106,11 +106,11 @@ namespace Pulumi.AzureRM.Network.V20190201
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualHub,
+            Outputs.SubResourceResponse? virtualHub,
 
-            Outputs.AddressSpaceResponseResult? vpnClientAddressPool,
+            Outputs.AddressSpaceResponse? vpnClientAddressPool,
 
-            Outputs.VpnClientConnectionHealthResponseResult vpnClientConnectionHealth,
+            Outputs.VpnClientConnectionHealthResponse vpnClientConnectionHealth,
 
             int? vpnGatewayScaleUnit)
         {

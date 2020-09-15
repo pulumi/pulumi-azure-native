@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// List of DatabaseInfo
         /// </summary>
-        public readonly ImmutableArray<Outputs.DatabaseInfoResponseResult> DatabasesInfo;
+        public readonly ImmutableArray<Outputs.DatabaseInfoResponse> DatabasesInfo;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// Information for connecting to source
         /// </summary>
-        public readonly Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>? SourceConnectionInfo;
+        public readonly Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? SourceConnectionInfo;
         /// <summary>
         /// Source platform for the project
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// Information for connecting to target
         /// </summary>
-        public readonly Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>? TargetConnectionInfo;
+        public readonly Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? TargetConnectionInfo;
         /// <summary>
         /// Target platform for the project
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         private GetProjectResult(
             string creationTime,
 
-            ImmutableArray<Outputs.DatabaseInfoResponseResult> databasesInfo,
+            ImmutableArray<Outputs.DatabaseInfoResponse> databasesInfo,
 
             string location,
 
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
 
             string provisioningState,
 
-            Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>? sourceConnectionInfo,
+            Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? sourceConnectionInfo,
 
             string sourcePlatform,
 
             ImmutableDictionary<string, string>? tags,
 
-            Union<Outputs.MiSqlConnectionInfoResponseResult, Union<Outputs.MySqlConnectionInfoResponseResult, Union<Outputs.PostgreSqlConnectionInfoResponseResult, Outputs.SqlConnectionInfoResponseResult>>>? targetConnectionInfo,
+            Union<Outputs.MiSqlConnectionInfoResponse, Union<Outputs.MySqlConnectionInfoResponse, Union<Outputs.PostgreSqlConnectionInfoResponse, Outputs.SqlConnectionInfoResponse>>>? targetConnectionInfo,
 
             string targetPlatform,
 

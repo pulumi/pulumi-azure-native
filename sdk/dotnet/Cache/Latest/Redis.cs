@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         /// </summary>
         [Output("accessKeys")]
-        public Output<Outputs.RedisAccessKeysResponseResult> AccessKeys { get; private set; } = null!;
+        public Output<Outputs.RedisAccessKeysResponse> AccessKeys { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// List of the Redis instances associated with the cache
         /// </summary>
         [Output("instances")]
-        public Output<ImmutableArray<Outputs.RedisInstanceDetailsResponseResult>> Instances { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RedisInstanceDetailsResponse>> Instances { get; private set; } = null!;
 
         /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
         [Output("linkedServers")]
-        public Output<ImmutableArray<Outputs.RedisLinkedServerResponseResult>> LinkedServers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RedisLinkedServerResponse>> LinkedServers { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Cache.Latest
         /// The SKU of the Redis cache to deploy.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Redis SSL port.

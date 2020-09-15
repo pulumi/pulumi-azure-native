@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
-        public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? AutoScaleConfiguration;
+        public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? AutoScaleConfiguration;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of ExpressRoute connections to the ExpressRoute gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteConnectionResponseResult> ExpressRouteConnections;
+        public readonly ImmutableArray<Outputs.ExpressRouteConnectionResponse> ExpressRouteConnections;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         /// </summary>
-        public readonly Outputs.VirtualHubIdResponseResult VirtualHub;
+        public readonly Outputs.VirtualHubIdResponse VirtualHub;
 
         [OutputConstructor]
         private GetExpressRouteGatewayResult(
-            Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? autoScaleConfiguration,
+            Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? autoScaleConfiguration,
 
             string etag,
 
-            ImmutableArray<Outputs.ExpressRouteConnectionResponseResult> expressRouteConnections,
+            ImmutableArray<Outputs.ExpressRouteConnectionResponse> expressRouteConnections,
 
             string? location,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string type,
 
-            Outputs.VirtualHubIdResponseResult virtualHub)
+            Outputs.VirtualHubIdResponse virtualHub)
         {
             AutoScaleConfiguration = autoScaleConfiguration;
             Etag = etag;

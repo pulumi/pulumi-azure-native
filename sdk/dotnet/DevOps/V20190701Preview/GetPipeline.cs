@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// <summary>
         /// Configuration used to bootstrap the Pipeline.
         /// </summary>
-        public readonly Outputs.BootstrapConfigurationResponseResult BootstrapConfiguration;
+        public readonly Outputs.BootstrapConfigurationResponse BootstrapConfiguration;
         /// <summary>
         /// Resource Location
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// <summary>
         /// Reference to the Azure DevOps Organization containing the Pipeline.
         /// </summary>
-        public readonly Outputs.OrganizationReferenceResponseResult Organization;
+        public readonly Outputs.OrganizationReferenceResponse Organization;
         /// <summary>
         /// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// <summary>
         /// Reference to the Azure DevOps Project containing the Pipeline.
         /// </summary>
-        public readonly Outputs.ProjectReferenceResponseResult Project;
+        public readonly Outputs.ProjectReferenceResponse Project;
         /// <summary>
         /// Resource Tags
         /// </summary>
@@ -74,17 +74,17 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
 
         [OutputConstructor]
         private GetPipelineResult(
-            Outputs.BootstrapConfigurationResponseResult bootstrapConfiguration,
+            Outputs.BootstrapConfigurationResponse bootstrapConfiguration,
 
             string? location,
 
             string name,
 
-            Outputs.OrganizationReferenceResponseResult organization,
+            Outputs.OrganizationReferenceResponse organization,
 
             int pipelineId,
 
-            Outputs.ProjectReferenceResponseResult project,
+            Outputs.ProjectReferenceResponse project,
 
             ImmutableDictionary<string, string>? tags,
 

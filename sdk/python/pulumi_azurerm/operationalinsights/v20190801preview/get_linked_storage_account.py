@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -51,7 +51,7 @@ class GetLinkedStorageAccountResult:
 
     @property
     @pulumi.getter(name="storageAccountIds")
-    def storage_account_ids(self) -> Optional[List[str]]:
+    def storage_account_ids(self) -> Optional[Sequence[str]]:
         """
         Linked storage accounts resources ids.
         """

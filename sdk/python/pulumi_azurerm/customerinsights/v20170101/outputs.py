@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -89,11 +89,11 @@ class ConnectorMappingAvailabilityResponse(dict):
     Connector mapping property availability.
     """
     def __init__(__self__, *,
-                 interval: float,
+                 interval: int,
                  frequency: Optional[str] = None):
         """
         Connector mapping property availability.
-        :param float interval: The interval of the given frequency to use.
+        :param int interval: The interval of the given frequency to use.
         :param str frequency: The frequency to update.
         """
         pulumi.set(__self__, "interval", interval)
@@ -102,7 +102,7 @@ class ConnectorMappingAvailabilityResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         The interval of the given frequency to use.
         """
@@ -165,11 +165,11 @@ class ConnectorMappingErrorManagementResponse(dict):
     """
     def __init__(__self__, *,
                  error_management_type: str,
-                 error_limit: Optional[float] = None):
+                 error_limit: Optional[int] = None):
         """
         The error management.
         :param str error_management_type: The type of error management to use for the mapping.
-        :param float error_limit: The error limit allowed while importing data.
+        :param int error_limit: The error limit allowed while importing data.
         """
         pulumi.set(__self__, "error_management_type", error_management_type)
         if error_limit is not None:
@@ -185,7 +185,7 @@ class ConnectorMappingErrorManagementResponse(dict):
 
     @property
     @pulumi.getter(name="errorLimit")
-    def error_limit(self) -> Optional[float]:
+    def error_limit(self) -> Optional[int]:
         """
         The error limit allowed while importing data.
         """
@@ -290,7 +290,7 @@ class ConnectorMappingPropertiesResponse(dict):
                  complete_operation: 'outputs.ConnectorMappingCompleteOperationResponse',
                  error_management: 'outputs.ConnectorMappingErrorManagementResponse',
                  format: 'outputs.ConnectorMappingFormatResponse',
-                 structure: List['outputs.ConnectorMappingStructureResponse'],
+                 structure: Sequence['outputs.ConnectorMappingStructureResponse'],
                  file_filter: Optional[str] = None,
                  folder_path: Optional[str] = None,
                  has_header: Optional[bool] = None):
@@ -300,7 +300,7 @@ class ConnectorMappingPropertiesResponse(dict):
         :param 'ConnectorMappingCompleteOperationResponseArgs' complete_operation: The operation after import is done.
         :param 'ConnectorMappingErrorManagementResponseArgs' error_management: The error management setting for the mapping.
         :param 'ConnectorMappingFormatResponseArgs' format: The format of mapping property.
-        :param List['ConnectorMappingStructureResponseArgs'] structure: Ingestion mapping information at property level.
+        :param Sequence['ConnectorMappingStructureResponseArgs'] structure: Ingestion mapping information at property level.
         :param str file_filter: The file filter for the mapping.
         :param str folder_path: The folder path for the mapping.
         :param bool has_header: If the file contains a header or not.
@@ -351,7 +351,7 @@ class ConnectorMappingPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def structure(self) -> List['outputs.ConnectorMappingStructureResponse']:
+    def structure(self) -> Sequence['outputs.ConnectorMappingStructureResponse']:
         """
         Ingestion mapping information at property level.
         """
@@ -453,18 +453,18 @@ class DataSourcePrecedenceResponse(dict):
     def __init__(__self__, *,
                  data_source_reference_id: str,
                  data_source_type: str,
-                 id: float,
+                 id: int,
                  name: str,
                  status: str,
-                 precedence: Optional[float] = None):
+                 precedence: Optional[int] = None):
         """
         The data source precedence is a way to know the precedence of each data source.
         :param str data_source_reference_id: The data source reference id.
         :param str data_source_type: The data source type.
-        :param float id: The data source ID.
+        :param int id: The data source ID.
         :param str name: The data source name
         :param str status: The data source status.
-        :param float precedence: the precedence value.
+        :param int precedence: the precedence value.
         """
         pulumi.set(__self__, "data_source_reference_id", data_source_reference_id)
         pulumi.set(__self__, "data_source_type", data_source_type)
@@ -492,7 +492,7 @@ class DataSourcePrecedenceResponse(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         """
         The data source ID.
         """
@@ -516,7 +516,7 @@ class DataSourcePrecedenceResponse(dict):
 
     @property
     @pulumi.getter
-    def precedence(self) -> Optional[float]:
+    def precedence(self) -> Optional[int]:
         """
         the precedence value.
         """
@@ -532,13 +532,13 @@ class HubBillingInfoFormatResponse(dict):
     Hub billing info.
     """
     def __init__(__self__, *,
-                 max_units: Optional[float] = None,
-                 min_units: Optional[float] = None,
+                 max_units: Optional[int] = None,
+                 min_units: Optional[int] = None,
                  sku_name: Optional[str] = None):
         """
         Hub billing info.
-        :param float max_units: The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-        :param float min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+        :param int max_units: The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+        :param int min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         :param str sku_name: The sku name.
         """
         if max_units is not None:
@@ -550,7 +550,7 @@ class HubBillingInfoFormatResponse(dict):
 
     @property
     @pulumi.getter(name="maxUnits")
-    def max_units(self) -> Optional[float]:
+    def max_units(self) -> Optional[int]:
         """
         The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
         """
@@ -558,7 +558,7 @@ class HubBillingInfoFormatResponse(dict):
 
     @property
     @pulumi.getter(name="minUnits")
-    def min_units(self) -> Optional[float]:
+    def min_units(self) -> Optional[int]:
         """
         The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         """
@@ -813,11 +813,11 @@ class ProfileEnumValidValuesFormatResponse(dict):
     """
     def __init__(__self__, *,
                  localized_value_names: Optional[Mapping[str, str]] = None,
-                 value: Optional[float] = None):
+                 value: Optional[int] = None):
         """
         Valid enum values in case of an enum property.
         :param Mapping[str, str] localized_value_names: Localized names of the enum member.
-        :param float value: The integer value of the enum member.
+        :param int value: The integer value of the enum member.
         """
         if localized_value_names is not None:
             pulumi.set(__self__, "localized_value_names", localized_value_names)
@@ -834,7 +834,7 @@ class ProfileEnumValidValuesFormatResponse(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[float]:
+    def value(self) -> Optional[int]:
         """
         The integer value of the enum member.
         """
@@ -850,11 +850,11 @@ class PropertyDefinitionResponse(dict):
     Property definition.
     """
     def __init__(__self__, *,
-                 data_source_precedence_rules: List['outputs.DataSourcePrecedenceResponse'],
+                 data_source_precedence_rules: Sequence['outputs.DataSourcePrecedenceResponse'],
                  field_name: str,
                  field_type: str,
                  array_value_separator: Optional[str] = None,
-                 enum_valid_values: Optional[List['outputs.ProfileEnumValidValuesFormatResponse']] = None,
+                 enum_valid_values: Optional[Sequence['outputs.ProfileEnumValidValuesFormatResponse']] = None,
                  is_array: Optional[bool] = None,
                  is_available_in_graph: Optional[bool] = None,
                  is_enum: Optional[bool] = None,
@@ -863,16 +863,16 @@ class PropertyDefinitionResponse(dict):
                  is_localized_string: Optional[bool] = None,
                  is_name: Optional[bool] = None,
                  is_required: Optional[bool] = None,
-                 max_length: Optional[float] = None,
+                 max_length: Optional[int] = None,
                  property_id: Optional[str] = None,
                  schema_item_prop_link: Optional[str] = None):
         """
         Property definition.
-        :param List['DataSourcePrecedenceResponseArgs'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+        :param Sequence['DataSourcePrecedenceResponseArgs'] data_source_precedence_rules: This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
         :param str field_name: Name of the property.
         :param str field_type: Type of the property.
         :param str array_value_separator: Array value separator for properties with isArray set.
-        :param List['ProfileEnumValidValuesFormatResponseArgs'] enum_valid_values: Describes valid values for an enum property.
+        :param Sequence['ProfileEnumValidValuesFormatResponseArgs'] enum_valid_values: Describes valid values for an enum property.
         :param bool is_array: Indicates if the property is actually an array of the fieldType above on the data api.
         :param bool is_available_in_graph: Whether property is available in graph or not.
         :param bool is_enum: Indicates if the property is an enum.
@@ -881,7 +881,7 @@ class PropertyDefinitionResponse(dict):
         :param bool is_localized_string: Whether the property is a localized string.
         :param bool is_name: Whether the property is a name or a part of name.
         :param bool is_required: Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-        :param float max_length: Max length of string. Used only if type is string.
+        :param int max_length: Max length of string. Used only if type is string.
         :param str property_id: The ID associated with the property.
         :param str schema_item_prop_link: URL encoded schema.org item prop link for the property.
         """
@@ -917,7 +917,7 @@ class PropertyDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="dataSourcePrecedenceRules")
-    def data_source_precedence_rules(self) -> List['outputs.DataSourcePrecedenceResponse']:
+    def data_source_precedence_rules(self) -> Sequence['outputs.DataSourcePrecedenceResponse']:
         """
         This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
         """
@@ -949,7 +949,7 @@ class PropertyDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="enumValidValues")
-    def enum_valid_values(self) -> Optional[List['outputs.ProfileEnumValidValuesFormatResponse']]:
+    def enum_valid_values(self) -> Optional[Sequence['outputs.ProfileEnumValidValuesFormatResponse']]:
         """
         Describes valid values for an enum property.
         """
@@ -1021,7 +1021,7 @@ class PropertyDefinitionResponse(dict):
 
     @property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[float]:
+    def max_length(self) -> Optional[int]:
         """
         Max length of string. Used only if type is string.
         """
@@ -1137,16 +1137,16 @@ class RelationshipTypeMappingResponse(dict):
     Maps fields in Profile to their corresponding StrongIds in Related Profile.
     """
     def __init__(__self__, *,
-                 field_mappings: List['outputs.RelationshipTypeFieldMappingResponse']):
+                 field_mappings: Sequence['outputs.RelationshipTypeFieldMappingResponse']):
         """
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
-        :param List['RelationshipTypeFieldMappingResponseArgs'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+        :param Sequence['RelationshipTypeFieldMappingResponseArgs'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
         pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> List['outputs.RelationshipTypeFieldMappingResponse']:
+    def field_mappings(self) -> Sequence['outputs.RelationshipTypeFieldMappingResponse']:
         """
         Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
@@ -1162,12 +1162,12 @@ class ResourceSetDescriptionResponse(dict):
     The resource set description.
     """
     def __init__(__self__, *,
-                 elements: Optional[List[str]] = None,
-                 exceptions: Optional[List[str]] = None):
+                 elements: Optional[Sequence[str]] = None,
+                 exceptions: Optional[Sequence[str]] = None):
         """
         The resource set description.
-        :param List[str] elements: The elements included in the set.
-        :param List[str] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+        :param Sequence[str] elements: The elements included in the set.
+        :param Sequence[str] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
         if elements is not None:
             pulumi.set(__self__, "elements", elements)
@@ -1176,7 +1176,7 @@ class ResourceSetDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def elements(self) -> Optional[List[str]]:
+    def elements(self) -> Optional[Sequence[str]]:
         """
         The elements included in the set.
         """
@@ -1184,7 +1184,7 @@ class ResourceSetDescriptionResponse(dict):
 
     @property
     @pulumi.getter
-    def exceptions(self) -> Optional[List[str]]:
+    def exceptions(self) -> Optional[Sequence[str]]:
         """
         The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
@@ -1200,13 +1200,13 @@ class StrongIdResponse(dict):
     Property/Properties which represent a unique ID.
     """
     def __init__(__self__, *,
-                 key_property_names: List[str],
+                 key_property_names: Sequence[str],
                  strong_id_name: str,
                  description: Optional[Mapping[str, str]] = None,
                  display_name: Optional[Mapping[str, str]] = None):
         """
         Property/Properties which represent a unique ID.
-        :param List[str] key_property_names: The properties which make up the unique ID.
+        :param Sequence[str] key_property_names: The properties which make up the unique ID.
         :param str strong_id_name: The Name identifying the strong ID.
         :param Mapping[str, str] description: Localized descriptions.
         :param Mapping[str, str] display_name: Localized display name.
@@ -1220,7 +1220,7 @@ class StrongIdResponse(dict):
 
     @property
     @pulumi.getter(name="keyPropertyNames")
-    def key_property_names(self) -> List[str]:
+    def key_property_names(self) -> Sequence[str]:
         """
         The properties which make up the unique ID.
         """

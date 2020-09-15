@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListClusterRemoteLoginInformationResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.RemoteLoginInformationResponseResult']:
+    def value(self) -> Sequence['outputs.RemoteLoginInformationResponseResult']:
         """
         The collection of returned remote login details.
         """

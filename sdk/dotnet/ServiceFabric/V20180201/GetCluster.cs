@@ -46,27 +46,27 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// <summary>
         /// The Service Fabric runtime versions available for this cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterVersionDetailsResponseResult> AvailableClusterVersions;
+        public readonly ImmutableArray<Outputs.ClusterVersionDetailsResponse> AvailableClusterVersions;
         /// <summary>
         /// The AAD authentication settings of the cluster.
         /// </summary>
-        public readonly Outputs.AzureActiveDirectoryResponseResult? AzureActiveDirectory;
+        public readonly Outputs.AzureActiveDirectoryResponse? AzureActiveDirectory;
         /// <summary>
         /// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
         /// </summary>
-        public readonly Outputs.CertificateDescriptionResponseResult? Certificate;
+        public readonly Outputs.CertificateDescriptionResponse? Certificate;
         /// <summary>
         /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
         /// </summary>
-        public readonly Outputs.ServerCertificateCommonNamesResponseResult? CertificateCommonNames;
+        public readonly Outputs.ServerCertificateCommonNamesResponse? CertificateCommonNames;
         /// <summary>
         /// The list of client certificates referenced by common name that are allowed to manage the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult> ClientCertificateCommonNames;
+        public readonly ImmutableArray<Outputs.ClientCertificateCommonNameResponse> ClientCertificateCommonNames;
         /// <summary>
         /// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult> ClientCertificateThumbprints;
+        public readonly ImmutableArray<Outputs.ClientCertificateThumbprintResponse> ClientCertificateThumbprints;
         /// <summary>
         /// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
         /// </summary>
@@ -97,11 +97,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// <summary>
         /// The storage account information for storing Service Fabric diagnostic logs.
         /// </summary>
-        public readonly Outputs.DiagnosticsStorageAccountConfigResponseResult? DiagnosticsStorageAccountConfig;
+        public readonly Outputs.DiagnosticsStorageAccountConfigResponse? DiagnosticsStorageAccountConfig;
         /// <summary>
         /// The list of custom fabric settings to configure the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> FabricSettings;
+        public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
         /// Azure resource location.
         /// </summary>
@@ -117,7 +117,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// <summary>
         /// The list of node types in the cluster.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NodeTypeDescriptionResponseResult> NodeTypes;
+        public readonly ImmutableArray<Outputs.NodeTypeDescriptionResponse> NodeTypes;
         /// <summary>
         /// The provisioning state of the cluster resource.
         /// </summary>
@@ -135,11 +135,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// <summary>
         /// The server certificate used by reverse proxy.
         /// </summary>
-        public readonly Outputs.CertificateDescriptionResponseResult? ReverseProxyCertificate;
+        public readonly Outputs.CertificateDescriptionResponse? ReverseProxyCertificate;
         /// <summary>
         /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
         /// </summary>
-        public readonly Outputs.ServerCertificateCommonNamesResponseResult? ReverseProxyCertificateCommonNames;
+        public readonly Outputs.ServerCertificateCommonNamesResponse? ReverseProxyCertificateCommonNames;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         /// <summary>
         /// The policy to use when upgrading the cluster.
         /// </summary>
-        public readonly Outputs.ClusterUpgradePolicyResponseResult? UpgradeDescription;
+        public readonly Outputs.ClusterUpgradePolicyResponse? UpgradeDescription;
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
         /// 
@@ -168,17 +168,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
         private GetClusterResult(
             ImmutableArray<string> addOnFeatures,
 
-            ImmutableArray<Outputs.ClusterVersionDetailsResponseResult> availableClusterVersions,
+            ImmutableArray<Outputs.ClusterVersionDetailsResponse> availableClusterVersions,
 
-            Outputs.AzureActiveDirectoryResponseResult? azureActiveDirectory,
+            Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
 
-            Outputs.CertificateDescriptionResponseResult? certificate,
+            Outputs.CertificateDescriptionResponse? certificate,
 
-            Outputs.ServerCertificateCommonNamesResponseResult? certificateCommonNames,
+            Outputs.ServerCertificateCommonNamesResponse? certificateCommonNames,
 
-            ImmutableArray<Outputs.ClientCertificateCommonNameResponseResult> clientCertificateCommonNames,
+            ImmutableArray<Outputs.ClientCertificateCommonNameResponse> clientCertificateCommonNames,
 
-            ImmutableArray<Outputs.ClientCertificateThumbprintResponseResult> clientCertificateThumbprints,
+            ImmutableArray<Outputs.ClientCertificateThumbprintResponse> clientCertificateThumbprints,
 
             string? clusterCodeVersion,
 
@@ -188,9 +188,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
 
             string clusterState,
 
-            Outputs.DiagnosticsStorageAccountConfigResponseResult? diagnosticsStorageAccountConfig,
+            Outputs.DiagnosticsStorageAccountConfigResponse? diagnosticsStorageAccountConfig,
 
-            ImmutableArray<Outputs.SettingsSectionDescriptionResponseResult> fabricSettings,
+            ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
 
             string location,
 
@@ -198,21 +198,21 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201
 
             string name,
 
-            ImmutableArray<Outputs.NodeTypeDescriptionResponseResult> nodeTypes,
+            ImmutableArray<Outputs.NodeTypeDescriptionResponse> nodeTypes,
 
             string provisioningState,
 
             string? reliabilityLevel,
 
-            Outputs.CertificateDescriptionResponseResult? reverseProxyCertificate,
+            Outputs.CertificateDescriptionResponse? reverseProxyCertificate,
 
-            Outputs.ServerCertificateCommonNamesResponseResult? reverseProxyCertificateCommonNames,
+            Outputs.ServerCertificateCommonNamesResponse? reverseProxyCertificateCommonNames,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ClusterUpgradePolicyResponseResult? upgradeDescription,
+            Outputs.ClusterUpgradePolicyResponse? upgradeDescription,
 
             string? upgradeMode,
 

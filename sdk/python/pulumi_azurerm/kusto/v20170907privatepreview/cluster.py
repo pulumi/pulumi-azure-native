@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class Cluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trusted_external_tenants: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
+                 trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +36,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[pulumi.InputType['AzureSkuArgs']] sku: The SKU of the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]] trusted_external_tenants: The cluster's external tenants.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]] trusted_external_tenants: The cluster's external tenants.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -168,7 +168,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> pulumi.Output[Optional[List['outputs.TrustedExternalTenantResponse']]]:
+    def trusted_external_tenants(self) -> pulumi.Output[Optional[Sequence['outputs.TrustedExternalTenantResponse']]]:
         """
         The cluster's external tenants.
         """

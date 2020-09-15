@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Data flow properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MappingDataFlowResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MappingDataFlowResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

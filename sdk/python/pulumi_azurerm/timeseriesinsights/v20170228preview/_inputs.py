@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -56,11 +56,11 @@ class ReferenceDataSetKeyPropertyArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: pulumi.Input[float],
+                 capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-        :param pulumi.Input[float] capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        :param pulumi.Input[int] capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
         :param pulumi.Input[str] name: The name of this SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -68,14 +68,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Input[float]:
+    def capacity(self) -> pulumi.Input[int]:
         """
         The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: pulumi.Input[float]):
+    def capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "capacity", value)
 
     @property

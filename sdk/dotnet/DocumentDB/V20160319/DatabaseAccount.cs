@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// List of Cosmos DB capabilities for the account
         /// </summary>
         [Output("capabilities")]
-        public Output<ImmutableArray<Outputs.CapabilityResponseResult>> Capabilities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CapabilityResponse>> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// The consistency policy for the Cosmos DB database account.
         /// </summary>
         [Output("consistencyPolicy")]
-        public Output<Outputs.ConsistencyPolicyResponseResult?> ConsistencyPolicy { get; private set; } = null!;
+        public Output<Outputs.ConsistencyPolicyResponse?> ConsistencyPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
         [Output("failoverPolicies")]
-        public Output<ImmutableArray<Outputs.FailoverPolicyResponseResult>> FailoverPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FailoverPolicyResponse>> FailoverPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
         [Output("readLocations")]
-        public Output<ImmutableArray<Outputs.LocationResponseResult>> ReadLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationResponse>> ReadLocations { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -126,13 +126,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20160319
         /// List of Virtual Network ACL rules configured for the Cosmos DB account.
         /// </summary>
         [Output("virtualNetworkRules")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponseResult>> VirtualNetworkRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponse>> VirtualNetworkRules { get; private set; } = null!;
 
         /// <summary>
         /// An array that contains the write location for the Cosmos DB account.
         /// </summary>
         [Output("writeLocations")]
-        public Output<ImmutableArray<Outputs.LocationResponseResult>> WriteLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationResponse>> WriteLocations { get; private set; } = null!;
 
 
         /// <summary>

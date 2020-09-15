@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -76,7 +76,7 @@ class GetStreamingLocatorResult:
 
     @property
     @pulumi.getter(name="contentKeys")
-    def content_keys(self) -> Optional[List['outputs.StreamingLocatorContentKeyResponse']]:
+    def content_keys(self) -> Optional[Sequence['outputs.StreamingLocatorContentKeyResponse']]:
         """
         The ContentKeys used by this Streaming Locator.
         """
@@ -108,7 +108,7 @@ class GetStreamingLocatorResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List[str]]:
+    def filters(self) -> Optional[Sequence[str]]:
         """
         A list of asset or account filters which apply to this streaming locator
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -16,12 +16,12 @@ __all__ = [
 class SkuArgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         SKU parameters supplied to the create Namespace operation
         :param pulumi.Input[str] tier: The billing tier of this particular SKU.
-        :param pulumi.Input[float] capacity: The Event Hubs throughput units.
+        :param pulumi.Input[int] capacity: The Event Hubs throughput units.
         :param pulumi.Input[str] name: Name of this SKU.
         """
         pulumi.set(__self__, "tier", tier)
@@ -44,14 +44,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The Event Hubs throughput units.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

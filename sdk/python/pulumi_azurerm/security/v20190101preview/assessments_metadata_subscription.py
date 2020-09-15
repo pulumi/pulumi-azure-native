@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['AssessmentsMetadataSubscription']
@@ -17,14 +17,14 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
                  assessment_type: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
-                 threats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_impact: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -119,7 +119,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def category(self) -> pulumi.Output[Optional[List[str]]]:
+    def category(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "category")
 
     @property
@@ -188,7 +188,7 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def threats(self) -> pulumi.Output[Optional[List[str]]]:
+    def threats(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "threats")
 
     @property

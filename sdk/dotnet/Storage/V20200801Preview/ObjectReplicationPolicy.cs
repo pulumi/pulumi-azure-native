@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Storage.V20200801Preview
         /// The storage account object replication rules.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponseResult>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponse>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Required. Source account name.

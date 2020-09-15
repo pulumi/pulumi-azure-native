@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Circuits;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Circuits;
         /// <summary>
         /// Encapsulation method on physical ports.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The set of physical links of the ExpressRoutePort resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExpressRouteLinkResponseResult> Links;
+        public readonly ImmutableArray<Outputs.ExpressRouteLinkResponse> Links;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Network.V20190401
 
             int? bandwidthInGbps,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> circuits,
+            ImmutableArray<Outputs.SubResourceResponse> circuits,
 
             string? encapsulation,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Network.V20190401
 
             string etherType,
 
-            ImmutableArray<Outputs.ExpressRouteLinkResponseResult> links,
+            ImmutableArray<Outputs.ExpressRouteLinkResponse> links,
 
             string? location,
 

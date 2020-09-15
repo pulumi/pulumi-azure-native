@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -89,7 +89,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="applicationRuleCollections")
-    def application_rule_collections(self) -> Optional[List['outputs.AzureFirewallApplicationRuleCollectionResponse']]:
+    def application_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallApplicationRuleCollectionResponse']]:
         """
         Collection of application rule collections used by Azure Firewall.
         """
@@ -121,7 +121,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.AzureFirewallIPConfigurationResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.AzureFirewallIPConfigurationResponse']]:
         """
         IP configuration of the Azure Firewall resource.
         """
@@ -129,7 +129,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="ipGroups")
-    def ip_groups(self) -> List['outputs.AzureFirewallIpGroupsResponse']:
+    def ip_groups(self) -> Sequence['outputs.AzureFirewallIpGroupsResponse']:
         """
         IpGroups associated with AzureFirewall.
         """
@@ -161,7 +161,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="natRuleCollections")
-    def nat_rule_collections(self) -> Optional[List['outputs.AzureFirewallNatRuleCollectionResponse']]:
+    def nat_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNatRuleCollectionResponse']]:
         """
         Collection of NAT rule collections used by Azure Firewall.
         """
@@ -169,7 +169,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter(name="networkRuleCollections")
-    def network_rule_collections(self) -> Optional[List['outputs.AzureFirewallNetworkRuleCollectionResponse']]:
+    def network_rule_collections(self) -> Optional[Sequence['outputs.AzureFirewallNetworkRuleCollectionResponse']]:
         """
         Collection of network rule collections used by Azure Firewall.
         """
@@ -225,7 +225,7 @@ class GetAzureFirewallResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         A list of availability zones denoting where the resource needs to come from.
         """

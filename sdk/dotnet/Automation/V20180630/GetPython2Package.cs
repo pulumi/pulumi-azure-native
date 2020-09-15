@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// <summary>
         /// Gets or sets the contentLink of the module.
         /// </summary>
-        public readonly Outputs.ContentLinkResponseResult? ContentLink;
+        public readonly Outputs.ContentLinkResponse? ContentLink;
         /// <summary>
         /// Gets or sets the creation time.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// <summary>
         /// Gets or sets the error info of the module.
         /// </summary>
-        public readonly Outputs.ModuleErrorInfoResponseResult? Error;
+        public readonly Outputs.ModuleErrorInfoResponse? Error;
         /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
@@ -114,13 +114,13 @@ namespace Pulumi.AzureRM.Automation.V20180630
         private GetPython2PackageResult(
             int? activityCount,
 
-            Outputs.ContentLinkResponseResult? contentLink,
+            Outputs.ContentLinkResponse? contentLink,
 
             string? creationTime,
 
             string? description,
 
-            Outputs.ModuleErrorInfoResponseResult? error,
+            Outputs.ModuleErrorInfoResponse? error,
 
             string? etag,
 

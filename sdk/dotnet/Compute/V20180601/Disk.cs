@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
-        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+        public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
 
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// Encryption settings for disk or snapshot
         /// </summary>
         [Output("encryptionSettings")]
-        public Output<Outputs.EncryptionSettingsResponseResult?> EncryptionSettings { get; private set; } = null!;
+        public Output<Outputs.EncryptionSettingsResponse?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.DiskSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

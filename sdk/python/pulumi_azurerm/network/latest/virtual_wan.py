@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -191,7 +191,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubs")
-    def virtual_hubs(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def virtual_hubs(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of VirtualHubs in the VirtualWAN.
         """
@@ -199,7 +199,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnSites")
-    def vpn_sites(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def vpn_sites(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of VpnSites in the VirtualWAN.
         """

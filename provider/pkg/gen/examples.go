@@ -44,14 +44,14 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 	sortedKeys := codegen.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
-	bar := progressbar.Default(int64(len(resExamples)), "Resources processed:")
+	bar := progressbar.Default(int64(len(sortedKeys)), "Resources processed:")
 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
 	for _, pulumiToken := range sortedKeys {
 		err := bar.Add(1)
 		if err != nil {
-			return err
+			log.Printf("error in the progress bar %v", err)
 		}
 
 		if shouldExclude(pulumiToken) {

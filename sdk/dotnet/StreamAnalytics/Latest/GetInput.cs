@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         /// <summary>
         /// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.ReferenceInputPropertiesResponseResult, Outputs.StreamInputPropertiesResponseResult> Properties;
+        public readonly Union<Outputs.ReferenceInputPropertiesResponse, Outputs.StreamInputPropertiesResponse> Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.Latest
         private GetInputResult(
             string? name,
 
-            Union<Outputs.ReferenceInputPropertiesResponseResult, Outputs.StreamInputPropertiesResponseResult> properties,
+            Union<Outputs.ReferenceInputPropertiesResponse, Outputs.StreamInputPropertiesResponse> properties,
 
             string type)
         {

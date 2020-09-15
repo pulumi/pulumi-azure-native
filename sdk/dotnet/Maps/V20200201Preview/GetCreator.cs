@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// <summary>
         /// The Creator resource properties.
         /// </summary>
-        public readonly Outputs.CreatorPropertiesResponseResult Properties;
+        public readonly Outputs.CreatorPropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
 
             string name,
 
-            Outputs.CreatorPropertiesResponseResult properties,
+            Outputs.CreatorPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

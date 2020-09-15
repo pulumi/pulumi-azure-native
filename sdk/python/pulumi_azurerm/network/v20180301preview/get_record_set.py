@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -60,8 +60,8 @@ class GetRecordSetResult:
         if srv_records and not isinstance(srv_records, list):
             raise TypeError("Expected argument 'srv_records' to be a list")
         pulumi.set(__self__, "srv_records", srv_records)
-        if ttl and not isinstance(ttl, float):
-            raise TypeError("Expected argument 'ttl' to be a float")
+        if ttl and not isinstance(ttl, int):
+            raise TypeError("Expected argument 'ttl' to be a int")
         pulumi.set(__self__, "ttl", ttl)
         if txt_records and not isinstance(txt_records, list):
             raise TypeError("Expected argument 'txt_records' to be a list")
@@ -72,7 +72,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> Optional[List['outputs.ARecordResponse']]:
+    def a_records(self) -> Optional[Sequence['outputs.ARecordResponse']]:
         """
         The list of A records in the record set.
         """
@@ -80,7 +80,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="aaaaRecords")
-    def aaaa_records(self) -> Optional[List['outputs.AaaaRecordResponse']]:
+    def aaaa_records(self) -> Optional[Sequence['outputs.AaaaRecordResponse']]:
         """
         The list of AAAA records in the record set.
         """
@@ -88,7 +88,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="caaRecords")
-    def caa_records(self) -> Optional[List['outputs.CaaRecordResponse']]:
+    def caa_records(self) -> Optional[Sequence['outputs.CaaRecordResponse']]:
         """
         The list of CAA records in the record set.
         """
@@ -128,7 +128,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="mxRecords")
-    def mx_records(self) -> Optional[List['outputs.MxRecordResponse']]:
+    def mx_records(self) -> Optional[Sequence['outputs.MxRecordResponse']]:
         """
         The list of MX records in the record set.
         """
@@ -144,7 +144,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="nsRecords")
-    def ns_records(self) -> Optional[List['outputs.NsRecordResponse']]:
+    def ns_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
         """
         The list of NS records in the record set.
         """
@@ -152,7 +152,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="ptrRecords")
-    def ptr_records(self) -> Optional[List['outputs.PtrRecordResponse']]:
+    def ptr_records(self) -> Optional[Sequence['outputs.PtrRecordResponse']]:
         """
         The list of PTR records in the record set.
         """
@@ -168,7 +168,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="srvRecords")
-    def srv_records(self) -> Optional[List['outputs.SrvRecordResponse']]:
+    def srv_records(self) -> Optional[Sequence['outputs.SrvRecordResponse']]:
         """
         The list of SRV records in the record set.
         """
@@ -176,7 +176,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[float]:
+    def ttl(self) -> Optional[int]:
         """
         The TTL (time-to-live) of the records in the record set.
         """
@@ -184,7 +184,7 @@ class GetRecordSetResult:
 
     @property
     @pulumi.getter(name="txtRecords")
-    def txt_records(self) -> Optional[List['outputs.TxtRecordResponse']]:
+    def txt_records(self) -> Optional[Sequence['outputs.TxtRecordResponse']]:
         """
         The list of TXT records in the record set.
         """

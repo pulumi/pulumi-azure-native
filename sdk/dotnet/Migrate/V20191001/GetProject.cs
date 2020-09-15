@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         /// <summary>
         /// Properties of the project.
         /// </summary>
-        public readonly Outputs.ProjectPropertiesResponseResult Properties;
+        public readonly Outputs.ProjectPropertiesResponse Properties;
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
 
             string name,
 
-            Outputs.ProjectPropertiesResponseResult properties,
+            Outputs.ProjectPropertiesResponse properties,
 
             ImmutableDictionary<string, object>? tags,
 

@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Additional datacenter locations of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalLocationResponseResult> AdditionalLocations;
+        public readonly ImmutableArray<Outputs.AdditionalLocationResponse> AdditionalLocations;
         /// <summary>
         /// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CertificateConfigurationResponseResult> Certificates;
+        public readonly ImmutableArray<Outputs.CertificateConfigurationResponse> Certificates;
         /// <summary>
         /// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Custom hostname configuration of the API Management service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostnameConfigurationResponseResult> HostnameConfigurations;
+        public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
         /// <summary>
         /// Managed service identity of the Api Management service.
         /// </summary>
-        public readonly Outputs.ApiManagementServiceIdentityResponseResult? Identity;
+        public readonly Outputs.ApiManagementServiceIdentityResponse? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// SKU properties of the API Management service.
         /// </summary>
-        public readonly Outputs.ApiManagementServiceSkuPropertiesResponseResult Sku;
+        public readonly Outputs.ApiManagementServiceSkuPropertiesResponse Sku;
         /// <summary>
         /// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// <summary>
         /// Virtual network configuration of the API Management service.
         /// </summary>
-        public readonly Outputs.VirtualNetworkConfigurationResponseResult? VirtualNetworkConfiguration;
+        public readonly Outputs.VirtualNetworkConfigurationResponse? VirtualNetworkConfiguration;
         /// <summary>
         /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         /// </summary>
@@ -142,9 +142,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetApiManagementServiceResult(
-            ImmutableArray<Outputs.AdditionalLocationResponseResult> additionalLocations,
+            ImmutableArray<Outputs.AdditionalLocationResponse> additionalLocations,
 
-            ImmutableArray<Outputs.CertificateConfigurationResponseResult> certificates,
+            ImmutableArray<Outputs.CertificateConfigurationResponse> certificates,
 
             string createdAtUtc,
 
@@ -156,9 +156,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
             string gatewayUrl,
 
-            ImmutableArray<Outputs.HostnameConfigurationResponseResult> hostnameConfigurations,
+            ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
 
-            Outputs.ApiManagementServiceIdentityResponseResult? identity,
+            Outputs.ApiManagementServiceIdentityResponse? identity,
 
             string location,
 
@@ -178,7 +178,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
             string scmUrl,
 
-            Outputs.ApiManagementServiceSkuPropertiesResponseResult sku,
+            Outputs.ApiManagementServiceSkuPropertiesResponse sku,
 
             ImmutableArray<string> staticIps,
 
@@ -188,7 +188,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
             string type,
 
-            Outputs.VirtualNetworkConfigurationResponseResult? virtualNetworkConfiguration,
+            Outputs.VirtualNetworkConfigurationResponse? virtualNetworkConfiguration,
 
             string? virtualNetworkType)
         {

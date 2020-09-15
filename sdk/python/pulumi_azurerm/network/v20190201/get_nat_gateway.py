@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetNatGatewayResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -68,7 +68,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         The idle timeout of the nat gateway.
         """
@@ -100,7 +100,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         An array of public ip addresses associated with the nat gateway resource.
         """
@@ -108,7 +108,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpPrefixes")
-    def public_ip_prefixes(self) -> Optional[List['outputs.SubResourceResponse']]:
+    def public_ip_prefixes(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
         An array of public ip prefixes associated with the nat gateway resource.
         """
@@ -132,7 +132,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.SubResourceResponse']:
+    def subnets(self) -> Sequence['outputs.SubResourceResponse']:
         """
         An array of references to the subnets using this nat gateway resource.
         """

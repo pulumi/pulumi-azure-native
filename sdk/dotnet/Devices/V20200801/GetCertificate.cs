@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Devices.V20200801
         /// <summary>
         /// The description of an X509 CA Certificate.
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponseResult Properties;
+        public readonly Outputs.CertificatePropertiesResponse Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Devices.V20200801
 
             string name,
 
-            Outputs.CertificatePropertiesResponseResult properties,
+            Outputs.CertificatePropertiesResponse properties,
 
             string type)
         {

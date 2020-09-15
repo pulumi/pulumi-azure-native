@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// <summary>
         /// The list of events for peering service prefix
         /// </summary>
-        public readonly ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult> Events;
+        public readonly ImmutableArray<Outputs.PeeringServicePrefixEventResponse> Events;
         /// <summary>
         /// The prefix learned type
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Peering.V20200401
         private GetPrefixResult(
             string errorMessage,
 
-            ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult> events,
+            ImmutableArray<Outputs.PeeringServicePrefixEventResponse> events,
 
             string learnedType,
 

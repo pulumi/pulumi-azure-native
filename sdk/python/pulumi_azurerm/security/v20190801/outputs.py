@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,7 +23,7 @@ class AllowlistCustomAlertRuleResponse(dict):
     A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
     """
     def __init__(__self__, *,
-                 allowlist_values: List[str],
+                 allowlist_values: Sequence[str],
                  description: str,
                  display_name: str,
                  is_enabled: bool,
@@ -31,7 +31,7 @@ class AllowlistCustomAlertRuleResponse(dict):
                  value_type: str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
-        :param List[str] allowlist_values: The values to allow. The format of the values depends on the rule type.
+        :param Sequence[str] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
@@ -47,7 +47,7 @@ class AllowlistCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="allowlistValues")
-    def allowlist_values(self) -> List[str]:
+    def allowlist_values(self) -> Sequence[str]:
         """
         The values to allow. The format of the values depends on the rule type.
         """
@@ -103,7 +103,7 @@ class DenylistCustomAlertRuleResponse(dict):
     A custom alert rule that checks if a value (depends on the custom alert type) is denied.
     """
     def __init__(__self__, *,
-                 denylist_values: List[str],
+                 denylist_values: Sequence[str],
                  description: str,
                  display_name: str,
                  is_enabled: bool,
@@ -111,7 +111,7 @@ class DenylistCustomAlertRuleResponse(dict):
                  value_type: str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is denied.
-        :param List[str] denylist_values: The values to deny. The format of the values depends on the rule type.
+        :param Sequence[str] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
@@ -127,7 +127,7 @@ class DenylistCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="denylistValues")
-    def denylist_values(self) -> List[str]:
+    def denylist_values(self) -> Sequence[str]:
         """
         The values to deny. The format of the values depends on the rule type.
         """
@@ -229,16 +229,16 @@ class ThresholdCustomAlertRuleResponse(dict):
                  description: str,
                  display_name: str,
                  is_enabled: bool,
-                 max_threshold: float,
-                 min_threshold: float,
+                 max_threshold: int,
+                 min_threshold: int,
                  rule_type: str):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
-        :param float max_threshold: The maximum threshold.
-        :param float min_threshold: The minimum threshold.
+        :param int max_threshold: The maximum threshold.
+        :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
         """
         pulumi.set(__self__, "description", description)
@@ -274,7 +274,7 @@ class ThresholdCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> float:
+    def max_threshold(self) -> int:
         """
         The maximum threshold.
         """
@@ -282,7 +282,7 @@ class ThresholdCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> float:
+    def min_threshold(self) -> int:
         """
         The minimum threshold.
         """
@@ -309,8 +309,8 @@ class TimeWindowCustomAlertRuleResponse(dict):
                  description: str,
                  display_name: str,
                  is_enabled: bool,
-                 max_threshold: float,
-                 min_threshold: float,
+                 max_threshold: int,
+                 min_threshold: int,
                  rule_type: str,
                  time_window_size: str):
         """
@@ -318,8 +318,8 @@ class TimeWindowCustomAlertRuleResponse(dict):
         :param str description: The description of the custom alert.
         :param str display_name: The display name of the custom alert.
         :param bool is_enabled: Status of the custom alert.
-        :param float max_threshold: The maximum threshold.
-        :param float min_threshold: The minimum threshold.
+        :param int max_threshold: The maximum threshold.
+        :param int min_threshold: The minimum threshold.
         :param str rule_type: The type of the custom alert rule.
         :param str time_window_size: The time window size in iso8601 format.
         """
@@ -357,7 +357,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> float:
+    def max_threshold(self) -> int:
         """
         The maximum threshold.
         """
@@ -365,7 +365,7 @@ class TimeWindowCustomAlertRuleResponse(dict):
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> float:
+    def min_threshold(self) -> int:
         """
         The minimum threshold.
         """
@@ -398,11 +398,11 @@ class UserDefinedResourcesPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  query: str,
-                 query_subscriptions: List[str]):
+                 query_subscriptions: Sequence[str]):
         """
         Properties of the IoT Security solution's user defined resources.
         :param str query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-        :param List[str] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
+        :param Sequence[str] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "query_subscriptions", query_subscriptions)
@@ -417,7 +417,7 @@ class UserDefinedResourcesPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="querySubscriptions")
-    def query_subscriptions(self) -> List[str]:
+    def query_subscriptions(self) -> Sequence[str]:
         """
         List of Azure subscription ids on which the user defined resources query should be executed.
         """

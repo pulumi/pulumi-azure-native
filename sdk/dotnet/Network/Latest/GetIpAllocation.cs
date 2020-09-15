@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The Subnet that using the prefix of this IpAllocation resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult Subnet;
+        public readonly Outputs.SubResourceResponse Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The VirtualNetwork that using the prefix of this IpAllocation resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult VirtualNetwork;
+        public readonly Outputs.SubResourceResponse VirtualNetwork;
 
         [OutputConstructor]
         private GetIpAllocationResult(
@@ -112,13 +112,13 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string? prefixType,
 
-            Outputs.SubResourceResponseResult subnet,
+            Outputs.SubResourceResponse subnet,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.SubResourceResponseResult virtualNetwork)
+            Outputs.SubResourceResponse virtualNetwork)
         {
             AllocationTags = allocationTags;
             Etag = etag;

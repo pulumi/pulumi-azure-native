@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class DeviceSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowlist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]]] = None,
-                 denylist_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]]] = None,
+                 allowlist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]]] = None,
+                 denylist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]]] = None,
                  device_security_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 threshold_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]]] = None,
-                 time_window_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]]] = None,
+                 threshold_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]]] = None,
+                 time_window_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -31,12 +31,12 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: A list of allow-list custom alert rules.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]] denylist_rules: A list of deny-list custom alert rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: A list of allow-list custom alert rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DenylistCustomAlertRuleArgs']]]] denylist_rules: A list of deny-list custom alert rules.
         :param pulumi.Input[str] device_security_group_name: The name of the security group. Please notice that the name is case insensitive.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: A list of threshold custom alert rules.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: A list of time window custom alert rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThresholdCustomAlertRuleArgs']]]] threshold_rules: A list of threshold custom alert rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TimeWindowCustomAlertRuleArgs']]]] time_window_rules: A list of time window custom alert rules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,7 +95,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowlistRules")
-    def allowlist_rules(self) -> pulumi.Output[Optional[List['outputs.AllowlistCustomAlertRuleResponse']]]:
+    def allowlist_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AllowlistCustomAlertRuleResponse']]]:
         """
         A list of allow-list custom alert rules.
         """
@@ -103,7 +103,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="denylistRules")
-    def denylist_rules(self) -> pulumi.Output[Optional[List['outputs.DenylistCustomAlertRuleResponse']]]:
+    def denylist_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DenylistCustomAlertRuleResponse']]]:
         """
         A list of deny-list custom alert rules.
         """
@@ -119,7 +119,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thresholdRules")
-    def threshold_rules(self) -> pulumi.Output[Optional[List['outputs.ThresholdCustomAlertRuleResponse']]]:
+    def threshold_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ThresholdCustomAlertRuleResponse']]]:
         """
         A list of threshold custom alert rules.
         """
@@ -127,7 +127,7 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeWindowRules")
-    def time_window_rules(self) -> pulumi.Output[Optional[List['outputs.TimeWindowCustomAlertRuleResponse']]]:
+    def time_window_rules(self) -> pulumi.Output[Optional[Sequence['outputs.TimeWindowCustomAlertRuleResponse']]]:
         """
         A list of time window custom alert rules.
         """

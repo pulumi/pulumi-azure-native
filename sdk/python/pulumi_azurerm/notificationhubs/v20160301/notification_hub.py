@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class NotificationHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adm_credential: Optional[pulumi.Input[pulumi.InputType['AdmCredentialArgs']]] = None,
                  apns_credential: Optional[pulumi.Input[pulumi.InputType['ApnsCredentialArgs']]] = None,
-                 authorization_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]]] = None,
+                 authorization_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]]] = None,
                  baidu_credential: Optional[pulumi.Input[pulumi.InputType['BaiduCredentialArgs']]] = None,
                  gcm_credential: Optional[pulumi.Input[pulumi.InputType['GcmCredentialArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,7 @@ class NotificationHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdmCredentialArgs']] adm_credential: The AdmCredential of the created NotificationHub
         :param pulumi.Input[pulumi.InputType['ApnsCredentialArgs']] apns_credential: The ApnsCredential of the created NotificationHub
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]]] authorization_rules: The AuthorizationRules of the created NotificationHub
         :param pulumi.Input[pulumi.InputType['BaiduCredentialArgs']] baidu_credential: The BaiduCredential of the created NotificationHub
         :param pulumi.Input[pulumi.InputType['GcmCredentialArgs']] gcm_credential: The GcmCredential of the created NotificationHub
         :param pulumi.Input[str] location: Resource location
@@ -141,7 +141,7 @@ class NotificationHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> pulumi.Output[Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]]:
+    def authorization_rules(self) -> pulumi.Output[Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']]]:
         """
         The AuthorizationRules of the created NotificationHub
         """

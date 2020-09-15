@@ -54,19 +54,19 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <summary>
         /// The list of A records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ARecordResponseResult> ARecords;
+        public readonly ImmutableArray<Outputs.ARecordResponse> ARecords;
         /// <summary>
         /// The list of AAAA records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AaaaRecordResponseResult> AaaaRecords;
+        public readonly ImmutableArray<Outputs.AaaaRecordResponse> AaaaRecords;
         /// <summary>
         /// The list of CAA records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CaaRecordResponseResult> CaaRecords;
+        public readonly ImmutableArray<Outputs.CaaRecordResponse> CaaRecords;
         /// <summary>
         /// The CNAME record in the  record set.
         /// </summary>
-        public readonly Outputs.CnameRecordResponseResult? CnameRecord;
+        public readonly Outputs.CnameRecordResponse? CnameRecord;
         /// <summary>
         /// The etag of the record set.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <summary>
         /// The list of MX records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MxRecordResponseResult> MxRecords;
+        public readonly ImmutableArray<Outputs.MxRecordResponse> MxRecords;
         /// <summary>
         /// The name of the record set.
         /// </summary>
@@ -90,19 +90,19 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <summary>
         /// The list of NS records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NsRecordResponseResult> NsRecords;
+        public readonly ImmutableArray<Outputs.NsRecordResponse> NsRecords;
         /// <summary>
         /// The list of PTR records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PtrRecordResponseResult> PtrRecords;
+        public readonly ImmutableArray<Outputs.PtrRecordResponse> PtrRecords;
         /// <summary>
         /// The SOA record in the record set.
         /// </summary>
-        public readonly Outputs.SoaRecordResponseResult? SoaRecord;
+        public readonly Outputs.SoaRecordResponse? SoaRecord;
         /// <summary>
         /// The list of SRV records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SrvRecordResponseResult> SrvRecords;
+        public readonly ImmutableArray<Outputs.SrvRecordResponse> SrvRecords;
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <summary>
         /// The list of TXT records in the record set.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TxtRecordResponseResult> TxtRecords;
+        public readonly ImmutableArray<Outputs.TxtRecordResponse> TxtRecords;
         /// <summary>
         /// The type of the record set.
         /// </summary>
@@ -118,13 +118,13 @@ namespace Pulumi.AzureRM.Network.V20170901
 
         [OutputConstructor]
         private GetRecordSetResult(
-            ImmutableArray<Outputs.ARecordResponseResult> aRecords,
+            ImmutableArray<Outputs.ARecordResponse> aRecords,
 
-            ImmutableArray<Outputs.AaaaRecordResponseResult> aaaaRecords,
+            ImmutableArray<Outputs.AaaaRecordResponse> aaaaRecords,
 
-            ImmutableArray<Outputs.CaaRecordResponseResult> caaRecords,
+            ImmutableArray<Outputs.CaaRecordResponse> caaRecords,
 
-            Outputs.CnameRecordResponseResult? cnameRecord,
+            Outputs.CnameRecordResponse? cnameRecord,
 
             string? etag,
 
@@ -132,21 +132,21 @@ namespace Pulumi.AzureRM.Network.V20170901
 
             ImmutableDictionary<string, string>? metadata,
 
-            ImmutableArray<Outputs.MxRecordResponseResult> mxRecords,
+            ImmutableArray<Outputs.MxRecordResponse> mxRecords,
 
             string name,
 
-            ImmutableArray<Outputs.NsRecordResponseResult> nsRecords,
+            ImmutableArray<Outputs.NsRecordResponse> nsRecords,
 
-            ImmutableArray<Outputs.PtrRecordResponseResult> ptrRecords,
+            ImmutableArray<Outputs.PtrRecordResponse> ptrRecords,
 
-            Outputs.SoaRecordResponseResult? soaRecord,
+            Outputs.SoaRecordResponse? soaRecord,
 
-            ImmutableArray<Outputs.SrvRecordResponseResult> srvRecords,
+            ImmutableArray<Outputs.SrvRecordResponse> srvRecords,
 
             int? ttl,
 
-            ImmutableArray<Outputs.TxtRecordResponseResult> txtRecords,
+            ImmutableArray<Outputs.TxtRecordResponse> txtRecords,
 
             string type)
         {

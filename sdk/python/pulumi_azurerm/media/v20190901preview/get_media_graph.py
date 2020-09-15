@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -80,7 +80,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sinks(self) -> List['outputs.MediaGraphAssetSinkResponse']:
+    def sinks(self) -> Sequence['outputs.MediaGraphAssetSinkResponse']:
         """
         Media Graph sinks
         """
@@ -88,7 +88,7 @@ class GetMediaGraphResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> List['outputs.MediaGraphRtspSourceResponse']:
+    def sources(self) -> Sequence['outputs.MediaGraphRtspSourceResponse']:
         """
         Media Graph sources
         """

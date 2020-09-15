@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBox.Latest.Outputs
         /// <summary>
         /// Error while fetching the secrets.
         /// </summary>
-        public readonly Outputs.CloudErrorResponseResult Error;
+        public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
         /// Used to indicate what type of job secrets object.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataBox.Latest.Outputs
 
             Outputs.DcAccessSecurityCodeResponseResult dcAccessSecurityCode,
 
-            Outputs.CloudErrorResponseResult error,
+            Outputs.CloudErrorResponse error,
 
             string jobSecretsType)
         {

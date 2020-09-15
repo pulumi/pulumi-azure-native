@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class ReferenceDataSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
-                 key_properties: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
+                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  reference_data_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class ReferenceDataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] reference_data_set_name: Name of the reference data set.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -111,7 +111,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> pulumi.Output[List['outputs.ReferenceDataSetKeyPropertyResponse']]:
+    def key_properties(self) -> pulumi.Output[Sequence['outputs.ReferenceDataSetKeyPropertyResponse']]:
         """
         The list of key properties for the reference data set.
         """

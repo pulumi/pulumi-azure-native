@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetAppServiceEnvironmentResult:
         if database_service_objective and not isinstance(database_service_objective, str):
             raise TypeError("Expected argument 'database_service_objective' to be a str")
         pulumi.set(__self__, "database_service_objective", database_service_objective)
-        if default_front_end_scale_factor and not isinstance(default_front_end_scale_factor, float):
-            raise TypeError("Expected argument 'default_front_end_scale_factor' to be a float")
+        if default_front_end_scale_factor and not isinstance(default_front_end_scale_factor, int):
+            raise TypeError("Expected argument 'default_front_end_scale_factor' to be a int")
         pulumi.set(__self__, "default_front_end_scale_factor", default_front_end_scale_factor)
         if dns_suffix and not isinstance(dns_suffix, str):
             raise TypeError("Expected argument 'dns_suffix' to be a str")
@@ -57,14 +57,14 @@ class GetAppServiceEnvironmentResult:
         if environment_status and not isinstance(environment_status, str):
             raise TypeError("Expected argument 'environment_status' to be a str")
         pulumi.set(__self__, "environment_status", environment_status)
-        if front_end_scale_factor and not isinstance(front_end_scale_factor, float):
-            raise TypeError("Expected argument 'front_end_scale_factor' to be a float")
+        if front_end_scale_factor and not isinstance(front_end_scale_factor, int):
+            raise TypeError("Expected argument 'front_end_scale_factor' to be a int")
         pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
         if internal_load_balancing_mode and not isinstance(internal_load_balancing_mode, str):
             raise TypeError("Expected argument 'internal_load_balancing_mode' to be a str")
         pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
-        if ipssl_address_count and not isinstance(ipssl_address_count, float):
-            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        if ipssl_address_count and not isinstance(ipssl_address_count, int):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a int")
         pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -78,11 +78,11 @@ class GetAppServiceEnvironmentResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_number_of_machines and not isinstance(maximum_number_of_machines, float):
-            raise TypeError("Expected argument 'maximum_number_of_machines' to be a float")
+        if maximum_number_of_machines and not isinstance(maximum_number_of_machines, int):
+            raise TypeError("Expected argument 'maximum_number_of_machines' to be a int")
         pulumi.set(__self__, "maximum_number_of_machines", maximum_number_of_machines)
-        if multi_role_count and not isinstance(multi_role_count, float):
-            raise TypeError("Expected argument 'multi_role_count' to be a float")
+        if multi_role_count and not isinstance(multi_role_count, int):
+            raise TypeError("Expected argument 'multi_role_count' to be a int")
         pulumi.set(__self__, "multi_role_count", multi_role_count)
         if multi_size and not isinstance(multi_size, str):
             raise TypeError("Expected argument 'multi_size' to be a str")
@@ -114,8 +114,8 @@ class GetAppServiceEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if upgrade_domains and not isinstance(upgrade_domains, float):
-            raise TypeError("Expected argument 'upgrade_domains' to be a float")
+        if upgrade_domains and not isinstance(upgrade_domains, int):
+            raise TypeError("Expected argument 'upgrade_domains' to be a int")
         pulumi.set(__self__, "upgrade_domains", upgrade_domains)
         if user_whitelisted_ip_ranges and not isinstance(user_whitelisted_ip_ranges, list):
             raise TypeError("Expected argument 'user_whitelisted_ip_ranges' to be a list")
@@ -165,7 +165,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[List['outputs.NameValuePairResponse']]:
+    def cluster_settings(self) -> Optional[Sequence['outputs.NameValuePairResponse']]:
         """
         Custom settings for changing the behavior of the App Service Environment.
         """
@@ -189,7 +189,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="defaultFrontEndScaleFactor")
-    def default_front_end_scale_factor(self) -> float:
+    def default_front_end_scale_factor(self) -> int:
         """
         Default Scale Factor for FrontEnds.
         """
@@ -214,7 +214,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="environmentCapacities")
-    def environment_capacities(self) -> List['outputs.StampCapacityResponse']:
+    def environment_capacities(self) -> Sequence['outputs.StampCapacityResponse']:
         """
         Current total, used, and available worker capacities.
         """
@@ -238,7 +238,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="frontEndScaleFactor")
-    def front_end_scale_factor(self) -> Optional[float]:
+    def front_end_scale_factor(self) -> Optional[int]:
         """
         Scale factor for front-ends.
         """
@@ -254,7 +254,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> Optional[float]:
+    def ipssl_address_count(self) -> Optional[int]:
         """
         Number of IP SSL addresses reserved for the App Service Environment.
         """
@@ -294,7 +294,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="maximumNumberOfMachines")
-    def maximum_number_of_machines(self) -> float:
+    def maximum_number_of_machines(self) -> int:
         """
         Maximum number of VMs in the App Service Environment.
         """
@@ -302,7 +302,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="multiRoleCount")
-    def multi_role_count(self) -> Optional[float]:
+    def multi_role_count(self) -> Optional[int]:
         """
         Number of front-end instances.
         """
@@ -326,7 +326,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="networkAccessControlList")
-    def network_access_control_list(self) -> Optional[List['outputs.NetworkAccessControlEntryResponse']]:
+    def network_access_control_list(self) -> Optional[Sequence['outputs.NetworkAccessControlEntryResponse']]:
         """
         Access control list for controlling traffic to the App Service Environment.
         """
@@ -391,7 +391,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="upgradeDomains")
-    def upgrade_domains(self) -> float:
+    def upgrade_domains(self) -> int:
         """
         Number of upgrade domains of the App Service Environment.
         """
@@ -399,7 +399,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> Optional[List[str]]:
+    def user_whitelisted_ip_ranges(self) -> Optional[Sequence[str]]:
         """
         User added ip ranges to whitelist on ASE db
         """
@@ -407,7 +407,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="vipMappings")
-    def vip_mappings(self) -> List['outputs.VirtualIPMappingResponse']:
+    def vip_mappings(self) -> Sequence['outputs.VirtualIPMappingResponse']:
         """
         Description of IP SSL mapping for the App Service Environment.
         """
@@ -447,7 +447,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="workerPools")
-    def worker_pools(self) -> List['outputs.WorkerPoolResponse']:
+    def worker_pools(self) -> Sequence['outputs.WorkerPoolResponse']:
         """
         Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """

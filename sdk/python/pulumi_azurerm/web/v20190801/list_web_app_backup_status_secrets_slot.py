@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,8 +22,8 @@ class ListWebAppBackupStatusSecretsSlotResult:
     Backup description.
     """
     def __init__(__self__, backup_id=None, blob_name=None, correlation_id=None, created=None, databases=None, finished_time_stamp=None, kind=None, last_restore_time_stamp=None, log=None, name=None, scheduled=None, size_in_bytes=None, status=None, storage_account_url=None, type=None, website_size_in_bytes=None):
-        if backup_id and not isinstance(backup_id, float):
-            raise TypeError("Expected argument 'backup_id' to be a float")
+        if backup_id and not isinstance(backup_id, int):
+            raise TypeError("Expected argument 'backup_id' to be a int")
         pulumi.set(__self__, "backup_id", backup_id)
         if blob_name and not isinstance(blob_name, str):
             raise TypeError("Expected argument 'blob_name' to be a str")
@@ -55,8 +55,8 @@ class ListWebAppBackupStatusSecretsSlotResult:
         if scheduled and not isinstance(scheduled, bool):
             raise TypeError("Expected argument 'scheduled' to be a bool")
         pulumi.set(__self__, "scheduled", scheduled)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -67,13 +67,13 @@ class ListWebAppBackupStatusSecretsSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if website_size_in_bytes and not isinstance(website_size_in_bytes, float):
-            raise TypeError("Expected argument 'website_size_in_bytes' to be a float")
+        if website_size_in_bytes and not isinstance(website_size_in_bytes, int):
+            raise TypeError("Expected argument 'website_size_in_bytes' to be a int")
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
 
     @property
     @pulumi.getter(name="backupId")
-    def backup_id(self) -> float:
+    def backup_id(self) -> int:
         """
         Id of the backup.
         """
@@ -105,7 +105,7 @@ class ListWebAppBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> List['outputs.DatabaseBackupSettingResponseResult']:
+    def databases(self) -> Sequence['outputs.DatabaseBackupSettingResponseResult']:
         """
         List of databases included in the backup.
         """
@@ -161,7 +161,7 @@ class ListWebAppBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> float:
+    def size_in_bytes(self) -> int:
         """
         Size of the backup in bytes.
         """
@@ -193,7 +193,7 @@ class ListWebAppBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="websiteSizeInBytes")
-    def website_size_in_bytes(self) -> float:
+    def website_size_in_bytes(self) -> int:
         """
         Size of the original web app which has been backed up.
         """
@@ -227,7 +227,7 @@ class AwaitableListWebAppBackupStatusSecretsSlotResult(ListWebAppBackupStatusSec
 def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             backup_name: Optional[str] = None,
                                             backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
-                                            databases: Optional[List[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
+                                            databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
                                             enabled: Optional[bool] = None,
                                             kind: Optional[str] = None,
                                             name: Optional[str] = None,
@@ -241,7 +241,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
     :param str backup_id: ID of backup.
     :param str backup_name: Name of the backup.
     :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically.
-    :param List[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup.
+    :param Sequence[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup.
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
     :param str name: Name of web app.

@@ -49,7 +49,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Sampling settings for an ApplicationInsights logger.
         /// </summary>
         [Output("sampling")]
-        public Output<Outputs.LoggerSamplingContractResponseResult?> Sampling { get; private set; } = null!;
+        public Output<Outputs.LoggerSamplingContractResponse?> Sampling { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Local network gateway's BGP speaker settings
         /// </summary>
         [Output("bgpSettings")]
-        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+        public Output<Outputs.BgpSettingsResponse?> BgpSettings { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Local network site Address space
         /// </summary>
         [Output("localNetworkAddressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> LocalNetworkAddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> LocalNetworkAddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

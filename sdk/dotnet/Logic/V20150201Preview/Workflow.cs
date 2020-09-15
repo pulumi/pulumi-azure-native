@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// Gets or sets the link to definition.
         /// </summary>
         [Output("definitionLink")]
-        public Output<Outputs.ContentLinkResponseResult?> DefinitionLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse?> DefinitionLink { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the resource location.
@@ -57,13 +57,13 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// Gets or sets the parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the link to parameters.
         /// </summary>
         [Output("parametersLink")]
-        public Output<Outputs.ContentLinkResponseResult?> ParametersLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse?> ParametersLink { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state.
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.Logic.V20150201Preview
         /// Gets or sets the sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the state.

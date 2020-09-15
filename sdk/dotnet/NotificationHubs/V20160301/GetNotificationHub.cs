@@ -48,23 +48,23 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The AdmCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.AdmCredentialResponseResult? AdmCredential;
+        public readonly Outputs.AdmCredentialResponse? AdmCredential;
         /// <summary>
         /// The ApnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.ApnsCredentialResponseResult? ApnsCredential;
+        public readonly Outputs.ApnsCredentialResponse? ApnsCredential;
         /// <summary>
         /// The AuthorizationRules of the created NotificationHub
         /// </summary>
-        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> AuthorizationRules;
+        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> AuthorizationRules;
         /// <summary>
         /// The BaiduCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.BaiduCredentialResponseResult? BaiduCredential;
+        public readonly Outputs.BaiduCredentialResponse? BaiduCredential;
         /// <summary>
         /// The GcmCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.GcmCredentialResponseResult? GcmCredential;
+        public readonly Outputs.GcmCredentialResponse? GcmCredential;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The MpnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.MpnsCredentialResponseResult? MpnsCredential;
+        public readonly Outputs.MpnsCredentialResponse? MpnsCredential;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -96,35 +96,35 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The WnsCredential of the created NotificationHub
         /// </summary>
-        public readonly Outputs.WnsCredentialResponseResult? WnsCredential;
+        public readonly Outputs.WnsCredentialResponse? WnsCredential;
 
         [OutputConstructor]
         private GetNotificationHubResult(
-            Outputs.AdmCredentialResponseResult? admCredential,
+            Outputs.AdmCredentialResponse? admCredential,
 
-            Outputs.ApnsCredentialResponseResult? apnsCredential,
+            Outputs.ApnsCredentialResponse? apnsCredential,
 
-            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> authorizationRules,
+            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> authorizationRules,
 
-            Outputs.BaiduCredentialResponseResult? baiduCredential,
+            Outputs.BaiduCredentialResponse? baiduCredential,
 
-            Outputs.GcmCredentialResponseResult? gcmCredential,
+            Outputs.GcmCredentialResponse? gcmCredential,
 
             string location,
 
-            Outputs.MpnsCredentialResponseResult? mpnsCredential,
+            Outputs.MpnsCredentialResponse? mpnsCredential,
 
             string name,
 
             string? registrationTtl,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.WnsCredentialResponseResult? wnsCredential)
+            Outputs.WnsCredentialResponse? wnsCredential)
         {
             AdmCredential = admCredential;
             ApnsCredential = apnsCredential;

@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// The Subnet that using the prefix of this IpAllocation resource.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubResourceResponseResult> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// The VirtualNetwork that using the prefix of this IpAllocation resource.
         /// </summary>
         [Output("virtualNetwork")]
-        public Output<Outputs.SubResourceResponseResult> VirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> VirtualNetwork { get; private set; } = null!;
 
 
         /// <summary>

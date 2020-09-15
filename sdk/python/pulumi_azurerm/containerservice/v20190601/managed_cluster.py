@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,8 +19,8 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']]] = None,
                  addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]]] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  enable_rbac: Optional[pulumi.Input[bool]] = None,
@@ -45,8 +45,8 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ManagedClusterAddonProfileArgs']]]] addon_profiles: Profile of managed cluster add-on.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] api_server_authorized_ip_ranges: (PREVIEW) Authorized IP Ranges to kubernetes API server.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: (PREVIEW) Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[bool] enable_pod_security_policy: (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
         :param pulumi.Input[bool] enable_rbac: Whether to enable Kubernetes Role-Based Access Control.
@@ -152,7 +152,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.ManagedClusterAgentPoolProfileResponse']]]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedClusterAgentPoolProfileResponse']]]:
         """
         Properties of the agent pool.
         """
@@ -160,7 +160,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIPRanges")
-    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[List[str]]]:
+    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         (PREVIEW) Authorized IP Ranges to kubernetes API server.
         """
@@ -232,7 +232,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxAgentPools")
-    def max_agent_pools(self) -> pulumi.Output[float]:
+    def max_agent_pools(self) -> pulumi.Output[int]:
         """
         The max number of agent pools for the managed cluster.
         """

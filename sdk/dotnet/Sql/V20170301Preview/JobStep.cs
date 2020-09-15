@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// The action payload of the job step.
         /// </summary>
         [Output("action")]
-        public Output<Outputs.JobStepActionResponseResult> Action { get; private set; } = null!;
+        public Output<Outputs.JobStepActionResponse> Action { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the job credential that will be used to connect to the targets.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// Execution options for the job step.
         /// </summary>
         [Output("executionOptions")]
-        public Output<Outputs.JobStepExecutionOptionsResponseResult?> ExecutionOptions { get; private set; } = null!;
+        public Output<Outputs.JobStepExecutionOptionsResponse?> ExecutionOptions { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// Output destination properties of the job step.
         /// </summary>
         [Output("output")]
-        public Output<Outputs.JobStepOutputResponseResult?> Output { get; private set; } = null!;
+        public Output<Outputs.JobStepOutputResponse?> Output { get; private set; } = null!;
 
         /// <summary>
         /// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.

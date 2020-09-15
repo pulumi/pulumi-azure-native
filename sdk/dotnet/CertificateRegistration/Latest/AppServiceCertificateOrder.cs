@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.Latest
         /// State of the Key Vault secret.
         /// </summary>
         [Output("certificates")]
-        public Output<ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>?> Certificates { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.AppServiceCertificateResponse>?> Certificates { get; private set; } = null!;
 
         /// <summary>
         /// Last CSR that was created for this order.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.Latest
         /// Intermediate certificate.
         /// </summary>
         [Output("intermediate")]
-        public Output<Outputs.CertificateDetailsResponseResult> Intermediate { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse> Intermediate { get; private set; } = null!;
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if private key is external; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.Latest
         /// Root certificate.
         /// </summary>
         [Output("root")]
-        public Output<Outputs.CertificateDetailsResponseResult> Root { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse> Root { get; private set; } = null!;
 
         /// <summary>
         /// Current serial number of the certificate.
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.Latest
         /// Signed certificate.
         /// </summary>
         [Output("signedCertificate")]
-        public Output<Outputs.CertificateDetailsResponseResult> SignedCertificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse> SignedCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Current order status.

@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Resources.Latest
         /// <summary>
         /// Deployment properties.
         /// </summary>
-        public readonly Outputs.DeploymentPropertiesExtendedResponseResult Properties;
+        public readonly Outputs.DeploymentPropertiesExtendedResponse Properties;
         /// <summary>
         /// Deployment tags
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Resources.Latest
 
             string name,
 
-            Outputs.DeploymentPropertiesExtendedResponseResult properties,
+            Outputs.DeploymentPropertiesExtendedResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

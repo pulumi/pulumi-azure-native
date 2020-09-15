@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -62,8 +62,8 @@ class GetRegisteredServerResult:
         if server_id and not isinstance(server_id, str):
             raise TypeError("Expected argument 'server_id' to be a str")
         pulumi.set(__self__, "server_id", server_id)
-        if server_managementt_error_code and not isinstance(server_managementt_error_code, float):
-            raise TypeError("Expected argument 'server_managementt_error_code' to be a float")
+        if server_managementt_error_code and not isinstance(server_managementt_error_code, int):
+            raise TypeError("Expected argument 'server_managementt_error_code' to be a int")
         pulumi.set(__self__, "server_managementt_error_code", server_managementt_error_code)
         if server_os_version and not isinstance(server_os_version, str):
             raise TypeError("Expected argument 'server_os_version' to be a str")
@@ -195,7 +195,7 @@ class GetRegisteredServerResult:
 
     @property
     @pulumi.getter(name="serverManagementtErrorCode")
-    def server_managementt_error_code(self) -> Optional[float]:
+    def server_managementt_error_code(self) -> Optional[int]:
         """
         Registered Server Management Error Code
         """

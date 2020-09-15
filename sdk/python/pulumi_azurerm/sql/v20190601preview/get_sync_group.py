@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetSyncGroupResult:
         if hub_database_user_name and not isinstance(hub_database_user_name, str):
             raise TypeError("Expected argument 'hub_database_user_name' to be a str")
         pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
-        if interval and not isinstance(interval, float):
-            raise TypeError("Expected argument 'interval' to be a float")
+        if interval and not isinstance(interval, int):
+            raise TypeError("Expected argument 'interval' to be a int")
         pulumi.set(__self__, "interval", interval)
         if last_sync_time and not isinstance(last_sync_time, str):
             raise TypeError("Expected argument 'last_sync_time' to be a str")
@@ -81,7 +81,7 @@ class GetSyncGroupResult:
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> Optional[int]:
         """
         Sync interval of the sync group.
         """

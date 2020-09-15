@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -31,7 +31,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
                  authentication_type: str,
                  aws_assume_role_arn: str,
                  aws_external_id: str,
-                 granted_permissions: List[str]):
+                 granted_permissions: Sequence[str]):
         """
         AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role arn and external id, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
         :param str account_id: The ID of the cloud account
@@ -39,7 +39,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
         :param str aws_assume_role_arn: Assumed role ID is an identifier that you can use to create temporary security credentials.
         :param str aws_external_id: A unique identifier that is required when you assume a role in another account.
-        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
@@ -90,7 +90,7 @@ class AwAssumeRoleAuthenticationDetailsPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> List[str]:
+    def granted_permissions(self) -> Sequence[str]:
         """
         The permissions detected in the cloud account.
         """
@@ -111,7 +111,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
                  authentication_type: str,
                  aws_access_key_id: str,
                  aws_secret_access_key: str,
-                 granted_permissions: List[str]):
+                 granted_permissions: Sequence[str]):
         """
         AWS cloud account connector based credentials, the credentials is composed of access key id and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
         :param str account_id: The ID of the cloud account
@@ -119,7 +119,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
         :param str authentication_type: Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
         :param str aws_access_key_id: Public key element of the AWS credential object (write only)
         :param str aws_secret_access_key: Secret key element of the AWS credential object (write only)
-        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "authentication_provisioning_state", authentication_provisioning_state)
@@ -170,7 +170,7 @@ class AwsCredsAuthenticationDetailsPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> List[str]:
+    def granted_permissions(self) -> Sequence[str]:
         """
         The permissions detected in the cloud account.
         """
@@ -193,7 +193,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
                  client_email: str,
                  client_id: str,
                  client_x509_cert_url: str,
-                 granted_permissions: List[str],
+                 granted_permissions: Sequence[str],
                  organization_id: str,
                  private_key: str,
                  private_key_id: str,
@@ -209,7 +209,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
         :param str client_email: Client email field of the API key (write only)
         :param str client_id: Client Id field of the API key (write only)
         :param str client_x509_cert_url: Client x509 certificate url field of the API key (write only)
-        :param List[str] granted_permissions: The permissions detected in the cloud account.
+        :param Sequence[str] granted_permissions: The permissions detected in the cloud account.
         :param str organization_id: The Organization ID of the GCP cloud account
         :param str private_key: Private key field of the API key (write only)
         :param str private_key_id: Private key Id field of the API key (write only)
@@ -290,7 +290,7 @@ class GcpCredentialsDetailsPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="grantedPermissions")
-    def granted_permissions(self) -> List[str]:
+    def granted_permissions(self) -> Sequence[str]:
         """
         The permissions detected in the cloud account.
         """
@@ -514,11 +514,11 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
     Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
     """
     def __init__(__self__, *,
-                 roles: Optional[List[str]] = None,
+                 roles: Optional[Sequence[str]] = None,
                  state: Optional[str] = None):
         """
         Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-        :param List[str] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        :param Sequence[str] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
         :param str state: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
         """
         if roles is not None:
@@ -528,7 +528,7 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[List[str]]:
+    def roles(self) -> Optional[Sequence[str]]:
         """
         Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
         """

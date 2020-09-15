@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  circuit_provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  global_reach_enabled: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 peerings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
+                 peerings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_key: Optional[pulumi.Input[str]] = None,
                  service_provider_notes: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
@@ -53,7 +53,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[bool] global_reach_enabled: Flag denoting global reach status.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: The list of peerings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: The list of peerings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_key: The ServiceKey.
         :param pulumi.Input[str] service_provider_notes: The ServiceProviderNotes.
@@ -142,7 +142,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]]:
+    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationResponse']]]:
         """
         The list of authorizations.
         """
@@ -214,7 +214,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def peerings(self) -> pulumi.Output[Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]]:
+    def peerings(self) -> pulumi.Output[Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]]:
         """
         The list of peerings.
         """
@@ -270,7 +270,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stag(self) -> pulumi.Output[float]:
+    def stag(self) -> pulumi.Output[int]:
         """
         The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         """

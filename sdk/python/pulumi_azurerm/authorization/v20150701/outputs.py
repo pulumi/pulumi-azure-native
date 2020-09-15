@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,12 +19,12 @@ class PermissionResponse(dict):
     Role definition permissions.
     """
     def __init__(__self__, *,
-                 actions: Optional[List[str]] = None,
-                 not_actions: Optional[List[str]] = None):
+                 actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None):
         """
         Role definition permissions.
-        :param List[str] actions: Allowed actions.
-        :param List[str] not_actions: Denied actions.
+        :param Sequence[str] actions: Allowed actions.
+        :param Sequence[str] not_actions: Denied actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -33,7 +33,7 @@ class PermissionResponse(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[str]]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         Allowed actions.
         """
@@ -41,7 +41,7 @@ class PermissionResponse(dict):
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[List[str]]:
+    def not_actions(self) -> Optional[Sequence[str]]:
         """
         Denied actions.
         """

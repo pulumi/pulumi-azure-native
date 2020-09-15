@@ -48,19 +48,19 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// An entity containing request details.
         /// </summary>
         [Output("request")]
-        public Output<Outputs.RequestContractResponseResult?> Request { get; private set; } = null!;
+        public Output<Outputs.RequestContractResponse?> Request { get; private set; } = null!;
 
         /// <summary>
         /// Array of Operation responses.
         /// </summary>
         [Output("responses")]
-        public Output<ImmutableArray<Outputs.ResponseContractResponseResult>> Responses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResponseContractResponse>> Responses { get; private set; } = null!;
 
         /// <summary>
         /// Collection of URL template parameters.
         /// </summary>
         [Output("templateParameters")]
-        public Output<ImmutableArray<Outputs.ParameterContractResponseResult>> TemplateParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ParameterContractResponse>> TemplateParameters { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

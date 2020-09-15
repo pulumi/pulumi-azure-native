@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// State of the Key Vault secret
         /// </summary>
         [Output("certificates")]
-        public Output<ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponseResult>?> Certificates { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.CertificateOrderCertificateResponse>?> Certificates { get; private set; } = null!;
 
         /// <summary>
         /// Last CSR that was created for this order
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// Intermediate certificate
         /// </summary>
         [Output("intermediate")]
-        public Output<Outputs.CertificateDetailsResponseResult?> Intermediate { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse?> Intermediate { get; private set; } = null!;
 
         /// <summary>
         /// Certificate Key Size
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// Root certificate
         /// </summary>
         [Output("root")]
-        public Output<Outputs.CertificateDetailsResponseResult?> Root { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse?> Root { get; private set; } = null!;
 
         /// <summary>
         /// Current serial number of the certificate
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// Signed certificate
         /// </summary>
         [Output("signedCertificate")]
-        public Output<Outputs.CertificateDetailsResponseResult?> SignedCertificate { get; private set; } = null!;
+        public Output<Outputs.CertificateDetailsResponse?> SignedCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Current order status

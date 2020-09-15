@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The customIpPrefix that this prefix is associated with.
         /// </summary>
         [Output("customIPPrefix")]
-        public Output<Outputs.SubResourceResponseResult?> CustomIPPrefix { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> CustomIPPrefix { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The list of tags associated with the public IP prefix.
         /// </summary>
         [Output("ipTags")]
-        public Output<ImmutableArray<Outputs.IpTagResponseResult>> IpTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpTagResponse>> IpTags { get; private set; } = null!;
 
         /// <summary>
         /// The reference to load balancer frontend IP configuration associated with the public IP prefix.
         /// </summary>
         [Output("loadBalancerFrontendIpConfiguration")]
-        public Output<Outputs.SubResourceResponseResult> LoadBalancerFrontendIpConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> LoadBalancerFrontendIpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The list of all referenced PublicIPAddresses.
         /// </summary>
         [Output("publicIPAddresses")]
-        public Output<ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult>> PublicIPAddresses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ReferencedPublicIpAddressResponse>> PublicIPAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the public IP prefix resource.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The public IP prefix SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.PublicIPPrefixSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.PublicIPPrefixSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

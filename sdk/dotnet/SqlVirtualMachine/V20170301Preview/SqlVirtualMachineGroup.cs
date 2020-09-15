@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// Cluster Active Directory domain profile.
         /// </summary>
         [Output("wsfcDomainProfile")]
-        public Output<Outputs.WsfcDomainProfileResponseResult?> WsfcDomainProfile { get; private set; } = null!;
+        public Output<Outputs.WsfcDomainProfileResponse?> WsfcDomainProfile { get; private set; } = null!;
 
 
         /// <summary>

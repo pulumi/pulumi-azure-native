@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -81,8 +81,8 @@ class GetManagedInstanceResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
-        if storage_size_in_gb and not isinstance(storage_size_in_gb, float):
-            raise TypeError("Expected argument 'storage_size_in_gb' to be a float")
+        if storage_size_in_gb and not isinstance(storage_size_in_gb, int):
+            raise TypeError("Expected argument 'storage_size_in_gb' to be a int")
         pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
@@ -96,8 +96,8 @@ class GetManagedInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if v_cores and not isinstance(v_cores, float):
-            raise TypeError("Expected argument 'v_cores' to be a float")
+        if v_cores and not isinstance(v_cores, int):
+            raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
 
     @property
@@ -266,7 +266,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter(name="storageSizeInGB")
-    def storage_size_in_gb(self) -> Optional[float]:
+    def storage_size_in_gb(self) -> Optional[int]:
         """
         Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
         """
@@ -311,7 +311,7 @@ class GetManagedInstanceResult:
 
     @property
     @pulumi.getter(name="vCores")
-    def v_cores(self) -> Optional[float]:
+    def v_cores(self) -> Optional[int]:
         """
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """

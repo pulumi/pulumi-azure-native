@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// <summary>
         /// The client entity that created the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponseResult CreatedBy;
+        public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
         /// <summary>
         /// The JIT authorization policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult> JitAuthorizationPolicies;
+        public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> JitAuthorizationPolicies;
         /// <summary>
         /// The JIT request state.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// <summary>
         /// The JIT request properties.
         /// </summary>
-        public readonly Outputs.JitSchedulingPolicyResponseResult JitSchedulingPolicy;
+        public readonly Outputs.JitSchedulingPolicyResponse JitSchedulingPolicy;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -86,19 +86,19 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// <summary>
         /// The client entity that last updated the JIT request.
         /// </summary>
-        public readonly Outputs.ApplicationClientDetailsResponseResult UpdatedBy;
+        public readonly Outputs.ApplicationClientDetailsResponse UpdatedBy;
 
         [OutputConstructor]
         private GetJitRequestResult(
             string applicationResourceId,
 
-            Outputs.ApplicationClientDetailsResponseResult createdBy,
+            Outputs.ApplicationClientDetailsResponse createdBy,
 
-            ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult> jitAuthorizationPolicies,
+            ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> jitAuthorizationPolicies,
 
             string jitRequestState,
 
-            Outputs.JitSchedulingPolicyResponseResult jitSchedulingPolicy,
+            Outputs.JitSchedulingPolicyResponse jitSchedulingPolicy,
 
             string? location,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
 
             string type,
 
-            Outputs.ApplicationClientDetailsResponseResult updatedBy)
+            Outputs.ApplicationClientDetailsResponse updatedBy)
         {
             ApplicationResourceId = applicationResourceId;
             CreatedBy = createdBy;

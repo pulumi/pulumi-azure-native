@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['ServerEndpoint']
@@ -25,7 +25,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[float]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +44,7 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-        :param pulumi.Input[float] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
+        :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -196,7 +196,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> pulumi.Output[Optional[float]]:
+    def volume_free_space_percent(self) -> pulumi.Output[Optional[int]]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// <summary>
         /// Gets or sets the advanced schedule.
         /// </summary>
-        public readonly Outputs.AdvancedScheduleResponseResult? AdvancedSchedule;
+        public readonly Outputs.AdvancedScheduleResponse? AdvancedSchedule;
         /// <summary>
         /// Gets or sets the creation time.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Automation.Latest
 
         [OutputConstructor]
         private GetScheduleResult(
-            Outputs.AdvancedScheduleResponseResult? advancedSchedule,
+            Outputs.AdvancedScheduleResponse? advancedSchedule,
 
             string? creationTime,
 

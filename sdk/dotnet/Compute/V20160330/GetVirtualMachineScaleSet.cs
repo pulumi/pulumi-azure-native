@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponseResult? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
-            Outputs.VirtualMachineScaleSetIdentityResponseResult? identity,
+            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
 
@@ -92,15 +92,15 @@ namespace Pulumi.AzureRM.Compute.V20160330
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile)
+            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile)
         {
             Identity = identity;
             Location = location;

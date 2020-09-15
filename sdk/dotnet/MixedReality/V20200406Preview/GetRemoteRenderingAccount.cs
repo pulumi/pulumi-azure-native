@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
         /// unique id of certain account.
         /// </summary>
         public readonly string AccountId;
-        public readonly Outputs.RemoteRenderingAccountResponseIdentityResult? Identity;
+        public readonly Outputs.RemoteRenderingAccountResponseIdentity? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureRM.MixedReality.V20200406Preview
 
             string accountId,
 
-            Outputs.RemoteRenderingAccountResponseIdentityResult? identity,
+            Outputs.RemoteRenderingAccountResponseIdentity? identity,
 
             string location,
 

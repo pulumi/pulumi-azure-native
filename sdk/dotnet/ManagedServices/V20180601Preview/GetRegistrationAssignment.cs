@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
         /// <summary>
         /// Properties of a registration assignment.
         /// </summary>
-        public readonly Outputs.RegistrationAssignmentPropertiesResponseResult Properties;
+        public readonly Outputs.RegistrationAssignmentPropertiesResponse Properties;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20180601Preview
         private GetRegistrationAssignmentResult(
             string name,
 
-            Outputs.RegistrationAssignmentPropertiesResponseResult properties,
+            Outputs.RegistrationAssignmentPropertiesResponse properties,
 
             string type)
         {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['BlobContainerImmutabilityPolicy']
@@ -18,7 +18,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 immutability_period_since_creation_in_days: Optional[pulumi.Input[float]] = None,
+                 immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
                  immutability_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +32,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
         :param pulumi.Input[str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[float] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         """
@@ -115,7 +115,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> pulumi.Output[Optional[float]]:
+    def immutability_period_since_creation_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """

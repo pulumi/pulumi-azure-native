@@ -52,15 +52,15 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// <summary>
         /// A reference to the origin group.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponseResult? DefaultOriginGroup;
+        public readonly Outputs.ResourceReferenceResponse? DefaultOriginGroup;
         /// <summary>
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? DeliveryPolicy;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy? DeliveryPolicy;
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
-        public readonly ImmutableArray<Outputs.GeoFilterResponseResult> GeoFilters;
+        public readonly ImmutableArray<Outputs.GeoFilterResponse> GeoFilters;
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// <summary>
         /// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeepCreatedOriginGroupResponseResult> OriginGroups;
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginGroupResponse> OriginGroups;
         /// <summary>
         /// The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// <summary>
         /// The source of the content being delivered via CDN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponseResult> Origins;
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponse> Origins;
         /// <summary>
         /// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
         /// </summary>
@@ -132,21 +132,21 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// <summary>
         /// List of keys used to validate the signed URL hashes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.UrlSigningKeyResponseResult> UrlSigningKeys;
+        public readonly ImmutableArray<Outputs.UrlSigningKeyResponse> UrlSigningKeys;
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private GetEndpointResult(
             ImmutableArray<string> contentTypesToCompress,
 
-            Outputs.ResourceReferenceResponseResult? defaultOriginGroup,
+            Outputs.ResourceReferenceResponse? defaultOriginGroup,
 
-            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? deliveryPolicy,
+            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy? deliveryPolicy,
 
-            ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
+            ImmutableArray<Outputs.GeoFilterResponse> geoFilters,
 
             string hostName,
 
@@ -162,13 +162,13 @@ namespace Pulumi.AzureRM.Cdn.V20200415
 
             string? optimizationType,
 
-            ImmutableArray<Outputs.DeepCreatedOriginGroupResponseResult> originGroups,
+            ImmutableArray<Outputs.DeepCreatedOriginGroupResponse> originGroups,
 
             string? originHostHeader,
 
             string? originPath,
 
-            ImmutableArray<Outputs.DeepCreatedOriginResponseResult> origins,
+            ImmutableArray<Outputs.DeepCreatedOriginResponse> origins,
 
             string? probePath,
 
@@ -182,9 +182,9 @@ namespace Pulumi.AzureRM.Cdn.V20200415
 
             string type,
 
-            ImmutableArray<Outputs.UrlSigningKeyResponseResult> urlSigningKeys,
+            ImmutableArray<Outputs.UrlSigningKeyResponse> urlSigningKeys,
 
-            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
+            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink? webApplicationFirewallPolicyLink)
         {
             ContentTypesToCompress = contentTypesToCompress;
             DefaultOriginGroup = defaultOriginGroup;

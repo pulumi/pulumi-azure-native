@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CostManagement.V20180801Preview
         /// <summary>
         /// Collection information
         /// </summary>
-        public readonly Outputs.ConnectorCollectionInfoResponseResult Collection;
+        public readonly Outputs.ConnectorCollectionInfoResponse Collection;
         /// <summary>
         /// Connector definition creation datetime
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.CostManagement.V20180801Preview
 
         [OutputConstructor]
         private GetConnectorResult(
-            Outputs.ConnectorCollectionInfoResponseResult collection,
+            Outputs.ConnectorCollectionInfoResponse collection,
 
             string createdOn,
 

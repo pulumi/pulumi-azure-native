@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Associated Network Interfaces to the DSCP Configuration.
         /// </summary>
         [Output("associatedNetworkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> AssociatedNetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> AssociatedNetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Destination IP ranges.
         /// </summary>
         [Output("destinationIpRanges")]
-        public Output<ImmutableArray<Outputs.QosIpRangeResponseResult>> DestinationIpRanges { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.QosIpRangeResponse>> DestinationIpRanges { get; private set; } = null!;
 
         /// <summary>
         /// Destination port ranges.
         /// </summary>
         [Output("destinationPortRanges")]
-        public Output<ImmutableArray<Outputs.QosPortRangeResponseResult>> DestinationPortRanges { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.QosPortRangeResponse>> DestinationPortRanges { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -84,13 +84,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Source IP ranges.
         /// </summary>
         [Output("sourceIpRanges")]
-        public Output<ImmutableArray<Outputs.QosIpRangeResponseResult>> SourceIpRanges { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.QosIpRangeResponse>> SourceIpRanges { get; private set; } = null!;
 
         /// <summary>
         /// Sources port ranges.
         /// </summary>
         [Output("sourcePortRanges")]
-        public Output<ImmutableArray<Outputs.QosPortRangeResponseResult>> SourcePortRanges { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.QosPortRangeResponse>> SourcePortRanges { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

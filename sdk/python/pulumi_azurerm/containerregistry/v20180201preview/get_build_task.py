@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetBuildTaskResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if timeout and not isinstance(timeout, float):
-            raise TypeError("Expected argument 'timeout' to be a float")
+        if timeout and not isinstance(timeout, int):
+            raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -129,7 +129,7 @@ class GetBuildTaskResult:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         """
         Build timeout in seconds.
         """

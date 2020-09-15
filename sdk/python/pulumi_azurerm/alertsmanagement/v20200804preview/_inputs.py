@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -58,24 +58,24 @@ class HealthAlertActionArgs:
 @pulumi.input_type
 class HealthAlertCriteriaArgs:
     def __init__(__self__, *,
-                 all_of: Optional[pulumi.Input[List[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]] = None):
+                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]] = None):
         """
         Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
-        :param pulumi.Input[List[pulumi.Input['VmGuestHealthAlertCriterionArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
+        :param pulumi.Input[Sequence[pulumi.Input['VmGuestHealthAlertCriterionArgs']]] all_of: The list of metric criteria for this 'all of' operation. 
         """
         if all_of is not None:
             pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> Optional[pulumi.Input[List[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]]:
+    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]]:
         """
         The list of metric criteria for this 'all of' operation. 
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: Optional[pulumi.Input[List[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]]):
+    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VmGuestHealthAlertCriterionArgs']]]]):
         pulumi.set(self, "all_of", value)
 
 
@@ -122,12 +122,12 @@ class VmGuestHealthAlertCriterionArgs:
     def __init__(__self__, *,
                  health_monitor_name: pulumi.Input[str],
                  namespace: pulumi.Input[str],
-                 health_states: Optional[pulumi.Input[List[pulumi.Input['HealthStateArgs']]]] = None):
+                 health_states: Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]] = None):
         """
         Specifies the health alert criteria to alert on.
         :param pulumi.Input[str] health_monitor_name: Name of health monitor on which to define alert
         :param pulumi.Input[str] namespace: specifies the type of the alert criterion.
-        :param pulumi.Input[List[pulumi.Input['HealthStateArgs']]] health_states: Health states to alert on
+        :param pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]] health_states: Health states to alert on
         """
         pulumi.set(__self__, "health_monitor_name", health_monitor_name)
         pulumi.set(__self__, "namespace", 'VmGuestHealth')
@@ -160,14 +160,14 @@ class VmGuestHealthAlertCriterionArgs:
 
     @property
     @pulumi.getter(name="healthStates")
-    def health_states(self) -> Optional[pulumi.Input[List[pulumi.Input['HealthStateArgs']]]]:
+    def health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]]:
         """
         Health states to alert on
         """
         return pulumi.get(self, "health_states")
 
     @health_states.setter
-    def health_states(self, value: Optional[pulumi.Input[List[pulumi.Input['HealthStateArgs']]]]):
+    def health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]]):
         pulumi.set(self, "health_states", value)
 
 

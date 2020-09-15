@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,11 +21,11 @@ __all__ = [
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
         Identity for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: The list of identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of identities.
         :param pulumi.Input[str] type: The identity type.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
@@ -33,14 +33,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of identities.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -194,16 +194,16 @@ class StepArgs:
     def __init__(__self__, *,
                  deployment_target_id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 depends_on_step_groups: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 post_deployment_steps: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]] = None,
-                 pre_deployment_steps: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]] = None):
+                 depends_on_step_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 post_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None,
+                 pre_deployment_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]] = None):
         """
         The properties that define an Azure Deployment Manager step.
         :param pulumi.Input[str] deployment_target_id: The resource Id of service unit to be deployed. The service unit should be from the service topology referenced in targetServiceTopologyId
         :param pulumi.Input[str] name: The name of the step group.
-        :param pulumi.Input[List[pulumi.Input[str]]] depends_on_step_groups: The list of step group names on which this step group depends on.
-        :param pulumi.Input[List[pulumi.Input['PrePostStepArgs']]] post_deployment_steps: The list of steps to be run after deploying the target.
-        :param pulumi.Input[List[pulumi.Input['PrePostStepArgs']]] pre_deployment_steps: The list of steps to be run before deploying the target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] depends_on_step_groups: The list of step group names on which this step group depends on.
+        :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] post_deployment_steps: The list of steps to be run after deploying the target.
+        :param pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]] pre_deployment_steps: The list of steps to be run before deploying the target.
         """
         pulumi.set(__self__, "deployment_target_id", deployment_target_id)
         pulumi.set(__self__, "name", name)
@@ -240,38 +240,38 @@ class StepArgs:
 
     @property
     @pulumi.getter(name="dependsOnStepGroups")
-    def depends_on_step_groups(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def depends_on_step_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of step group names on which this step group depends on.
         """
         return pulumi.get(self, "depends_on_step_groups")
 
     @depends_on_step_groups.setter
-    def depends_on_step_groups(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def depends_on_step_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "depends_on_step_groups", value)
 
     @property
     @pulumi.getter(name="postDeploymentSteps")
-    def post_deployment_steps(self) -> Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]:
+    def post_deployment_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]:
         """
         The list of steps to be run after deploying the target.
         """
         return pulumi.get(self, "post_deployment_steps")
 
     @post_deployment_steps.setter
-    def post_deployment_steps(self, value: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]):
+    def post_deployment_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]):
         pulumi.set(self, "post_deployment_steps", value)
 
     @property
     @pulumi.getter(name="preDeploymentSteps")
-    def pre_deployment_steps(self) -> Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]:
+    def pre_deployment_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]:
         """
         The list of steps to be run before deploying the target.
         """
         return pulumi.get(self, "pre_deployment_steps")
 
     @pre_deployment_steps.setter
-    def pre_deployment_steps(self, value: Optional[pulumi.Input[List[pulumi.Input['PrePostStepArgs']]]]):
+    def pre_deployment_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrePostStepArgs']]]]):
         pulumi.set(self, "pre_deployment_steps", value)
 
 

@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Specification for the hosting environment (App Service Environment) to use for the certificate
         /// </summary>
-        public readonly Outputs.HostingEnvironmentProfileResponseResult? HostingEnvironmentProfile;
+        public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
         /// Certificate issue Date
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             ImmutableArray<string> hostNames,
 
-            Outputs.HostingEnvironmentProfileResponseResult? hostingEnvironmentProfile,
+            Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
             string? issueDate,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -112,14 +112,14 @@ class AutoScaleSettingsResponse(dict):
     Auto-scale settings for the cluster. The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the number of queued and running jobs assigned to the cluster.
     """
     def __init__(__self__, *,
-                 maximum_node_count: float,
-                 minimum_node_count: float,
-                 initial_node_count: Optional[float] = None):
+                 maximum_node_count: int,
+                 minimum_node_count: int,
+                 initial_node_count: Optional[int] = None):
         """
         Auto-scale settings for the cluster. The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the number of queued and running jobs assigned to the cluster.
-        :param float maximum_node_count: The maximum number of compute nodes the cluster can have.
-        :param float minimum_node_count: The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
-        :param float initial_node_count: The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
+        :param int maximum_node_count: The maximum number of compute nodes the cluster can have.
+        :param int minimum_node_count: The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
+        :param int initial_node_count: The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
         """
         pulumi.set(__self__, "maximum_node_count", maximum_node_count)
         pulumi.set(__self__, "minimum_node_count", minimum_node_count)
@@ -128,7 +128,7 @@ class AutoScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maximumNodeCount")
-    def maximum_node_count(self) -> float:
+    def maximum_node_count(self) -> int:
         """
         The maximum number of compute nodes the cluster can have.
         """
@@ -136,7 +136,7 @@ class AutoScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="minimumNodeCount")
-    def minimum_node_count(self) -> float:
+    def minimum_node_count(self) -> int:
         """
         The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
         """
@@ -144,7 +144,7 @@ class AutoScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="initialNodeCount")
-    def initial_node_count(self) -> Optional[float]:
+    def initial_node_count(self) -> Optional[int]:
         """
         The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
         """
@@ -351,12 +351,12 @@ class BatchAIErrorResponse(dict):
     """
     def __init__(__self__, *,
                  code: str,
-                 details: List['outputs.NameValuePairResponse'],
+                 details: Sequence['outputs.NameValuePairResponse'],
                  message: str):
         """
         An error response from the Batch AI service.
         :param str code: An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
-        :param List['NameValuePairResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['NameValuePairResponseArgs'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         """
         pulumi.set(__self__, "code", code)
@@ -373,7 +373,7 @@ class BatchAIErrorResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.NameValuePairResponse']:
+    def details(self) -> Sequence['outputs.NameValuePairResponse']:
         """
         A list of additional details about the error.
         """
@@ -400,7 +400,7 @@ class CNTKsettingsResponse(dict):
                  command_line_args: Optional[str] = None,
                  config_file_path: Optional[str] = None,
                  language_type: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  python_script_file_path: Optional[str] = None):
         """
@@ -408,7 +408,7 @@ class CNTKsettingsResponse(dict):
         :param str command_line_args: Command line arguments that need to be passed to the python script or cntk executable.
         :param str config_file_path: Specifies the path of the BrainScript config file. This property can be specified only if the languageType is 'BrainScript'.
         :param str language_type: The language to use for launching CNTK (aka Microsoft Cognitive Toolkit) job. Valid values are 'BrainScript' or 'Python'.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: The path to the Python interpreter. This property can be specified only if the languageType is 'Python'.
         :param str python_script_file_path: Python script to execute. This property can be specified only if the languageType is 'Python'.
         """
@@ -451,7 +451,7 @@ class CNTKsettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -534,14 +534,14 @@ class CaffeSettingsResponse(dict):
     def __init__(__self__, *,
                  command_line_args: Optional[str] = None,
                  config_file_path: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  python_script_file_path: Optional[str] = None):
         """
         Caffe job settings.
         :param str command_line_args: Command line arguments that need to be passed to the Caffe job.
         :param str config_file_path: Path of the config file for the job. This property cannot be specified if pythonScriptFilePath is specified.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: The path to the Python interpreter. The property can be specified only if the pythonScriptFilePath is specified.
         :param str python_script_file_path: Python script to execute. This property cannot be specified if configFilePath is specified.
         """
@@ -574,7 +574,7 @@ class CaffeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -608,13 +608,13 @@ class ChainerSettingsResponse(dict):
     def __init__(__self__, *,
                  python_script_file_path: str,
                  command_line_args: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None):
         """
         Chainer job settings.
         :param str python_script_file_path: The python script to execute.
         :param str command_line_args: Command line arguments that need to be passed to the python script.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: The path to the Python interpreter.
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
@@ -643,7 +643,7 @@ class ChainerSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -705,11 +705,11 @@ class CustomMpiSettingsResponse(dict):
     """
     def __init__(__self__, *,
                  command_line: str,
-                 process_count: Optional[float] = None):
+                 process_count: Optional[int] = None):
         """
         Custom MPI job settings.
         :param str command_line: The command line to be executed by mpi runtime on each compute node.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
         pulumi.set(__self__, "command_line", command_line)
         if process_count is not None:
@@ -725,7 +725,7 @@ class CustomMpiSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -767,14 +767,14 @@ class DataDisksResponse(dict):
     Data disks settings.
     """
     def __init__(__self__, *,
-                 disk_count: float,
-                 disk_size_in_gb: float,
+                 disk_count: int,
+                 disk_size_in_gb: int,
                  storage_account_type: str,
                  caching_type: Optional[str] = None):
         """
         Data disks settings.
-        :param float disk_count: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        :param float disk_size_in_gb: Disk size in GB for the blank data disks.
+        :param int disk_count: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
+        :param int disk_size_in_gb: Disk size in GB for the blank data disks.
         :param str storage_account_type: Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
         :param str caching_type: Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
         """
@@ -786,7 +786,7 @@ class DataDisksResponse(dict):
 
     @property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> float:
+    def disk_count(self) -> int:
         """
         Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
         """
@@ -794,7 +794,7 @@ class DataDisksResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> float:
+    def disk_size_in_gb(self) -> int:
         """
         Disk size in GB for the blank data disks.
         """
@@ -911,14 +911,14 @@ class FileResponseResult(dict):
     Properties of the file or directory.
     """
     def __init__(__self__, *,
-                 content_length: float,
+                 content_length: int,
                  download_url: str,
                  file_type: str,
                  last_modified: str,
                  name: str):
         """
         Properties of the file or directory.
-        :param float content_length: The file of the size.
+        :param int content_length: The file of the size.
         :param str download_url: URL to download the corresponding file. The downloadUrl is not returned for directories.
         :param str file_type: Type of the file. Possible values are file and directory.
         :param str last_modified: The time at which the file was last modified.
@@ -932,7 +932,7 @@ class FileResponseResult(dict):
 
     @property
     @pulumi.getter(name="contentLength")
-    def content_length(self) -> float:
+    def content_length(self) -> int:
         """
         The file of the size.
         """
@@ -1039,13 +1039,13 @@ class HorovodSettingsResponse(dict):
     def __init__(__self__, *,
                  python_script_file_path: str,
                  command_line_args: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None):
         """
         Specifies the settings for Horovod job.
         :param str python_script_file_path: The python script to execute.
         :param str command_line_args: Command line arguments that need to be passed to the python script.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: The path to the Python interpreter.
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
@@ -1074,7 +1074,7 @@ class HorovodSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -1306,14 +1306,14 @@ class JobPropertiesResponseExecutionInfo(dict):
     """
     def __init__(__self__, *,
                  end_time: str,
-                 errors: List['outputs.BatchAIErrorResponse'],
-                 exit_code: float,
+                 errors: Sequence['outputs.BatchAIErrorResponse'],
+                 exit_code: int,
                  start_time: str):
         """
         Information about the execution of a job.
         :param str end_time: The time at which the job completed. This property is only returned if the job is in completed state.
-        :param List['BatchAIErrorResponseArgs'] errors: A collection of errors encountered by the service during job execution.
-        :param float exit_code: The exit code of the job. This property is only returned if the job is in completed state.
+        :param Sequence['BatchAIErrorResponseArgs'] errors: A collection of errors encountered by the service during job execution.
+        :param int exit_code: The exit code of the job. This property is only returned if the job is in completed state.
         :param str start_time: The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
         """
         pulumi.set(__self__, "end_time", end_time)
@@ -1331,7 +1331,7 @@ class JobPropertiesResponseExecutionInfo(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.BatchAIErrorResponse']:
+    def errors(self) -> Sequence['outputs.BatchAIErrorResponse']:
         """
         A collection of errors encountered by the service during job execution.
         """
@@ -1339,7 +1339,7 @@ class JobPropertiesResponseExecutionInfo(dict):
 
     @property
     @pulumi.getter(name="exitCode")
-    def exit_code(self) -> float:
+    def exit_code(self) -> int:
         """
         The exit code of the job. This property is only returned if the job is in completed state.
         """
@@ -1399,11 +1399,11 @@ class ManualScaleSettingsResponse(dict):
     Manual scale settings for the cluster.
     """
     def __init__(__self__, *,
-                 target_node_count: float,
+                 target_node_count: int,
                  node_deallocation_option: Optional[str] = None):
         """
         Manual scale settings for the cluster.
-        :param float target_node_count: The desired number of compute nodes in the Cluster. Default is 0.
+        :param int target_node_count: The desired number of compute nodes in the Cluster. Default is 0.
         :param str node_deallocation_option: An action to be performed when the cluster size is decreasing. The default value is requeue.
         """
         pulumi.set(__self__, "target_node_count", target_node_count)
@@ -1412,7 +1412,7 @@ class ManualScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="targetNodeCount")
-    def target_node_count(self) -> float:
+    def target_node_count(self) -> int:
         """
         The desired number of compute nodes in the Cluster. Default is 0.
         """
@@ -1486,16 +1486,16 @@ class MountVolumesResponse(dict):
     Details of volumes to mount on the cluster.
     """
     def __init__(__self__, *,
-                 azure_blob_file_systems: Optional[List['outputs.AzureBlobFileSystemReferenceResponse']] = None,
-                 azure_file_shares: Optional[List['outputs.AzureFileShareReferenceResponse']] = None,
-                 file_servers: Optional[List['outputs.FileServerReferenceResponse']] = None,
-                 unmanaged_file_systems: Optional[List['outputs.UnmanagedFileSystemReferenceResponse']] = None):
+                 azure_blob_file_systems: Optional[Sequence['outputs.AzureBlobFileSystemReferenceResponse']] = None,
+                 azure_file_shares: Optional[Sequence['outputs.AzureFileShareReferenceResponse']] = None,
+                 file_servers: Optional[Sequence['outputs.FileServerReferenceResponse']] = None,
+                 unmanaged_file_systems: Optional[Sequence['outputs.UnmanagedFileSystemReferenceResponse']] = None):
         """
         Details of volumes to mount on the cluster.
-        :param List['AzureBlobFileSystemReferenceResponseArgs'] azure_blob_file_systems: A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
-        :param List['AzureFileShareReferenceResponseArgs'] azure_file_shares: A collection of Azure File Shares that are to be mounted to the cluster nodes.
-        :param List['FileServerReferenceResponseArgs'] file_servers: A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
-        :param List['UnmanagedFileSystemReferenceResponseArgs'] unmanaged_file_systems: A collection of unmanaged file systems that are to be mounted to the cluster nodes.
+        :param Sequence['AzureBlobFileSystemReferenceResponseArgs'] azure_blob_file_systems: A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
+        :param Sequence['AzureFileShareReferenceResponseArgs'] azure_file_shares: A collection of Azure File Shares that are to be mounted to the cluster nodes.
+        :param Sequence['FileServerReferenceResponseArgs'] file_servers: A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
+        :param Sequence['UnmanagedFileSystemReferenceResponseArgs'] unmanaged_file_systems: A collection of unmanaged file systems that are to be mounted to the cluster nodes.
         """
         if azure_blob_file_systems is not None:
             pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
@@ -1508,7 +1508,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="azureBlobFileSystems")
-    def azure_blob_file_systems(self) -> Optional[List['outputs.AzureBlobFileSystemReferenceResponse']]:
+    def azure_blob_file_systems(self) -> Optional[Sequence['outputs.AzureBlobFileSystemReferenceResponse']]:
         """
         A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
         """
@@ -1516,7 +1516,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="azureFileShares")
-    def azure_file_shares(self) -> Optional[List['outputs.AzureFileShareReferenceResponse']]:
+    def azure_file_shares(self) -> Optional[Sequence['outputs.AzureFileShareReferenceResponse']]:
         """
         A collection of Azure File Shares that are to be mounted to the cluster nodes.
         """
@@ -1524,7 +1524,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="fileServers")
-    def file_servers(self) -> Optional[List['outputs.FileServerReferenceResponse']]:
+    def file_servers(self) -> Optional[Sequence['outputs.FileServerReferenceResponse']]:
         """
         A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
         """
@@ -1532,7 +1532,7 @@ class MountVolumesResponse(dict):
 
     @property
     @pulumi.getter(name="unmanagedFileSystems")
-    def unmanaged_file_systems(self) -> Optional[List['outputs.UnmanagedFileSystemReferenceResponse']]:
+    def unmanaged_file_systems(self) -> Optional[Sequence['outputs.UnmanagedFileSystemReferenceResponse']]:
         """
         A collection of unmanaged file systems that are to be mounted to the cluster nodes.
         """
@@ -1636,18 +1636,18 @@ class NodeStateCountsResponse(dict):
     Counts of various compute node states on the cluster.
     """
     def __init__(__self__, *,
-                 idle_node_count: float,
-                 leaving_node_count: float,
-                 preparing_node_count: float,
-                 running_node_count: float,
-                 unusable_node_count: float):
+                 idle_node_count: int,
+                 leaving_node_count: int,
+                 preparing_node_count: int,
+                 running_node_count: int,
+                 unusable_node_count: int):
         """
         Counts of various compute node states on the cluster.
-        :param float idle_node_count: Number of compute nodes in idle state.
-        :param float leaving_node_count: Number of compute nodes which are leaving the cluster.
-        :param float preparing_node_count: Number of compute nodes which are being prepared.
-        :param float running_node_count: Number of compute nodes which are running jobs.
-        :param float unusable_node_count: Number of compute nodes which are in unusable state.
+        :param int idle_node_count: Number of compute nodes in idle state.
+        :param int leaving_node_count: Number of compute nodes which are leaving the cluster.
+        :param int preparing_node_count: Number of compute nodes which are being prepared.
+        :param int running_node_count: Number of compute nodes which are running jobs.
+        :param int unusable_node_count: Number of compute nodes which are in unusable state.
         """
         pulumi.set(__self__, "idle_node_count", idle_node_count)
         pulumi.set(__self__, "leaving_node_count", leaving_node_count)
@@ -1657,7 +1657,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="idleNodeCount")
-    def idle_node_count(self) -> float:
+    def idle_node_count(self) -> int:
         """
         Number of compute nodes in idle state.
         """
@@ -1665,7 +1665,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="leavingNodeCount")
-    def leaving_node_count(self) -> float:
+    def leaving_node_count(self) -> int:
         """
         Number of compute nodes which are leaving the cluster.
         """
@@ -1673,7 +1673,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="preparingNodeCount")
-    def preparing_node_count(self) -> float:
+    def preparing_node_count(self) -> int:
         """
         Number of compute nodes which are being prepared.
         """
@@ -1681,7 +1681,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="runningNodeCount")
-    def running_node_count(self) -> float:
+    def running_node_count(self) -> int:
         """
         Number of compute nodes which are running jobs.
         """
@@ -1689,7 +1689,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="unusableNodeCount")
-    def unusable_node_count(self) -> float:
+    def unusable_node_count(self) -> int:
         """
         Number of compute nodes which are in unusable state.
         """
@@ -1830,14 +1830,14 @@ class PyTorchSettingsResponse(dict):
                  python_script_file_path: str,
                  command_line_args: Optional[str] = None,
                  communication_backend: Optional[str] = None,
-                 process_count: Optional[float] = None,
+                 process_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None):
         """
         pyTorch job settings.
         :param str python_script_file_path: The python script to execute.
         :param str command_line_args: Command line arguments that need to be passed to the python script.
         :param str communication_backend: Type of the communication backend for distributed jobs. Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
-        :param float process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+        :param int process_count: Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         :param str python_interpreter_path: The path to the Python interpreter.
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
@@ -1876,7 +1876,7 @@ class PyTorchSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[float]:
+    def process_count(self) -> Optional[int]:
         """
         Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
         """
@@ -2010,15 +2010,15 @@ class SetupTaskResponse(dict):
                  command_line: str,
                  std_out_err_path_prefix: str,
                  std_out_err_path_suffix: str,
-                 environment_variables: Optional[List['outputs.EnvironmentVariableResponse']] = None,
-                 secrets: Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']] = None):
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 secrets: Optional[Sequence['outputs.EnvironmentVariableWithSecretValueResponse']] = None):
         """
         Specifies a setup task which can be used to customize the compute nodes of the cluster.
         :param str command_line: The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
         :param str std_out_err_path_prefix: The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
         :param str std_out_err_path_suffix: A path segment appended by Batch AI to stdOutErrPathPrefix to form a path where stdout, stderr and execution log of the setup task will be uploaded. Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. The full path can be obtained by concatenation of stdOutErrPathPrefix and stdOutErrPathSuffix.
-        :param List['EnvironmentVariableResponseArgs'] environment_variables: A collection of user defined environment variables to be set for setup task.
-        :param List['EnvironmentVariableWithSecretValueResponseArgs'] secrets: A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
+        :param Sequence['EnvironmentVariableResponseArgs'] environment_variables: A collection of user defined environment variables to be set for setup task.
+        :param Sequence['EnvironmentVariableWithSecretValueResponseArgs'] secrets: A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
         """
         pulumi.set(__self__, "command_line", command_line)
         pulumi.set(__self__, "std_out_err_path_prefix", std_out_err_path_prefix)
@@ -2054,7 +2054,7 @@ class SetupTaskResponse(dict):
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[List['outputs.EnvironmentVariableResponse']]:
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
         A collection of user defined environment variables to be set for setup task.
         """
@@ -2062,7 +2062,7 @@ class SetupTaskResponse(dict):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.EnvironmentVariableWithSecretValueResponse']]:
+    def secrets(self) -> Optional[Sequence['outputs.EnvironmentVariableWithSecretValueResponse']]:
         """
         A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
         """
@@ -2079,11 +2079,11 @@ class SshConfigurationResponse(dict):
     """
     def __init__(__self__, *,
                  user_account_settings: 'outputs.UserAccountSettingsResponse',
-                 public_ips_to_allow: Optional[List[str]] = None):
+                 public_ips_to_allow: Optional[Sequence[str]] = None):
         """
         SSH configuration.
         :param 'UserAccountSettingsResponseArgs' user_account_settings: Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-        :param List[str] public_ips_to_allow: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
+        :param Sequence[str] public_ips_to_allow: List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
         """
         pulumi.set(__self__, "user_account_settings", user_account_settings)
         if public_ips_to_allow is not None:
@@ -2099,7 +2099,7 @@ class SshConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[List[str]]:
+    def public_ips_to_allow(self) -> Optional[Sequence[str]]:
         """
         List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
         """
@@ -2118,19 +2118,19 @@ class TensorFlowSettingsResponse(dict):
                  python_script_file_path: str,
                  master_command_line_args: Optional[str] = None,
                  parameter_server_command_line_args: Optional[str] = None,
-                 parameter_server_count: Optional[float] = None,
+                 parameter_server_count: Optional[int] = None,
                  python_interpreter_path: Optional[str] = None,
                  worker_command_line_args: Optional[str] = None,
-                 worker_count: Optional[float] = None):
+                 worker_count: Optional[int] = None):
         """
         TensorFlow job settings.
         :param str python_script_file_path: The python script to execute.
         :param str master_command_line_args: Command line arguments that need to be passed to the python script for the master task.
         :param str parameter_server_command_line_args: Command line arguments that need to be passed to the python script for the parameter server. Optional for single process jobs.
-        :param float parameter_server_count: The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
+        :param int parameter_server_count: The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
         :param str python_interpreter_path: The path to the Python interpreter.
         :param str worker_command_line_args: Command line arguments that need to be passed to the python script for the worker task. Optional for single process jobs.
-        :param float worker_count: The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
+        :param int worker_count: The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
         if master_command_line_args is not None:
@@ -2172,7 +2172,7 @@ class TensorFlowSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="parameterServerCount")
-    def parameter_server_count(self) -> Optional[float]:
+    def parameter_server_count(self) -> Optional[int]:
         """
         The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
         """
@@ -2196,7 +2196,7 @@ class TensorFlowSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[float]:
+    def worker_count(self) -> Optional[int]:
         """
         The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
         """

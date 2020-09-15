@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -78,7 +78,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
-    def content_types_to_compress(self) -> Optional[List[str]]:
+    def content_types_to_compress(self) -> Optional[Sequence[str]]:
         """
         List of content types on which compression applies. The value should be a valid MIME type.
         """
@@ -86,7 +86,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> Optional[List['outputs.GeoFilterResponse']]:
+    def geo_filters(self) -> Optional[Sequence['outputs.GeoFilterResponse']]:
         """
         List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         """
@@ -166,7 +166,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.DeepCreatedOriginResponse']:
+    def origins(self) -> Sequence['outputs.DeepCreatedOriginResponse']:
         """
         The source of the content being delivered via CDN.
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The batch configuration properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.BatchConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.BatchConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

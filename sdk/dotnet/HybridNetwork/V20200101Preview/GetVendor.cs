@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// A list of ids of the vendor skus offered by the vendor.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Skus;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Skus;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> skus,
+            ImmutableArray<Outputs.SubResourceResponse> skus,
 
             ImmutableDictionary<string, string>? tags,
 

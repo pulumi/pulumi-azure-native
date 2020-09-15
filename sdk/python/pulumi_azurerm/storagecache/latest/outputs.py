@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -143,12 +143,12 @@ class CacheNetworkSettingsResponse(dict):
     Cache network settings.
     """
     def __init__(__self__, *,
-                 utility_addresses: List[str],
-                 mtu: Optional[float] = None):
+                 utility_addresses: Sequence[str],
+                 mtu: Optional[int] = None):
         """
         Cache network settings.
-        :param List[str] utility_addresses: Array of additional IP addresses used by this Cache.
-        :param float mtu: The IPv4 maximum transmission unit configured for the subnet.
+        :param Sequence[str] utility_addresses: Array of additional IP addresses used by this Cache.
+        :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
         """
         pulumi.set(__self__, "utility_addresses", utility_addresses)
         if mtu is not None:
@@ -156,7 +156,7 @@ class CacheNetworkSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="utilityAddresses")
-    def utility_addresses(self) -> List[str]:
+    def utility_addresses(self) -> Sequence[str]:
         """
         Array of additional IP addresses used by this Cache.
         """
@@ -164,7 +164,7 @@ class CacheNetworkSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def mtu(self) -> Optional[float]:
+    def mtu(self) -> Optional[int]:
         """
         The IPv4 maximum transmission unit configured for the subnet.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetMediaServiceResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.StorageAccountResponse']]:
+    def storage_accounts(self) -> Optional[Sequence['outputs.StorageAccountResponse']]:
         """
         The storage accounts for this resource.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -165,7 +165,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> Sequence['outputs.FirewallRuleResponse']:
         """
         The list of firewall rules associated with this Data Lake Store account.
         """
@@ -253,7 +253,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="trustedIdProviders")
-    def trusted_id_providers(self) -> List['outputs.TrustedIdProviderResponse']:
+    def trusted_id_providers(self) -> Sequence['outputs.TrustedIdProviderResponse']:
         """
         The list of trusted identity providers associated with this Data Lake Store account.
         """
@@ -269,7 +269,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> List['outputs.VirtualNetworkRuleResponse']:
+    def virtual_network_rules(self) -> Sequence['outputs.VirtualNetworkRuleResponse']:
         """
         The list of virtual network rules associated with this Data Lake Store account.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['FileShare']
@@ -22,7 +22,7 @@ class FileShare(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 share_quota: Optional[pulumi.Input[float]] = None,
+                 share_quota: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +38,7 @@ class FileShare(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        :param pulumi.Input[float] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -190,7 +190,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
-    def remaining_retention_days(self) -> pulumi.Output[float]:
+    def remaining_retention_days(self) -> pulumi.Output[int]:
         """
         Remaining retention days for share that was soft deleted.
         """
@@ -206,7 +206,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareQuota")
-    def share_quota(self) -> pulumi.Output[Optional[float]]:
+    def share_quota(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
@@ -214,7 +214,7 @@ class FileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareUsageBytes")
-    def share_usage_bytes(self) -> pulumi.Output[float]:
+    def share_usage_bytes(self) -> pulumi.Output[int]:
         """
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """

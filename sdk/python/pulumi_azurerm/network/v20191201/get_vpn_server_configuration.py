@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -107,7 +107,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="p2SVpnGateways")
-    def p2_s_vpn_gateways(self) -> List['outputs.P2SVpnGatewayResponse']:
+    def p2_s_vpn_gateways(self) -> Sequence['outputs.P2SVpnGatewayResponse']:
         """
         List of references to P2SVpnGateways.
         """
@@ -123,7 +123,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="radiusClientRootCertificates")
-    def radius_client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigRadiusClientRootCertificateResponse']]:
+    def radius_client_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigRadiusClientRootCertificateResponse']]:
         """
         Radius client root certificate of VpnServerConfiguration.
         """
@@ -139,7 +139,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="radiusServerRootCertificates")
-    def radius_server_root_certificates(self) -> Optional[List['outputs.VpnServerConfigRadiusServerRootCertificateResponse']]:
+    def radius_server_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigRadiusServerRootCertificateResponse']]:
         """
         Radius Server root certificate of VpnServerConfiguration.
         """
@@ -171,7 +171,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnAuthenticationTypes")
-    def vpn_authentication_types(self) -> Optional[List[str]]:
+    def vpn_authentication_types(self) -> Optional[Sequence[str]]:
         """
         VPN authentication types for the VpnServerConfiguration.
         """
@@ -179,7 +179,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnClientIpsecPolicies")
-    def vpn_client_ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+    def vpn_client_ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
         """
         VpnClientIpsecPolicies for VpnServerConfiguration.
         """
@@ -187,7 +187,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnClientRevokedCertificates")
-    def vpn_client_revoked_certificates(self) -> Optional[List['outputs.VpnServerConfigVpnClientRevokedCertificateResponse']]:
+    def vpn_client_revoked_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigVpnClientRevokedCertificateResponse']]:
         """
         VPN client revoked certificate of VpnServerConfiguration.
         """
@@ -195,7 +195,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnClientRootCertificates")
-    def vpn_client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigVpnClientRootCertificateResponse']]:
+    def vpn_client_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigVpnClientRootCertificateResponse']]:
         """
         VPN client root certificate of VpnServerConfiguration.
         """
@@ -203,7 +203,7 @@ class GetVpnServerConfigurationResult:
 
     @property
     @pulumi.getter(name="vpnProtocols")
-    def vpn_protocols(self) -> Optional[List[str]]:
+    def vpn_protocols(self) -> Optional[Sequence[str]]:
         """
         VPN protocols for the VpnServerConfiguration.
         """

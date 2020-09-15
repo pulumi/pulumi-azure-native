@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetRegisteredAsnResult:
     The customer's ASN that is registered by the peering service provider.
     """
     def __init__(__self__, asn=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
-        if asn and not isinstance(asn, float):
-            raise TypeError("Expected argument 'asn' to be a float")
+        if asn and not isinstance(asn, int):
+            raise TypeError("Expected argument 'asn' to be a int")
         pulumi.set(__self__, "asn", asn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -38,7 +38,7 @@ class GetRegisteredAsnResult:
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[float]:
+    def asn(self) -> Optional[int]:
         """
         The customer's ASN from which traffic originates.
         """

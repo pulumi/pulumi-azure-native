@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['LinkedStorageAccount']
@@ -17,7 +17,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,7 +29,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
         :param pulumi.Input[str] resource_group_name: The workspace's resource group name.
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the resource.
         """
         if __name__ is not None:
@@ -105,7 +105,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountIds")
-    def storage_account_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def storage_account_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Linked storage accounts resources ids.
         """

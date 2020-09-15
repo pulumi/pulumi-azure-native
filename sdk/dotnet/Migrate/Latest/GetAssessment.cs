@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Migrate.Latest
         /// <summary>
         /// Properties of the assessment.
         /// </summary>
-        public readonly Outputs.AssessmentPropertiesResponseResult Properties;
+        public readonly Outputs.AssessmentPropertiesResponse Properties;
         /// <summary>
         /// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Migrate.Latest
 
             string name,
 
-            Outputs.AssessmentPropertiesResponseResult properties,
+            Outputs.AssessmentPropertiesResponse properties,
 
             string type)
         {

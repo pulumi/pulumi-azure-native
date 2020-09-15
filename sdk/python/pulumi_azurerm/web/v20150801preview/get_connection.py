@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -123,7 +123,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def keywords(self) -> Optional[List[str]]:
+    def keywords(self) -> Optional[Sequence[str]]:
         """
         List of Keywords that tag the acl
         """
@@ -176,7 +176,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.ConnectionStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.ConnectionStatusResponse']]:
         """
         Status of the connection
         """

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Search.V20200801Preview
         /// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

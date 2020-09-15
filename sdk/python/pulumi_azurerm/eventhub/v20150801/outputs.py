@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,12 +19,12 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  tier: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         SKU parameters supplied to the create Namespace operation
         :param str tier: The billing tier of this particular SKU.
-        :param float capacity: The Event Hubs throughput units.
+        :param int capacity: The Event Hubs throughput units.
         :param str name: Name of this SKU.
         """
         pulumi.set(__self__, "tier", tier)
@@ -43,7 +43,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The Event Hubs throughput units.
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AlertsManagement.V20181102PrivatePreview
         /// Action rule properties defining scope, conditions, suppression logic for action rule
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ActionRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ActionRulePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

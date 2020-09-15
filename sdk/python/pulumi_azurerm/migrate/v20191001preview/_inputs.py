@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -38,14 +38,14 @@ class AvailabilitySetResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 fault_domain: Optional[pulumi.Input[float]] = None,
-                 update_domain: Optional[pulumi.Input[float]] = None):
+                 fault_domain: Optional[pulumi.Input[int]] = None,
+                 update_domain: Optional[pulumi.Input[int]] = None):
         """
         Gets or sets the availability set resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[float] fault_domain: Gets or sets the target fault domain.
-        :param pulumi.Input[float] update_domain: Gets or sets the target update domain.
+        :param pulumi.Input[int] fault_domain: Gets or sets the target fault domain.
+        :param pulumi.Input[int] update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -80,26 +80,26 @@ class AvailabilitySetResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="faultDomain")
-    def fault_domain(self) -> Optional[pulumi.Input[float]]:
+    def fault_domain(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the target fault domain.
         """
         return pulumi.get(self, "fault_domain")
 
     @fault_domain.setter
-    def fault_domain(self, value: Optional[pulumi.Input[float]]):
+    def fault_domain(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "fault_domain", value)
 
     @property
     @pulumi.getter(name="updateDomain")
-    def update_domain(self) -> Optional[pulumi.Input[float]]:
+    def update_domain(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the target update domain.
         """
         return pulumi.get(self, "update_domain")
 
     @update_domain.setter
-    def update_domain(self, value: Optional[pulumi.Input[float]]):
+    def update_domain(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "update_domain", value)
 
 
@@ -317,16 +317,16 @@ class LoadBalancerResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 backend_address_pools: Optional[pulumi.Input[List[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]] = None,
-                 frontend_ip_configurations: Optional[pulumi.Input[List[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]] = None,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Defines the load balancer resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[List[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]] backend_address_pools: Gets or sets the backend address pools of the load balancer.
-        :param pulumi.Input[List[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]] backend_address_pools: Gets or sets the backend address pools of the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param pulumi.Input[str] sku: Gets or sets load balancer sku (Basic/Standard).
         :param pulumi.Input[str] zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
@@ -368,26 +368,26 @@ class LoadBalancerResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[pulumi.Input[List[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]]:
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]]:
         """
         Gets or sets the backend address pools of the load balancer.
         """
         return pulumi.get(self, "backend_address_pools")
 
     @backend_address_pools.setter
-    def backend_address_pools(self, value: Optional[pulumi.Input[List[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]]):
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LBBackendAddressPoolResourceSettingsArgs']]]]):
         pulumi.set(self, "backend_address_pools", value)
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]]:
+    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]]:
         """
         Gets or sets the frontend IP configurations of the load balancer.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
     @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]]):
+    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LBFrontendIPConfigurationResourceSettingsArgs']]]]):
         pulumi.set(self, "frontend_ip_configurations", value)
 
     @property
@@ -516,14 +516,14 @@ class MoveResourceDependencyOverrideArgs:
 class MoveResourcePropertiesArgs:
     def __init__(__self__, *,
                  source_id: pulumi.Input[str],
-                 depends_on_overrides: Optional[pulumi.Input[List[pulumi.Input['MoveResourceDependencyOverrideArgs']]]] = None,
+                 depends_on_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]]] = None,
                  existing_target_id: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_settings: Optional[pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']]] = None):
         """
         Defines the move resource properties.
         :param pulumi.Input[str] source_id: Gets or sets the Source ARM Id of the resource.
-        :param pulumi.Input[List[pulumi.Input['MoveResourceDependencyOverrideArgs']]] depends_on_overrides: Gets or sets the move resource dependencies overrides.
+        :param pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param pulumi.Input[str] existing_target_id: Gets or sets the existing target ARM Id of the resource.
         :param pulumi.Input[str] provisioning_state: Defines the provisioning states.
         :param pulumi.Input[Union['AvailabilitySetResourceSettingsArgs', 'LoadBalancerResourceSettingsArgs', 'NetworkInterfaceResourceSettingsArgs', 'NetworkSecurityGroupResourceSettingsArgs', 'PublicIPAddressResourceSettingsArgs', 'ResourceGroupResourceSettingsArgs', 'SqlDatabaseResourceSettingsArgs', 'SqlElasticPoolResourceSettingsArgs', 'SqlServerResourceSettingsArgs', 'VirtualMachineResourceSettingsArgs', 'VirtualNetworkResourceSettingsArgs']] resource_settings: Gets or sets the resource settings.
@@ -552,14 +552,14 @@ class MoveResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="dependsOnOverrides")
-    def depends_on_overrides(self) -> Optional[pulumi.Input[List[pulumi.Input['MoveResourceDependencyOverrideArgs']]]]:
+    def depends_on_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]]]:
         """
         Gets or sets the move resource dependencies overrides.
         """
         return pulumi.get(self, "depends_on_overrides")
 
     @depends_on_overrides.setter
-    def depends_on_overrides(self, value: Optional[pulumi.Input[List[pulumi.Input['MoveResourceDependencyOverrideArgs']]]]):
+    def depends_on_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MoveResourceDependencyOverrideArgs']]]]):
         pulumi.set(self, "depends_on_overrides", value)
 
     @property
@@ -605,13 +605,13 @@ class NetworkInterfaceResourceSettingsArgs:
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]] = None):
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]] = None):
         """
         Defines the network interface resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[bool] enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
-        :param pulumi.Input[List[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]] ip_configurations: Gets or sets the IP configurations of the NIC.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -658,14 +658,14 @@ class NetworkInterfaceResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]]:
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]]:
         """
         Gets or sets the IP configurations of the NIC.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]]):
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NicIpConfigurationResourceSettingsArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
 
@@ -674,12 +674,12 @@ class NetworkSecurityGroupResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 security_rules: Optional[pulumi.Input[List[pulumi.Input['NsgSecurityRuleArgs']]]] = None):
+                 security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]] = None):
         """
         Defines the NSG resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[List[pulumi.Input['NsgSecurityRuleArgs']]] security_rules: Gets or sets Security rules of network security group.
+        :param pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]] security_rules: Gets or sets Security rules of network security group.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -712,21 +712,21 @@ class NetworkSecurityGroupResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['NsgSecurityRuleArgs']]]]:
+    def security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]]:
         """
         Gets or sets Security rules of network security group.
         """
         return pulumi.get(self, "security_rules")
 
     @security_rules.setter
-    def security_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['NsgSecurityRuleArgs']]]]):
+    def security_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NsgSecurityRuleArgs']]]]):
         pulumi.set(self, "security_rules", value)
 
 
 @pulumi.input_type
 class NicIpConfigurationResourceSettingsArgs:
     def __init__(__self__, *,
-                 load_balancer_backend_address_pools: Optional[pulumi.Input[List[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]] = None,
+                 load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -734,7 +734,7 @@ class NicIpConfigurationResourceSettingsArgs:
                  subnet: Optional[pulumi.Input['SubnetReferenceArgs']] = None):
         """
         Defines NIC IP configuration properties.
-        :param pulumi.Input[List[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
         :param pulumi.Input[str] name: Gets or sets the IP configuration name.
         :param pulumi.Input[bool] primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param pulumi.Input[str] private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
@@ -756,14 +756,14 @@ class NicIpConfigurationResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[List[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]]:
+    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]]:
         """
         Gets or sets the references of the load balancer backend address pools.
         """
         return pulumi.get(self, "load_balancer_backend_address_pools")
 
     @load_balancer_backend_address_pools.setter
-    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[List[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]]):
+    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']]]]):
         pulumi.set(self, "load_balancer_backend_address_pools", value)
 
     @property
@@ -836,7 +836,7 @@ class NsgSecurityRuleArgs:
                  destination_port_range: Optional[pulumi.Input[str]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None):
@@ -853,7 +853,7 @@ class NsgSecurityRuleArgs:
         :param pulumi.Input[str] direction: Gets or sets the direction of the rule.InBound or Outbound. The
                direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param pulumi.Input[str] name: Gets or sets the Security rule name.
-        :param pulumi.Input[float] priority: Gets or sets the priority of the rule. The value can be between
+        :param pulumi.Input[int] priority: Gets or sets the priority of the rule. The value can be between
                100 and 4096. The priority number must be unique for each rule in the collection.
                The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] protocol: Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
@@ -964,7 +964,7 @@ class NsgSecurityRuleArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the priority of the rule. The value can be between
         100 and 4096. The priority number must be unique for each rule in the collection.
@@ -973,7 +973,7 @@ class NsgSecurityRuleArgs:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -1489,20 +1489,20 @@ class VirtualNetworkResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 address_space: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 dns_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 address_space: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
-                 subnets: Optional[pulumi.Input[List[pulumi.Input['SubnetResourceSettingsArgs']]]] = None):
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]] = None):
         """
         Defines the virtual network resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[List[pulumi.Input[str]]] address_space: Gets or sets the address prefixes for the virtual network.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space: Gets or sets the address prefixes for the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
                deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
-        :param pulumi.Input[List[pulumi.Input['SubnetResourceSettingsArgs']]] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]] subnets: Gets or sets List of subnets in a VirtualNetwork.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1541,19 +1541,19 @@ class VirtualNetworkResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def address_space(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the address prefixes for the virtual network.
         """
         return pulumi.get(self, "address_space")
 
     @address_space.setter
-    def address_space(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def address_space(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_space", value)
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
         deployed in the virtual network.
@@ -1561,7 +1561,7 @@ class VirtualNetworkResourceSettingsArgs:
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @property
@@ -1579,14 +1579,14 @@ class VirtualNetworkResourceSettingsArgs:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[List[pulumi.Input['SubnetResourceSettingsArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]]:
         """
         Gets or sets List of subnets in a VirtualNetwork.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[List[pulumi.Input['SubnetResourceSettingsArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetResourceSettingsArgs']]]]):
         pulumi.set(self, "subnets", value)
 
 

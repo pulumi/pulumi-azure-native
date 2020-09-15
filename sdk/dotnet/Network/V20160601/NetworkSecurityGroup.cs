@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or default security rules of network security group
         /// </summary>
         [Output("defaultSecurityRules")]
-        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> DefaultSecurityRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurityRuleResponse>> DefaultSecurityRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets collection of references to Network Interfaces
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets security rules of network security group
         /// </summary>
         [Output("securityRules")]
-        public Output<ImmutableArray<Outputs.SecurityRuleResponseResult>> SecurityRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SecurityRuleResponse>> SecurityRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets collection of references to subnets
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

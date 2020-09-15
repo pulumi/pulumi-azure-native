@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,8 +18,8 @@ class Subnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nat_gateway: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -28,8 +28,8 @@ class Subnet(pulumi.CustomResource):
                  private_link_service_network_policies: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_table: Optional[pulumi.Input[pulumi.InputType['RouteTableArgs']]] = None,
-                 service_endpoint_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
-                 service_endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
+                 service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -41,8 +41,8 @@ class Subnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
-        :param pulumi.Input[List[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: An array of references to the delegations on the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DelegationArgs']]]] delegations: An array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] nat_gateway: Nat gateway associated with this subnet.
@@ -51,8 +51,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['RouteTableArgs']] route_table: The reference of the RouteTable resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPolicyArgs']]]] service_endpoint_policies: An array of service endpoint policies.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointPropertiesFormatArgs']]]] service_endpoints: An array of service endpoints.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
         """
@@ -138,7 +138,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
+    def address_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of address prefixes for the subnet.
         """
@@ -146,7 +146,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> pulumi.Output[Optional[List['outputs.DelegationResponse']]]:
+    def delegations(self) -> pulumi.Output[Optional[Sequence['outputs.DelegationResponse']]]:
         """
         An array of references to the delegations on the subnet.
         """
@@ -162,7 +162,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurationProfiles")
-    def ip_configuration_profiles(self) -> pulumi.Output[List['outputs.IPConfigurationProfileResponse']]:
+    def ip_configuration_profiles(self) -> pulumi.Output[Sequence['outputs.IPConfigurationProfileResponse']]:
         """
         Array of IP configuration profiles which reference this subnet.
         """
@@ -170,7 +170,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[List['outputs.IPConfigurationResponse']]:
+    def ip_configurations(self) -> pulumi.Output[Sequence['outputs.IPConfigurationResponse']]:
         """
         An array of references to the network interface IP configurations using subnet.
         """
@@ -210,7 +210,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> pulumi.Output[List['outputs.PrivateEndpointResponse']]:
+    def private_endpoints(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointResponse']]:
         """
         An array of references to private endpoints.
         """
@@ -242,7 +242,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> pulumi.Output[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> pulumi.Output[Sequence['outputs.ResourceNavigationLinkResponse']]:
         """
         An array of references to the external resources using subnet.
         """
@@ -258,7 +258,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceAssociationLinks")
-    def service_association_links(self) -> pulumi.Output[List['outputs.ServiceAssociationLinkResponse']]:
+    def service_association_links(self) -> pulumi.Output[Sequence['outputs.ServiceAssociationLinkResponse']]:
         """
         An array of references to services injecting into this subnet.
         """
@@ -266,7 +266,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpointPolicies")
-    def service_endpoint_policies(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPolicyResponse']]]:
+    def service_endpoint_policies(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceEndpointPolicyResponse']]]:
         """
         An array of service endpoint policies.
         """
@@ -274,7 +274,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Output[Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]]:
+    def service_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]]:
         """
         An array of service endpoints.
         """

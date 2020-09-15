@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -42,11 +42,11 @@ class ClusterPropertiesArgs:
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-        :param pulumi.Input[float] capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[int] capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         :param pulumi.Input[str] name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
         if capacity is not None:
@@ -56,14 +56,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -82,36 +82,36 @@ class ClusterSkuArgs:
 @pulumi.input_type
 class PrivateEndpointPropertiesArgs:
     def __init__(__self__, *,
-                 manual_private_link_service_connections: Optional[pulumi.Input[List[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None):
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None):
         """
         The properties associated with a private endpoint.
-        :param pulumi.Input[List[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         """
         if manual_private_link_service_connections is not None:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[List[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
+    def manual_private_link_service_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]:
         """
         A list of connections to the remote resource. Immutable after it is set.
         """
         return pulumi.get(self, "manual_private_link_service_connections")
 
     @manual_private_link_service_connections.setter
-    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[List[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
+    def manual_private_link_service_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
         pulumi.set(self, "manual_private_link_service_connections", value)
 
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionArgs:
     def __init__(__self__, *,
-                 group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_link_service_id: Optional[pulumi.Input[str]] = None,
                  request_message: Optional[pulumi.Input[str]] = None):
         """
         A grouping of information about the connection to the remote resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         :param pulumi.Input[str] private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         :param pulumi.Input[str] request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
@@ -124,14 +124,14 @@ class PrivateLinkServiceConnectionArgs:
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_ids", value)
 
     @property

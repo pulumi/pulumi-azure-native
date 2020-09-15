@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// List of load balancer configurations for an availability group listener.
         /// </summary>
         [Output("loadBalancerConfigurations")]
-        public Output<ImmutableArray<Outputs.LoadBalancerConfigurationResponseResult>> LoadBalancerConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LoadBalancerConfigurationResponse>> LoadBalancerConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

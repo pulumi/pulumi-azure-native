@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// The request parameters for a pipeline run.
         /// </summary>
         [Output("request")]
-        public Output<Outputs.PipelineRunRequestResponseResult?> Request { get; private set; } = null!;
+        public Output<Outputs.PipelineRunRequestResponse?> Request { get; private set; } = null!;
 
         /// <summary>
         /// The response of a pipeline run.
         /// </summary>
         [Output("response")]
-        public Output<Outputs.PipelineRunResponseResponseResult> Response { get; private set; } = null!;
+        public Output<Outputs.PipelineRunResponseResponse> Response { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

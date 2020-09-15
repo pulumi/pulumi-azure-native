@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -72,8 +72,8 @@ class GetExpressRouteCircuitResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if stag and not isinstance(stag, float):
-            raise TypeError("Expected argument 'stag' to be a float")
+        if stag and not isinstance(stag, int):
+            raise TypeError("Expected argument 'stag' to be a int")
         pulumi.set(__self__, "stag", stag)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -92,7 +92,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.ExpressRouteCircuitAuthorizationResponse']]:
+    def authorizations(self) -> Optional[Sequence['outputs.ExpressRouteCircuitAuthorizationResponse']]:
         """
         The list of authorizations.
         """
@@ -164,7 +164,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> Optional[List['outputs.ExpressRouteCircuitPeeringResponse']]:
+    def peerings(self) -> Optional[Sequence['outputs.ExpressRouteCircuitPeeringResponse']]:
         """
         The list of peerings.
         """
@@ -220,7 +220,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def stag(self) -> float:
+    def stag(self) -> int:
         """
         The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         """

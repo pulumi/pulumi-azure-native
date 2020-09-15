@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
         /// <summary>
         /// Gets or sets the nested properties.
         /// </summary>
-        public readonly Outputs.MigrateProjectPropertiesResponseResult Properties;
+        public readonly Outputs.MigrateProjectPropertiesResponse Properties;
         /// <summary>
         /// Gets or sets the tags.
         /// </summary>
-        public readonly Outputs.MigrateProjectResponseTagsResult? Tags;
+        public readonly Outputs.MigrateProjectResponseTags? Tags;
         /// <summary>
         /// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
 
             string name,
 
-            Outputs.MigrateProjectPropertiesResponseResult properties,
+            Outputs.MigrateProjectPropertiesResponse properties,
 
-            Outputs.MigrateProjectResponseTagsResult? tags,
+            Outputs.MigrateProjectResponseTags? tags,
 
             string type)
         {

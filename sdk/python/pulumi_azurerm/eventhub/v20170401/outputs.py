@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,16 +24,16 @@ class CaptureDescriptionResponse(dict):
                  destination: Optional['outputs.DestinationResponse'] = None,
                  enabled: Optional[bool] = None,
                  encoding: Optional[str] = None,
-                 interval_in_seconds: Optional[float] = None,
-                 size_limit_in_bytes: Optional[float] = None,
+                 interval_in_seconds: Optional[int] = None,
+                 size_limit_in_bytes: Optional[int] = None,
                  skip_empty_archives: Optional[bool] = None):
         """
         Properties to configure capture description for eventhub
         :param 'DestinationResponseArgs' destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
         :param bool enabled: A value that indicates whether capture description is enabled. 
         :param str encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-        :param float interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-        :param float size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+        :param int interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+        :param int size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         :param bool skip_empty_archives: A value that indicates whether to Skip Empty Archives
         """
         if destination is not None:
@@ -75,7 +75,7 @@ class CaptureDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
         """
@@ -83,7 +83,7 @@ class CaptureDescriptionResponse(dict):
 
     @property
     @pulumi.getter(name="sizeLimitInBytes")
-    def size_limit_in_bytes(self) -> Optional[float]:
+    def size_limit_in_bytes(self) -> Optional[int]:
         """
         The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         """
@@ -170,12 +170,12 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         SKU parameters supplied to the create namespace operation
         :param str name: Name of this SKU.
-        :param float capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param int capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
         :param str tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -194,7 +194,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The Event Hubs throughput units, value should be 0 to 20 throughput units.
         """

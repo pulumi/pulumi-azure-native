@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetWebTestResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
-        if frequency and not isinstance(frequency, float):
-            raise TypeError("Expected argument 'frequency' to be a float")
+        if frequency and not isinstance(frequency, int):
+            raise TypeError("Expected argument 'frequency' to be a int")
         pulumi.set(__self__, "frequency", frequency)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -57,8 +57,8 @@ class GetWebTestResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if timeout and not isinstance(timeout, float):
-            raise TypeError("Expected argument 'timeout' to be a float")
+        if timeout and not isinstance(timeout, int):
+            raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -96,7 +96,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[float]:
+    def frequency(self) -> Optional[int]:
         """
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
@@ -120,7 +120,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> List['outputs.WebTestGeolocationResponse']:
+    def locations(self) -> Sequence['outputs.WebTestGeolocationResponse']:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
@@ -168,7 +168,7 @@ class GetWebTestResult:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         """
         Seconds until this WebTest will timeout and fail. Default value is 30.
         """

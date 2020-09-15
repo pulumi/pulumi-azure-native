@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -79,7 +79,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter
-    def http(self) -> Optional[List['outputs.HttpConfigResponse']]:
+    def http(self) -> Optional[Sequence['outputs.HttpConfigResponse']]:
         """
         Configuration for http connectivity for this gateway.
         """
@@ -151,7 +151,7 @@ class GetGatewayResult:
 
     @property
     @pulumi.getter
-    def tcp(self) -> Optional[List['outputs.TcpConfigResponse']]:
+    def tcp(self) -> Optional[Sequence['outputs.TcpConfigResponse']]:
         """
         Configuration for tcp connectivity for this gateway.
         """

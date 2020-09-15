@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetPublicIPPrefixResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if prefix_length and not isinstance(prefix_length, float):
-            raise TypeError("Expected argument 'prefix_length' to be a float")
+        if prefix_length and not isinstance(prefix_length, int):
+            raise TypeError("Expected argument 'prefix_length' to be a int")
         pulumi.set(__self__, "prefix_length", prefix_length)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -96,7 +96,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[List['outputs.IpTagResponse']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
         """
         The list of tags associated with the public IP prefix.
         """
@@ -128,7 +128,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[float]:
+    def prefix_length(self) -> Optional[int]:
         """
         The Length of the Public IP Prefix.
         """
@@ -152,7 +152,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List['outputs.ReferencedPublicIpAddressResponse']:
+    def public_ip_addresses(self) -> Sequence['outputs.ReferencedPublicIpAddressResponse']:
         """
         The list of all referenced PublicIPAddresses.
         """
@@ -192,7 +192,7 @@ class GetPublicIPPrefixResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> Optional[Sequence[str]]:
         """
         A list of availability zones denoting the IP allocated for the resource needs to come from.
         """

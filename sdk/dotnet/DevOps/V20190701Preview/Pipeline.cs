@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// Configuration used to bootstrap the Pipeline.
         /// </summary>
         [Output("bootstrapConfiguration")]
-        public Output<Outputs.BootstrapConfigurationResponseResult> BootstrapConfiguration { get; private set; } = null!;
+        public Output<Outputs.BootstrapConfigurationResponse> BootstrapConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// Reference to the Azure DevOps Organization containing the Pipeline.
         /// </summary>
         [Output("organization")]
-        public Output<Outputs.OrganizationReferenceResponseResult> Organization { get; private set; } = null!;
+        public Output<Outputs.OrganizationReferenceResponse> Organization { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DevOps.V20190701Preview
         /// Reference to the Azure DevOps Project containing the Pipeline.
         /// </summary>
         [Output("project")]
-        public Output<Outputs.ProjectReferenceResponseResult> Project { get; private set; } = null!;
+        public Output<Outputs.ProjectReferenceResponse> Project { get; private set; } = null!;
 
         /// <summary>
         /// Resource Tags

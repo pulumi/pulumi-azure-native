@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Kpi(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]]] = None,
                  calculation_window: Optional[pulumi.Input[str]] = None,
                  calculation_window_field_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -25,10 +25,10 @@ class Kpi(pulumi.CustomResource):
                  entity_type: Optional[pulumi.Input[str]] = None,
                  entity_type_name: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
-                 extracts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]]] = None,
+                 extracts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
                  function: Optional[pulumi.Input[str]] = None,
-                 group_by: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  kpi_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,7 +42,7 @@ class Kpi(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.
         :param pulumi.Input[str] calculation_window: The calculation window.
         :param pulumi.Input[str] calculation_window_field_name: Name of calculation window field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized description for the KPI.
@@ -50,10 +50,10 @@ class Kpi(pulumi.CustomResource):
         :param pulumi.Input[str] entity_type: The mapping entity type.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] expression: The computation expression for the KPI.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]] extracts: The KPI extracts.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]] extracts: The KPI extracts.
         :param pulumi.Input[str] filter: The filter expression for the KPI.
         :param pulumi.Input[str] function: The computation function for the KPI.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_by: the group by properties for the KPI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by: the group by properties for the KPI.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] kpi_name: The name of the KPI.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -144,7 +144,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def aliases(self) -> pulumi.Output[Optional[List['outputs.KpiAliasResponse']]]:
+    def aliases(self) -> pulumi.Output[Optional[Sequence['outputs.KpiAliasResponse']]]:
         """
         The aliases.
         """
@@ -208,7 +208,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extracts(self) -> pulumi.Output[Optional[List['outputs.KpiExtractResponse']]]:
+    def extracts(self) -> pulumi.Output[Optional[Sequence['outputs.KpiExtractResponse']]]:
         """
         The KPI extracts.
         """
@@ -232,7 +232,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> pulumi.Output[Optional[List[str]]]:
+    def group_by(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         the group by properties for the KPI.
         """
@@ -240,7 +240,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupByMetadata")
-    def group_by_metadata(self) -> pulumi.Output[List['outputs.KpiGroupByMetadataResponse']]:
+    def group_by_metadata(self) -> pulumi.Output[Sequence['outputs.KpiGroupByMetadataResponse']]:
         """
         The KPI GroupByMetadata.
         """
@@ -264,7 +264,7 @@ class Kpi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="participantProfilesMetadata")
-    def participant_profiles_metadata(self) -> pulumi.Output[List['outputs.KpiParticipantProfilesMetadataResponse']]:
+    def participant_profiles_metadata(self) -> pulumi.Output[Sequence['outputs.KpiParticipantProfilesMetadataResponse']]:
         """
         The participant profiles.
         """

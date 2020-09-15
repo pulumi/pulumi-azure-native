@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -76,7 +76,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="frontendEndpointLinks")
-    def frontend_endpoint_links(self) -> List['outputs.FrontendEndpointLinkResponse']:
+    def frontend_endpoint_links(self) -> Sequence['outputs.FrontendEndpointLinkResponse']:
         """
         Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
@@ -129,7 +129,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter(name="routingRuleLinks")
-    def routing_rule_links(self) -> List['outputs.RoutingRuleLinkResponse']:
+    def routing_rule_links(self) -> Sequence['outputs.RoutingRuleLinkResponse']:
         """
         Describes Routing Rules associated with this Web Application Firewall policy.
         """

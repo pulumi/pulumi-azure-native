@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501Preview
         /// The credentials that can be used for authenticating the token.
         /// </summary>
         [Output("credentials")]
-        public Output<Outputs.TokenCredentialsPropertiesResponseResult?> Credentials { get; private set; } = null!;
+        public Output<Outputs.TokenCredentialsPropertiesResponse?> Credentials { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.

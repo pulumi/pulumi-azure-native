@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -79,14 +79,14 @@ class AvailabilitySetResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 fault_domain: Optional[float] = None,
-                 update_domain: Optional[float] = None):
+                 fault_domain: Optional[int] = None,
+                 update_domain: Optional[int] = None):
         """
         Gets or sets the availability set resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param float fault_domain: Gets or sets the target fault domain.
-        :param float update_domain: Gets or sets the target update domain.
+        :param int fault_domain: Gets or sets the target fault domain.
+        :param int update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -113,7 +113,7 @@ class AvailabilitySetResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="faultDomain")
-    def fault_domain(self) -> Optional[float]:
+    def fault_domain(self) -> Optional[int]:
         """
         Gets or sets the target fault domain.
         """
@@ -121,7 +121,7 @@ class AvailabilitySetResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="updateDomain")
-    def update_domain(self) -> Optional[float]:
+    def update_domain(self) -> Optional[int]:
         """
         Gets or sets the target update domain.
         """
@@ -365,16 +365,16 @@ class LoadBalancerResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 backend_address_pools: Optional[List['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
-                 frontend_ip_configurations: Optional[List['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
+                 backend_address_pools: Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
+                 frontend_ip_configurations: Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
                  sku: Optional[str] = None,
                  zones: Optional[str] = None):
         """
         Defines the load balancer resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param List['LBBackendAddressPoolResourceSettingsResponseArgs'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
-        :param List['LBFrontendIPConfigurationResourceSettingsResponseArgs'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
+        :param Sequence['LBBackendAddressPoolResourceSettingsResponseArgs'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
+        :param Sequence['LBFrontendIPConfigurationResourceSettingsResponseArgs'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
@@ -408,7 +408,7 @@ class LoadBalancerResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> Optional[List['outputs.LBBackendAddressPoolResourceSettingsResponse']]:
+    def backend_address_pools(self) -> Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']]:
         """
         Gets or sets the backend address pools of the load balancer.
         """
@@ -416,7 +416,7 @@ class LoadBalancerResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.LBFrontendIPConfigurationResourceSettingsResponse']]:
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']]:
         """
         Gets or sets the frontend IP configurations of the load balancer.
         """
@@ -662,13 +662,13 @@ class MoveResourceErrorBodyResponse(dict):
     """
     def __init__(__self__, *,
                  code: str,
-                 details: List['outputs.MoveResourceErrorBodyResponse'],
+                 details: Sequence['outputs.MoveResourceErrorBodyResponse'],
                  message: str,
                  target: str):
         """
         An error response from the Azure Migrate service.
         :param str code: An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        :param List['MoveResourceErrorBodyResponseArgs'] details: A list of additional details about the error.
+        :param Sequence['MoveResourceErrorBodyResponseArgs'] details: A list of additional details about the error.
         :param str message: A message describing the error, intended to be suitable for display in a user interface.
         :param str target: The target of the particular error. For example, the name of the property in error.
         """
@@ -687,7 +687,7 @@ class MoveResourceErrorBodyResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.MoveResourceErrorBodyResponse']:
+    def details(self) -> Sequence['outputs.MoveResourceErrorBodyResponse']:
         """
         A list of additional details about the error.
         """
@@ -745,25 +745,25 @@ class MoveResourcePropertiesResponse(dict):
     Defines the move resource properties.
     """
     def __init__(__self__, *,
-                 depends_on: List['outputs.MoveResourceDependencyResponse'],
+                 depends_on: Sequence['outputs.MoveResourceDependencyResponse'],
                  errors: 'outputs.MoveResourcePropertiesResponseErrors',
                  move_status: 'outputs.MoveResourcePropertiesResponseMoveStatus',
                  source_id: str,
                  source_resource_settings: 'outputs.MoveResourcePropertiesResponseSourceResourceSettings',
                  target_id: str,
-                 depends_on_overrides: Optional[List['outputs.MoveResourceDependencyOverrideResponse']] = None,
+                 depends_on_overrides: Optional[Sequence['outputs.MoveResourceDependencyOverrideResponse']] = None,
                  existing_target_id: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  resource_settings: Optional[Any] = None):
         """
         Defines the move resource properties.
-        :param List['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
+        :param Sequence['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
         :param 'MoveResourcePropertiesResponseErrorsArgs' errors: Defines the move resource errors.
         :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
         :param 'MoveResourcePropertiesResponseSourceResourceSettingsArgs' source_resource_settings: Gets or sets the source resource settings.
         :param str target_id: Gets or sets the Target ARM Id of the resource.
-        :param List['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
+        :param Sequence['MoveResourceDependencyOverrideResponseArgs'] depends_on_overrides: Gets or sets the move resource dependencies overrides.
         :param str existing_target_id: Gets or sets the existing target ARM Id of the resource.
         :param str provisioning_state: Defines the provisioning states.
         :param Union['AvailabilitySetResourceSettingsResponseArgs', 'LoadBalancerResourceSettingsResponseArgs', 'NetworkInterfaceResourceSettingsResponseArgs', 'NetworkSecurityGroupResourceSettingsResponseArgs', 'PublicIPAddressResourceSettingsResponseArgs', 'ResourceGroupResourceSettingsResponseArgs', 'SqlDatabaseResourceSettingsResponseArgs', 'SqlElasticPoolResourceSettingsResponseArgs', 'SqlServerResourceSettingsResponseArgs', 'VirtualMachineResourceSettingsResponseArgs', 'VirtualNetworkResourceSettingsResponseArgs'] resource_settings: Gets or sets the resource settings.
@@ -785,7 +785,7 @@ class MoveResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> List['outputs.MoveResourceDependencyResponse']:
+    def depends_on(self) -> Sequence['outputs.MoveResourceDependencyResponse']:
         """
         Gets or sets the move resource dependencies.
         """
@@ -833,7 +833,7 @@ class MoveResourcePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOnOverrides")
-    def depends_on_overrides(self) -> Optional[List['outputs.MoveResourceDependencyOverrideResponse']]:
+    def depends_on_overrides(self) -> Optional[Sequence['outputs.MoveResourceDependencyOverrideResponse']]:
         """
         Gets or sets the move resource dependencies overrides.
         """
@@ -999,13 +999,13 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  enable_accelerated_networking: Optional[bool] = None,
-                 ip_configurations: Optional[List['outputs.NicIpConfigurationResourceSettingsResponse']] = None):
+                 ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None):
         """
         Defines the network interface resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
-        :param List['NicIpConfigurationResourceSettingsResponseArgs'] ip_configurations: Gets or sets the IP configurations of the NIC.
+        :param Sequence['NicIpConfigurationResourceSettingsResponseArgs'] ip_configurations: Gets or sets the IP configurations of the NIC.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1040,7 +1040,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[List['outputs.NicIpConfigurationResourceSettingsResponse']]:
+    def ip_configurations(self) -> Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']]:
         """
         Gets or sets the IP configurations of the NIC.
         """
@@ -1058,12 +1058,12 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 security_rules: Optional[List['outputs.NsgSecurityRuleResponse']] = None):
+                 security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None):
         """
         Defines the NSG resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param List['NsgSecurityRuleResponseArgs'] security_rules: Gets or sets Security rules of network security group.
+        :param Sequence['NsgSecurityRuleResponseArgs'] security_rules: Gets or sets Security rules of network security group.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1088,7 +1088,7 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="securityRules")
-    def security_rules(self) -> Optional[List['outputs.NsgSecurityRuleResponse']]:
+    def security_rules(self) -> Optional[Sequence['outputs.NsgSecurityRuleResponse']]:
         """
         Gets or sets Security rules of network security group.
         """
@@ -1104,7 +1104,7 @@ class NicIpConfigurationResourceSettingsResponse(dict):
     Defines NIC IP configuration properties.
     """
     def __init__(__self__, *,
-                 load_balancer_backend_address_pools: Optional[List['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
+                 load_balancer_backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolReferenceResponse']] = None,
                  name: Optional[str] = None,
                  primary: Optional[bool] = None,
                  private_ip_address: Optional[str] = None,
@@ -1112,7 +1112,7 @@ class NicIpConfigurationResourceSettingsResponse(dict):
                  subnet: Optional['outputs.SubnetReferenceResponse'] = None):
         """
         Defines NIC IP configuration properties.
-        :param List['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
+        :param Sequence['LoadBalancerBackendAddressPoolReferenceResponseArgs'] load_balancer_backend_address_pools: Gets or sets the references of the load balancer backend address pools.
         :param str name: Gets or sets the IP configuration name.
         :param bool primary: Gets or sets a value indicating whether this IP configuration is the primary.
         :param str private_ip_address: Gets or sets the private IP address of the network interface IP Configuration.
@@ -1134,7 +1134,7 @@ class NicIpConfigurationResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPools")
-    def load_balancer_backend_address_pools(self) -> Optional[List['outputs.LoadBalancerBackendAddressPoolReferenceResponse']]:
+    def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressPoolReferenceResponse']]:
         """
         Gets or sets the references of the load balancer backend address pools.
         """
@@ -1196,7 +1196,7 @@ class NsgSecurityRuleResponse(dict):
                  destination_port_range: Optional[str] = None,
                  direction: Optional[str] = None,
                  name: Optional[str] = None,
-                 priority: Optional[float] = None,
+                 priority: Optional[int] = None,
                  protocol: Optional[str] = None,
                  source_address_prefix: Optional[str] = None,
                  source_port_range: Optional[str] = None):
@@ -1213,7 +1213,7 @@ class NsgSecurityRuleResponse(dict):
         :param str direction: Gets or sets the direction of the rule.InBound or Outbound. The
                direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param str name: Gets or sets the Security rule name.
-        :param float priority: Gets or sets the priority of the rule. The value can be between
+        :param int priority: Gets or sets the priority of the rule. The value can be between
                100 and 4096. The priority number must be unique for each rule in the collection.
                The lower the priority number, the higher the priority of the rule.
         :param str protocol: Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
@@ -1300,7 +1300,7 @@ class NsgSecurityRuleResponse(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Gets or sets the priority of the rule. The value can be between
         100 and 4096. The priority number must be unique for each rule in the collection.
@@ -1759,20 +1759,20 @@ class VirtualNetworkResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 address_space: Optional[List[str]] = None,
-                 dns_servers: Optional[List[str]] = None,
+                 address_space: Optional[Sequence[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  enable_ddos_protection: Optional[bool] = None,
-                 subnets: Optional[List['outputs.SubnetResourceSettingsResponse']] = None):
+                 subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None):
         """
         Defines the virtual network resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param List[str] address_space: Gets or sets the address prefixes for the virtual network.
-        :param List[str] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
+        :param Sequence[str] address_space: Gets or sets the address prefixes for the virtual network.
+        :param Sequence[str] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
                deployed in the virtual network.
         :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
-        :param List['SubnetResourceSettingsResponseArgs'] subnets: Gets or sets List of subnets in a VirtualNetwork.
+        :param Sequence['SubnetResourceSettingsResponseArgs'] subnets: Gets or sets List of subnets in a VirtualNetwork.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1803,7 +1803,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> Optional[List[str]]:
+    def address_space(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the address prefixes for the virtual network.
         """
@@ -1811,7 +1811,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
         deployed in the virtual network.
@@ -1829,7 +1829,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[List['outputs.SubnetResourceSettingsResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.SubnetResourceSettingsResponse']]:
         """
         Gets or sets List of subnets in a VirtualNetwork.
         """

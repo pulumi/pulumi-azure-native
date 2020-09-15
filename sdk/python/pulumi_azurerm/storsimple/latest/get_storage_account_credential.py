@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetStorageAccountCredentialResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volumes_count and not isinstance(volumes_count, float):
-            raise TypeError("Expected argument 'volumes_count' to be a float")
+        if volumes_count and not isinstance(volumes_count, int):
+            raise TypeError("Expected argument 'volumes_count' to be a int")
         pulumi.set(__self__, "volumes_count", volumes_count)
 
     @property
@@ -93,7 +93,7 @@ class GetStorageAccountCredentialResult:
 
     @property
     @pulumi.getter(name="volumesCount")
-    def volumes_count(self) -> float:
+    def volumes_count(self) -> int:
         """
         The count of volumes using this storage account credential.
         """

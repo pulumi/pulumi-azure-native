@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,15 +25,15 @@ class Domain(pulumi.CustomResource):
                  contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_not_renewable_reasons: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 domain_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  expiration_time: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  last_renewed_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_host_names: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameArgs']]]]] = None,
+                 managed_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  privacy: Optional[pulumi.Input[bool]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  ready_for_dns_record_management: Optional[pulumi.Input[bool]] = None,
@@ -57,15 +57,15 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact information
         :param pulumi.Input[str] created_time: Domain creation timestamp
         :param pulumi.Input[str] domain_name: Name of the domain
-        :param pulumi.Input[List[pulumi.Input[str]]] domain_not_renewable_reasons: Reasons why domain is not renewable
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_not_renewable_reasons: Reasons why domain is not renewable
         :param pulumi.Input[str] expiration_time: Domain expiration timestamp
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] last_renewed_time: Timestamp when the domain was renewed last time
         :param pulumi.Input[str] location: Resource Location
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameArgs']]]] managed_host_names: All hostnames derived from the domain and assigned to Azure resources
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameArgs']]]] managed_host_names: All hostnames derived from the domain and assigned to Azure resources
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: Name servers
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: Name servers
         :param pulumi.Input[bool] privacy: If true then domain privacy is enabled for this domain
         :param pulumi.Input[str] provisioning_state: Domain provisioning state
         :param pulumi.Input[bool] ready_for_dns_record_management: If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
@@ -205,7 +205,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNotRenewableReasons")
-    def domain_not_renewable_reasons(self) -> pulumi.Output[Optional[List[str]]]:
+    def domain_not_renewable_reasons(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Reasons why domain is not renewable
         """
@@ -245,7 +245,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedHostNames")
-    def managed_host_names(self) -> pulumi.Output[Optional[List['outputs.HostNameResponse']]]:
+    def managed_host_names(self) -> pulumi.Output[Optional[Sequence['outputs.HostNameResponse']]]:
         """
         All hostnames derived from the domain and assigned to Azure resources
         """
@@ -261,7 +261,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Name servers
         """

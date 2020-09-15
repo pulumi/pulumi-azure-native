@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Resources.V20191001
         /// The set of tags.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.TagsResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.TagsResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the tags wrapper resource.

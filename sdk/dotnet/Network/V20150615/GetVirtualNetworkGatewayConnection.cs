@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.LocalNetworkGatewayResponseResult? LocalNetworkGateway2;
+        public readonly Outputs.LocalNetworkGatewayResponse? LocalNetworkGateway2;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// <summary>
         /// The reference to peerings resource.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? Peer;
+        public readonly Outputs.SubResourceResponse? Peer;
         /// <summary>
         /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponseResult? VirtualNetworkGateway1;
+        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway1;
         /// <summary>
         /// A common class for general resource information
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayResponseResult? VirtualNetworkGateway2;
+        public readonly Outputs.VirtualNetworkGatewayResponse? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
@@ -132,13 +132,13 @@ namespace Pulumi.AzureRM.Network.V20150615
 
             int? ingressBytesTransferred,
 
-            Outputs.LocalNetworkGatewayResponseResult? localNetworkGateway2,
+            Outputs.LocalNetworkGatewayResponse? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.SubResourceResponseResult? peer,
+            Outputs.SubResourceResponse? peer,
 
             string? provisioningState,
 
@@ -152,9 +152,9 @@ namespace Pulumi.AzureRM.Network.V20150615
 
             string type,
 
-            Outputs.VirtualNetworkGatewayResponseResult? virtualNetworkGateway1,
+            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway1,
 
-            Outputs.VirtualNetworkGatewayResponseResult? virtualNetworkGateway2)
+            Outputs.VirtualNetworkGatewayResponse? virtualNetworkGateway2)
         {
             AuthorizationKey = authorizationKey;
             ConnectionStatus = connectionStatus;

@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplianceArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplianceArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The appliance provider authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplianceProviderAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The appliance definition description.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -71,8 +71,8 @@ class GetIoMAMPolicyByNameResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if num_of_apps and not isinstance(num_of_apps, float):
-            raise TypeError("Expected argument 'num_of_apps' to be a float")
+        if num_of_apps and not isinstance(num_of_apps, int):
+            raise TypeError("Expected argument 'num_of_apps' to be a int")
         pulumi.set(__self__, "num_of_apps", num_of_apps)
         if offline_wipe_timeout and not isinstance(offline_wipe_timeout, str):
             raise TypeError("Expected argument 'offline_wipe_timeout' to be a str")
@@ -80,8 +80,8 @@ class GetIoMAMPolicyByNameResult:
         if pin and not isinstance(pin, str):
             raise TypeError("Expected argument 'pin' to be a str")
         pulumi.set(__self__, "pin", pin)
-        if pin_num_retry and not isinstance(pin_num_retry, float):
-            raise TypeError("Expected argument 'pin_num_retry' to be a float")
+        if pin_num_retry and not isinstance(pin_num_retry, int):
+            raise TypeError("Expected argument 'pin_num_retry' to be a int")
         pulumi.set(__self__, "pin_num_retry", pin_num_retry)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -186,7 +186,7 @@ class GetIoMAMPolicyByNameResult:
 
     @property
     @pulumi.getter(name="numOfApps")
-    def num_of_apps(self) -> float:
+    def num_of_apps(self) -> int:
         return pulumi.get(self, "num_of_apps")
 
     @property
@@ -201,7 +201,7 @@ class GetIoMAMPolicyByNameResult:
 
     @property
     @pulumi.getter(name="pinNumRetry")
-    def pin_num_retry(self) -> Optional[float]:
+    def pin_num_retry(self) -> Optional[int]:
         return pulumi.get(self, "pin_num_retry")
 
     @property

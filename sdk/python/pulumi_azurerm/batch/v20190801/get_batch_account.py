@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,14 +24,14 @@ class GetBatchAccountResult:
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
-        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, float):
-            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a float")
+        if active_job_and_job_schedule_quota and not isinstance(active_job_and_job_schedule_quota, int):
+            raise TypeError("Expected argument 'active_job_and_job_schedule_quota' to be a int")
         pulumi.set(__self__, "active_job_and_job_schedule_quota", active_job_and_job_schedule_quota)
         if auto_storage and not isinstance(auto_storage, dict):
             raise TypeError("Expected argument 'auto_storage' to be a dict")
         pulumi.set(__self__, "auto_storage", auto_storage)
-        if dedicated_core_quota and not isinstance(dedicated_core_quota, float):
-            raise TypeError("Expected argument 'dedicated_core_quota' to be a float")
+        if dedicated_core_quota and not isinstance(dedicated_core_quota, int):
+            raise TypeError("Expected argument 'dedicated_core_quota' to be a int")
         pulumi.set(__self__, "dedicated_core_quota", dedicated_core_quota)
         if dedicated_core_quota_per_vm_family and not isinstance(dedicated_core_quota_per_vm_family, list):
             raise TypeError("Expected argument 'dedicated_core_quota_per_vm_family' to be a list")
@@ -45,8 +45,8 @@ class GetBatchAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if low_priority_core_quota and not isinstance(low_priority_core_quota, float):
-            raise TypeError("Expected argument 'low_priority_core_quota' to be a float")
+        if low_priority_core_quota and not isinstance(low_priority_core_quota, int):
+            raise TypeError("Expected argument 'low_priority_core_quota' to be a int")
         pulumi.set(__self__, "low_priority_core_quota", low_priority_core_quota)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -54,8 +54,8 @@ class GetBatchAccountResult:
         if pool_allocation_mode and not isinstance(pool_allocation_mode, str):
             raise TypeError("Expected argument 'pool_allocation_mode' to be a str")
         pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
-        if pool_quota and not isinstance(pool_quota, float):
-            raise TypeError("Expected argument 'pool_quota' to be a float")
+        if pool_quota and not isinstance(pool_quota, int):
+            raise TypeError("Expected argument 'pool_quota' to be a int")
         pulumi.set(__self__, "pool_quota", pool_quota)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -77,7 +77,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
-    def active_job_and_job_schedule_quota(self) -> float:
+    def active_job_and_job_schedule_quota(self) -> int:
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @property
@@ -90,7 +90,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="dedicatedCoreQuota")
-    def dedicated_core_quota(self) -> float:
+    def dedicated_core_quota(self) -> int:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -98,7 +98,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamily")
-    def dedicated_core_quota_per_vm_family(self) -> List['outputs.VirtualMachineFamilyCoreQuotaResponse']:
+    def dedicated_core_quota_per_vm_family(self) -> Sequence['outputs.VirtualMachineFamilyCoreQuotaResponse']:
         """
         A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -130,7 +130,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="lowPriorityCoreQuota")
-    def low_priority_core_quota(self) -> float:
+    def low_priority_core_quota(self) -> int:
         """
         For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
         """
@@ -154,7 +154,7 @@ class GetBatchAccountResult:
 
     @property
     @pulumi.getter(name="poolQuota")
-    def pool_quota(self) -> float:
+    def pool_quota(self) -> int:
         return pulumi.get(self, "pool_quota")
 
     @property

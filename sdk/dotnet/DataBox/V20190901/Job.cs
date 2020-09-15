@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         /// Delivery Info of Job.
         /// </summary>
         [Output("deliveryInfo")]
-        public Output<Outputs.JobDeliveryInfoResponseResult?> DeliveryInfo { get; private set; } = null!;
+        public Output<Outputs.JobDeliveryInfoResponse?> DeliveryInfo { get; private set; } = null!;
 
         /// <summary>
         /// Delivery type of Job.
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         /// Details of a job run. This field will only be sent for expand details filter.
         /// </summary>
         [Output("details")]
-        public Output<Union<Outputs.DataBoxDiskJobDetailsResponseResult, Union<Outputs.DataBoxHeavyJobDetailsResponseResult, Outputs.DataBoxJobDetailsResponseResult>>?> Details { get; private set; } = null!;
+        public Output<Union<Outputs.DataBoxDiskJobDetailsResponse, Union<Outputs.DataBoxHeavyJobDetailsResponse, Outputs.DataBoxJobDetailsResponse>>?> Details { get; private set; } = null!;
 
         /// <summary>
         /// Top level error for the job.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ErrorResponseResult> Error { get; private set; } = null!;
+        public Output<Outputs.ErrorResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// Describes whether the job is cancellable or not.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         /// The sku type.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Time at which the job was started in UTC ISO 8601 format.

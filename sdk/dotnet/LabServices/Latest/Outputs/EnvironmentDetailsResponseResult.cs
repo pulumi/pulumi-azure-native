@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.LabServices.Latest.Outputs
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
         /// <summary>
         /// Name of the Environment
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.LabServices.Latest.Outputs
 
             string id,
 
-            Outputs.LatestOperationResultResponseResult latestOperationResult,
+            Outputs.LatestOperationResultResponse latestOperationResult,
 
             string name,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -16,7 +16,7 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] host_names: Host names the certificate applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -149,7 +149,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def host_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Host names the certificate applies to.
         """

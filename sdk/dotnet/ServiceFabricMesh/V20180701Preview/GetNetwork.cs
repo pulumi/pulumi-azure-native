@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
         /// <summary>
         /// Configuration for public connectivity for this network.
         /// </summary>
-        public readonly Outputs.IngressConfigResponseResult? IngressConfig;
+        public readonly Outputs.IngressConfigResponse? IngressConfig;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180701Preview
 
             string? description,
 
-            Outputs.IngressConfigResponseResult? ingressConfig,
+            Outputs.IngressConfigResponse? ingressConfig,
 
             string location,
 

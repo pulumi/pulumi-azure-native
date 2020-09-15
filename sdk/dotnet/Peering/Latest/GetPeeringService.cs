@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Peering.Latest
         /// <summary>
         /// The SKU that defines the type of the peering service.
         /// </summary>
-        public readonly Outputs.PeeringServiceSkuResponseResult? Sku;
+        public readonly Outputs.PeeringServiceSkuResponse? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Peering.Latest
 
             string provisioningState,
 
-            Outputs.PeeringServiceSkuResponseResult? sku,
+            Outputs.PeeringServiceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

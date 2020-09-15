@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -96,11 +96,11 @@ class CnameRecordArgs:
 class MxRecordArgs:
     def __init__(__self__, *,
                  exchange: Optional[pulumi.Input[str]] = None,
-                 preference: Optional[pulumi.Input[float]] = None):
+                 preference: Optional[pulumi.Input[int]] = None):
         """
         An MX record.
         :param pulumi.Input[str] exchange: The domain name of the mail host for this MX record.
-        :param pulumi.Input[float] preference: The preference value for this MX record.
+        :param pulumi.Input[int] preference: The preference value for this MX record.
         """
         if exchange is not None:
             pulumi.set(__self__, "exchange", exchange)
@@ -121,14 +121,14 @@ class MxRecordArgs:
 
     @property
     @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[float]]:
+    def preference(self) -> Optional[pulumi.Input[int]]:
         """
         The preference value for this MX record.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: Optional[pulumi.Input[float]]):
+    def preference(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preference", value)
 
 
@@ -160,21 +160,21 @@ class PtrRecordArgs:
 class SoaRecordArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
-                 expire_time: Optional[pulumi.Input[float]] = None,
+                 expire_time: Optional[pulumi.Input[int]] = None,
                  host: Optional[pulumi.Input[str]] = None,
-                 minimum_ttl: Optional[pulumi.Input[float]] = None,
-                 refresh_time: Optional[pulumi.Input[float]] = None,
-                 retry_time: Optional[pulumi.Input[float]] = None,
-                 serial_number: Optional[pulumi.Input[float]] = None):
+                 minimum_ttl: Optional[pulumi.Input[int]] = None,
+                 refresh_time: Optional[pulumi.Input[int]] = None,
+                 retry_time: Optional[pulumi.Input[int]] = None,
+                 serial_number: Optional[pulumi.Input[int]] = None):
         """
         An SOA record.
         :param pulumi.Input[str] email: The email contact for this SOA record.
-        :param pulumi.Input[float] expire_time: The expire time for this SOA record.
+        :param pulumi.Input[int] expire_time: The expire time for this SOA record.
         :param pulumi.Input[str] host: The domain name of the authoritative name server for this SOA record.
-        :param pulumi.Input[float] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        :param pulumi.Input[float] refresh_time: The refresh value for this SOA record.
-        :param pulumi.Input[float] retry_time: The retry time for this SOA record.
-        :param pulumi.Input[float] serial_number: The serial number for this SOA record.
+        :param pulumi.Input[int] minimum_ttl: The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+        :param pulumi.Input[int] refresh_time: The refresh value for this SOA record.
+        :param pulumi.Input[int] retry_time: The retry time for this SOA record.
+        :param pulumi.Input[int] serial_number: The serial number for this SOA record.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -205,14 +205,14 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="expireTime")
-    def expire_time(self) -> Optional[pulumi.Input[float]]:
+    def expire_time(self) -> Optional[pulumi.Input[int]]:
         """
         The expire time for this SOA record.
         """
         return pulumi.get(self, "expire_time")
 
     @expire_time.setter
-    def expire_time(self, value: Optional[pulumi.Input[float]]):
+    def expire_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expire_time", value)
 
     @property
@@ -229,66 +229,66 @@ class SoaRecordArgs:
 
     @property
     @pulumi.getter(name="minimumTtl")
-    def minimum_ttl(self) -> Optional[pulumi.Input[float]]:
+    def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
         """
         return pulumi.get(self, "minimum_ttl")
 
     @minimum_ttl.setter
-    def minimum_ttl(self, value: Optional[pulumi.Input[float]]):
+    def minimum_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minimum_ttl", value)
 
     @property
     @pulumi.getter(name="refreshTime")
-    def refresh_time(self) -> Optional[pulumi.Input[float]]:
+    def refresh_time(self) -> Optional[pulumi.Input[int]]:
         """
         The refresh value for this SOA record.
         """
         return pulumi.get(self, "refresh_time")
 
     @refresh_time.setter
-    def refresh_time(self, value: Optional[pulumi.Input[float]]):
+    def refresh_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "refresh_time", value)
 
     @property
     @pulumi.getter(name="retryTime")
-    def retry_time(self) -> Optional[pulumi.Input[float]]:
+    def retry_time(self) -> Optional[pulumi.Input[int]]:
         """
         The retry time for this SOA record.
         """
         return pulumi.get(self, "retry_time")
 
     @retry_time.setter
-    def retry_time(self, value: Optional[pulumi.Input[float]]):
+    def retry_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retry_time", value)
 
     @property
     @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[float]]:
+    def serial_number(self) -> Optional[pulumi.Input[int]]:
         """
         The serial number for this SOA record.
         """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[float]]):
+    def serial_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "serial_number", value)
 
 
 @pulumi.input_type
 class SrvRecordArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[float]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  target: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None):
+                 weight: Optional[pulumi.Input[int]] = None):
         """
         An SRV record.
-        :param pulumi.Input[float] port: The port value for this SRV record.
-        :param pulumi.Input[float] priority: The priority value for this SRV record.
+        :param pulumi.Input[int] port: The port value for this SRV record.
+        :param pulumi.Input[int] priority: The priority value for this SRV record.
         :param pulumi.Input[str] target: The target domain name for this SRV record.
-        :param pulumi.Input[float] weight: The weight value for this SRV record.
+        :param pulumi.Input[int] weight: The weight value for this SRV record.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -301,26 +301,26 @@ class SrvRecordArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port value for this SRV record.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority value for this SRV record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -337,14 +337,14 @@ class SrvRecordArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[float]]:
+    def weight(self) -> Optional[pulumi.Input[int]]:
         """
         The weight value for this SRV record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[float]]):
+    def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
 
@@ -375,24 +375,24 @@ class SubResourceArgs:
 @pulumi.input_type
 class TxtRecordArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A TXT record.
-        :param pulumi.Input[List[pulumi.Input[str]]] value: The text value of this TXT record.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] value: The text value of this TXT record.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The text value of this TXT record.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "value", value)
 
 

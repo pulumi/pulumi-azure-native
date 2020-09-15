@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
-        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+        public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
 
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
         [Output("encryptionSettingsCollection")]
-        public Output<Outputs.EncryptionSettingsCollectionResponseResult?> EncryptionSettingsCollection { get; private set; } = null!;
+        public Output<Outputs.EncryptionSettingsCollectionResponse?> EncryptionSettingsCollection { get; private set; } = null!;
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.DiskSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// Specifies information about the proximity placement group that the availability set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
         [Output("proximityPlacementGroup")]
-        public Output<Outputs.SubResourceResponseResult?> ProximityPlacementGroup { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource status information.
         /// </summary>
         [Output("statuses")]
-        public Output<ImmutableArray<Outputs.InstanceViewStatusResponseResult>> Statuses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InstanceViewStatusResponse>> Statuses { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// A list of references to all virtual machines in the availability set.
         /// </summary>
         [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

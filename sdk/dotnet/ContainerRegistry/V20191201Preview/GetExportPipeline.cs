@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The identity of the export pipeline.
         /// </summary>
-        public readonly Outputs.IdentityPropertiesResponseResult? Identity;
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The location of the export pipeline.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The target properties of the export pipeline.
         /// </summary>
-        public readonly Outputs.ExportPipelineTargetPropertiesResponseResult Target;
+        public readonly Outputs.ExportPipelineTargetPropertiesResponse Target;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
         [OutputConstructor]
         private GetExportPipelineResult(
-            Outputs.IdentityPropertiesResponseResult? identity,
+            Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
 
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             string provisioningState,
 
-            Outputs.ExportPipelineTargetPropertiesResponseResult target,
+            Outputs.ExportPipelineTargetPropertiesResponse target,
 
             string type)
         {

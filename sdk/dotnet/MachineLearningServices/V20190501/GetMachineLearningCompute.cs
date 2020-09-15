@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
         /// <summary>
         /// Compute properties
         /// </summary>
-        public readonly Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>> Properties;
+        public readonly Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> Properties;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -72,13 +72,13 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20190501
 
         [OutputConstructor]
         private GetMachineLearningComputeResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
             string name,
 
-            Union<Outputs.AKSResponseResult, Union<Outputs.AmlComputeResponseResult, Union<Outputs.DataFactoryResponseResult, Union<Outputs.DataLakeAnalyticsResponseResult, Union<Outputs.DatabricksResponseResult, Union<Outputs.HDInsightResponseResult, Outputs.VirtualMachineResponseResult>>>>>> properties,
+            Union<Outputs.AKSResponse, Union<Outputs.AmlComputeResponse, Union<Outputs.DataFactoryResponse, Union<Outputs.DataLakeAnalyticsResponse, Union<Outputs.DatabricksResponse, Union<Outputs.HDInsightResponse, Outputs.VirtualMachineResponse>>>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

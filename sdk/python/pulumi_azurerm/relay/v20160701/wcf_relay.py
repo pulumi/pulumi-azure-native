@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['WCFRelay']
@@ -118,7 +118,7 @@ class WCFRelay(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="listenerCount")
-    def listener_count(self) -> pulumi.Output[float]:
+    def listener_count(self) -> pulumi.Output[int]:
         """
         The number of listeners for this relay. min : 1 and max:25 supported
         """

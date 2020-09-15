@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -275,17 +275,17 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
     SharedAccessAuthorizationRule properties.
     """
     def __init__(__self__, *,
-                 rights: Optional[List[str]] = None):
+                 rights: Optional[Sequence[str]] = None):
         """
         SharedAccessAuthorizationRule properties.
-        :param List[str] rights: The rights associated with the rule.
+        :param Sequence[str] rights: The rights associated with the rule.
         """
         if rights is not None:
             pulumi.set(__self__, "rights", rights)
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> Optional[Sequence[str]]:
         """
         The rights associated with the rule.
         """
@@ -302,14 +302,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         The Sku description for a namespace
         :param str name: Name of the notification hub sku
-        :param float capacity: The capacity of the resource
+        :param int capacity: The capacity of the resource
         :param str family: The Sku Family
         :param str size: The Sku size
         :param str tier: The tier of particular sku
@@ -334,7 +334,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The capacity of the resource
         """

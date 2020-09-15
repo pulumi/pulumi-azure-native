@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -89,7 +89,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def children(self) -> pulumi.Output[Optional[List['outputs.ManagementGroupChildInfoResponse']]]:
+    def children(self) -> pulumi.Output[Optional[Sequence['outputs.ManagementGroupChildInfoResponse']]]:
         """
         The list of children.
         """
@@ -121,7 +121,7 @@ class ManagementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> pulumi.Output[Optional[List['outputs.ManagementGroupPathElementResponse']]]:
+    def path(self) -> pulumi.Output[Optional[Sequence['outputs.ManagementGroupPathElementResponse']]]:
         """
         The path from the root to the current group.
         """

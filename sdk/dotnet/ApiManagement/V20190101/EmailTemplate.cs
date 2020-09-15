@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// Email Template Parameter values.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponseResult>> Parameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponse>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Subject of the Template.

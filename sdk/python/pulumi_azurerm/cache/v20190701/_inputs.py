@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,12 +17,12 @@ __all__ = [
 class ScheduleEntryArgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
-                 start_hour_utc: pulumi.Input[float],
+                 start_hour_utc: pulumi.Input[int],
                  maintenance_window: Optional[pulumi.Input[str]] = None):
         """
         Patch schedule entry for a Premium Redis Cache.
         :param pulumi.Input[str] day_of_week: Day of the week when a cache can be patched.
-        :param pulumi.Input[float] start_hour_utc: Start hour after which cache patching can start.
+        :param pulumi.Input[int] start_hour_utc: Start hour after which cache patching can start.
         :param pulumi.Input[str] maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
@@ -44,14 +44,14 @@ class ScheduleEntryArgs:
 
     @property
     @pulumi.getter(name="startHourUtc")
-    def start_hour_utc(self) -> pulumi.Input[float]:
+    def start_hour_utc(self) -> pulumi.Input[int]:
         """
         Start hour after which cache patching can start.
         """
         return pulumi.get(self, "start_hour_utc")
 
     @start_hour_utc.setter
-    def start_hour_utc(self, value: pulumi.Input[float]):
+    def start_hour_utc(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_hour_utc", value)
 
     @property
@@ -70,12 +70,12 @@ class ScheduleEntryArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: pulumi.Input[float],
+                 capacity: pulumi.Input[int],
                  family: pulumi.Input[str],
                  name: pulumi.Input[str]):
         """
         SKU parameters supplied to the create Redis operation.
-        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
         :param pulumi.Input[str] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param pulumi.Input[str] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
@@ -85,14 +85,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Input[float]:
+    def capacity(self) -> pulumi.Input[int]:
         """
         The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: pulumi.Input[float]):
+    def capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "capacity", value)
 
     @property

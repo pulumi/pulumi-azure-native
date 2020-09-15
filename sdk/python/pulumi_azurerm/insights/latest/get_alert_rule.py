@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class GetAlertRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[Any]]:
+    def actions(self) -> Optional[Sequence[Any]]:
         """
         the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         """

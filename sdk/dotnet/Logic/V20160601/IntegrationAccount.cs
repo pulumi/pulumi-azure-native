@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IntegrationAccountSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.IntegrationAccountSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

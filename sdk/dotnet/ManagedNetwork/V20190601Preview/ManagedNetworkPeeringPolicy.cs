@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// Gets or sets the properties of a Managed Network Policy
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedNetworkPeeringPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagedNetworkPeeringPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

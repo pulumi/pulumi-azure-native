@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -149,7 +149,7 @@ class OpenShiftManagedClusterAADIdentityProviderArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float],
+                 count: pulumi.Input[int],
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         Defines the configuration of the OpenShift cluster VMs.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers.
         :param pulumi.Input[str] name: Unique name of the pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -176,14 +176,14 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         Number of agents (VMs) to host docker containers.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
     @property
@@ -250,24 +250,24 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterAuthProfileArgs:
     def __init__(__self__, *,
-                 identity_providers: Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None):
+                 identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None):
         """
         Defines all possible authentication profiles for the OpenShift cluster.
-        :param pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
         """
         if identity_providers is not None:
             pulumi.set(__self__, "identity_providers", identity_providers)
 
     @property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]:
+    def identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]:
         """
         Type of authentication profile to use.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
+    def identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
         pulumi.set(self, "identity_providers", value)
 
 
@@ -314,14 +314,14 @@ class OpenShiftManagedClusterIdentityProviderArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterMasterPoolProfileArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float],
+                 count: pulumi.Input[int],
                  vm_size: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        :param pulumi.Input[float] count: Number of masters (VMs) to host docker containers. The default value is 3.
+        :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] name: Unique name of the master pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -338,14 +338,14 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         Number of masters (VMs) to host docker containers. The default value is 3.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
     @property

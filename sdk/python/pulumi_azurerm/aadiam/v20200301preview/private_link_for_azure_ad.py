@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['PrivateLinkForAzureAd']
@@ -24,7 +24,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,7 +42,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         :param pulumi.Input[str] resource_name_: Name of the private link policy resource
         :param pulumi.Input[str] subscription_id: Subscription Identifier
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[str]]] tenants: The list of tenantIds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tenants: The list of tenantIds.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,7 +158,7 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenants(self) -> pulumi.Output[Optional[List[str]]]:
+    def tenants(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of tenantIds.
         """

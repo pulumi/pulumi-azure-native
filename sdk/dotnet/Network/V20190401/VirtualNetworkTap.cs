@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
         /// </summary>
         [Output("destinationLoadBalancerFrontEndIPConfiguration")]
-        public Output<Outputs.FrontendIPConfigurationResponseResult?> DestinationLoadBalancerFrontEndIPConfiguration { get; private set; } = null!;
+        public Output<Outputs.FrontendIPConfigurationResponse?> DestinationLoadBalancerFrontEndIPConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the private IP Address of the collector nic that will receive the tap.
         /// </summary>
         [Output("destinationNetworkInterfaceIPConfiguration")]
-        public Output<Outputs.NetworkInterfaceIPConfigurationResponseResult?> DestinationNetworkInterfaceIPConfiguration { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceIPConfigurationResponse?> DestinationNetworkInterfaceIPConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The VXLAN destination port that will receive the tapped traffic.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         /// </summary>
         [Output("networkInterfaceTapConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult>> NetworkInterfaceTapConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse>> NetworkInterfaceTapConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.

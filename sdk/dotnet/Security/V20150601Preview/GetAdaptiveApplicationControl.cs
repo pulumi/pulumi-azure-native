@@ -47,7 +47,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         /// The application control policy enforcement/protection mode of the VM/server group
         /// </summary>
         public readonly string? EnforcementMode;
-        public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> Issues;
+        public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse> Issues;
         /// <summary>
         /// Location where the resource is stored
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableArray<Outputs.PathRecommendationResponseResult> PathRecommendations;
+        public readonly ImmutableArray<Outputs.PathRecommendationResponse> PathRecommendations;
         /// <summary>
         /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
-        public readonly Outputs.ProtectionModeResponseResult? ProtectionMode;
+        public readonly Outputs.ProtectionModeResponse? ProtectionMode;
         /// <summary>
         /// The recommendation status of the VM/server group or VM/server
         /// </summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         /// Resource type
         /// </summary>
         public readonly string Type;
-        public readonly ImmutableArray<Outputs.VmRecommendationResponseResult> VmRecommendations;
+        public readonly ImmutableArray<Outputs.VmRecommendationResponse> VmRecommendations;
 
         [OutputConstructor]
         private GetAdaptiveApplicationControlResult(
@@ -81,15 +81,15 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
 
             string? enforcementMode,
 
-            ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> issues,
+            ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse> issues,
 
             string location,
 
             string name,
 
-            ImmutableArray<Outputs.PathRecommendationResponseResult> pathRecommendations,
+            ImmutableArray<Outputs.PathRecommendationResponse> pathRecommendations,
 
-            Outputs.ProtectionModeResponseResult? protectionMode,
+            Outputs.ProtectionModeResponse? protectionMode,
 
             string? recommendationStatus,
 
@@ -97,7 +97,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
 
             string type,
 
-            ImmutableArray<Outputs.VmRecommendationResponseResult> vmRecommendations)
+            ImmutableArray<Outputs.VmRecommendationResponse> vmRecommendations)
         {
             ConfigurationStatus = configurationStatus;
             EnforcementMode = enforcementMode;

@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801Preview
         /// Private endpoint which the connection belongs to.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointPropertyResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointPropertyResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Connection State of the Private Endpoint Connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the private endpoint.

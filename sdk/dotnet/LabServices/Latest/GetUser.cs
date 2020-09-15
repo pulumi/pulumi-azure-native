@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.LabServices.Latest
 
             string givenName,
 
-            Outputs.LatestOperationResultResponseResult latestOperationResult,
+            Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
 

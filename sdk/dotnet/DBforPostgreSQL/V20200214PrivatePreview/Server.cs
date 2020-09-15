@@ -45,7 +45,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         public Output<string?> CreateMode { get; private set; } = null!;
 
         [Output("delegatedSubnetArguments")]
-        public Output<Outputs.ServerPropertiesResponseDelegatedSubnetArgumentsResult?> DelegatedSubnetArguments { get; private set; } = null!;
+        public Output<Outputs.ServerPropertiesResponseDelegatedSubnetArguments?> DelegatedSubnetArguments { get; private set; } = null!;
 
         /// <summary>
         /// The display name of a server.
@@ -75,7 +75,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// Maintenance window of a server.
         /// </summary>
         [Output("maintenanceWindow")]
-        public Output<Outputs.MaintenanceWindowResponseResult?> MaintenanceWindow { get; private set; } = null!;
+        public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// The SKU (pricing tier) of the server.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The source PostgreSQL server name to restore from.
@@ -135,7 +135,7 @@ namespace Pulumi.AzureRM.DBForPostgreSql.V20200214PrivatePreview
         /// Storage profile of a server.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.StorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.StorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

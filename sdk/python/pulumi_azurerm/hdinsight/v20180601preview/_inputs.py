@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -45,14 +45,14 @@ __all__ = [
 @pulumi.input_type
 class ApplicationGetEndpointArgs:
     def __init__(__self__, *,
-                 destination_port: Optional[pulumi.Input[float]] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_port: Optional[pulumi.Input[float]] = None):
+                 public_port: Optional[pulumi.Input[int]] = None):
         """
         Gets the application SSH endpoint
-        :param pulumi.Input[float] destination_port: The destination port to connect to.
+        :param pulumi.Input[int] destination_port: The destination port to connect to.
         :param pulumi.Input[str] location: The location of the endpoint.
-        :param pulumi.Input[float] public_port: The public port to connect to.
+        :param pulumi.Input[int] public_port: The public port to connect to.
         """
         if destination_port is not None:
             pulumi.set(__self__, "destination_port", destination_port)
@@ -63,14 +63,14 @@ class ApplicationGetEndpointArgs:
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[float]]:
+    def destination_port(self) -> Optional[pulumi.Input[int]]:
         """
         The destination port to connect to.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[float]]):
+    def destination_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "destination_port", value)
 
     @property
@@ -87,33 +87,33 @@ class ApplicationGetEndpointArgs:
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[float]]:
+    def public_port(self) -> Optional[pulumi.Input[int]]:
         """
         The public port to connect to.
         """
         return pulumi.get(self, "public_port")
 
     @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[float]]):
+    def public_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "public_port", value)
 
 
 @pulumi.input_type
 class ApplicationGetHttpsEndpointArgs:
     def __init__(__self__, *,
-                 access_modes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 destination_port: Optional[pulumi.Input[float]] = None,
+                 access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
                  disable_gateway_auth: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_port: Optional[pulumi.Input[float]] = None,
+                 public_port: Optional[pulumi.Input[int]] = None,
                  sub_domain_suffix: Optional[pulumi.Input[str]] = None):
         """
         Gets the application HTTP endpoints.
-        :param pulumi.Input[List[pulumi.Input[str]]] access_modes: The list of access modes for the application.
-        :param pulumi.Input[float] destination_port: The destination port to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_modes: The list of access modes for the application.
+        :param pulumi.Input[int] destination_port: The destination port to connect to.
         :param pulumi.Input[bool] disable_gateway_auth: The value indicates whether to disable GatewayAuth.
         :param pulumi.Input[str] location: The location of the endpoint.
-        :param pulumi.Input[float] public_port: The public port to connect to.
+        :param pulumi.Input[int] public_port: The public port to connect to.
         :param pulumi.Input[str] sub_domain_suffix: The subdomain suffix of the application.
         """
         if access_modes is not None:
@@ -131,26 +131,26 @@ class ApplicationGetHttpsEndpointArgs:
 
     @property
     @pulumi.getter(name="accessModes")
-    def access_modes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def access_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of access modes for the application.
         """
         return pulumi.get(self, "access_modes")
 
     @access_modes.setter
-    def access_modes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def access_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "access_modes", value)
 
     @property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[float]]:
+    def destination_port(self) -> Optional[pulumi.Input[int]]:
         """
         The destination port to connect to.
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[float]]):
+    def destination_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "destination_port", value)
 
     @property
@@ -179,14 +179,14 @@ class ApplicationGetHttpsEndpointArgs:
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> Optional[pulumi.Input[float]]:
+    def public_port(self) -> Optional[pulumi.Input[int]]:
         """
         The public port to connect to.
         """
         return pulumi.get(self, "public_port")
 
     @public_port.setter
-    def public_port(self, value: Optional[pulumi.Input[float]]):
+    def public_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "public_port", value)
 
     @property
@@ -207,20 +207,20 @@ class ApplicationPropertiesArgs:
     def __init__(__self__, *,
                  application_type: Optional[pulumi.Input[str]] = None,
                  compute_profile: Optional[pulumi.Input['ComputeProfileArgs']] = None,
-                 errors: Optional[pulumi.Input[List[pulumi.Input['ErrorsArgs']]]] = None,
-                 https_endpoints: Optional[pulumi.Input[List[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]] = None,
-                 install_script_actions: Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]] = None,
-                 ssh_endpoints: Optional[pulumi.Input[List[pulumi.Input['ApplicationGetEndpointArgs']]]] = None,
-                 uninstall_script_actions: Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]] = None,
+                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]] = None,
+                 install_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None,
+                 ssh_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]] = None,
+                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]] = None):
         """
         The HDInsight cluster application GET response.
         :param pulumi.Input[str] application_type: The application type.
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: The list of roles in the cluster.
-        :param pulumi.Input[List[pulumi.Input['ErrorsArgs']]] errors: The list of errors.
-        :param pulumi.Input[List[pulumi.Input['ApplicationGetHttpsEndpointArgs']]] https_endpoints: The list of application HTTPS endpoints.
-        :param pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]] install_script_actions: The list of install script actions.
-        :param pulumi.Input[List[pulumi.Input['ApplicationGetEndpointArgs']]] ssh_endpoints: The list of application SSH endpoints.
-        :param pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]] uninstall_script_actions: The list of uninstall script actions.
+        :param pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]] errors: The list of errors.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]] https_endpoints: The list of application HTTPS endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]] install_script_actions: The list of install script actions.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]] ssh_endpoints: The list of application SSH endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]] uninstall_script_actions: The list of uninstall script actions.
         """
         if application_type is not None:
             pulumi.set(__self__, "application_type", application_type)
@@ -263,62 +263,62 @@ class ApplicationPropertiesArgs:
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[List[pulumi.Input['ErrorsArgs']]]]:
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]]:
         """
         The list of errors.
         """
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[List[pulumi.Input['ErrorsArgs']]]]):
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorsArgs']]]]):
         pulumi.set(self, "errors", value)
 
     @property
     @pulumi.getter(name="httpsEndpoints")
-    def https_endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]:
+    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]:
         """
         The list of application HTTPS endpoints.
         """
         return pulumi.get(self, "https_endpoints")
 
     @https_endpoints.setter
-    def https_endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]):
+    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetHttpsEndpointArgs']]]]):
         pulumi.set(self, "https_endpoints", value)
 
     @property
     @pulumi.getter(name="installScriptActions")
-    def install_script_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]]:
+    def install_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
         """
         The list of install script actions.
         """
         return pulumi.get(self, "install_script_actions")
 
     @install_script_actions.setter
-    def install_script_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]]):
+    def install_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
         pulumi.set(self, "install_script_actions", value)
 
     @property
     @pulumi.getter(name="sshEndpoints")
-    def ssh_endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['ApplicationGetEndpointArgs']]]]:
+    def ssh_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]:
         """
         The list of application SSH endpoints.
         """
         return pulumi.get(self, "ssh_endpoints")
 
     @ssh_endpoints.setter
-    def ssh_endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['ApplicationGetEndpointArgs']]]]):
+    def ssh_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGetEndpointArgs']]]]):
         pulumi.set(self, "ssh_endpoints", value)
 
     @property
     @pulumi.getter(name="uninstallScriptActions")
-    def uninstall_script_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]]:
+    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]:
         """
         The list of uninstall script actions.
         """
         return pulumi.get(self, "uninstall_script_actions")
 
     @uninstall_script_actions.setter
-    def uninstall_script_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RuntimeScriptActionArgs']]]]):
+    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuntimeScriptActionArgs']]]]):
         pulumi.set(self, "uninstall_script_actions", value)
 
 
@@ -365,12 +365,12 @@ class AutoscaleArgs:
 @pulumi.input_type
 class AutoscaleCapacityArgs:
     def __init__(__self__, *,
-                 max_instance_count: Optional[pulumi.Input[float]] = None,
-                 min_instance_count: Optional[pulumi.Input[float]] = None):
+                 max_instance_count: Optional[pulumi.Input[int]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None):
         """
         The load-based autoscale request parameters
-        :param pulumi.Input[float] max_instance_count: The maximum instance count of the cluster
-        :param pulumi.Input[float] min_instance_count: The minimum instance count of the cluster
+        :param pulumi.Input[int] max_instance_count: The maximum instance count of the cluster
+        :param pulumi.Input[int] min_instance_count: The minimum instance count of the cluster
         """
         if max_instance_count is not None:
             pulumi.set(__self__, "max_instance_count", max_instance_count)
@@ -379,37 +379,37 @@ class AutoscaleCapacityArgs:
 
     @property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def max_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum instance count of the cluster
         """
         return pulumi.get(self, "max_instance_count")
 
     @max_instance_count.setter
-    def max_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def max_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_instance_count", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum instance count of the cluster
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
 
 @pulumi.input_type
 class AutoscaleRecurrenceArgs:
     def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input[List[pulumi.Input['AutoscaleScheduleArgs']]]] = None,
+                 schedule: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Schedule-based autoscale request parameters
-        :param pulumi.Input[List[pulumi.Input['AutoscaleScheduleArgs']]] schedule: Array of schedule-based autoscale rules
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]] schedule: Array of schedule-based autoscale rules
         :param pulumi.Input[str] time_zone: The time zone for the autoscale schedule times
         """
         if schedule is not None:
@@ -419,14 +419,14 @@ class AutoscaleRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input[List[pulumi.Input['AutoscaleScheduleArgs']]]]:
+    def schedule(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]:
         """
         Array of schedule-based autoscale rules
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input[List[pulumi.Input['AutoscaleScheduleArgs']]]]):
+    def schedule(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleScheduleArgs']]]]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -445,11 +445,11 @@ class AutoscaleRecurrenceArgs:
 @pulumi.input_type
 class AutoscaleScheduleArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_and_capacity: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
-        :param pulumi.Input[List[pulumi.Input[str]]] days: Days of the week for a schedule-based autoscale rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: Days of the week for a schedule-based autoscale rule
         :param pulumi.Input['AutoscaleTimeAndCapacityArgs'] time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
@@ -459,14 +459,14 @@ class AutoscaleScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Days of the week for a schedule-based autoscale rule
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -485,13 +485,13 @@ class AutoscaleScheduleArgs:
 @pulumi.input_type
 class AutoscaleTimeAndCapacityArgs:
     def __init__(__self__, *,
-                 max_instance_count: Optional[pulumi.Input[float]] = None,
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 max_instance_count: Optional[pulumi.Input[int]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
         Time and capacity request parameters
-        :param pulumi.Input[float] max_instance_count: The maximum instance count of the cluster
-        :param pulumi.Input[float] min_instance_count: The minimum instance count of the cluster
+        :param pulumi.Input[int] max_instance_count: The maximum instance count of the cluster
+        :param pulumi.Input[int] min_instance_count: The minimum instance count of the cluster
         :param pulumi.Input[str] time: 24-hour time in the form xx:xx
         """
         if max_instance_count is not None:
@@ -503,26 +503,26 @@ class AutoscaleTimeAndCapacityArgs:
 
     @property
     @pulumi.getter(name="maxInstanceCount")
-    def max_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def max_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum instance count of the cluster
         """
         return pulumi.get(self, "max_instance_count")
 
     @max_instance_count.setter
-    def max_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def max_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_instance_count", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum instance count of the cluster
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -877,48 +877,48 @@ class ClusterIdentityArgs:
 @pulumi.input_type
 class ComputeProfileArgs:
     def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[List[pulumi.Input['RoleArgs']]]] = None):
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None):
         """
         Describes the compute profile.
-        :param pulumi.Input[List[pulumi.Input['RoleArgs']]] roles: The list of roles in the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['RoleArgs']]] roles: The list of roles in the cluster.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[List[pulumi.Input['RoleArgs']]]]:
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]:
         """
         The list of roles in the cluster.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[List[pulumi.Input['RoleArgs']]]]):
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
 
 @pulumi.input_type
 class DataDisksGroupsArgs:
     def __init__(__self__, *,
-                 disks_per_node: Optional[pulumi.Input[float]] = None):
+                 disks_per_node: Optional[pulumi.Input[int]] = None):
         """
         The data disks groups for the role.
-        :param pulumi.Input[float] disks_per_node: The number of disks per node.
+        :param pulumi.Input[int] disks_per_node: The number of disks per node.
         """
         if disks_per_node is not None:
             pulumi.set(__self__, "disks_per_node", disks_per_node)
 
     @property
     @pulumi.getter(name="disksPerNode")
-    def disks_per_node(self) -> Optional[pulumi.Input[float]]:
+    def disks_per_node(self) -> Optional[pulumi.Input[int]]:
         """
         The number of disks per node.
         """
         return pulumi.get(self, "disks_per_node")
 
     @disks_per_node.setter
-    def disks_per_node(self, value: Optional[pulumi.Input[float]]):
+    def disks_per_node(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disks_per_node", value)
 
 
@@ -1262,24 +1262,24 @@ class OsProfileArgs:
 class RoleArgs:
     def __init__(__self__, *,
                  autoscale_configuration: Optional[pulumi.Input['AutoscaleArgs']] = None,
-                 data_disks_groups: Optional[pulumi.Input[List[pulumi.Input['DataDisksGroupsArgs']]]] = None,
+                 data_disks_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
-                 script_actions: Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]] = None,
-                 target_instance_count: Optional[pulumi.Input[float]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]] = None,
+                 target_instance_count: Optional[pulumi.Input[int]] = None,
                  virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None):
         """
         Describes a role on the cluster.
         :param pulumi.Input['AutoscaleArgs'] autoscale_configuration: The autoscale configurations.
-        :param pulumi.Input[List[pulumi.Input['DataDisksGroupsArgs']]] data_disks_groups: The data disks groups for the role.
+        :param pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]] data_disks_groups: The data disks groups for the role.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: The hardware profile.
-        :param pulumi.Input[float] min_instance_count: The minimum instance count of the cluster.
+        :param pulumi.Input[int] min_instance_count: The minimum instance count of the cluster.
         :param pulumi.Input[str] name: The name of the role.
         :param pulumi.Input['OsProfileArgs'] os_profile: The operating system profile.
-        :param pulumi.Input[List[pulumi.Input['ScriptActionArgs']]] script_actions: The list of script actions on the role.
-        :param pulumi.Input[float] target_instance_count: The instance count of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]] script_actions: The list of script actions on the role.
+        :param pulumi.Input[int] target_instance_count: The instance count of the cluster.
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network_profile: The virtual network profile.
         """
         if autoscale_configuration is not None:
@@ -1315,14 +1315,14 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="dataDisksGroups")
-    def data_disks_groups(self) -> Optional[pulumi.Input[List[pulumi.Input['DataDisksGroupsArgs']]]]:
+    def data_disks_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]:
         """
         The data disks groups for the role.
         """
         return pulumi.get(self, "data_disks_groups")
 
     @data_disks_groups.setter
-    def data_disks_groups(self, value: Optional[pulumi.Input[List[pulumi.Input['DataDisksGroupsArgs']]]]):
+    def data_disks_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDisksGroupsArgs']]]]):
         pulumi.set(self, "data_disks_groups", value)
 
     @property
@@ -1339,14 +1339,14 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum instance count of the cluster.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -1375,26 +1375,26 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]:
         """
         The list of script actions on the role.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['ScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActionArgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def target_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The instance count of the cluster.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def target_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -1414,13 +1414,13 @@ class RoleArgs:
 class RuntimeScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 roles: pulumi.Input[List[pulumi.Input[str]]],
+                 roles: pulumi.Input[Sequence[pulumi.Input[str]]],
                  uri: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
         """
         Describes a script action on a running cluster.
         :param pulumi.Input[str] name: The name of the script action.
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: The list of roles where script will be executed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The list of roles where script will be executed.
         :param pulumi.Input[str] uri: The URI to the script.
         :param pulumi.Input[str] parameters: The parameters for the script
         """
@@ -1444,14 +1444,14 @@ class RuntimeScriptActionArgs:
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of roles where script will be executed.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "roles", value)
 
     @property
@@ -1536,23 +1536,23 @@ class ScriptActionArgs:
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  aadds_resource_id: Optional[pulumi.Input[str]] = None,
-                 cluster_users_group_dns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  directory_type: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_user_password: Optional[pulumi.Input[str]] = None,
                  domain_username: Optional[pulumi.Input[str]] = None,
-                 ldaps_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ldaps_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  msi_resource_id: Optional[pulumi.Input[str]] = None,
                  organizational_unit_dn: Optional[pulumi.Input[str]] = None):
         """
         The security profile which contains Ssh public key for the HDInsight cluster.
         :param pulumi.Input[str] aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
-        :param pulumi.Input[List[pulumi.Input[str]]] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
         :param pulumi.Input[str] directory_type: The directory type.
         :param pulumi.Input[str] domain: The organization's active directory domain.
         :param pulumi.Input[str] domain_user_password: The domain admin password.
         :param pulumi.Input[str] domain_username: The domain user account that will have admin privileges on the cluster.
-        :param pulumi.Input[List[pulumi.Input[str]]] ldaps_urls: The LDAPS protocol URLs to communicate with the Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ldaps_urls: The LDAPS protocol URLs to communicate with the Active Directory.
         :param pulumi.Input[str] msi_resource_id: User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.
         :param pulumi.Input[str] organizational_unit_dn: The organizational unit within the Active Directory to place the cluster and service accounts.
         """
@@ -1589,14 +1589,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="clusterUsersGroupDNs")
-    def cluster_users_group_dns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def cluster_users_group_dns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Optional. The Distinguished Names for cluster user groups
         """
         return pulumi.get(self, "cluster_users_group_dns")
 
     @cluster_users_group_dns.setter
-    def cluster_users_group_dns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def cluster_users_group_dns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "cluster_users_group_dns", value)
 
     @property
@@ -1649,14 +1649,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="ldapsUrls")
-    def ldaps_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ldaps_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The LDAPS protocol URLs to communicate with the Active Directory.
         """
         return pulumi.get(self, "ldaps_urls")
 
     @ldaps_urls.setter
-    def ldaps_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ldaps_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ldaps_urls", value)
 
     @property
@@ -1687,24 +1687,24 @@ class SecurityProfileArgs:
 @pulumi.input_type
 class SshProfileArgs:
     def __init__(__self__, *,
-                 public_keys: Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]] = None):
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
         """
         The list of SSH public keys.
-        :param pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys.
+        :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys.
         """
         if public_keys is not None:
             pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]]:
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
         """
         The list of SSH public keys.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: Optional[pulumi.Input[List[pulumi.Input['SshPublicKeyArgs']]]]):
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "public_keys", value)
 
 
@@ -1855,24 +1855,24 @@ class StorageAccountArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 storageaccounts: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]] = None):
+                 storageaccounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None):
         """
         The storage profile.
-        :param pulumi.Input[List[pulumi.Input['StorageAccountArgs']]] storageaccounts: The list of storage accounts in the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storageaccounts: The list of storage accounts in the cluster.
         """
         if storageaccounts is not None:
             pulumi.set(__self__, "storageaccounts", storageaccounts)
 
     @property
     @pulumi.getter
-    def storageaccounts(self) -> Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]:
+    def storageaccounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
         """
         The list of storage accounts in the cluster.
         """
         return pulumi.get(self, "storageaccounts")
 
     @storageaccounts.setter
-    def storageaccounts(self, value: Optional[pulumi.Input[List[pulumi.Input['StorageAccountArgs']]]]):
+    def storageaccounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
         pulumi.set(self, "storageaccounts", value)
 
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Cache.V20180301
         /// <summary>
         /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
         /// </summary>
-        public readonly Outputs.RedisAccessKeysResponseResult AccessKeys;
+        public readonly Outputs.RedisAccessKeysResponse AccessKeys;
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Cache.V20180301
         /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
-        public readonly ImmutableArray<Outputs.RedisLinkedServerResponseResult> LinkedServers;
+        public readonly ImmutableArray<Outputs.RedisLinkedServerResponse> LinkedServers;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Cache.V20180301
         /// <summary>
         /// The SKU of the Redis cache to deploy.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Redis SSL port.
         /// </summary>
@@ -122,13 +122,13 @@ namespace Pulumi.AzureRM.Cache.V20180301
 
         [OutputConstructor]
         private GetRedisResult(
-            Outputs.RedisAccessKeysResponseResult accessKeys,
+            Outputs.RedisAccessKeysResponse accessKeys,
 
             bool? enableNonSslPort,
 
             string hostName,
 
-            ImmutableArray<Outputs.RedisLinkedServerResponseResult> linkedServers,
+            ImmutableArray<Outputs.RedisLinkedServerResponse> linkedServers,
 
             string location,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.Cache.V20180301
 
             int? shardCount,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             int sslPort,
 

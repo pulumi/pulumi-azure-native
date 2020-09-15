@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetP2sVpnGatewayResult:
         if vpn_client_connection_health and not isinstance(vpn_client_connection_health, dict):
             raise TypeError("Expected argument 'vpn_client_connection_health' to be a dict")
         pulumi.set(__self__, "vpn_client_connection_health", vpn_client_connection_health)
-        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
-            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, int):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a int")
         pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
 
     @property
@@ -137,7 +137,7 @@ class GetP2sVpnGatewayResult:
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> Optional[float]:
+    def vpn_gateway_scale_unit(self) -> Optional[int]:
         """
         The scale unit for this p2s vpn gateway.
         """

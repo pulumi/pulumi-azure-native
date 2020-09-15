@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Insights.V20170401
         /// The actions that will activate when the condition is met.
         /// </summary>
         [Output("actions")]
-        public Output<Outputs.ActivityLogAlertActionListResponseResult> Actions { get; private set; } = null!;
+        public Output<Outputs.ActivityLogAlertActionListResponse> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The condition that will cause this alert to activate.
         /// </summary>
         [Output("condition")]
-        public Output<Outputs.ActivityLogAlertAllOfConditionResponseResult> Condition { get; private set; } = null!;
+        public Output<Outputs.ActivityLogAlertAllOfConditionResponse> Condition { get; private set; } = null!;
 
         /// <summary>
         /// A description of this activity log alert.

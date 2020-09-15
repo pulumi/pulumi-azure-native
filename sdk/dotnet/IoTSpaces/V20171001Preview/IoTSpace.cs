@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.IoTSpaces.V20171001Preview
         /// The common properties of a IoTSpaces service.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IoTSpacesPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.IoTSpacesPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// A valid instance SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IoTSpacesSkuInfoResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.IoTSpacesSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

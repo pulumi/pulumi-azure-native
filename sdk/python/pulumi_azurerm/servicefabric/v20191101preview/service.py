@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 correlation_scheme: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
+                 correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]]] = None,
                  default_move_cost: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partition_description: Optional[pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]]] = None,
@@ -27,10 +27,10 @@ class Service(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_dns_name: Optional[pulumi.Input[str]] = None,
                  service_kind: Optional[pulumi.Input[str]] = None,
-                 service_load_metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]]] = None,
+                 service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_package_activation_mode: Optional[pulumi.Input[str]] = None,
-                 service_placement_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]]] = None,
+                 service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]]] = None,
                  service_type_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -43,7 +43,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]] correlation_scheme: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorrelationDescriptionArgs']]]] correlation_scheme: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[Union[pulumi.InputType['NamedPartitionSchemeDescriptionArgs'], pulumi.InputType['SingletonPartitionSchemeDescriptionArgs'], pulumi.InputType['UniformInt64RangePartitionSchemeDescriptionArgs']]] partition_description: Describes how the service is partitioned.
@@ -51,10 +51,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_dns_name: Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
         :param pulumi.Input[str] service_kind: The kind of service (Stateless or Stateful).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadMetricDescriptionArgs']]]] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         :param pulumi.Input[str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[str] service_package_activation_mode: The activation Mode of the service package
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]] service_placement_policies: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementPolicyDescriptionArgs']]]] service_placement_policies: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
@@ -133,7 +133,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="correlationScheme")
-    def correlation_scheme(self) -> pulumi.Output[Optional[List['outputs.ServiceCorrelationDescriptionResponse']]]:
+    def correlation_scheme(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceCorrelationDescriptionResponse']]]:
         """
         A list that describes the correlation of the service with other services.
         """
@@ -213,7 +213,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLoadMetrics")
-    def service_load_metrics(self) -> pulumi.Output[Optional[List['outputs.ServiceLoadMetricDescriptionResponse']]]:
+    def service_load_metrics(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLoadMetricDescriptionResponse']]]:
         """
         The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         """
@@ -229,7 +229,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePlacementPolicies")
-    def service_placement_policies(self) -> pulumi.Output[Optional[List['outputs.ServicePlacementPolicyDescriptionResponse']]]:
+    def service_placement_policies(self) -> pulumi.Output[Optional[Sequence['outputs.ServicePlacementPolicyDescriptionResponse']]]:
         """
         A list that describes the correlation of the service with other services.
         """

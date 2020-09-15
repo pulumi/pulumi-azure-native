@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.DBforMariaDB.Latest
         /// Private endpoint which the connection belongs to.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointPropertyResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointPropertyResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Connection state of the private endpoint connection.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// State of the private endpoint connection.

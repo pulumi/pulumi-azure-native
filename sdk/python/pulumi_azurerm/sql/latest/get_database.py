@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetDatabaseResult:
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
-        if containment_state and not isinstance(containment_state, float):
-            raise TypeError("Expected argument 'containment_state' to be a float")
+        if containment_state and not isinstance(containment_state, int):
+            raise TypeError("Expected argument 'containment_state' to be a int")
         pulumi.set(__self__, "containment_state", containment_state)
         if create_mode and not isinstance(create_mode, str):
             raise TypeError("Expected argument 'create_mode' to be a str")
@@ -125,7 +125,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="containmentState")
-    def containment_state(self) -> float:
+    def containment_state(self) -> int:
         """
         The containment state of the database.
         """
@@ -271,7 +271,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="recommendedIndex")
-    def recommended_index(self) -> List['outputs.RecommendedIndexResponse']:
+    def recommended_index(self) -> Sequence['outputs.RecommendedIndexResponse']:
         """
         The recommended indices for this database.
         """
@@ -339,7 +339,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="serviceTierAdvisors")
-    def service_tier_advisors(self) -> List['outputs.ServiceTierAdvisorResponse']:
+    def service_tier_advisors(self) -> Sequence['outputs.ServiceTierAdvisorResponse']:
         """
         The list of service tier advisors for this database. Expanded property
         """
@@ -379,7 +379,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> List['outputs.TransparentDataEncryptionResponse']:
+    def transparent_data_encryption(self) -> Sequence['outputs.TransparentDataEncryptionResponse']:
         """
         The transparent data encryption info for this database.
         """

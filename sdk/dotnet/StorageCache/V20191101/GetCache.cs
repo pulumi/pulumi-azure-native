@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// <summary>
         /// Health of the Cache.
         /// </summary>
-        public readonly Outputs.CacheHealthResponseResult Health;
+        public readonly Outputs.CacheHealthResponse Health;
         /// <summary>
         /// Region name string.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
-        public readonly Outputs.CacheResponseSkuResult? Sku;
+        public readonly Outputs.CacheResponseSku? Sku;
         /// <summary>
         /// Subnet used for the Cache.
         /// </summary>
@@ -82,13 +82,13 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// <summary>
         /// Upgrade status of the Cache.
         /// </summary>
-        public readonly Outputs.CacheUpgradeStatusResponseResult? UpgradeStatus;
+        public readonly Outputs.CacheUpgradeStatusResponse? UpgradeStatus;
 
         [OutputConstructor]
         private GetCacheResult(
             int? cacheSizeGB,
 
-            Outputs.CacheHealthResponseResult health,
+            Outputs.CacheHealthResponse health,
 
             string? location,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
 
             string? provisioningState,
 
-            Outputs.CacheResponseSkuResult? sku,
+            Outputs.CacheResponseSku? sku,
 
             string? subnet,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
 
             string type,
 
-            Outputs.CacheUpgradeStatusResponseResult? upgradeStatus)
+            Outputs.CacheUpgradeStatusResponse? upgradeStatus)
         {
             CacheSizeGB = cacheSizeGB;
             Health = health;

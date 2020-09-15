@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
@@ -32,7 +32,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Create a PrivateEndpointConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name or domain name).
         :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \'topics\' or \'domains\'.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The Private Endpoint resource for this Connection.
@@ -104,7 +104,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         GroupIds from the private link service resource.
         """

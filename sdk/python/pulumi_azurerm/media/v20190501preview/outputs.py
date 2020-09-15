@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -34,17 +34,17 @@ class AkamaiAccessControlResponse(dict):
     Akamai access control
     """
     def __init__(__self__, *,
-                 akamai_signature_header_authentication_key_list: Optional[List['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
+                 akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None):
         """
         Akamai access control
-        :param List['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
+        :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponseArgs'] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
-    def akamai_signature_header_authentication_key_list(self) -> Optional[List['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
+    def akamai_signature_header_authentication_key_list(self) -> Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']]:
         """
         authentication key list
         """
@@ -148,17 +148,17 @@ class HlsResponse(dict):
     The HLS configuration.
     """
     def __init__(__self__, *,
-                 fragments_per_ts_segment: Optional[float] = None):
+                 fragments_per_ts_segment: Optional[int] = None):
         """
         The HLS configuration.
-        :param float fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        :param int fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         if fragments_per_ts_segment is not None:
             pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
-    def fragments_per_ts_segment(self) -> Optional[float]:
+    def fragments_per_ts_segment(self) -> Optional[int]:
         """
         The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
@@ -174,17 +174,17 @@ class IPAccessControlResponse(dict):
     The IP access control.
     """
     def __init__(__self__, *,
-                 allow: Optional[List['outputs.IPRangeResponse']] = None):
+                 allow: Optional[Sequence['outputs.IPRangeResponse']] = None):
         """
         The IP access control.
-        :param List['IPRangeResponseArgs'] allow: The IP allow list.
+        :param Sequence['IPRangeResponseArgs'] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[List['outputs.IPRangeResponse']]:
+    def allow(self) -> Optional[Sequence['outputs.IPRangeResponse']]:
         """
         The IP allow list.
         """
@@ -202,12 +202,12 @@ class IPRangeResponse(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
-                 subnet_prefix_length: Optional[float] = None):
+                 subnet_prefix_length: Optional[int] = None):
         """
         The IP address range in the CIDR scheme.
         :param str address: The IP address.
         :param str name: The friendly name for the IP address range.
-        :param float subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -234,7 +234,7 @@ class IPRangeResponse(dict):
 
     @property
     @pulumi.getter(name="subnetPrefixLength")
-    def subnet_prefix_length(self) -> Optional[float]:
+    def subnet_prefix_length(self) -> Optional[int]:
         """
         The subnet mask prefix length (see CIDR notation).
         """
@@ -355,14 +355,14 @@ class LiveEventInputResponse(dict):
                  streaming_protocol: str,
                  access_control: Optional['outputs.LiveEventInputAccessControlResponse'] = None,
                  access_token: Optional[str] = None,
-                 endpoints: Optional[List['outputs.LiveEventEndpointResponse']] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
                  key_frame_interval_duration: Optional[str] = None):
         """
         The Live Event input.
         :param str streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
         :param 'LiveEventInputAccessControlResponseArgs' access_control: The access control for LiveEvent Input.
         :param str access_token: A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        :param List['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
+        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The input endpoints for the Live Event.
         :param str key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -401,7 +401,7 @@ class LiveEventInputResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.LiveEventEndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
         """
         The input endpoints for the Live Event.
         """
@@ -528,14 +528,14 @@ class LiveEventPreviewResponse(dict):
     def __init__(__self__, *,
                  access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
                  alternative_media_id: Optional[str] = None,
-                 endpoints: Optional[List['outputs.LiveEventEndpointResponse']] = None,
+                 endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
                  preview_locator: Optional[str] = None,
                  streaming_policy_name: Optional[str] = None):
         """
         The Live Event preview.
         :param 'LiveEventPreviewAccessControlResponseArgs' access_control: The access control for LiveEvent preview.
         :param str alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param List['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
+        :param Sequence['LiveEventEndpointResponseArgs'] endpoints: The endpoints for preview.
         :param str preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
@@ -568,7 +568,7 @@ class LiveEventPreviewResponse(dict):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[List['outputs.LiveEventEndpointResponse']]:
+    def endpoints(self) -> Optional[Sequence['outputs.LiveEventEndpointResponse']]:
         """
         The endpoints for preview.
         """
@@ -600,12 +600,12 @@ class LiveEventTranscriptionResponse(dict):
     Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
     """
     def __init__(__self__, *,
-                 input_track_selection: Optional[List['outputs.LiveEventInputTrackSelectionResponse']] = None,
+                 input_track_selection: Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']] = None,
                  language: Optional[str] = None,
                  output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None):
         """
         Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
-        :param List['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+        :param Sequence['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         :param str language: Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         :param 'LiveEventOutputTranscriptionTrackResponseArgs' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
@@ -618,7 +618,7 @@ class LiveEventTranscriptionResponse(dict):
 
     @property
     @pulumi.getter(name="inputTrackSelection")
-    def input_track_selection(self) -> Optional[List['outputs.LiveEventInputTrackSelectionResponse']]:
+    def input_track_selection(self) -> Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']]:
         """
         Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         """

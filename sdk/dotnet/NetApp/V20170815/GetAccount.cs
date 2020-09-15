@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.NetApp.V20170815
         /// <summary>
         /// Active Directories
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActiveDirectoryResponseResult> ActiveDirectories;
+        public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.NetApp.V20170815
 
         [OutputConstructor]
         private GetAccountResult(
-            ImmutableArray<Outputs.ActiveDirectoryResponseResult> activeDirectories,
+            ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
             string location,
 

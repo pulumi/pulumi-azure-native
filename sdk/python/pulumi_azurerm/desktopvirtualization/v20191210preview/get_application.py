@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -41,8 +41,8 @@ class GetApplicationResult:
         if icon_hash and not isinstance(icon_hash, str):
             raise TypeError("Expected argument 'icon_hash' to be a str")
         pulumi.set(__self__, "icon_hash", icon_hash)
-        if icon_index and not isinstance(icon_index, float):
-            raise TypeError("Expected argument 'icon_index' to be a float")
+        if icon_index and not isinstance(icon_index, int):
+            raise TypeError("Expected argument 'icon_index' to be a int")
         pulumi.set(__self__, "icon_index", icon_index)
         if icon_path and not isinstance(icon_path, str):
             raise TypeError("Expected argument 'icon_path' to be a str")
@@ -115,7 +115,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="iconIndex")
-    def icon_index(self) -> Optional[float]:
+    def icon_index(self) -> Optional[int]:
         """
         Index of the icon.
         """

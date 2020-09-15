@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
         /// <summary>
         /// The request parameters for a pipeline run.
         /// </summary>
-        public readonly Outputs.PipelineRunRequestResponseResult? Request;
+        public readonly Outputs.PipelineRunRequestResponse? Request;
         /// <summary>
         /// The response of a pipeline run.
         /// </summary>
-        public readonly Outputs.PipelineRunResponseResponseResult Response;
+        public readonly Outputs.PipelineRunResponseResponse Response;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20191201Preview
 
             string provisioningState,
 
-            Outputs.PipelineRunRequestResponseResult? request,
+            Outputs.PipelineRunRequestResponse? request,
 
-            Outputs.PipelineRunResponseResponseResult response,
+            Outputs.PipelineRunResponseResponse response,
 
             string type)
         {

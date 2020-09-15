@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// SKU parameters supplied to the create Namespace operation
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// State of the Namespace.

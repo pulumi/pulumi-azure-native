@@ -40,13 +40,13 @@ namespace Pulumi.AzureRM.Authorization.V20151101
         /// <summary>
         /// Gets or sets the policy definition properties.
         /// </summary>
-        public readonly Outputs.PolicyDefinitionPropertiesResponseResult Properties;
+        public readonly Outputs.PolicyDefinitionPropertiesResponse Properties;
 
         [OutputConstructor]
         private GetPolicyDefinitionResult(
             string? name,
 
-            Outputs.PolicyDefinitionPropertiesResponseResult properties)
+            Outputs.PolicyDefinitionPropertiesResponse properties)
         {
             Name = name;
             Properties = properties;

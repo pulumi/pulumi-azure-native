@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class User(pulumi.CustomResource):
                  encrypted_password: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_access_rights: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
+                 share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
         :param pulumi.Input[str] user_type: Type of the user.
         """
         if __name__ is not None:
@@ -114,7 +114,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareAccessRights")
-    def share_access_rights(self) -> pulumi.Output[Optional[List['outputs.ShareAccessRightResponse']]]:
+    def share_access_rights(self) -> pulumi.Output[Optional[Sequence['outputs.ShareAccessRightResponse']]]:
         """
         List of shares that the user has rights on. This field should not be specified during user creation.
         """

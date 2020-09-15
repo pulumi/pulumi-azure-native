@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
         /// Gets or sets the nested properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MigrateProjectPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MigrateProjectPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the tags.
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.MigrateProjectResponseTagsResult?> Tags { get; private set; } = null!;
+        public Output<Outputs.MigrateProjectResponseTags?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.

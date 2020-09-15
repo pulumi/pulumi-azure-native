@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class GalleryImage(pulumi.CustomResource):
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery image definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]] features: A list of gallery image features.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]] features: A list of gallery image features.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -174,7 +174,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[List['outputs.GalleryImageFeatureResponse']]]:
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.GalleryImageFeatureResponse']]]:
         """
         A list of gallery image features.
         """

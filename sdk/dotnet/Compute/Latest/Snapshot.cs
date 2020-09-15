@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
-        public Output<Outputs.CreationDataResponseResult> CreationData { get; private set; } = null!;
+        public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         /// </summary>
         [Output("encryptionSettingsCollection")]
-        public Output<Outputs.EncryptionSettingsCollectionResponseResult?> EncryptionSettingsCollection { get; private set; } = null!;
+        public Output<Outputs.EncryptionSettingsCollectionResponse?> EncryptionSettingsCollection { get; private set; } = null!;
 
         /// <summary>
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SnapshotSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

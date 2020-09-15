@@ -79,56 +79,6 @@ func (i CustomRPActionRouteDefinitionArray) ToCustomRPActionRouteDefinitionArray
 }
 
 // The route definition for an action implemented by the custom resource provider.
-type CustomRPActionRouteDefinitionOutput struct{ *pulumi.OutputState }
-
-func (CustomRPActionRouteDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPActionRouteDefinition)(nil)).Elem()
-}
-
-func (o CustomRPActionRouteDefinitionOutput) ToCustomRPActionRouteDefinitionOutput() CustomRPActionRouteDefinitionOutput {
-	return o
-}
-
-func (o CustomRPActionRouteDefinitionOutput) ToCustomRPActionRouteDefinitionOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionOutput {
-	return o
-}
-
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-func (o CustomRPActionRouteDefinitionOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomRPActionRouteDefinition) string { return v.Endpoint }).(pulumi.StringOutput)
-}
-
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-func (o CustomRPActionRouteDefinitionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomRPActionRouteDefinition) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The routing types that are supported for action requests.
-func (o CustomRPActionRouteDefinitionOutput) RoutingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomRPActionRouteDefinition) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
-}
-
-type CustomRPActionRouteDefinitionArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomRPActionRouteDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPActionRouteDefinition)(nil)).Elem()
-}
-
-func (o CustomRPActionRouteDefinitionArrayOutput) ToCustomRPActionRouteDefinitionArrayOutput() CustomRPActionRouteDefinitionArrayOutput {
-	return o
-}
-
-func (o CustomRPActionRouteDefinitionArrayOutput) ToCustomRPActionRouteDefinitionArrayOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionArrayOutput {
-	return o
-}
-
-func (o CustomRPActionRouteDefinitionArrayOutput) Index(i pulumi.IntInput) CustomRPActionRouteDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRPActionRouteDefinition {
-		return vs[0].([]CustomRPActionRouteDefinition)[vs[1].(int)]
-	}).(CustomRPActionRouteDefinitionOutput)
-}
-
-// The route definition for an action implemented by the custom resource provider.
 type CustomRPActionRouteDefinitionResponse struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -136,64 +86,6 @@ type CustomRPActionRouteDefinitionResponse struct {
 	Name string `pulumi:"name"`
 	// The routing types that are supported for action requests.
 	RoutingType *string `pulumi:"routingType"`
-}
-
-// CustomRPActionRouteDefinitionResponseInput is an input type that accepts CustomRPActionRouteDefinitionResponseArgs and CustomRPActionRouteDefinitionResponseOutput values.
-// You can construct a concrete instance of `CustomRPActionRouteDefinitionResponseInput` via:
-//
-//          CustomRPActionRouteDefinitionResponseArgs{...}
-type CustomRPActionRouteDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPActionRouteDefinitionResponseOutput() CustomRPActionRouteDefinitionResponseOutput
-	ToCustomRPActionRouteDefinitionResponseOutputWithContext(context.Context) CustomRPActionRouteDefinitionResponseOutput
-}
-
-// The route definition for an action implemented by the custom resource provider.
-type CustomRPActionRouteDefinitionResponseArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for action requests.
-	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
-}
-
-func (CustomRPActionRouteDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPActionRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPActionRouteDefinitionResponseArgs) ToCustomRPActionRouteDefinitionResponseOutput() CustomRPActionRouteDefinitionResponseOutput {
-	return i.ToCustomRPActionRouteDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPActionRouteDefinitionResponseArgs) ToCustomRPActionRouteDefinitionResponseOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionResponseOutput)
-}
-
-// CustomRPActionRouteDefinitionResponseArrayInput is an input type that accepts CustomRPActionRouteDefinitionResponseArray and CustomRPActionRouteDefinitionResponseArrayOutput values.
-// You can construct a concrete instance of `CustomRPActionRouteDefinitionResponseArrayInput` via:
-//
-//          CustomRPActionRouteDefinitionResponseArray{ CustomRPActionRouteDefinitionResponseArgs{...} }
-type CustomRPActionRouteDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPActionRouteDefinitionResponseArrayOutput() CustomRPActionRouteDefinitionResponseArrayOutput
-	ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(context.Context) CustomRPActionRouteDefinitionResponseArrayOutput
-}
-
-type CustomRPActionRouteDefinitionResponseArray []CustomRPActionRouteDefinitionResponseInput
-
-func (CustomRPActionRouteDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPActionRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPActionRouteDefinitionResponseArray) ToCustomRPActionRouteDefinitionResponseArrayOutput() CustomRPActionRouteDefinitionResponseArrayOutput {
-	return i.ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPActionRouteDefinitionResponseArray) ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionResponseArrayOutput)
 }
 
 // The route definition for an action implemented by the custom resource provider.
@@ -315,56 +207,6 @@ func (i CustomRPResourceTypeRouteDefinitionArray) ToCustomRPResourceTypeRouteDef
 }
 
 // The route definition for a resource implemented by the custom resource provider.
-type CustomRPResourceTypeRouteDefinitionOutput struct{ *pulumi.OutputState }
-
-func (CustomRPResourceTypeRouteDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPResourceTypeRouteDefinition)(nil)).Elem()
-}
-
-func (o CustomRPResourceTypeRouteDefinitionOutput) ToCustomRPResourceTypeRouteDefinitionOutput() CustomRPResourceTypeRouteDefinitionOutput {
-	return o
-}
-
-func (o CustomRPResourceTypeRouteDefinitionOutput) ToCustomRPResourceTypeRouteDefinitionOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionOutput {
-	return o
-}
-
-// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-func (o CustomRPResourceTypeRouteDefinitionOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) string { return v.Endpoint }).(pulumi.StringOutput)
-}
-
-// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-func (o CustomRPResourceTypeRouteDefinitionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The routing types that are supported for resource requests.
-func (o CustomRPResourceTypeRouteDefinitionOutput) RoutingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomRPResourceTypeRouteDefinition) *string { return v.RoutingType }).(pulumi.StringPtrOutput)
-}
-
-type CustomRPResourceTypeRouteDefinitionArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomRPResourceTypeRouteDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPResourceTypeRouteDefinition)(nil)).Elem()
-}
-
-func (o CustomRPResourceTypeRouteDefinitionArrayOutput) ToCustomRPResourceTypeRouteDefinitionArrayOutput() CustomRPResourceTypeRouteDefinitionArrayOutput {
-	return o
-}
-
-func (o CustomRPResourceTypeRouteDefinitionArrayOutput) ToCustomRPResourceTypeRouteDefinitionArrayOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionArrayOutput {
-	return o
-}
-
-func (o CustomRPResourceTypeRouteDefinitionArrayOutput) Index(i pulumi.IntInput) CustomRPResourceTypeRouteDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRPResourceTypeRouteDefinition {
-		return vs[0].([]CustomRPResourceTypeRouteDefinition)[vs[1].(int)]
-	}).(CustomRPResourceTypeRouteDefinitionOutput)
-}
-
-// The route definition for a resource implemented by the custom resource provider.
 type CustomRPResourceTypeRouteDefinitionResponse struct {
 	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
 	Endpoint string `pulumi:"endpoint"`
@@ -372,64 +214,6 @@ type CustomRPResourceTypeRouteDefinitionResponse struct {
 	Name string `pulumi:"name"`
 	// The routing types that are supported for resource requests.
 	RoutingType *string `pulumi:"routingType"`
-}
-
-// CustomRPResourceTypeRouteDefinitionResponseInput is an input type that accepts CustomRPResourceTypeRouteDefinitionResponseArgs and CustomRPResourceTypeRouteDefinitionResponseOutput values.
-// You can construct a concrete instance of `CustomRPResourceTypeRouteDefinitionResponseInput` via:
-//
-//          CustomRPResourceTypeRouteDefinitionResponseArgs{...}
-type CustomRPResourceTypeRouteDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPResourceTypeRouteDefinitionResponseOutput() CustomRPResourceTypeRouteDefinitionResponseOutput
-	ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionResponseOutput
-}
-
-// The route definition for a resource implemented by the custom resource provider.
-type CustomRPResourceTypeRouteDefinitionResponseArgs struct {
-	// The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-	Name pulumi.StringInput `pulumi:"name"`
-	// The routing types that are supported for resource requests.
-	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
-}
-
-func (CustomRPResourceTypeRouteDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArgs) ToCustomRPResourceTypeRouteDefinitionResponseOutput() CustomRPResourceTypeRouteDefinitionResponseOutput {
-	return i.ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArgs) ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionResponseOutput)
-}
-
-// CustomRPResourceTypeRouteDefinitionResponseArrayInput is an input type that accepts CustomRPResourceTypeRouteDefinitionResponseArray and CustomRPResourceTypeRouteDefinitionResponseArrayOutput values.
-// You can construct a concrete instance of `CustomRPResourceTypeRouteDefinitionResponseArrayInput` via:
-//
-//          CustomRPResourceTypeRouteDefinitionResponseArray{ CustomRPResourceTypeRouteDefinitionResponseArgs{...} }
-type CustomRPResourceTypeRouteDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPResourceTypeRouteDefinitionResponseArrayOutput() CustomRPResourceTypeRouteDefinitionResponseArrayOutput
-	ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionResponseArrayOutput
-}
-
-type CustomRPResourceTypeRouteDefinitionResponseArray []CustomRPResourceTypeRouteDefinitionResponseInput
-
-func (CustomRPResourceTypeRouteDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPResourceTypeRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArray) ToCustomRPResourceTypeRouteDefinitionResponseArrayOutput() CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
-	return i.ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArray) ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionResponseArrayOutput)
 }
 
 // The route definition for a resource implemented by the custom resource provider.
@@ -547,112 +331,11 @@ func (i CustomRPValidationsArray) ToCustomRPValidationsArrayOutputWithContext(ct
 }
 
 // A validation to apply on custom resource provider requests.
-type CustomRPValidationsOutput struct{ *pulumi.OutputState }
-
-func (CustomRPValidationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPValidations)(nil)).Elem()
-}
-
-func (o CustomRPValidationsOutput) ToCustomRPValidationsOutput() CustomRPValidationsOutput {
-	return o
-}
-
-func (o CustomRPValidationsOutput) ToCustomRPValidationsOutputWithContext(ctx context.Context) CustomRPValidationsOutput {
-	return o
-}
-
-// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-func (o CustomRPValidationsOutput) Specification() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomRPValidations) string { return v.Specification }).(pulumi.StringOutput)
-}
-
-// The type of validation to run against a matching request.
-func (o CustomRPValidationsOutput) ValidationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomRPValidations) *string { return v.ValidationType }).(pulumi.StringPtrOutput)
-}
-
-type CustomRPValidationsArrayOutput struct{ *pulumi.OutputState }
-
-func (CustomRPValidationsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPValidations)(nil)).Elem()
-}
-
-func (o CustomRPValidationsArrayOutput) ToCustomRPValidationsArrayOutput() CustomRPValidationsArrayOutput {
-	return o
-}
-
-func (o CustomRPValidationsArrayOutput) ToCustomRPValidationsArrayOutputWithContext(ctx context.Context) CustomRPValidationsArrayOutput {
-	return o
-}
-
-func (o CustomRPValidationsArrayOutput) Index(i pulumi.IntInput) CustomRPValidationsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRPValidations {
-		return vs[0].([]CustomRPValidations)[vs[1].(int)]
-	}).(CustomRPValidationsOutput)
-}
-
-// A validation to apply on custom resource provider requests.
 type CustomRPValidationsResponse struct {
 	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
 	Specification string `pulumi:"specification"`
 	// The type of validation to run against a matching request.
 	ValidationType *string `pulumi:"validationType"`
-}
-
-// CustomRPValidationsResponseInput is an input type that accepts CustomRPValidationsResponseArgs and CustomRPValidationsResponseOutput values.
-// You can construct a concrete instance of `CustomRPValidationsResponseInput` via:
-//
-//          CustomRPValidationsResponseArgs{...}
-type CustomRPValidationsResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPValidationsResponseOutput() CustomRPValidationsResponseOutput
-	ToCustomRPValidationsResponseOutputWithContext(context.Context) CustomRPValidationsResponseOutput
-}
-
-// A validation to apply on custom resource provider requests.
-type CustomRPValidationsResponseArgs struct {
-	// A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-	Specification pulumi.StringInput `pulumi:"specification"`
-	// The type of validation to run against a matching request.
-	ValidationType pulumi.StringPtrInput `pulumi:"validationType"`
-}
-
-func (CustomRPValidationsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPValidationsResponse)(nil)).Elem()
-}
-
-func (i CustomRPValidationsResponseArgs) ToCustomRPValidationsResponseOutput() CustomRPValidationsResponseOutput {
-	return i.ToCustomRPValidationsResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPValidationsResponseArgs) ToCustomRPValidationsResponseOutputWithContext(ctx context.Context) CustomRPValidationsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsResponseOutput)
-}
-
-// CustomRPValidationsResponseArrayInput is an input type that accepts CustomRPValidationsResponseArray and CustomRPValidationsResponseArrayOutput values.
-// You can construct a concrete instance of `CustomRPValidationsResponseArrayInput` via:
-//
-//          CustomRPValidationsResponseArray{ CustomRPValidationsResponseArgs{...} }
-type CustomRPValidationsResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPValidationsResponseArrayOutput() CustomRPValidationsResponseArrayOutput
-	ToCustomRPValidationsResponseArrayOutputWithContext(context.Context) CustomRPValidationsResponseArrayOutput
-}
-
-type CustomRPValidationsResponseArray []CustomRPValidationsResponseInput
-
-func (CustomRPValidationsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPValidationsResponse)(nil)).Elem()
-}
-
-func (i CustomRPValidationsResponseArray) ToCustomRPValidationsResponseArrayOutput() CustomRPValidationsResponseArrayOutput {
-	return i.ToCustomRPValidationsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPValidationsResponseArray) ToCustomRPValidationsResponseArrayOutputWithContext(ctx context.Context) CustomRPValidationsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsResponseArrayOutput)
 }
 
 // A validation to apply on custom resource provider requests.

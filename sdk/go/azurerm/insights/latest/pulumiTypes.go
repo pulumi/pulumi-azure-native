@@ -75,112 +75,11 @@ func (i ActivityLogAlertActionGroupArray) ToActivityLogAlertActionGroupArrayOutp
 }
 
 // A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroup)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionGroupOutput) ToActivityLogAlertActionGroupOutput() ActivityLogAlertActionGroupOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionGroupOutput) ToActivityLogAlertActionGroupOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupOutput {
-	return o
-}
-
-// The resourceId of the action group. This cannot be null or empty.
-func (o ActivityLogAlertActionGroupOutput) ActionGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroup) string { return v.ActionGroupId }).(pulumi.StringOutput)
-}
-
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-func (o ActivityLogAlertActionGroupOutput) WebhookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionGroup) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
-}
-
-type ActivityLogAlertActionGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroup)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionGroupArrayOutput) ToActivityLogAlertActionGroupArrayOutput() ActivityLogAlertActionGroupArrayOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionGroupArrayOutput) ToActivityLogAlertActionGroupArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupArrayOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionGroupArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertActionGroup {
-		return vs[0].([]ActivityLogAlertActionGroup)[vs[1].(int)]
-	}).(ActivityLogAlertActionGroupOutput)
-}
-
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupResponse struct {
 	// The resourceId of the action group. This cannot be null or empty.
 	ActionGroupId string `pulumi:"actionGroupId"`
 	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
-}
-
-// ActivityLogAlertActionGroupResponseInput is an input type that accepts ActivityLogAlertActionGroupResponseArgs and ActivityLogAlertActionGroupResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupResponseInput` via:
-//
-//          ActivityLogAlertActionGroupResponseArgs{...}
-type ActivityLogAlertActionGroupResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput
-	ToActivityLogAlertActionGroupResponseOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseOutput
-}
-
-// A pointer to an Azure Action Group.
-type ActivityLogAlertActionGroupResponseArgs struct {
-	// The resourceId of the action group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
-}
-
-func (ActivityLogAlertActionGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput {
-	return i.ToActivityLogAlertActionGroupResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseOutput)
-}
-
-// ActivityLogAlertActionGroupResponseArrayInput is an input type that accepts ActivityLogAlertActionGroupResponseArray and ActivityLogAlertActionGroupResponseArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionGroupResponseArrayInput` via:
-//
-//          ActivityLogAlertActionGroupResponseArray{ ActivityLogAlertActionGroupResponseArgs{...} }
-type ActivityLogAlertActionGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput
-	ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseArrayOutput
-}
-
-type ActivityLogAlertActionGroupResponseArray []ActivityLogAlertActionGroupResponseInput
-
-func (ActivityLogAlertActionGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput {
-	return i.ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseArrayOutput)
 }
 
 // A pointer to an Azure Action Group.
@@ -305,137 +204,9 @@ func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutpu
 }
 
 // A list of activity log alert actions.
-type ActivityLogAlertActionListOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionList)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListOutput() ActivityLogAlertActionListOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListOutputWithContext(ctx context.Context) ActivityLogAlertActionListOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return o.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) *ActivityLogAlertActionList {
-		return &v
-	}).(ActivityLogAlertActionListPtrOutput)
-}
-
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) []ActivityLogAlertActionGroup { return v.ActionGroups }).(ActivityLogAlertActionGroupArrayOutput)
-}
-
-type ActivityLogAlertActionListPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionList)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListPtrOutput) Elem() ActivityLogAlertActionListOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList { return *v }).(ActivityLogAlertActionListOutput)
-}
-
-// The list of activity log alerts.
-func (o ActivityLogAlertActionListPtrOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) []ActivityLogAlertActionGroup {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupArrayOutput)
-}
-
-// A list of activity log alert actions.
 type ActivityLogAlertActionListResponse struct {
 	// The list of activity log alerts.
 	ActionGroups []ActivityLogAlertActionGroupResponse `pulumi:"actionGroups"`
-}
-
-// ActivityLogAlertActionListResponseInput is an input type that accepts ActivityLogAlertActionListResponseArgs and ActivityLogAlertActionListResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListResponseInput` via:
-//
-//          ActivityLogAlertActionListResponseArgs{...}
-type ActivityLogAlertActionListResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput
-	ToActivityLogAlertActionListResponseOutputWithContext(context.Context) ActivityLogAlertActionListResponseOutput
-}
-
-// A list of activity log alert actions.
-type ActivityLogAlertActionListResponseArgs struct {
-	// The list of activity log alerts.
-	ActionGroups ActivityLogAlertActionGroupResponseArrayInput `pulumi:"actionGroups"`
-}
-
-func (ActivityLogAlertActionListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionListResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput {
-	return i.ToActivityLogAlertActionListResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput)
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput).ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx)
-}
-
-// ActivityLogAlertActionListResponsePtrInput is an input type that accepts ActivityLogAlertActionListResponseArgs, ActivityLogAlertActionListResponsePtr and ActivityLogAlertActionListResponsePtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertActionListResponsePtrInput` via:
-//
-//          ActivityLogAlertActionListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ActivityLogAlertActionListResponsePtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput
-	ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Context) ActivityLogAlertActionListResponsePtrOutput
-}
-
-type activityLogAlertActionListResponsePtrType ActivityLogAlertActionListResponseArgs
-
-func ActivityLogAlertActionListResponsePtr(v *ActivityLogAlertActionListResponseArgs) ActivityLogAlertActionListResponsePtrInput {
-	return (*activityLogAlertActionListResponsePtrType)(v)
-}
-
-func (*activityLogAlertActionListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionListResponse)(nil)).Elem()
-}
-
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponsePtrOutput)
 }
 
 // A list of activity log alert actions.
@@ -575,137 +346,9 @@ func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfCondition
 }
 
 // An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertAllOfConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfCondition)(nil)).Elem()
-}
-
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionOutput() ActivityLogAlertAllOfConditionOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
-		return &v
-	}).(ActivityLogAlertAllOfConditionPtrOutput)
-}
-
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition { return v.AllOf }).(ActivityLogAlertLeafConditionArrayOutput)
-}
-
-type ActivityLogAlertAllOfConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertAllOfConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfCondition)(nil)).Elem()
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) Elem() ActivityLogAlertAllOfConditionOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition { return *v }).(ActivityLogAlertAllOfConditionOutput)
-}
-
-// The list of activity log alert conditions.
-func (o ActivityLogAlertAllOfConditionPtrOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ActivityLogAlertLeafConditionArrayOutput)
-}
-
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionResponse struct {
 	// The list of activity log alert conditions.
 	AllOf []ActivityLogAlertLeafConditionResponse `pulumi:"allOf"`
-}
-
-// ActivityLogAlertAllOfConditionResponseInput is an input type that accepts ActivityLogAlertAllOfConditionResponseArgs and ActivityLogAlertAllOfConditionResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionResponseInput` via:
-//
-//          ActivityLogAlertAllOfConditionResponseArgs{...}
-type ActivityLogAlertAllOfConditionResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput
-	ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponseOutput
-}
-
-// An Activity Log alert condition that is met when all its member conditions are met.
-type ActivityLogAlertAllOfConditionResponseArgs struct {
-	// The list of activity log alert conditions.
-	AllOf ActivityLogAlertLeafConditionResponseArrayInput `pulumi:"allOf"`
-}
-
-func (ActivityLogAlertAllOfConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput {
-	return i.ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput)
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput).ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx)
-}
-
-// ActivityLogAlertAllOfConditionResponsePtrInput is an input type that accepts ActivityLogAlertAllOfConditionResponseArgs, ActivityLogAlertAllOfConditionResponsePtr and ActivityLogAlertAllOfConditionResponsePtrOutput values.
-// You can construct a concrete instance of `ActivityLogAlertAllOfConditionResponsePtrInput` via:
-//
-//          ActivityLogAlertAllOfConditionResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ActivityLogAlertAllOfConditionResponsePtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput
-	ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput
-}
-
-type activityLogAlertAllOfConditionResponsePtrType ActivityLogAlertAllOfConditionResponseArgs
-
-func ActivityLogAlertAllOfConditionResponsePtr(v *ActivityLogAlertAllOfConditionResponseArgs) ActivityLogAlertAllOfConditionResponsePtrInput {
-	return (*activityLogAlertAllOfConditionResponsePtrType)(v)
-}
-
-func (*activityLogAlertAllOfConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponsePtrOutput)
 }
 
 // An Activity Log alert condition that is met when all its member conditions are met.
@@ -831,112 +474,11 @@ func (i ActivityLogAlertLeafConditionArray) ToActivityLogAlertLeafConditionArray
 }
 
 // An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertLeafConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafCondition)(nil)).Elem()
-}
-
-func (o ActivityLogAlertLeafConditionOutput) ToActivityLogAlertLeafConditionOutput() ActivityLogAlertLeafConditionOutput {
-	return o
-}
-
-func (o ActivityLogAlertLeafConditionOutput) ToActivityLogAlertLeafConditionOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionOutput {
-	return o
-}
-
-// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-func (o ActivityLogAlertLeafConditionOutput) Equals() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Equals }).(pulumi.StringOutput)
-}
-
-// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-func (o ActivityLogAlertLeafConditionOutput) Field() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Field }).(pulumi.StringOutput)
-}
-
-type ActivityLogAlertLeafConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertLeafConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafCondition)(nil)).Elem()
-}
-
-func (o ActivityLogAlertLeafConditionArrayOutput) ToActivityLogAlertLeafConditionArrayOutput() ActivityLogAlertLeafConditionArrayOutput {
-	return o
-}
-
-func (o ActivityLogAlertLeafConditionArrayOutput) ToActivityLogAlertLeafConditionArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionArrayOutput {
-	return o
-}
-
-func (o ActivityLogAlertLeafConditionArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertLeafConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertLeafCondition {
-		return vs[0].([]ActivityLogAlertLeafCondition)[vs[1].(int)]
-	}).(ActivityLogAlertLeafConditionOutput)
-}
-
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionResponse struct {
 	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 	Equals string `pulumi:"equals"`
 	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
 	Field string `pulumi:"field"`
-}
-
-// ActivityLogAlertLeafConditionResponseInput is an input type that accepts ActivityLogAlertLeafConditionResponseArgs and ActivityLogAlertLeafConditionResponseOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionResponseInput` via:
-//
-//          ActivityLogAlertLeafConditionResponseArgs{...}
-type ActivityLogAlertLeafConditionResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput
-	ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseOutput
-}
-
-// An Activity Log alert condition that is met by comparing an activity log field and value.
-type ActivityLogAlertLeafConditionResponseArgs struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-	Equals pulumi.StringInput `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field pulumi.StringInput `pulumi:"field"`
-}
-
-func (ActivityLogAlertLeafConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput {
-	return i.ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseOutput)
-}
-
-// ActivityLogAlertLeafConditionResponseArrayInput is an input type that accepts ActivityLogAlertLeafConditionResponseArray and ActivityLogAlertLeafConditionResponseArrayOutput values.
-// You can construct a concrete instance of `ActivityLogAlertLeafConditionResponseArrayInput` via:
-//
-//          ActivityLogAlertLeafConditionResponseArray{ ActivityLogAlertLeafConditionResponseArgs{...} }
-type ActivityLogAlertLeafConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput
-	ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseArrayOutput
-}
-
-type ActivityLogAlertLeafConditionResponseArray []ActivityLogAlertLeafConditionResponseInput
-
-func (ActivityLogAlertLeafConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return i.ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
 
 // An Activity Log alert condition that is met by comparing an activity log field and value.
@@ -1036,46 +578,6 @@ func (i AlertingActionArgs) ToAlertingActionOutputWithContext(ctx context.Contex
 }
 
 // Specify action need to be taken when rule type is Alert
-type AlertingActionOutput struct{ *pulumi.OutputState }
-
-func (AlertingActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertingAction)(nil)).Elem()
-}
-
-func (o AlertingActionOutput) ToAlertingActionOutput() AlertingActionOutput {
-	return o
-}
-
-func (o AlertingActionOutput) ToAlertingActionOutputWithContext(ctx context.Context) AlertingActionOutput {
-	return o
-}
-
-// Azure action group reference.
-func (o AlertingActionOutput) AznsAction() AzNsActionGroupPtrOutput {
-	return o.ApplyT(func(v AlertingAction) *AzNsActionGroup { return v.AznsAction }).(AzNsActionGroupPtrOutput)
-}
-
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o AlertingActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertingAction) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Severity of the alert
-func (o AlertingActionOutput) Severity() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertingAction) string { return v.Severity }).(pulumi.StringOutput)
-}
-
-// time (in minutes) for which Alerts should be throttled or suppressed.
-func (o AlertingActionOutput) ThrottlingInMin() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AlertingAction) *int { return v.ThrottlingInMin }).(pulumi.IntPtrOutput)
-}
-
-// The trigger condition that results in the alert rule being.
-func (o AlertingActionOutput) Trigger() TriggerConditionOutput {
-	return o.ApplyT(func(v AlertingAction) TriggerCondition { return v.Trigger }).(TriggerConditionOutput)
-}
-
-// Specify action need to be taken when rule type is Alert
 type AlertingActionResponse struct {
 	// Azure action group reference.
 	AznsAction *AzNsActionGroupResponse `pulumi:"aznsAction"`
@@ -1087,43 +589,6 @@ type AlertingActionResponse struct {
 	ThrottlingInMin *int `pulumi:"throttlingInMin"`
 	// The trigger condition that results in the alert rule being.
 	Trigger TriggerConditionResponse `pulumi:"trigger"`
-}
-
-// AlertingActionResponseInput is an input type that accepts AlertingActionResponseArgs and AlertingActionResponseOutput values.
-// You can construct a concrete instance of `AlertingActionResponseInput` via:
-//
-//          AlertingActionResponseArgs{...}
-type AlertingActionResponseInput interface {
-	pulumi.Input
-
-	ToAlertingActionResponseOutput() AlertingActionResponseOutput
-	ToAlertingActionResponseOutputWithContext(context.Context) AlertingActionResponseOutput
-}
-
-// Specify action need to be taken when rule type is Alert
-type AlertingActionResponseArgs struct {
-	// Azure action group reference.
-	AznsAction AzNsActionGroupResponsePtrInput `pulumi:"aznsAction"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Severity of the alert
-	Severity pulumi.StringInput `pulumi:"severity"`
-	// time (in minutes) for which Alerts should be throttled or suppressed.
-	ThrottlingInMin pulumi.IntPtrInput `pulumi:"throttlingInMin"`
-	// The trigger condition that results in the alert rule being.
-	Trigger TriggerConditionResponseInput `pulumi:"trigger"`
-}
-
-func (AlertingActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertingActionResponse)(nil)).Elem()
-}
-
-func (i AlertingActionResponseArgs) ToAlertingActionResponseOutput() AlertingActionResponseOutput {
-	return i.ToAlertingActionResponseOutputWithContext(context.Background())
-}
-
-func (i AlertingActionResponseArgs) ToAlertingActionResponseOutputWithContext(ctx context.Context) AlertingActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertingActionResponseOutput)
 }
 
 // Specify action need to be taken when rule type is Alert
@@ -1243,139 +708,9 @@ func (i *applicationInsightsComponentAnalyticsItemPropertiesPtrType) ToApplicati
 }
 
 // A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-type ApplicationInsightsComponentAnalyticsItemPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInsightsComponentAnalyticsItemProperties)(nil)).Elem()
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesOutput() ApplicationInsightsComponentAnalyticsItemPropertiesOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o.ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *ApplicationInsightsComponentAnalyticsItemProperties {
-		return &v
-	}).(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput)
-}
-
-// A function alias, used when the type of the item is Function
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) FunctionAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentAnalyticsItemProperties)(nil)).Elem()
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o
-}
-
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesOutput {
-	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) ApplicationInsightsComponentAnalyticsItemProperties {
-		return *v
-	}).(ApplicationInsightsComponentAnalyticsItemPropertiesOutput)
-}
-
-// A function alias, used when the type of the item is Function
-func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FunctionAlias
-	}).(pulumi.StringPtrOutput)
-}
-
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponse struct {
 	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
-}
-
-// ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs and ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput values.
-// You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput` via:
-//
-//          ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs{...}
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput
-}
-
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs struct {
-	// A function alias, used when the type of the item is Function
-	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
-}
-
-func (ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationInsightsComponentAnalyticsItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput).ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs, ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtr and ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput` via:
-//
-//          ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput
-	ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput
-}
-
-type applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs
-
-func ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtr(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput {
-	return (*applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType)(v)
-}
-
-func (*applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationInsightsComponentAnalyticsItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i *applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
 }
 
 // A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
@@ -1507,56 +842,6 @@ func (i ArmRoleReceiverArray) ToArmRoleReceiverArrayOutputWithContext(ctx contex
 }
 
 // An arm role receiver.
-type ArmRoleReceiverOutput struct{ *pulumi.OutputState }
-
-func (ArmRoleReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRoleReceiver)(nil)).Elem()
-}
-
-func (o ArmRoleReceiverOutput) ToArmRoleReceiverOutput() ArmRoleReceiverOutput {
-	return o
-}
-
-func (o ArmRoleReceiverOutput) ToArmRoleReceiverOutputWithContext(ctx context.Context) ArmRoleReceiverOutput {
-	return o
-}
-
-// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-func (o ArmRoleReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The arm role id.
-func (o ArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
-	return o.ApplyT(func(v ArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o ArmRoleReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v ArmRoleReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-type ArmRoleReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (ArmRoleReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ArmRoleReceiver)(nil)).Elem()
-}
-
-func (o ArmRoleReceiverArrayOutput) ToArmRoleReceiverArrayOutput() ArmRoleReceiverArrayOutput {
-	return o
-}
-
-func (o ArmRoleReceiverArrayOutput) ToArmRoleReceiverArrayOutputWithContext(ctx context.Context) ArmRoleReceiverArrayOutput {
-	return o
-}
-
-func (o ArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) ArmRoleReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArmRoleReceiver {
-		return vs[0].([]ArmRoleReceiver)[vs[1].(int)]
-	}).(ArmRoleReceiverOutput)
-}
-
-// An arm role receiver.
 type ArmRoleReceiverResponse struct {
 	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
 	Name string `pulumi:"name"`
@@ -1564,64 +849,6 @@ type ArmRoleReceiverResponse struct {
 	RoleId string `pulumi:"roleId"`
 	// Indicates whether to use common alert schema.
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
-}
-
-// ArmRoleReceiverResponseInput is an input type that accepts ArmRoleReceiverResponseArgs and ArmRoleReceiverResponseOutput values.
-// You can construct a concrete instance of `ArmRoleReceiverResponseInput` via:
-//
-//          ArmRoleReceiverResponseArgs{...}
-type ArmRoleReceiverResponseInput interface {
-	pulumi.Input
-
-	ToArmRoleReceiverResponseOutput() ArmRoleReceiverResponseOutput
-	ToArmRoleReceiverResponseOutputWithContext(context.Context) ArmRoleReceiverResponseOutput
-}
-
-// An arm role receiver.
-type ArmRoleReceiverResponseArgs struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The arm role id.
-	RoleId pulumi.StringInput `pulumi:"roleId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (ArmRoleReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRoleReceiverResponse)(nil)).Elem()
-}
-
-func (i ArmRoleReceiverResponseArgs) ToArmRoleReceiverResponseOutput() ArmRoleReceiverResponseOutput {
-	return i.ToArmRoleReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i ArmRoleReceiverResponseArgs) ToArmRoleReceiverResponseOutputWithContext(ctx context.Context) ArmRoleReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverResponseOutput)
-}
-
-// ArmRoleReceiverResponseArrayInput is an input type that accepts ArmRoleReceiverResponseArray and ArmRoleReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `ArmRoleReceiverResponseArrayInput` via:
-//
-//          ArmRoleReceiverResponseArray{ ArmRoleReceiverResponseArgs{...} }
-type ArmRoleReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToArmRoleReceiverResponseArrayOutput() ArmRoleReceiverResponseArrayOutput
-	ToArmRoleReceiverResponseArrayOutputWithContext(context.Context) ArmRoleReceiverResponseArrayOutput
-}
-
-type ArmRoleReceiverResponseArray []ArmRoleReceiverResponseInput
-
-func (ArmRoleReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ArmRoleReceiverResponse)(nil)).Elem()
-}
-
-func (i ArmRoleReceiverResponseArray) ToArmRoleReceiverResponseArrayOutput() ArmRoleReceiverResponseArrayOutput {
-	return i.ToArmRoleReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ArmRoleReceiverResponseArray) ToArmRoleReceiverResponseArrayOutputWithContext(ctx context.Context) ArmRoleReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverResponseArrayOutput)
 }
 
 // An arm role receiver.
@@ -1759,76 +986,6 @@ func (i AutomationRunbookReceiverArray) ToAutomationRunbookReceiverArrayOutputWi
 }
 
 // The Azure Automation Runbook notification receiver.
-type AutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
-
-func (AutomationRunbookReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRunbookReceiver)(nil)).Elem()
-}
-
-func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutput() AutomationRunbookReceiverOutput {
-	return o
-}
-
-func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutputWithContext(ctx context.Context) AutomationRunbookReceiverOutput {
-	return o
-}
-
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-func (o AutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
-}
-
-// Indicates whether this instance is global runbook.
-func (o AutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
-}
-
-// Indicates name of the webhook.
-func (o AutomationRunbookReceiverOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The name for this runbook.
-func (o AutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
-}
-
-// The URI where webhooks should be sent.
-func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o AutomationRunbookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-// The resource id for webhook linked to this runbook.
-func (o AutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
-}
-
-type AutomationRunbookReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (AutomationRunbookReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRunbookReceiver)(nil)).Elem()
-}
-
-func (o AutomationRunbookReceiverArrayOutput) ToAutomationRunbookReceiverArrayOutput() AutomationRunbookReceiverArrayOutput {
-	return o
-}
-
-func (o AutomationRunbookReceiverArrayOutput) ToAutomationRunbookReceiverArrayOutputWithContext(ctx context.Context) AutomationRunbookReceiverArrayOutput {
-	return o
-}
-
-func (o AutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) AutomationRunbookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRunbookReceiver {
-		return vs[0].([]AutomationRunbookReceiver)[vs[1].(int)]
-	}).(AutomationRunbookReceiverOutput)
-}
-
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponse struct {
 	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 	AutomationAccountId string `pulumi:"automationAccountId"`
@@ -1844,72 +1001,6 @@ type AutomationRunbookReceiverResponse struct {
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
 	// The resource id for webhook linked to this runbook.
 	WebhookResourceId string `pulumi:"webhookResourceId"`
-}
-
-// AutomationRunbookReceiverResponseInput is an input type that accepts AutomationRunbookReceiverResponseArgs and AutomationRunbookReceiverResponseOutput values.
-// You can construct a concrete instance of `AutomationRunbookReceiverResponseInput` via:
-//
-//          AutomationRunbookReceiverResponseArgs{...}
-type AutomationRunbookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput
-	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
-}
-
-// The Azure Automation Runbook notification receiver.
-type AutomationRunbookReceiverResponseArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
-}
-
-func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput {
-	return i.ToAutomationRunbookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseOutput)
-}
-
-// AutomationRunbookReceiverResponseArrayInput is an input type that accepts AutomationRunbookReceiverResponseArray and AutomationRunbookReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `AutomationRunbookReceiverResponseArrayInput` via:
-//
-//          AutomationRunbookReceiverResponseArray{ AutomationRunbookReceiverResponseArgs{...} }
-type AutomationRunbookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput
-	ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Context) AutomationRunbookReceiverResponseArrayOutput
-}
-
-type AutomationRunbookReceiverResponseArray []AutomationRunbookReceiverResponseInput
-
-func (AutomationRunbookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput {
-	return i.ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
 }
 
 // The Azure Automation Runbook notification receiver.
@@ -2051,56 +1142,6 @@ func (i AutoscaleNotificationArray) ToAutoscaleNotificationArrayOutputWithContex
 }
 
 // Autoscale notification.
-type AutoscaleNotificationOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleNotification)(nil)).Elem()
-}
-
-func (o AutoscaleNotificationOutput) ToAutoscaleNotificationOutput() AutoscaleNotificationOutput {
-	return o
-}
-
-func (o AutoscaleNotificationOutput) ToAutoscaleNotificationOutputWithContext(ctx context.Context) AutoscaleNotificationOutput {
-	return o
-}
-
-// the email notification.
-func (o AutoscaleNotificationOutput) Email() EmailNotificationPtrOutput {
-	return o.ApplyT(func(v AutoscaleNotification) *EmailNotification { return v.Email }).(EmailNotificationPtrOutput)
-}
-
-// the operation associated with the notification and its value must be "scale"
-func (o AutoscaleNotificationOutput) Operation() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleNotification) string { return v.Operation }).(pulumi.StringOutput)
-}
-
-// the collection of webhook notifications.
-func (o AutoscaleNotificationOutput) Webhooks() WebhookNotificationArrayOutput {
-	return o.ApplyT(func(v AutoscaleNotification) []WebhookNotification { return v.Webhooks }).(WebhookNotificationArrayOutput)
-}
-
-type AutoscaleNotificationArrayOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleNotification)(nil)).Elem()
-}
-
-func (o AutoscaleNotificationArrayOutput) ToAutoscaleNotificationArrayOutput() AutoscaleNotificationArrayOutput {
-	return o
-}
-
-func (o AutoscaleNotificationArrayOutput) ToAutoscaleNotificationArrayOutputWithContext(ctx context.Context) AutoscaleNotificationArrayOutput {
-	return o
-}
-
-func (o AutoscaleNotificationArrayOutput) Index(i pulumi.IntInput) AutoscaleNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleNotification {
-		return vs[0].([]AutoscaleNotification)[vs[1].(int)]
-	}).(AutoscaleNotificationOutput)
-}
-
-// Autoscale notification.
 type AutoscaleNotificationResponse struct {
 	// the email notification.
 	Email *EmailNotificationResponse `pulumi:"email"`
@@ -2108,64 +1149,6 @@ type AutoscaleNotificationResponse struct {
 	Operation string `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks []WebhookNotificationResponse `pulumi:"webhooks"`
-}
-
-// AutoscaleNotificationResponseInput is an input type that accepts AutoscaleNotificationResponseArgs and AutoscaleNotificationResponseOutput values.
-// You can construct a concrete instance of `AutoscaleNotificationResponseInput` via:
-//
-//          AutoscaleNotificationResponseArgs{...}
-type AutoscaleNotificationResponseInput interface {
-	pulumi.Input
-
-	ToAutoscaleNotificationResponseOutput() AutoscaleNotificationResponseOutput
-	ToAutoscaleNotificationResponseOutputWithContext(context.Context) AutoscaleNotificationResponseOutput
-}
-
-// Autoscale notification.
-type AutoscaleNotificationResponseArgs struct {
-	// the email notification.
-	Email EmailNotificationResponsePtrInput `pulumi:"email"`
-	// the operation associated with the notification and its value must be "scale"
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// the collection of webhook notifications.
-	Webhooks WebhookNotificationResponseArrayInput `pulumi:"webhooks"`
-}
-
-func (AutoscaleNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleNotificationResponse)(nil)).Elem()
-}
-
-func (i AutoscaleNotificationResponseArgs) ToAutoscaleNotificationResponseOutput() AutoscaleNotificationResponseOutput {
-	return i.ToAutoscaleNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i AutoscaleNotificationResponseArgs) ToAutoscaleNotificationResponseOutputWithContext(ctx context.Context) AutoscaleNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleNotificationResponseOutput)
-}
-
-// AutoscaleNotificationResponseArrayInput is an input type that accepts AutoscaleNotificationResponseArray and AutoscaleNotificationResponseArrayOutput values.
-// You can construct a concrete instance of `AutoscaleNotificationResponseArrayInput` via:
-//
-//          AutoscaleNotificationResponseArray{ AutoscaleNotificationResponseArgs{...} }
-type AutoscaleNotificationResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutoscaleNotificationResponseArrayOutput() AutoscaleNotificationResponseArrayOutput
-	ToAutoscaleNotificationResponseArrayOutputWithContext(context.Context) AutoscaleNotificationResponseArrayOutput
-}
-
-type AutoscaleNotificationResponseArray []AutoscaleNotificationResponseInput
-
-func (AutoscaleNotificationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleNotificationResponse)(nil)).Elem()
-}
-
-func (i AutoscaleNotificationResponseArray) ToAutoscaleNotificationResponseArrayOutput() AutoscaleNotificationResponseArrayOutput {
-	return i.ToAutoscaleNotificationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutoscaleNotificationResponseArray) ToAutoscaleNotificationResponseArrayOutputWithContext(ctx context.Context) AutoscaleNotificationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleNotificationResponseArrayOutput)
 }
 
 // Autoscale notification.
@@ -2295,66 +1278,6 @@ func (i AutoscaleProfileArray) ToAutoscaleProfileArrayOutputWithContext(ctx cont
 }
 
 // Autoscale profile.
-type AutoscaleProfileOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleProfile)(nil)).Elem()
-}
-
-func (o AutoscaleProfileOutput) ToAutoscaleProfileOutput() AutoscaleProfileOutput {
-	return o
-}
-
-func (o AutoscaleProfileOutput) ToAutoscaleProfileOutputWithContext(ctx context.Context) AutoscaleProfileOutput {
-	return o
-}
-
-// the number of instances that can be used during this profile.
-func (o AutoscaleProfileOutput) Capacity() ScaleCapacityOutput {
-	return o.ApplyT(func(v AutoscaleProfile) ScaleCapacity { return v.Capacity }).(ScaleCapacityOutput)
-}
-
-// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-func (o AutoscaleProfileOutput) FixedDate() TimeWindowPtrOutput {
-	return o.ApplyT(func(v AutoscaleProfile) *TimeWindow { return v.FixedDate }).(TimeWindowPtrOutput)
-}
-
-// the name of the profile.
-func (o AutoscaleProfileOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleProfile) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-func (o AutoscaleProfileOutput) Recurrence() RecurrencePtrOutput {
-	return o.ApplyT(func(v AutoscaleProfile) *Recurrence { return v.Recurrence }).(RecurrencePtrOutput)
-}
-
-// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-func (o AutoscaleProfileOutput) Rules() ScaleRuleArrayOutput {
-	return o.ApplyT(func(v AutoscaleProfile) []ScaleRule { return v.Rules }).(ScaleRuleArrayOutput)
-}
-
-type AutoscaleProfileArrayOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleProfile)(nil)).Elem()
-}
-
-func (o AutoscaleProfileArrayOutput) ToAutoscaleProfileArrayOutput() AutoscaleProfileArrayOutput {
-	return o
-}
-
-func (o AutoscaleProfileArrayOutput) ToAutoscaleProfileArrayOutputWithContext(ctx context.Context) AutoscaleProfileArrayOutput {
-	return o
-}
-
-func (o AutoscaleProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoscaleProfile {
-		return vs[0].([]AutoscaleProfile)[vs[1].(int)]
-	}).(AutoscaleProfileOutput)
-}
-
-// Autoscale profile.
 type AutoscaleProfileResponse struct {
 	// the number of instances that can be used during this profile.
 	Capacity ScaleCapacityResponse `pulumi:"capacity"`
@@ -2366,68 +1289,6 @@ type AutoscaleProfileResponse struct {
 	Recurrence *RecurrenceResponse `pulumi:"recurrence"`
 	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
 	Rules []ScaleRuleResponse `pulumi:"rules"`
-}
-
-// AutoscaleProfileResponseInput is an input type that accepts AutoscaleProfileResponseArgs and AutoscaleProfileResponseOutput values.
-// You can construct a concrete instance of `AutoscaleProfileResponseInput` via:
-//
-//          AutoscaleProfileResponseArgs{...}
-type AutoscaleProfileResponseInput interface {
-	pulumi.Input
-
-	ToAutoscaleProfileResponseOutput() AutoscaleProfileResponseOutput
-	ToAutoscaleProfileResponseOutputWithContext(context.Context) AutoscaleProfileResponseOutput
-}
-
-// Autoscale profile.
-type AutoscaleProfileResponseArgs struct {
-	// the number of instances that can be used during this profile.
-	Capacity ScaleCapacityResponseInput `pulumi:"capacity"`
-	// the specific date-time for the profile. This element is not used if the Recurrence element is used.
-	FixedDate TimeWindowResponsePtrInput `pulumi:"fixedDate"`
-	// the name of the profile.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-	Recurrence RecurrenceResponsePtrInput `pulumi:"recurrence"`
-	// the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
-	Rules ScaleRuleResponseArrayInput `pulumi:"rules"`
-}
-
-func (AutoscaleProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleProfileResponse)(nil)).Elem()
-}
-
-func (i AutoscaleProfileResponseArgs) ToAutoscaleProfileResponseOutput() AutoscaleProfileResponseOutput {
-	return i.ToAutoscaleProfileResponseOutputWithContext(context.Background())
-}
-
-func (i AutoscaleProfileResponseArgs) ToAutoscaleProfileResponseOutputWithContext(ctx context.Context) AutoscaleProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleProfileResponseOutput)
-}
-
-// AutoscaleProfileResponseArrayInput is an input type that accepts AutoscaleProfileResponseArray and AutoscaleProfileResponseArrayOutput values.
-// You can construct a concrete instance of `AutoscaleProfileResponseArrayInput` via:
-//
-//          AutoscaleProfileResponseArray{ AutoscaleProfileResponseArgs{...} }
-type AutoscaleProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutoscaleProfileResponseArrayOutput() AutoscaleProfileResponseArrayOutput
-	ToAutoscaleProfileResponseArrayOutputWithContext(context.Context) AutoscaleProfileResponseArrayOutput
-}
-
-type AutoscaleProfileResponseArray []AutoscaleProfileResponseInput
-
-func (AutoscaleProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutoscaleProfileResponse)(nil)).Elem()
-}
-
-func (i AutoscaleProfileResponseArray) ToAutoscaleProfileResponseArrayOutput() AutoscaleProfileResponseArrayOutput {
-	return i.ToAutoscaleProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutoscaleProfileResponseArray) ToAutoscaleProfileResponseArrayOutputWithContext(ctx context.Context) AutoscaleProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleProfileResponseArrayOutput)
 }
 
 // Autoscale profile.
@@ -2575,94 +1436,6 @@ func (i *azNsActionGroupPtrType) ToAzNsActionGroupPtrOutputWithContext(ctx conte
 }
 
 // Azure action group
-type AzNsActionGroupOutput struct{ *pulumi.OutputState }
-
-func (AzNsActionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzNsActionGroup)(nil)).Elem()
-}
-
-func (o AzNsActionGroupOutput) ToAzNsActionGroupOutput() AzNsActionGroupOutput {
-	return o
-}
-
-func (o AzNsActionGroupOutput) ToAzNsActionGroupOutputWithContext(ctx context.Context) AzNsActionGroupOutput {
-	return o
-}
-
-func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
-	return o.ToAzNsActionGroupPtrOutputWithContext(context.Background())
-}
-
-func (o AzNsActionGroupOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
-	return o.ApplyT(func(v AzNsActionGroup) *AzNsActionGroup {
-		return &v
-	}).(AzNsActionGroupPtrOutput)
-}
-
-// Azure Action Group reference.
-func (o AzNsActionGroupOutput) ActionGroup() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AzNsActionGroup) []string { return v.ActionGroup }).(pulumi.StringArrayOutput)
-}
-
-// Custom payload to be sent for all webhook URI in Azure action group
-func (o AzNsActionGroupOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzNsActionGroup) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
-}
-
-// Custom subject override for all email ids in Azure action group
-func (o AzNsActionGroupOutput) EmailSubject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzNsActionGroup) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
-}
-
-type AzNsActionGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (AzNsActionGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzNsActionGroup)(nil)).Elem()
-}
-
-func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutput() AzNsActionGroupPtrOutput {
-	return o
-}
-
-func (o AzNsActionGroupPtrOutput) ToAzNsActionGroupPtrOutputWithContext(ctx context.Context) AzNsActionGroupPtrOutput {
-	return o
-}
-
-func (o AzNsActionGroupPtrOutput) Elem() AzNsActionGroupOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) AzNsActionGroup { return *v }).(AzNsActionGroupOutput)
-}
-
-// Azure Action Group reference.
-func (o AzNsActionGroupPtrOutput) ActionGroup() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroup
-	}).(pulumi.StringArrayOutput)
-}
-
-// Custom payload to be sent for all webhook URI in Azure action group
-func (o AzNsActionGroupPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomWebhookPayload
-	}).(pulumi.StringPtrOutput)
-}
-
-// Custom subject override for all email ids in Azure action group
-func (o AzNsActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzNsActionGroup) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmailSubject
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure action group
 type AzNsActionGroupResponse struct {
 	// Azure Action Group reference.
 	ActionGroup []string `pulumi:"actionGroup"`
@@ -2670,80 +1443,6 @@ type AzNsActionGroupResponse struct {
 	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
 	// Custom subject override for all email ids in Azure action group
 	EmailSubject *string `pulumi:"emailSubject"`
-}
-
-// AzNsActionGroupResponseInput is an input type that accepts AzNsActionGroupResponseArgs and AzNsActionGroupResponseOutput values.
-// You can construct a concrete instance of `AzNsActionGroupResponseInput` via:
-//
-//          AzNsActionGroupResponseArgs{...}
-type AzNsActionGroupResponseInput interface {
-	pulumi.Input
-
-	ToAzNsActionGroupResponseOutput() AzNsActionGroupResponseOutput
-	ToAzNsActionGroupResponseOutputWithContext(context.Context) AzNsActionGroupResponseOutput
-}
-
-// Azure action group
-type AzNsActionGroupResponseArgs struct {
-	// Azure Action Group reference.
-	ActionGroup pulumi.StringArrayInput `pulumi:"actionGroup"`
-	// Custom payload to be sent for all webhook URI in Azure action group
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// Custom subject override for all email ids in Azure action group
-	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-}
-
-func (AzNsActionGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzNsActionGroupResponse)(nil)).Elem()
-}
-
-func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponseOutput() AzNsActionGroupResponseOutput {
-	return i.ToAzNsActionGroupResponseOutputWithContext(context.Background())
-}
-
-func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponseOutputWithContext(ctx context.Context) AzNsActionGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponseOutput)
-}
-
-func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
-	return i.ToAzNsActionGroupResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzNsActionGroupResponseArgs) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponseOutput).ToAzNsActionGroupResponsePtrOutputWithContext(ctx)
-}
-
-// AzNsActionGroupResponsePtrInput is an input type that accepts AzNsActionGroupResponseArgs, AzNsActionGroupResponsePtr and AzNsActionGroupResponsePtrOutput values.
-// You can construct a concrete instance of `AzNsActionGroupResponsePtrInput` via:
-//
-//          AzNsActionGroupResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AzNsActionGroupResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput
-	ToAzNsActionGroupResponsePtrOutputWithContext(context.Context) AzNsActionGroupResponsePtrOutput
-}
-
-type azNsActionGroupResponsePtrType AzNsActionGroupResponseArgs
-
-func AzNsActionGroupResponsePtr(v *AzNsActionGroupResponseArgs) AzNsActionGroupResponsePtrInput {
-	return (*azNsActionGroupResponsePtrType)(v)
-}
-
-func (*azNsActionGroupResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzNsActionGroupResponse)(nil)).Elem()
-}
-
-func (i *azNsActionGroupResponsePtrType) ToAzNsActionGroupResponsePtrOutput() AzNsActionGroupResponsePtrOutput {
-	return i.ToAzNsActionGroupResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azNsActionGroupResponsePtrType) ToAzNsActionGroupResponsePtrOutputWithContext(ctx context.Context) AzNsActionGroupResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzNsActionGroupResponsePtrOutput)
 }
 
 // Azure action group
@@ -2899,112 +1598,11 @@ func (i AzureAppPushReceiverArray) ToAzureAppPushReceiverArrayOutputWithContext(
 }
 
 // The Azure mobile App push notification receiver.
-type AzureAppPushReceiverOutput struct{ *pulumi.OutputState }
-
-func (AzureAppPushReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureAppPushReceiver)(nil)).Elem()
-}
-
-func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutput() AzureAppPushReceiverOutput {
-	return o
-}
-
-func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutputWithContext(ctx context.Context) AzureAppPushReceiverOutput {
-	return o
-}
-
-// The email address registered for the Azure mobile app.
-func (o AzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
-}
-
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-func (o AzureAppPushReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type AzureAppPushReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (AzureAppPushReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureAppPushReceiver)(nil)).Elem()
-}
-
-func (o AzureAppPushReceiverArrayOutput) ToAzureAppPushReceiverArrayOutput() AzureAppPushReceiverArrayOutput {
-	return o
-}
-
-func (o AzureAppPushReceiverArrayOutput) ToAzureAppPushReceiverArrayOutputWithContext(ctx context.Context) AzureAppPushReceiverArrayOutput {
-	return o
-}
-
-func (o AzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) AzureAppPushReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureAppPushReceiver {
-		return vs[0].([]AzureAppPushReceiver)[vs[1].(int)]
-	}).(AzureAppPushReceiverOutput)
-}
-
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponse struct {
 	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
 	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 	Name string `pulumi:"name"`
-}
-
-// AzureAppPushReceiverResponseInput is an input type that accepts AzureAppPushReceiverResponseArgs and AzureAppPushReceiverResponseOutput values.
-// You can construct a concrete instance of `AzureAppPushReceiverResponseInput` via:
-//
-//          AzureAppPushReceiverResponseArgs{...}
-type AzureAppPushReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput
-	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
-}
-
-// The Azure mobile App push notification receiver.
-type AzureAppPushReceiverResponseArgs struct {
-	// The email address registered for the Azure mobile app.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput {
-	return i.ToAzureAppPushReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseOutput)
-}
-
-// AzureAppPushReceiverResponseArrayInput is an input type that accepts AzureAppPushReceiverResponseArray and AzureAppPushReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `AzureAppPushReceiverResponseArrayInput` via:
-//
-//          AzureAppPushReceiverResponseArray{ AzureAppPushReceiverResponseArgs{...} }
-type AzureAppPushReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput
-	ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Context) AzureAppPushReceiverResponseArrayOutput
-}
-
-type AzureAppPushReceiverResponseArray []AzureAppPushReceiverResponseInput
-
-func (AzureAppPushReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput {
-	return i.ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
 }
 
 // The Azure mobile App push notification receiver.
@@ -3129,66 +1727,6 @@ func (i AzureFunctionReceiverArray) ToAzureFunctionReceiverArrayOutputWithContex
 }
 
 // An azure function receiver.
-type AzureFunctionReceiverOutput struct{ *pulumi.OutputState }
-
-func (AzureFunctionReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFunctionReceiver)(nil)).Elem()
-}
-
-func (o AzureFunctionReceiverOutput) ToAzureFunctionReceiverOutput() AzureFunctionReceiverOutput {
-	return o
-}
-
-func (o AzureFunctionReceiverOutput) ToAzureFunctionReceiverOutputWithContext(ctx context.Context) AzureFunctionReceiverOutput {
-	return o
-}
-
-// The azure resource id of the function app.
-func (o AzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
-}
-
-// The function name in the function app.
-func (o AzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
-}
-
-// The http trigger url where http request sent to.
-func (o AzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
-}
-
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-func (o AzureFunctionReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o AzureFunctionReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v AzureFunctionReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-type AzureFunctionReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (AzureFunctionReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureFunctionReceiver)(nil)).Elem()
-}
-
-func (o AzureFunctionReceiverArrayOutput) ToAzureFunctionReceiverArrayOutput() AzureFunctionReceiverArrayOutput {
-	return o
-}
-
-func (o AzureFunctionReceiverArrayOutput) ToAzureFunctionReceiverArrayOutputWithContext(ctx context.Context) AzureFunctionReceiverArrayOutput {
-	return o
-}
-
-func (o AzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) AzureFunctionReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureFunctionReceiver {
-		return vs[0].([]AzureFunctionReceiver)[vs[1].(int)]
-	}).(AzureFunctionReceiverOutput)
-}
-
-// An azure function receiver.
 type AzureFunctionReceiverResponse struct {
 	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
@@ -3200,68 +1738,6 @@ type AzureFunctionReceiverResponse struct {
 	Name string `pulumi:"name"`
 	// Indicates whether to use common alert schema.
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
-}
-
-// AzureFunctionReceiverResponseInput is an input type that accepts AzureFunctionReceiverResponseArgs and AzureFunctionReceiverResponseOutput values.
-// You can construct a concrete instance of `AzureFunctionReceiverResponseInput` via:
-//
-//          AzureFunctionReceiverResponseArgs{...}
-type AzureFunctionReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAzureFunctionReceiverResponseOutput() AzureFunctionReceiverResponseOutput
-	ToAzureFunctionReceiverResponseOutputWithContext(context.Context) AzureFunctionReceiverResponseOutput
-}
-
-// An azure function receiver.
-type AzureFunctionReceiverResponseArgs struct {
-	// The azure resource id of the function app.
-	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFunctionReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureFunctionReceiverResponseArgs) ToAzureFunctionReceiverResponseOutput() AzureFunctionReceiverResponseOutput {
-	return i.ToAzureFunctionReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AzureFunctionReceiverResponseArgs) ToAzureFunctionReceiverResponseOutputWithContext(ctx context.Context) AzureFunctionReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseOutput)
-}
-
-// AzureFunctionReceiverResponseArrayInput is an input type that accepts AzureFunctionReceiverResponseArray and AzureFunctionReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `AzureFunctionReceiverResponseArrayInput` via:
-//
-//          AzureFunctionReceiverResponseArray{ AzureFunctionReceiverResponseArgs{...} }
-type AzureFunctionReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureFunctionReceiverResponseArrayOutput() AzureFunctionReceiverResponseArrayOutput
-	ToAzureFunctionReceiverResponseArrayOutputWithContext(context.Context) AzureFunctionReceiverResponseArrayOutput
-}
-
-type AzureFunctionReceiverResponseArray []AzureFunctionReceiverResponseInput
-
-func (AzureFunctionReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureFunctionReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArrayOutput() AzureFunctionReceiverResponseArrayOutput {
-	return i.ToAzureFunctionReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArrayOutputWithContext(ctx context.Context) AzureFunctionReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseArrayOutput)
 }
 
 // An azure function receiver.
@@ -3389,112 +1865,11 @@ func (i CriteriaArray) ToCriteriaArrayOutputWithContext(ctx context.Context) Cri
 }
 
 // Specifies the criteria for converting log to metric.
-type CriteriaOutput struct{ *pulumi.OutputState }
-
-func (CriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Criteria)(nil)).Elem()
-}
-
-func (o CriteriaOutput) ToCriteriaOutput() CriteriaOutput {
-	return o
-}
-
-func (o CriteriaOutput) ToCriteriaOutputWithContext(ctx context.Context) CriteriaOutput {
-	return o
-}
-
-// List of Dimensions for creating metric
-func (o CriteriaOutput) Dimensions() DimensionArrayOutput {
-	return o.ApplyT(func(v Criteria) []Dimension { return v.Dimensions }).(DimensionArrayOutput)
-}
-
-// Name of the metric
-func (o CriteriaOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v Criteria) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-type CriteriaArrayOutput struct{ *pulumi.OutputState }
-
-func (CriteriaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Criteria)(nil)).Elem()
-}
-
-func (o CriteriaArrayOutput) ToCriteriaArrayOutput() CriteriaArrayOutput {
-	return o
-}
-
-func (o CriteriaArrayOutput) ToCriteriaArrayOutputWithContext(ctx context.Context) CriteriaArrayOutput {
-	return o
-}
-
-func (o CriteriaArrayOutput) Index(i pulumi.IntInput) CriteriaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Criteria {
-		return vs[0].([]Criteria)[vs[1].(int)]
-	}).(CriteriaOutput)
-}
-
-// Specifies the criteria for converting log to metric.
 type CriteriaResponse struct {
 	// List of Dimensions for creating metric
 	Dimensions []DimensionResponse `pulumi:"dimensions"`
 	// Name of the metric
 	MetricName string `pulumi:"metricName"`
-}
-
-// CriteriaResponseInput is an input type that accepts CriteriaResponseArgs and CriteriaResponseOutput values.
-// You can construct a concrete instance of `CriteriaResponseInput` via:
-//
-//          CriteriaResponseArgs{...}
-type CriteriaResponseInput interface {
-	pulumi.Input
-
-	ToCriteriaResponseOutput() CriteriaResponseOutput
-	ToCriteriaResponseOutputWithContext(context.Context) CriteriaResponseOutput
-}
-
-// Specifies the criteria for converting log to metric.
-type CriteriaResponseArgs struct {
-	// List of Dimensions for creating metric
-	Dimensions DimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-}
-
-func (CriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CriteriaResponse)(nil)).Elem()
-}
-
-func (i CriteriaResponseArgs) ToCriteriaResponseOutput() CriteriaResponseOutput {
-	return i.ToCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i CriteriaResponseArgs) ToCriteriaResponseOutputWithContext(ctx context.Context) CriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CriteriaResponseOutput)
-}
-
-// CriteriaResponseArrayInput is an input type that accepts CriteriaResponseArray and CriteriaResponseArrayOutput values.
-// You can construct a concrete instance of `CriteriaResponseArrayInput` via:
-//
-//          CriteriaResponseArray{ CriteriaResponseArgs{...} }
-type CriteriaResponseArrayInput interface {
-	pulumi.Input
-
-	ToCriteriaResponseArrayOutput() CriteriaResponseArrayOutput
-	ToCriteriaResponseArrayOutputWithContext(context.Context) CriteriaResponseArrayOutput
-}
-
-type CriteriaResponseArray []CriteriaResponseInput
-
-func (CriteriaResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CriteriaResponse)(nil)).Elem()
-}
-
-func (i CriteriaResponseArray) ToCriteriaResponseArrayOutput() CriteriaResponseArrayOutput {
-	return i.ToCriteriaResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CriteriaResponseArray) ToCriteriaResponseArrayOutputWithContext(ctx context.Context) CriteriaResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CriteriaResponseArrayOutput)
 }
 
 // Specifies the criteria for converting log to metric.
@@ -3611,56 +1986,6 @@ func (i DimensionArray) ToDimensionArrayOutputWithContext(ctx context.Context) D
 }
 
 // Specifies the criteria for converting log to metric.
-type DimensionOutput struct{ *pulumi.OutputState }
-
-func (DimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dimension)(nil)).Elem()
-}
-
-func (o DimensionOutput) ToDimensionOutput() DimensionOutput {
-	return o
-}
-
-func (o DimensionOutput) ToDimensionOutputWithContext(ctx context.Context) DimensionOutput {
-	return o
-}
-
-// Name of the dimension
-func (o DimensionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Dimension) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Operator for dimension values
-func (o DimensionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v Dimension) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// List of dimension values
-func (o DimensionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Dimension) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type DimensionArrayOutput struct{ *pulumi.OutputState }
-
-func (DimensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Dimension)(nil)).Elem()
-}
-
-func (o DimensionArrayOutput) ToDimensionArrayOutput() DimensionArrayOutput {
-	return o
-}
-
-func (o DimensionArrayOutput) ToDimensionArrayOutputWithContext(ctx context.Context) DimensionArrayOutput {
-	return o
-}
-
-func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Dimension {
-		return vs[0].([]Dimension)[vs[1].(int)]
-	}).(DimensionOutput)
-}
-
-// Specifies the criteria for converting log to metric.
 type DimensionResponse struct {
 	// Name of the dimension
 	Name string `pulumi:"name"`
@@ -3668,64 +1993,6 @@ type DimensionResponse struct {
 	Operator string `pulumi:"operator"`
 	// List of dimension values
 	Values []string `pulumi:"values"`
-}
-
-// DimensionResponseInput is an input type that accepts DimensionResponseArgs and DimensionResponseOutput values.
-// You can construct a concrete instance of `DimensionResponseInput` via:
-//
-//          DimensionResponseArgs{...}
-type DimensionResponseInput interface {
-	pulumi.Input
-
-	ToDimensionResponseOutput() DimensionResponseOutput
-	ToDimensionResponseOutputWithContext(context.Context) DimensionResponseOutput
-}
-
-// Specifies the criteria for converting log to metric.
-type DimensionResponseArgs struct {
-	// Name of the dimension
-	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// List of dimension values
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (DimensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DimensionResponse)(nil)).Elem()
-}
-
-func (i DimensionResponseArgs) ToDimensionResponseOutput() DimensionResponseOutput {
-	return i.ToDimensionResponseOutputWithContext(context.Background())
-}
-
-func (i DimensionResponseArgs) ToDimensionResponseOutputWithContext(ctx context.Context) DimensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseOutput)
-}
-
-// DimensionResponseArrayInput is an input type that accepts DimensionResponseArray and DimensionResponseArrayOutput values.
-// You can construct a concrete instance of `DimensionResponseArrayInput` via:
-//
-//          DimensionResponseArray{ DimensionResponseArgs{...} }
-type DimensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDimensionResponseArrayOutput() DimensionResponseArrayOutput
-	ToDimensionResponseArrayOutputWithContext(context.Context) DimensionResponseArrayOutput
-}
-
-type DimensionResponseArray []DimensionResponseInput
-
-func (DimensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DimensionResponse)(nil)).Elem()
-}
-
-func (i DimensionResponseArray) ToDimensionResponseArrayOutput() DimensionResponseArrayOutput {
-	return i.ToDimensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DimensionResponseArray) ToDimensionResponseArrayOutputWithContext(ctx context.Context) DimensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseArrayOutput)
 }
 
 // Specifies the criteria for converting log to metric.
@@ -3854,76 +2121,6 @@ func (i DynamicMetricCriteriaArgs) ToDynamicMetricCriteriaOutputWithContext(ctx 
 }
 
 // Criterion for dynamic threshold.
-type DynamicMetricCriteriaOutput struct{ *pulumi.OutputState }
-
-func (DynamicMetricCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicMetricCriteria)(nil)).Elem()
-}
-
-func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutput() DynamicMetricCriteriaOutput {
-	return o
-}
-
-func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutputWithContext(ctx context.Context) DynamicMetricCriteriaOutput {
-	return o
-}
-
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-func (o DynamicMetricCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.AlertSensitivity }).(pulumi.StringOutput)
-}
-
-// Specifies the type of threshold criteria
-func (o DynamicMetricCriteriaOutput) CriterionType() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
-}
-
-// List of dimension conditions.
-func (o DynamicMetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
-}
-
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
-func (o DynamicMetricCriteriaOutput) FailingPeriods() DynamicThresholdFailingPeriodsOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) DynamicThresholdFailingPeriods { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsOutput)
-}
-
-// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-func (o DynamicMetricCriteriaOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
-}
-
-// Name of the metric.
-func (o DynamicMetricCriteriaOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// Namespace of the metric.
-func (o DynamicMetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
-}
-
-// Name of the criteria.
-func (o DynamicMetricCriteriaOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The operator used to compare the metric value against the threshold.
-func (o DynamicMetricCriteriaOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-func (o DynamicMetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
-}
-
-// the criteria time aggregation types.
-func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicMetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
-}
-
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaResponse struct {
 	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 	AlertSensitivity string `pulumi:"alertSensitivity"`
@@ -3947,55 +2144,6 @@ type DynamicMetricCriteriaResponse struct {
 	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
 	// the criteria time aggregation types.
 	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
-}
-
-// DynamicMetricCriteriaResponseInput is an input type that accepts DynamicMetricCriteriaResponseArgs and DynamicMetricCriteriaResponseOutput values.
-// You can construct a concrete instance of `DynamicMetricCriteriaResponseInput` via:
-//
-//          DynamicMetricCriteriaResponseArgs{...}
-type DynamicMetricCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToDynamicMetricCriteriaResponseOutput() DynamicMetricCriteriaResponseOutput
-	ToDynamicMetricCriteriaResponseOutputWithContext(context.Context) DynamicMetricCriteriaResponseOutput
-}
-
-// Criterion for dynamic threshold.
-type DynamicMetricCriteriaResponseArgs struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
-}
-
-func (DynamicMetricCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicMetricCriteriaResponse)(nil)).Elem()
-}
-
-func (i DynamicMetricCriteriaResponseArgs) ToDynamicMetricCriteriaResponseOutput() DynamicMetricCriteriaResponseOutput {
-	return i.ToDynamicMetricCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i DynamicMetricCriteriaResponseArgs) ToDynamicMetricCriteriaResponseOutputWithContext(ctx context.Context) DynamicMetricCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DynamicMetricCriteriaResponseOutput)
 }
 
 // Criterion for dynamic threshold.
@@ -4108,67 +2256,11 @@ func (i DynamicThresholdFailingPeriodsArgs) ToDynamicThresholdFailingPeriodsOutp
 }
 
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
-type DynamicThresholdFailingPeriodsOutput struct{ *pulumi.OutputState }
-
-func (DynamicThresholdFailingPeriodsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicThresholdFailingPeriods)(nil)).Elem()
-}
-
-func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOutput() DynamicThresholdFailingPeriodsOutput {
-	return o
-}
-
-func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsOutput {
-	return o
-}
-
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-func (o DynamicThresholdFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
-	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
-}
-
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
-func (o DynamicThresholdFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
-	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
-}
-
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsResponse struct {
 	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
 	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
 	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
 	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
-}
-
-// DynamicThresholdFailingPeriodsResponseInput is an input type that accepts DynamicThresholdFailingPeriodsResponseArgs and DynamicThresholdFailingPeriodsResponseOutput values.
-// You can construct a concrete instance of `DynamicThresholdFailingPeriodsResponseInput` via:
-//
-//          DynamicThresholdFailingPeriodsResponseArgs{...}
-type DynamicThresholdFailingPeriodsResponseInput interface {
-	pulumi.Input
-
-	ToDynamicThresholdFailingPeriodsResponseOutput() DynamicThresholdFailingPeriodsResponseOutput
-	ToDynamicThresholdFailingPeriodsResponseOutputWithContext(context.Context) DynamicThresholdFailingPeriodsResponseOutput
-}
-
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
-type DynamicThresholdFailingPeriodsResponseArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
-	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
-}
-
-func (DynamicThresholdFailingPeriodsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicThresholdFailingPeriodsResponse)(nil)).Elem()
-}
-
-func (i DynamicThresholdFailingPeriodsResponseArgs) ToDynamicThresholdFailingPeriodsResponseOutput() DynamicThresholdFailingPeriodsResponseOutput {
-	return i.ToDynamicThresholdFailingPeriodsResponseOutputWithContext(context.Background())
-}
-
-func (i DynamicThresholdFailingPeriodsResponseArgs) ToDynamicThresholdFailingPeriodsResponseOutputWithContext(ctx context.Context) DynamicThresholdFailingPeriodsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DynamicThresholdFailingPeriodsResponseOutput)
 }
 
 // The minimum number of violations required within the selected lookback time window required to raise an alert.
@@ -4281,94 +2373,6 @@ func (i *emailNotificationPtrType) ToEmailNotificationPtrOutputWithContext(ctx c
 }
 
 // Email notification of an autoscale event.
-type EmailNotificationOutput struct{ *pulumi.OutputState }
-
-func (EmailNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailNotification)(nil)).Elem()
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationOutput() EmailNotificationOutput {
-	return o
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationOutputWithContext(ctx context.Context) EmailNotificationOutput {
-	return o
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationPtrOutput() EmailNotificationPtrOutput {
-	return o.ToEmailNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o EmailNotificationOutput) ToEmailNotificationPtrOutputWithContext(ctx context.Context) EmailNotificationPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *EmailNotification {
-		return &v
-	}).(EmailNotificationPtrOutput)
-}
-
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-func (o EmailNotificationOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EmailNotification) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
-}
-
-// a value indicating whether to send email to subscription administrator.
-func (o EmailNotificationOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionAdministrator }).(pulumi.BoolPtrOutput)
-}
-
-// a value indicating whether to send email to subscription co-administrators.
-func (o EmailNotificationOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EmailNotification) *bool { return v.SendToSubscriptionCoAdministrators }).(pulumi.BoolPtrOutput)
-}
-
-type EmailNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (EmailNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailNotification)(nil)).Elem()
-}
-
-func (o EmailNotificationPtrOutput) ToEmailNotificationPtrOutput() EmailNotificationPtrOutput {
-	return o
-}
-
-func (o EmailNotificationPtrOutput) ToEmailNotificationPtrOutputWithContext(ctx context.Context) EmailNotificationPtrOutput {
-	return o
-}
-
-func (o EmailNotificationPtrOutput) Elem() EmailNotificationOutput {
-	return o.ApplyT(func(v *EmailNotification) EmailNotification { return *v }).(EmailNotificationOutput)
-}
-
-// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-func (o EmailNotificationPtrOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EmailNotification) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomEmails
-	}).(pulumi.StringArrayOutput)
-}
-
-// a value indicating whether to send email to subscription administrator.
-func (o EmailNotificationPtrOutput) SendToSubscriptionAdministrator() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EmailNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SendToSubscriptionAdministrator
-	}).(pulumi.BoolPtrOutput)
-}
-
-// a value indicating whether to send email to subscription co-administrators.
-func (o EmailNotificationPtrOutput) SendToSubscriptionCoAdministrators() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EmailNotification) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SendToSubscriptionCoAdministrators
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Email notification of an autoscale event.
 type EmailNotificationResponse struct {
 	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
 	CustomEmails []string `pulumi:"customEmails"`
@@ -4376,80 +2380,6 @@ type EmailNotificationResponse struct {
 	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
 	// a value indicating whether to send email to subscription co-administrators.
 	SendToSubscriptionCoAdministrators *bool `pulumi:"sendToSubscriptionCoAdministrators"`
-}
-
-// EmailNotificationResponseInput is an input type that accepts EmailNotificationResponseArgs and EmailNotificationResponseOutput values.
-// You can construct a concrete instance of `EmailNotificationResponseInput` via:
-//
-//          EmailNotificationResponseArgs{...}
-type EmailNotificationResponseInput interface {
-	pulumi.Input
-
-	ToEmailNotificationResponseOutput() EmailNotificationResponseOutput
-	ToEmailNotificationResponseOutputWithContext(context.Context) EmailNotificationResponseOutput
-}
-
-// Email notification of an autoscale event.
-type EmailNotificationResponseArgs struct {
-	// the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// a value indicating whether to send email to subscription administrator.
-	SendToSubscriptionAdministrator pulumi.BoolPtrInput `pulumi:"sendToSubscriptionAdministrator"`
-	// a value indicating whether to send email to subscription co-administrators.
-	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
-}
-
-func (EmailNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailNotificationResponse)(nil)).Elem()
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponseOutput() EmailNotificationResponseOutput {
-	return i.ToEmailNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponseOutputWithContext(ctx context.Context) EmailNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponseOutput)
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput {
-	return i.ToEmailNotificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EmailNotificationResponseArgs) ToEmailNotificationResponsePtrOutputWithContext(ctx context.Context) EmailNotificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponseOutput).ToEmailNotificationResponsePtrOutputWithContext(ctx)
-}
-
-// EmailNotificationResponsePtrInput is an input type that accepts EmailNotificationResponseArgs, EmailNotificationResponsePtr and EmailNotificationResponsePtrOutput values.
-// You can construct a concrete instance of `EmailNotificationResponsePtrInput` via:
-//
-//          EmailNotificationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EmailNotificationResponsePtrInput interface {
-	pulumi.Input
-
-	ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput
-	ToEmailNotificationResponsePtrOutputWithContext(context.Context) EmailNotificationResponsePtrOutput
-}
-
-type emailNotificationResponsePtrType EmailNotificationResponseArgs
-
-func EmailNotificationResponsePtr(v *EmailNotificationResponseArgs) EmailNotificationResponsePtrInput {
-	return (*emailNotificationResponsePtrType)(v)
-}
-
-func (*emailNotificationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmailNotificationResponse)(nil)).Elem()
-}
-
-func (i *emailNotificationResponsePtrType) ToEmailNotificationResponsePtrOutput() EmailNotificationResponsePtrOutput {
-	return i.ToEmailNotificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *emailNotificationResponsePtrType) ToEmailNotificationResponsePtrOutputWithContext(ctx context.Context) EmailNotificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailNotificationResponsePtrOutput)
 }
 
 // Email notification of an autoscale event.
@@ -4609,56 +2539,6 @@ func (i EmailReceiverArray) ToEmailReceiverArrayOutputWithContext(ctx context.Co
 }
 
 // An email receiver.
-type EmailReceiverOutput struct{ *pulumi.OutputState }
-
-func (EmailReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailReceiver)(nil)).Elem()
-}
-
-func (o EmailReceiverOutput) ToEmailReceiverOutput() EmailReceiverOutput {
-	return o
-}
-
-func (o EmailReceiverOutput) ToEmailReceiverOutputWithContext(ctx context.Context) EmailReceiverOutput {
-	return o
-}
-
-// The email address of this receiver.
-func (o EmailReceiverOutput) EmailAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v EmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
-}
-
-// The name of the email receiver. Names must be unique across all receivers within an action group.
-func (o EmailReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EmailReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o EmailReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v EmailReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-type EmailReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (EmailReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailReceiver)(nil)).Elem()
-}
-
-func (o EmailReceiverArrayOutput) ToEmailReceiverArrayOutput() EmailReceiverArrayOutput {
-	return o
-}
-
-func (o EmailReceiverArrayOutput) ToEmailReceiverArrayOutputWithContext(ctx context.Context) EmailReceiverArrayOutput {
-	return o
-}
-
-func (o EmailReceiverArrayOutput) Index(i pulumi.IntInput) EmailReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailReceiver {
-		return vs[0].([]EmailReceiver)[vs[1].(int)]
-	}).(EmailReceiverOutput)
-}
-
-// An email receiver.
 type EmailReceiverResponse struct {
 	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
@@ -4668,66 +2548,6 @@ type EmailReceiverResponse struct {
 	Status string `pulumi:"status"`
 	// Indicates whether to use common alert schema.
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
-}
-
-// EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
-// You can construct a concrete instance of `EmailReceiverResponseInput` via:
-//
-//          EmailReceiverResponseArgs{...}
-type EmailReceiverResponseInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseOutput() EmailReceiverResponseOutput
-	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
-}
-
-// An email receiver.
-type EmailReceiverResponseArgs struct {
-	// The email address of this receiver.
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (EmailReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutput() EmailReceiverResponseOutput {
-	return i.ToEmailReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutputWithContext(ctx context.Context) EmailReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseOutput)
-}
-
-// EmailReceiverResponseArrayInput is an input type that accepts EmailReceiverResponseArray and EmailReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `EmailReceiverResponseArrayInput` via:
-//
-//          EmailReceiverResponseArray{ EmailReceiverResponseArgs{...} }
-type EmailReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput
-	ToEmailReceiverResponseArrayOutputWithContext(context.Context) EmailReceiverResponseArrayOutput
-}
-
-type EmailReceiverResponseArray []EmailReceiverResponseInput
-
-func (EmailReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput {
-	return i.ToEmailReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContext(ctx context.Context) EmailReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
 }
 
 // An email receiver.
@@ -4862,66 +2682,6 @@ func (i ItsmReceiverArray) ToItsmReceiverArrayOutputWithContext(ctx context.Cont
 }
 
 // An Itsm receiver.
-type ItsmReceiverOutput struct{ *pulumi.OutputState }
-
-func (ItsmReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ItsmReceiver)(nil)).Elem()
-}
-
-func (o ItsmReceiverOutput) ToItsmReceiverOutput() ItsmReceiverOutput {
-	return o
-}
-
-func (o ItsmReceiverOutput) ToItsmReceiverOutputWithContext(ctx context.Context) ItsmReceiverOutput {
-	return o
-}
-
-// Unique identification of ITSM connection among multiple defined in above workspace.
-func (o ItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
-}
-
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-func (o ItsmReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-func (o ItsmReceiverOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v ItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
-}
-
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-func (o ItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
-	return o.ApplyT(func(v ItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
-}
-
-// OMS LA instance identifier.
-func (o ItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v ItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
-}
-
-type ItsmReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (ItsmReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ItsmReceiver)(nil)).Elem()
-}
-
-func (o ItsmReceiverArrayOutput) ToItsmReceiverArrayOutput() ItsmReceiverArrayOutput {
-	return o
-}
-
-func (o ItsmReceiverArrayOutput) ToItsmReceiverArrayOutputWithContext(ctx context.Context) ItsmReceiverArrayOutput {
-	return o
-}
-
-func (o ItsmReceiverArrayOutput) Index(i pulumi.IntInput) ItsmReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ItsmReceiver {
-		return vs[0].([]ItsmReceiver)[vs[1].(int)]
-	}).(ItsmReceiverOutput)
-}
-
-// An Itsm receiver.
 type ItsmReceiverResponse struct {
 	// Unique identification of ITSM connection among multiple defined in above workspace.
 	ConnectionId string `pulumi:"connectionId"`
@@ -4933,68 +2693,6 @@ type ItsmReceiverResponse struct {
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
 	// OMS LA instance identifier.
 	WorkspaceId string `pulumi:"workspaceId"`
-}
-
-// ItsmReceiverResponseInput is an input type that accepts ItsmReceiverResponseArgs and ItsmReceiverResponseOutput values.
-// You can construct a concrete instance of `ItsmReceiverResponseInput` via:
-//
-//          ItsmReceiverResponseArgs{...}
-type ItsmReceiverResponseInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput
-	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
-}
-
-// An Itsm receiver.
-type ItsmReceiverResponseArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
-}
-
-func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput {
-	return i.ToItsmReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutputWithContext(ctx context.Context) ItsmReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseOutput)
-}
-
-// ItsmReceiverResponseArrayInput is an input type that accepts ItsmReceiverResponseArray and ItsmReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `ItsmReceiverResponseArrayInput` via:
-//
-//          ItsmReceiverResponseArray{ ItsmReceiverResponseArgs{...} }
-type ItsmReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput
-	ToItsmReceiverResponseArrayOutputWithContext(context.Context) ItsmReceiverResponseArrayOutput
-}
-
-type ItsmReceiverResponseArray []ItsmReceiverResponseInput
-
-func (ItsmReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput {
-	return i.ToItsmReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(ctx context.Context) ItsmReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
 }
 
 // An Itsm receiver.
@@ -5105,41 +2803,6 @@ func (i LocationThresholdRuleConditionArgs) ToLocationThresholdRuleConditionOutp
 }
 
 // A rule condition based on a certain number of locations failing.
-type LocationThresholdRuleConditionOutput struct{ *pulumi.OutputState }
-
-func (LocationThresholdRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationThresholdRuleCondition)(nil)).Elem()
-}
-
-func (o LocationThresholdRuleConditionOutput) ToLocationThresholdRuleConditionOutput() LocationThresholdRuleConditionOutput {
-	return o
-}
-
-func (o LocationThresholdRuleConditionOutput) ToLocationThresholdRuleConditionOutputWithContext(ctx context.Context) LocationThresholdRuleConditionOutput {
-	return o
-}
-
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o LocationThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
-	return o.ApplyT(func(v LocationThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
-}
-
-// the number of locations that must fail to activate the alert.
-func (o LocationThresholdRuleConditionOutput) FailedLocationCount() pulumi.IntOutput {
-	return o.ApplyT(func(v LocationThresholdRuleCondition) int { return v.FailedLocationCount }).(pulumi.IntOutput)
-}
-
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o LocationThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v LocationThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-func (o LocationThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
-}
-
-// A rule condition based on a certain number of locations failing.
 type LocationThresholdRuleConditionResponse struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
@@ -5149,41 +2812,6 @@ type LocationThresholdRuleConditionResponse struct {
 	OdataType string `pulumi:"odataType"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
-}
-
-// LocationThresholdRuleConditionResponseInput is an input type that accepts LocationThresholdRuleConditionResponseArgs and LocationThresholdRuleConditionResponseOutput values.
-// You can construct a concrete instance of `LocationThresholdRuleConditionResponseInput` via:
-//
-//          LocationThresholdRuleConditionResponseArgs{...}
-type LocationThresholdRuleConditionResponseInput interface {
-	pulumi.Input
-
-	ToLocationThresholdRuleConditionResponseOutput() LocationThresholdRuleConditionResponseOutput
-	ToLocationThresholdRuleConditionResponseOutputWithContext(context.Context) LocationThresholdRuleConditionResponseOutput
-}
-
-// A rule condition based on a certain number of locations failing.
-type LocationThresholdRuleConditionResponseArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// the number of locations that must fail to activate the alert.
-	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
-}
-
-func (LocationThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocationThresholdRuleConditionResponse)(nil)).Elem()
-}
-
-func (i LocationThresholdRuleConditionResponseArgs) ToLocationThresholdRuleConditionResponseOutput() LocationThresholdRuleConditionResponseOutput {
-	return i.ToLocationThresholdRuleConditionResponseOutputWithContext(context.Background())
-}
-
-func (i LocationThresholdRuleConditionResponseArgs) ToLocationThresholdRuleConditionResponseOutputWithContext(ctx context.Context) LocationThresholdRuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocationThresholdRuleConditionResponseOutput)
 }
 
 // A rule condition based on a certain number of locations failing.
@@ -5310,109 +2938,6 @@ func (i *logMetricTriggerPtrType) ToLogMetricTriggerPtrOutputWithContext(ctx con
 }
 
 // A log metrics trigger descriptor.
-type LogMetricTriggerOutput struct{ *pulumi.OutputState }
-
-func (LogMetricTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogMetricTrigger)(nil)).Elem()
-}
-
-func (o LogMetricTriggerOutput) ToLogMetricTriggerOutput() LogMetricTriggerOutput {
-	return o
-}
-
-func (o LogMetricTriggerOutput) ToLogMetricTriggerOutputWithContext(ctx context.Context) LogMetricTriggerOutput {
-	return o
-}
-
-func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
-	return o.ToLogMetricTriggerPtrOutputWithContext(context.Background())
-}
-
-func (o LogMetricTriggerOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *LogMetricTrigger {
-		return &v
-	}).(LogMetricTriggerPtrOutput)
-}
-
-// Evaluation of metric on a particular column
-func (o LogMetricTriggerOutput) MetricColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
-}
-
-// Metric Trigger Type - 'Consecutive' or 'Total'
-func (o LogMetricTriggerOutput) MetricTriggerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *string { return v.MetricTriggerType }).(pulumi.StringPtrOutput)
-}
-
-// The threshold of the metric trigger.
-func (o LogMetricTriggerOutput) Threshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
-}
-
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-func (o LogMetricTriggerOutput) ThresholdOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogMetricTrigger) *string { return v.ThresholdOperator }).(pulumi.StringPtrOutput)
-}
-
-type LogMetricTriggerPtrOutput struct{ *pulumi.OutputState }
-
-func (LogMetricTriggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricTrigger)(nil)).Elem()
-}
-
-func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutput() LogMetricTriggerPtrOutput {
-	return o
-}
-
-func (o LogMetricTriggerPtrOutput) ToLogMetricTriggerPtrOutputWithContext(ctx context.Context) LogMetricTriggerPtrOutput {
-	return o
-}
-
-func (o LogMetricTriggerPtrOutput) Elem() LogMetricTriggerOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) LogMetricTrigger { return *v }).(LogMetricTriggerOutput)
-}
-
-// Evaluation of metric on a particular column
-func (o LogMetricTriggerPtrOutput) MetricColumn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MetricColumn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Metric Trigger Type - 'Consecutive' or 'Total'
-func (o LogMetricTriggerPtrOutput) MetricTriggerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MetricTriggerType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The threshold of the metric trigger.
-func (o LogMetricTriggerPtrOutput) Threshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Threshold
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-func (o LogMetricTriggerPtrOutput) ThresholdOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricTrigger) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThresholdOperator
-	}).(pulumi.StringPtrOutput)
-}
-
-// A log metrics trigger descriptor.
 type LogMetricTriggerResponse struct {
 	// Evaluation of metric on a particular column
 	MetricColumn *string `pulumi:"metricColumn"`
@@ -5422,82 +2947,6 @@ type LogMetricTriggerResponse struct {
 	Threshold *float64 `pulumi:"threshold"`
 	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
 	ThresholdOperator *string `pulumi:"thresholdOperator"`
-}
-
-// LogMetricTriggerResponseInput is an input type that accepts LogMetricTriggerResponseArgs and LogMetricTriggerResponseOutput values.
-// You can construct a concrete instance of `LogMetricTriggerResponseInput` via:
-//
-//          LogMetricTriggerResponseArgs{...}
-type LogMetricTriggerResponseInput interface {
-	pulumi.Input
-
-	ToLogMetricTriggerResponseOutput() LogMetricTriggerResponseOutput
-	ToLogMetricTriggerResponseOutputWithContext(context.Context) LogMetricTriggerResponseOutput
-}
-
-// A log metrics trigger descriptor.
-type LogMetricTriggerResponseArgs struct {
-	// Evaluation of metric on a particular column
-	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
-	// Metric Trigger Type - 'Consecutive' or 'Total'
-	MetricTriggerType pulumi.StringPtrInput `pulumi:"metricTriggerType"`
-	// The threshold of the metric trigger.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
-	ThresholdOperator pulumi.StringPtrInput `pulumi:"thresholdOperator"`
-}
-
-func (LogMetricTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogMetricTriggerResponse)(nil)).Elem()
-}
-
-func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponseOutput() LogMetricTriggerResponseOutput {
-	return i.ToLogMetricTriggerResponseOutputWithContext(context.Background())
-}
-
-func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponseOutputWithContext(ctx context.Context) LogMetricTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponseOutput)
-}
-
-func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
-	return i.ToLogMetricTriggerResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LogMetricTriggerResponseArgs) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponseOutput).ToLogMetricTriggerResponsePtrOutputWithContext(ctx)
-}
-
-// LogMetricTriggerResponsePtrInput is an input type that accepts LogMetricTriggerResponseArgs, LogMetricTriggerResponsePtr and LogMetricTriggerResponsePtrOutput values.
-// You can construct a concrete instance of `LogMetricTriggerResponsePtrInput` via:
-//
-//          LogMetricTriggerResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LogMetricTriggerResponsePtrInput interface {
-	pulumi.Input
-
-	ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput
-	ToLogMetricTriggerResponsePtrOutputWithContext(context.Context) LogMetricTriggerResponsePtrOutput
-}
-
-type logMetricTriggerResponsePtrType LogMetricTriggerResponseArgs
-
-func LogMetricTriggerResponsePtr(v *LogMetricTriggerResponseArgs) LogMetricTriggerResponsePtrInput {
-	return (*logMetricTriggerResponsePtrType)(v)
-}
-
-func (*logMetricTriggerResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricTriggerResponse)(nil)).Elem()
-}
-
-func (i *logMetricTriggerResponsePtrType) ToLogMetricTriggerResponsePtrOutput() LogMetricTriggerResponsePtrOutput {
-	return i.ToLogMetricTriggerResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *logMetricTriggerResponsePtrType) ToLogMetricTriggerResponsePtrOutputWithContext(ctx context.Context) LogMetricTriggerResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricTriggerResponsePtrOutput)
 }
 
 // A log metrics trigger descriptor.
@@ -5643,67 +3092,11 @@ func (i LogToMetricActionArgs) ToLogToMetricActionOutputWithContext(ctx context.
 }
 
 // Specify action need to be taken when rule type is converting log to metric
-type LogToMetricActionOutput struct{ *pulumi.OutputState }
-
-func (LogToMetricActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogToMetricAction)(nil)).Elem()
-}
-
-func (o LogToMetricActionOutput) ToLogToMetricActionOutput() LogToMetricActionOutput {
-	return o
-}
-
-func (o LogToMetricActionOutput) ToLogToMetricActionOutputWithContext(ctx context.Context) LogToMetricActionOutput {
-	return o
-}
-
-// Criteria of Metric
-func (o LogToMetricActionOutput) Criteria() CriteriaArrayOutput {
-	return o.ApplyT(func(v LogToMetricAction) []Criteria { return v.Criteria }).(CriteriaArrayOutput)
-}
-
-// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-func (o LogToMetricActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v LogToMetricAction) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Specify action need to be taken when rule type is converting log to metric
 type LogToMetricActionResponse struct {
 	// Criteria of Metric
 	Criteria []CriteriaResponse `pulumi:"criteria"`
 	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
 	OdataType string `pulumi:"odataType"`
-}
-
-// LogToMetricActionResponseInput is an input type that accepts LogToMetricActionResponseArgs and LogToMetricActionResponseOutput values.
-// You can construct a concrete instance of `LogToMetricActionResponseInput` via:
-//
-//          LogToMetricActionResponseArgs{...}
-type LogToMetricActionResponseInput interface {
-	pulumi.Input
-
-	ToLogToMetricActionResponseOutput() LogToMetricActionResponseOutput
-	ToLogToMetricActionResponseOutputWithContext(context.Context) LogToMetricActionResponseOutput
-}
-
-// Specify action need to be taken when rule type is converting log to metric
-type LogToMetricActionResponseArgs struct {
-	// Criteria of Metric
-	Criteria CriteriaResponseArrayInput `pulumi:"criteria"`
-	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-}
-
-func (LogToMetricActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogToMetricActionResponse)(nil)).Elem()
-}
-
-func (i LogToMetricActionResponseArgs) ToLogToMetricActionResponseOutput() LogToMetricActionResponseOutput {
-	return i.ToLogToMetricActionResponseOutputWithContext(context.Background())
-}
-
-func (i LogToMetricActionResponseArgs) ToLogToMetricActionResponseOutputWithContext(ctx context.Context) LogToMetricActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogToMetricActionResponseOutput)
 }
 
 // Specify action need to be taken when rule type is converting log to metric
@@ -5804,61 +3197,6 @@ func (i LogicAppReceiverArray) ToLogicAppReceiverArrayOutputWithContext(ctx cont
 }
 
 // A logic app receiver.
-type LogicAppReceiverOutput struct{ *pulumi.OutputState }
-
-func (LogicAppReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogicAppReceiver)(nil)).Elem()
-}
-
-func (o LogicAppReceiverOutput) ToLogicAppReceiverOutput() LogicAppReceiverOutput {
-	return o
-}
-
-func (o LogicAppReceiverOutput) ToLogicAppReceiverOutputWithContext(ctx context.Context) LogicAppReceiverOutput {
-	return o
-}
-
-// The callback url where http request sent to.
-func (o LogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
-}
-
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-func (o LogicAppReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The azure resource id of the logic app receiver.
-func (o LogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o LogicAppReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v LogicAppReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-type LogicAppReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (LogicAppReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogicAppReceiver)(nil)).Elem()
-}
-
-func (o LogicAppReceiverArrayOutput) ToLogicAppReceiverArrayOutput() LogicAppReceiverArrayOutput {
-	return o
-}
-
-func (o LogicAppReceiverArrayOutput) ToLogicAppReceiverArrayOutputWithContext(ctx context.Context) LogicAppReceiverArrayOutput {
-	return o
-}
-
-func (o LogicAppReceiverArrayOutput) Index(i pulumi.IntInput) LogicAppReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogicAppReceiver {
-		return vs[0].([]LogicAppReceiver)[vs[1].(int)]
-	}).(LogicAppReceiverOutput)
-}
-
-// A logic app receiver.
 type LogicAppReceiverResponse struct {
 	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
@@ -5868,66 +3206,6 @@ type LogicAppReceiverResponse struct {
 	ResourceId string `pulumi:"resourceId"`
 	// Indicates whether to use common alert schema.
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
-}
-
-// LogicAppReceiverResponseInput is an input type that accepts LogicAppReceiverResponseArgs and LogicAppReceiverResponseOutput values.
-// You can construct a concrete instance of `LogicAppReceiverResponseInput` via:
-//
-//          LogicAppReceiverResponseArgs{...}
-type LogicAppReceiverResponseInput interface {
-	pulumi.Input
-
-	ToLogicAppReceiverResponseOutput() LogicAppReceiverResponseOutput
-	ToLogicAppReceiverResponseOutputWithContext(context.Context) LogicAppReceiverResponseOutput
-}
-
-// A logic app receiver.
-type LogicAppReceiverResponseArgs struct {
-	// The callback url where http request sent to.
-	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (LogicAppReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogicAppReceiverResponse)(nil)).Elem()
-}
-
-func (i LogicAppReceiverResponseArgs) ToLogicAppReceiverResponseOutput() LogicAppReceiverResponseOutput {
-	return i.ToLogicAppReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i LogicAppReceiverResponseArgs) ToLogicAppReceiverResponseOutputWithContext(ctx context.Context) LogicAppReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseOutput)
-}
-
-// LogicAppReceiverResponseArrayInput is an input type that accepts LogicAppReceiverResponseArray and LogicAppReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `LogicAppReceiverResponseArrayInput` via:
-//
-//          LogicAppReceiverResponseArray{ LogicAppReceiverResponseArgs{...} }
-type LogicAppReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToLogicAppReceiverResponseArrayOutput() LogicAppReceiverResponseArrayOutput
-	ToLogicAppReceiverResponseArrayOutputWithContext(context.Context) LogicAppReceiverResponseArrayOutput
-}
-
-type LogicAppReceiverResponseArray []LogicAppReceiverResponseInput
-
-func (LogicAppReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogicAppReceiverResponse)(nil)).Elem()
-}
-
-func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutput() LogicAppReceiverResponseArrayOutput {
-	return i.ToLogicAppReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutputWithContext(ctx context.Context) LogicAppReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseArrayOutput)
 }
 
 // A logic app receiver.
@@ -6070,94 +3348,6 @@ func (i *managementEventAggregationConditionPtrType) ToManagementEventAggregatio
 }
 
 // How the data that is collected should be combined over time.
-type ManagementEventAggregationConditionOutput struct{ *pulumi.OutputState }
-
-func (ManagementEventAggregationConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementEventAggregationCondition)(nil)).Elem()
-}
-
-func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionOutput() ManagementEventAggregationConditionOutput {
-	return o
-}
-
-func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionOutputWithContext(ctx context.Context) ManagementEventAggregationConditionOutput {
-	return o
-}
-
-func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
-	return o.ToManagementEventAggregationConditionPtrOutputWithContext(context.Background())
-}
-
-func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
-		return &v
-	}).(ManagementEventAggregationConditionPtrOutput)
-}
-
-// the condition operator.
-func (o ManagementEventAggregationConditionOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
-}
-
-// The threshold value that activates the alert.
-func (o ManagementEventAggregationConditionOutput) Threshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
-}
-
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-func (o ManagementEventAggregationConditionOutput) WindowSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
-}
-
-type ManagementEventAggregationConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagementEventAggregationConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementEventAggregationCondition)(nil)).Elem()
-}
-
-func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregationConditionPtrOutput() ManagementEventAggregationConditionPtrOutput {
-	return o
-}
-
-func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
-	return o
-}
-
-func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggregationConditionOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition { return *v }).(ManagementEventAggregationConditionOutput)
-}
-
-// the condition operator.
-func (o ManagementEventAggregationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Operator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The threshold value that activates the alert.
-func (o ManagementEventAggregationConditionPtrOutput) Threshold() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Threshold
-	}).(pulumi.Float64PtrOutput)
-}
-
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-func (o ManagementEventAggregationConditionPtrOutput) WindowSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WindowSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionResponse struct {
 	// the condition operator.
 	Operator *string `pulumi:"operator"`
@@ -6165,80 +3355,6 @@ type ManagementEventAggregationConditionResponse struct {
 	Threshold *float64 `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
-}
-
-// ManagementEventAggregationConditionResponseInput is an input type that accepts ManagementEventAggregationConditionResponseArgs and ManagementEventAggregationConditionResponseOutput values.
-// You can construct a concrete instance of `ManagementEventAggregationConditionResponseInput` via:
-//
-//          ManagementEventAggregationConditionResponseArgs{...}
-type ManagementEventAggregationConditionResponseInput interface {
-	pulumi.Input
-
-	ToManagementEventAggregationConditionResponseOutput() ManagementEventAggregationConditionResponseOutput
-	ToManagementEventAggregationConditionResponseOutputWithContext(context.Context) ManagementEventAggregationConditionResponseOutput
-}
-
-// How the data that is collected should be combined over time.
-type ManagementEventAggregationConditionResponseArgs struct {
-	// the condition operator.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The threshold value that activates the alert.
-	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
-}
-
-func (ManagementEventAggregationConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementEventAggregationConditionResponse)(nil)).Elem()
-}
-
-func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponseOutput() ManagementEventAggregationConditionResponseOutput {
-	return i.ToManagementEventAggregationConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponseOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponseOutput)
-}
-
-func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
-	return i.ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagementEventAggregationConditionResponseArgs) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponseOutput).ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx)
-}
-
-// ManagementEventAggregationConditionResponsePtrInput is an input type that accepts ManagementEventAggregationConditionResponseArgs, ManagementEventAggregationConditionResponsePtr and ManagementEventAggregationConditionResponsePtrOutput values.
-// You can construct a concrete instance of `ManagementEventAggregationConditionResponsePtrInput` via:
-//
-//          ManagementEventAggregationConditionResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagementEventAggregationConditionResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput
-	ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Context) ManagementEventAggregationConditionResponsePtrOutput
-}
-
-type managementEventAggregationConditionResponsePtrType ManagementEventAggregationConditionResponseArgs
-
-func ManagementEventAggregationConditionResponsePtr(v *ManagementEventAggregationConditionResponseArgs) ManagementEventAggregationConditionResponsePtrInput {
-	return (*managementEventAggregationConditionResponsePtrType)(v)
-}
-
-func (*managementEventAggregationConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagementEventAggregationConditionResponse)(nil)).Elem()
-}
-
-func (i *managementEventAggregationConditionResponsePtrType) ToManagementEventAggregationConditionResponsePtrOutput() ManagementEventAggregationConditionResponsePtrOutput {
-	return i.ToManagementEventAggregationConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managementEventAggregationConditionResponsePtrType) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventAggregationConditionResponsePtrOutput)
 }
 
 // How the data that is collected should be combined over time.
@@ -6375,36 +3491,6 @@ func (i ManagementEventRuleConditionArgs) ToManagementEventRuleConditionOutputWi
 }
 
 // A management event rule condition.
-type ManagementEventRuleConditionOutput struct{ *pulumi.OutputState }
-
-func (ManagementEventRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementEventRuleCondition)(nil)).Elem()
-}
-
-func (o ManagementEventRuleConditionOutput) ToManagementEventRuleConditionOutput() ManagementEventRuleConditionOutput {
-	return o
-}
-
-func (o ManagementEventRuleConditionOutput) ToManagementEventRuleConditionOutputWithContext(ctx context.Context) ManagementEventRuleConditionOutput {
-	return o
-}
-
-// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
-func (o ManagementEventRuleConditionOutput) Aggregation() ManagementEventAggregationConditionPtrOutput {
-	return o.ApplyT(func(v ManagementEventRuleCondition) *ManagementEventAggregationCondition { return v.Aggregation }).(ManagementEventAggregationConditionPtrOutput)
-}
-
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o ManagementEventRuleConditionOutput) DataSource() pulumi.AnyOutput {
-	return o.ApplyT(func(v ManagementEventRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
-}
-
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o ManagementEventRuleConditionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementEventRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// A management event rule condition.
 type ManagementEventRuleConditionResponse struct {
 	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
 	Aggregation *ManagementEventAggregationConditionResponse `pulumi:"aggregation"`
@@ -6412,39 +3498,6 @@ type ManagementEventRuleConditionResponse struct {
 	DataSource interface{} `pulumi:"dataSource"`
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
 	OdataType string `pulumi:"odataType"`
-}
-
-// ManagementEventRuleConditionResponseInput is an input type that accepts ManagementEventRuleConditionResponseArgs and ManagementEventRuleConditionResponseOutput values.
-// You can construct a concrete instance of `ManagementEventRuleConditionResponseInput` via:
-//
-//          ManagementEventRuleConditionResponseArgs{...}
-type ManagementEventRuleConditionResponseInput interface {
-	pulumi.Input
-
-	ToManagementEventRuleConditionResponseOutput() ManagementEventRuleConditionResponseOutput
-	ToManagementEventRuleConditionResponseOutputWithContext(context.Context) ManagementEventRuleConditionResponseOutput
-}
-
-// A management event rule condition.
-type ManagementEventRuleConditionResponseArgs struct {
-	// How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate.
-	Aggregation ManagementEventAggregationConditionResponsePtrInput `pulumi:"aggregation"`
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-}
-
-func (ManagementEventRuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementEventRuleConditionResponse)(nil)).Elem()
-}
-
-func (i ManagementEventRuleConditionResponseArgs) ToManagementEventRuleConditionResponseOutput() ManagementEventRuleConditionResponseOutput {
-	return i.ToManagementEventRuleConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementEventRuleConditionResponseArgs) ToManagementEventRuleConditionResponseOutputWithContext(ctx context.Context) ManagementEventRuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementEventRuleConditionResponseOutput)
 }
 
 // A management event rule condition.
@@ -6544,112 +3597,11 @@ func (i MetricAlertActionArray) ToMetricAlertActionArrayOutputWithContext(ctx co
 }
 
 // An alert action.
-type MetricAlertActionOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertAction)(nil)).Elem()
-}
-
-func (o MetricAlertActionOutput) ToMetricAlertActionOutput() MetricAlertActionOutput {
-	return o
-}
-
-func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx context.Context) MetricAlertActionOutput {
-	return o
-}
-
-// the id of the action group to use.
-func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricAlertAction) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The properties of a webhook object.
-func (o MetricAlertActionOutput) WebHookProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
-}
-
-type MetricAlertActionArrayOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricAlertAction)(nil)).Elem()
-}
-
-func (o MetricAlertActionArrayOutput) ToMetricAlertActionArrayOutput() MetricAlertActionArrayOutput {
-	return o
-}
-
-func (o MetricAlertActionArrayOutput) ToMetricAlertActionArrayOutputWithContext(ctx context.Context) MetricAlertActionArrayOutput {
-	return o
-}
-
-func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertAction {
-		return vs[0].([]MetricAlertAction)[vs[1].(int)]
-	}).(MetricAlertActionOutput)
-}
-
-// An alert action.
 type MetricAlertActionResponse struct {
 	// the id of the action group to use.
 	ActionGroupId *string `pulumi:"actionGroupId"`
 	// The properties of a webhook object.
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
-}
-
-// MetricAlertActionResponseInput is an input type that accepts MetricAlertActionResponseArgs and MetricAlertActionResponseOutput values.
-// You can construct a concrete instance of `MetricAlertActionResponseInput` via:
-//
-//          MetricAlertActionResponseArgs{...}
-type MetricAlertActionResponseInput interface {
-	pulumi.Input
-
-	ToMetricAlertActionResponseOutput() MetricAlertActionResponseOutput
-	ToMetricAlertActionResponseOutputWithContext(context.Context) MetricAlertActionResponseOutput
-}
-
-// An alert action.
-type MetricAlertActionResponseArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
-	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
-}
-
-func (MetricAlertActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertActionResponse)(nil)).Elem()
-}
-
-func (i MetricAlertActionResponseArgs) ToMetricAlertActionResponseOutput() MetricAlertActionResponseOutput {
-	return i.ToMetricAlertActionResponseOutputWithContext(context.Background())
-}
-
-func (i MetricAlertActionResponseArgs) ToMetricAlertActionResponseOutputWithContext(ctx context.Context) MetricAlertActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionResponseOutput)
-}
-
-// MetricAlertActionResponseArrayInput is an input type that accepts MetricAlertActionResponseArray and MetricAlertActionResponseArrayOutput values.
-// You can construct a concrete instance of `MetricAlertActionResponseArrayInput` via:
-//
-//          MetricAlertActionResponseArray{ MetricAlertActionResponseArgs{...} }
-type MetricAlertActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToMetricAlertActionResponseArrayOutput() MetricAlertActionResponseArrayOutput
-	ToMetricAlertActionResponseArrayOutputWithContext(context.Context) MetricAlertActionResponseArrayOutput
-}
-
-type MetricAlertActionResponseArray []MetricAlertActionResponseInput
-
-func (MetricAlertActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricAlertActionResponse)(nil)).Elem()
-}
-
-func (i MetricAlertActionResponseArray) ToMetricAlertActionResponseArrayOutput() MetricAlertActionResponseArrayOutput {
-	return i.ToMetricAlertActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MetricAlertActionResponseArray) ToMetricAlertActionResponseArrayOutputWithContext(ctx context.Context) MetricAlertActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionResponseArrayOutput)
 }
 
 // An alert action.
@@ -6737,67 +3689,11 @@ func (i MetricAlertMultipleResourceMultipleMetricCriteriaArgs) ToMetricAlertMult
 }
 
 // Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
-type MetricAlertMultipleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutput() MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
-	return o
-}
-
-func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaOutput {
-	return o
-}
-
-// the list of multiple metric criteria for this 'all of' operation.
-func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) AllOf() pulumi.ArrayOutput {
-	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
-}
-
-// specifies the type of the alert criteria.
-func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponse struct {
 	// the list of multiple metric criteria for this 'all of' operation.
 	AllOf []interface{} `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType string `pulumi:"odataType"`
-}
-
-// MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs and MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput values.
-// You can construct a concrete instance of `MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput` via:
-//
-//          MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs{...}
-type MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput() MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput
-	ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput
-}
-
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
-type MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf pulumi.ArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-}
-
-func (MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertMultipleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
-}
-
-func (i MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput() MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
-	return i.ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput)
 }
 
 // Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
@@ -6865,67 +3761,11 @@ func (i MetricAlertSingleResourceMultipleMetricCriteriaArgs) ToMetricAlertSingle
 }
 
 // Specifies the metric alert criteria for a single resource that has multiple metric criteria.
-type MetricAlertSingleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertSingleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaOutput() MetricAlertSingleResourceMultipleMetricCriteriaOutput {
-	return o
-}
-
-func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaOutput {
-	return o
-}
-
-// The list of metric criteria for this 'all of' operation.
-func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) AllOf() MetricCriteriaArrayOutput {
-	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) []MetricCriteria { return v.AllOf }).(MetricCriteriaArrayOutput)
-}
-
-// specifies the type of the alert criteria.
-func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaResponse struct {
 	// The list of metric criteria for this 'all of' operation.
 	AllOf []MetricCriteriaResponse `pulumi:"allOf"`
 	// specifies the type of the alert criteria.
 	OdataType string `pulumi:"odataType"`
-}
-
-// MetricAlertSingleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs and MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput values.
-// You can construct a concrete instance of `MetricAlertSingleResourceMultipleMetricCriteriaResponseInput` via:
-//
-//          MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs{...}
-type MetricAlertSingleResourceMultipleMetricCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutput() MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput
-	ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput
-}
-
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
-type MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf MetricCriteriaResponseArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-}
-
-func (MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertSingleResourceMultipleMetricCriteriaResponse)(nil)).Elem()
-}
-
-func (i MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutput() MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
-	return i.ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput)
 }
 
 // Specifies the metric alert criteria for a single resource that has multiple metric criteria.
@@ -7048,86 +3888,6 @@ func (i MetricCriteriaArray) ToMetricCriteriaArrayOutputWithContext(ctx context.
 }
 
 // Criterion to filter metrics.
-type MetricCriteriaOutput struct{ *pulumi.OutputState }
-
-func (MetricCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCriteria)(nil)).Elem()
-}
-
-func (o MetricCriteriaOutput) ToMetricCriteriaOutput() MetricCriteriaOutput {
-	return o
-}
-
-func (o MetricCriteriaOutput) ToMetricCriteriaOutputWithContext(ctx context.Context) MetricCriteriaOutput {
-	return o
-}
-
-// Specifies the type of threshold criteria
-func (o MetricCriteriaOutput) CriterionType() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
-}
-
-// List of dimension conditions.
-func (o MetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
-	return o.ApplyT(func(v MetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
-}
-
-// Name of the metric.
-func (o MetricCriteriaOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// Namespace of the metric.
-func (o MetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
-}
-
-// Name of the criteria.
-func (o MetricCriteriaOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCriteria) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// the criteria operator.
-func (o MetricCriteriaOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-func (o MetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
-}
-
-// the criteria threshold value that activates the alert.
-func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v MetricCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-// the criteria time aggregation types.
-func (o MetricCriteriaOutput) TimeAggregation() pulumi.MapOutput {
-	return o.ApplyT(func(v MetricCriteria) map[string]interface{} { return v.TimeAggregation }).(pulumi.MapOutput)
-}
-
-type MetricCriteriaArrayOutput struct{ *pulumi.OutputState }
-
-func (MetricCriteriaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricCriteria)(nil)).Elem()
-}
-
-func (o MetricCriteriaArrayOutput) ToMetricCriteriaArrayOutput() MetricCriteriaArrayOutput {
-	return o
-}
-
-func (o MetricCriteriaArrayOutput) ToMetricCriteriaArrayOutputWithContext(ctx context.Context) MetricCriteriaArrayOutput {
-	return o
-}
-
-func (o MetricCriteriaArrayOutput) Index(i pulumi.IntInput) MetricCriteriaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCriteria {
-		return vs[0].([]MetricCriteria)[vs[1].(int)]
-	}).(MetricCriteriaOutput)
-}
-
-// Criterion to filter metrics.
 type MetricCriteriaResponse struct {
 	// Specifies the type of threshold criteria
 	CriterionType string `pulumi:"criterionType"`
@@ -7147,76 +3907,6 @@ type MetricCriteriaResponse struct {
 	Threshold float64 `pulumi:"threshold"`
 	// the criteria time aggregation types.
 	TimeAggregation map[string]interface{} `pulumi:"timeAggregation"`
-}
-
-// MetricCriteriaResponseInput is an input type that accepts MetricCriteriaResponseArgs and MetricCriteriaResponseOutput values.
-// You can construct a concrete instance of `MetricCriteriaResponseInput` via:
-//
-//          MetricCriteriaResponseArgs{...}
-type MetricCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToMetricCriteriaResponseOutput() MetricCriteriaResponseOutput
-	ToMetricCriteriaResponseOutputWithContext(context.Context) MetricCriteriaResponseOutput
-}
-
-// Criterion to filter metrics.
-type MetricCriteriaResponseArgs struct {
-	// Specifies the type of threshold criteria
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the criteria operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.MapInput `pulumi:"timeAggregation"`
-}
-
-func (MetricCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCriteriaResponse)(nil)).Elem()
-}
-
-func (i MetricCriteriaResponseArgs) ToMetricCriteriaResponseOutput() MetricCriteriaResponseOutput {
-	return i.ToMetricCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i MetricCriteriaResponseArgs) ToMetricCriteriaResponseOutputWithContext(ctx context.Context) MetricCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaResponseOutput)
-}
-
-// MetricCriteriaResponseArrayInput is an input type that accepts MetricCriteriaResponseArray and MetricCriteriaResponseArrayOutput values.
-// You can construct a concrete instance of `MetricCriteriaResponseArrayInput` via:
-//
-//          MetricCriteriaResponseArray{ MetricCriteriaResponseArgs{...} }
-type MetricCriteriaResponseArrayInput interface {
-	pulumi.Input
-
-	ToMetricCriteriaResponseArrayOutput() MetricCriteriaResponseArrayOutput
-	ToMetricCriteriaResponseArrayOutputWithContext(context.Context) MetricCriteriaResponseArrayOutput
-}
-
-type MetricCriteriaResponseArray []MetricCriteriaResponseInput
-
-func (MetricCriteriaResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricCriteriaResponse)(nil)).Elem()
-}
-
-func (i MetricCriteriaResponseArray) ToMetricCriteriaResponseArrayOutput() MetricCriteriaResponseArrayOutput {
-	return i.ToMetricCriteriaResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MetricCriteriaResponseArray) ToMetricCriteriaResponseArrayOutputWithContext(ctx context.Context) MetricCriteriaResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaResponseArrayOutput)
 }
 
 // Criterion to filter metrics.
@@ -7368,56 +4058,6 @@ func (i MetricDimensionArray) ToMetricDimensionArrayOutputWithContext(ctx contex
 }
 
 // Specifies a metric dimension.
-type MetricDimensionOutput struct{ *pulumi.OutputState }
-
-func (MetricDimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricDimension)(nil)).Elem()
-}
-
-func (o MetricDimensionOutput) ToMetricDimensionOutput() MetricDimensionOutput {
-	return o
-}
-
-func (o MetricDimensionOutput) ToMetricDimensionOutputWithContext(ctx context.Context) MetricDimensionOutput {
-	return o
-}
-
-// Name of the dimension.
-func (o MetricDimensionOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricDimension) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// the dimension operator. Only 'Include' and 'Exclude' are supported
-func (o MetricDimensionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricDimension) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// list of dimension values.
-func (o MetricDimensionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v MetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type MetricDimensionArrayOutput struct{ *pulumi.OutputState }
-
-func (MetricDimensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricDimension)(nil)).Elem()
-}
-
-func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutput() MetricDimensionArrayOutput {
-	return o
-}
-
-func (o MetricDimensionArrayOutput) ToMetricDimensionArrayOutputWithContext(ctx context.Context) MetricDimensionArrayOutput {
-	return o
-}
-
-func (o MetricDimensionArrayOutput) Index(i pulumi.IntInput) MetricDimensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricDimension {
-		return vs[0].([]MetricDimension)[vs[1].(int)]
-	}).(MetricDimensionOutput)
-}
-
-// Specifies a metric dimension.
 type MetricDimensionResponse struct {
 	// Name of the dimension.
 	Name string `pulumi:"name"`
@@ -7425,64 +4065,6 @@ type MetricDimensionResponse struct {
 	Operator string `pulumi:"operator"`
 	// list of dimension values.
 	Values []string `pulumi:"values"`
-}
-
-// MetricDimensionResponseInput is an input type that accepts MetricDimensionResponseArgs and MetricDimensionResponseOutput values.
-// You can construct a concrete instance of `MetricDimensionResponseInput` via:
-//
-//          MetricDimensionResponseArgs{...}
-type MetricDimensionResponseInput interface {
-	pulumi.Input
-
-	ToMetricDimensionResponseOutput() MetricDimensionResponseOutput
-	ToMetricDimensionResponseOutputWithContext(context.Context) MetricDimensionResponseOutput
-}
-
-// Specifies a metric dimension.
-type MetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (MetricDimensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricDimensionResponse)(nil)).Elem()
-}
-
-func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutput() MetricDimensionResponseOutput {
-	return i.ToMetricDimensionResponseOutputWithContext(context.Background())
-}
-
-func (i MetricDimensionResponseArgs) ToMetricDimensionResponseOutputWithContext(ctx context.Context) MetricDimensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseOutput)
-}
-
-// MetricDimensionResponseArrayInput is an input type that accepts MetricDimensionResponseArray and MetricDimensionResponseArrayOutput values.
-// You can construct a concrete instance of `MetricDimensionResponseArrayInput` via:
-//
-//          MetricDimensionResponseArray{ MetricDimensionResponseArgs{...} }
-type MetricDimensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput
-	ToMetricDimensionResponseArrayOutputWithContext(context.Context) MetricDimensionResponseArrayOutput
-}
-
-type MetricDimensionResponseArray []MetricDimensionResponseInput
-
-func (MetricDimensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MetricDimensionResponse)(nil)).Elem()
-}
-
-func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutput() MetricDimensionResponseArrayOutput {
-	return i.ToMetricDimensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutputWithContext(ctx context.Context) MetricDimensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseArrayOutput)
 }
 
 // Specifies a metric dimension.
@@ -7607,71 +4189,6 @@ func (i MetricTriggerArgs) ToMetricTriggerOutputWithContext(ctx context.Context)
 }
 
 // The trigger that results in a scaling action.
-type MetricTriggerOutput struct{ *pulumi.OutputState }
-
-func (MetricTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTrigger)(nil)).Elem()
-}
-
-func (o MetricTriggerOutput) ToMetricTriggerOutput() MetricTriggerOutput {
-	return o
-}
-
-func (o MetricTriggerOutput) ToMetricTriggerOutputWithContext(ctx context.Context) MetricTriggerOutput {
-	return o
-}
-
-// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-func (o MetricTriggerOutput) Dimensions() ScaleRuleMetricDimensionArrayOutput {
-	return o.ApplyT(func(v MetricTrigger) []ScaleRuleMetricDimension { return v.Dimensions }).(ScaleRuleMetricDimensionArrayOutput)
-}
-
-// the name of the metric that defines what the rule monitors.
-func (o MetricTriggerOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
-}
-
-// the namespace of the metric that defines what the rule monitors.
-func (o MetricTriggerOutput) MetricNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricTrigger) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
-}
-
-// the resource identifier of the resource the rule monitors.
-func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.MetricResourceUri }).(pulumi.StringOutput)
-}
-
-// the operator that is used to compare the metric data and the threshold.
-func (o MetricTriggerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// the metric statistic type. How the metrics from multiple instances are combined.
-func (o MetricTriggerOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
-}
-
-// the threshold of the metric that triggers the scale action.
-func (o MetricTriggerOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v MetricTrigger) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-func (o MetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
-}
-
-// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-func (o MetricTriggerOutput) TimeGrain() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeGrain }).(pulumi.StringOutput)
-}
-
-// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-func (o MetricTriggerOutput) TimeWindow() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeWindow }).(pulumi.StringOutput)
-}
-
-// The trigger that results in a scaling action.
 type MetricTriggerResponse struct {
 	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
 	Dimensions []ScaleRuleMetricDimensionResponse `pulumi:"dimensions"`
@@ -7693,53 +4210,6 @@ type MetricTriggerResponse struct {
 	TimeGrain string `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
 	TimeWindow string `pulumi:"timeWindow"`
-}
-
-// MetricTriggerResponseInput is an input type that accepts MetricTriggerResponseArgs and MetricTriggerResponseOutput values.
-// You can construct a concrete instance of `MetricTriggerResponseInput` via:
-//
-//          MetricTriggerResponseArgs{...}
-type MetricTriggerResponseInput interface {
-	pulumi.Input
-
-	ToMetricTriggerResponseOutput() MetricTriggerResponseOutput
-	ToMetricTriggerResponseOutputWithContext(context.Context) MetricTriggerResponseOutput
-}
-
-// The trigger that results in a scaling action.
-type MetricTriggerResponseArgs struct {
-	// List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
-	Dimensions ScaleRuleMetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// the namespace of the metric that defines what the rule monitors.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// the resource identifier of the resource the rule monitors.
-	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
-	// the operator that is used to compare the metric data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic pulumi.StringInput `pulumi:"statistic"`
-	// the threshold of the metric that triggers the scale action.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
-	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
-	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
-	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
-}
-
-func (MetricTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricTriggerResponse)(nil)).Elem()
-}
-
-func (i MetricTriggerResponseArgs) ToMetricTriggerResponseOutput() MetricTriggerResponseOutput {
-	return i.ToMetricTriggerResponseOutputWithContext(context.Background())
-}
-
-func (i MetricTriggerResponseArgs) ToMetricTriggerResponseOutputWithContext(ctx context.Context) MetricTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricTriggerResponseOutput)
 }
 
 // The trigger that results in a scaling action.
@@ -7813,62 +4283,6 @@ type PrivateLinkScopedResourceResponse struct {
 	ResourceId *string `pulumi:"resourceId"`
 	// The private link scope unique Identifier.
 	ScopeId *string `pulumi:"scopeId"`
-}
-
-// PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
-// You can construct a concrete instance of `PrivateLinkScopedResourceResponseInput` via:
-//
-//          PrivateLinkScopedResourceResponseArgs{...}
-type PrivateLinkScopedResourceResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput
-	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
-}
-
-// The private link scope resource reference.
-type PrivateLinkScopedResourceResponseArgs struct {
-	// The full resource Id of the private link scope resource.
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
-}
-
-func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutput() PrivateLinkScopedResourceResponseOutput {
-	return i.ToPrivateLinkScopedResourceResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArgs) ToPrivateLinkScopedResourceResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseOutput)
-}
-
-// PrivateLinkScopedResourceResponseArrayInput is an input type that accepts PrivateLinkScopedResourceResponseArray and PrivateLinkScopedResourceResponseArrayOutput values.
-// You can construct a concrete instance of `PrivateLinkScopedResourceResponseArrayInput` via:
-//
-//          PrivateLinkScopedResourceResponseArray{ PrivateLinkScopedResourceResponseArgs{...} }
-type PrivateLinkScopedResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput
-	ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceResponseArrayOutput
-}
-
-type PrivateLinkScopedResourceResponseArray []PrivateLinkScopedResourceResponseInput
-
-func (PrivateLinkScopedResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrivateLinkScopedResourceResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutput() PrivateLinkScopedResourceResponseArrayOutput {
-	return i.ToPrivateLinkScopedResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
 }
 
 // The private link scope resource reference.
@@ -7997,156 +4411,11 @@ func (i *recurrencePtrType) ToRecurrencePtrOutputWithContext(ctx context.Context
 }
 
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-type RecurrenceOutput struct{ *pulumi.OutputState }
-
-func (RecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Recurrence)(nil)).Elem()
-}
-
-func (o RecurrenceOutput) ToRecurrenceOutput() RecurrenceOutput {
-	return o
-}
-
-func (o RecurrenceOutput) ToRecurrenceOutputWithContext(ctx context.Context) RecurrenceOutput {
-	return o
-}
-
-func (o RecurrenceOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
-	return o.ToRecurrencePtrOutputWithContext(context.Background())
-}
-
-func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
-	return o.ApplyT(func(v Recurrence) *Recurrence {
-		return &v
-	}).(RecurrencePtrOutput)
-}
-
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrenceOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func(v Recurrence) string { return v.Frequency }).(pulumi.StringOutput)
-}
-
-// the scheduling constraints for when the profile begins.
-func (o RecurrenceOutput) Schedule() RecurrentScheduleOutput {
-	return o.ApplyT(func(v Recurrence) RecurrentSchedule { return v.Schedule }).(RecurrentScheduleOutput)
-}
-
-type RecurrencePtrOutput struct{ *pulumi.OutputState }
-
-func (RecurrencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Recurrence)(nil)).Elem()
-}
-
-func (o RecurrencePtrOutput) ToRecurrencePtrOutput() RecurrencePtrOutput {
-	return o
-}
-
-func (o RecurrencePtrOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) RecurrencePtrOutput {
-	return o
-}
-
-func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
-	return o.ApplyT(func(v *Recurrence) Recurrence { return *v }).(RecurrenceOutput)
-}
-
-// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Recurrence) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-// the scheduling constraints for when the profile begins.
-func (o RecurrencePtrOutput) Schedule() RecurrentSchedulePtrOutput {
-	return o.ApplyT(func(v *Recurrence) *RecurrentSchedule {
-		if v == nil {
-			return nil
-		}
-		return &v.Schedule
-	}).(RecurrentSchedulePtrOutput)
-}
-
-// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type RecurrenceResponse struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
 	Frequency string `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentScheduleResponse `pulumi:"schedule"`
-}
-
-// RecurrenceResponseInput is an input type that accepts RecurrenceResponseArgs and RecurrenceResponseOutput values.
-// You can construct a concrete instance of `RecurrenceResponseInput` via:
-//
-//          RecurrenceResponseArgs{...}
-type RecurrenceResponseInput interface {
-	pulumi.Input
-
-	ToRecurrenceResponseOutput() RecurrenceResponseOutput
-	ToRecurrenceResponseOutputWithContext(context.Context) RecurrenceResponseOutput
-}
-
-// The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-type RecurrenceResponseArgs struct {
-	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency pulumi.StringInput `pulumi:"frequency"`
-	// the scheduling constraints for when the profile begins.
-	Schedule RecurrentScheduleResponseInput `pulumi:"schedule"`
-}
-
-func (RecurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrenceResponse)(nil)).Elem()
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponseOutput() RecurrenceResponseOutput {
-	return i.ToRecurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponseOutputWithContext(ctx context.Context) RecurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput)
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
-	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecurrenceResponseArgs) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponseOutput).ToRecurrenceResponsePtrOutputWithContext(ctx)
-}
-
-// RecurrenceResponsePtrInput is an input type that accepts RecurrenceResponseArgs, RecurrenceResponsePtr and RecurrenceResponsePtrOutput values.
-// You can construct a concrete instance of `RecurrenceResponsePtrInput` via:
-//
-//          RecurrenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecurrenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput
-	ToRecurrenceResponsePtrOutputWithContext(context.Context) RecurrenceResponsePtrOutput
-}
-
-type recurrenceResponsePtrType RecurrenceResponseArgs
-
-func RecurrenceResponsePtr(v *RecurrenceResponseArgs) RecurrenceResponsePtrInput {
-	return (*recurrenceResponsePtrType)(v)
-}
-
-func (*recurrenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrenceResponse)(nil)).Elem()
-}
-
-func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutput() RecurrenceResponsePtrOutput {
-	return i.ToRecurrenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recurrenceResponsePtrType) ToRecurrenceResponsePtrOutputWithContext(ctx context.Context) RecurrenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceResponsePtrOutput)
 }
 
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
@@ -8311,109 +4580,6 @@ func (i *recurrentSchedulePtrType) ToRecurrentSchedulePtrOutputWithContext(ctx c
 }
 
 // The scheduling constraints for when the profile begins.
-type RecurrentScheduleOutput struct{ *pulumi.OutputState }
-
-func (RecurrentScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrentSchedule)(nil)).Elem()
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentScheduleOutput() RecurrentScheduleOutput {
-	return o
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentScheduleOutputWithContext(ctx context.Context) RecurrentScheduleOutput {
-	return o
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutput() RecurrentSchedulePtrOutput {
-	return o.ToRecurrentSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o RecurrentScheduleOutput) ToRecurrentSchedulePtrOutputWithContext(ctx context.Context) RecurrentSchedulePtrOutput {
-	return o.ApplyT(func(v RecurrentSchedule) *RecurrentSchedule {
-		return &v
-	}).(RecurrentSchedulePtrOutput)
-}
-
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-func (o RecurrentScheduleOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
-}
-
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-func (o RecurrentScheduleOutput) Hours() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
-}
-
-// A collection of minutes at which the profile takes effect at.
-func (o RecurrentScheduleOutput) Minutes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RecurrentSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
-}
-
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o RecurrentScheduleOutput) TimeZone() pulumi.StringOutput {
-	return o.ApplyT(func(v RecurrentSchedule) string { return v.TimeZone }).(pulumi.StringOutput)
-}
-
-type RecurrentSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (RecurrentSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrentSchedule)(nil)).Elem()
-}
-
-func (o RecurrentSchedulePtrOutput) ToRecurrentSchedulePtrOutput() RecurrentSchedulePtrOutput {
-	return o
-}
-
-func (o RecurrentSchedulePtrOutput) ToRecurrentSchedulePtrOutputWithContext(ctx context.Context) RecurrentSchedulePtrOutput {
-	return o
-}
-
-func (o RecurrentSchedulePtrOutput) Elem() RecurrentScheduleOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) RecurrentSchedule { return *v }).(RecurrentScheduleOutput)
-}
-
-// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-func (o RecurrentSchedulePtrOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Days
-	}).(pulumi.StringArrayOutput)
-}
-
-// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-func (o RecurrentSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []int {
-		if v == nil {
-			return nil
-		}
-		return v.Hours
-	}).(pulumi.IntArrayOutput)
-}
-
-// A collection of minutes at which the profile takes effect at.
-func (o RecurrentSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) []int {
-		if v == nil {
-			return nil
-		}
-		return v.Minutes
-	}).(pulumi.IntArrayOutput)
-}
-
-// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o RecurrentSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecurrentSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scheduling constraints for when the profile begins.
 type RecurrentScheduleResponse struct {
 	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
 	Days []string `pulumi:"days"`
@@ -8423,82 +4589,6 @@ type RecurrentScheduleResponse struct {
 	Minutes []int `pulumi:"minutes"`
 	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 	TimeZone string `pulumi:"timeZone"`
-}
-
-// RecurrentScheduleResponseInput is an input type that accepts RecurrentScheduleResponseArgs and RecurrentScheduleResponseOutput values.
-// You can construct a concrete instance of `RecurrentScheduleResponseInput` via:
-//
-//          RecurrentScheduleResponseArgs{...}
-type RecurrentScheduleResponseInput interface {
-	pulumi.Input
-
-	ToRecurrentScheduleResponseOutput() RecurrentScheduleResponseOutput
-	ToRecurrentScheduleResponseOutputWithContext(context.Context) RecurrentScheduleResponseOutput
-}
-
-// The scheduling constraints for when the profile begins.
-type RecurrentScheduleResponseArgs struct {
-	// the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-	Days pulumi.StringArrayInput `pulumi:"days"`
-	// A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// A collection of minutes at which the profile takes effect at.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringInput `pulumi:"timeZone"`
-}
-
-func (RecurrentScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecurrentScheduleResponse)(nil)).Elem()
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponseOutput() RecurrentScheduleResponseOutput {
-	return i.ToRecurrentScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponseOutputWithContext(ctx context.Context) RecurrentScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponseOutput)
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput {
-	return i.ToRecurrentScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecurrentScheduleResponseArgs) ToRecurrentScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrentScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponseOutput).ToRecurrentScheduleResponsePtrOutputWithContext(ctx)
-}
-
-// RecurrentScheduleResponsePtrInput is an input type that accepts RecurrentScheduleResponseArgs, RecurrentScheduleResponsePtr and RecurrentScheduleResponsePtrOutput values.
-// You can construct a concrete instance of `RecurrentScheduleResponsePtrInput` via:
-//
-//          RecurrentScheduleResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecurrentScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput
-	ToRecurrentScheduleResponsePtrOutputWithContext(context.Context) RecurrentScheduleResponsePtrOutput
-}
-
-type recurrentScheduleResponsePtrType RecurrentScheduleResponseArgs
-
-func RecurrentScheduleResponsePtr(v *RecurrentScheduleResponseArgs) RecurrentScheduleResponsePtrInput {
-	return (*recurrentScheduleResponsePtrType)(v)
-}
-
-func (*recurrentScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecurrentScheduleResponse)(nil)).Elem()
-}
-
-func (i *recurrentScheduleResponsePtrType) ToRecurrentScheduleResponsePtrOutput() RecurrentScheduleResponsePtrOutput {
-	return i.ToRecurrentScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recurrentScheduleResponsePtrType) ToRecurrentScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrentScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecurrentScheduleResponsePtrOutput)
 }
 
 // The scheduling constraints for when the profile begins.
@@ -8685,156 +4775,11 @@ func (i *retentionPolicyPtrType) ToRetentionPolicyPtrOutputWithContext(ctx conte
 }
 
 // Specifies the retention policy for the log.
-type RetentionPolicyOutput struct{ *pulumi.OutputState }
-
-func (RetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetentionPolicy)(nil)).Elem()
-}
-
-func (o RetentionPolicyOutput) ToRetentionPolicyOutput() RetentionPolicyOutput {
-	return o
-}
-
-func (o RetentionPolicyOutput) ToRetentionPolicyOutputWithContext(ctx context.Context) RetentionPolicyOutput {
-	return o
-}
-
-func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOutput {
-	return o.ToRetentionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
-		return &v
-	}).(RetentionPolicyPtrOutput)
-}
-
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-func (o RetentionPolicyOutput) Days() pulumi.IntOutput {
-	return o.ApplyT(func(v RetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
-}
-
-// a value indicating whether the retention policy is enabled.
-func (o RetentionPolicyOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v RetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-type RetentionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RetentionPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetentionPolicy)(nil)).Elem()
-}
-
-func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOutput {
-	return o
-}
-
-func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o
-}
-
-func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
-}
-
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RetentionPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Days
-	}).(pulumi.IntPtrOutput)
-}
-
-// a value indicating whether the retention policy is enabled.
-func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the retention policy for the log.
 type RetentionPolicyResponse struct {
 	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days int `pulumi:"days"`
 	// a value indicating whether the retention policy is enabled.
 	Enabled bool `pulumi:"enabled"`
-}
-
-// RetentionPolicyResponseInput is an input type that accepts RetentionPolicyResponseArgs and RetentionPolicyResponseOutput values.
-// You can construct a concrete instance of `RetentionPolicyResponseInput` via:
-//
-//          RetentionPolicyResponseArgs{...}
-type RetentionPolicyResponseInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput
-	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
-}
-
-// Specifies the retention policy for the log.
-type RetentionPolicyResponseArgs struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (RetentionPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput {
-	return i.ToRetentionPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutputWithContext(ctx context.Context) RetentionPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput)
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput).ToRetentionPolicyResponsePtrOutputWithContext(ctx)
-}
-
-// RetentionPolicyResponsePtrInput is an input type that accepts RetentionPolicyResponseArgs, RetentionPolicyResponsePtr and RetentionPolicyResponsePtrOutput values.
-// You can construct a concrete instance of `RetentionPolicyResponsePtrInput` via:
-//
-//          RetentionPolicyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RetentionPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput
-	ToRetentionPolicyResponsePtrOutputWithContext(context.Context) RetentionPolicyResponsePtrOutput
-}
-
-type retentionPolicyResponsePtrType RetentionPolicyResponseArgs
-
-func RetentionPolicyResponsePtr(v *RetentionPolicyResponseArgs) RetentionPolicyResponsePtrInput {
-	return (*retentionPolicyResponsePtrType)(v)
-}
-
-func (*retentionPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
 }
 
 // Specifies the retention policy for the log.
@@ -8954,36 +4899,6 @@ func (i RuleEmailActionArgs) ToRuleEmailActionOutputWithContext(ctx context.Cont
 }
 
 // Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
-type RuleEmailActionOutput struct{ *pulumi.OutputState }
-
-func (RuleEmailActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleEmailAction)(nil)).Elem()
-}
-
-func (o RuleEmailActionOutput) ToRuleEmailActionOutput() RuleEmailActionOutput {
-	return o
-}
-
-func (o RuleEmailActionOutput) ToRuleEmailActionOutputWithContext(ctx context.Context) RuleEmailActionOutput {
-	return o
-}
-
-// the list of administrator's custom email addresses to notify of the activation of the alert.
-func (o RuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleEmailAction) []string { return v.CustomEmails }).(pulumi.StringArrayOutput)
-}
-
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-func (o RuleEmailActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleEmailAction) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-func (o RuleEmailActionOutput) SendToServiceOwners() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RuleEmailAction) *bool { return v.SendToServiceOwners }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
 type RuleEmailActionResponse struct {
 	// the list of administrator's custom email addresses to notify of the activation of the alert.
 	CustomEmails []string `pulumi:"customEmails"`
@@ -8991,39 +4906,6 @@ type RuleEmailActionResponse struct {
 	OdataType string `pulumi:"odataType"`
 	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
 	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
-}
-
-// RuleEmailActionResponseInput is an input type that accepts RuleEmailActionResponseArgs and RuleEmailActionResponseOutput values.
-// You can construct a concrete instance of `RuleEmailActionResponseInput` via:
-//
-//          RuleEmailActionResponseArgs{...}
-type RuleEmailActionResponseInput interface {
-	pulumi.Input
-
-	ToRuleEmailActionResponseOutput() RuleEmailActionResponseOutput
-	ToRuleEmailActionResponseOutputWithContext(context.Context) RuleEmailActionResponseOutput
-}
-
-// Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
-type RuleEmailActionResponseArgs struct {
-	// the list of administrator's custom email addresses to notify of the activation of the alert.
-	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
-	SendToServiceOwners pulumi.BoolPtrInput `pulumi:"sendToServiceOwners"`
-}
-
-func (RuleEmailActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleEmailActionResponse)(nil)).Elem()
-}
-
-func (i RuleEmailActionResponseArgs) ToRuleEmailActionResponseOutput() RuleEmailActionResponseOutput {
-	return i.ToRuleEmailActionResponseOutputWithContext(context.Background())
-}
-
-func (i RuleEmailActionResponseArgs) ToRuleEmailActionResponseOutputWithContext(ctx context.Context) RuleEmailActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleEmailActionResponseOutput)
 }
 
 // Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
@@ -9133,137 +5015,9 @@ func (i *ruleManagementEventClaimsDataSourcePtrType) ToRuleManagementEventClaims
 }
 
 // The claims for a rule management event data source.
-type RuleManagementEventClaimsDataSourceOutput struct{ *pulumi.OutputState }
-
-func (RuleManagementEventClaimsDataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleManagementEventClaimsDataSource)(nil)).Elem()
-}
-
-func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourceOutput() RuleManagementEventClaimsDataSourceOutput {
-	return o
-}
-
-func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourceOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceOutput {
-	return o
-}
-
-func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
-	return o.ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(context.Background())
-}
-
-func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
-	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
-		return &v
-	}).(RuleManagementEventClaimsDataSourcePtrOutput)
-}
-
-// the email address.
-func (o RuleManagementEventClaimsDataSourceOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
-}
-
-type RuleManagementEventClaimsDataSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleManagementEventClaimsDataSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleManagementEventClaimsDataSource)(nil)).Elem()
-}
-
-func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaimsDataSourcePtrOutput() RuleManagementEventClaimsDataSourcePtrOutput {
-	return o
-}
-
-func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
-	return o
-}
-
-func (o RuleManagementEventClaimsDataSourcePtrOutput) Elem() RuleManagementEventClaimsDataSourceOutput {
-	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource { return *v }).(RuleManagementEventClaimsDataSourceOutput)
-}
-
-// the email address.
-func (o RuleManagementEventClaimsDataSourcePtrOutput) EmailAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmailAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The claims for a rule management event data source.
 type RuleManagementEventClaimsDataSourceResponse struct {
 	// the email address.
 	EmailAddress *string `pulumi:"emailAddress"`
-}
-
-// RuleManagementEventClaimsDataSourceResponseInput is an input type that accepts RuleManagementEventClaimsDataSourceResponseArgs and RuleManagementEventClaimsDataSourceResponseOutput values.
-// You can construct a concrete instance of `RuleManagementEventClaimsDataSourceResponseInput` via:
-//
-//          RuleManagementEventClaimsDataSourceResponseArgs{...}
-type RuleManagementEventClaimsDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToRuleManagementEventClaimsDataSourceResponseOutput() RuleManagementEventClaimsDataSourceResponseOutput
-	ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(context.Context) RuleManagementEventClaimsDataSourceResponseOutput
-}
-
-// The claims for a rule management event data source.
-type RuleManagementEventClaimsDataSourceResponseArgs struct {
-	// the email address.
-	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-}
-
-func (RuleManagementEventClaimsDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
-}
-
-func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponseOutput() RuleManagementEventClaimsDataSourceResponseOutput {
-	return i.ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponseOutput)
-}
-
-func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return i.ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RuleManagementEventClaimsDataSourceResponseArgs) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponseOutput).ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx)
-}
-
-// RuleManagementEventClaimsDataSourceResponsePtrInput is an input type that accepts RuleManagementEventClaimsDataSourceResponseArgs, RuleManagementEventClaimsDataSourceResponsePtr and RuleManagementEventClaimsDataSourceResponsePtrOutput values.
-// You can construct a concrete instance of `RuleManagementEventClaimsDataSourceResponsePtrInput` via:
-//
-//          RuleManagementEventClaimsDataSourceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleManagementEventClaimsDataSourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput
-	ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput
-}
-
-type ruleManagementEventClaimsDataSourceResponsePtrType RuleManagementEventClaimsDataSourceResponseArgs
-
-func RuleManagementEventClaimsDataSourceResponsePtr(v *RuleManagementEventClaimsDataSourceResponseArgs) RuleManagementEventClaimsDataSourceResponsePtrInput {
-	return (*ruleManagementEventClaimsDataSourceResponsePtrType)(v)
-}
-
-func (*ruleManagementEventClaimsDataSourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleManagementEventClaimsDataSourceResponse)(nil)).Elem()
-}
-
-func (i *ruleManagementEventClaimsDataSourceResponsePtrType) ToRuleManagementEventClaimsDataSourceResponsePtrOutput() RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return i.ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleManagementEventClaimsDataSourceResponsePtrType) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
 
 // The claims for a rule management event data source.
@@ -9402,76 +5156,6 @@ func (i RuleManagementEventDataSourceArgs) ToRuleManagementEventDataSourceOutput
 }
 
 // A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
-type RuleManagementEventDataSourceOutput struct{ *pulumi.OutputState }
-
-func (RuleManagementEventDataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleManagementEventDataSource)(nil)).Elem()
-}
-
-func (o RuleManagementEventDataSourceOutput) ToRuleManagementEventDataSourceOutput() RuleManagementEventDataSourceOutput {
-	return o
-}
-
-func (o RuleManagementEventDataSourceOutput) ToRuleManagementEventDataSourceOutputWithContext(ctx context.Context) RuleManagementEventDataSourceOutput {
-	return o
-}
-
-// the claims.
-func (o RuleManagementEventDataSourceOutput) Claims() RuleManagementEventClaimsDataSourcePtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *RuleManagementEventClaimsDataSource { return v.Claims }).(RuleManagementEventClaimsDataSourcePtrOutput)
-}
-
-// the event name.
-func (o RuleManagementEventDataSourceOutput) EventName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventName }).(pulumi.StringPtrOutput)
-}
-
-// the event source.
-func (o RuleManagementEventDataSourceOutput) EventSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
-}
-
-// the level.
-func (o RuleManagementEventDataSourceOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleManagementEventDataSourceOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// The name of the operation that should be checked for. If no name is provided, any operation will match.
-func (o RuleManagementEventDataSourceOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.OperationName }).(pulumi.StringPtrOutput)
-}
-
-// the resource group name.
-func (o RuleManagementEventDataSourceOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
-}
-
-// the resource provider name.
-func (o RuleManagementEventDataSourceOutput) ResourceProviderName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceProviderName }).(pulumi.StringPtrOutput)
-}
-
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleManagementEventDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// The status of the operation that should be checked for. If no status is provided, any status will match.
-func (o RuleManagementEventDataSourceOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// the substatus.
-func (o RuleManagementEventDataSourceOutput) SubStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleManagementEventDataSource) *string { return v.SubStatus }).(pulumi.StringPtrOutput)
-}
-
-// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
 type RuleManagementEventDataSourceResponse struct {
 	// the claims.
 	Claims *RuleManagementEventClaimsDataSourceResponse `pulumi:"claims"`
@@ -9495,55 +5179,6 @@ type RuleManagementEventDataSourceResponse struct {
 	Status *string `pulumi:"status"`
 	// the substatus.
 	SubStatus *string `pulumi:"subStatus"`
-}
-
-// RuleManagementEventDataSourceResponseInput is an input type that accepts RuleManagementEventDataSourceResponseArgs and RuleManagementEventDataSourceResponseOutput values.
-// You can construct a concrete instance of `RuleManagementEventDataSourceResponseInput` via:
-//
-//          RuleManagementEventDataSourceResponseArgs{...}
-type RuleManagementEventDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToRuleManagementEventDataSourceResponseOutput() RuleManagementEventDataSourceResponseOutput
-	ToRuleManagementEventDataSourceResponseOutputWithContext(context.Context) RuleManagementEventDataSourceResponseOutput
-}
-
-// A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
-type RuleManagementEventDataSourceResponseArgs struct {
-	// the claims.
-	Claims RuleManagementEventClaimsDataSourceResponsePtrInput `pulumi:"claims"`
-	// the event name.
-	EventName pulumi.StringPtrInput `pulumi:"eventName"`
-	// the event source.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// the level.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The name of the operation that should be checked for. If no name is provided, any operation will match.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// the resource group name.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// the resource provider name.
-	ResourceProviderName pulumi.StringPtrInput `pulumi:"resourceProviderName"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
-	// The status of the operation that should be checked for. If no status is provided, any status will match.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// the substatus.
-	SubStatus pulumi.StringPtrInput `pulumi:"subStatus"`
-}
-
-func (RuleManagementEventDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleManagementEventDataSourceResponse)(nil)).Elem()
-}
-
-func (i RuleManagementEventDataSourceResponseArgs) ToRuleManagementEventDataSourceResponseOutput() RuleManagementEventDataSourceResponseOutput {
-	return i.ToRuleManagementEventDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i RuleManagementEventDataSourceResponseArgs) ToRuleManagementEventDataSourceResponseOutputWithContext(ctx context.Context) RuleManagementEventDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleManagementEventDataSourceResponseOutput)
 }
 
 // A rule management event data source. The discriminator fields is always RuleManagementEventDataSource in this case.
@@ -9662,36 +5297,6 @@ func (i RuleMetricDataSourceArgs) ToRuleMetricDataSourceOutputWithContext(ctx co
 }
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
-type RuleMetricDataSourceOutput struct{ *pulumi.OutputState }
-
-func (RuleMetricDataSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMetricDataSource)(nil)).Elem()
-}
-
-func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutput() RuleMetricDataSourceOutput {
-	return o
-}
-
-func (o RuleMetricDataSourceOutput) ToRuleMetricDataSourceOutputWithContext(ctx context.Context) RuleMetricDataSourceOutput {
-	return o
-}
-
-// the name of the metric that defines what the rule monitors.
-func (o RuleMetricDataSourceOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.MetricName }).(pulumi.StringPtrOutput)
-}
-
-// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-func (o RuleMetricDataSourceOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleMetricDataSource) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-func (o RuleMetricDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleMetricDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
-}
-
-// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
 type RuleMetricDataSourceResponse struct {
 	// the name of the metric that defines what the rule monitors.
 	MetricName *string `pulumi:"metricName"`
@@ -9699,39 +5304,6 @@ type RuleMetricDataSourceResponse struct {
 	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
-}
-
-// RuleMetricDataSourceResponseInput is an input type that accepts RuleMetricDataSourceResponseArgs and RuleMetricDataSourceResponseOutput values.
-// You can construct a concrete instance of `RuleMetricDataSourceResponseInput` via:
-//
-//          RuleMetricDataSourceResponseArgs{...}
-type RuleMetricDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToRuleMetricDataSourceResponseOutput() RuleMetricDataSourceResponseOutput
-	ToRuleMetricDataSourceResponseOutputWithContext(context.Context) RuleMetricDataSourceResponseOutput
-}
-
-// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
-type RuleMetricDataSourceResponseArgs struct {
-	// the name of the metric that defines what the rule monitors.
-	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
-	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
-}
-
-func (RuleMetricDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleMetricDataSourceResponse)(nil)).Elem()
-}
-
-func (i RuleMetricDataSourceResponseArgs) ToRuleMetricDataSourceResponseOutput() RuleMetricDataSourceResponseOutput {
-	return i.ToRuleMetricDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i RuleMetricDataSourceResponseArgs) ToRuleMetricDataSourceResponseOutputWithContext(ctx context.Context) RuleMetricDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleMetricDataSourceResponseOutput)
 }
 
 // A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
@@ -9808,36 +5380,6 @@ func (i RuleWebhookActionArgs) ToRuleWebhookActionOutputWithContext(ctx context.
 }
 
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
-type RuleWebhookActionOutput struct{ *pulumi.OutputState }
-
-func (RuleWebhookActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleWebhookAction)(nil)).Elem()
-}
-
-func (o RuleWebhookActionOutput) ToRuleWebhookActionOutput() RuleWebhookActionOutput {
-	return o
-}
-
-func (o RuleWebhookActionOutput) ToRuleWebhookActionOutputWithContext(ctx context.Context) RuleWebhookActionOutput {
-	return o
-}
-
-// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-func (o RuleWebhookActionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleWebhookAction) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-func (o RuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RuleWebhookAction) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// the service uri to Post the notification when the alert activates or resolves.
-func (o RuleWebhookActionOutput) ServiceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleWebhookAction) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
 type RuleWebhookActionResponse struct {
 	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
 	OdataType string `pulumi:"odataType"`
@@ -9845,39 +5387,6 @@ type RuleWebhookActionResponse struct {
 	Properties map[string]string `pulumi:"properties"`
 	// the service uri to Post the notification when the alert activates or resolves.
 	ServiceUri *string `pulumi:"serviceUri"`
-}
-
-// RuleWebhookActionResponseInput is an input type that accepts RuleWebhookActionResponseArgs and RuleWebhookActionResponseOutput values.
-// You can construct a concrete instance of `RuleWebhookActionResponseInput` via:
-//
-//          RuleWebhookActionResponseArgs{...}
-type RuleWebhookActionResponseInput interface {
-	pulumi.Input
-
-	ToRuleWebhookActionResponseOutput() RuleWebhookActionResponseOutput
-	ToRuleWebhookActionResponseOutputWithContext(context.Context) RuleWebhookActionResponseOutput
-}
-
-// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
-type RuleWebhookActionResponseArgs struct {
-	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service uri to Post the notification when the alert activates or resolves.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-}
-
-func (RuleWebhookActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleWebhookActionResponse)(nil)).Elem()
-}
-
-func (i RuleWebhookActionResponseArgs) ToRuleWebhookActionResponseOutput() RuleWebhookActionResponseOutput {
-	return i.ToRuleWebhookActionResponseOutputWithContext(context.Background())
-}
-
-func (i RuleWebhookActionResponseArgs) ToRuleWebhookActionResponseOutputWithContext(ctx context.Context) RuleWebhookActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleWebhookActionResponseOutput)
 }
 
 // Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
@@ -9958,41 +5467,6 @@ func (i ScaleActionArgs) ToScaleActionOutputWithContext(ctx context.Context) Sca
 }
 
 // The parameters for the scaling action.
-type ScaleActionOutput struct{ *pulumi.OutputState }
-
-func (ScaleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleAction)(nil)).Elem()
-}
-
-func (o ScaleActionOutput) ToScaleActionOutput() ScaleActionOutput {
-	return o
-}
-
-func (o ScaleActionOutput) ToScaleActionOutputWithContext(ctx context.Context) ScaleActionOutput {
-	return o
-}
-
-// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-func (o ScaleActionOutput) Cooldown() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Cooldown }).(pulumi.StringOutput)
-}
-
-// the scale direction. Whether the scaling action increases or decreases the number of instances.
-func (o ScaleActionOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Direction }).(pulumi.StringOutput)
-}
-
-// the type of action that should occur when the scale rule fires.
-func (o ScaleActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-func (o ScaleActionOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScaleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-// The parameters for the scaling action.
 type ScaleActionResponse struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown string `pulumi:"cooldown"`
@@ -10002,41 +5476,6 @@ type ScaleActionResponse struct {
 	Type string `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value *string `pulumi:"value"`
-}
-
-// ScaleActionResponseInput is an input type that accepts ScaleActionResponseArgs and ScaleActionResponseOutput values.
-// You can construct a concrete instance of `ScaleActionResponseInput` via:
-//
-//          ScaleActionResponseArgs{...}
-type ScaleActionResponseInput interface {
-	pulumi.Input
-
-	ToScaleActionResponseOutput() ScaleActionResponseOutput
-	ToScaleActionResponseOutputWithContext(context.Context) ScaleActionResponseOutput
-}
-
-// The parameters for the scaling action.
-type ScaleActionResponseArgs struct {
-	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-	Cooldown pulumi.StringInput `pulumi:"cooldown"`
-	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// the type of action that should occur when the scale rule fires.
-	Type pulumi.StringInput `pulumi:"type"`
-	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ScaleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleActionResponse)(nil)).Elem()
-}
-
-func (i ScaleActionResponseArgs) ToScaleActionResponseOutput() ScaleActionResponseOutput {
-	return i.ToScaleActionResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleActionResponseArgs) ToScaleActionResponseOutputWithContext(ctx context.Context) ScaleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleActionResponseOutput)
 }
 
 // The parameters for the scaling action.
@@ -10118,36 +5557,6 @@ func (i ScaleCapacityArgs) ToScaleCapacityOutputWithContext(ctx context.Context)
 }
 
 // The number of instances that can be used during this profile.
-type ScaleCapacityOutput struct{ *pulumi.OutputState }
-
-func (ScaleCapacityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleCapacity)(nil)).Elem()
-}
-
-func (o ScaleCapacityOutput) ToScaleCapacityOutput() ScaleCapacityOutput {
-	return o
-}
-
-func (o ScaleCapacityOutput) ToScaleCapacityOutputWithContext(ctx context.Context) ScaleCapacityOutput {
-	return o
-}
-
-// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-func (o ScaleCapacityOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Default }).(pulumi.StringOutput)
-}
-
-// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-func (o ScaleCapacityOutput) Maximum() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Maximum }).(pulumi.StringOutput)
-}
-
-// the minimum number of instances for the resource.
-func (o ScaleCapacityOutput) Minimum() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleCapacity) string { return v.Minimum }).(pulumi.StringOutput)
-}
-
-// The number of instances that can be used during this profile.
 type ScaleCapacityResponse struct {
 	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
 	Default string `pulumi:"default"`
@@ -10155,39 +5564,6 @@ type ScaleCapacityResponse struct {
 	Maximum string `pulumi:"maximum"`
 	// the minimum number of instances for the resource.
 	Minimum string `pulumi:"minimum"`
-}
-
-// ScaleCapacityResponseInput is an input type that accepts ScaleCapacityResponseArgs and ScaleCapacityResponseOutput values.
-// You can construct a concrete instance of `ScaleCapacityResponseInput` via:
-//
-//          ScaleCapacityResponseArgs{...}
-type ScaleCapacityResponseInput interface {
-	pulumi.Input
-
-	ToScaleCapacityResponseOutput() ScaleCapacityResponseOutput
-	ToScaleCapacityResponseOutputWithContext(context.Context) ScaleCapacityResponseOutput
-}
-
-// The number of instances that can be used during this profile.
-type ScaleCapacityResponseArgs struct {
-	// the number of instances that will be set if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default.
-	Default pulumi.StringInput `pulumi:"default"`
-	// the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
-	Maximum pulumi.StringInput `pulumi:"maximum"`
-	// the minimum number of instances for the resource.
-	Minimum pulumi.StringInput `pulumi:"minimum"`
-}
-
-func (ScaleCapacityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleCapacityResponse)(nil)).Elem()
-}
-
-func (i ScaleCapacityResponseArgs) ToScaleCapacityResponseOutput() ScaleCapacityResponseOutput {
-	return i.ToScaleCapacityResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleCapacityResponseArgs) ToScaleCapacityResponseOutputWithContext(ctx context.Context) ScaleCapacityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleCapacityResponseOutput)
 }
 
 // The number of instances that can be used during this profile.
@@ -10284,51 +5660,6 @@ func (i ScaleRuleArray) ToScaleRuleArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleArrayOutput)
 }
 
-// A rule that provide the triggers and parameters for the scaling action.
-type ScaleRuleOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRule)(nil)).Elem()
-}
-
-func (o ScaleRuleOutput) ToScaleRuleOutput() ScaleRuleOutput {
-	return o
-}
-
-func (o ScaleRuleOutput) ToScaleRuleOutputWithContext(ctx context.Context) ScaleRuleOutput {
-	return o
-}
-
-// the trigger that results in a scaling action.
-func (o ScaleRuleOutput) MetricTrigger() MetricTriggerOutput {
-	return o.ApplyT(func(v ScaleRule) MetricTrigger { return v.MetricTrigger }).(MetricTriggerOutput)
-}
-
-// the parameters for the scaling action.
-func (o ScaleRuleOutput) ScaleAction() ScaleActionOutput {
-	return o.ApplyT(func(v ScaleRule) ScaleAction { return v.ScaleAction }).(ScaleActionOutput)
-}
-
-type ScaleRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRule)(nil)).Elem()
-}
-
-func (o ScaleRuleArrayOutput) ToScaleRuleArrayOutput() ScaleRuleArrayOutput {
-	return o
-}
-
-func (o ScaleRuleArrayOutput) ToScaleRuleArrayOutputWithContext(ctx context.Context) ScaleRuleArrayOutput {
-	return o
-}
-
-func (o ScaleRuleArrayOutput) Index(i pulumi.IntInput) ScaleRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleRule {
-		return vs[0].([]ScaleRule)[vs[1].(int)]
-	}).(ScaleRuleOutput)
-}
-
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimension struct {
 	// Name of the dimension.
@@ -10398,56 +5729,6 @@ func (i ScaleRuleMetricDimensionArray) ToScaleRuleMetricDimensionArrayOutputWith
 }
 
 // Specifies an auto scale rule metric dimension.
-type ScaleRuleMetricDimensionOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimension)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionOutput) ToScaleRuleMetricDimensionOutput() ScaleRuleMetricDimensionOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionOutput) ToScaleRuleMetricDimensionOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionOutput {
-	return o
-}
-
-// Name of the dimension.
-func (o ScaleRuleMetricDimensionOutput) DimensionName() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.DimensionName }).(pulumi.StringOutput)
-}
-
-// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-func (o ScaleRuleMetricDimensionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// list of dimension values. For example: ["App1","App2"].
-func (o ScaleRuleMetricDimensionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScaleRuleMetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type ScaleRuleMetricDimensionArrayOutput struct{ *pulumi.OutputState }
-
-func (ScaleRuleMetricDimensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleMetricDimension)(nil)).Elem()
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) ToScaleRuleMetricDimensionArrayOutput() ScaleRuleMetricDimensionArrayOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) ToScaleRuleMetricDimensionArrayOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionArrayOutput {
-	return o
-}
-
-func (o ScaleRuleMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScaleRuleMetricDimensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScaleRuleMetricDimension {
-		return vs[0].([]ScaleRuleMetricDimension)[vs[1].(int)]
-	}).(ScaleRuleMetricDimensionOutput)
-}
-
-// Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimensionResponse struct {
 	// Name of the dimension.
 	DimensionName string `pulumi:"dimensionName"`
@@ -10455,64 +5736,6 @@ type ScaleRuleMetricDimensionResponse struct {
 	Operator string `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
 	Values []string `pulumi:"values"`
-}
-
-// ScaleRuleMetricDimensionResponseInput is an input type that accepts ScaleRuleMetricDimensionResponseArgs and ScaleRuleMetricDimensionResponseOutput values.
-// You can construct a concrete instance of `ScaleRuleMetricDimensionResponseInput` via:
-//
-//          ScaleRuleMetricDimensionResponseArgs{...}
-type ScaleRuleMetricDimensionResponseInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionResponseOutput() ScaleRuleMetricDimensionResponseOutput
-	ToScaleRuleMetricDimensionResponseOutputWithContext(context.Context) ScaleRuleMetricDimensionResponseOutput
-}
-
-// Specifies an auto scale rule metric dimension.
-type ScaleRuleMetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (ScaleRuleMetricDimensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleMetricDimensionResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleMetricDimensionResponseArgs) ToScaleRuleMetricDimensionResponseOutput() ScaleRuleMetricDimensionResponseOutput {
-	return i.ToScaleRuleMetricDimensionResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleMetricDimensionResponseArgs) ToScaleRuleMetricDimensionResponseOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleMetricDimensionResponseOutput)
-}
-
-// ScaleRuleMetricDimensionResponseArrayInput is an input type that accepts ScaleRuleMetricDimensionResponseArray and ScaleRuleMetricDimensionResponseArrayOutput values.
-// You can construct a concrete instance of `ScaleRuleMetricDimensionResponseArrayInput` via:
-//
-//          ScaleRuleMetricDimensionResponseArray{ ScaleRuleMetricDimensionResponseArgs{...} }
-type ScaleRuleMetricDimensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToScaleRuleMetricDimensionResponseArrayOutput() ScaleRuleMetricDimensionResponseArrayOutput
-	ToScaleRuleMetricDimensionResponseArrayOutputWithContext(context.Context) ScaleRuleMetricDimensionResponseArrayOutput
-}
-
-type ScaleRuleMetricDimensionResponseArray []ScaleRuleMetricDimensionResponseInput
-
-func (ScaleRuleMetricDimensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleMetricDimensionResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleMetricDimensionResponseArray) ToScaleRuleMetricDimensionResponseArrayOutput() ScaleRuleMetricDimensionResponseArrayOutput {
-	return i.ToScaleRuleMetricDimensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleMetricDimensionResponseArray) ToScaleRuleMetricDimensionResponseArrayOutputWithContext(ctx context.Context) ScaleRuleMetricDimensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleMetricDimensionResponseArrayOutput)
 }
 
 // Specifies an auto scale rule metric dimension.
@@ -10571,62 +5794,6 @@ type ScaleRuleResponse struct {
 	MetricTrigger MetricTriggerResponse `pulumi:"metricTrigger"`
 	// the parameters for the scaling action.
 	ScaleAction ScaleActionResponse `pulumi:"scaleAction"`
-}
-
-// ScaleRuleResponseInput is an input type that accepts ScaleRuleResponseArgs and ScaleRuleResponseOutput values.
-// You can construct a concrete instance of `ScaleRuleResponseInput` via:
-//
-//          ScaleRuleResponseArgs{...}
-type ScaleRuleResponseInput interface {
-	pulumi.Input
-
-	ToScaleRuleResponseOutput() ScaleRuleResponseOutput
-	ToScaleRuleResponseOutputWithContext(context.Context) ScaleRuleResponseOutput
-}
-
-// A rule that provide the triggers and parameters for the scaling action.
-type ScaleRuleResponseArgs struct {
-	// the trigger that results in a scaling action.
-	MetricTrigger MetricTriggerResponseInput `pulumi:"metricTrigger"`
-	// the parameters for the scaling action.
-	ScaleAction ScaleActionResponseInput `pulumi:"scaleAction"`
-}
-
-func (ScaleRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScaleRuleResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleResponseArgs) ToScaleRuleResponseOutput() ScaleRuleResponseOutput {
-	return i.ToScaleRuleResponseOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleResponseArgs) ToScaleRuleResponseOutputWithContext(ctx context.Context) ScaleRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleResponseOutput)
-}
-
-// ScaleRuleResponseArrayInput is an input type that accepts ScaleRuleResponseArray and ScaleRuleResponseArrayOutput values.
-// You can construct a concrete instance of `ScaleRuleResponseArrayInput` via:
-//
-//          ScaleRuleResponseArray{ ScaleRuleResponseArgs{...} }
-type ScaleRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToScaleRuleResponseArrayOutput() ScaleRuleResponseArrayOutput
-	ToScaleRuleResponseArrayOutputWithContext(context.Context) ScaleRuleResponseArrayOutput
-}
-
-type ScaleRuleResponseArray []ScaleRuleResponseInput
-
-func (ScaleRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScaleRuleResponse)(nil)).Elem()
-}
-
-func (i ScaleRuleResponseArray) ToScaleRuleResponseArrayOutput() ScaleRuleResponseArrayOutput {
-	return i.ToScaleRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScaleRuleResponseArray) ToScaleRuleResponseArrayOutputWithContext(ctx context.Context) ScaleRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScaleRuleResponseArrayOutput)
 }
 
 // A rule that provide the triggers and parameters for the scaling action.
@@ -10755,156 +5922,11 @@ func (i *schedulePtrType) ToSchedulePtrOutputWithContext(ctx context.Context) Sc
 }
 
 // Defines how often to run the search and the time interval.
-type ScheduleOutput struct{ *pulumi.OutputState }
-
-func (ScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schedule)(nil)).Elem()
-}
-
-func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
-	return o
-}
-
-func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
-	return o
-}
-
-func (o ScheduleOutput) ToSchedulePtrOutput() SchedulePtrOutput {
-	return o.ToSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o.ApplyT(func(v Schedule) *Schedule {
-		return &v
-	}).(SchedulePtrOutput)
-}
-
-// frequency (in minutes) at which rule condition should be evaluated.
-func (o ScheduleOutput) FrequencyInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v Schedule) int { return v.FrequencyInMinutes }).(pulumi.IntOutput)
-}
-
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-func (o ScheduleOutput) TimeWindowInMinutes() pulumi.IntOutput {
-	return o.ApplyT(func(v Schedule) int { return v.TimeWindowInMinutes }).(pulumi.IntOutput)
-}
-
-type SchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Schedule)(nil)).Elem()
-}
-
-func (o SchedulePtrOutput) ToSchedulePtrOutput() SchedulePtrOutput {
-	return o
-}
-
-func (o SchedulePtrOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o
-}
-
-func (o SchedulePtrOutput) Elem() ScheduleOutput {
-	return o.ApplyT(func(v *Schedule) Schedule { return *v }).(ScheduleOutput)
-}
-
-// frequency (in minutes) at which rule condition should be evaluated.
-func (o SchedulePtrOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Schedule) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.FrequencyInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-func (o SchedulePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Schedule) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TimeWindowInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Defines how often to run the search and the time interval.
 type ScheduleResponse struct {
 	// frequency (in minutes) at which rule condition should be evaluated.
 	FrequencyInMinutes int `pulumi:"frequencyInMinutes"`
 	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 	TimeWindowInMinutes int `pulumi:"timeWindowInMinutes"`
-}
-
-// ScheduleResponseInput is an input type that accepts ScheduleResponseArgs and ScheduleResponseOutput values.
-// You can construct a concrete instance of `ScheduleResponseInput` via:
-//
-//          ScheduleResponseArgs{...}
-type ScheduleResponseInput interface {
-	pulumi.Input
-
-	ToScheduleResponseOutput() ScheduleResponseOutput
-	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
-}
-
-// Defines how often to run the search and the time interval.
-type ScheduleResponseArgs struct {
-	// frequency (in minutes) at which rule condition should be evaluated.
-	FrequencyInMinutes pulumi.IntInput `pulumi:"frequencyInMinutes"`
-	// Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-	TimeWindowInMinutes pulumi.IntInput `pulumi:"timeWindowInMinutes"`
-}
-
-func (ScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResponse)(nil)).Elem()
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutput() ScheduleResponseOutput {
-	return i.ToScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutputWithContext(ctx context.Context) ScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseOutput)
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput {
-	return i.ToScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseOutput).ToScheduleResponsePtrOutputWithContext(ctx)
-}
-
-// ScheduleResponsePtrInput is an input type that accepts ScheduleResponseArgs, ScheduleResponsePtr and ScheduleResponsePtrOutput values.
-// You can construct a concrete instance of `ScheduleResponsePtrInput` via:
-//
-//          ScheduleResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput
-	ToScheduleResponsePtrOutputWithContext(context.Context) ScheduleResponsePtrOutput
-}
-
-type scheduleResponsePtrType ScheduleResponseArgs
-
-func ScheduleResponsePtr(v *ScheduleResponseArgs) ScheduleResponsePtrInput {
-	return (*scheduleResponsePtrType)(v)
-}
-
-func (*scheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleResponse)(nil)).Elem()
-}
-
-func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput {
-	return i.ToScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponsePtrOutput)
 }
 
 // Defines how often to run the search and the time interval.
@@ -11049,56 +6071,6 @@ func (i SmsReceiverArray) ToSmsReceiverArrayOutputWithContext(ctx context.Contex
 }
 
 // An SMS receiver.
-type SmsReceiverOutput struct{ *pulumi.OutputState }
-
-func (SmsReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsReceiver)(nil)).Elem()
-}
-
-func (o SmsReceiverOutput) ToSmsReceiverOutput() SmsReceiverOutput {
-	return o
-}
-
-func (o SmsReceiverOutput) ToSmsReceiverOutputWithContext(ctx context.Context) SmsReceiverOutput {
-	return o
-}
-
-// The country code of the SMS receiver.
-func (o SmsReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func(v SmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
-}
-
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-func (o SmsReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SmsReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The phone number of the SMS receiver.
-func (o SmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v SmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
-}
-
-type SmsReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (SmsReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SmsReceiver)(nil)).Elem()
-}
-
-func (o SmsReceiverArrayOutput) ToSmsReceiverArrayOutput() SmsReceiverArrayOutput {
-	return o
-}
-
-func (o SmsReceiverArrayOutput) ToSmsReceiverArrayOutputWithContext(ctx context.Context) SmsReceiverArrayOutput {
-	return o
-}
-
-func (o SmsReceiverArrayOutput) Index(i pulumi.IntInput) SmsReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SmsReceiver {
-		return vs[0].([]SmsReceiver)[vs[1].(int)]
-	}).(SmsReceiverOutput)
-}
-
-// An SMS receiver.
 type SmsReceiverResponse struct {
 	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
@@ -11108,66 +6080,6 @@ type SmsReceiverResponse struct {
 	PhoneNumber string `pulumi:"phoneNumber"`
 	// The status of the receiver.
 	Status string `pulumi:"status"`
-}
-
-// SmsReceiverResponseInput is an input type that accepts SmsReceiverResponseArgs and SmsReceiverResponseOutput values.
-// You can construct a concrete instance of `SmsReceiverResponseInput` via:
-//
-//          SmsReceiverResponseArgs{...}
-type SmsReceiverResponseInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseOutput() SmsReceiverResponseOutput
-	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
-}
-
-// An SMS receiver.
-type SmsReceiverResponseArgs struct {
-	// The country code of the SMS receiver.
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status pulumi.StringInput `pulumi:"status"`
-}
-
-func (SmsReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutput() SmsReceiverResponseOutput {
-	return i.ToSmsReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutputWithContext(ctx context.Context) SmsReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseOutput)
-}
-
-// SmsReceiverResponseArrayInput is an input type that accepts SmsReceiverResponseArray and SmsReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `SmsReceiverResponseArrayInput` via:
-//
-//          SmsReceiverResponseArray{ SmsReceiverResponseArgs{...} }
-type SmsReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput
-	ToSmsReceiverResponseArrayOutputWithContext(context.Context) SmsReceiverResponseArrayOutput
-}
-
-type SmsReceiverResponseArray []SmsReceiverResponseInput
-
-func (SmsReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput {
-	return i.ToSmsReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ctx context.Context) SmsReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
 }
 
 // An SMS receiver.
@@ -11314,109 +6226,6 @@ func (i *sourcePtrType) ToSourcePtrOutputWithContext(ctx context.Context) Source
 }
 
 // Specifies the log search query.
-type SourceOutput struct{ *pulumi.OutputState }
-
-func (SourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Source)(nil)).Elem()
-}
-
-func (o SourceOutput) ToSourceOutput() SourceOutput {
-	return o
-}
-
-func (o SourceOutput) ToSourceOutputWithContext(ctx context.Context) SourceOutput {
-	return o
-}
-
-func (o SourceOutput) ToSourcePtrOutput() SourcePtrOutput {
-	return o.ToSourcePtrOutputWithContext(context.Background())
-}
-
-func (o SourceOutput) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtrOutput {
-	return o.ApplyT(func(v Source) *Source {
-		return &v
-	}).(SourcePtrOutput)
-}
-
-// List of  Resource referred into query
-func (o SourceOutput) AuthorizedResources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v Source) []string { return v.AuthorizedResources }).(pulumi.StringArrayOutput)
-}
-
-// The resource uri over which log search query is to be run.
-func (o SourceOutput) DataSourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v Source) string { return v.DataSourceId }).(pulumi.StringOutput)
-}
-
-// Log search query. Required for action type - AlertingAction
-func (o SourceOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Source) *string { return v.Query }).(pulumi.StringPtrOutput)
-}
-
-// Set value to 'ResultCount' .
-func (o SourceOutput) QueryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Source) *string { return v.QueryType }).(pulumi.StringPtrOutput)
-}
-
-type SourcePtrOutput struct{ *pulumi.OutputState }
-
-func (SourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Source)(nil)).Elem()
-}
-
-func (o SourcePtrOutput) ToSourcePtrOutput() SourcePtrOutput {
-	return o
-}
-
-func (o SourcePtrOutput) ToSourcePtrOutputWithContext(ctx context.Context) SourcePtrOutput {
-	return o
-}
-
-func (o SourcePtrOutput) Elem() SourceOutput {
-	return o.ApplyT(func(v *Source) Source { return *v }).(SourceOutput)
-}
-
-// List of  Resource referred into query
-func (o SourcePtrOutput) AuthorizedResources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Source) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizedResources
-	}).(pulumi.StringArrayOutput)
-}
-
-// The resource uri over which log search query is to be run.
-func (o SourcePtrOutput) DataSourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Source) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Log search query. Required for action type - AlertingAction
-func (o SourcePtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Source) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// Set value to 'ResultCount' .
-func (o SourcePtrOutput) QueryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Source) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the log search query.
 type SourceResponse struct {
 	// List of  Resource referred into query
 	AuthorizedResources []string `pulumi:"authorizedResources"`
@@ -11426,82 +6235,6 @@ type SourceResponse struct {
 	Query *string `pulumi:"query"`
 	// Set value to 'ResultCount' .
 	QueryType *string `pulumi:"queryType"`
-}
-
-// SourceResponseInput is an input type that accepts SourceResponseArgs and SourceResponseOutput values.
-// You can construct a concrete instance of `SourceResponseInput` via:
-//
-//          SourceResponseArgs{...}
-type SourceResponseInput interface {
-	pulumi.Input
-
-	ToSourceResponseOutput() SourceResponseOutput
-	ToSourceResponseOutputWithContext(context.Context) SourceResponseOutput
-}
-
-// Specifies the log search query.
-type SourceResponseArgs struct {
-	// List of  Resource referred into query
-	AuthorizedResources pulumi.StringArrayInput `pulumi:"authorizedResources"`
-	// The resource uri over which log search query is to be run.
-	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
-	// Log search query. Required for action type - AlertingAction
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Set value to 'ResultCount' .
-	QueryType pulumi.StringPtrInput `pulumi:"queryType"`
-}
-
-func (SourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceResponse)(nil)).Elem()
-}
-
-func (i SourceResponseArgs) ToSourceResponseOutput() SourceResponseOutput {
-	return i.ToSourceResponseOutputWithContext(context.Background())
-}
-
-func (i SourceResponseArgs) ToSourceResponseOutputWithContext(ctx context.Context) SourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponseOutput)
-}
-
-func (i SourceResponseArgs) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
-	return i.ToSourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SourceResponseArgs) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponseOutput).ToSourceResponsePtrOutputWithContext(ctx)
-}
-
-// SourceResponsePtrInput is an input type that accepts SourceResponseArgs, SourceResponsePtr and SourceResponsePtrOutput values.
-// You can construct a concrete instance of `SourceResponsePtrInput` via:
-//
-//          SourceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSourceResponsePtrOutput() SourceResponsePtrOutput
-	ToSourceResponsePtrOutputWithContext(context.Context) SourceResponsePtrOutput
-}
-
-type sourceResponsePtrType SourceResponseArgs
-
-func SourceResponsePtr(v *SourceResponseArgs) SourceResponsePtrInput {
-	return (*sourceResponsePtrType)(v)
-}
-
-func (*sourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SourceResponse)(nil)).Elem()
-}
-
-func (i *sourceResponsePtrType) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
-	return i.ToSourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sourceResponsePtrType) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponsePtrOutput)
 }
 
 // Specifies the log search query.
@@ -11663,51 +6396,6 @@ func (i ThresholdRuleConditionArgs) ToThresholdRuleConditionOutputWithContext(ct
 }
 
 // A rule condition based on a metric crossing a threshold.
-type ThresholdRuleConditionOutput struct{ *pulumi.OutputState }
-
-func (ThresholdRuleConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThresholdRuleCondition)(nil)).Elem()
-}
-
-func (o ThresholdRuleConditionOutput) ToThresholdRuleConditionOutput() ThresholdRuleConditionOutput {
-	return o
-}
-
-func (o ThresholdRuleConditionOutput) ToThresholdRuleConditionOutputWithContext(ctx context.Context) ThresholdRuleConditionOutput {
-	return o
-}
-
-// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-func (o ThresholdRuleConditionOutput) DataSource() pulumi.AnyOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) interface{} { return v.DataSource }).(pulumi.AnyOutput)
-}
-
-// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// the operator used to compare the data and the threshold.
-func (o ThresholdRuleConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
-}
-
-// the threshold value that activates the alert.
-func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v ThresholdRuleCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-func (o ThresholdRuleConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
-}
-
-// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-func (o ThresholdRuleConditionOutput) WindowSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.WindowSize }).(pulumi.StringPtrOutput)
-}
-
-// A rule condition based on a metric crossing a threshold.
 type ThresholdRuleConditionResponse struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource interface{} `pulumi:"dataSource"`
@@ -11721,45 +6409,6 @@ type ThresholdRuleConditionResponse struct {
 	TimeAggregation *string `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
-}
-
-// ThresholdRuleConditionResponseInput is an input type that accepts ThresholdRuleConditionResponseArgs and ThresholdRuleConditionResponseOutput values.
-// You can construct a concrete instance of `ThresholdRuleConditionResponseInput` via:
-//
-//          ThresholdRuleConditionResponseArgs{...}
-type ThresholdRuleConditionResponseInput interface {
-	pulumi.Input
-
-	ToThresholdRuleConditionResponseOutput() ThresholdRuleConditionResponseOutput
-	ToThresholdRuleConditionResponseOutputWithContext(context.Context) ThresholdRuleConditionResponseOutput
-}
-
-// A rule condition based on a metric crossing a threshold.
-type ThresholdRuleConditionResponseArgs struct {
-	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-	DataSource pulumi.Input `pulumi:"dataSource"`
-	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// the operator used to compare the data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// the threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
-	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
-	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
-}
-
-func (ThresholdRuleConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThresholdRuleConditionResponse)(nil)).Elem()
-}
-
-func (i ThresholdRuleConditionResponseArgs) ToThresholdRuleConditionResponseOutput() ThresholdRuleConditionResponseOutput {
-	return i.ToThresholdRuleConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ThresholdRuleConditionResponseArgs) ToThresholdRuleConditionResponseOutputWithContext(ctx context.Context) ThresholdRuleConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThresholdRuleConditionResponseOutput)
 }
 
 // A rule condition based on a metric crossing a threshold.
@@ -11892,94 +6541,6 @@ func (i *timeWindowPtrType) ToTimeWindowPtrOutputWithContext(ctx context.Context
 }
 
 // A specific date-time for the profile.
-type TimeWindowOutput struct{ *pulumi.OutputState }
-
-func (TimeWindowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeWindow)(nil)).Elem()
-}
-
-func (o TimeWindowOutput) ToTimeWindowOutput() TimeWindowOutput {
-	return o
-}
-
-func (o TimeWindowOutput) ToTimeWindowOutputWithContext(ctx context.Context) TimeWindowOutput {
-	return o
-}
-
-func (o TimeWindowOutput) ToTimeWindowPtrOutput() TimeWindowPtrOutput {
-	return o.ToTimeWindowPtrOutputWithContext(context.Background())
-}
-
-func (o TimeWindowOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) TimeWindowPtrOutput {
-	return o.ApplyT(func(v TimeWindow) *TimeWindow {
-		return &v
-	}).(TimeWindowPtrOutput)
-}
-
-// the end time for the profile in ISO 8601 format.
-func (o TimeWindowOutput) End() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeWindow) string { return v.End }).(pulumi.StringOutput)
-}
-
-// the start time for the profile in ISO 8601 format.
-func (o TimeWindowOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func(v TimeWindow) string { return v.Start }).(pulumi.StringOutput)
-}
-
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o TimeWindowOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TimeWindow) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
-}
-
-type TimeWindowPtrOutput struct{ *pulumi.OutputState }
-
-func (TimeWindowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeWindow)(nil)).Elem()
-}
-
-func (o TimeWindowPtrOutput) ToTimeWindowPtrOutput() TimeWindowPtrOutput {
-	return o
-}
-
-func (o TimeWindowPtrOutput) ToTimeWindowPtrOutputWithContext(ctx context.Context) TimeWindowPtrOutput {
-	return o
-}
-
-func (o TimeWindowPtrOutput) Elem() TimeWindowOutput {
-	return o.ApplyT(func(v *TimeWindow) TimeWindow { return *v }).(TimeWindowOutput)
-}
-
-// the end time for the profile in ISO 8601 format.
-func (o TimeWindowPtrOutput) End() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.End
-	}).(pulumi.StringPtrOutput)
-}
-
-// the start time for the profile in ISO 8601 format.
-func (o TimeWindowPtrOutput) Start() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Start
-	}).(pulumi.StringPtrOutput)
-}
-
-// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-func (o TimeWindowPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TimeWindow) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
-// A specific date-time for the profile.
 type TimeWindowResponse struct {
 	// the end time for the profile in ISO 8601 format.
 	End string `pulumi:"end"`
@@ -11987,80 +6548,6 @@ type TimeWindowResponse struct {
 	Start string `pulumi:"start"`
 	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
 	TimeZone *string `pulumi:"timeZone"`
-}
-
-// TimeWindowResponseInput is an input type that accepts TimeWindowResponseArgs and TimeWindowResponseOutput values.
-// You can construct a concrete instance of `TimeWindowResponseInput` via:
-//
-//          TimeWindowResponseArgs{...}
-type TimeWindowResponseInput interface {
-	pulumi.Input
-
-	ToTimeWindowResponseOutput() TimeWindowResponseOutput
-	ToTimeWindowResponseOutputWithContext(context.Context) TimeWindowResponseOutput
-}
-
-// A specific date-time for the profile.
-type TimeWindowResponseArgs struct {
-	// the end time for the profile in ISO 8601 format.
-	End pulumi.StringInput `pulumi:"end"`
-	// the start time for the profile in ISO 8601 format.
-	Start pulumi.StringInput `pulumi:"start"`
-	// the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (TimeWindowResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TimeWindowResponse)(nil)).Elem()
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponseOutput() TimeWindowResponseOutput {
-	return i.ToTimeWindowResponseOutputWithContext(context.Background())
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponseOutputWithContext(ctx context.Context) TimeWindowResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponseOutput)
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput {
-	return i.ToTimeWindowResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TimeWindowResponseArgs) ToTimeWindowResponsePtrOutputWithContext(ctx context.Context) TimeWindowResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponseOutput).ToTimeWindowResponsePtrOutputWithContext(ctx)
-}
-
-// TimeWindowResponsePtrInput is an input type that accepts TimeWindowResponseArgs, TimeWindowResponsePtr and TimeWindowResponsePtrOutput values.
-// You can construct a concrete instance of `TimeWindowResponsePtrInput` via:
-//
-//          TimeWindowResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TimeWindowResponsePtrInput interface {
-	pulumi.Input
-
-	ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput
-	ToTimeWindowResponsePtrOutputWithContext(context.Context) TimeWindowResponsePtrOutput
-}
-
-type timeWindowResponsePtrType TimeWindowResponseArgs
-
-func TimeWindowResponsePtr(v *TimeWindowResponseArgs) TimeWindowResponsePtrInput {
-	return (*timeWindowResponsePtrType)(v)
-}
-
-func (*timeWindowResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TimeWindowResponse)(nil)).Elem()
-}
-
-func (i *timeWindowResponsePtrType) ToTimeWindowResponsePtrOutput() TimeWindowResponsePtrOutput {
-	return i.ToTimeWindowResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *timeWindowResponsePtrType) ToTimeWindowResponsePtrOutputWithContext(ctx context.Context) TimeWindowResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowResponsePtrOutput)
 }
 
 // A specific date-time for the profile.
@@ -12195,36 +6682,6 @@ func (i TriggerConditionArgs) ToTriggerConditionOutputWithContext(ctx context.Co
 }
 
 // The condition that results in the Log Search rule.
-type TriggerConditionOutput struct{ *pulumi.OutputState }
-
-func (TriggerConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
-}
-
-func (o TriggerConditionOutput) ToTriggerConditionOutput() TriggerConditionOutput {
-	return o
-}
-
-func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
-	return o
-}
-
-// Trigger condition for metric query rule
-func (o TriggerConditionOutput) MetricTrigger() LogMetricTriggerPtrOutput {
-	return o.ApplyT(func(v TriggerCondition) *LogMetricTrigger { return v.MetricTrigger }).(LogMetricTriggerPtrOutput)
-}
-
-// Result or count threshold based on which rule should be triggered.
-func (o TriggerConditionOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v TriggerCondition) float64 { return v.Threshold }).(pulumi.Float64Output)
-}
-
-// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-func (o TriggerConditionOutput) ThresholdOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v TriggerCondition) string { return v.ThresholdOperator }).(pulumi.StringOutput)
-}
-
-// The condition that results in the Log Search rule.
 type TriggerConditionResponse struct {
 	// Trigger condition for metric query rule
 	MetricTrigger *LogMetricTriggerResponse `pulumi:"metricTrigger"`
@@ -12232,39 +6689,6 @@ type TriggerConditionResponse struct {
 	Threshold float64 `pulumi:"threshold"`
 	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
 	ThresholdOperator string `pulumi:"thresholdOperator"`
-}
-
-// TriggerConditionResponseInput is an input type that accepts TriggerConditionResponseArgs and TriggerConditionResponseOutput values.
-// You can construct a concrete instance of `TriggerConditionResponseInput` via:
-//
-//          TriggerConditionResponseArgs{...}
-type TriggerConditionResponseInput interface {
-	pulumi.Input
-
-	ToTriggerConditionResponseOutput() TriggerConditionResponseOutput
-	ToTriggerConditionResponseOutputWithContext(context.Context) TriggerConditionResponseOutput
-}
-
-// The condition that results in the Log Search rule.
-type TriggerConditionResponseArgs struct {
-	// Trigger condition for metric query rule
-	MetricTrigger LogMetricTriggerResponsePtrInput `pulumi:"metricTrigger"`
-	// Result or count threshold based on which rule should be triggered.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-	ThresholdOperator pulumi.StringInput `pulumi:"thresholdOperator"`
-}
-
-func (TriggerConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerConditionResponse)(nil)).Elem()
-}
-
-func (i TriggerConditionResponseArgs) ToTriggerConditionResponseOutput() TriggerConditionResponseOutput {
-	return i.ToTriggerConditionResponseOutputWithContext(context.Background())
-}
-
-func (i TriggerConditionResponseArgs) ToTriggerConditionResponseOutputWithContext(ctx context.Context) TriggerConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionResponseOutput)
 }
 
 // The condition that results in the Log Search rule.
@@ -12366,56 +6790,6 @@ func (i VoiceReceiverArray) ToVoiceReceiverArrayOutputWithContext(ctx context.Co
 }
 
 // A voice receiver.
-type VoiceReceiverOutput struct{ *pulumi.OutputState }
-
-func (VoiceReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceReceiver)(nil)).Elem()
-}
-
-func (o VoiceReceiverOutput) ToVoiceReceiverOutput() VoiceReceiverOutput {
-	return o
-}
-
-func (o VoiceReceiverOutput) ToVoiceReceiverOutputWithContext(ctx context.Context) VoiceReceiverOutput {
-	return o
-}
-
-// The country code of the voice receiver.
-func (o VoiceReceiverOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func(v VoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
-}
-
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
-func (o VoiceReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The phone number of the voice receiver.
-func (o VoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v VoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
-}
-
-type VoiceReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (VoiceReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceReceiver)(nil)).Elem()
-}
-
-func (o VoiceReceiverArrayOutput) ToVoiceReceiverArrayOutput() VoiceReceiverArrayOutput {
-	return o
-}
-
-func (o VoiceReceiverArrayOutput) ToVoiceReceiverArrayOutputWithContext(ctx context.Context) VoiceReceiverArrayOutput {
-	return o
-}
-
-func (o VoiceReceiverArrayOutput) Index(i pulumi.IntInput) VoiceReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceReceiver {
-		return vs[0].([]VoiceReceiver)[vs[1].(int)]
-	}).(VoiceReceiverOutput)
-}
-
-// A voice receiver.
 type VoiceReceiverResponse struct {
 	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
@@ -12423,64 +6797,6 @@ type VoiceReceiverResponse struct {
 	Name string `pulumi:"name"`
 	// The phone number of the voice receiver.
 	PhoneNumber string `pulumi:"phoneNumber"`
-}
-
-// VoiceReceiverResponseInput is an input type that accepts VoiceReceiverResponseArgs and VoiceReceiverResponseOutput values.
-// You can construct a concrete instance of `VoiceReceiverResponseInput` via:
-//
-//          VoiceReceiverResponseArgs{...}
-type VoiceReceiverResponseInput interface {
-	pulumi.Input
-
-	ToVoiceReceiverResponseOutput() VoiceReceiverResponseOutput
-	ToVoiceReceiverResponseOutputWithContext(context.Context) VoiceReceiverResponseOutput
-}
-
-// A voice receiver.
-type VoiceReceiverResponseArgs struct {
-	// The country code of the voice receiver.
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-}
-
-func (VoiceReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceReceiverResponse)(nil)).Elem()
-}
-
-func (i VoiceReceiverResponseArgs) ToVoiceReceiverResponseOutput() VoiceReceiverResponseOutput {
-	return i.ToVoiceReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i VoiceReceiverResponseArgs) ToVoiceReceiverResponseOutputWithContext(ctx context.Context) VoiceReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseOutput)
-}
-
-// VoiceReceiverResponseArrayInput is an input type that accepts VoiceReceiverResponseArray and VoiceReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `VoiceReceiverResponseArrayInput` via:
-//
-//          VoiceReceiverResponseArray{ VoiceReceiverResponseArgs{...} }
-type VoiceReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToVoiceReceiverResponseArrayOutput() VoiceReceiverResponseArrayOutput
-	ToVoiceReceiverResponseArrayOutputWithContext(context.Context) VoiceReceiverResponseArrayOutput
-}
-
-type VoiceReceiverResponseArray []VoiceReceiverResponseInput
-
-func (VoiceReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceReceiverResponse)(nil)).Elem()
-}
-
-func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutput() VoiceReceiverResponseArrayOutput {
-	return i.ToVoiceReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutputWithContext(ctx context.Context) VoiceReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseArrayOutput)
 }
 
 // A voice receiver.
@@ -12594,103 +6910,9 @@ func (i WebTestGeolocationArray) ToWebTestGeolocationArrayOutputWithContext(ctx 
 }
 
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
-type WebTestGeolocationOutput struct{ *pulumi.OutputState }
-
-func (WebTestGeolocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestGeolocation)(nil)).Elem()
-}
-
-func (o WebTestGeolocationOutput) ToWebTestGeolocationOutput() WebTestGeolocationOutput {
-	return o
-}
-
-func (o WebTestGeolocationOutput) ToWebTestGeolocationOutputWithContext(ctx context.Context) WebTestGeolocationOutput {
-	return o
-}
-
-// Location ID for the webtest to run from.
-func (o WebTestGeolocationOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-type WebTestGeolocationArrayOutput struct{ *pulumi.OutputState }
-
-func (WebTestGeolocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebTestGeolocation)(nil)).Elem()
-}
-
-func (o WebTestGeolocationArrayOutput) ToWebTestGeolocationArrayOutput() WebTestGeolocationArrayOutput {
-	return o
-}
-
-func (o WebTestGeolocationArrayOutput) ToWebTestGeolocationArrayOutputWithContext(ctx context.Context) WebTestGeolocationArrayOutput {
-	return o
-}
-
-func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTestGeolocation {
-		return vs[0].([]WebTestGeolocation)[vs[1].(int)]
-	}).(WebTestGeolocationOutput)
-}
-
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponse struct {
 	// Location ID for the webtest to run from.
 	Location *string `pulumi:"location"`
-}
-
-// WebTestGeolocationResponseInput is an input type that accepts WebTestGeolocationResponseArgs and WebTestGeolocationResponseOutput values.
-// You can construct a concrete instance of `WebTestGeolocationResponseInput` via:
-//
-//          WebTestGeolocationResponseArgs{...}
-type WebTestGeolocationResponseInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput
-	ToWebTestGeolocationResponseOutputWithContext(context.Context) WebTestGeolocationResponseOutput
-}
-
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
-type WebTestGeolocationResponseArgs struct {
-	// Location ID for the webtest to run from.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-}
-
-func (WebTestGeolocationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput {
-	return i.ToWebTestGeolocationResponseOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutputWithContext(ctx context.Context) WebTestGeolocationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseOutput)
-}
-
-// WebTestGeolocationResponseArrayInput is an input type that accepts WebTestGeolocationResponseArray and WebTestGeolocationResponseArrayOutput values.
-// You can construct a concrete instance of `WebTestGeolocationResponseArrayInput` via:
-//
-//          WebTestGeolocationResponseArray{ WebTestGeolocationResponseArgs{...} }
-type WebTestGeolocationResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput
-	ToWebTestGeolocationResponseArrayOutputWithContext(context.Context) WebTestGeolocationResponseArrayOutput
-}
-
-type WebTestGeolocationResponseArray []WebTestGeolocationResponseInput
-
-func (WebTestGeolocationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput {
-	return i.ToWebTestGeolocationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseArrayOutput)
 }
 
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
@@ -12810,137 +7032,9 @@ func (i *webTestPropertiesConfigurationPtrType) ToWebTestPropertiesConfiguration
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesConfigurationOutput struct{ *pulumi.OutputState }
-
-func (WebTestPropertiesConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesConfiguration)(nil)).Elem()
-}
-
-func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationOutput() WebTestPropertiesConfigurationOutput {
-	return o
-}
-
-func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationOutput {
-	return o
-}
-
-func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
-	return o.ToWebTestPropertiesConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
-		return &v
-	}).(WebTestPropertiesConfigurationPtrOutput)
-}
-
-// The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesConfigurationOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
-}
-
-type WebTestPropertiesConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (WebTestPropertiesConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesConfiguration)(nil)).Elem()
-}
-
-func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
-	return o
-}
-
-func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o
-}
-
-func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
-}
-
-// The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebTest
-	}).(pulumi.StringPtrOutput)
-}
-
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
-}
-
-// WebTestPropertiesResponseConfigurationInput is an input type that accepts WebTestPropertiesResponseConfigurationArgs and WebTestPropertiesResponseConfigurationOutput values.
-// You can construct a concrete instance of `WebTestPropertiesResponseConfigurationInput` via:
-//
-//          WebTestPropertiesResponseConfigurationArgs{...}
-type WebTestPropertiesResponseConfigurationInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput
-	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
-}
-
-// An XML configuration specification for a WebTest.
-type WebTestPropertiesResponseConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
-	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
-}
-
-func (WebTestPropertiesResponseConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput {
-	return i.ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput)
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput).ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx)
-}
-
-// WebTestPropertiesResponseConfigurationPtrInput is an input type that accepts WebTestPropertiesResponseConfigurationArgs, WebTestPropertiesResponseConfigurationPtr and WebTestPropertiesResponseConfigurationPtrOutput values.
-// You can construct a concrete instance of `WebTestPropertiesResponseConfigurationPtrInput` via:
-//
-//          WebTestPropertiesResponseConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type WebTestPropertiesResponseConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput
-	ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationPtrOutput
-}
-
-type webTestPropertiesResponseConfigurationPtrType WebTestPropertiesResponseConfigurationArgs
-
-func WebTestPropertiesResponseConfigurationPtr(v *WebTestPropertiesResponseConfigurationArgs) WebTestPropertiesResponseConfigurationPtrInput {
-	return (*webTestPropertiesResponseConfigurationPtrType)(v)
-}
-
-func (*webTestPropertiesResponseConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 // An XML configuration specification for a WebTest.
@@ -13066,112 +7160,11 @@ func (i WebhookNotificationArray) ToWebhookNotificationArrayOutputWithContext(ct
 }
 
 // Webhook notification of an autoscale event.
-type WebhookNotificationOutput struct{ *pulumi.OutputState }
-
-func (WebhookNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookNotification)(nil)).Elem()
-}
-
-func (o WebhookNotificationOutput) ToWebhookNotificationOutput() WebhookNotificationOutput {
-	return o
-}
-
-func (o WebhookNotificationOutput) ToWebhookNotificationOutputWithContext(ctx context.Context) WebhookNotificationOutput {
-	return o
-}
-
-// a property bag of settings. This value can be empty.
-func (o WebhookNotificationOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebhookNotification) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// the service address to receive the notification.
-func (o WebhookNotificationOutput) ServiceUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookNotification) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
-}
-
-type WebhookNotificationArrayOutput struct{ *pulumi.OutputState }
-
-func (WebhookNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookNotification)(nil)).Elem()
-}
-
-func (o WebhookNotificationArrayOutput) ToWebhookNotificationArrayOutput() WebhookNotificationArrayOutput {
-	return o
-}
-
-func (o WebhookNotificationArrayOutput) ToWebhookNotificationArrayOutputWithContext(ctx context.Context) WebhookNotificationArrayOutput {
-	return o
-}
-
-func (o WebhookNotificationArrayOutput) Index(i pulumi.IntInput) WebhookNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookNotification {
-		return vs[0].([]WebhookNotification)[vs[1].(int)]
-	}).(WebhookNotificationOutput)
-}
-
-// Webhook notification of an autoscale event.
 type WebhookNotificationResponse struct {
 	// a property bag of settings. This value can be empty.
 	Properties map[string]string `pulumi:"properties"`
 	// the service address to receive the notification.
 	ServiceUri *string `pulumi:"serviceUri"`
-}
-
-// WebhookNotificationResponseInput is an input type that accepts WebhookNotificationResponseArgs and WebhookNotificationResponseOutput values.
-// You can construct a concrete instance of `WebhookNotificationResponseInput` via:
-//
-//          WebhookNotificationResponseArgs{...}
-type WebhookNotificationResponseInput interface {
-	pulumi.Input
-
-	ToWebhookNotificationResponseOutput() WebhookNotificationResponseOutput
-	ToWebhookNotificationResponseOutputWithContext(context.Context) WebhookNotificationResponseOutput
-}
-
-// Webhook notification of an autoscale event.
-type WebhookNotificationResponseArgs struct {
-	// a property bag of settings. This value can be empty.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the service address to receive the notification.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-}
-
-func (WebhookNotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookNotificationResponse)(nil)).Elem()
-}
-
-func (i WebhookNotificationResponseArgs) ToWebhookNotificationResponseOutput() WebhookNotificationResponseOutput {
-	return i.ToWebhookNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookNotificationResponseArgs) ToWebhookNotificationResponseOutputWithContext(ctx context.Context) WebhookNotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookNotificationResponseOutput)
-}
-
-// WebhookNotificationResponseArrayInput is an input type that accepts WebhookNotificationResponseArray and WebhookNotificationResponseArrayOutput values.
-// You can construct a concrete instance of `WebhookNotificationResponseArrayInput` via:
-//
-//          WebhookNotificationResponseArray{ WebhookNotificationResponseArgs{...} }
-type WebhookNotificationResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebhookNotificationResponseArrayOutput() WebhookNotificationResponseArrayOutput
-	ToWebhookNotificationResponseArrayOutputWithContext(context.Context) WebhookNotificationResponseArrayOutput
-}
-
-type WebhookNotificationResponseArray []WebhookNotificationResponseInput
-
-func (WebhookNotificationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookNotificationResponse)(nil)).Elem()
-}
-
-func (i WebhookNotificationResponseArray) ToWebhookNotificationResponseArrayOutput() WebhookNotificationResponseArrayOutput {
-	return i.ToWebhookNotificationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebhookNotificationResponseArray) ToWebhookNotificationResponseArrayOutputWithContext(ctx context.Context) WebhookNotificationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookNotificationResponseArrayOutput)
 }
 
 // Webhook notification of an autoscale event.
@@ -13304,76 +7297,6 @@ func (i WebhookReceiverArray) ToWebhookReceiverArrayOutputWithContext(ctx contex
 }
 
 // A webhook receiver.
-type WebhookReceiverOutput struct{ *pulumi.OutputState }
-
-func (WebhookReceiverOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookReceiver)(nil)).Elem()
-}
-
-func (o WebhookReceiverOutput) ToWebhookReceiverOutput() WebhookReceiverOutput {
-	return o
-}
-
-func (o WebhookReceiverOutput) ToWebhookReceiverOutputWithContext(ctx context.Context) WebhookReceiverOutput {
-	return o
-}
-
-// Indicates the identifier uri for aad auth.
-func (o WebhookReceiverOutput) IdentifierUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookReceiver) *string { return v.IdentifierUri }).(pulumi.StringPtrOutput)
-}
-
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-func (o WebhookReceiverOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Indicates the webhook app object Id for aad auth.
-func (o WebhookReceiverOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookReceiver) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
-}
-
-// The URI where webhooks should be sent.
-func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
-}
-
-// Indicates the tenant id for aad auth.
-func (o WebhookReceiverOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookReceiver) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether or not use AAD authentication.
-func (o WebhookReceiverOutput) UseAadAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WebhookReceiver) *bool { return v.UseAadAuth }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether to use common alert schema.
-func (o WebhookReceiverOutput) UseCommonAlertSchema() pulumi.BoolOutput {
-	return o.ApplyT(func(v WebhookReceiver) bool { return v.UseCommonAlertSchema }).(pulumi.BoolOutput)
-}
-
-type WebhookReceiverArrayOutput struct{ *pulumi.OutputState }
-
-func (WebhookReceiverArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookReceiver)(nil)).Elem()
-}
-
-func (o WebhookReceiverArrayOutput) ToWebhookReceiverArrayOutput() WebhookReceiverArrayOutput {
-	return o
-}
-
-func (o WebhookReceiverArrayOutput) ToWebhookReceiverArrayOutputWithContext(ctx context.Context) WebhookReceiverArrayOutput {
-	return o
-}
-
-func (o WebhookReceiverArrayOutput) Index(i pulumi.IntInput) WebhookReceiverOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookReceiver {
-		return vs[0].([]WebhookReceiver)[vs[1].(int)]
-	}).(WebhookReceiverOutput)
-}
-
-// A webhook receiver.
 type WebhookReceiverResponse struct {
 	// Indicates the identifier uri for aad auth.
 	IdentifierUri *string `pulumi:"identifierUri"`
@@ -13389,72 +7312,6 @@ type WebhookReceiverResponse struct {
 	UseAadAuth *bool `pulumi:"useAadAuth"`
 	// Indicates whether to use common alert schema.
 	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
-}
-
-// WebhookReceiverResponseInput is an input type that accepts WebhookReceiverResponseArgs and WebhookReceiverResponseOutput values.
-// You can construct a concrete instance of `WebhookReceiverResponseInput` via:
-//
-//          WebhookReceiverResponseArgs{...}
-type WebhookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput
-	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
-}
-
-// A webhook receiver.
-type WebhookReceiverResponseArgs struct {
-	// Indicates the identifier uri for aad auth.
-	IdentifierUri pulumi.StringPtrInput `pulumi:"identifierUri"`
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates the webhook app object Id for aad auth.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
-	// Indicates the tenant id for aad auth.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Indicates whether or not use AAD authentication.
-	UseAadAuth pulumi.BoolPtrInput `pulumi:"useAadAuth"`
-	// Indicates whether to use common alert schema.
-	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (WebhookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput {
-	return i.ToWebhookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutputWithContext(ctx context.Context) WebhookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseOutput)
-}
-
-// WebhookReceiverResponseArrayInput is an input type that accepts WebhookReceiverResponseArray and WebhookReceiverResponseArrayOutput values.
-// You can construct a concrete instance of `WebhookReceiverResponseArrayInput` via:
-//
-//          WebhookReceiverResponseArray{ WebhookReceiverResponseArgs{...} }
-type WebhookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput
-	ToWebhookReceiverResponseArrayOutputWithContext(context.Context) WebhookReceiverResponseArrayOutput
-}
-
-type WebhookReceiverResponseArray []WebhookReceiverResponseInput
-
-func (WebhookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput {
-	return i.ToWebhookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithContext(ctx context.Context) WebhookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
 }
 
 // A webhook receiver.
@@ -13575,41 +7432,6 @@ func (i WebtestLocationAvailabilityCriteriaArgs) ToWebtestLocationAvailabilityCr
 }
 
 // Specifies the metric alert rule criteria for a web test resource.
-type WebtestLocationAvailabilityCriteriaOutput struct{ *pulumi.OutputState }
-
-func (WebtestLocationAvailabilityCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebtestLocationAvailabilityCriteria)(nil)).Elem()
-}
-
-func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailabilityCriteriaOutput() WebtestLocationAvailabilityCriteriaOutput {
-	return o
-}
-
-func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailabilityCriteriaOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaOutput {
-	return o
-}
-
-// The Application Insights resource Id.
-func (o WebtestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
-	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
-}
-
-// The number of failed locations.
-func (o WebtestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.Float64Output {
-	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
-}
-
-// specifies the type of the alert criteria.
-func (o WebtestLocationAvailabilityCriteriaOutput) OdataType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.OdataType }).(pulumi.StringOutput)
-}
-
-// The Application Insights web test Id.
-func (o WebtestLocationAvailabilityCriteriaOutput) WebTestId() pulumi.StringOutput {
-	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.WebTestId }).(pulumi.StringOutput)
-}
-
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaResponse struct {
 	// The Application Insights resource Id.
 	ComponentId string `pulumi:"componentId"`
@@ -13619,41 +7441,6 @@ type WebtestLocationAvailabilityCriteriaResponse struct {
 	OdataType string `pulumi:"odataType"`
 	// The Application Insights web test Id.
 	WebTestId string `pulumi:"webTestId"`
-}
-
-// WebtestLocationAvailabilityCriteriaResponseInput is an input type that accepts WebtestLocationAvailabilityCriteriaResponseArgs and WebtestLocationAvailabilityCriteriaResponseOutput values.
-// You can construct a concrete instance of `WebtestLocationAvailabilityCriteriaResponseInput` via:
-//
-//          WebtestLocationAvailabilityCriteriaResponseArgs{...}
-type WebtestLocationAvailabilityCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToWebtestLocationAvailabilityCriteriaResponseOutput() WebtestLocationAvailabilityCriteriaResponseOutput
-	ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(context.Context) WebtestLocationAvailabilityCriteriaResponseOutput
-}
-
-// Specifies the metric alert rule criteria for a web test resource.
-type WebtestLocationAvailabilityCriteriaResponseArgs struct {
-	// The Application Insights resource Id.
-	ComponentId pulumi.StringInput `pulumi:"componentId"`
-	// The number of failed locations.
-	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId pulumi.StringInput `pulumi:"webTestId"`
-}
-
-func (WebtestLocationAvailabilityCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebtestLocationAvailabilityCriteriaResponse)(nil)).Elem()
-}
-
-func (i WebtestLocationAvailabilityCriteriaResponseArgs) ToWebtestLocationAvailabilityCriteriaResponseOutput() WebtestLocationAvailabilityCriteriaResponseOutput {
-	return i.ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i WebtestLocationAvailabilityCriteriaResponseArgs) ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(ctx context.Context) WebtestLocationAvailabilityCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebtestLocationAvailabilityCriteriaResponseOutput)
 }
 
 // Specifies the metric alert rule criteria for a web test resource.

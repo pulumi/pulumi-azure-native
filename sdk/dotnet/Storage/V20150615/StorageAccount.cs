@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Storage.V20150615
         /// The custom domain the user assigned to this storage account.
         /// </summary>
         [Output("customDomain")]
-        public Output<Outputs.CustomDomainResponseResult?> CustomDomain { get; private set; } = null!;
+        public Output<Outputs.CustomDomainResponse?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Storage.V20150615
         /// The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
         /// </summary>
         [Output("primaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult?> PrimaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse?> PrimaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The location of the primary data center for the storage account.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Storage.V20150615
         /// The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
         /// </summary>
         [Output("secondaryEndpoints")]
-        public Output<Outputs.EndpointsResponseResult?> SecondaryEndpoints { get; private set; } = null!;
+        public Output<Outputs.EndpointsResponse?> SecondaryEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.

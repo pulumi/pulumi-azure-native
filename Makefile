@@ -31,7 +31,7 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
 local_generate:: codegen provider
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
 	echo "Finished generating schema."
 
 generate_schema::

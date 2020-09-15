@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// The cluster which streaming jobs will run on.
         /// </summary>
         [Output("cluster")]
-        public Output<Outputs.ClusterInfoResponseResult?> Cluster { get; private set; } = null!;
+        public Output<Outputs.ClusterInfoResponse?> Cluster { get; private set; } = null!;
 
         /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
@@ -72,25 +72,25 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// The storage account where the custom code artifacts are located.
         /// </summary>
         [Output("externals")]
-        public Output<Outputs.ExternalResponseResult?> Externals { get; private set; } = null!;
+        public Output<Outputs.ExternalResponse?> Externals { get; private set; } = null!;
 
         /// <summary>
         /// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
         [Output("functions")]
-        public Output<ImmutableArray<Outputs.FunctionResponseResult>> Functions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FunctionResponse>> Functions { get; private set; } = null!;
 
         /// <summary>
         /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
         [Output("inputs")]
-        public Output<ImmutableArray<Outputs.InputResponseResult>> Inputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InputResponse>> Inputs { get; private set; } = null!;
 
         /// <summary>
         /// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// The properties that are associated with an Azure Storage account with MSI
         /// </summary>
         [Output("jobStorageAccount")]
-        public Output<Outputs.JobStorageAccountResponseResult?> JobStorageAccount { get; private set; } = null!;
+        public Output<Outputs.JobStorageAccountResponse?> JobStorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         /// </summary>
         [Output("outputs")]
-        public Output<ImmutableArray<Outputs.OutputResponseResult>> Outputs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OutputResponse>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// Describes the provisioning status of the streaming job.
@@ -168,7 +168,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.StreamingJobSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.StreamingJobSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -180,7 +180,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
         [Output("transformation")]
-        public Output<Outputs.TransformationResponseResult?> Transformation { get; private set; } = null!;
+        public Output<Outputs.TransformationResponse?> Transformation { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

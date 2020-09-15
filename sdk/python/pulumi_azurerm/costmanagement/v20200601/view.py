@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,9 +22,9 @@ class View(pulumi.CustomResource):
                  dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
-                 kpis: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
+                 kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
-                 pivots: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
+                 pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
                  timeframe: Optional[pulumi.Input[str]] = None,
@@ -43,9 +43,9 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] dataset: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[str] metric: Metric to use when displaying costs.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']] time_period: Has time period for pulling data for the report.
         :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
@@ -167,7 +167,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kpis(self) -> pulumi.Output[Optional[List['outputs.KpiPropertiesResponse']]]:
+    def kpis(self) -> pulumi.Output[Optional[Sequence['outputs.KpiPropertiesResponse']]]:
         """
         List of KPIs to show in Cost Analysis UI.
         """
@@ -199,7 +199,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def pivots(self) -> pulumi.Output[Optional[List['outputs.PivotPropertiesResponse']]]:
+    def pivots(self) -> pulumi.Output[Optional[Sequence['outputs.PivotPropertiesResponse']]]:
         """
         Configuration of 3 sub-views in the Cost Analysis UI.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -87,14 +87,14 @@ class AccessPolicyEntryArgs:
 @pulumi.input_type
 class PermissionsArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Permissions the identity has for keys, secrets and certificates.
-        :param pulumi.Input[List[pulumi.Input[str]]] certificates: Permissions to certificates
-        :param pulumi.Input[List[pulumi.Input[str]]] keys: Permissions to keys
-        :param pulumi.Input[List[pulumi.Input[str]]] secrets: Permissions to secrets
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: Permissions to certificates
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Permissions to keys
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secrets: Permissions to secrets
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -105,38 +105,38 @@ class PermissionsArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Permissions to certificates
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificates", value)
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Permissions to keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Permissions to secrets
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "secrets", value)
 
 
@@ -181,7 +181,7 @@ class SkuArgs:
 @pulumi.input_type
 class VaultPropertiesArgs:
     def __init__(__self__, *,
-                 access_policies: pulumi.Input[List[pulumi.Input['AccessPolicyEntryArgs']]],
+                 access_policies: pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]],
                  sku: pulumi.Input['SkuArgs'],
                  tenant_id: pulumi.Input[str],
                  enable_soft_delete: Optional[pulumi.Input[bool]] = None,
@@ -191,7 +191,7 @@ class VaultPropertiesArgs:
                  vault_uri: Optional[pulumi.Input[str]] = None):
         """
         Properties of the vault
-        :param pulumi.Input[List[pulumi.Input['AccessPolicyEntryArgs']]] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]] access_policies: An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         :param pulumi.Input['SkuArgs'] sku: SKU details
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[bool] enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault.
@@ -216,14 +216,14 @@ class VaultPropertiesArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> pulumi.Input[List[pulumi.Input['AccessPolicyEntryArgs']]]:
+    def access_policies(self) -> pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]:
         """
         An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: pulumi.Input[List[pulumi.Input['AccessPolicyEntryArgs']]]):
+    def access_policies(self, value: pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]):
         pulumi.set(self, "access_policies", value)
 
     @property

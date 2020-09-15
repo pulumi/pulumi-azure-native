@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,13 +17,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_asn: Optional[pulumi.Input[float]] = None,
+                 azure_asn: Optional[pulumi.Input[int]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 peer_asn: Optional[pulumi.Input[float]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
                  peering_type: Optional[pulumi.Input[str]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  shared_key: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
-                 vlan_id: Optional[pulumi.Input[float]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,13 +44,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] azure_asn: The Azure ASN.
+        :param pulumi.Input[int] azure_asn: The Azure ASN.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource Identifier.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringConfigArgs']] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        :param pulumi.Input[float] peer_asn: The peer ASN.
+        :param pulumi.Input[int] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
         :param pulumi.Input[str] peering_type: The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
         :param pulumi.Input[str] primary_azure_port: The primary port.
@@ -62,7 +62,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared key.
         :param pulumi.Input[str] state: The state of peering. Possible values are: 'Disabled' and 'Enabled'
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']] stats: Gets peering stats.
-        :param pulumi.Input[float] vlan_id: The VLAN ID.
+        :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,7 +134,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureASN")
-    def azure_asn(self) -> pulumi.Output[Optional[float]]:
+    def azure_asn(self) -> pulumi.Output[Optional[int]]:
         """
         The Azure ASN.
         """
@@ -166,7 +166,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerASN")
-    def peer_asn(self) -> pulumi.Output[Optional[float]]:
+    def peer_asn(self) -> pulumi.Output[Optional[int]]:
         """
         The peer ASN.
         """
@@ -246,7 +246,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> pulumi.Output[Optional[float]]:
+    def vlan_id(self) -> pulumi.Output[Optional[int]]:
         """
         The VLAN ID.
         """

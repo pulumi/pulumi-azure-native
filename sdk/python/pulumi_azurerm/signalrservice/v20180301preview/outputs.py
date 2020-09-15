@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,14 +19,14 @@ class ResourceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         The billing information of the resource.(e.g. basic vs. standard)
         :param str name: The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
-        :param float capacity: Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
+        :param int capacity: Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
                possible for the resource this may be omitted.
         :param str family: Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param str size: Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
@@ -52,7 +52,7 @@ class ResourceSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not 
         possible for the resource this may be omitted.

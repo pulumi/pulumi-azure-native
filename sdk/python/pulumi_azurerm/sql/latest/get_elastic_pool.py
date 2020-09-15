@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,14 +23,14 @@ class GetElasticPoolResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
-        if database_dtu_max and not isinstance(database_dtu_max, float):
-            raise TypeError("Expected argument 'database_dtu_max' to be a float")
+        if database_dtu_max and not isinstance(database_dtu_max, int):
+            raise TypeError("Expected argument 'database_dtu_max' to be a int")
         pulumi.set(__self__, "database_dtu_max", database_dtu_max)
-        if database_dtu_min and not isinstance(database_dtu_min, float):
-            raise TypeError("Expected argument 'database_dtu_min' to be a float")
+        if database_dtu_min and not isinstance(database_dtu_min, int):
+            raise TypeError("Expected argument 'database_dtu_min' to be a int")
         pulumi.set(__self__, "database_dtu_min", database_dtu_min)
-        if dtu and not isinstance(dtu, float):
-            raise TypeError("Expected argument 'dtu' to be a float")
+        if dtu and not isinstance(dtu, int):
+            raise TypeError("Expected argument 'dtu' to be a int")
         pulumi.set(__self__, "dtu", dtu)
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
@@ -47,8 +47,8 @@ class GetElasticPoolResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
-        if storage_mb and not isinstance(storage_mb, float):
-            raise TypeError("Expected argument 'storage_mb' to be a float")
+        if storage_mb and not isinstance(storage_mb, int):
+            raise TypeError("Expected argument 'storage_mb' to be a int")
         pulumi.set(__self__, "storage_mb", storage_mb)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -70,7 +70,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="databaseDtuMax")
-    def database_dtu_max(self) -> Optional[float]:
+    def database_dtu_max(self) -> Optional[int]:
         """
         The maximum DTU any one database can consume.
         """
@@ -78,7 +78,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="databaseDtuMin")
-    def database_dtu_min(self) -> Optional[float]:
+    def database_dtu_min(self) -> Optional[int]:
         """
         The minimum DTU all databases are guaranteed.
         """
@@ -86,7 +86,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter
-    def dtu(self) -> Optional[float]:
+    def dtu(self) -> Optional[int]:
         """
         The total shared DTU for the database elastic pool.
         """
@@ -134,7 +134,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[float]:
+    def storage_mb(self) -> Optional[int]:
         """
         Gets storage limit for the database elastic pool in MB.
         """

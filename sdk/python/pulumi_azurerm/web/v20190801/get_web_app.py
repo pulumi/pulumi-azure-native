@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,11 +36,11 @@ class GetWebAppResult:
         if cloning_info and not isinstance(cloning_info, dict):
             raise TypeError("Expected argument 'cloning_info' to be a dict")
         pulumi.set(__self__, "cloning_info", cloning_info)
-        if container_size and not isinstance(container_size, float):
-            raise TypeError("Expected argument 'container_size' to be a float")
+        if container_size and not isinstance(container_size, int):
+            raise TypeError("Expected argument 'container_size' to be a int")
         pulumi.set(__self__, "container_size", container_size)
-        if daily_memory_time_quota and not isinstance(daily_memory_time_quota, float):
-            raise TypeError("Expected argument 'daily_memory_time_quota' to be a float")
+        if daily_memory_time_quota and not isinstance(daily_memory_time_quota, int):
+            raise TypeError("Expected argument 'daily_memory_time_quota' to be a int")
         pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
         if default_host_name and not isinstance(default_host_name, str):
             raise TypeError("Expected argument 'default_host_name' to be a str")
@@ -90,8 +90,8 @@ class GetWebAppResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_number_of_workers and not isinstance(max_number_of_workers, float):
-            raise TypeError("Expected argument 'max_number_of_workers' to be a float")
+        if max_number_of_workers and not isinstance(max_number_of_workers, int):
+            raise TypeError("Expected argument 'max_number_of_workers' to be a int")
         pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -190,7 +190,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="containerSize")
-    def container_size(self) -> Optional[float]:
+    def container_size(self) -> Optional[int]:
         """
         Size of the function container.
         """
@@ -198,7 +198,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> Optional[float]:
+    def daily_memory_time_quota(self) -> Optional[int]:
         """
         Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         """
@@ -222,7 +222,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="enabledHostNames")
-    def enabled_host_names(self) -> List[str]:
+    def enabled_host_names(self) -> Sequence[str]:
         """
         Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
         the app is not served on those hostnames.
@@ -231,7 +231,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> Optional[List['outputs.HostNameSslStateResponse']]:
+    def host_name_ssl_states(self) -> Optional[Sequence['outputs.HostNameSslStateResponse']]:
         """
         Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         """
@@ -239,7 +239,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> List[str]:
+    def host_names(self) -> Sequence[str]:
         """
         Hostnames associated with the app.
         """
@@ -337,7 +337,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> float:
+    def max_number_of_workers(self) -> int:
         """
         Maximum number of workers.
         This only applies to Functions container.
@@ -466,7 +466,7 @@ class GetWebAppResult:
 
     @property
     @pulumi.getter(name="trafficManagerHostNames")
-    def traffic_manager_host_names(self) -> List[str]:
+    def traffic_manager_host_names(self) -> Sequence[str]:
         """
         Azure Traffic Manager hostnames associated with the app. Read-only.
         """

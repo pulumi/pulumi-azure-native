@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Specifies the properties used to describe the customization steps of the image, like Image source etc
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageTemplateShellCustomizerResponseResult> Customize;
+        public readonly ImmutableArray<Outputs.ImageTemplateShellCustomizerResponse> Customize;
         /// <summary>
         /// The distribution targets where the image output needs to go to.
         /// </summary>
-        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Outputs.ImageTemplateSharedImageDistributorResponseResult>> Distribute;
+        public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Outputs.ImageTemplateSharedImageDistributorResponse>> Distribute;
         /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
-        public readonly Outputs.ImageTemplateLastRunStatusResponseResult LastRunStatus;
+        public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ProvisioningErrorResponseResult ProvisioningError;
+        public readonly Outputs.ProvisioningErrorResponse ProvisioningError;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
         /// <summary>
         /// Specifies the properties used to describe the source image.
         /// </summary>
-        public readonly Union<Outputs.ImageTemplateIsoSourceResponseResult, Outputs.ImageTemplatePlatformImageSourceResponseResult> Source;
+        public readonly Union<Outputs.ImageTemplateIsoSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse> Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -82,21 +82,21 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20180201Preview
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
-            ImmutableArray<Outputs.ImageTemplateShellCustomizerResponseResult> customize,
+            ImmutableArray<Outputs.ImageTemplateShellCustomizerResponse> customize,
 
-            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponseResult, Outputs.ImageTemplateSharedImageDistributorResponseResult>> distribute,
+            ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Outputs.ImageTemplateSharedImageDistributorResponse>> distribute,
 
-            Outputs.ImageTemplateLastRunStatusResponseResult lastRunStatus,
+            Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ProvisioningErrorResponseResult provisioningError,
+            Outputs.ProvisioningErrorResponse provisioningError,
 
             string provisioningState,
 
-            Union<Outputs.ImageTemplateIsoSourceResponseResult, Outputs.ImageTemplatePlatformImageSourceResponseResult> source,
+            Union<Outputs.ImageTemplateIsoSourceResponse, Outputs.ImageTemplatePlatformImageSourceResponse> source,
 
             ImmutableDictionary<string, string>? tags,
 

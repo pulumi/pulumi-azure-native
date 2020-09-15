@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The Live Event access policies.
         /// </summary>
-        public readonly Outputs.CrossSiteAccessPoliciesResponseResult? CrossSiteAccessPolicies;
+        public readonly Outputs.CrossSiteAccessPoliciesResponse? CrossSiteAccessPolicies;
         /// <summary>
         /// The Live Event description.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The Live Event encoding.
         /// </summary>
-        public readonly Outputs.LiveEventEncodingResponseResult? Encoding;
+        public readonly Outputs.LiveEventEncodingResponse? Encoding;
         /// <summary>
         /// The Live Event input.
         /// </summary>
-        public readonly Outputs.LiveEventInputResponseResult Input;
+        public readonly Outputs.LiveEventInputResponse Input;
         /// <summary>
         /// The exact time the Live Event was last modified.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The Live Event preview.
         /// </summary>
-        public readonly Outputs.LiveEventPreviewResponseResult? Preview;
+        public readonly Outputs.LiveEventPreviewResponse? Preview;
         /// <summary>
         /// The provisioning state of the Live Event.
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         /// <summary>
         /// The Live Event transcription.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LiveEventTranscriptionResponseResult> Transcriptions;
+        public readonly ImmutableArray<Outputs.LiveEventTranscriptionResponse> Transcriptions;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -114,13 +114,13 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
         private GetLiveEventResult(
             string created,
 
-            Outputs.CrossSiteAccessPoliciesResponseResult? crossSiteAccessPolicies,
+            Outputs.CrossSiteAccessPoliciesResponse? crossSiteAccessPolicies,
 
             string? description,
 
-            Outputs.LiveEventEncodingResponseResult? encoding,
+            Outputs.LiveEventEncodingResponse? encoding,
 
-            Outputs.LiveEventInputResponseResult input,
+            Outputs.LiveEventInputResponse input,
 
             string lastModified,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 
             string name,
 
-            Outputs.LiveEventPreviewResponseResult? preview,
+            Outputs.LiveEventPreviewResponse? preview,
 
             string provisioningState,
 
@@ -138,7 +138,7 @@ namespace Pulumi.AzureRM.Media.V20190501Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.LiveEventTranscriptionResponseResult> transcriptions,
+            ImmutableArray<Outputs.LiveEventTranscriptionResponse> transcriptions,
 
             string type,
 

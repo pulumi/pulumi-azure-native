@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,11 +22,11 @@ class WebAppSlot(pulumi.CustomResource):
                  client_cert_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
                  cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
-                 container_size: Optional[pulumi.Input[float]] = None,
+                 container_size: Optional[pulumi.Input[int]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
-                 daily_memory_time_quota: Optional[pulumi.Input[float]] = None,
+                 daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 host_name_ssl_states: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
+                 host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]]] = None,
                  host_names_disabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_profile: Optional[pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -60,11 +60,11 @@ class WebAppSlot(pulumi.CustomResource):
                - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
                - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         :param pulumi.Input[pulumi.InputType['CloningInfoArgs']] cloning_info: If specified during app creation, the app is cloned from a source app.
-        :param pulumi.Input[float] container_size: Size of the function container.
+        :param pulumi.Input[int] container_size: Size of the function container.
         :param pulumi.Input[str] custom_domain_verification_id: Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
-        :param pulumi.Input[float] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+        :param pulumi.Input[int] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostNameSslStateArgs']]]] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
                 If <code>true</code>, the app is only accessible via API management process.
         :param pulumi.Input[pulumi.InputType['HostingEnvironmentProfileArgs']] hosting_environment_profile: App Service Environment to use for the app.
@@ -235,7 +235,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerSize")
-    def container_size(self) -> pulumi.Output[Optional[float]]:
+    def container_size(self) -> pulumi.Output[Optional[int]]:
         """
         Size of the function container.
         """
@@ -251,7 +251,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> pulumi.Output[Optional[float]]:
+    def daily_memory_time_quota(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum allowed daily memory-time quota (applicable on dynamic apps only).
         """
@@ -275,7 +275,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledHostNames")
-    def enabled_host_names(self) -> pulumi.Output[List[str]]:
+    def enabled_host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
         the app is not served on those hostnames.
@@ -284,7 +284,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNameSslStates")
-    def host_name_ssl_states(self) -> pulumi.Output[Optional[List['outputs.HostNameSslStateResponse']]]:
+    def host_name_ssl_states(self) -> pulumi.Output[Optional[Sequence['outputs.HostNameSslStateResponse']]]:
         """
         Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         """
@@ -292,7 +292,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> pulumi.Output[List[str]]:
+    def host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Hostnames associated with the app.
         """
@@ -390,7 +390,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfWorkers")
-    def max_number_of_workers(self) -> pulumi.Output[float]:
+    def max_number_of_workers(self) -> pulumi.Output[int]:
         """
         Maximum number of workers.
         This only applies to Functions container.
@@ -519,7 +519,7 @@ class WebAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficManagerHostNames")
-    def traffic_manager_host_names(self) -> pulumi.Output[List[str]]:
+    def traffic_manager_host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Azure Traffic Manager hostnames associated with the app. Read-only.
         """

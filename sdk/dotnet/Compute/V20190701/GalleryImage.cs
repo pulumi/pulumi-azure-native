@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// Describes the disallowed disk types.
         /// </summary>
         [Output("disallowed")]
-        public Output<Outputs.DisallowedResponseResult?> Disallowed { get; private set; } = null!;
+        public Output<Outputs.DisallowedResponse?> Disallowed { get; private set; } = null!;
 
         /// <summary>
         /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// This is the gallery Image Definition identifier.
         /// </summary>
         [Output("identifier")]
-        public Output<Outputs.GalleryImageIdentifierResponseResult> Identifier { get; private set; } = null!;
+        public Output<Outputs.GalleryImageIdentifierResponse> Identifier { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -90,13 +90,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
         /// </summary>
         [Output("purchasePlan")]
-        public Output<Outputs.ImagePurchasePlanResponseResult?> PurchasePlan { get; private set; } = null!;
+        public Output<Outputs.ImagePurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
 
         /// <summary>
         /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         /// </summary>
         [Output("recommended")]
-        public Output<Outputs.RecommendedMachineConfigurationResponseResult?> Recommended { get; private set; } = null!;
+        public Output<Outputs.RecommendedMachineConfigurationResponse?> Recommended { get; private set; } = null!;
 
         /// <summary>
         /// The release note uri.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetMachineGroupResult:
     A user-defined logical grouping of machines.
     """
     def __init__(__self__, count=None, display_name=None, etag=None, group_type=None, kind=None, machines=None, name=None, type=None):
-        if count and not isinstance(count, float):
-            raise TypeError("Expected argument 'count' to be a float")
+        if count and not isinstance(count, int):
+            raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
@@ -48,7 +48,7 @@ class GetMachineGroupResult:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         """
@@ -88,7 +88,7 @@ class GetMachineGroupResult:
 
     @property
     @pulumi.getter
-    def machines(self) -> Optional[List['outputs.MachineReferenceWithHintsResponse']]:
+    def machines(self) -> Optional[Sequence['outputs.MachineReferenceWithHintsResponse']]:
         """
         References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         """

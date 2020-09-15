@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -60,13 +60,13 @@ class EventHubEventSubscriptionDestinationArgs:
 @pulumi.input_type
 class EventSubscriptionFilterArgs:
     def __init__(__self__, *,
-                 included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_subject_case_sensitive: Optional[pulumi.Input[bool]] = None,
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
         Filter for the Event Subscription
-        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. 
                If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
         :param pulumi.Input[bool] is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
@@ -87,7 +87,7 @@ class EventSubscriptionFilterArgs:
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def included_event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of applicable event types that need to be part of the event subscription. 
         If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
@@ -95,7 +95,7 @@ class EventSubscriptionFilterArgs:
         return pulumi.get(self, "included_event_types")
 
     @included_event_types.setter
-    def included_event_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def included_event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_event_types", value)
 
     @property
@@ -181,12 +181,12 @@ class HybridConnectionEventSubscriptionDestinationArgs:
 @pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
-                 event_time_to_live_in_minutes: Optional[pulumi.Input[float]] = None,
-                 max_delivery_attempts: Optional[pulumi.Input[float]] = None):
+                 event_time_to_live_in_minutes: Optional[pulumi.Input[int]] = None,
+                 max_delivery_attempts: Optional[pulumi.Input[int]] = None):
         """
         Information about the retry policy for an event subscription
-        :param pulumi.Input[float] event_time_to_live_in_minutes: Time To Live (in minutes) for events.
-        :param pulumi.Input[float] max_delivery_attempts: Maximum number of delivery retry attempts for events.
+        :param pulumi.Input[int] event_time_to_live_in_minutes: Time To Live (in minutes) for events.
+        :param pulumi.Input[int] max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
         if event_time_to_live_in_minutes is not None:
             pulumi.set(__self__, "event_time_to_live_in_minutes", event_time_to_live_in_minutes)
@@ -195,26 +195,26 @@ class RetryPolicyArgs:
 
     @property
     @pulumi.getter(name="eventTimeToLiveInMinutes")
-    def event_time_to_live_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def event_time_to_live_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Time To Live (in minutes) for events.
         """
         return pulumi.get(self, "event_time_to_live_in_minutes")
 
     @event_time_to_live_in_minutes.setter
-    def event_time_to_live_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def event_time_to_live_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "event_time_to_live_in_minutes", value)
 
     @property
     @pulumi.getter(name="maxDeliveryAttempts")
-    def max_delivery_attempts(self) -> Optional[pulumi.Input[float]]:
+    def max_delivery_attempts(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of delivery retry attempts for events.
         """
         return pulumi.get(self, "max_delivery_attempts")
 
     @max_delivery_attempts.setter
-    def max_delivery_attempts(self, value: Optional[pulumi.Input[float]]):
+    def max_delivery_attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_attempts", value)
 
 

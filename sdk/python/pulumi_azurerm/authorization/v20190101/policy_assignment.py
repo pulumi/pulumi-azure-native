@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 not_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  policy_assignment_name: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The managed identity associated with the policy assignment.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy assignment metadata.
-        :param pulumi.Input[List[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: The policy's excluded scopes.
         :param pulumi.Input[Mapping[str, Any]] parameters: Required if a parameter is used in policy rule.
         :param pulumi.Input[str] policy_assignment_name: The name of the policy assignment.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
@@ -158,7 +158,7 @@ class PolicyAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notScopes")
-    def not_scopes(self) -> pulumi.Output[Optional[List[str]]]:
+    def not_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The policy's excluded scopes.
         """

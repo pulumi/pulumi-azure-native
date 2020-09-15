@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -25,12 +25,12 @@ class ClusterJobResponseResult(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 streaming_units: float,
+                 streaming_units: int,
                  job_state: Optional[str] = None):
         """
         A streaming job.
         :param str id: Resource ID of the streaming job.
-        :param float streaming_units: The number of streaming units that are used by the streaming job.
+        :param int streaming_units: The number of streaming units that are used by the streaming job.
         :param str job_state: The current execution state of the streaming job.
         """
         pulumi.set(__self__, "id", id)
@@ -48,7 +48,7 @@ class ClusterJobResponseResult(dict):
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> float:
+    def streaming_units(self) -> int:
         """
         The number of streaming units that are used by the streaming job.
         """
@@ -69,15 +69,15 @@ class ClusterPropertiesResponse(dict):
     The properties associated with a Stream Analytics cluster.
     """
     def __init__(__self__, *,
-                 capacity_allocated: float,
-                 capacity_assigned: float,
+                 capacity_allocated: int,
+                 capacity_assigned: int,
                  cluster_id: str,
                  created_date: str,
                  provisioning_state: Optional[str] = None):
         """
         The properties associated with a Stream Analytics cluster.
-        :param float capacity_allocated: Represents the number of streaming units currently being used on the cluster.
-        :param float capacity_assigned: Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+        :param int capacity_allocated: Represents the number of streaming units currently being used on the cluster.
+        :param int capacity_assigned: Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
         :param str cluster_id: Unique identifier for the cluster.
         :param str created_date: The date this cluster was created.
         :param str provisioning_state: The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
@@ -91,7 +91,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="capacityAllocated")
-    def capacity_allocated(self) -> float:
+    def capacity_allocated(self) -> int:
         """
         Represents the number of streaming units currently being used on the cluster.
         """
@@ -99,7 +99,7 @@ class ClusterPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="capacityAssigned")
-    def capacity_assigned(self) -> float:
+    def capacity_assigned(self) -> int:
         """
         Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
         """
@@ -139,11 +139,11 @@ class ClusterSkuResponse(dict):
     The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  name: Optional[str] = None):
         """
         The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-        :param float capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+        :param int capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         :param str name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
         if capacity is not None:
@@ -153,7 +153,7 @@ class ClusterSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         """
@@ -178,11 +178,11 @@ class PrivateEndpointPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  created_date: str,
-                 manual_private_link_service_connections: Optional[List['outputs.PrivateLinkServiceConnectionResponse']] = None):
+                 manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None):
         """
         The properties associated with a private endpoint.
         :param str created_date: The date when this private endpoint was created.
-        :param List['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
+        :param Sequence['PrivateLinkServiceConnectionResponseArgs'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         """
         pulumi.set(__self__, "created_date", created_date)
         if manual_private_link_service_connections is not None:
@@ -198,7 +198,7 @@ class PrivateEndpointPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[List['outputs.PrivateLinkServiceConnectionResponse']]:
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
         """
         A list of connections to the remote resource. Immutable after it is set.
         """
@@ -261,13 +261,13 @@ class PrivateLinkServiceConnectionResponse(dict):
     A grouping of information about the connection to the remote resource.
     """
     def __init__(__self__, *,
-                 group_ids: Optional[List[str]] = None,
+                 group_ids: Optional[Sequence[str]] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None,
                  private_link_service_id: Optional[str] = None,
                  request_message: Optional[str] = None):
         """
         A grouping of information about the connection to the remote resource.
-        :param List[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+        :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         :param 'PrivateLinkConnectionStateResponseArgs' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
         :param str private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
@@ -283,7 +283,7 @@ class PrivateLinkServiceConnectionResponse(dict):
 
     @property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[List[str]]:
+    def group_ids(self) -> Optional[Sequence[str]]:
         """
         The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         """

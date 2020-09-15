@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -57,12 +57,12 @@ class CostAllocationProportionArgs:
 @pulumi.input_type
 class CostAllocationRuleDetailsArgs:
     def __init__(__self__, *,
-                 source_resources: Optional[pulumi.Input[List[pulumi.Input['SourceCostAllocationResourceArgs']]]] = None,
-                 target_resources: Optional[pulumi.Input[List[pulumi.Input['TargetCostAllocationResourceArgs']]]] = None):
+                 source_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]] = None,
+                 target_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]] = None):
         """
         Resource details of the cost allocation rule
-        :param pulumi.Input[List[pulumi.Input['SourceCostAllocationResourceArgs']]] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
-        :param pulumi.Input[List[pulumi.Input['TargetCostAllocationResourceArgs']]] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
+        :param pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         if source_resources is not None:
             pulumi.set(__self__, "source_resources", source_resources)
@@ -71,26 +71,26 @@ class CostAllocationRuleDetailsArgs:
 
     @property
     @pulumi.getter(name="sourceResources")
-    def source_resources(self) -> Optional[pulumi.Input[List[pulumi.Input['SourceCostAllocationResourceArgs']]]]:
+    def source_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]:
         """
         Source resources for cost allocation. At this time, this list can contain no more than one element.
         """
         return pulumi.get(self, "source_resources")
 
     @source_resources.setter
-    def source_resources(self, value: Optional[pulumi.Input[List[pulumi.Input['SourceCostAllocationResourceArgs']]]]):
+    def source_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SourceCostAllocationResourceArgs']]]]):
         pulumi.set(self, "source_resources", value)
 
     @property
     @pulumi.getter(name="targetResources")
-    def target_resources(self) -> Optional[pulumi.Input[List[pulumi.Input['TargetCostAllocationResourceArgs']]]]:
+    def target_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]:
         """
         Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         return pulumi.get(self, "target_resources")
 
     @target_resources.setter
-    def target_resources(self, value: Optional[pulumi.Input[List[pulumi.Input['TargetCostAllocationResourceArgs']]]]):
+    def target_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetCostAllocationResourceArgs']]]]):
         pulumi.set(self, "target_resources", value)
 
 
@@ -153,12 +153,12 @@ class SourceCostAllocationResourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input[str]]]):
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Source resources for cost allocation
         :param pulumi.Input[str] name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param pulumi.Input[str] resource_type: Type of resources contained in this cost allocation rule
-        :param pulumi.Input[List[pulumi.Input[str]]] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -190,14 +190,14 @@ class SourceCostAllocationResourceArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
 
@@ -207,13 +207,13 @@ class TargetCostAllocationResourceArgs:
                  name: pulumi.Input[str],
                  policy_type: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
-                 values: pulumi.Input[List[pulumi.Input['CostAllocationProportionArgs']]]):
+                 values: pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]]):
         """
         Target resources for cost allocation.
         :param pulumi.Input[str] name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param pulumi.Input[str] policy_type: Method of cost allocation for the rule
         :param pulumi.Input[str] resource_type: Type of resources contained in this cost allocation rule
-        :param pulumi.Input[List[pulumi.Input['CostAllocationProportionArgs']]] values: Target resources for cost allocation. This list cannot contain more than 25 values.
+        :param pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_type", policy_type)
@@ -258,14 +258,14 @@ class TargetCostAllocationResourceArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[List[pulumi.Input['CostAllocationProportionArgs']]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]]:
         """
         Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[List[pulumi.Input['CostAllocationProportionArgs']]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]]):
         pulumi.set(self, "values", value)
 
 

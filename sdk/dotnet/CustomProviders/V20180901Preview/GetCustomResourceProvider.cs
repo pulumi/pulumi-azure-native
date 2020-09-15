@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of actions that the custom resource provider implements.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponseResult> Actions;
+        public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> Actions;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of resource types that the custom resource provider implements.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponseResult> ResourceTypes;
+        public readonly ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponse> ResourceTypes;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
         /// <summary>
         /// A list of validations to run on the custom resource provider's requests.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomRPValidationsResponseResult> Validations;
+        public readonly ImmutableArray<Outputs.CustomRPValidationsResponse> Validations;
 
         [OutputConstructor]
         private GetCustomResourceProviderResult(
-            ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponseResult> actions,
+            ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> actions,
 
             string location,
 
@@ -82,13 +82,13 @@ namespace Pulumi.AzureRM.CustomProviders.V20180901Preview
 
             string provisioningState,
 
-            ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponseResult> resourceTypes,
+            ImmutableArray<Outputs.CustomRPResourceTypeRouteDefinitionResponse> resourceTypes,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.CustomRPValidationsResponseResult> validations)
+            ImmutableArray<Outputs.CustomRPValidationsResponse> validations)
         {
             Actions = actions;
             Location = location;

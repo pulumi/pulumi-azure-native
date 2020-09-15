@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -120,7 +120,7 @@ class AzureStorageContainerResponse(dict):
                  container_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[float] = None,
+                 protected_item_count: Optional[int] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
@@ -134,7 +134,7 @@ class AzureStorageContainerResponse(dict):
                Backup is VMAppContainer
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param float protected_item_count: Number of items backed up in this container.
+        :param int protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str source_resource_id: Fully qualified ARM url.
@@ -196,7 +196,7 @@ class AzureStorageContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of items backed up in this container.
         """
@@ -246,12 +246,12 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  host_server_name: Optional[str] = None,
                  inquiry_info: Optional['outputs.InquiryInfoResponse'] = None,
-                 nodes_list: Optional[List['outputs.DistributedNodesInfoResponse']] = None):
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None):
         """
         Extended information of the container.
         :param str host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
         :param 'InquiryInfoResponseArgs' inquiry_info: Inquiry Status for the container.
-        :param List['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
+        :param Sequence['DistributedNodesInfoResponseArgs'] nodes_list: List of the nodes in case of distributed container.
         """
         if host_server_name is not None:
             pulumi.set(__self__, "host_server_name", host_server_name)
@@ -278,7 +278,7 @@ class AzureWorkloadContainerExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[List['outputs.DistributedNodesInfoResponse']]:
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
         """
         List of the nodes in case of distributed container.
         """
@@ -579,11 +579,11 @@ class DpmContainerResponse(dict):
                  container_id: Optional[str] = None,
                  container_type: Optional[str] = None,
                  dpm_agent_version: Optional[str] = None,
-                 dpm_servers: Optional[List[str]] = None,
+                 dpm_servers: Optional[Sequence[str]] = None,
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 protected_item_count: Optional[float] = None,
+                 protected_item_count: Optional[int] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  upgrade_available: Optional[bool] = None):
@@ -597,11 +597,11 @@ class DpmContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
         :param str dpm_agent_version: Backup engine Agent version
-        :param List[str] dpm_servers: List of BackupEngines protecting the container
+        :param Sequence[str] dpm_servers: List of BackupEngines protecting the container
         :param 'DPMContainerExtendedInfoResponseArgs' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param float protected_item_count: Number of protected items in the BackupEngine
+        :param int protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param bool upgrade_available: To check if upgrade available
@@ -678,7 +678,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="dpmServers")
-    def dpm_servers(self) -> Optional[List[str]]:
+    def dpm_servers(self) -> Optional[Sequence[str]]:
         """
         List of BackupEngines protecting the container
         """
@@ -710,7 +710,7 @@ class DpmContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of protected items in the BackupEngine
         """
@@ -752,12 +752,12 @@ class ErrorDetailResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  message: str,
-                 recommendations: List[str]):
+                 recommendations: Sequence[str]):
         """
         Error Detail class which encapsulates Code, Message and Recommendations.
         :param str code: Error code.
         :param str message: Error Message related to the Code.
-        :param List[str] recommendations: List of recommendation strings.
+        :param Sequence[str] recommendations: List of recommendation strings.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
@@ -781,7 +781,7 @@ class ErrorDetailResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List[str]:
+    def recommendations(self) -> Sequence[str]:
         """
         List of recommendation strings.
         """
@@ -1068,12 +1068,12 @@ class InquiryInfoResponse(dict):
     """
     def __init__(__self__, *,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
-                 inquiry_details: Optional[List['outputs.WorkloadInquiryDetailsResponse']] = None,
+                 inquiry_details: Optional[Sequence['outputs.WorkloadInquiryDetailsResponse']] = None,
                  status: Optional[str] = None):
         """
         Details about inquired protectable items under a given container.
         :param 'ErrorDetailResponseArgs' error_detail: Error Details if the Status is non-success.
-        :param List['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
+        :param Sequence['WorkloadInquiryDetailsResponseArgs'] inquiry_details: Inquiry Details which will have workload specific details.
                For e.g. - For SQL and oracle this will contain different details.
         :param str status: Inquiry Status for this container such as
                InProgress | Failed | Succeeded
@@ -1095,7 +1095,7 @@ class InquiryInfoResponse(dict):
 
     @property
     @pulumi.getter(name="inquiryDetails")
-    def inquiry_details(self) -> Optional[List['outputs.WorkloadInquiryDetailsResponse']]:
+    def inquiry_details(self) -> Optional[Sequence['outputs.WorkloadInquiryDetailsResponse']]:
         """
         Inquiry Details which will have workload specific details.
         For e.g. - For SQL and oracle this will contain different details.
@@ -1170,15 +1170,15 @@ class MABContainerHealthDetailsResponse(dict):
     MAB workload-specific Health Details.
     """
     def __init__(__self__, *,
-                 code: Optional[float] = None,
+                 code: Optional[int] = None,
                  message: Optional[str] = None,
-                 recommendations: Optional[List[str]] = None,
+                 recommendations: Optional[Sequence[str]] = None,
                  title: Optional[str] = None):
         """
         MAB workload-specific Health Details.
-        :param float code: Health Code
+        :param int code: Health Code
         :param str message: Health Message
-        :param List[str] recommendations: Health Recommended Actions
+        :param Sequence[str] recommendations: Health Recommended Actions
         :param str title: Health Title
         """
         if code is not None:
@@ -1192,7 +1192,7 @@ class MABContainerHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[float]:
+    def code(self) -> Optional[int]:
         """
         Health Code
         """
@@ -1208,7 +1208,7 @@ class MABContainerHealthDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def recommendations(self) -> Optional[List[str]]:
+    def recommendations(self) -> Optional[Sequence[str]]:
         """
         Health Recommended Actions
         """
@@ -1233,14 +1233,14 @@ class MabContainerExtendedInfoResponse(dict):
     """
     def __init__(__self__, *,
                  backup_item_type: Optional[str] = None,
-                 backup_items: Optional[List[str]] = None,
+                 backup_items: Optional[Sequence[str]] = None,
                  last_backup_status: Optional[str] = None,
                  last_refreshed_at: Optional[str] = None,
                  policy_name: Optional[str] = None):
         """
         Additional information of the container.
         :param str backup_item_type: Type of backup items associated with this container.
-        :param List[str] backup_items: List of backup items associated with this container.
+        :param Sequence[str] backup_items: List of backup items associated with this container.
         :param str last_backup_status: Latest backup status of this container.
         :param str last_refreshed_at: Time stamp when this container was refreshed.
         :param str policy_name: Backup policy associated with this container.
@@ -1266,7 +1266,7 @@ class MabContainerExtendedInfoResponse(dict):
 
     @property
     @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[List[str]]:
+    def backup_items(self) -> Optional[Sequence[str]]:
         """
         List of backup items associated with this container.
         """
@@ -1310,13 +1310,13 @@ class MabContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  can_re_register: Optional[bool] = None,
                  container_health_state: Optional[str] = None,
-                 container_id: Optional[float] = None,
+                 container_id: Optional[int] = None,
                  container_type: Optional[str] = None,
                  extended_info: Optional['outputs.MabContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
-                 mab_container_health_details: Optional[List['outputs.MABContainerHealthDetailsResponse']] = None,
-                 protected_item_count: Optional[float] = None,
+                 mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
+                 protected_item_count: Optional[int] = None,
                  registration_status: Optional[str] = None):
         """
         Container with items backed up using MAB backup engine.
@@ -1324,7 +1324,7 @@ class MabContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param bool can_re_register: Can the container be registered one more time.
         :param str container_health_state: Health state of mab container.
-        :param float container_id: ContainerID represents the container.
+        :param int container_id: ContainerID represents the container.
         :param str container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -1332,8 +1332,8 @@ class MabContainerResponse(dict):
         :param 'MabContainerExtendedInfoResponseArgs' extended_info: Additional information for this container
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
-        :param List['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
-        :param float protected_item_count: Number of items backed up in this container.
+        :param Sequence['MABContainerHealthDetailsResponseArgs'] mab_container_health_details: Health details on this mab container.
+        :param int protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         if agent_version is not None:
@@ -1395,7 +1395,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="containerId")
-    def container_id(self) -> Optional[float]:
+    def container_id(self) -> Optional[int]:
         """
         ContainerID represents the container.
         """
@@ -1438,7 +1438,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="mabContainerHealthDetails")
-    def mab_container_health_details(self) -> Optional[List['outputs.MABContainerHealthDetailsResponse']]:
+    def mab_container_health_details(self) -> Optional[Sequence['outputs.MABContainerHealthDetailsResponse']]:
         """
         Health details on this mab container.
         """
@@ -1446,7 +1446,7 @@ class MabContainerResponse(dict):
 
     @property
     @pulumi.getter(name="protectedItemCount")
-    def protected_item_count(self) -> Optional[float]:
+    def protected_item_count(self) -> Optional[int]:
         """
         Number of items backed up in this container.
         """
@@ -1471,12 +1471,12 @@ class WorkloadInquiryDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  inquiry_validation: Optional['outputs.InquiryValidationResponse'] = None,
-                 item_count: Optional[float] = None,
+                 item_count: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Details of an inquired protectable item.
         :param 'InquiryValidationResponseArgs' inquiry_validation: Inquiry validation such as permissions and other backup validations.
-        :param float item_count: Contains the protectable item Count inside this Container.
+        :param int item_count: Contains the protectable item Count inside this Container.
         :param str type: Type of the Workload such as SQL, Oracle etc.
         """
         if inquiry_validation is not None:
@@ -1496,7 +1496,7 @@ class WorkloadInquiryDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="itemCount")
-    def item_count(self) -> Optional[float]:
+    def item_count(self) -> Optional[int]:
         """
         Contains the protectable item Count inside this Container.
         """

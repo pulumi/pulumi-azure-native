@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class User(pulumi.CustomResource):
                  confirmation: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 identities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
+                 identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  note: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
         :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
         :param pulumi.Input[str] first_name: First name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
         :param pulumi.Input[str] last_name: Last name.
         :param pulumi.Input[str] note: Optional note about a user set by the administrator.
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
@@ -136,7 +136,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def groups(self) -> pulumi.Output[List['outputs.GroupContractPropertiesResponse']]:
+    def groups(self) -> pulumi.Output[Sequence['outputs.GroupContractPropertiesResponse']]:
         """
         Collection of groups user is part of.
         """
@@ -144,7 +144,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[Optional[List['outputs.UserIdentityContractResponse']]]:
+    def identities(self) -> pulumi.Output[Optional[Sequence['outputs.UserIdentityContractResponse']]]:
         """
         Collection of user identities.
         """

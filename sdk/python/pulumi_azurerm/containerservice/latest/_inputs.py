@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -79,22 +79,22 @@ class ContainerServiceAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  storage_profile: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[List[pulumi.Input[float]]] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -141,14 +141,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -165,14 +165,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -189,14 +189,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -313,18 +313,18 @@ class ContainerServiceMasterProfileArgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  first_consecutive_static_ip: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  storage_profile: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service master.
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the master pool.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[float] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
+        :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         :param pulumi.Input[str] first_consecutive_static_ip: FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -367,14 +367,14 @@ class ContainerServiceMasterProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -391,14 +391,14 @@ class ContainerServiceMasterProfileArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -691,23 +691,23 @@ class ContainerServiceServicePrincipalProfileArgs:
 @pulumi.input_type
 class ContainerServiceSshConfigurationArgs:
     def __init__(__self__, *,
-                 public_keys: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+                 public_keys: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
+    def public_keys(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
         """
         The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+    def public_keys(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         pulumi.set(self, "public_keys", value)
 
 
@@ -852,7 +852,7 @@ class KeyVaultSecretRefArgs:
 @pulumi.input_type
 class ManagedClusterAADProfileArgs:
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_app_id: Optional[pulumi.Input[str]] = None,
                  enable_azure_rbac: Optional[pulumi.Input[bool]] = None,
                  managed: Optional[pulumi.Input[bool]] = None,
@@ -861,7 +861,7 @@ class ManagedClusterAADProfileArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         AADProfile specifies attributes for Azure Active Directory integration.
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_group_object_ids: AAD group object IDs that will have admin role of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: AAD group object IDs that will have admin role of the cluster.
         :param pulumi.Input[str] client_app_id: The client AAD application ID.
         :param pulumi.Input[bool] enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param pulumi.Input[bool] managed: Whether to enable managed AAD.
@@ -886,14 +886,14 @@ class ManagedClusterAADProfileArgs:
 
     @property
     @pulumi.getter(name="adminGroupObjectIDs")
-    def admin_group_object_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         AAD group object IDs that will have admin role of the cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
-    def admin_group_object_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
     @property
@@ -972,11 +972,11 @@ class ManagedClusterAADProfileArgs:
 @pulumi.input_type
 class ManagedClusterAPIServerAccessProfileArgs:
     def __init__(__self__, *,
-                 authorized_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_private_cluster: Optional[pulumi.Input[bool]] = None):
         """
         Access profile for managed cluster API server.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_ip_ranges: Authorized IP Ranges to kubernetes API server.
         :param pulumi.Input[bool] enable_private_cluster: Whether to create the cluster as a private cluster or not.
         """
         if authorized_ip_ranges is not None:
@@ -986,14 +986,14 @@ class ManagedClusterAPIServerAccessProfileArgs:
 
     @property
     @pulumi.getter(name="authorizedIPRanges")
-    def authorized_ip_ranges(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def authorized_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Authorized IP Ranges to kubernetes API server.
         """
         return pulumi.get(self, "authorized_ip_ranges")
 
     @authorized_ip_ranges.setter
-    def authorized_ip_ranges(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "authorized_ip_ranges", value)
 
     @property
@@ -1052,18 +1052,18 @@ class ManagedClusterAddonProfileArgs:
 class ManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 count: Optional[pulumi.Input[float]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 max_count: Optional[pulumi.Input[float]] = None,
-                 max_pods: Optional[pulumi.Input[float]] = None,
-                 min_count: Optional[pulumi.Input[float]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_disk_type: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
@@ -1078,18 +1078,18 @@ class ManagedClusterAgentPoolProfileArgs:
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
         :param pulumi.Input[bool] enable_node_public_ip: Enable public IP for nodes
-        :param pulumi.Input[float] max_count: Maximum number of nodes for auto-scaling
-        :param pulumi.Input[float] max_pods: Maximum number of pods that can run on a node.
-        :param pulumi.Input[float] min_count: Minimum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_count: Maximum number of nodes for auto-scaling
+        :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
+        :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
         :param pulumi.Input[str] mode: AgentPoolMode represents mode of an agent pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: Agent pool node labels to be persisted across all nodes in agent pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_disk_type: OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] proximity_placement_group_id: The ID for Proximity Placement Group.
@@ -1164,26 +1164,26 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -1212,38 +1212,38 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[float]]:
+    def max_count(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of nodes for auto-scaling
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[float]]):
+    def max_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_count", value)
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[pulumi.Input[float]]:
+    def max_pods(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of pods that can run on a node.
         """
         return pulumi.get(self, "max_pods")
 
     @max_pods.setter
-    def max_pods(self, value: Optional[pulumi.Input[float]]):
+    def max_pods(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pods", value)
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[pulumi.Input[float]]:
+    def min_count(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum number of nodes for auto-scaling
         """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: Optional[pulumi.Input[float]]):
+    def min_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_count", value)
 
     @property
@@ -1272,14 +1272,14 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "node_taints", value)
 
     @property
@@ -1296,14 +1296,14 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -1466,17 +1466,17 @@ class ManagedClusterIdentityArgs:
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileArgs:
     def __init__(__self__, *,
-                 allocated_outbound_ports: Optional[pulumi.Input[float]] = None,
-                 effective_outbound_ips: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
+                 effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  managed_outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']] = None,
                  outbound_ip_prefixes: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']] = None,
                  outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']] = None):
         """
         Profile of the managed cluster load balancer.
-        :param pulumi.Input[float] allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
-        :param pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
-        :param pulumi.Input[float] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+        :param pulumi.Input[int] allocated_outbound_ports: Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs'] managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs'] outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs'] outbound_ips: Desired outbound IP resources for the cluster load balancer.
@@ -1496,38 +1496,38 @@ class ManagedClusterLoadBalancerProfileArgs:
 
     @property
     @pulumi.getter(name="allocatedOutboundPorts")
-    def allocated_outbound_ports(self) -> Optional[pulumi.Input[float]]:
+    def allocated_outbound_ports(self) -> Optional[pulumi.Input[int]]:
         """
         Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         """
         return pulumi.get(self, "allocated_outbound_ports")
 
     @allocated_outbound_ports.setter
-    def allocated_outbound_ports(self, value: Optional[pulumi.Input[float]]):
+    def allocated_outbound_ports(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allocated_outbound_ports", value)
 
     @property
     @pulumi.getter(name="effectiveOutboundIPs")
-    def effective_outbound_ips(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]:
+    def effective_outbound_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         The effective outbound IP resources of the cluster load balancer.
         """
         return pulumi.get(self, "effective_outbound_ips")
 
     @effective_outbound_ips.setter
-    def effective_outbound_ips(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]):
+    def effective_outbound_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "effective_outbound_ips", value)
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @property
@@ -1570,72 +1570,72 @@ class ManagedClusterLoadBalancerProfileArgs:
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None):
+                 count: Optional[pulumi.Input[int]] = None):
         """
         Desired managed outbound IPs for the cluster load balancer.
-        :param pulumi.Input[float] count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param pulumi.Input[int] count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
 
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
     def __init__(__self__, *,
-                 public_ip_prefixes: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]] = None):
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
         """
         Desired outbound IP Prefix resources for the cluster load balancer.
-        :param pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
         """
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
 
     @property
     @pulumi.getter(name="publicIPPrefixes")
-    def public_ip_prefixes(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]:
+    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         A list of public IP prefix resources.
         """
         return pulumi.get(self, "public_ip_prefixes")
 
     @public_ip_prefixes.setter
-    def public_ip_prefixes(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]):
+    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "public_ip_prefixes", value)
 
 
 @pulumi.input_type
 class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
     def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]] = None):
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
         """
         Desired outbound IP resources for the cluster load balancer.
-        :param pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]:
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         A list of public IP resources.
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[List[pulumi.Input['ResourceReferenceArgs']]]]):
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "public_ips", value)
 
 
@@ -2173,7 +2173,7 @@ class OpenShiftManagedClusterAADIdentityProviderArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float],
+                 count: pulumi.Input[int],
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  os_type: Optional[pulumi.Input[str]] = None,
@@ -2181,7 +2181,7 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         Defines the configuration of the OpenShift cluster VMs.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers.
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers.
         :param pulumi.Input[str] name: Unique name of the pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -2200,14 +2200,14 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         Number of agents (VMs) to host docker containers.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
     @property
@@ -2274,24 +2274,24 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterAuthProfileArgs:
     def __init__(__self__, *,
-                 identity_providers: Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None):
+                 identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None):
         """
         Defines all possible authentication profiles for the OpenShift cluster.
-        :param pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
         """
         if identity_providers is not None:
             pulumi.set(__self__, "identity_providers", identity_providers)
 
     @property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]:
+    def identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]:
         """
         Type of authentication profile to use.
         """
         return pulumi.get(self, "identity_providers")
 
     @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input[List[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
+    def identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
         pulumi.set(self, "identity_providers", value)
 
 
@@ -2338,14 +2338,14 @@ class OpenShiftManagedClusterIdentityProviderArgs:
 @pulumi.input_type
 class OpenShiftManagedClusterMasterPoolProfileArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[float],
+                 count: pulumi.Input[int],
                  vm_size: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        :param pulumi.Input[float] count: Number of masters (VMs) to host docker containers. The default value is 3.
+        :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
         :param pulumi.Input[str] name: Unique name of the master pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -2362,14 +2362,14 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[float]:
+    def count(self) -> pulumi.Input[int]:
         """
         Number of masters (VMs) to host docker containers. The default value is 3.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[float]):
+    def count(self, value: pulumi.Input[int]):
         pulumi.set(self, "count", value)
 
     @property

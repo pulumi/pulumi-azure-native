@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web.V20160901
         /// Specification for the App Service Environment to use for the App Service plan.
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse?> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
@@ -97,7 +97,7 @@ namespace Pulumi.AzureRM.Web.V20160901
         /// Description of a SKU for a scalable resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The time when the server farm expires. Valid only if it is a spot server farm.

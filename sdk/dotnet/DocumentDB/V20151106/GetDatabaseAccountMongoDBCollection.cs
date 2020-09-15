@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         /// <summary>
         /// List of index keys
         /// </summary>
-        public readonly ImmutableArray<Outputs.MongoIndexResponseResult> Indexes;
+        public readonly ImmutableArray<Outputs.MongoIndexResponse> Indexes;
         /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
 
         [OutputConstructor]
         private GetDatabaseAccountMongoDBCollectionResult(
-            ImmutableArray<Outputs.MongoIndexResponseResult> indexes,
+            ImmutableArray<Outputs.MongoIndexResponse> indexes,
 
             string? location,
 

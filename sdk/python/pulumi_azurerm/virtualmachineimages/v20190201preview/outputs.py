@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -325,17 +325,17 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 inline: Optional[List[str]] = None,
+                 inline: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  script: Optional[str] = None,
-                 valid_exit_codes: Optional[List[float]] = None):
+                 valid_exit_codes: Optional[Sequence[int]] = None):
         """
         Runs the specified PowerShell on the VM (Windows). Corresponds to Packer powershell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        :param List[str] inline: Array of PowerShell commands to execute
+        :param Sequence[str] inline: Array of PowerShell commands to execute
         :param str name: Friendly Name to provide context on what this customization step does
         :param str script: The PowerShell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
-        :param List[float] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
+        :param Sequence[int] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
         """
         pulumi.set(__self__, "type", 'PowerShell')
         if inline is not None:
@@ -357,7 +357,7 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
 
     @property
     @pulumi.getter
-    def inline(self) -> Optional[List[str]]:
+    def inline(self) -> Optional[Sequence[str]]:
         """
         Array of PowerShell commands to execute
         """
@@ -381,7 +381,7 @@ class ImageTemplatePowerShellCustomizerResponse(dict):
 
     @property
     @pulumi.getter(name="validExitCodes")
-    def valid_exit_codes(self) -> Optional[List[float]]:
+    def valid_exit_codes(self) -> Optional[Sequence[int]]:
         """
         Valid exit codes for the PowerShell script. [Default: 0]
         """
@@ -471,7 +471,7 @@ class ImageTemplateSharedImageDistributorResponse(dict):
     """
     def __init__(__self__, *,
                  gallery_image_id: str,
-                 replication_regions: List[str],
+                 replication_regions: Sequence[str],
                  run_output_name: str,
                  type: str,
                  artifact_tags: Optional[Mapping[str, str]] = None):
@@ -499,7 +499,7 @@ class ImageTemplateSharedImageDistributorResponse(dict):
 
     @property
     @pulumi.getter(name="replicationRegions")
-    def replication_regions(self) -> List[str]:
+    def replication_regions(self) -> Sequence[str]:
         return pulumi.get(self, "replication_regions")
 
     @property
@@ -537,13 +537,13 @@ class ImageTemplateShellCustomizerResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 inline: Optional[List[str]] = None,
+                 inline: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  script: Optional[str] = None):
         """
         Runs a shell script during the customization phase (Linux). Corresponds to Packer shell provisioner. Exactly one of 'script' or 'inline' can be specified.
         :param str type: The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
-        :param List[str] inline: Array of shell commands to execute
+        :param Sequence[str] inline: Array of shell commands to execute
         :param str name: Friendly Name to provide context on what this customization step does
         :param str script: The shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
         """
@@ -565,7 +565,7 @@ class ImageTemplateShellCustomizerResponse(dict):
 
     @property
     @pulumi.getter
-    def inline(self) -> Optional[List[str]]:
+    def inline(self) -> Optional[Sequence[str]]:
         """
         Array of shell commands to execute
         """

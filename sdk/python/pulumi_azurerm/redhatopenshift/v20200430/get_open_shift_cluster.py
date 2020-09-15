@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -87,7 +87,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="ingressProfiles")
-    def ingress_profiles(self) -> Optional[List['outputs.IngressProfileResponse']]:
+    def ingress_profiles(self) -> Optional[Sequence['outputs.IngressProfileResponse']]:
         """
         The cluster ingress profiles.
         """
@@ -159,7 +159,7 @@ class GetOpenShiftClusterResult:
 
     @property
     @pulumi.getter(name="workerProfiles")
-    def worker_profiles(self) -> Optional[List['outputs.WorkerProfileResponse']]:
+    def worker_profiles(self) -> Optional[Sequence['outputs.WorkerProfileResponse']]:
         """
         The cluster worker profiles.
         """

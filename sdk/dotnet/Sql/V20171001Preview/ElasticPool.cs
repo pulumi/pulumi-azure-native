@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// The per database settings for the elastic pool.
         /// </summary>
         [Output("perDatabaseSettings")]
-        public Output<Outputs.ElasticPoolPerDatabaseSettingsResponseResult?> PerDatabaseSettings { get; private set; } = null!;
+        public Output<Outputs.ElasticPoolPerDatabaseSettingsResponse?> PerDatabaseSettings { get; private set; } = null!;
 
         /// <summary>
         /// The elastic pool SKU.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// ````
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state of the elastic pool.

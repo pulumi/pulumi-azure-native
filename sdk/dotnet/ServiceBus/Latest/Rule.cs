@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         /// </summary>
         [Output("action")]
-        public Output<Outputs.ActionResponseResult?> Action { get; private set; } = null!;
+        public Output<Outputs.ActionResponse?> Action { get; private set; } = null!;
 
         /// <summary>
         /// Properties of correlationFilter
         /// </summary>
         [Output("correlationFilter")]
-        public Output<Outputs.CorrelationFilterResponseResult?> CorrelationFilter { get; private set; } = null!;
+        public Output<Outputs.CorrelationFilterResponse?> CorrelationFilter { get; private set; } = null!;
 
         /// <summary>
         /// Filter type that is evaluated against a BrokeredMessage.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ServiceBus.Latest
         /// Properties of sqlFilter
         /// </summary>
         [Output("sqlFilter")]
-        public Output<Outputs.SqlFilterResponseResult?> SqlFilter { get; private set; } = null!;
+        public Output<Outputs.SqlFilterResponse?> SqlFilter { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

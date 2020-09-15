@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay: Optional[pulumi.Input[float]] = None,
+                 auto_pause_delay: Optional[pulumi.Input[int]] = None,
                  catalog_collation: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -26,9 +26,9 @@ class Database(pulumi.CustomResource):
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 max_size_bytes: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 read_replica_count: Optional[pulumi.Input[float]] = None,
+                 read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[str]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+        :param pulumi.Input[int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: The collation of the database.
         :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
@@ -76,9 +76,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
-        :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
+        :param pulumi.Input[int] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
-        :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database.
+        :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database.
         :param pulumi.Input[str] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
@@ -199,7 +199,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoPauseDelay")
-    def auto_pause_delay(self) -> pulumi.Output[Optional[float]]:
+    def auto_pause_delay(self) -> pulumi.Output[Optional[int]]:
         """
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
@@ -351,7 +351,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxLogSizeBytes")
-    def max_log_size_bytes(self) -> pulumi.Output[float]:
+    def max_log_size_bytes(self) -> pulumi.Output[int]:
         """
         The max log size for this database.
         """
@@ -359,7 +359,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[Optional[float]]:
+    def max_size_bytes(self) -> pulumi.Output[Optional[int]]:
         """
         The max size of the database expressed in bytes.
         """
@@ -391,7 +391,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readReplicaCount")
-    def read_replica_count(self) -> pulumi.Output[Optional[float]]:
+    def read_replica_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of readonly secondary replicas associated with the database.
         """

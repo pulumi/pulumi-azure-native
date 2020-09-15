@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         /// Properties of the Service resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ClusterResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ClusterResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the Service resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.

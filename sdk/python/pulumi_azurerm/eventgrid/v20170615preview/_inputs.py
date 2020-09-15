@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -56,13 +56,13 @@ class EventSubscriptionDestinationArgs:
 @pulumi.input_type
 class EventSubscriptionFilterArgs:
     def __init__(__self__, *,
-                 included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_subject_case_sensitive: Optional[pulumi.Input[bool]] = None,
                  subject_begins_with: Optional[pulumi.Input[str]] = None,
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
         Filter for the Event Subscription
-        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. 
                If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
         :param pulumi.Input[bool] is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
@@ -83,7 +83,7 @@ class EventSubscriptionFilterArgs:
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def included_event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of applicable event types that need to be part of the event subscription. 
         If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
@@ -91,7 +91,7 @@ class EventSubscriptionFilterArgs:
         return pulumi.get(self, "included_event_types")
 
     @included_event_types.setter
-    def included_event_types(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def included_event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_event_types", value)
 
     @property

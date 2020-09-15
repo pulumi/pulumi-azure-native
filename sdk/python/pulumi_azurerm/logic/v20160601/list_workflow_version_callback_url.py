@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -74,7 +74,7 @@ class ListWorkflowVersionCallbackUrlResult:
 
     @property
     @pulumi.getter(name="relativePathParameters")
-    def relative_path_parameters(self) -> Optional[List[str]]:
+    def relative_path_parameters(self) -> Optional[Sequence[str]]:
         """
         Gets the workflow trigger callback URL relative path parameters.
         """

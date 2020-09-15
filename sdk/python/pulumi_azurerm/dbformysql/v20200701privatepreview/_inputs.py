@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -68,15 +68,15 @@ class IdentityArgs:
 class MaintenanceWindowArgs:
     def __init__(__self__, *,
                  custom_window: Optional[pulumi.Input[str]] = None,
-                 day_of_week: Optional[pulumi.Input[float]] = None,
-                 start_hour: Optional[pulumi.Input[float]] = None,
-                 start_minute: Optional[pulumi.Input[float]] = None):
+                 day_of_week: Optional[pulumi.Input[int]] = None,
+                 start_hour: Optional[pulumi.Input[int]] = None,
+                 start_minute: Optional[pulumi.Input[int]] = None):
         """
         Maintenance window of a server.
         :param pulumi.Input[str] custom_window: indicates whether custom window is enabled or disabled
-        :param pulumi.Input[float] day_of_week: day of week for maintenance window
-        :param pulumi.Input[float] start_hour: start hour for maintenance window
-        :param pulumi.Input[float] start_minute: start minute for maintenance window
+        :param pulumi.Input[int] day_of_week: day of week for maintenance window
+        :param pulumi.Input[int] start_hour: start hour for maintenance window
+        :param pulumi.Input[int] start_minute: start minute for maintenance window
         """
         if custom_window is not None:
             pulumi.set(__self__, "custom_window", custom_window)
@@ -101,38 +101,38 @@ class MaintenanceWindowArgs:
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[float]]:
+    def day_of_week(self) -> Optional[pulumi.Input[int]]:
         """
         day of week for maintenance window
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[float]]):
+    def day_of_week(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "day_of_week", value)
 
     @property
     @pulumi.getter(name="startHour")
-    def start_hour(self) -> Optional[pulumi.Input[float]]:
+    def start_hour(self) -> Optional[pulumi.Input[int]]:
         """
         start hour for maintenance window
         """
         return pulumi.get(self, "start_hour")
 
     @start_hour.setter
-    def start_hour(self, value: Optional[pulumi.Input[float]]):
+    def start_hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_hour", value)
 
     @property
     @pulumi.getter(name="startMinute")
-    def start_minute(self) -> Optional[pulumi.Input[float]]:
+    def start_minute(self) -> Optional[pulumi.Input[int]]:
         """
         start minute for maintenance window
         """
         return pulumi.get(self, "start_minute")
 
     @start_minute.setter
-    def start_minute(self, value: Optional[pulumi.Input[float]]):
+    def start_minute(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_minute", value)
 
 
@@ -177,16 +177,16 @@ class SkuArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 backup_retention_days: Optional[pulumi.Input[float]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
                  storage_autogrow: Optional[pulumi.Input[str]] = None,
-                 storage_iops: Optional[pulumi.Input[float]] = None,
-                 storage_mb: Optional[pulumi.Input[float]] = None):
+                 storage_iops: Optional[pulumi.Input[int]] = None,
+                 storage_mb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
-        :param pulumi.Input[float] backup_retention_days: Backup retention days for the server.
+        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server.
         :param pulumi.Input[str] storage_autogrow: Enable Storage Auto Grow.
-        :param pulumi.Input[float] storage_iops: Storage IOPS for a server.
-        :param pulumi.Input[float] storage_mb: Max storage allowed for a server.
+        :param pulumi.Input[int] storage_iops: Storage IOPS for a server.
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -199,14 +199,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @property
@@ -223,26 +223,26 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="storageIops")
-    def storage_iops(self) -> Optional[pulumi.Input[float]]:
+    def storage_iops(self) -> Optional[pulumi.Input[int]]:
         """
         Storage IOPS for a server.
         """
         return pulumi.get(self, "storage_iops")
 
     @storage_iops.setter
-    def storage_iops(self, value: Optional[pulumi.Input[float]]):
+    def storage_iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_iops", value)
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[pulumi.Input[float]]:
+    def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Max storage allowed for a server.
         """
         return pulumi.get(self, "storage_mb")
 
     @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[float]]):
+    def storage_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_mb", value)
 
 

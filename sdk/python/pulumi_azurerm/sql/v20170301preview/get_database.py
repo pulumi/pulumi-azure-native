@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,8 +57,8 @@ class GetDatabaseResult:
         if long_term_retention_backup_resource_id and not isinstance(long_term_retention_backup_resource_id, str):
             raise TypeError("Expected argument 'long_term_retention_backup_resource_id' to be a str")
         pulumi.set(__self__, "long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
-        if max_size_bytes and not isinstance(max_size_bytes, float):
-            raise TypeError("Expected argument 'max_size_bytes' to be a float")
+        if max_size_bytes and not isinstance(max_size_bytes, int):
+            raise TypeError("Expected argument 'max_size_bytes' to be a int")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -214,7 +214,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[float]:
+    def max_size_bytes(self) -> Optional[int]:
         """
         The max size of the database expressed in bytes.
         """

@@ -18,19 +18,19 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The AddressSpace that contains an array of IP address ranges.
         /// </summary>
         [Output("addressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> AddressSpace { get; private set; } = null!;
 
         /// <summary>
         /// The set of bgp properties.
         /// </summary>
         [Output("bgpProperties")]
-        public Output<Outputs.BgpSettingsResponseResult?> BgpProperties { get; private set; } = null!;
+        public Output<Outputs.BgpSettingsResponse?> BgpProperties { get; private set; } = null!;
 
         /// <summary>
         /// The device properties
         /// </summary>
         [Output("deviceProperties")]
-        public Output<Outputs.DevicePropertiesResponseResult?> DeviceProperties { get; private set; } = null!;
+        public Output<Outputs.DevicePropertiesResponse?> DeviceProperties { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The VirtualWAN to which the vpnSite belongs
         /// </summary>
         [Output("virtualWan")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualWan { get; private set; } = null!;
 
 
         /// <summary>

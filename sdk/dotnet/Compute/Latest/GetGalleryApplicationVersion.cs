@@ -72,11 +72,11 @@ namespace Pulumi.AzureRM.Compute.Latest
         /// <summary>
         /// The publishing profile of a gallery image version.
         /// </summary>
-        public readonly Outputs.GalleryApplicationVersionPublishingProfileResponseResult PublishingProfile;
+        public readonly Outputs.GalleryApplicationVersionPublishingProfileResponse PublishingProfile;
         /// <summary>
         /// This is the replication status of the gallery image version.
         /// </summary>
-        public readonly Outputs.ReplicationStatusResponseResult ReplicationStatus;
+        public readonly Outputs.ReplicationStatusResponse ReplicationStatus;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,9 +94,9 @@ namespace Pulumi.AzureRM.Compute.Latest
 
             string provisioningState,
 
-            Outputs.GalleryApplicationVersionPublishingProfileResponseResult publishingProfile,
+            Outputs.GalleryApplicationVersionPublishingProfileResponse publishingProfile,
 
-            Outputs.ReplicationStatusResponseResult replicationStatus,
+            Outputs.ReplicationStatusResponse replicationStatus,
 
             ImmutableDictionary<string, string>? tags,
 

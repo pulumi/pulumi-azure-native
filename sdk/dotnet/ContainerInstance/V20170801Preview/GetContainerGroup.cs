@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.ContainerInstance.V20170801Preview
         /// <summary>
         /// The containers within the container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerResponseResult> Containers;
+        public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> ImageRegistryCredentials;
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
-        public readonly Outputs.IpAddressResponseResult? IpAddress;
+        public readonly Outputs.IpAddressResponse? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -86,15 +86,15 @@ namespace Pulumi.AzureRM.ContainerInstance.V20170801Preview
         /// <summary>
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VolumeResponseResult> Volumes;
+        public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
-            ImmutableArray<Outputs.ContainerResponseResult> containers,
+            ImmutableArray<Outputs.ContainerResponse> containers,
 
-            ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> imageRegistryCredentials,
+            ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
 
-            Outputs.IpAddressResponseResult? ipAddress,
+            Outputs.IpAddressResponse? ipAddress,
 
             string location,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20170801Preview
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponseResult> volumes)
+            ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
             ImageRegistryCredentials = imageRegistryCredentials;

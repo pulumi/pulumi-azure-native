@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Devices.V20180401
         /// The description of an X509 CA Certificate.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

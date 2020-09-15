@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="managedInstancePairs")
-    def managed_instance_pairs(self) -> List['outputs.ManagedInstancePairInfoResponse']:
+    def managed_instance_pairs(self) -> Sequence['outputs.ManagedInstancePairInfoResponse']:
         """
         List of managed instance pairs in the failover group.
         """
@@ -64,7 +64,7 @@ class GetInstanceFailoverGroupResult:
 
     @property
     @pulumi.getter(name="partnerRegions")
-    def partner_regions(self) -> List['outputs.PartnerRegionInfoResponse']:
+    def partner_regions(self) -> Sequence['outputs.PartnerRegionInfoResponse']:
         """
         Partner region information for the failover group.
         """

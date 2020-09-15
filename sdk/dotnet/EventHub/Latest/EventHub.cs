@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.EventHub.Latest
         /// Properties of capture description
         /// </summary>
         [Output("captureDescription")]
-        public Output<Outputs.CaptureDescriptionResponseResult?> CaptureDescription { get; private set; } = null!;
+        public Output<Outputs.CaptureDescriptionResponse?> CaptureDescription { get; private set; } = null!;
 
         /// <summary>
         /// Exact time the Event Hub was created.

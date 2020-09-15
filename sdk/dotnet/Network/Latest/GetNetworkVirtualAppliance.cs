@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// List of references to InboundSecurityRules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> InboundSecurityRules;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> InboundSecurityRules;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// Network Virtual Appliance SKU.
         /// </summary>
-        public readonly Outputs.VirtualApplianceSkuPropertiesResponseResult? NvaSku;
+        public readonly Outputs.VirtualApplianceSkuPropertiesResponse? NvaSku;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -104,15 +104,15 @@ namespace Pulumi.AzureRM.Network.Latest
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> VirtualApplianceNics;
+        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> VirtualApplianceNics;
         /// <summary>
         /// List of references to VirtualApplianceSite.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualApplianceSites;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualApplianceSites;
         /// <summary>
         /// The Virtual Hub where Network Virtual Appliance is being deployed.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
@@ -126,15 +126,15 @@ namespace Pulumi.AzureRM.Network.Latest
 
             string etag,
 
-            Outputs.ManagedServiceIdentityResponseResult? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> inboundSecurityRules,
+            ImmutableArray<Outputs.SubResourceResponse> inboundSecurityRules,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualApplianceSkuPropertiesResponseResult? nvaSku,
+            Outputs.VirtualApplianceSkuPropertiesResponse? nvaSku,
 
             string provisioningState,
 
@@ -144,11 +144,11 @@ namespace Pulumi.AzureRM.Network.Latest
 
             int? virtualApplianceAsn,
 
-            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> virtualApplianceNics,
+            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> virtualApplianceSites,
+            ImmutableArray<Outputs.SubResourceResponse> virtualApplianceSites,
 
-            Outputs.SubResourceResponseResult? virtualHub)
+            Outputs.SubResourceResponse? virtualHub)
         {
             AddressPrefix = addressPrefix;
             BootStrapConfigurationBlobs = bootStrapConfigurationBlobs;

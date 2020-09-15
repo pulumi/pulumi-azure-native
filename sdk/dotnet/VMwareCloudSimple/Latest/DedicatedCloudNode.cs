@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.Latest
         /// Dedicated Cloud Nodes SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Node status, indicates is private cloud set up on this node or not

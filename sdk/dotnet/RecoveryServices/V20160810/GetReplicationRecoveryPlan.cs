@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         /// <summary>
         /// The custom details.
         /// </summary>
-        public readonly Outputs.RecoveryPlanPropertiesResponseResult Properties;
+        public readonly Outputs.RecoveryPlanPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
 
             string name,
 
-            Outputs.RecoveryPlanPropertiesResponseResult properties,
+            Outputs.RecoveryPlanPropertiesResponse properties,
 
             string type)
         {

@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.Management.V20180101Preview
         /// <summary>
         /// The list of children.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> Children;
+        public readonly ImmutableArray<Outputs.ManagementGroupChildInfoResponse> Children;
         /// <summary>
         /// The details of a management group.
         /// </summary>
-        public readonly Outputs.ManagementGroupDetailsResponseResult? Details;
+        public readonly Outputs.ManagementGroupDetailsResponse? Details;
         /// <summary>
         /// The friendly name of the management group.
         /// </summary>
@@ -82,9 +82,9 @@ namespace Pulumi.AzureRM.Management.V20180101Preview
 
         [OutputConstructor]
         private GetManagementGroupResult(
-            ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> children,
+            ImmutableArray<Outputs.ManagementGroupChildInfoResponse> children,
 
-            Outputs.ManagementGroupDetailsResponseResult? details,
+            Outputs.ManagementGroupDetailsResponse? details,
 
             string? displayName,
 

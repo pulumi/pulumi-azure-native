@@ -42,13 +42,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// The source virtual machine from which Image is created.
         /// </summary>
         [Output("sourceVirtualMachine")]
-        public Output<Outputs.SubResourceResponseResult?> SourceVirtualMachine { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> SourceVirtualMachine { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
         /// </summary>
         [Output("storageProfile")]
-        public Output<Outputs.ImageStorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
+        public Output<Outputs.ImageStorageProfileResponse?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

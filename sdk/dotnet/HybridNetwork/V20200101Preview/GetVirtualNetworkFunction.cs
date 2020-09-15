@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The reference to the hybrid network device.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? Device;
+        public readonly Outputs.SubResourceResponse? Device;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The resource URI of the managed application.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult ManagedApplication;
+        public readonly Outputs.SubResourceResponse ManagedApplication;
         /// <summary>
         /// The parameters for the managed application.
         /// </summary>
@@ -98,17 +98,17 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The virtual network function configurations from the user.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponseResult> VirtualNetworkFunctionUserConfigurations;
+        public readonly ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponse> VirtualNetworkFunctionUserConfigurations;
 
         [OutputConstructor]
         private GetVirtualNetworkFunctionResult(
-            Outputs.SubResourceResponseResult? device,
+            Outputs.SubResourceResponse? device,
 
             string? etag,
 
             string? location,
 
-            Outputs.SubResourceResponseResult managedApplication,
+            Outputs.SubResourceResponse managedApplication,
 
             ImmutableDictionary<string, object>? managedApplicationParameters,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 
             string vendorProvisioningState,
 
-            ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponseResult> virtualNetworkFunctionUserConfigurations)
+            ImmutableArray<Outputs.VirtualNetworkFunctionUserConfigurationResponse> virtualNetworkFunctionUserConfigurations)
         {
             Device = device;
             Etag = etag;

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// <summary>
         /// The password details.
         /// </summary>
-        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? EncryptedPassword;
+        public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptedPassword;
         /// <summary>
         /// The object name.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// <summary>
         /// List of shares that the user has rights on. This field should not be specified during user creation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ShareAccessRightResponseResult> ShareAccessRights;
+        public readonly ImmutableArray<Outputs.ShareAccessRightResponse> ShareAccessRights;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
 
         [OutputConstructor]
         private GetUserResult(
-            Outputs.AsymmetricEncryptedSecretResponseResult? encryptedPassword,
+            Outputs.AsymmetricEncryptedSecretResponse? encryptedPassword,
 
             string name,
 
-            ImmutableArray<Outputs.ShareAccessRightResponseResult> shareAccessRights,
+            ImmutableArray<Outputs.ShareAccessRightResponse> shareAccessRights,
 
             string type,
 

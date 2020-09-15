@@ -62,11 +62,11 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// Storage information about the plan related to this custom image
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesFromPlanResponseResult? CustomImagePlan;
+        public readonly Outputs.CustomImagePropertiesFromPlanResponse? CustomImagePlan;
         /// <summary>
         /// Storage information about the data disks present in the custom image
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult> DataDiskStorageInfo;
+        public readonly ImmutableArray<Outputs.DataDiskStorageTypeInfoResponse> DataDiskStorageInfo;
         /// <summary>
         /// The description of the custom image.
         /// </summary>
@@ -110,11 +110,11 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// <summary>
         /// The VHD from which the image is to be created.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesCustomResponseResult? Vhd;
+        public readonly Outputs.CustomImagePropertiesCustomResponse? Vhd;
         /// <summary>
         /// The virtual machine from which the image is to be created.
         /// </summary>
-        public readonly Outputs.CustomImagePropertiesFromVmResponseResult? Vm;
+        public readonly Outputs.CustomImagePropertiesFromVmResponse? Vm;
 
         [OutputConstructor]
         private GetCustomImageResult(
@@ -122,9 +122,9 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string creationDate,
 
-            Outputs.CustomImagePropertiesFromPlanResponseResult? customImagePlan,
+            Outputs.CustomImagePropertiesFromPlanResponse? customImagePlan,
 
-            ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult> dataDiskStorageInfo,
+            ImmutableArray<Outputs.DataDiskStorageTypeInfoResponse> dataDiskStorageInfo,
 
             string? description,
 
@@ -146,9 +146,9 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
 
             string uniqueIdentifier,
 
-            Outputs.CustomImagePropertiesCustomResponseResult? vhd,
+            Outputs.CustomImagePropertiesCustomResponse? vhd,
 
-            Outputs.CustomImagePropertiesFromVmResponseResult? vm)
+            Outputs.CustomImagePropertiesFromVmResponse? vm)
         {
             Author = author;
             CreationDate = creationDate;

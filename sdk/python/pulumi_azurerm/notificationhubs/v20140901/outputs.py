@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -561,7 +561,7 @@ class NotificationHubPropertiesResponse(dict):
     def __init__(__self__, *,
                  adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
                  apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
-                 authorization_rules: Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']] = None,
+                 authorization_rules: Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']] = None,
                  baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
                  gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
                  mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
@@ -572,7 +572,7 @@ class NotificationHubPropertiesResponse(dict):
         NotificationHub properties.
         :param 'AdmCredentialResponseArgs' adm_credential: The AdmCredential of the created NotificationHub
         :param 'ApnsCredentialResponseArgs' apns_credential: The ApnsCredential of the created NotificationHub
-        :param List['SharedAccessAuthorizationRulePropertiesResponseArgs'] authorization_rules: The AuthorizationRules of the created NotificationHub
+        :param Sequence['SharedAccessAuthorizationRulePropertiesResponseArgs'] authorization_rules: The AuthorizationRules of the created NotificationHub
         :param 'BaiduCredentialResponseArgs' baidu_credential: The BaiduCredential of the created NotificationHub
         :param 'GcmCredentialResponseArgs' gcm_credential: The GcmCredential of the created NotificationHub
         :param 'MpnsCredentialResponseArgs' mpns_credential: The MpnsCredential of the created NotificationHub
@@ -617,7 +617,7 @@ class NotificationHubPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
+    def authorization_rules(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
         """
         The AuthorizationRules of the created NotificationHub
         """
@@ -687,8 +687,8 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
                  key_name: Optional[str] = None,
                  modified_time: Optional[str] = None,
                  primary_key: Optional[str] = None,
-                 revision: Optional[float] = None,
-                 rights: Optional[List[str]] = None,
+                 revision: Optional[int] = None,
+                 rights: Optional[Sequence[str]] = None,
                  secondary_key: Optional[str] = None):
         """
         SharedAccessAuthorizationRule properties.
@@ -698,8 +698,8 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
         :param str key_name: The name of the key that was used.
         :param str modified_time: The most recent time the rule was updated.
         :param str primary_key: The primary key that was used.
-        :param float revision: The revision number for the rule.
-        :param List[str] rights: The rights associated with the rule.
+        :param int revision: The revision number for the rule.
+        :param Sequence[str] rights: The rights associated with the rule.
         :param str secondary_key: The secondary key that was used.
         """
         if claim_type is not None:
@@ -771,7 +771,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def revision(self) -> Optional[float]:
+    def revision(self) -> Optional[int]:
         """
         The revision number for the rule.
         """
@@ -779,7 +779,7 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[List[str]]:
+    def rights(self) -> Optional[Sequence[str]]:
         """
         The rights associated with the rule.
         """

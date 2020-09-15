@@ -42,19 +42,19 @@ namespace Pulumi.AzureRM.Management.Latest
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The metadata describing groups of policy definition references within the policy set definition.
         /// </summary>
         [Output("policyDefinitionGroups")]
-        public Output<ImmutableArray<Outputs.PolicyDefinitionGroupResponseResult>> PolicyDefinitionGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PolicyDefinitionGroupResponse>> PolicyDefinitionGroups { get; private set; } = null!;
 
         /// <summary>
         /// An array of policy definition references.
         /// </summary>
         [Output("policyDefinitions")]
-        public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult>> PolicyDefinitions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PolicyDefinitionReferenceResponse>> PolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

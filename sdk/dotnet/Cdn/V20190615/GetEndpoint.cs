@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// <summary>
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? DeliveryPolicy;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy? DeliveryPolicy;
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
-        public readonly ImmutableArray<Outputs.GeoFilterResponseResult> GeoFilters;
+        public readonly ImmutableArray<Outputs.GeoFilterResponse> GeoFilters;
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// <summary>
         /// The source of the content being delivered via CDN.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponseResult> Origins;
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponse> Origins;
         /// <summary>
         /// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
         /// </summary>
@@ -124,15 +124,15 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private GetEndpointResult(
             ImmutableArray<string> contentTypesToCompress,
 
-            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? deliveryPolicy,
+            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy? deliveryPolicy,
 
-            ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
+            ImmutableArray<Outputs.GeoFilterResponse> geoFilters,
 
             string hostName,
 
@@ -152,7 +152,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 
             string? originPath,
 
-            ImmutableArray<Outputs.DeepCreatedOriginResponseResult> origins,
+            ImmutableArray<Outputs.DeepCreatedOriginResponse> origins,
 
             string? probePath,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
 
             string type,
 
-            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
+            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink? webApplicationFirewallPolicyLink)
         {
             ContentTypesToCompress = contentTypesToCompress;
             DeliveryPolicy = deliveryPolicy;

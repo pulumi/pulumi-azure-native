@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -119,19 +119,19 @@ class TimeResponse(dict):
     The Time.
     """
     def __init__(__self__, *,
-                 hour: float,
-                 minute: float):
+                 hour: int,
+                 minute: int):
         """
         The Time.
-        :param float hour: The hour.
-        :param float minute: The minute.
+        :param int hour: The hour.
+        :param int minute: The minute.
         """
         pulumi.set(__self__, "hour", hour)
         pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def hour(self) -> float:
+    def hour(self) -> int:
         """
         The hour.
         """
@@ -139,7 +139,7 @@ class TimeResponse(dict):
 
     @property
     @pulumi.getter
-    def minute(self) -> float:
+    def minute(self) -> int:
         """
         The minute.
         """

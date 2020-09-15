@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -108,7 +108,7 @@ class Python2Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activityCount")
-    def activity_count(self) -> pulumi.Output[Optional[float]]:
+    def activity_count(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the activity count of the module.
         """
@@ -204,7 +204,7 @@ class Python2Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> pulumi.Output[Optional[float]]:
+    def size_in_bytes(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the size in bytes of the module.
         """

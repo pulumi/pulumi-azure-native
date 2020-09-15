@@ -73,61 +73,6 @@ func (i A2AEnableProtectionInputArgs) ToA2AEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AEnableProtectionInputOutput)
 }
 
-// A2A enable protection input.
-type A2AEnableProtectionInputOutput struct{ *pulumi.OutputState }
-
-func (A2AEnableProtectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AEnableProtectionInput)(nil)).Elem()
-}
-
-func (o A2AEnableProtectionInputOutput) ToA2AEnableProtectionInputOutput() A2AEnableProtectionInputOutput {
-	return o
-}
-
-func (o A2AEnableProtectionInputOutput) ToA2AEnableProtectionInputOutputWithContext(ctx context.Context) A2AEnableProtectionInputOutput {
-	return o
-}
-
-// The fabric specific object Id of the virtual machine.
-func (o A2AEnableProtectionInputOutput) FabricObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.FabricObjectId }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o A2AEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The recovery availability set Id.
-func (o A2AEnableProtectionInputOutput) RecoveryAvailabilitySetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryAvailabilitySetId }).(pulumi.StringPtrOutput)
-}
-
-// The recovery cloud service Id. Valid for V1 scenarios.
-func (o A2AEnableProtectionInputOutput) RecoveryCloudServiceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryCloudServiceId }).(pulumi.StringPtrOutput)
-}
-
-// The recovery container Id.
-func (o A2AEnableProtectionInputOutput) RecoveryContainerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryContainerId }).(pulumi.StringPtrOutput)
-}
-
-// The recovery resource group Id. Valid for V2 scenarios.
-func (o A2AEnableProtectionInputOutput) RecoveryResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The list of vm disk details.
-func (o A2AEnableProtectionInputOutput) VmDisks() A2AVmDiskInputDetailsArrayOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) []A2AVmDiskInputDetails { return v.VmDisks }).(A2AVmDiskInputDetailsArrayOutput)
-}
-
-// The list of vm managed disk details.
-func (o A2AEnableProtectionInputOutput) VmManagedDisks() A2AVmManagedDiskInputDetailsArrayOutput {
-	return o.ApplyT(func(v A2AEnableProtectionInput) []A2AVmManagedDiskInputDetails { return v.VmManagedDisks }).(A2AVmManagedDiskInputDetailsArrayOutput)
-}
-
 // A2A Policy creation input.
 type A2APolicyCreationInput struct {
 	// The app consistent snapshot frequency (in minutes).
@@ -179,46 +124,6 @@ func (i A2APolicyCreationInputArgs) ToA2APolicyCreationInputOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyCreationInputOutput)
 }
 
-// A2A Policy creation input.
-type A2APolicyCreationInputOutput struct{ *pulumi.OutputState }
-
-func (A2APolicyCreationInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2APolicyCreationInput)(nil)).Elem()
-}
-
-func (o A2APolicyCreationInputOutput) ToA2APolicyCreationInputOutput() A2APolicyCreationInputOutput {
-	return o
-}
-
-func (o A2APolicyCreationInputOutput) ToA2APolicyCreationInputOutputWithContext(ctx context.Context) A2APolicyCreationInputOutput {
-	return o
-}
-
-// The app consistent snapshot frequency (in minutes).
-func (o A2APolicyCreationInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The crash consistent snapshot frequency (in minutes).
-func (o A2APolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The class type.
-func (o A2APolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
-}
-
-// The duration in minutes until which the recovery points need to be stored.
-func (o A2APolicyCreationInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
-}
-
 // A2A specific policy details.
 type A2APolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
@@ -233,45 +138,6 @@ type A2APolicyDetailsResponse struct {
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-// A2APolicyDetailsResponseInput is an input type that accepts A2APolicyDetailsResponseArgs and A2APolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `A2APolicyDetailsResponseInput` via:
-//
-//          A2APolicyDetailsResponseArgs{...}
-type A2APolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToA2APolicyDetailsResponseOutput() A2APolicyDetailsResponseOutput
-	ToA2APolicyDetailsResponseOutputWithContext(context.Context) A2APolicyDetailsResponseOutput
-}
-
-// A2A specific policy details.
-type A2APolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (A2APolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2APolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i A2APolicyDetailsResponseArgs) ToA2APolicyDetailsResponseOutput() A2APolicyDetailsResponseOutput {
-	return i.ToA2APolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i A2APolicyDetailsResponseArgs) ToA2APolicyDetailsResponseOutputWithContext(ctx context.Context) A2APolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyDetailsResponseOutput)
 }
 
 // A2A specific policy details.
@@ -347,84 +213,6 @@ type A2AProtectedDiskDetailsResponse struct {
 	RecoveryDiskUri *string `pulumi:"recoveryDiskUri"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *bool `pulumi:"resyncRequired"`
-}
-
-// A2AProtectedDiskDetailsResponseInput is an input type that accepts A2AProtectedDiskDetailsResponseArgs and A2AProtectedDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `A2AProtectedDiskDetailsResponseInput` via:
-//
-//          A2AProtectedDiskDetailsResponseArgs{...}
-type A2AProtectedDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToA2AProtectedDiskDetailsResponseOutput() A2AProtectedDiskDetailsResponseOutput
-	ToA2AProtectedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedDiskDetailsResponseOutput
-}
-
-// A2A protected disk details.
-type A2AProtectedDiskDetailsResponseArgs struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
-	DataPendingInStagingStorageAccountInMB pulumi.Float64PtrInput `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// The type of disk.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// The disk uri.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// The primary disk storage account.
-	PrimaryDiskAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryDiskAzureStorageAccountId"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery disk storage account.
-	RecoveryAzureStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccountId"`
-	// Recovery disk uri.
-	RecoveryDiskUri pulumi.StringPtrInput `pulumi:"recoveryDiskUri"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.BoolPtrInput `pulumi:"resyncRequired"`
-}
-
-func (A2AProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i A2AProtectedDiskDetailsResponseArgs) ToA2AProtectedDiskDetailsResponseOutput() A2AProtectedDiskDetailsResponseOutput {
-	return i.ToA2AProtectedDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i A2AProtectedDiskDetailsResponseArgs) ToA2AProtectedDiskDetailsResponseOutputWithContext(ctx context.Context) A2AProtectedDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedDiskDetailsResponseOutput)
-}
-
-// A2AProtectedDiskDetailsResponseArrayInput is an input type that accepts A2AProtectedDiskDetailsResponseArray and A2AProtectedDiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `A2AProtectedDiskDetailsResponseArrayInput` via:
-//
-//          A2AProtectedDiskDetailsResponseArray{ A2AProtectedDiskDetailsResponseArgs{...} }
-type A2AProtectedDiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToA2AProtectedDiskDetailsResponseArrayOutput() A2AProtectedDiskDetailsResponseArrayOutput
-	ToA2AProtectedDiskDetailsResponseArrayOutputWithContext(context.Context) A2AProtectedDiskDetailsResponseArrayOutput
-}
-
-type A2AProtectedDiskDetailsResponseArray []A2AProtectedDiskDetailsResponseInput
-
-func (A2AProtectedDiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]A2AProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i A2AProtectedDiskDetailsResponseArray) ToA2AProtectedDiskDetailsResponseArrayOutput() A2AProtectedDiskDetailsResponseArrayOutput {
-	return i.ToA2AProtectedDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i A2AProtectedDiskDetailsResponseArray) ToA2AProtectedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) A2AProtectedDiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedDiskDetailsResponseArrayOutput)
 }
 
 // A2A protected disk details.
@@ -553,82 +341,6 @@ type A2AProtectedManagedDiskDetailsResponse struct {
 	RecoveryDiskId *string `pulumi:"recoveryDiskId"`
 	// A value indicating whether resync is required for this disk.
 	ResyncRequired *bool `pulumi:"resyncRequired"`
-}
-
-// A2AProtectedManagedDiskDetailsResponseInput is an input type that accepts A2AProtectedManagedDiskDetailsResponseArgs and A2AProtectedManagedDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `A2AProtectedManagedDiskDetailsResponseInput` via:
-//
-//          A2AProtectedManagedDiskDetailsResponseArgs{...}
-type A2AProtectedManagedDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToA2AProtectedManagedDiskDetailsResponseOutput() A2AProtectedManagedDiskDetailsResponseOutput
-	ToA2AProtectedManagedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedManagedDiskDetailsResponseOutput
-}
-
-// A2A protected managed disk details.
-type A2AProtectedManagedDiskDetailsResponseArgs struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
-	DataPendingInStagingStorageAccountInMB pulumi.Float64PtrInput `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
-	// The managed disk Arm id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// The type of disk.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery disk resource group Arm Id.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// Recovery disk Arm Id.
-	RecoveryDiskId pulumi.StringPtrInput `pulumi:"recoveryDiskId"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.BoolPtrInput `pulumi:"resyncRequired"`
-}
-
-func (A2AProtectedManagedDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AProtectedManagedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i A2AProtectedManagedDiskDetailsResponseArgs) ToA2AProtectedManagedDiskDetailsResponseOutput() A2AProtectedManagedDiskDetailsResponseOutput {
-	return i.ToA2AProtectedManagedDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i A2AProtectedManagedDiskDetailsResponseArgs) ToA2AProtectedManagedDiskDetailsResponseOutputWithContext(ctx context.Context) A2AProtectedManagedDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedManagedDiskDetailsResponseOutput)
-}
-
-// A2AProtectedManagedDiskDetailsResponseArrayInput is an input type that accepts A2AProtectedManagedDiskDetailsResponseArray and A2AProtectedManagedDiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `A2AProtectedManagedDiskDetailsResponseArrayInput` via:
-//
-//          A2AProtectedManagedDiskDetailsResponseArray{ A2AProtectedManagedDiskDetailsResponseArgs{...} }
-type A2AProtectedManagedDiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToA2AProtectedManagedDiskDetailsResponseArrayOutput() A2AProtectedManagedDiskDetailsResponseArrayOutput
-	ToA2AProtectedManagedDiskDetailsResponseArrayOutputWithContext(context.Context) A2AProtectedManagedDiskDetailsResponseArrayOutput
-}
-
-type A2AProtectedManagedDiskDetailsResponseArray []A2AProtectedManagedDiskDetailsResponseInput
-
-func (A2AProtectedManagedDiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]A2AProtectedManagedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i A2AProtectedManagedDiskDetailsResponseArray) ToA2AProtectedManagedDiskDetailsResponseArrayOutput() A2AProtectedManagedDiskDetailsResponseArrayOutput {
-	return i.ToA2AProtectedManagedDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i A2AProtectedManagedDiskDetailsResponseArray) ToA2AProtectedManagedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) A2AProtectedManagedDiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedManagedDiskDetailsResponseArrayOutput)
 }
 
 // A2A protected managed disk details.
@@ -790,93 +502,6 @@ type A2AReplicationDetailsResponse struct {
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
 	// The synced configuration details.
 	VmSyncedConfigDetails *AzureToAzureVmSyncedConfigDetailsResponse `pulumi:"vmSyncedConfigDetails"`
-}
-
-// A2AReplicationDetailsResponseInput is an input type that accepts A2AReplicationDetailsResponseArgs and A2AReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `A2AReplicationDetailsResponseInput` via:
-//
-//          A2AReplicationDetailsResponseArgs{...}
-type A2AReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToA2AReplicationDetailsResponseOutput() A2AReplicationDetailsResponseOutput
-	ToA2AReplicationDetailsResponseOutputWithContext(context.Context) A2AReplicationDetailsResponseOutput
-}
-
-// A2A provider specific settings.
-type A2AReplicationDetailsResponseArgs struct {
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The fabric specific object Id of the virtual machine.
-	FabricObjectId pulumi.StringPtrInput `pulumi:"fabricObjectId"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether replication agent update is required.
-	IsReplicationAgentUpdateRequired pulumi.BoolPtrInput `pulumi:"isReplicationAgentUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The time (in UTC) when the last RPO value was calculated by Protection Service.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
-	LifecycleId pulumi.StringPtrInput `pulumi:"lifecycleId"`
-	// The management Id.
-	ManagementId pulumi.StringPtrInput `pulumi:"managementId"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// The type of operating system.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Primary fabric location.
-	PrimaryFabricLocation pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
-	// The list of protected disks.
-	ProtectedDisks A2AProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The list of protected managed disks.
-	ProtectedManagedDisks A2AProtectedManagedDiskDetailsResponseArrayInput `pulumi:"protectedManagedDisks"`
-	// The recovery availability set.
-	RecoveryAvailabilitySet pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySet"`
-	// The recovery resource group.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The name of recovery virtual machine.
-	RecoveryAzureVMName pulumi.StringPtrInput `pulumi:"recoveryAzureVMName"`
-	// The size of recovery virtual machine.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// The recovery cloud service.
-	RecoveryCloudService pulumi.StringPtrInput `pulumi:"recoveryCloudService"`
-	// The recovery fabric location.
-	RecoveryFabricLocation pulumi.StringPtrInput `pulumi:"recoveryFabricLocation"`
-	// The recovery fabric object Id.
-	RecoveryFabricObjectId pulumi.StringPtrInput `pulumi:"recoveryFabricObjectId"`
-	// The last RPO value in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
-	// The recovery virtual network.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The test failover fabric object Id.
-	TestFailoverRecoveryFabricObjectId pulumi.StringPtrInput `pulumi:"testFailoverRecoveryFabricObjectId"`
-	// The virtual machine nic details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-	// The synced configuration details.
-	VmSyncedConfigDetails AzureToAzureVmSyncedConfigDetailsResponsePtrInput `pulumi:"vmSyncedConfigDetails"`
-}
-
-func (A2AReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i A2AReplicationDetailsResponseArgs) ToA2AReplicationDetailsResponseOutput() A2AReplicationDetailsResponseOutput {
-	return i.ToA2AReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i A2AReplicationDetailsResponseArgs) ToA2AReplicationDetailsResponseOutputWithContext(ctx context.Context) A2AReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(A2AReplicationDetailsResponseOutput)
 }
 
 // A2A provider specific settings.
@@ -1116,56 +741,6 @@ func (i A2AVmDiskInputDetailsArray) ToA2AVmDiskInputDetailsArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmDiskInputDetailsArrayOutput)
 }
 
-// Azure VM disk input details.
-type A2AVmDiskInputDetailsOutput struct{ *pulumi.OutputState }
-
-func (A2AVmDiskInputDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AVmDiskInputDetails)(nil)).Elem()
-}
-
-func (o A2AVmDiskInputDetailsOutput) ToA2AVmDiskInputDetailsOutput() A2AVmDiskInputDetailsOutput {
-	return o
-}
-
-func (o A2AVmDiskInputDetailsOutput) ToA2AVmDiskInputDetailsOutputWithContext(ctx context.Context) A2AVmDiskInputDetailsOutput {
-	return o
-}
-
-// The disk Uri.
-func (o A2AVmDiskInputDetailsOutput) DiskUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
-}
-
-// The primary staging storage account Id.
-func (o A2AVmDiskInputDetailsOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The recovery VHD storage account Id.
-func (o A2AVmDiskInputDetailsOutput) RecoveryAzureStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.RecoveryAzureStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-type A2AVmDiskInputDetailsArrayOutput struct{ *pulumi.OutputState }
-
-func (A2AVmDiskInputDetailsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]A2AVmDiskInputDetails)(nil)).Elem()
-}
-
-func (o A2AVmDiskInputDetailsArrayOutput) ToA2AVmDiskInputDetailsArrayOutput() A2AVmDiskInputDetailsArrayOutput {
-	return o
-}
-
-func (o A2AVmDiskInputDetailsArrayOutput) ToA2AVmDiskInputDetailsArrayOutputWithContext(ctx context.Context) A2AVmDiskInputDetailsArrayOutput {
-	return o
-}
-
-func (o A2AVmDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmDiskInputDetailsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) A2AVmDiskInputDetails {
-		return vs[0].([]A2AVmDiskInputDetails)[vs[1].(int)]
-	}).(A2AVmDiskInputDetailsOutput)
-}
-
 // Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetails struct {
 	// The disk Id.
@@ -1232,56 +807,6 @@ func (i A2AVmManagedDiskInputDetailsArray) ToA2AVmManagedDiskInputDetailsArrayOu
 
 func (i A2AVmManagedDiskInputDetailsArray) ToA2AVmManagedDiskInputDetailsArrayOutputWithContext(ctx context.Context) A2AVmManagedDiskInputDetailsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmManagedDiskInputDetailsArrayOutput)
-}
-
-// Azure VM managed disk input details.
-type A2AVmManagedDiskInputDetailsOutput struct{ *pulumi.OutputState }
-
-func (A2AVmManagedDiskInputDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*A2AVmManagedDiskInputDetails)(nil)).Elem()
-}
-
-func (o A2AVmManagedDiskInputDetailsOutput) ToA2AVmManagedDiskInputDetailsOutput() A2AVmManagedDiskInputDetailsOutput {
-	return o
-}
-
-func (o A2AVmManagedDiskInputDetailsOutput) ToA2AVmManagedDiskInputDetailsOutputWithContext(ctx context.Context) A2AVmManagedDiskInputDetailsOutput {
-	return o
-}
-
-// The disk Id.
-func (o A2AVmManagedDiskInputDetailsOutput) DiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.DiskId }).(pulumi.StringPtrOutput)
-}
-
-// The primary staging storage account Arm Id.
-func (o A2AVmManagedDiskInputDetailsOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The target resource group Arm Id.
-func (o A2AVmManagedDiskInputDetailsOutput) RecoveryResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.RecoveryResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-type A2AVmManagedDiskInputDetailsArrayOutput struct{ *pulumi.OutputState }
-
-func (A2AVmManagedDiskInputDetailsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]A2AVmManagedDiskInputDetails)(nil)).Elem()
-}
-
-func (o A2AVmManagedDiskInputDetailsArrayOutput) ToA2AVmManagedDiskInputDetailsArrayOutput() A2AVmManagedDiskInputDetailsArrayOutput {
-	return o
-}
-
-func (o A2AVmManagedDiskInputDetailsArrayOutput) ToA2AVmManagedDiskInputDetailsArrayOutputWithContext(ctx context.Context) A2AVmManagedDiskInputDetailsArrayOutput {
-	return o
-}
-
-func (o A2AVmManagedDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmManagedDiskInputDetailsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) A2AVmManagedDiskInputDetails {
-		return vs[0].([]A2AVmManagedDiskInputDetails)[vs[1].(int)]
-	}).(A2AVmManagedDiskInputDetailsOutput)
 }
 
 // The properties of an add vCenter request.
@@ -1376,124 +901,6 @@ func (i *addVCenterRequestPropertiesPtrType) ToAddVCenterRequestPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AddVCenterRequestPropertiesPtrOutput)
 }
 
-// The properties of an add vCenter request.
-type AddVCenterRequestPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddVCenterRequestPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddVCenterRequestProperties)(nil)).Elem()
-}
-
-func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesOutput() AddVCenterRequestPropertiesOutput {
-	return o
-}
-
-func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesOutputWithContext(ctx context.Context) AddVCenterRequestPropertiesOutput {
-	return o
-}
-
-func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutput() AddVCenterRequestPropertiesPtrOutput {
-	return o.ToAddVCenterRequestPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutputWithContext(ctx context.Context) AddVCenterRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *AddVCenterRequestProperties {
-		return &v
-	}).(AddVCenterRequestPropertiesPtrOutput)
-}
-
-// The friendly name of the vCenter.
-func (o AddVCenterRequestPropertiesOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
-}
-
-// The IP address of the vCenter to be discovered.
-func (o AddVCenterRequestPropertiesOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
-}
-
-// The port number for discovery.
-func (o AddVCenterRequestPropertiesOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.Port }).(pulumi.StringPtrOutput)
-}
-
-// The process server Id from where the discovery is orchestrated.
-func (o AddVCenterRequestPropertiesOutput) ProcessServerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
-}
-
-// The account Id which has privileges to discover the vCenter.
-func (o AddVCenterRequestPropertiesOutput) RunAsAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
-}
-
-type AddVCenterRequestPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AddVCenterRequestPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AddVCenterRequestProperties)(nil)).Elem()
-}
-
-func (o AddVCenterRequestPropertiesPtrOutput) ToAddVCenterRequestPropertiesPtrOutput() AddVCenterRequestPropertiesPtrOutput {
-	return o
-}
-
-func (o AddVCenterRequestPropertiesPtrOutput) ToAddVCenterRequestPropertiesPtrOutputWithContext(ctx context.Context) AddVCenterRequestPropertiesPtrOutput {
-	return o
-}
-
-func (o AddVCenterRequestPropertiesPtrOutput) Elem() AddVCenterRequestPropertiesOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) AddVCenterRequestProperties { return *v }).(AddVCenterRequestPropertiesOutput)
-}
-
-// The friendly name of the vCenter.
-func (o AddVCenterRequestPropertiesPtrOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FriendlyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IP address of the vCenter to be discovered.
-func (o AddVCenterRequestPropertiesPtrOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The port number for discovery.
-func (o AddVCenterRequestPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.StringPtrOutput)
-}
-
-// The process server Id from where the discovery is orchestrated.
-func (o AddVCenterRequestPropertiesPtrOutput) ProcessServerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessServerId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The account Id which has privileges to discover the vCenter.
-func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RunAsAccountId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponse struct {
 	// The container Ids for the Azure fabric.
@@ -1502,39 +909,6 @@ type AzureFabricSpecificDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 	// The Location for the Azure fabric.
 	Location *string `pulumi:"location"`
-}
-
-// AzureFabricSpecificDetailsResponseInput is an input type that accepts AzureFabricSpecificDetailsResponseArgs and AzureFabricSpecificDetailsResponseOutput values.
-// You can construct a concrete instance of `AzureFabricSpecificDetailsResponseInput` via:
-//
-//          AzureFabricSpecificDetailsResponseArgs{...}
-type AzureFabricSpecificDetailsResponseInput interface {
-	pulumi.Input
-
-	ToAzureFabricSpecificDetailsResponseOutput() AzureFabricSpecificDetailsResponseOutput
-	ToAzureFabricSpecificDetailsResponseOutputWithContext(context.Context) AzureFabricSpecificDetailsResponseOutput
-}
-
-// Azure Fabric Specific Details.
-type AzureFabricSpecificDetailsResponseArgs struct {
-	// The container Ids for the Azure fabric.
-	ContainerIds pulumi.StringArrayInput `pulumi:"containerIds"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Location for the Azure fabric.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-}
-
-func (AzureFabricSpecificDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFabricSpecificDetailsResponse)(nil)).Elem()
-}
-
-func (i AzureFabricSpecificDetailsResponseArgs) ToAzureFabricSpecificDetailsResponseOutput() AzureFabricSpecificDetailsResponseOutput {
-	return i.ToAzureFabricSpecificDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i AzureFabricSpecificDetailsResponseArgs) ToAzureFabricSpecificDetailsResponseOutputWithContext(ctx context.Context) AzureFabricSpecificDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureFabricSpecificDetailsResponseOutput)
 }
 
 // Azure Fabric Specific Details.
@@ -1606,31 +980,6 @@ func (i AzureToAzureCreateNetworkMappingInputArgs) ToAzureToAzureCreateNetworkMa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
-type AzureToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
-
-func (AzureToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureToAzureCreateNetworkMappingInput)(nil)).Elem()
-}
-
-func (o AzureToAzureCreateNetworkMappingInputOutput) ToAzureToAzureCreateNetworkMappingInputOutput() AzureToAzureCreateNetworkMappingInputOutput {
-	return o
-}
-
-func (o AzureToAzureCreateNetworkMappingInputOutput) ToAzureToAzureCreateNetworkMappingInputOutputWithContext(ctx context.Context) AzureToAzureCreateNetworkMappingInputOutput {
-	return o
-}
-
-// The instance type.
-func (o AzureToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The primary azure vnet Id.
-func (o AzureToAzureCreateNetworkMappingInputOutput) PrimaryNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.PrimaryNetworkId }).(pulumi.StringPtrOutput)
-}
-
 // A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
@@ -1639,39 +988,6 @@ type AzureToAzureNetworkMappingSettingsResponse struct {
 	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
 	// The recovery fabric location.
 	RecoveryFabricLocation *string `pulumi:"recoveryFabricLocation"`
-}
-
-// AzureToAzureNetworkMappingSettingsResponseInput is an input type that accepts AzureToAzureNetworkMappingSettingsResponseArgs and AzureToAzureNetworkMappingSettingsResponseOutput values.
-// You can construct a concrete instance of `AzureToAzureNetworkMappingSettingsResponseInput` via:
-//
-//          AzureToAzureNetworkMappingSettingsResponseArgs{...}
-type AzureToAzureNetworkMappingSettingsResponseInput interface {
-	pulumi.Input
-
-	ToAzureToAzureNetworkMappingSettingsResponseOutput() AzureToAzureNetworkMappingSettingsResponseOutput
-	ToAzureToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) AzureToAzureNetworkMappingSettingsResponseOutput
-}
-
-// A2A Network Mapping fabric specific settings.
-type AzureToAzureNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The primary fabric location.
-	PrimaryFabricLocation pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
-	// The recovery fabric location.
-	RecoveryFabricLocation pulumi.StringPtrInput `pulumi:"recoveryFabricLocation"`
-}
-
-func (AzureToAzureNetworkMappingSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureToAzureNetworkMappingSettingsResponse)(nil)).Elem()
-}
-
-func (i AzureToAzureNetworkMappingSettingsResponseArgs) ToAzureToAzureNetworkMappingSettingsResponseOutput() AzureToAzureNetworkMappingSettingsResponseOutput {
-	return i.ToAzureToAzureNetworkMappingSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i AzureToAzureNetworkMappingSettingsResponseArgs) ToAzureToAzureNetworkMappingSettingsResponseOutputWithContext(ctx context.Context) AzureToAzureNetworkMappingSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureNetworkMappingSettingsResponseOutput)
 }
 
 // A2A Network Mapping fabric specific settings.
@@ -1712,80 +1028,6 @@ type AzureToAzureVmSyncedConfigDetailsResponse struct {
 	RoleAssignments []RoleAssignmentResponse `pulumi:"roleAssignments"`
 	// The Azure VM tags.
 	Tags map[string]string `pulumi:"tags"`
-}
-
-// AzureToAzureVmSyncedConfigDetailsResponseInput is an input type that accepts AzureToAzureVmSyncedConfigDetailsResponseArgs and AzureToAzureVmSyncedConfigDetailsResponseOutput values.
-// You can construct a concrete instance of `AzureToAzureVmSyncedConfigDetailsResponseInput` via:
-//
-//          AzureToAzureVmSyncedConfigDetailsResponseArgs{...}
-type AzureToAzureVmSyncedConfigDetailsResponseInput interface {
-	pulumi.Input
-
-	ToAzureToAzureVmSyncedConfigDetailsResponseOutput() AzureToAzureVmSyncedConfigDetailsResponseOutput
-	ToAzureToAzureVmSyncedConfigDetailsResponseOutputWithContext(context.Context) AzureToAzureVmSyncedConfigDetailsResponseOutput
-}
-
-// Azure to Azure VM synced configuration details.
-type AzureToAzureVmSyncedConfigDetailsResponseArgs struct {
-	// The Azure VM input endpoints.
-	InputEndpoints InputEndpointResponseArrayInput `pulumi:"inputEndpoints"`
-	// The Azure role assignments.
-	RoleAssignments RoleAssignmentResponseArrayInput `pulumi:"roleAssignments"`
-	// The Azure VM tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (AzureToAzureVmSyncedConfigDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureToAzureVmSyncedConfigDetailsResponse)(nil)).Elem()
-}
-
-func (i AzureToAzureVmSyncedConfigDetailsResponseArgs) ToAzureToAzureVmSyncedConfigDetailsResponseOutput() AzureToAzureVmSyncedConfigDetailsResponseOutput {
-	return i.ToAzureToAzureVmSyncedConfigDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i AzureToAzureVmSyncedConfigDetailsResponseArgs) ToAzureToAzureVmSyncedConfigDetailsResponseOutputWithContext(ctx context.Context) AzureToAzureVmSyncedConfigDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureVmSyncedConfigDetailsResponseOutput)
-}
-
-func (i AzureToAzureVmSyncedConfigDetailsResponseArgs) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutput() AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return i.ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureToAzureVmSyncedConfigDetailsResponseArgs) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(ctx context.Context) AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureVmSyncedConfigDetailsResponseOutput).ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// AzureToAzureVmSyncedConfigDetailsResponsePtrInput is an input type that accepts AzureToAzureVmSyncedConfigDetailsResponseArgs, AzureToAzureVmSyncedConfigDetailsResponsePtr and AzureToAzureVmSyncedConfigDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `AzureToAzureVmSyncedConfigDetailsResponsePtrInput` via:
-//
-//          AzureToAzureVmSyncedConfigDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AzureToAzureVmSyncedConfigDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutput() AzureToAzureVmSyncedConfigDetailsResponsePtrOutput
-	ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(context.Context) AzureToAzureVmSyncedConfigDetailsResponsePtrOutput
-}
-
-type azureToAzureVmSyncedConfigDetailsResponsePtrType AzureToAzureVmSyncedConfigDetailsResponseArgs
-
-func AzureToAzureVmSyncedConfigDetailsResponsePtr(v *AzureToAzureVmSyncedConfigDetailsResponseArgs) AzureToAzureVmSyncedConfigDetailsResponsePtrInput {
-	return (*azureToAzureVmSyncedConfigDetailsResponsePtrType)(v)
-}
-
-func (*azureToAzureVmSyncedConfigDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureToAzureVmSyncedConfigDetailsResponse)(nil)).Elem()
-}
-
-func (i *azureToAzureVmSyncedConfigDetailsResponsePtrType) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutput() AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return i.ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureToAzureVmSyncedConfigDetailsResponsePtrType) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(ctx context.Context) AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
 // Azure to Azure VM synced configuration details.
@@ -1894,72 +1136,6 @@ type AzureVmDiskDetailsResponse struct {
 	VhdName *string `pulumi:"vhdName"`
 	// VHD type.
 	VhdType *string `pulumi:"vhdType"`
-}
-
-// AzureVmDiskDetailsResponseInput is an input type that accepts AzureVmDiskDetailsResponseArgs and AzureVmDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `AzureVmDiskDetailsResponseInput` via:
-//
-//          AzureVmDiskDetailsResponseArgs{...}
-type AzureVmDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToAzureVmDiskDetailsResponseOutput() AzureVmDiskDetailsResponseOutput
-	ToAzureVmDiskDetailsResponseOutputWithContext(context.Context) AzureVmDiskDetailsResponseOutput
-}
-
-// Disk details for E2A provider.
-type AzureVmDiskDetailsResponseArgs struct {
-	// Ordinal\LunId of the disk for the Azure VM.
-	LunId pulumi.StringPtrInput `pulumi:"lunId"`
-	// Max side in MB.
-	MaxSizeMB pulumi.StringPtrInput `pulumi:"maxSizeMB"`
-	// Blob uri of the Azure disk.
-	TargetDiskLocation pulumi.StringPtrInput `pulumi:"targetDiskLocation"`
-	// The target Azure disk name.
-	TargetDiskName pulumi.StringPtrInput `pulumi:"targetDiskName"`
-	// The VHD id.
-	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
-	// VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// VHD type.
-	VhdType pulumi.StringPtrInput `pulumi:"vhdType"`
-}
-
-func (AzureVmDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureVmDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i AzureVmDiskDetailsResponseArgs) ToAzureVmDiskDetailsResponseOutput() AzureVmDiskDetailsResponseOutput {
-	return i.ToAzureVmDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i AzureVmDiskDetailsResponseArgs) ToAzureVmDiskDetailsResponseOutputWithContext(ctx context.Context) AzureVmDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureVmDiskDetailsResponseOutput)
-}
-
-// AzureVmDiskDetailsResponseArrayInput is an input type that accepts AzureVmDiskDetailsResponseArray and AzureVmDiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `AzureVmDiskDetailsResponseArrayInput` via:
-//
-//          AzureVmDiskDetailsResponseArray{ AzureVmDiskDetailsResponseArgs{...} }
-type AzureVmDiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureVmDiskDetailsResponseArrayOutput() AzureVmDiskDetailsResponseArrayOutput
-	ToAzureVmDiskDetailsResponseArrayOutputWithContext(context.Context) AzureVmDiskDetailsResponseArrayOutput
-}
-
-type AzureVmDiskDetailsResponseArray []AzureVmDiskDetailsResponseInput
-
-func (AzureVmDiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureVmDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i AzureVmDiskDetailsResponseArray) ToAzureVmDiskDetailsResponseArrayOutput() AzureVmDiskDetailsResponseArrayOutput {
-	return i.ToAzureVmDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureVmDiskDetailsResponseArray) ToAzureVmDiskDetailsResponseArrayOutputWithContext(ctx context.Context) AzureVmDiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureVmDiskDetailsResponseArrayOutput)
 }
 
 // Disk details for E2A provider.
@@ -2116,94 +1292,6 @@ func (i *createNetworkMappingInputPropertiesPtrType) ToCreateNetworkMappingInput
 	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
 
-// Common input details for network mapping operation.
-type CreateNetworkMappingInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateNetworkMappingInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateNetworkMappingInputProperties)(nil)).Elem()
-}
-
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesOutput() CreateNetworkMappingInputPropertiesOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
-		return &v
-	}).(CreateNetworkMappingInputPropertiesPtrOutput)
-}
-
-// Fabric specific input properties.
-func (o CreateNetworkMappingInputPropertiesOutput) FabricSpecificDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) interface{} { return v.FabricSpecificDetails }).(pulumi.AnyOutput)
-}
-
-// Recovery fabric Name.
-func (o CreateNetworkMappingInputPropertiesOutput) RecoveryFabricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *string { return v.RecoveryFabricName }).(pulumi.StringPtrOutput)
-}
-
-// Recovery network Id.
-func (o CreateNetworkMappingInputPropertiesOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *string { return v.RecoveryNetworkId }).(pulumi.StringPtrOutput)
-}
-
-type CreateNetworkMappingInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateNetworkMappingInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateNetworkMappingInputProperties)(nil)).Elem()
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInputPropertiesPtrOutput() CreateNetworkMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateNetworkMappingInputPropertiesPtrOutput) Elem() CreateNetworkMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties { return *v }).(CreateNetworkMappingInputPropertiesOutput)
-}
-
-// Fabric specific input properties.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) FabricSpecificDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.FabricSpecificDetails
-	}).(pulumi.AnyOutput)
-}
-
-// Recovery fabric Name.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryFabricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecoveryFabricName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Recovery network Id.
-func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecoveryNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Policy creation properties.
 type CreatePolicyInputProperties struct {
 	// The ReplicationProviderSettings.
@@ -2278,64 +1366,6 @@ func (i *createPolicyInputPropertiesPtrType) ToCreatePolicyInputPropertiesPtrOut
 
 func (i *createPolicyInputPropertiesPtrType) ToCreatePolicyInputPropertiesPtrOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreatePolicyInputPropertiesPtrOutput)
-}
-
-// Policy creation properties.
-type CreatePolicyInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreatePolicyInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatePolicyInputProperties)(nil)).Elem()
-}
-
-func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesOutput() CreatePolicyInputPropertiesOutput {
-	return o
-}
-
-func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesOutput {
-	return o
-}
-
-func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutput() CreatePolicyInputPropertiesPtrOutput {
-	return o.ToCreatePolicyInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreatePolicyInputProperties) *CreatePolicyInputProperties {
-		return &v
-	}).(CreatePolicyInputPropertiesPtrOutput)
-}
-
-// The ReplicationProviderSettings.
-func (o CreatePolicyInputPropertiesOutput) ProviderSpecificInput() pulumi.AnyOutput {
-	return o.ApplyT(func(v CreatePolicyInputProperties) interface{} { return v.ProviderSpecificInput }).(pulumi.AnyOutput)
-}
-
-type CreatePolicyInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreatePolicyInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreatePolicyInputProperties)(nil)).Elem()
-}
-
-func (o CreatePolicyInputPropertiesPtrOutput) ToCreatePolicyInputPropertiesPtrOutput() CreatePolicyInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreatePolicyInputPropertiesPtrOutput) ToCreatePolicyInputPropertiesPtrOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreatePolicyInputPropertiesPtrOutput) Elem() CreatePolicyInputPropertiesOutput {
-	return o.ApplyT(func(v *CreatePolicyInputProperties) CreatePolicyInputProperties { return *v }).(CreatePolicyInputPropertiesOutput)
-}
-
-// The ReplicationProviderSettings.
-func (o CreatePolicyInputPropertiesPtrOutput) ProviderSpecificInput() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CreatePolicyInputProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProviderSpecificInput
-	}).(pulumi.AnyOutput)
 }
 
 // Configure pairing input properties.
@@ -2420,98 +1450,6 @@ func (i *createProtectionContainerMappingInputPropertiesPtrType) ToCreateProtect
 
 func (i *createProtectionContainerMappingInputPropertiesPtrType) ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
-}
-
-// Configure pairing input properties.
-type CreateProtectionContainerMappingInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateProtectionContainerMappingInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateProtectionContainerMappingInputProperties)(nil)).Elem()
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesOutput() CreateProtectionContainerMappingInputPropertiesOutput {
-	return o
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesOutput {
-	return o
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutput() CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o.ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *CreateProtectionContainerMappingInputProperties {
-		return &v
-	}).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
-}
-
-// Applicable policy.
-func (o CreateProtectionContainerMappingInputPropertiesOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Provider specific input for pairing.
-func (o CreateProtectionContainerMappingInputPropertiesOutput) ProviderSpecificInput() ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *ReplicationProviderSpecificContainerMappingInput {
-		return v.ProviderSpecificInput
-	}).(ReplicationProviderSpecificContainerMappingInputPtrOutput)
-}
-
-// The target unique protection container name.
-func (o CreateProtectionContainerMappingInputPropertiesOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *string { return v.TargetProtectionContainerId }).(pulumi.StringPtrOutput)
-}
-
-type CreateProtectionContainerMappingInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateProtectionContainerMappingInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateProtectionContainerMappingInputProperties)(nil)).Elem()
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutput() CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) Elem() CreateProtectionContainerMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) CreateProtectionContainerMappingInputProperties {
-		return *v
-	}).(CreateProtectionContainerMappingInputPropertiesOutput)
-}
-
-// Applicable policy.
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provider specific input for pairing.
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ProviderSpecificInput() ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) *ReplicationProviderSpecificContainerMappingInput {
-		if v == nil {
-			return nil
-		}
-		return v.ProviderSpecificInput
-	}).(ReplicationProviderSpecificContainerMappingInputPtrOutput)
-}
-
-// The target unique protection container name.
-func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetProtectionContainerId
-	}).(pulumi.StringPtrOutput)
 }
 
 // Recovery plan creation properties.
@@ -2602,109 +1540,6 @@ func (i *createRecoveryPlanInputPropertiesPtrType) ToCreateRecoveryPlanInputProp
 	return pulumi.ToOutputWithContext(ctx, i).(CreateRecoveryPlanInputPropertiesPtrOutput)
 }
 
-// Recovery plan creation properties.
-type CreateRecoveryPlanInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateRecoveryPlanInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateRecoveryPlanInputProperties)(nil)).Elem()
-}
-
-func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesOutput() CreateRecoveryPlanInputPropertiesOutput {
-	return o
-}
-
-func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesOutputWithContext(ctx context.Context) CreateRecoveryPlanInputPropertiesOutput {
-	return o
-}
-
-func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesPtrOutput() CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o.ToCreateRecoveryPlanInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesPtrOutputWithContext(ctx context.Context) CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *CreateRecoveryPlanInputProperties {
-		return &v
-	}).(CreateRecoveryPlanInputPropertiesPtrOutput)
-}
-
-// The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *string { return v.FailoverDeploymentModel }).(pulumi.StringPtrOutput)
-}
-
-// The recovery plan groups.
-func (o CreateRecoveryPlanInputPropertiesOutput) Groups() RecoveryPlanGroupArrayOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) []RecoveryPlanGroup { return v.Groups }).(RecoveryPlanGroupArrayOutput)
-}
-
-// The primary fabric Id.
-func (o CreateRecoveryPlanInputPropertiesOutput) PrimaryFabricId() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) string { return v.PrimaryFabricId }).(pulumi.StringOutput)
-}
-
-// The recovery fabric Id.
-func (o CreateRecoveryPlanInputPropertiesOutput) RecoveryFabricId() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) string { return v.RecoveryFabricId }).(pulumi.StringOutput)
-}
-
-type CreateRecoveryPlanInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateRecoveryPlanInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateRecoveryPlanInputProperties)(nil)).Elem()
-}
-
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) ToCreateRecoveryPlanInputPropertiesPtrOutput() CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) ToCreateRecoveryPlanInputPropertiesPtrOutputWithContext(ctx context.Context) CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) Elem() CreateRecoveryPlanInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) CreateRecoveryPlanInputProperties { return *v }).(CreateRecoveryPlanInputPropertiesOutput)
-}
-
-// The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FailoverDeploymentModel
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recovery plan groups.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) Groups() RecoveryPlanGroupArrayOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) []RecoveryPlanGroup {
-		if v == nil {
-			return nil
-		}
-		return v.Groups
-	}).(RecoveryPlanGroupArrayOutput)
-}
-
-// The primary fabric Id.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) PrimaryFabricId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryFabricId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The recovery fabric Id.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) RecoveryFabricId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RecoveryFabricId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponse struct {
 	// ARM Id of the job being executed.
@@ -2713,80 +1548,6 @@ type CurrentScenarioDetailsResponse struct {
 	ScenarioName *string `pulumi:"scenarioName"`
 	// Start time of the workflow.
 	StartTime *string `pulumi:"startTime"`
-}
-
-// CurrentScenarioDetailsResponseInput is an input type that accepts CurrentScenarioDetailsResponseArgs and CurrentScenarioDetailsResponseOutput values.
-// You can construct a concrete instance of `CurrentScenarioDetailsResponseInput` via:
-//
-//          CurrentScenarioDetailsResponseArgs{...}
-type CurrentScenarioDetailsResponseInput interface {
-	pulumi.Input
-
-	ToCurrentScenarioDetailsResponseOutput() CurrentScenarioDetailsResponseOutput
-	ToCurrentScenarioDetailsResponseOutputWithContext(context.Context) CurrentScenarioDetailsResponseOutput
-}
-
-// Current scenario details of the protected entity.
-type CurrentScenarioDetailsResponseArgs struct {
-	// ARM Id of the job being executed.
-	JobId pulumi.StringPtrInput `pulumi:"jobId"`
-	// Scenario name.
-	ScenarioName pulumi.StringPtrInput `pulumi:"scenarioName"`
-	// Start time of the workflow.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-}
-
-func (CurrentScenarioDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CurrentScenarioDetailsResponse)(nil)).Elem()
-}
-
-func (i CurrentScenarioDetailsResponseArgs) ToCurrentScenarioDetailsResponseOutput() CurrentScenarioDetailsResponseOutput {
-	return i.ToCurrentScenarioDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i CurrentScenarioDetailsResponseArgs) ToCurrentScenarioDetailsResponseOutputWithContext(ctx context.Context) CurrentScenarioDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentScenarioDetailsResponseOutput)
-}
-
-func (i CurrentScenarioDetailsResponseArgs) ToCurrentScenarioDetailsResponsePtrOutput() CurrentScenarioDetailsResponsePtrOutput {
-	return i.ToCurrentScenarioDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CurrentScenarioDetailsResponseArgs) ToCurrentScenarioDetailsResponsePtrOutputWithContext(ctx context.Context) CurrentScenarioDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentScenarioDetailsResponseOutput).ToCurrentScenarioDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// CurrentScenarioDetailsResponsePtrInput is an input type that accepts CurrentScenarioDetailsResponseArgs, CurrentScenarioDetailsResponsePtr and CurrentScenarioDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `CurrentScenarioDetailsResponsePtrInput` via:
-//
-//          CurrentScenarioDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CurrentScenarioDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToCurrentScenarioDetailsResponsePtrOutput() CurrentScenarioDetailsResponsePtrOutput
-	ToCurrentScenarioDetailsResponsePtrOutputWithContext(context.Context) CurrentScenarioDetailsResponsePtrOutput
-}
-
-type currentScenarioDetailsResponsePtrType CurrentScenarioDetailsResponseArgs
-
-func CurrentScenarioDetailsResponsePtr(v *CurrentScenarioDetailsResponseArgs) CurrentScenarioDetailsResponsePtrInput {
-	return (*currentScenarioDetailsResponsePtrType)(v)
-}
-
-func (*currentScenarioDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CurrentScenarioDetailsResponse)(nil)).Elem()
-}
-
-func (i *currentScenarioDetailsResponsePtrType) ToCurrentScenarioDetailsResponsePtrOutput() CurrentScenarioDetailsResponsePtrOutput {
-	return i.ToCurrentScenarioDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *currentScenarioDetailsResponsePtrType) ToCurrentScenarioDetailsResponsePtrOutputWithContext(ctx context.Context) CurrentScenarioDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
 // Current scenario details of the protected entity.
@@ -2891,68 +1652,6 @@ type DataStoreResponse struct {
 	Uuid *string `pulumi:"uuid"`
 }
 
-// DataStoreResponseInput is an input type that accepts DataStoreResponseArgs and DataStoreResponseOutput values.
-// You can construct a concrete instance of `DataStoreResponseInput` via:
-//
-//          DataStoreResponseArgs{...}
-type DataStoreResponseInput interface {
-	pulumi.Input
-
-	ToDataStoreResponseOutput() DataStoreResponseOutput
-	ToDataStoreResponseOutputWithContext(context.Context) DataStoreResponseOutput
-}
-
-// The data store details of the MT.
-type DataStoreResponseArgs struct {
-	// The capacity of data store in GBs.
-	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
-	// The free space of data store in GBs.
-	FreeSpace pulumi.StringPtrInput `pulumi:"freeSpace"`
-	// The symbolic name of data store.
-	SymbolicName pulumi.StringPtrInput `pulumi:"symbolicName"`
-	// The type of data store.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The uuid of data store.
-	Uuid pulumi.StringPtrInput `pulumi:"uuid"`
-}
-
-func (DataStoreResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataStoreResponse)(nil)).Elem()
-}
-
-func (i DataStoreResponseArgs) ToDataStoreResponseOutput() DataStoreResponseOutput {
-	return i.ToDataStoreResponseOutputWithContext(context.Background())
-}
-
-func (i DataStoreResponseArgs) ToDataStoreResponseOutputWithContext(ctx context.Context) DataStoreResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataStoreResponseOutput)
-}
-
-// DataStoreResponseArrayInput is an input type that accepts DataStoreResponseArray and DataStoreResponseArrayOutput values.
-// You can construct a concrete instance of `DataStoreResponseArrayInput` via:
-//
-//          DataStoreResponseArray{ DataStoreResponseArgs{...} }
-type DataStoreResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataStoreResponseArrayOutput() DataStoreResponseArrayOutput
-	ToDataStoreResponseArrayOutputWithContext(context.Context) DataStoreResponseArrayOutput
-}
-
-type DataStoreResponseArray []DataStoreResponseInput
-
-func (DataStoreResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataStoreResponse)(nil)).Elem()
-}
-
-func (i DataStoreResponseArray) ToDataStoreResponseArrayOutput() DataStoreResponseArrayOutput {
-	return i.ToDataStoreResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataStoreResponseArray) ToDataStoreResponseArrayOutputWithContext(ctx context.Context) DataStoreResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataStoreResponseArrayOutput)
-}
-
 // The data store details of the MT.
 type DataStoreResponseOutput struct{ *pulumi.OutputState }
 
@@ -3023,66 +1722,6 @@ type DiskDetailsResponse struct {
 	VhdName *string `pulumi:"vhdName"`
 	// The type of the volume.
 	VhdType *string `pulumi:"vhdType"`
-}
-
-// DiskDetailsResponseInput is an input type that accepts DiskDetailsResponseArgs and DiskDetailsResponseOutput values.
-// You can construct a concrete instance of `DiskDetailsResponseInput` via:
-//
-//          DiskDetailsResponseArgs{...}
-type DiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToDiskDetailsResponseOutput() DiskDetailsResponseOutput
-	ToDiskDetailsResponseOutputWithContext(context.Context) DiskDetailsResponseOutput
-}
-
-// On-prem disk details data.
-type DiskDetailsResponseArgs struct {
-	// The hard disk max size in MB.
-	MaxSizeMB pulumi.IntPtrInput `pulumi:"maxSizeMB"`
-	// The VHD Id.
-	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
-	// The VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// The type of the volume.
-	VhdType pulumi.StringPtrInput `pulumi:"vhdType"`
-}
-
-func (DiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskDetailsResponse)(nil)).Elem()
-}
-
-func (i DiskDetailsResponseArgs) ToDiskDetailsResponseOutput() DiskDetailsResponseOutput {
-	return i.ToDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i DiskDetailsResponseArgs) ToDiskDetailsResponseOutputWithContext(ctx context.Context) DiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskDetailsResponseOutput)
-}
-
-// DiskDetailsResponseArrayInput is an input type that accepts DiskDetailsResponseArray and DiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `DiskDetailsResponseArrayInput` via:
-//
-//          DiskDetailsResponseArray{ DiskDetailsResponseArgs{...} }
-type DiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToDiskDetailsResponseArrayOutput() DiskDetailsResponseArrayOutput
-	ToDiskDetailsResponseArrayOutputWithContext(context.Context) DiskDetailsResponseArrayOutput
-}
-
-type DiskDetailsResponseArray []DiskDetailsResponseInput
-
-func (DiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskDetailsResponse)(nil)).Elem()
-}
-
-func (i DiskDetailsResponseArray) ToDiskDetailsResponseArrayOutput() DiskDetailsResponseArrayOutput {
-	return i.ToDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DiskDetailsResponseArray) ToDiskDetailsResponseArrayOutputWithContext(ctx context.Context) DiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskDetailsResponseArrayOutput)
 }
 
 // On-prem disk details data.
@@ -3224,94 +1863,6 @@ func (i *enableProtectionInputPropertiesPtrType) ToEnableProtectionInputProperti
 	return pulumi.ToOutputWithContext(ctx, i).(EnableProtectionInputPropertiesPtrOutput)
 }
 
-// Enable protection input properties.
-type EnableProtectionInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (EnableProtectionInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnableProtectionInputProperties)(nil)).Elem()
-}
-
-func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesOutput() EnableProtectionInputPropertiesOutput {
-	return o
-}
-
-func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesOutputWithContext(ctx context.Context) EnableProtectionInputPropertiesOutput {
-	return o
-}
-
-func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesPtrOutput() EnableProtectionInputPropertiesPtrOutput {
-	return o.ToEnableProtectionInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesPtrOutputWithContext(ctx context.Context) EnableProtectionInputPropertiesPtrOutput {
-	return o.ApplyT(func(v EnableProtectionInputProperties) *EnableProtectionInputProperties {
-		return &v
-	}).(EnableProtectionInputPropertiesPtrOutput)
-}
-
-// The Policy Id.
-func (o EnableProtectionInputPropertiesOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnableProtectionInputProperties) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// The protectable item Id.
-func (o EnableProtectionInputPropertiesOutput) ProtectableItemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnableProtectionInputProperties) *string { return v.ProtectableItemId }).(pulumi.StringPtrOutput)
-}
-
-// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
-func (o EnableProtectionInputPropertiesOutput) ProviderSpecificDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v EnableProtectionInputProperties) interface{} { return v.ProviderSpecificDetails }).(pulumi.AnyOutput)
-}
-
-type EnableProtectionInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EnableProtectionInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnableProtectionInputProperties)(nil)).Elem()
-}
-
-func (o EnableProtectionInputPropertiesPtrOutput) ToEnableProtectionInputPropertiesPtrOutput() EnableProtectionInputPropertiesPtrOutput {
-	return o
-}
-
-func (o EnableProtectionInputPropertiesPtrOutput) ToEnableProtectionInputPropertiesPtrOutputWithContext(ctx context.Context) EnableProtectionInputPropertiesPtrOutput {
-	return o
-}
-
-func (o EnableProtectionInputPropertiesPtrOutput) Elem() EnableProtectionInputPropertiesOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) EnableProtectionInputProperties { return *v }).(EnableProtectionInputPropertiesOutput)
-}
-
-// The Policy Id.
-func (o EnableProtectionInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The protectable item Id.
-func (o EnableProtectionInputPropertiesPtrOutput) ProtectableItemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectableItemId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
-func (o EnableProtectionInputPropertiesPtrOutput) ProviderSpecificDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProviderSpecificDetails
-	}).(pulumi.AnyOutput)
-}
-
 // Encryption details for the fabric.
 type EncryptionDetailsResponse struct {
 	// The key encryption key certificate expiry date.
@@ -3320,80 +1871,6 @@ type EncryptionDetailsResponse struct {
 	KekCertThumbprint *string `pulumi:"kekCertThumbprint"`
 	// The key encryption key state for the Vmm.
 	KekState *string `pulumi:"kekState"`
-}
-
-// EncryptionDetailsResponseInput is an input type that accepts EncryptionDetailsResponseArgs and EncryptionDetailsResponseOutput values.
-// You can construct a concrete instance of `EncryptionDetailsResponseInput` via:
-//
-//          EncryptionDetailsResponseArgs{...}
-type EncryptionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput
-	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
-}
-
-// Encryption details for the fabric.
-type EncryptionDetailsResponseArgs struct {
-	// The key encryption key certificate expiry date.
-	KekCertExpiryDate pulumi.StringPtrInput `pulumi:"kekCertExpiryDate"`
-	// The key encryption key certificate thumbprint.
-	KekCertThumbprint pulumi.StringPtrInput `pulumi:"kekCertThumbprint"`
-	// The key encryption key state for the Vmm.
-	KekState pulumi.StringPtrInput `pulumi:"kekState"`
-}
-
-func (EncryptionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionDetailsResponse)(nil)).Elem()
-}
-
-func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutput() EncryptionDetailsResponseOutput {
-	return i.ToEncryptionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponseOutputWithContext(ctx context.Context) EncryptionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput)
-}
-
-func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
-	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EncryptionDetailsResponseArgs) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponseOutput).ToEncryptionDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// EncryptionDetailsResponsePtrInput is an input type that accepts EncryptionDetailsResponseArgs, EncryptionDetailsResponsePtr and EncryptionDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `EncryptionDetailsResponsePtrInput` via:
-//
-//          EncryptionDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EncryptionDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput
-	ToEncryptionDetailsResponsePtrOutputWithContext(context.Context) EncryptionDetailsResponsePtrOutput
-}
-
-type encryptionDetailsResponsePtrType EncryptionDetailsResponseArgs
-
-func EncryptionDetailsResponsePtr(v *EncryptionDetailsResponseArgs) EncryptionDetailsResponsePtrInput {
-	return (*encryptionDetailsResponsePtrType)(v)
-}
-
-func (*encryptionDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionDetailsResponse)(nil)).Elem()
-}
-
-func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutput() EncryptionDetailsResponsePtrOutput {
-	return i.ToEncryptionDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
 }
 
 // Encryption details for the fabric.
@@ -3502,90 +1979,6 @@ type FabricPropertiesResponse struct {
 	InternalIdentifier *string `pulumi:"internalIdentifier"`
 	// Rollover encryption details for the fabric.
 	RolloverEncryptionDetails *EncryptionDetailsResponse `pulumi:"rolloverEncryptionDetails"`
-}
-
-// FabricPropertiesResponseInput is an input type that accepts FabricPropertiesResponseArgs and FabricPropertiesResponseOutput values.
-// You can construct a concrete instance of `FabricPropertiesResponseInput` via:
-//
-//          FabricPropertiesResponseArgs{...}
-type FabricPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFabricPropertiesResponseOutput() FabricPropertiesResponseOutput
-	ToFabricPropertiesResponseOutputWithContext(context.Context) FabricPropertiesResponseOutput
-}
-
-// Fabric properties.
-type FabricPropertiesResponseArgs struct {
-	// BCDR state of the fabric.
-	BcdrState pulumi.StringPtrInput `pulumi:"bcdrState"`
-	// Fabric specific settings.
-	CustomDetails pulumi.Input `pulumi:"customDetails"`
-	// Encryption details for the fabric.
-	EncryptionDetails EncryptionDetailsResponsePtrInput `pulumi:"encryptionDetails"`
-	// Friendly name of the fabric.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health of fabric.
-	Health pulumi.StringPtrInput `pulumi:"health"`
-	// Fabric health error details.
-	HealthErrorDetails HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
-	// Dra Registration Id.
-	InternalIdentifier pulumi.StringPtrInput `pulumi:"internalIdentifier"`
-	// Rollover encryption details for the fabric.
-	RolloverEncryptionDetails EncryptionDetailsResponsePtrInput `pulumi:"rolloverEncryptionDetails"`
-}
-
-func (FabricPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FabricPropertiesResponse)(nil)).Elem()
-}
-
-func (i FabricPropertiesResponseArgs) ToFabricPropertiesResponseOutput() FabricPropertiesResponseOutput {
-	return i.ToFabricPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FabricPropertiesResponseArgs) ToFabricPropertiesResponseOutputWithContext(ctx context.Context) FabricPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FabricPropertiesResponseOutput)
-}
-
-func (i FabricPropertiesResponseArgs) ToFabricPropertiesResponsePtrOutput() FabricPropertiesResponsePtrOutput {
-	return i.ToFabricPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FabricPropertiesResponseArgs) ToFabricPropertiesResponsePtrOutputWithContext(ctx context.Context) FabricPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FabricPropertiesResponseOutput).ToFabricPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FabricPropertiesResponsePtrInput is an input type that accepts FabricPropertiesResponseArgs, FabricPropertiesResponsePtr and FabricPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FabricPropertiesResponsePtrInput` via:
-//
-//          FabricPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FabricPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFabricPropertiesResponsePtrOutput() FabricPropertiesResponsePtrOutput
-	ToFabricPropertiesResponsePtrOutputWithContext(context.Context) FabricPropertiesResponsePtrOutput
-}
-
-type fabricPropertiesResponsePtrType FabricPropertiesResponseArgs
-
-func FabricPropertiesResponsePtr(v *FabricPropertiesResponseArgs) FabricPropertiesResponsePtrInput {
-	return (*fabricPropertiesResponsePtrType)(v)
-}
-
-func (*fabricPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FabricPropertiesResponse)(nil)).Elem()
-}
-
-func (i *fabricPropertiesResponsePtrType) ToFabricPropertiesResponsePtrOutput() FabricPropertiesResponsePtrOutput {
-	return i.ToFabricPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *fabricPropertiesResponsePtrType) ToFabricPropertiesResponsePtrOutputWithContext(ctx context.Context) FabricPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FabricPropertiesResponsePtrOutput)
 }
 
 // Fabric properties.
@@ -3777,80 +2170,6 @@ type HealthErrorResponse struct {
 	RecoveryProviderErrorMessage *string `pulumi:"recoveryProviderErrorMessage"`
 }
 
-// HealthErrorResponseInput is an input type that accepts HealthErrorResponseArgs and HealthErrorResponseOutput values.
-// You can construct a concrete instance of `HealthErrorResponseInput` via:
-//
-//          HealthErrorResponseArgs{...}
-type HealthErrorResponseInput interface {
-	pulumi.Input
-
-	ToHealthErrorResponseOutput() HealthErrorResponseOutput
-	ToHealthErrorResponseOutputWithContext(context.Context) HealthErrorResponseOutput
-}
-
-// Health Error
-type HealthErrorResponseArgs struct {
-	// The child health errors.
-	ChildErrors HealthErrorResponseArrayInput `pulumi:"childErrors"`
-	// Error creation time (UTC)
-	CreationTimeUtc pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
-	// ID of the entity.
-	EntityId pulumi.StringPtrInput `pulumi:"entityId"`
-	// Error code.
-	ErrorCode pulumi.StringPtrInput `pulumi:"errorCode"`
-	// Level of error.
-	ErrorLevel pulumi.StringPtrInput `pulumi:"errorLevel"`
-	// Error message.
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// Source of error.
-	ErrorSource pulumi.StringPtrInput `pulumi:"errorSource"`
-	// Type of error.
-	ErrorType pulumi.StringPtrInput `pulumi:"errorType"`
-	// Possible causes of error.
-	PossibleCauses pulumi.StringPtrInput `pulumi:"possibleCauses"`
-	// Recommended action to resolve error.
-	RecommendedAction pulumi.StringPtrInput `pulumi:"recommendedAction"`
-	// DRA error message.
-	RecoveryProviderErrorMessage pulumi.StringPtrInput `pulumi:"recoveryProviderErrorMessage"`
-}
-
-func (HealthErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthErrorResponse)(nil)).Elem()
-}
-
-func (i HealthErrorResponseArgs) ToHealthErrorResponseOutput() HealthErrorResponseOutput {
-	return i.ToHealthErrorResponseOutputWithContext(context.Background())
-}
-
-func (i HealthErrorResponseArgs) ToHealthErrorResponseOutputWithContext(ctx context.Context) HealthErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthErrorResponseOutput)
-}
-
-// HealthErrorResponseArrayInput is an input type that accepts HealthErrorResponseArray and HealthErrorResponseArrayOutput values.
-// You can construct a concrete instance of `HealthErrorResponseArrayInput` via:
-//
-//          HealthErrorResponseArray{ HealthErrorResponseArgs{...} }
-type HealthErrorResponseArrayInput interface {
-	pulumi.Input
-
-	ToHealthErrorResponseArrayOutput() HealthErrorResponseArrayOutput
-	ToHealthErrorResponseArrayOutputWithContext(context.Context) HealthErrorResponseArrayOutput
-}
-
-type HealthErrorResponseArray []HealthErrorResponseInput
-
-func (HealthErrorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthErrorResponse)(nil)).Elem()
-}
-
-func (i HealthErrorResponseArray) ToHealthErrorResponseArrayOutput() HealthErrorResponseArrayOutput {
-	return i.ToHealthErrorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HealthErrorResponseArray) ToHealthErrorResponseArrayOutputWithContext(ctx context.Context) HealthErrorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthErrorResponseArrayOutput)
-}
-
 // Health Error
 type HealthErrorResponseOutput struct{ *pulumi.OutputState }
 
@@ -4032,96 +2351,6 @@ func (i HyperVReplicaAzureEnableProtectionInputArgs) ToHyperVReplicaAzureEnableP
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureEnableProtectionInputOutput)
 }
 
-// Azure specific enable protection input.
-type HyperVReplicaAzureEnableProtectionInputOutput struct{ *pulumi.OutputState }
-
-func (HyperVReplicaAzureEnableProtectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaAzureEnableProtectionInput)(nil)).Elem()
-}
-
-func (o HyperVReplicaAzureEnableProtectionInputOutput) ToHyperVReplicaAzureEnableProtectionInputOutput() HyperVReplicaAzureEnableProtectionInputOutput {
-	return o
-}
-
-func (o HyperVReplicaAzureEnableProtectionInputOutput) ToHyperVReplicaAzureEnableProtectionInputOutputWithContext(ctx context.Context) HyperVReplicaAzureEnableProtectionInputOutput {
-	return o
-}
-
-// The list of VHD IDs of disks to be protected.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
-}
-
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) EnableRDPOnTargetOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.EnableRDPOnTargetOption }).(pulumi.StringPtrOutput)
-}
-
-// The Hyper-V host Vm Id.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) HvHostVmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.HvHostVmId }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The storage account to be used for logging during replication.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The OS type associated with vm.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// The selected target Azure network Id.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureNetworkId }).(pulumi.StringPtrOutput)
-}
-
-// The selected target Azure subnet Id.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureSubnetId }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureV1ResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureV1ResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureV2ResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureV2ResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The target azure Vm Name.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureVmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureVmName }).(pulumi.StringPtrOutput)
-}
-
-// The storage account name.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether managed disks should be used during failover.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) UseManagedDisks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
-}
-
-// The OS disk VHD id associated with vm.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) VhdId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.VhdId }).(pulumi.StringPtrOutput)
-}
-
-// The Vm Name.
-func (o HyperVReplicaAzureEnableProtectionInputOutput) VmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.VmName }).(pulumi.StringPtrOutput)
-}
-
 // Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponse struct {
 	// The active storage account Id.
@@ -4138,47 +2367,6 @@ type HyperVReplicaAzurePolicyDetailsResponse struct {
 	RecoveryPointHistoryDurationInHours *int `pulumi:"recoveryPointHistoryDurationInHours"`
 	// The replication interval.
 	ReplicationInterval *int `pulumi:"replicationInterval"`
-}
-
-// HyperVReplicaAzurePolicyDetailsResponseInput is an input type that accepts HyperVReplicaAzurePolicyDetailsResponseArgs and HyperVReplicaAzurePolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaAzurePolicyDetailsResponseInput` via:
-//
-//          HyperVReplicaAzurePolicyDetailsResponseArgs{...}
-type HyperVReplicaAzurePolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaAzurePolicyDetailsResponseOutput() HyperVReplicaAzurePolicyDetailsResponseOutput
-	ToHyperVReplicaAzurePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzurePolicyDetailsResponseOutput
-}
-
-// Hyper-V Replica Azure specific protection profile details.
-type HyperVReplicaAzurePolicyDetailsResponseArgs struct {
-	// The active storage account Id.
-	ActiveStorageAccountId pulumi.StringPtrInput `pulumi:"activeStorageAccountId"`
-	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether encryption is enabled for virtual machines in this cloud.
-	Encryption pulumi.StringPtrInput `pulumi:"encryption"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// The duration (in hours) to which point the recovery history needs to be maintained.
-	RecoveryPointHistoryDurationInHours pulumi.IntPtrInput `pulumi:"recoveryPointHistoryDurationInHours"`
-	// The replication interval.
-	ReplicationInterval pulumi.IntPtrInput `pulumi:"replicationInterval"`
-}
-
-func (HyperVReplicaAzurePolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaAzurePolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaAzurePolicyDetailsResponseArgs) ToHyperVReplicaAzurePolicyDetailsResponseOutput() HyperVReplicaAzurePolicyDetailsResponseOutput {
-	return i.ToHyperVReplicaAzurePolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaAzurePolicyDetailsResponseArgs) ToHyperVReplicaAzurePolicyDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaAzurePolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyDetailsResponseOutput)
 }
 
 // Hyper-V Replica Azure specific protection profile details.
@@ -4292,56 +2480,6 @@ func (i HyperVReplicaAzurePolicyInputArgs) ToHyperVReplicaAzurePolicyInputOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyInputOutput)
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
-type HyperVReplicaAzurePolicyInputOutput struct{ *pulumi.OutputState }
-
-func (HyperVReplicaAzurePolicyInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaAzurePolicyInput)(nil)).Elem()
-}
-
-func (o HyperVReplicaAzurePolicyInputOutput) ToHyperVReplicaAzurePolicyInputOutput() HyperVReplicaAzurePolicyInputOutput {
-	return o
-}
-
-func (o HyperVReplicaAzurePolicyInputOutput) ToHyperVReplicaAzurePolicyInputOutputWithContext(ctx context.Context) HyperVReplicaAzurePolicyInputOutput {
-	return o
-}
-
-// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-func (o HyperVReplicaAzurePolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating whether encryption needs to be enabled for Vms in this cloud.
-func (o HyperVReplicaAzurePolicyInputOutput) Encryption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.Encryption }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o HyperVReplicaAzurePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-func (o HyperVReplicaAzurePolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
-}
-
-// The duration (in hours) to which point the recovery history needs to be maintained.
-func (o HyperVReplicaAzurePolicyInputOutput) RecoveryPointHistoryDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.RecoveryPointHistoryDuration }).(pulumi.IntPtrOutput)
-}
-
-// The replication interval.
-func (o HyperVReplicaAzurePolicyInputOutput) ReplicationInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.ReplicationInterval }).(pulumi.IntPtrOutput)
-}
-
-// The list of storage accounts to which the VMs in the primary cloud can replicate to.
-func (o HyperVReplicaAzurePolicyInputOutput) StorageAccounts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) []string { return v.StorageAccounts }).(pulumi.StringArrayOutput)
-}
-
 // Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponse struct {
 	// Azure VM Disk details.
@@ -4388,77 +2526,6 @@ type HyperVReplicaAzureReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-}
-
-// HyperVReplicaAzureReplicationDetailsResponseInput is an input type that accepts HyperVReplicaAzureReplicationDetailsResponseArgs and HyperVReplicaAzureReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaAzureReplicationDetailsResponseInput` via:
-//
-//          HyperVReplicaAzureReplicationDetailsResponseArgs{...}
-type HyperVReplicaAzureReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaAzureReplicationDetailsResponseOutput() HyperVReplicaAzureReplicationDetailsResponseOutput
-	ToHyperVReplicaAzureReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzureReplicationDetailsResponseOutput
-}
-
-// Hyper V Replica Azure provider specific settings.
-type HyperVReplicaAzureReplicationDetailsResponseArgs struct {
-	// Azure VM Disk details.
-	AzureVMDiskDetails AzureVmDiskDetailsResponseArrayInput `pulumi:"azureVMDiskDetails"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRDPOnTargetOption pulumi.StringPtrInput `pulumi:"enableRDPOnTargetOption"`
-	// The encryption info.
-	Encryption pulumi.StringPtrInput `pulumi:"encryption"`
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// License Type of the VM to be used.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The operating system info.
-	OSDetails OSDetailsResponsePtrInput `pulumi:"oSDetails"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccount"`
-	// Recovery Azure given name.
-	RecoveryAzureVMName pulumi.StringPtrInput `pulumi:"recoveryAzureVMName"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCPUCount pulumi.IntPtrInput `pulumi:"sourceVmCPUCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRAMSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRAMSizeInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (HyperVReplicaAzureReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaAzureReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaAzureReplicationDetailsResponseArgs) ToHyperVReplicaAzureReplicationDetailsResponseOutput() HyperVReplicaAzureReplicationDetailsResponseOutput {
-	return i.ToHyperVReplicaAzureReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaAzureReplicationDetailsResponseArgs) ToHyperVReplicaAzureReplicationDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaAzureReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureReplicationDetailsResponseOutput)
 }
 
 // Hyper V Replica Azure provider specific settings.
@@ -4618,55 +2685,6 @@ type HyperVReplicaBasePolicyDetailsResponse struct {
 	ReplicationPort *int `pulumi:"replicationPort"`
 }
 
-// HyperVReplicaBasePolicyDetailsResponseInput is an input type that accepts HyperVReplicaBasePolicyDetailsResponseArgs and HyperVReplicaBasePolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaBasePolicyDetailsResponseInput` via:
-//
-//          HyperVReplicaBasePolicyDetailsResponseArgs{...}
-type HyperVReplicaBasePolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaBasePolicyDetailsResponseOutput() HyperVReplicaBasePolicyDetailsResponseOutput
-	ToHyperVReplicaBasePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBasePolicyDetailsResponseOutput
-}
-
-// Base class for HyperVReplica policy details.
-type HyperVReplicaBasePolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
-}
-
-func (HyperVReplicaBasePolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaBasePolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaBasePolicyDetailsResponseArgs) ToHyperVReplicaBasePolicyDetailsResponseOutput() HyperVReplicaBasePolicyDetailsResponseOutput {
-	return i.ToHyperVReplicaBasePolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaBasePolicyDetailsResponseArgs) ToHyperVReplicaBasePolicyDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaBasePolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBasePolicyDetailsResponseOutput)
-}
-
 // Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -4759,49 +2777,6 @@ type HyperVReplicaBaseReplicationDetailsResponse struct {
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
 }
 
-// HyperVReplicaBaseReplicationDetailsResponseInput is an input type that accepts HyperVReplicaBaseReplicationDetailsResponseArgs and HyperVReplicaBaseReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaBaseReplicationDetailsResponseInput` via:
-//
-//          HyperVReplicaBaseReplicationDetailsResponseArgs{...}
-type HyperVReplicaBaseReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaBaseReplicationDetailsResponseOutput() HyperVReplicaBaseReplicationDetailsResponseOutput
-	ToHyperVReplicaBaseReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBaseReplicationDetailsResponseOutput
-}
-
-// Hyper V replica provider specific settings base class.
-type HyperVReplicaBaseReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (HyperVReplicaBaseReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaBaseReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaBaseReplicationDetailsResponseArgs) ToHyperVReplicaBaseReplicationDetailsResponseOutput() HyperVReplicaBaseReplicationDetailsResponseOutput {
-	return i.ToHyperVReplicaBaseReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaBaseReplicationDetailsResponseArgs) ToHyperVReplicaBaseReplicationDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaBaseReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBaseReplicationDetailsResponseOutput)
-}
-
 // Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -4885,57 +2860,6 @@ type HyperVReplicaBluePolicyDetailsResponse struct {
 	ReplicationFrequencyInSeconds *int `pulumi:"replicationFrequencyInSeconds"`
 	// A value indicating the recovery HTTPS port.
 	ReplicationPort *int `pulumi:"replicationPort"`
-}
-
-// HyperVReplicaBluePolicyDetailsResponseInput is an input type that accepts HyperVReplicaBluePolicyDetailsResponseArgs and HyperVReplicaBluePolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaBluePolicyDetailsResponseInput` via:
-//
-//          HyperVReplicaBluePolicyDetailsResponseArgs{...}
-type HyperVReplicaBluePolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaBluePolicyDetailsResponseOutput() HyperVReplicaBluePolicyDetailsResponseOutput
-	ToHyperVReplicaBluePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBluePolicyDetailsResponseOutput
-}
-
-// Hyper-V Replica Blue specific protection profile details.
-type HyperVReplicaBluePolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the replication interval.
-	ReplicationFrequencyInSeconds pulumi.IntPtrInput `pulumi:"replicationFrequencyInSeconds"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
-}
-
-func (HyperVReplicaBluePolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaBluePolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaBluePolicyDetailsResponseArgs) ToHyperVReplicaBluePolicyDetailsResponseOutput() HyperVReplicaBluePolicyDetailsResponseOutput {
-	return i.ToHyperVReplicaBluePolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaBluePolicyDetailsResponseArgs) ToHyperVReplicaBluePolicyDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaBluePolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyDetailsResponseOutput)
 }
 
 // Hyper-V Replica Blue specific protection profile details.
@@ -5094,81 +3018,6 @@ func (i HyperVReplicaBluePolicyInputArgs) ToHyperVReplicaBluePolicyInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyInputOutput)
 }
 
-// HyperV Replica Blue policy input.
-type HyperVReplicaBluePolicyInputOutput struct{ *pulumi.OutputState }
-
-func (HyperVReplicaBluePolicyInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaBluePolicyInput)(nil)).Elem()
-}
-
-func (o HyperVReplicaBluePolicyInputOutput) ToHyperVReplicaBluePolicyInputOutput() HyperVReplicaBluePolicyInputOutput {
-	return o
-}
-
-func (o HyperVReplicaBluePolicyInputOutput) ToHyperVReplicaBluePolicyInputOutputWithContext(ctx context.Context) HyperVReplicaBluePolicyInputOutput {
-	return o
-}
-
-// A value indicating the authentication type.
-func (o HyperVReplicaBluePolicyInputOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating the application consistent frequency.
-func (o HyperVReplicaBluePolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating whether compression has to be enabled.
-func (o HyperVReplicaBluePolicyInputOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether IR is online.
-func (o HyperVReplicaBluePolicyInputOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o HyperVReplicaBluePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the offline IR export path.
-func (o HyperVReplicaBluePolicyInputOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the offline IR import path.
-func (o HyperVReplicaBluePolicyInputOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the online IR start time.
-func (o HyperVReplicaBluePolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the number of recovery points.
-func (o HyperVReplicaBluePolicyInputOutput) RecoveryPoints() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating whether the VM has to be auto deleted.
-func (o HyperVReplicaBluePolicyInputOutput) ReplicaDeletion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.ReplicaDeletion }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the replication interval.
-func (o HyperVReplicaBluePolicyInputOutput) ReplicationFrequencyInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ReplicationFrequencyInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating the recovery HTTPS port.
-func (o HyperVReplicaBluePolicyInputOutput) ReplicationPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
-}
-
 // HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponse struct {
 	// Initial replication details.
@@ -5187,49 +3036,6 @@ type HyperVReplicaBlueReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-}
-
-// HyperVReplicaBlueReplicationDetailsResponseInput is an input type that accepts HyperVReplicaBlueReplicationDetailsResponseArgs and HyperVReplicaBlueReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaBlueReplicationDetailsResponseInput` via:
-//
-//          HyperVReplicaBlueReplicationDetailsResponseArgs{...}
-type HyperVReplicaBlueReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaBlueReplicationDetailsResponseOutput() HyperVReplicaBlueReplicationDetailsResponseOutput
-	ToHyperVReplicaBlueReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBlueReplicationDetailsResponseOutput
-}
-
-// HyperV replica 2012 R2 (Blue) replication details.
-type HyperVReplicaBlueReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (HyperVReplicaBlueReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaBlueReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaBlueReplicationDetailsResponseArgs) ToHyperVReplicaBlueReplicationDetailsResponseOutput() HyperVReplicaBlueReplicationDetailsResponseOutput {
-	return i.ToHyperVReplicaBlueReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaBlueReplicationDetailsResponseArgs) ToHyperVReplicaBlueReplicationDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaBlueReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBlueReplicationDetailsResponseOutput)
 }
 
 // HyperV replica 2012 R2 (Blue) replication details.
@@ -5313,55 +3119,6 @@ type HyperVReplicaPolicyDetailsResponse struct {
 	ReplicaDeletionOption *string `pulumi:"replicaDeletionOption"`
 	// A value indicating the recovery HTTPS port.
 	ReplicationPort *int `pulumi:"replicationPort"`
-}
-
-// HyperVReplicaPolicyDetailsResponseInput is an input type that accepts HyperVReplicaPolicyDetailsResponseArgs and HyperVReplicaPolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaPolicyDetailsResponseInput` via:
-//
-//          HyperVReplicaPolicyDetailsResponseArgs{...}
-type HyperVReplicaPolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaPolicyDetailsResponseOutput() HyperVReplicaPolicyDetailsResponseOutput
-	ToHyperVReplicaPolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaPolicyDetailsResponseOutput
-}
-
-// Hyper-V Replica Blue specific protection profile details.
-type HyperVReplicaPolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
-}
-
-func (HyperVReplicaPolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaPolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaPolicyDetailsResponseArgs) ToHyperVReplicaPolicyDetailsResponseOutput() HyperVReplicaPolicyDetailsResponseOutput {
-	return i.ToHyperVReplicaPolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaPolicyDetailsResponseArgs) ToHyperVReplicaPolicyDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaPolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyDetailsResponseOutput)
 }
 
 // Hyper-V Replica Blue specific protection profile details.
@@ -5511,76 +3268,6 @@ func (i HyperVReplicaPolicyInputArgs) ToHyperVReplicaPolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyInputOutput)
 }
 
-// Hyper-V Replica specific protection profile Input.
-type HyperVReplicaPolicyInputOutput struct{ *pulumi.OutputState }
-
-func (HyperVReplicaPolicyInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaPolicyInput)(nil)).Elem()
-}
-
-func (o HyperVReplicaPolicyInputOutput) ToHyperVReplicaPolicyInputOutput() HyperVReplicaPolicyInputOutput {
-	return o
-}
-
-func (o HyperVReplicaPolicyInputOutput) ToHyperVReplicaPolicyInputOutputWithContext(ctx context.Context) HyperVReplicaPolicyInputOutput {
-	return o
-}
-
-// A value indicating the authentication type.
-func (o HyperVReplicaPolicyInputOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating the application consistent frequency.
-func (o HyperVReplicaPolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating whether compression has to be enabled.
-func (o HyperVReplicaPolicyInputOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether IR is online.
-func (o HyperVReplicaPolicyInputOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o HyperVReplicaPolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the offline IR export path.
-func (o HyperVReplicaPolicyInputOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the offline IR import path.
-func (o HyperVReplicaPolicyInputOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the online IR start time.
-func (o HyperVReplicaPolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the number of recovery points.
-func (o HyperVReplicaPolicyInputOutput) RecoveryPoints() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
-}
-
-// A value indicating whether the VM has to be auto deleted.
-func (o HyperVReplicaPolicyInputOutput) ReplicaDeletion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.ReplicaDeletion }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating the recovery HTTPS port.
-func (o HyperVReplicaPolicyInputOutput) ReplicationPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
-}
-
 // HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponse struct {
 	// Initial replication details.
@@ -5599,49 +3286,6 @@ type HyperVReplicaReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-}
-
-// HyperVReplicaReplicationDetailsResponseInput is an input type that accepts HyperVReplicaReplicationDetailsResponseArgs and HyperVReplicaReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVReplicaReplicationDetailsResponseInput` via:
-//
-//          HyperVReplicaReplicationDetailsResponseArgs{...}
-type HyperVReplicaReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVReplicaReplicationDetailsResponseOutput() HyperVReplicaReplicationDetailsResponseOutput
-	ToHyperVReplicaReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaReplicationDetailsResponseOutput
-}
-
-// HyperV replica 2012 replication details.
-type HyperVReplicaReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (HyperVReplicaReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVReplicaReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVReplicaReplicationDetailsResponseArgs) ToHyperVReplicaReplicationDetailsResponseOutput() HyperVReplicaReplicationDetailsResponseOutput {
-	return i.ToHyperVReplicaReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVReplicaReplicationDetailsResponseArgs) ToHyperVReplicaReplicationDetailsResponseOutputWithContext(ctx context.Context) HyperVReplicaReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaReplicationDetailsResponseOutput)
 }
 
 // HyperV replica 2012 replication details.
@@ -5707,35 +3351,6 @@ type HyperVSiteDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 }
 
-// HyperVSiteDetailsResponseInput is an input type that accepts HyperVSiteDetailsResponseArgs and HyperVSiteDetailsResponseOutput values.
-// You can construct a concrete instance of `HyperVSiteDetailsResponseInput` via:
-//
-//          HyperVSiteDetailsResponseArgs{...}
-type HyperVSiteDetailsResponseInput interface {
-	pulumi.Input
-
-	ToHyperVSiteDetailsResponseOutput() HyperVSiteDetailsResponseOutput
-	ToHyperVSiteDetailsResponseOutputWithContext(context.Context) HyperVSiteDetailsResponseOutput
-}
-
-// HyperVSite fabric specific details.
-type HyperVSiteDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (HyperVSiteDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSiteDetailsResponse)(nil)).Elem()
-}
-
-func (i HyperVSiteDetailsResponseArgs) ToHyperVSiteDetailsResponseOutput() HyperVSiteDetailsResponseOutput {
-	return i.ToHyperVSiteDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i HyperVSiteDetailsResponseArgs) ToHyperVSiteDetailsResponseOutputWithContext(ctx context.Context) HyperVSiteDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteDetailsResponseOutput)
-}
-
 // HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -5764,80 +3379,6 @@ type InMageAgentDetailsResponse struct {
 	AgentVersion *string `pulumi:"agentVersion"`
 	// A value indicating whether reboot is required after update is applied.
 	PostUpdateRebootStatus *string `pulumi:"postUpdateRebootStatus"`
-}
-
-// InMageAgentDetailsResponseInput is an input type that accepts InMageAgentDetailsResponseArgs and InMageAgentDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageAgentDetailsResponseInput` via:
-//
-//          InMageAgentDetailsResponseArgs{...}
-type InMageAgentDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageAgentDetailsResponseOutput() InMageAgentDetailsResponseOutput
-	ToInMageAgentDetailsResponseOutputWithContext(context.Context) InMageAgentDetailsResponseOutput
-}
-
-// The details of the InMage agent.
-type InMageAgentDetailsResponseArgs struct {
-	// A value indicating whether installed agent needs to be updated.
-	AgentUpdateStatus pulumi.StringPtrInput `pulumi:"agentUpdateStatus"`
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// A value indicating whether reboot is required after update is applied.
-	PostUpdateRebootStatus pulumi.StringPtrInput `pulumi:"postUpdateRebootStatus"`
-}
-
-func (InMageAgentDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAgentDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageAgentDetailsResponseArgs) ToInMageAgentDetailsResponseOutput() InMageAgentDetailsResponseOutput {
-	return i.ToInMageAgentDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageAgentDetailsResponseArgs) ToInMageAgentDetailsResponseOutputWithContext(ctx context.Context) InMageAgentDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAgentDetailsResponseOutput)
-}
-
-func (i InMageAgentDetailsResponseArgs) ToInMageAgentDetailsResponsePtrOutput() InMageAgentDetailsResponsePtrOutput {
-	return i.ToInMageAgentDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InMageAgentDetailsResponseArgs) ToInMageAgentDetailsResponsePtrOutputWithContext(ctx context.Context) InMageAgentDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAgentDetailsResponseOutput).ToInMageAgentDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// InMageAgentDetailsResponsePtrInput is an input type that accepts InMageAgentDetailsResponseArgs, InMageAgentDetailsResponsePtr and InMageAgentDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `InMageAgentDetailsResponsePtrInput` via:
-//
-//          InMageAgentDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type InMageAgentDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToInMageAgentDetailsResponsePtrOutput() InMageAgentDetailsResponsePtrOutput
-	ToInMageAgentDetailsResponsePtrOutputWithContext(context.Context) InMageAgentDetailsResponsePtrOutput
-}
-
-type inMageAgentDetailsResponsePtrType InMageAgentDetailsResponseArgs
-
-func InMageAgentDetailsResponsePtr(v *InMageAgentDetailsResponseArgs) InMageAgentDetailsResponsePtrInput {
-	return (*inMageAgentDetailsResponsePtrType)(v)
-}
-
-func (*inMageAgentDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InMageAgentDetailsResponse)(nil)).Elem()
-}
-
-func (i *inMageAgentDetailsResponsePtrType) ToInMageAgentDetailsResponsePtrOutput() InMageAgentDetailsResponsePtrOutput {
-	return i.ToInMageAgentDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *inMageAgentDetailsResponsePtrType) ToInMageAgentDetailsResponsePtrOutputWithContext(ctx context.Context) InMageAgentDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAgentDetailsResponsePtrOutput)
 }
 
 // The details of the InMage agent.
@@ -6023,101 +3564,6 @@ func (i InMageAzureV2EnableProtectionInputArgs) ToInMageAzureV2EnableProtectionI
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2EnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
-type InMageAzureV2EnableProtectionInputOutput struct{ *pulumi.OutputState }
-
-func (InMageAzureV2EnableProtectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAzureV2EnableProtectionInput)(nil)).Elem()
-}
-
-func (o InMageAzureV2EnableProtectionInputOutput) ToInMageAzureV2EnableProtectionInputOutput() InMageAzureV2EnableProtectionInputOutput {
-	return o
-}
-
-func (o InMageAzureV2EnableProtectionInputOutput) ToInMageAzureV2EnableProtectionInputOutputWithContext(ctx context.Context) InMageAzureV2EnableProtectionInputOutput {
-	return o
-}
-
-// The disks to include list.
-func (o InMageAzureV2EnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
-}
-
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-func (o InMageAzureV2EnableProtectionInputOutput) EnableRDPOnTargetOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.EnableRDPOnTargetOption }).(pulumi.StringPtrOutput)
-}
-
-// The class type.
-func (o InMageAzureV2EnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The storage account to be used for logging during replication.
-func (o InMageAzureV2EnableProtectionInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The Master target Id.
-func (o InMageAzureV2EnableProtectionInputOutput) MasterTargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MasterTargetId }).(pulumi.StringPtrOutput)
-}
-
-// The multi vm group Id.
-func (o InMageAzureV2EnableProtectionInputOutput) MultiVmGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MultiVmGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The multi vm group name.
-func (o InMageAzureV2EnableProtectionInputOutput) MultiVmGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
-}
-
-// The Process Server Id.
-func (o InMageAzureV2EnableProtectionInputOutput) ProcessServerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
-}
-
-// The CS account Id.
-func (o InMageAzureV2EnableProtectionInputOutput) RunAsAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The storage account name.
-func (o InMageAzureV2EnableProtectionInputOutput) StorageAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) string { return v.StorageAccountId }).(pulumi.StringOutput)
-}
-
-// The selected target Azure network Id.
-func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureNetworkId }).(pulumi.StringPtrOutput)
-}
-
-// The selected target Azure subnet Id.
-func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureSubnetId }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureV1ResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureV1ResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureV2ResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureV2ResourceGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The target azure Vm Name.
-func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureVmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureVmName }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether managed disks should be used during failover.
-func (o InMageAzureV2EnableProtectionInputOutput) UseManagedDisks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
-}
-
 // InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
@@ -6132,45 +3578,6 @@ type InMageAzureV2PolicyDetailsResponse struct {
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-// InMageAzureV2PolicyDetailsResponseInput is an input type that accepts InMageAzureV2PolicyDetailsResponseArgs and InMageAzureV2PolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageAzureV2PolicyDetailsResponseInput` via:
-//
-//          InMageAzureV2PolicyDetailsResponseArgs{...}
-type InMageAzureV2PolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageAzureV2PolicyDetailsResponseOutput() InMageAzureV2PolicyDetailsResponseOutput
-	ToInMageAzureV2PolicyDetailsResponseOutputWithContext(context.Context) InMageAzureV2PolicyDetailsResponseOutput
-}
-
-// InMage Azure v2 specific protection profile details.
-type InMageAzureV2PolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (InMageAzureV2PolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAzureV2PolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageAzureV2PolicyDetailsResponseArgs) ToInMageAzureV2PolicyDetailsResponseOutput() InMageAzureV2PolicyDetailsResponseOutput {
-	return i.ToInMageAzureV2PolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageAzureV2PolicyDetailsResponseArgs) ToInMageAzureV2PolicyDetailsResponseOutputWithContext(ctx context.Context) InMageAzureV2PolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyDetailsResponseOutput)
 }
 
 // InMage Azure v2 specific protection profile details.
@@ -6273,51 +3680,6 @@ func (i InMageAzureV2PolicyInputArgs) ToInMageAzureV2PolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyInputOutput)
 }
 
-// VMWare Azure specific protection profile Input.
-type InMageAzureV2PolicyInputOutput struct{ *pulumi.OutputState }
-
-func (InMageAzureV2PolicyInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAzureV2PolicyInput)(nil)).Elem()
-}
-
-func (o InMageAzureV2PolicyInputOutput) ToInMageAzureV2PolicyInputOutput() InMageAzureV2PolicyInputOutput {
-	return o
-}
-
-func (o InMageAzureV2PolicyInputOutput) ToInMageAzureV2PolicyInputOutputWithContext(ctx context.Context) InMageAzureV2PolicyInputOutput {
-	return o
-}
-
-// The app consistent snapshot frequency (in minutes).
-func (o InMageAzureV2PolicyInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The crash consistent snapshot frequency (in minutes).
-func (o InMageAzureV2PolicyInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The class type.
-func (o InMageAzureV2PolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
-}
-
-// The duration in minutes until which the recovery points need to be stored.
-func (o InMageAzureV2PolicyInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
-}
-
-// The recovery point threshold in minutes.
-func (o InMageAzureV2PolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
-}
-
 // InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
@@ -6350,88 +3712,6 @@ type InMageAzureV2ProtectedDiskDetailsResponse struct {
 	SourceDataInMegaBytes *float64 `pulumi:"sourceDataInMegaBytes"`
 	// The target data transit in MB.
 	TargetDataInMegaBytes *float64 `pulumi:"targetDataInMegaBytes"`
-}
-
-// InMageAzureV2ProtectedDiskDetailsResponseInput is an input type that accepts InMageAzureV2ProtectedDiskDetailsResponseArgs and InMageAzureV2ProtectedDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageAzureV2ProtectedDiskDetailsResponseInput` via:
-//
-//          InMageAzureV2ProtectedDiskDetailsResponseArgs{...}
-type InMageAzureV2ProtectedDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageAzureV2ProtectedDiskDetailsResponseOutput() InMageAzureV2ProtectedDiskDetailsResponseOutput
-	ToInMageAzureV2ProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageAzureV2ProtectedDiskDetailsResponseOutput
-}
-
-// InMageAzureV2 protected disk details.
-type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The disk file system capacity in bytes.
-	FileSystemCapacityInBytes pulumi.IntPtrInput `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMegaBytes pulumi.Float64PtrInput `pulumi:"psDataInMegaBytes"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.IntPtrInput `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMegaBytes pulumi.Float64PtrInput `pulumi:"sourceDataInMegaBytes"`
-	// The target data transit in MB.
-	TargetDataInMegaBytes pulumi.Float64PtrInput `pulumi:"targetDataInMegaBytes"`
-}
-
-func (InMageAzureV2ProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAzureV2ProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageAzureV2ProtectedDiskDetailsResponseArgs) ToInMageAzureV2ProtectedDiskDetailsResponseOutput() InMageAzureV2ProtectedDiskDetailsResponseOutput {
-	return i.ToInMageAzureV2ProtectedDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageAzureV2ProtectedDiskDetailsResponseArgs) ToInMageAzureV2ProtectedDiskDetailsResponseOutputWithContext(ctx context.Context) InMageAzureV2ProtectedDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ProtectedDiskDetailsResponseOutput)
-}
-
-// InMageAzureV2ProtectedDiskDetailsResponseArrayInput is an input type that accepts InMageAzureV2ProtectedDiskDetailsResponseArray and InMageAzureV2ProtectedDiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `InMageAzureV2ProtectedDiskDetailsResponseArrayInput` via:
-//
-//          InMageAzureV2ProtectedDiskDetailsResponseArray{ InMageAzureV2ProtectedDiskDetailsResponseArgs{...} }
-type InMageAzureV2ProtectedDiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToInMageAzureV2ProtectedDiskDetailsResponseArrayOutput() InMageAzureV2ProtectedDiskDetailsResponseArrayOutput
-	ToInMageAzureV2ProtectedDiskDetailsResponseArrayOutputWithContext(context.Context) InMageAzureV2ProtectedDiskDetailsResponseArrayOutput
-}
-
-type InMageAzureV2ProtectedDiskDetailsResponseArray []InMageAzureV2ProtectedDiskDetailsResponseInput
-
-func (InMageAzureV2ProtectedDiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InMageAzureV2ProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageAzureV2ProtectedDiskDetailsResponseArray) ToInMageAzureV2ProtectedDiskDetailsResponseArrayOutput() InMageAzureV2ProtectedDiskDetailsResponseArrayOutput {
-	return i.ToInMageAzureV2ProtectedDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i InMageAzureV2ProtectedDiskDetailsResponseArray) ToInMageAzureV2ProtectedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) InMageAzureV2ProtectedDiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ProtectedDiskDetailsResponseArrayOutput)
 }
 
 // InMageAzureV2 protected disk details.
@@ -6642,129 +3922,6 @@ type InMageAzureV2ReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-}
-
-// InMageAzureV2ReplicationDetailsResponseInput is an input type that accepts InMageAzureV2ReplicationDetailsResponseArgs and InMageAzureV2ReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageAzureV2ReplicationDetailsResponseInput` via:
-//
-//          InMageAzureV2ReplicationDetailsResponseArgs{...}
-type InMageAzureV2ReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageAzureV2ReplicationDetailsResponseOutput() InMageAzureV2ReplicationDetailsResponseOutput
-	ToInMageAzureV2ReplicationDetailsResponseOutputWithContext(context.Context) InMageAzureV2ReplicationDetailsResponseOutput
-}
-
-// InMageAzureV2 provider specific settings
-type InMageAzureV2ReplicationDetailsResponseArgs struct {
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// Azure VM Disk details.
-	AzureVMDiskDetails AzureVmDiskDetailsResponseArrayInput `pulumi:"azureVMDiskDetails"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"compressedDataRateInMB"`
-	// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
-	Datastores pulumi.StringArrayInput `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine. Value can be vCenter or physical.
-	DiscoveryType pulumi.StringPtrInput `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRDPOnTargetOption pulumi.StringPtrInput `pulumi:"enableRDPOnTargetOption"`
-	// The infrastructure VM Id.
-	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// A value indicating whether installed agent needs to be updated.
-	IsAgentUpdateRequired pulumi.StringPtrInput `pulumi:"isAgentUpdateRequired"`
-	// A value indicating whether the source server requires a restart after update.
-	IsRebootAfterUpdateRequired pulumi.StringPtrInput `pulumi:"isRebootAfterUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime pulumi.StringPtrInput `pulumi:"lastUpdateReceivedTime"`
-	// License Type of the VM to be used.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The master target Id.
-	MasterTargetId pulumi.StringPtrInput `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// A value indicating whether multi vm sync is enabled or disabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The id of the disk containing the OS.
-	OsDiskId pulumi.StringPtrInput `pulumi:"osDiskId"`
-	// The type of the OS on the VM.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The OS Version of the protected item.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks InMageAzureV2ProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccount"`
-	// Recovery Azure given name.
-	RecoveryAzureVMName pulumi.StringPtrInput `pulumi:"recoveryAzureVMName"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// The replica id of the protected item.
-	ReplicaId pulumi.StringPtrInput `pulumi:"replicaId"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCPUCount pulumi.IntPtrInput `pulumi:"sourceVmCPUCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRAMSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRAMSizeInMB"`
-	// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
-	TargetVmId pulumi.StringPtrInput `pulumi:"targetVmId"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"uncompressedDataRateInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId pulumi.StringPtrInput `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors.
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// The OS disk VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (InMageAzureV2ReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageAzureV2ReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageAzureV2ReplicationDetailsResponseArgs) ToInMageAzureV2ReplicationDetailsResponseOutput() InMageAzureV2ReplicationDetailsResponseOutput {
-	return i.ToInMageAzureV2ReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageAzureV2ReplicationDetailsResponseArgs) ToInMageAzureV2ReplicationDetailsResponseOutputWithContext(ctx context.Context) InMageAzureV2ReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ReplicationDetailsResponseOutput)
 }
 
 // InMageAzureV2 provider specific settings
@@ -7040,43 +4197,6 @@ type InMageBasePolicyDetailsResponse struct {
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
-// InMageBasePolicyDetailsResponseInput is an input type that accepts InMageBasePolicyDetailsResponseArgs and InMageBasePolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageBasePolicyDetailsResponseInput` via:
-//
-//          InMageBasePolicyDetailsResponseArgs{...}
-type InMageBasePolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageBasePolicyDetailsResponseOutput() InMageBasePolicyDetailsResponseOutput
-	ToInMageBasePolicyDetailsResponseOutputWithContext(context.Context) InMageBasePolicyDetailsResponseOutput
-}
-
-// Base class for the policies of providers using InMage replication.
-type InMageBasePolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (InMageBasePolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageBasePolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageBasePolicyDetailsResponseArgs) ToInMageBasePolicyDetailsResponseOutput() InMageBasePolicyDetailsResponseOutput {
-	return i.ToInMageBasePolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageBasePolicyDetailsResponseArgs) ToInMageBasePolicyDetailsResponseOutputWithContext(ctx context.Context) InMageBasePolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageBasePolicyDetailsResponseOutput)
-}
-
 // Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -7197,79 +4317,6 @@ func (i *inMageDiskExclusionInputPtrType) ToInMageDiskExclusionInputPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskExclusionInputPtrOutput)
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
-type InMageDiskExclusionInputOutput struct{ *pulumi.OutputState }
-
-func (InMageDiskExclusionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageDiskExclusionInput)(nil)).Elem()
-}
-
-func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputOutput() InMageDiskExclusionInputOutput {
-	return o
-}
-
-func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputOutputWithContext(ctx context.Context) InMageDiskExclusionInputOutput {
-	return o
-}
-
-func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutput() InMageDiskExclusionInputPtrOutput {
-	return o.ToInMageDiskExclusionInputPtrOutputWithContext(context.Background())
-}
-
-func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutputWithContext(ctx context.Context) InMageDiskExclusionInputPtrOutput {
-	return o.ApplyT(func(v InMageDiskExclusionInput) *InMageDiskExclusionInput {
-		return &v
-	}).(InMageDiskExclusionInputPtrOutput)
-}
-
-// The guest disk signature based option for disk exclusion.
-func (o InMageDiskExclusionInputOutput) DiskSignatureOptions() InMageDiskSignatureExclusionOptionsArrayOutput {
-	return o.ApplyT(func(v InMageDiskExclusionInput) []InMageDiskSignatureExclusionOptions { return v.DiskSignatureOptions }).(InMageDiskSignatureExclusionOptionsArrayOutput)
-}
-
-// The volume label based option for disk exclusion.
-func (o InMageDiskExclusionInputOutput) VolumeOptions() InMageVolumeExclusionOptionsArrayOutput {
-	return o.ApplyT(func(v InMageDiskExclusionInput) []InMageVolumeExclusionOptions { return v.VolumeOptions }).(InMageVolumeExclusionOptionsArrayOutput)
-}
-
-type InMageDiskExclusionInputPtrOutput struct{ *pulumi.OutputState }
-
-func (InMageDiskExclusionInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InMageDiskExclusionInput)(nil)).Elem()
-}
-
-func (o InMageDiskExclusionInputPtrOutput) ToInMageDiskExclusionInputPtrOutput() InMageDiskExclusionInputPtrOutput {
-	return o
-}
-
-func (o InMageDiskExclusionInputPtrOutput) ToInMageDiskExclusionInputPtrOutputWithContext(ctx context.Context) InMageDiskExclusionInputPtrOutput {
-	return o
-}
-
-func (o InMageDiskExclusionInputPtrOutput) Elem() InMageDiskExclusionInputOutput {
-	return o.ApplyT(func(v *InMageDiskExclusionInput) InMageDiskExclusionInput { return *v }).(InMageDiskExclusionInputOutput)
-}
-
-// The guest disk signature based option for disk exclusion.
-func (o InMageDiskExclusionInputPtrOutput) DiskSignatureOptions() InMageDiskSignatureExclusionOptionsArrayOutput {
-	return o.ApplyT(func(v *InMageDiskExclusionInput) []InMageDiskSignatureExclusionOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSignatureOptions
-	}).(InMageDiskSignatureExclusionOptionsArrayOutput)
-}
-
-// The volume label based option for disk exclusion.
-func (o InMageDiskExclusionInputPtrOutput) VolumeOptions() InMageVolumeExclusionOptionsArrayOutput {
-	return o.ApplyT(func(v *InMageDiskExclusionInput) []InMageVolumeExclusionOptions {
-		if v == nil {
-			return nil
-		}
-		return v.VolumeOptions
-	}).(InMageVolumeExclusionOptionsArrayOutput)
-}
-
 // Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptions struct {
 	// The guest signature of disk to be excluded from replication.
@@ -7328,46 +4375,6 @@ func (i InMageDiskSignatureExclusionOptionsArray) ToInMageDiskSignatureExclusion
 
 func (i InMageDiskSignatureExclusionOptionsArray) ToInMageDiskSignatureExclusionOptionsArrayOutputWithContext(ctx context.Context) InMageDiskSignatureExclusionOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskSignatureExclusionOptionsArrayOutput)
-}
-
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
-type InMageDiskSignatureExclusionOptionsOutput struct{ *pulumi.OutputState }
-
-func (InMageDiskSignatureExclusionOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageDiskSignatureExclusionOptions)(nil)).Elem()
-}
-
-func (o InMageDiskSignatureExclusionOptionsOutput) ToInMageDiskSignatureExclusionOptionsOutput() InMageDiskSignatureExclusionOptionsOutput {
-	return o
-}
-
-func (o InMageDiskSignatureExclusionOptionsOutput) ToInMageDiskSignatureExclusionOptionsOutputWithContext(ctx context.Context) InMageDiskSignatureExclusionOptionsOutput {
-	return o
-}
-
-// The guest signature of disk to be excluded from replication.
-func (o InMageDiskSignatureExclusionOptionsOutput) DiskSignature() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageDiskSignatureExclusionOptions) *string { return v.DiskSignature }).(pulumi.StringPtrOutput)
-}
-
-type InMageDiskSignatureExclusionOptionsArrayOutput struct{ *pulumi.OutputState }
-
-func (InMageDiskSignatureExclusionOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InMageDiskSignatureExclusionOptions)(nil)).Elem()
-}
-
-func (o InMageDiskSignatureExclusionOptionsArrayOutput) ToInMageDiskSignatureExclusionOptionsArrayOutput() InMageDiskSignatureExclusionOptionsArrayOutput {
-	return o
-}
-
-func (o InMageDiskSignatureExclusionOptionsArrayOutput) ToInMageDiskSignatureExclusionOptionsArrayOutputWithContext(ctx context.Context) InMageDiskSignatureExclusionOptionsArrayOutput {
-	return o
-}
-
-func (o InMageDiskSignatureExclusionOptionsArrayOutput) Index(i pulumi.IntInput) InMageDiskSignatureExclusionOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageDiskSignatureExclusionOptions {
-		return vs[0].([]InMageDiskSignatureExclusionOptions)[vs[1].(int)]
-	}).(InMageDiskSignatureExclusionOptionsOutput)
 }
 
 // VMware Azure specific enable protection input.
@@ -7445,76 +4452,6 @@ func (i InMageEnableProtectionInputArgs) ToInMageEnableProtectionInputOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InMageEnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
-type InMageEnableProtectionInputOutput struct{ *pulumi.OutputState }
-
-func (InMageEnableProtectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageEnableProtectionInput)(nil)).Elem()
-}
-
-func (o InMageEnableProtectionInputOutput) ToInMageEnableProtectionInputOutput() InMageEnableProtectionInputOutput {
-	return o
-}
-
-func (o InMageEnableProtectionInputOutput) ToInMageEnableProtectionInputOutputWithContext(ctx context.Context) InMageEnableProtectionInputOutput {
-	return o
-}
-
-// The target data store name.
-func (o InMageEnableProtectionInputOutput) DatastoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
-}
-
-// The enable disk exclusion input.
-func (o InMageEnableProtectionInputOutput) DiskExclusionInput() InMageDiskExclusionInputPtrOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) *InMageDiskExclusionInput { return v.DiskExclusionInput }).(InMageDiskExclusionInputPtrOutput)
-}
-
-// The disks to include list.
-func (o InMageEnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
-}
-
-// The class type.
-func (o InMageEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The Master Target Id.
-func (o InMageEnableProtectionInputOutput) MasterTargetId() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MasterTargetId }).(pulumi.StringOutput)
-}
-
-// The multi vm group Id.
-func (o InMageEnableProtectionInputOutput) MultiVmGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MultiVmGroupId }).(pulumi.StringOutput)
-}
-
-// The multi vm group name.
-func (o InMageEnableProtectionInputOutput) MultiVmGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MultiVmGroupName }).(pulumi.StringOutput)
-}
-
-// The Process Server Id.
-func (o InMageEnableProtectionInputOutput) ProcessServerId() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.ProcessServerId }).(pulumi.StringOutput)
-}
-
-// The retention drive to use on the MT.
-func (o InMageEnableProtectionInputOutput) RetentionDrive() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.RetentionDrive }).(pulumi.StringOutput)
-}
-
-// The CS account Id.
-func (o InMageEnableProtectionInputOutput) RunAsAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
-}
-
-// The Vm Name.
-func (o InMageEnableProtectionInputOutput) VmFriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.VmFriendlyName }).(pulumi.StringPtrOutput)
-}
-
 // InMage specific protection profile details.
 type InMagePolicyDetailsResponse struct {
 	// The app consistent snapshot frequency in minutes.
@@ -7527,43 +4464,6 @@ type InMagePolicyDetailsResponse struct {
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-// InMagePolicyDetailsResponseInput is an input type that accepts InMagePolicyDetailsResponseArgs and InMagePolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `InMagePolicyDetailsResponseInput` via:
-//
-//          InMagePolicyDetailsResponseArgs{...}
-type InMagePolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMagePolicyDetailsResponseOutput() InMagePolicyDetailsResponseOutput
-	ToInMagePolicyDetailsResponseOutputWithContext(context.Context) InMagePolicyDetailsResponseOutput
-}
-
-// InMage specific protection profile details.
-type InMagePolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (InMagePolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMagePolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i InMagePolicyDetailsResponseArgs) ToInMagePolicyDetailsResponseOutput() InMagePolicyDetailsResponseOutput {
-	return i.ToInMagePolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMagePolicyDetailsResponseArgs) ToInMagePolicyDetailsResponseOutputWithContext(ctx context.Context) InMagePolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyDetailsResponseOutput)
 }
 
 // InMage specific protection profile details.
@@ -7657,46 +4557,6 @@ func (i InMagePolicyInputArgs) ToInMagePolicyInputOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyInputOutput)
 }
 
-// VMWare Azure specific protection profile Input.
-type InMagePolicyInputOutput struct{ *pulumi.OutputState }
-
-func (InMagePolicyInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMagePolicyInput)(nil)).Elem()
-}
-
-func (o InMagePolicyInputOutput) ToInMagePolicyInputOutput() InMagePolicyInputOutput {
-	return o
-}
-
-func (o InMagePolicyInputOutput) ToInMagePolicyInputOutputWithContext(ctx context.Context) InMagePolicyInputOutput {
-	return o
-}
-
-// The app consistent snapshot frequency (in minutes).
-func (o InMagePolicyInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMagePolicyInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The class type.
-func (o InMagePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMagePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMagePolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v InMagePolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
-}
-
-// The duration in minutes until which the recovery points need to be stored.
-func (o InMagePolicyInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMagePolicyInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
-}
-
-// The recovery point threshold in minutes.
-func (o InMagePolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InMagePolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
-}
-
 // InMage protected disk details.
 type InMageProtectedDiskDetailsResponse struct {
 	// The disk capacity in bytes.
@@ -7729,88 +4589,6 @@ type InMageProtectedDiskDetailsResponse struct {
 	SourceDataInMB *float64 `pulumi:"sourceDataInMB"`
 	// The target data transit in MB.
 	TargetDataInMB *float64 `pulumi:"targetDataInMB"`
-}
-
-// InMageProtectedDiskDetailsResponseInput is an input type that accepts InMageProtectedDiskDetailsResponseArgs and InMageProtectedDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageProtectedDiskDetailsResponseInput` via:
-//
-//          InMageProtectedDiskDetailsResponseArgs{...}
-type InMageProtectedDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageProtectedDiskDetailsResponseOutput() InMageProtectedDiskDetailsResponseOutput
-	ToInMageProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageProtectedDiskDetailsResponseOutput
-}
-
-// InMage protected disk details.
-type InMageProtectedDiskDetailsResponseArgs struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.IntPtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The file system capacity in bytes.
-	FileSystemCapacityInBytes pulumi.IntPtrInput `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMB pulumi.Float64PtrInput `pulumi:"psDataInMB"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.IntPtrInput `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMB pulumi.Float64PtrInput `pulumi:"sourceDataInMB"`
-	// The target data transit in MB.
-	TargetDataInMB pulumi.Float64PtrInput `pulumi:"targetDataInMB"`
-}
-
-func (InMageProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageProtectedDiskDetailsResponseArgs) ToInMageProtectedDiskDetailsResponseOutput() InMageProtectedDiskDetailsResponseOutput {
-	return i.ToInMageProtectedDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageProtectedDiskDetailsResponseArgs) ToInMageProtectedDiskDetailsResponseOutputWithContext(ctx context.Context) InMageProtectedDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageProtectedDiskDetailsResponseOutput)
-}
-
-// InMageProtectedDiskDetailsResponseArrayInput is an input type that accepts InMageProtectedDiskDetailsResponseArray and InMageProtectedDiskDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `InMageProtectedDiskDetailsResponseArrayInput` via:
-//
-//          InMageProtectedDiskDetailsResponseArray{ InMageProtectedDiskDetailsResponseArgs{...} }
-type InMageProtectedDiskDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToInMageProtectedDiskDetailsResponseArrayOutput() InMageProtectedDiskDetailsResponseArrayOutput
-	ToInMageProtectedDiskDetailsResponseArrayOutputWithContext(context.Context) InMageProtectedDiskDetailsResponseArrayOutput
-}
-
-type InMageProtectedDiskDetailsResponseArray []InMageProtectedDiskDetailsResponseInput
-
-func (InMageProtectedDiskDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InMageProtectedDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageProtectedDiskDetailsResponseArray) ToInMageProtectedDiskDetailsResponseArrayOutput() InMageProtectedDiskDetailsResponseArrayOutput {
-	return i.ToInMageProtectedDiskDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i InMageProtectedDiskDetailsResponseArray) ToInMageProtectedDiskDetailsResponseArrayOutputWithContext(ctx context.Context) InMageProtectedDiskDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageProtectedDiskDetailsResponseArrayOutput)
 }
 
 // InMage protected disk details.
@@ -8001,109 +4779,6 @@ type InMageReplicationDetailsResponse struct {
 	VmProtectionState *string `pulumi:"vmProtectionState"`
 	// The protection state description for the vm.
 	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-}
-
-// InMageReplicationDetailsResponseInput is an input type that accepts InMageReplicationDetailsResponseArgs and InMageReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `InMageReplicationDetailsResponseInput` via:
-//
-//          InMageReplicationDetailsResponseArgs{...}
-type InMageReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInMageReplicationDetailsResponseOutput() InMageReplicationDetailsResponseOutput
-	ToInMageReplicationDetailsResponseOutputWithContext(context.Context) InMageReplicationDetailsResponseOutput
-}
-
-// InMage provider specific settings
-type InMageReplicationDetailsResponseArgs struct {
-	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
-	ActiveSiteType pulumi.StringPtrInput `pulumi:"activeSiteType"`
-	// The agent details.
-	AgentDetails InMageAgentDetailsResponsePtrInput `pulumi:"agentDetails"`
-	// A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
-	AzureStorageAccountId pulumi.StringPtrInput `pulumi:"azureStorageAccountId"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"compressedDataRateInMB"`
-	// The collection of Consistency points.
-	ConsistencyPoints pulumi.StringMapInput `pulumi:"consistencyPoints"`
-	// The data stores of the on-premise machine Value can be list of strings that contain data store names
-	Datastores pulumi.StringArrayInput `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine.
-	DiscoveryType pulumi.StringPtrInput `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The infrastructure VM Id.
-	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime pulumi.StringPtrInput `pulumi:"lastUpdateReceivedTime"`
-	// The master target Id.
-	MasterTargetId pulumi.StringPtrInput `pulumi:"masterTargetId"`
-	// The multi vm group Id, if any.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name, if any.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// A value indicating whether the multi vm sync is enabled or disabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The OS details.
-	OsDetails OSDiskDetailsResponsePtrInput `pulumi:"osDetails"`
-	// The OS Version of the protected item.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks InMageProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// A value indicating whether the source server requires a restart after update.
-	RebootAfterUpdateStatus pulumi.StringPtrInput `pulumi:"rebootAfterUpdateStatus"`
-	// The replica id of the protected item.
-	ReplicaId pulumi.StringPtrInput `pulumi:"replicaId"`
-	// The resync details of the machine
-	ResyncDetails InitialReplicationDetailsResponsePtrInput `pulumi:"resyncDetails"`
-	// The retention window end time.
-	RetentionWindowEnd pulumi.StringPtrInput `pulumi:"retentionWindowEnd"`
-	// The retention window start time.
-	RetentionWindowStart pulumi.StringPtrInput `pulumi:"retentionWindowStart"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.IntPtrInput `pulumi:"rpoInSeconds"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCPUCount pulumi.IntPtrInput `pulumi:"sourceVmCPUCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRAMSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRAMSizeInMB"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"uncompressedDataRateInMB"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId pulumi.StringPtrInput `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-}
-
-func (InMageReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i InMageReplicationDetailsResponseArgs) ToInMageReplicationDetailsResponseOutput() InMageReplicationDetailsResponseOutput {
-	return i.ToInMageReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InMageReplicationDetailsResponseArgs) ToInMageReplicationDetailsResponseOutputWithContext(ctx context.Context) InMageReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InMageReplicationDetailsResponseOutput)
 }
 
 // InMage provider specific settings
@@ -8375,129 +5050,12 @@ func (i InMageVolumeExclusionOptionsArray) ToInMageVolumeExclusionOptionsArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageVolumeExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
-type InMageVolumeExclusionOptionsOutput struct{ *pulumi.OutputState }
-
-func (InMageVolumeExclusionOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InMageVolumeExclusionOptions)(nil)).Elem()
-}
-
-func (o InMageVolumeExclusionOptionsOutput) ToInMageVolumeExclusionOptionsOutput() InMageVolumeExclusionOptionsOutput {
-	return o
-}
-
-func (o InMageVolumeExclusionOptionsOutput) ToInMageVolumeExclusionOptionsOutputWithContext(ctx context.Context) InMageVolumeExclusionOptionsOutput {
-	return o
-}
-
-// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
-func (o InMageVolumeExclusionOptionsOutput) OnlyExcludeIfSingleVolume() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageVolumeExclusionOptions) *string { return v.OnlyExcludeIfSingleVolume }).(pulumi.StringPtrOutput)
-}
-
-// The volume label. The disk having any volume with this label will be excluded from replication.
-func (o InMageVolumeExclusionOptionsOutput) VolumeLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InMageVolumeExclusionOptions) *string { return v.VolumeLabel }).(pulumi.StringPtrOutput)
-}
-
-type InMageVolumeExclusionOptionsArrayOutput struct{ *pulumi.OutputState }
-
-func (InMageVolumeExclusionOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InMageVolumeExclusionOptions)(nil)).Elem()
-}
-
-func (o InMageVolumeExclusionOptionsArrayOutput) ToInMageVolumeExclusionOptionsArrayOutput() InMageVolumeExclusionOptionsArrayOutput {
-	return o
-}
-
-func (o InMageVolumeExclusionOptionsArrayOutput) ToInMageVolumeExclusionOptionsArrayOutputWithContext(ctx context.Context) InMageVolumeExclusionOptionsArrayOutput {
-	return o
-}
-
-func (o InMageVolumeExclusionOptionsArrayOutput) Index(i pulumi.IntInput) InMageVolumeExclusionOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InMageVolumeExclusionOptions {
-		return vs[0].([]InMageVolumeExclusionOptions)[vs[1].(int)]
-	}).(InMageVolumeExclusionOptionsOutput)
-}
-
 // Initial replication details.
 type InitialReplicationDetailsResponse struct {
 	// The initial replication progress percentage.
 	InitialReplicationProgressPercentage *string `pulumi:"initialReplicationProgressPercentage"`
 	// Initial replication type.
 	InitialReplicationType *string `pulumi:"initialReplicationType"`
-}
-
-// InitialReplicationDetailsResponseInput is an input type that accepts InitialReplicationDetailsResponseArgs and InitialReplicationDetailsResponseOutput values.
-// You can construct a concrete instance of `InitialReplicationDetailsResponseInput` via:
-//
-//          InitialReplicationDetailsResponseArgs{...}
-type InitialReplicationDetailsResponseInput interface {
-	pulumi.Input
-
-	ToInitialReplicationDetailsResponseOutput() InitialReplicationDetailsResponseOutput
-	ToInitialReplicationDetailsResponseOutputWithContext(context.Context) InitialReplicationDetailsResponseOutput
-}
-
-// Initial replication details.
-type InitialReplicationDetailsResponseArgs struct {
-	// The initial replication progress percentage.
-	InitialReplicationProgressPercentage pulumi.StringPtrInput `pulumi:"initialReplicationProgressPercentage"`
-	// Initial replication type.
-	InitialReplicationType pulumi.StringPtrInput `pulumi:"initialReplicationType"`
-}
-
-func (InitialReplicationDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InitialReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i InitialReplicationDetailsResponseArgs) ToInitialReplicationDetailsResponseOutput() InitialReplicationDetailsResponseOutput {
-	return i.ToInitialReplicationDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i InitialReplicationDetailsResponseArgs) ToInitialReplicationDetailsResponseOutputWithContext(ctx context.Context) InitialReplicationDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InitialReplicationDetailsResponseOutput)
-}
-
-func (i InitialReplicationDetailsResponseArgs) ToInitialReplicationDetailsResponsePtrOutput() InitialReplicationDetailsResponsePtrOutput {
-	return i.ToInitialReplicationDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InitialReplicationDetailsResponseArgs) ToInitialReplicationDetailsResponsePtrOutputWithContext(ctx context.Context) InitialReplicationDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InitialReplicationDetailsResponseOutput).ToInitialReplicationDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// InitialReplicationDetailsResponsePtrInput is an input type that accepts InitialReplicationDetailsResponseArgs, InitialReplicationDetailsResponsePtr and InitialReplicationDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `InitialReplicationDetailsResponsePtrInput` via:
-//
-//          InitialReplicationDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type InitialReplicationDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToInitialReplicationDetailsResponsePtrOutput() InitialReplicationDetailsResponsePtrOutput
-	ToInitialReplicationDetailsResponsePtrOutputWithContext(context.Context) InitialReplicationDetailsResponsePtrOutput
-}
-
-type initialReplicationDetailsResponsePtrType InitialReplicationDetailsResponseArgs
-
-func InitialReplicationDetailsResponsePtr(v *InitialReplicationDetailsResponseArgs) InitialReplicationDetailsResponsePtrInput {
-	return (*initialReplicationDetailsResponsePtrType)(v)
-}
-
-func (*initialReplicationDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InitialReplicationDetailsResponse)(nil)).Elem()
-}
-
-func (i *initialReplicationDetailsResponsePtrType) ToInitialReplicationDetailsResponsePtrOutput() InitialReplicationDetailsResponsePtrOutput {
-	return i.ToInitialReplicationDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *initialReplicationDetailsResponsePtrType) ToInitialReplicationDetailsResponsePtrOutputWithContext(ctx context.Context) InitialReplicationDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InitialReplicationDetailsResponsePtrOutput)
 }
 
 // Initial replication details.
@@ -8585,66 +5143,6 @@ type InputEndpointResponse struct {
 	PublicPort *int `pulumi:"publicPort"`
 }
 
-// InputEndpointResponseInput is an input type that accepts InputEndpointResponseArgs and InputEndpointResponseOutput values.
-// You can construct a concrete instance of `InputEndpointResponseInput` via:
-//
-//          InputEndpointResponseArgs{...}
-type InputEndpointResponseInput interface {
-	pulumi.Input
-
-	ToInputEndpointResponseOutput() InputEndpointResponseOutput
-	ToInputEndpointResponseOutputWithContext(context.Context) InputEndpointResponseOutput
-}
-
-// Azure VM input endpoint details.
-type InputEndpointResponseArgs struct {
-	// The input endpoint name.
-	EndpointName pulumi.StringPtrInput `pulumi:"endpointName"`
-	// The input endpoint private port.
-	PrivatePort pulumi.IntPtrInput `pulumi:"privatePort"`
-	// The input endpoint protocol.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The input endpoint public port.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
-}
-
-func (InputEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputEndpointResponse)(nil)).Elem()
-}
-
-func (i InputEndpointResponseArgs) ToInputEndpointResponseOutput() InputEndpointResponseOutput {
-	return i.ToInputEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i InputEndpointResponseArgs) ToInputEndpointResponseOutputWithContext(ctx context.Context) InputEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputEndpointResponseOutput)
-}
-
-// InputEndpointResponseArrayInput is an input type that accepts InputEndpointResponseArray and InputEndpointResponseArrayOutput values.
-// You can construct a concrete instance of `InputEndpointResponseArrayInput` via:
-//
-//          InputEndpointResponseArray{ InputEndpointResponseArgs{...} }
-type InputEndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToInputEndpointResponseArrayOutput() InputEndpointResponseArrayOutput
-	ToInputEndpointResponseArrayOutputWithContext(context.Context) InputEndpointResponseArrayOutput
-}
-
-type InputEndpointResponseArray []InputEndpointResponseInput
-
-func (InputEndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputEndpointResponse)(nil)).Elem()
-}
-
-func (i InputEndpointResponseArray) ToInputEndpointResponseArrayOutput() InputEndpointResponseArrayOutput {
-	return i.ToInputEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i InputEndpointResponseArray) ToInputEndpointResponseArrayOutputWithContext(ctx context.Context) InputEndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputEndpointResponseArrayOutput)
-}
-
 // Azure VM input endpoint details.
 type InputEndpointResponseOutput struct{ *pulumi.OutputState }
 
@@ -8726,82 +5224,6 @@ type MasterTargetServerResponse struct {
 	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
 	// Version status
 	VersionStatus *string `pulumi:"versionStatus"`
-}
-
-// MasterTargetServerResponseInput is an input type that accepts MasterTargetServerResponseArgs and MasterTargetServerResponseOutput values.
-// You can construct a concrete instance of `MasterTargetServerResponseInput` via:
-//
-//          MasterTargetServerResponseArgs{...}
-type MasterTargetServerResponseInput interface {
-	pulumi.Input
-
-	ToMasterTargetServerResponseOutput() MasterTargetServerResponseOutput
-	ToMasterTargetServerResponseOutputWithContext(context.Context) MasterTargetServerResponseOutput
-}
-
-// Details of a Master Target Server.
-type MasterTargetServerResponseArgs struct {
-	// The version of the scout component on the server.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The list of data stores in the fabric.
-	DataStores DataStoreResponseArrayInput `pulumi:"dataStores"`
-	// Disk count of the master target.
-	DiskCount pulumi.IntPtrInput `pulumi:"diskCount"`
-	// The server Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The server name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The OS type of the server.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// OS Version of the master target.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The retention volumes of Master target Server.
-	RetentionVolumes RetentionVolumeResponseArrayInput `pulumi:"retentionVolumes"`
-	// Validation errors.
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
-}
-
-func (MasterTargetServerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MasterTargetServerResponse)(nil)).Elem()
-}
-
-func (i MasterTargetServerResponseArgs) ToMasterTargetServerResponseOutput() MasterTargetServerResponseOutput {
-	return i.ToMasterTargetServerResponseOutputWithContext(context.Background())
-}
-
-func (i MasterTargetServerResponseArgs) ToMasterTargetServerResponseOutputWithContext(ctx context.Context) MasterTargetServerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterTargetServerResponseOutput)
-}
-
-// MasterTargetServerResponseArrayInput is an input type that accepts MasterTargetServerResponseArray and MasterTargetServerResponseArrayOutput values.
-// You can construct a concrete instance of `MasterTargetServerResponseArrayInput` via:
-//
-//          MasterTargetServerResponseArray{ MasterTargetServerResponseArgs{...} }
-type MasterTargetServerResponseArrayInput interface {
-	pulumi.Input
-
-	ToMasterTargetServerResponseArrayOutput() MasterTargetServerResponseArrayOutput
-	ToMasterTargetServerResponseArrayOutputWithContext(context.Context) MasterTargetServerResponseArrayOutput
-}
-
-type MasterTargetServerResponseArray []MasterTargetServerResponseInput
-
-func (MasterTargetServerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MasterTargetServerResponse)(nil)).Elem()
-}
-
-func (i MasterTargetServerResponseArray) ToMasterTargetServerResponseArrayOutput() MasterTargetServerResponseArrayOutput {
-	return i.ToMasterTargetServerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MasterTargetServerResponseArray) ToMasterTargetServerResponseArrayOutputWithContext(ctx context.Context) MasterTargetServerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MasterTargetServerResponseArrayOutput)
 }
 
 // Details of a Master Target Server.
@@ -8909,64 +5331,6 @@ type MobilityServiceUpdateResponse struct {
 	Version *string `pulumi:"version"`
 }
 
-// MobilityServiceUpdateResponseInput is an input type that accepts MobilityServiceUpdateResponseArgs and MobilityServiceUpdateResponseOutput values.
-// You can construct a concrete instance of `MobilityServiceUpdateResponseInput` via:
-//
-//          MobilityServiceUpdateResponseArgs{...}
-type MobilityServiceUpdateResponseInput interface {
-	pulumi.Input
-
-	ToMobilityServiceUpdateResponseOutput() MobilityServiceUpdateResponseOutput
-	ToMobilityServiceUpdateResponseOutputWithContext(context.Context) MobilityServiceUpdateResponseOutput
-}
-
-// The Mobility Service update details.
-type MobilityServiceUpdateResponseArgs struct {
-	// The OS type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The reboot status of the update - whether it is required or not.
-	RebootStatus pulumi.StringPtrInput `pulumi:"rebootStatus"`
-	// The version of the latest update.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (MobilityServiceUpdateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MobilityServiceUpdateResponse)(nil)).Elem()
-}
-
-func (i MobilityServiceUpdateResponseArgs) ToMobilityServiceUpdateResponseOutput() MobilityServiceUpdateResponseOutput {
-	return i.ToMobilityServiceUpdateResponseOutputWithContext(context.Background())
-}
-
-func (i MobilityServiceUpdateResponseArgs) ToMobilityServiceUpdateResponseOutputWithContext(ctx context.Context) MobilityServiceUpdateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MobilityServiceUpdateResponseOutput)
-}
-
-// MobilityServiceUpdateResponseArrayInput is an input type that accepts MobilityServiceUpdateResponseArray and MobilityServiceUpdateResponseArrayOutput values.
-// You can construct a concrete instance of `MobilityServiceUpdateResponseArrayInput` via:
-//
-//          MobilityServiceUpdateResponseArray{ MobilityServiceUpdateResponseArgs{...} }
-type MobilityServiceUpdateResponseArrayInput interface {
-	pulumi.Input
-
-	ToMobilityServiceUpdateResponseArrayOutput() MobilityServiceUpdateResponseArrayOutput
-	ToMobilityServiceUpdateResponseArrayOutputWithContext(context.Context) MobilityServiceUpdateResponseArrayOutput
-}
-
-type MobilityServiceUpdateResponseArray []MobilityServiceUpdateResponseInput
-
-func (MobilityServiceUpdateResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MobilityServiceUpdateResponse)(nil)).Elem()
-}
-
-func (i MobilityServiceUpdateResponseArray) ToMobilityServiceUpdateResponseArrayOutput() MobilityServiceUpdateResponseArrayOutput {
-	return i.ToMobilityServiceUpdateResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MobilityServiceUpdateResponseArray) ToMobilityServiceUpdateResponseArrayOutputWithContext(ctx context.Context) MobilityServiceUpdateResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MobilityServiceUpdateResponseArrayOutput)
-}
-
 // The Mobility Service update details.
 type MobilityServiceUpdateResponseOutput struct{ *pulumi.OutputState }
 
@@ -9037,92 +5401,6 @@ type NetworkMappingPropertiesResponse struct {
 	RecoveryNetworkId *string `pulumi:"recoveryNetworkId"`
 	// The pairing state for network mapping.
 	State *string `pulumi:"state"`
-}
-
-// NetworkMappingPropertiesResponseInput is an input type that accepts NetworkMappingPropertiesResponseArgs and NetworkMappingPropertiesResponseOutput values.
-// You can construct a concrete instance of `NetworkMappingPropertiesResponseInput` via:
-//
-//          NetworkMappingPropertiesResponseArgs{...}
-type NetworkMappingPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNetworkMappingPropertiesResponseOutput() NetworkMappingPropertiesResponseOutput
-	ToNetworkMappingPropertiesResponseOutputWithContext(context.Context) NetworkMappingPropertiesResponseOutput
-}
-
-// Network Mapping Properties.
-type NetworkMappingPropertiesResponseArgs struct {
-	// The fabric specific settings.
-	FabricSpecificSettings pulumi.Input `pulumi:"fabricSpecificSettings"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The primary network friendly name.
-	PrimaryNetworkFriendlyName pulumi.StringPtrInput `pulumi:"primaryNetworkFriendlyName"`
-	// The primary network id for network mapping.
-	PrimaryNetworkId pulumi.StringPtrInput `pulumi:"primaryNetworkId"`
-	// The recovery fabric ARM id.
-	RecoveryFabricArmId pulumi.StringPtrInput `pulumi:"recoveryFabricArmId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery network friendly name.
-	RecoveryNetworkFriendlyName pulumi.StringPtrInput `pulumi:"recoveryNetworkFriendlyName"`
-	// The recovery network id for network mapping.
-	RecoveryNetworkId pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
-	// The pairing state for network mapping.
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (NetworkMappingPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i NetworkMappingPropertiesResponseArgs) ToNetworkMappingPropertiesResponseOutput() NetworkMappingPropertiesResponseOutput {
-	return i.ToNetworkMappingPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkMappingPropertiesResponseArgs) ToNetworkMappingPropertiesResponseOutputWithContext(ctx context.Context) NetworkMappingPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPropertiesResponseOutput)
-}
-
-func (i NetworkMappingPropertiesResponseArgs) ToNetworkMappingPropertiesResponsePtrOutput() NetworkMappingPropertiesResponsePtrOutput {
-	return i.ToNetworkMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkMappingPropertiesResponseArgs) ToNetworkMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPropertiesResponseOutput).ToNetworkMappingPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// NetworkMappingPropertiesResponsePtrInput is an input type that accepts NetworkMappingPropertiesResponseArgs, NetworkMappingPropertiesResponsePtr and NetworkMappingPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `NetworkMappingPropertiesResponsePtrInput` via:
-//
-//          NetworkMappingPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkMappingPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNetworkMappingPropertiesResponsePtrOutput() NetworkMappingPropertiesResponsePtrOutput
-	ToNetworkMappingPropertiesResponsePtrOutputWithContext(context.Context) NetworkMappingPropertiesResponsePtrOutput
-}
-
-type networkMappingPropertiesResponsePtrType NetworkMappingPropertiesResponseArgs
-
-func NetworkMappingPropertiesResponsePtr(v *NetworkMappingPropertiesResponseArgs) NetworkMappingPropertiesResponsePtrInput {
-	return (*networkMappingPropertiesResponsePtrType)(v)
-}
-
-func (*networkMappingPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i *networkMappingPropertiesResponsePtrType) ToNetworkMappingPropertiesResponsePtrOutput() NetworkMappingPropertiesResponsePtrOutput {
-	return i.ToNetworkMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *networkMappingPropertiesResponsePtrType) ToNetworkMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPropertiesResponsePtrOutput)
 }
 
 // Network Mapping Properties.
@@ -9319,86 +5597,6 @@ type OSDetailsResponse struct {
 	ProductType *string `pulumi:"productType"`
 }
 
-// OSDetailsResponseInput is an input type that accepts OSDetailsResponseArgs and OSDetailsResponseOutput values.
-// You can construct a concrete instance of `OSDetailsResponseInput` via:
-//
-//          OSDetailsResponseArgs{...}
-type OSDetailsResponseInput interface {
-	pulumi.Input
-
-	ToOSDetailsResponseOutput() OSDetailsResponseOutput
-	ToOSDetailsResponseOutputWithContext(context.Context) OSDetailsResponseOutput
-}
-
-// Disk Details.
-type OSDetailsResponseArgs struct {
-	// The OS Major Version.
-	OSMajorVersion pulumi.StringPtrInput `pulumi:"oSMajorVersion"`
-	// The OS Minor Version.
-	OSMinorVersion pulumi.StringPtrInput `pulumi:"oSMinorVersion"`
-	// The OS Version.
-	OSVersion pulumi.StringPtrInput `pulumi:"oSVersion"`
-	// The OSEdition.
-	OsEdition pulumi.StringPtrInput `pulumi:"osEdition"`
-	// VM Disk details.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Product type.
-	ProductType pulumi.StringPtrInput `pulumi:"productType"`
-}
-
-func (OSDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OSDetailsResponse)(nil)).Elem()
-}
-
-func (i OSDetailsResponseArgs) ToOSDetailsResponseOutput() OSDetailsResponseOutput {
-	return i.ToOSDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i OSDetailsResponseArgs) ToOSDetailsResponseOutputWithContext(ctx context.Context) OSDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDetailsResponseOutput)
-}
-
-func (i OSDetailsResponseArgs) ToOSDetailsResponsePtrOutput() OSDetailsResponsePtrOutput {
-	return i.ToOSDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OSDetailsResponseArgs) ToOSDetailsResponsePtrOutputWithContext(ctx context.Context) OSDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDetailsResponseOutput).ToOSDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// OSDetailsResponsePtrInput is an input type that accepts OSDetailsResponseArgs, OSDetailsResponsePtr and OSDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `OSDetailsResponsePtrInput` via:
-//
-//          OSDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OSDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToOSDetailsResponsePtrOutput() OSDetailsResponsePtrOutput
-	ToOSDetailsResponsePtrOutputWithContext(context.Context) OSDetailsResponsePtrOutput
-}
-
-type osdetailsResponsePtrType OSDetailsResponseArgs
-
-func OSDetailsResponsePtr(v *OSDetailsResponseArgs) OSDetailsResponsePtrInput {
-	return (*osdetailsResponsePtrType)(v)
-}
-
-func (*osdetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OSDetailsResponse)(nil)).Elem()
-}
-
-func (i *osdetailsResponsePtrType) ToOSDetailsResponsePtrOutput() OSDetailsResponsePtrOutput {
-	return i.ToOSDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *osdetailsResponsePtrType) ToOSDetailsResponsePtrOutputWithContext(ctx context.Context) OSDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDetailsResponsePtrOutput)
-}
-
 // Disk Details.
 type OSDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -9542,80 +5740,6 @@ type OSDiskDetailsResponse struct {
 	VhdName *string `pulumi:"vhdName"`
 }
 
-// OSDiskDetailsResponseInput is an input type that accepts OSDiskDetailsResponseArgs and OSDiskDetailsResponseOutput values.
-// You can construct a concrete instance of `OSDiskDetailsResponseInput` via:
-//
-//          OSDiskDetailsResponseArgs{...}
-type OSDiskDetailsResponseInput interface {
-	pulumi.Input
-
-	ToOSDiskDetailsResponseOutput() OSDiskDetailsResponseOutput
-	ToOSDiskDetailsResponseOutputWithContext(context.Context) OSDiskDetailsResponseOutput
-}
-
-// Details of the OS Disk.
-type OSDiskDetailsResponseArgs struct {
-	// The type of the OS on the VM.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The id of the disk containing the OS.
-	OsVhdId pulumi.StringPtrInput `pulumi:"osVhdId"`
-	// The OS disk VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-}
-
-func (OSDiskDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OSDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i OSDiskDetailsResponseArgs) ToOSDiskDetailsResponseOutput() OSDiskDetailsResponseOutput {
-	return i.ToOSDiskDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i OSDiskDetailsResponseArgs) ToOSDiskDetailsResponseOutputWithContext(ctx context.Context) OSDiskDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDiskDetailsResponseOutput)
-}
-
-func (i OSDiskDetailsResponseArgs) ToOSDiskDetailsResponsePtrOutput() OSDiskDetailsResponsePtrOutput {
-	return i.ToOSDiskDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OSDiskDetailsResponseArgs) ToOSDiskDetailsResponsePtrOutputWithContext(ctx context.Context) OSDiskDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDiskDetailsResponseOutput).ToOSDiskDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// OSDiskDetailsResponsePtrInput is an input type that accepts OSDiskDetailsResponseArgs, OSDiskDetailsResponsePtr and OSDiskDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `OSDiskDetailsResponsePtrInput` via:
-//
-//          OSDiskDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OSDiskDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToOSDiskDetailsResponsePtrOutput() OSDiskDetailsResponsePtrOutput
-	ToOSDiskDetailsResponsePtrOutputWithContext(context.Context) OSDiskDetailsResponsePtrOutput
-}
-
-type osdiskDetailsResponsePtrType OSDiskDetailsResponseArgs
-
-func OSDiskDetailsResponsePtr(v *OSDiskDetailsResponseArgs) OSDiskDetailsResponsePtrInput {
-	return (*osdiskDetailsResponsePtrType)(v)
-}
-
-func (*osdiskDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OSDiskDetailsResponse)(nil)).Elem()
-}
-
-func (i *osdiskDetailsResponsePtrType) ToOSDiskDetailsResponsePtrOutput() OSDiskDetailsResponsePtrOutput {
-	return i.ToOSDiskDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *osdiskDetailsResponsePtrType) ToOSDiskDetailsResponsePtrOutputWithContext(ctx context.Context) OSDiskDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OSDiskDetailsResponsePtrOutput)
-}
-
 // Details of the OS Disk.
 type OSDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -9710,78 +5834,6 @@ type PolicyPropertiesResponse struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The ReplicationChannelSetting.
 	ProviderSpecificDetails interface{} `pulumi:"providerSpecificDetails"`
-}
-
-// PolicyPropertiesResponseInput is an input type that accepts PolicyPropertiesResponseArgs and PolicyPropertiesResponseOutput values.
-// You can construct a concrete instance of `PolicyPropertiesResponseInput` via:
-//
-//          PolicyPropertiesResponseArgs{...}
-type PolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPolicyPropertiesResponseOutput() PolicyPropertiesResponseOutput
-	ToPolicyPropertiesResponseOutputWithContext(context.Context) PolicyPropertiesResponseOutput
-}
-
-// Protection profile custom data details.
-type PolicyPropertiesResponseArgs struct {
-	// The FriendlyName.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The ReplicationChannelSetting.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
-}
-
-func (PolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponseOutput() PolicyPropertiesResponseOutput {
-	return i.ToPolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponseOutputWithContext(ctx context.Context) PolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponseOutput)
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return i.ToPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponseOutput).ToPolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// PolicyPropertiesResponsePtrInput is an input type that accepts PolicyPropertiesResponseArgs, PolicyPropertiesResponsePtr and PolicyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `PolicyPropertiesResponsePtrInput` via:
-//
-//          PolicyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput
-	ToPolicyPropertiesResponsePtrOutputWithContext(context.Context) PolicyPropertiesResponsePtrOutput
-}
-
-type policyPropertiesResponsePtrType PolicyPropertiesResponseArgs
-
-func PolicyPropertiesResponsePtr(v *PolicyPropertiesResponseArgs) PolicyPropertiesResponsePtrInput {
-	return (*policyPropertiesResponsePtrType)(v)
-}
-
-func (*policyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return i.ToPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponsePtrOutput)
 }
 
 // Protection profile custom data details.
@@ -9909,108 +5961,6 @@ type ProcessServerResponse struct {
 	TotalSpaceInBytes *int `pulumi:"totalSpaceInBytes"`
 	// Version status
 	VersionStatus *string `pulumi:"versionStatus"`
-}
-
-// ProcessServerResponseInput is an input type that accepts ProcessServerResponseArgs and ProcessServerResponseOutput values.
-// You can construct a concrete instance of `ProcessServerResponseInput` via:
-//
-//          ProcessServerResponseArgs{...}
-type ProcessServerResponseInput interface {
-	pulumi.Input
-
-	ToProcessServerResponseOutput() ProcessServerResponseOutput
-	ToProcessServerResponseOutputWithContext(context.Context) ProcessServerResponseOutput
-}
-
-// Details of the Process Server.
-type ProcessServerResponseArgs struct {
-	// The version of the scout component on the server.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The available memory.
-	AvailableMemoryInBytes pulumi.IntPtrInput `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes pulumi.IntPtrInput `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus pulumi.StringPtrInput `pulumi:"cpuLoadStatus"`
-	// The Process Server's friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The agent generated Id.
-	HostId pulumi.StringPtrInput `pulumi:"hostId"`
-	// The Process Server Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The servers configured with this PS.
-	MachineCount pulumi.StringPtrInput `pulumi:"machineCount"`
-	// The memory usage status.
-	MemoryUsageStatus pulumi.StringPtrInput `pulumi:"memoryUsageStatus"`
-	// The list of the mobility service updates available on the Process Server.
-	MobilityServiceUpdates MobilityServiceUpdateResponseArrayInput `pulumi:"mobilityServiceUpdates"`
-	// The OS type of the server.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The PS service status.
-	PsServiceStatus pulumi.StringPtrInput `pulumi:"psServiceStatus"`
-	// The number of replication pairs configured in this PS.
-	ReplicationPairCount pulumi.StringPtrInput `pulumi:"replicationPairCount"`
-	// The space usage status.
-	SpaceUsageStatus pulumi.StringPtrInput `pulumi:"spaceUsageStatus"`
-	// The PS SSL cert expiry date.
-	SslCertExpiryDate pulumi.StringPtrInput `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays pulumi.IntPtrInput `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad pulumi.StringPtrInput `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes pulumi.IntPtrInput `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes pulumi.IntPtrInput `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
-}
-
-func (ProcessServerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProcessServerResponse)(nil)).Elem()
-}
-
-func (i ProcessServerResponseArgs) ToProcessServerResponseOutput() ProcessServerResponseOutput {
-	return i.ToProcessServerResponseOutputWithContext(context.Background())
-}
-
-func (i ProcessServerResponseArgs) ToProcessServerResponseOutputWithContext(ctx context.Context) ProcessServerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerResponseOutput)
-}
-
-// ProcessServerResponseArrayInput is an input type that accepts ProcessServerResponseArray and ProcessServerResponseArrayOutput values.
-// You can construct a concrete instance of `ProcessServerResponseArrayInput` via:
-//
-//          ProcessServerResponseArray{ ProcessServerResponseArgs{...} }
-type ProcessServerResponseArrayInput interface {
-	pulumi.Input
-
-	ToProcessServerResponseArrayOutput() ProcessServerResponseArrayOutput
-	ToProcessServerResponseArrayOutputWithContext(context.Context) ProcessServerResponseArrayOutput
-}
-
-type ProcessServerResponseArray []ProcessServerResponseInput
-
-func (ProcessServerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProcessServerResponse)(nil)).Elem()
-}
-
-func (i ProcessServerResponseArray) ToProcessServerResponseArrayOutput() ProcessServerResponseArrayOutput {
-	return i.ToProcessServerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ProcessServerResponseArray) ToProcessServerResponseArrayOutputWithContext(ctx context.Context) ProcessServerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerResponseArrayOutput)
 }
 
 // Details of the Process Server.
@@ -10197,96 +6147,6 @@ type ProtectionContainerMappingPropertiesResponse struct {
 	TargetProtectionContainerFriendlyName *string `pulumi:"targetProtectionContainerFriendlyName"`
 	// Paired protection container ARM ID.
 	TargetProtectionContainerId *string `pulumi:"targetProtectionContainerId"`
-}
-
-// ProtectionContainerMappingPropertiesResponseInput is an input type that accepts ProtectionContainerMappingPropertiesResponseArgs and ProtectionContainerMappingPropertiesResponseOutput values.
-// You can construct a concrete instance of `ProtectionContainerMappingPropertiesResponseInput` via:
-//
-//          ProtectionContainerMappingPropertiesResponseArgs{...}
-type ProtectionContainerMappingPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToProtectionContainerMappingPropertiesResponseOutput() ProtectionContainerMappingPropertiesResponseOutput
-	ToProtectionContainerMappingPropertiesResponseOutputWithContext(context.Context) ProtectionContainerMappingPropertiesResponseOutput
-}
-
-// Protection container mapping properties.
-type ProtectionContainerMappingPropertiesResponseArgs struct {
-	// Health of pairing.
-	Health pulumi.StringPtrInput `pulumi:"health"`
-	// Health error.
-	HealthErrorDetails HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
-	// Friendly name of replication policy.
-	PolicyFriendlyName pulumi.StringPtrInput `pulumi:"policyFriendlyName"`
-	// Policy ARM Id.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Provider specific provider details.
-	ProviderSpecificDetails ProtectionContainerMappingProviderSpecificDetailsResponsePtrInput `pulumi:"providerSpecificDetails"`
-	// Friendly name of source fabric.
-	SourceFabricFriendlyName pulumi.StringPtrInput `pulumi:"sourceFabricFriendlyName"`
-	// Friendly name of source protection container.
-	SourceProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"sourceProtectionContainerFriendlyName"`
-	// Association Status
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Friendly name of target fabric.
-	TargetFabricFriendlyName pulumi.StringPtrInput `pulumi:"targetFabricFriendlyName"`
-	// Friendly name of paired container.
-	TargetProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"targetProtectionContainerFriendlyName"`
-	// Paired protection container ARM ID.
-	TargetProtectionContainerId pulumi.StringPtrInput `pulumi:"targetProtectionContainerId"`
-}
-
-func (ProtectionContainerMappingPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i ProtectionContainerMappingPropertiesResponseArgs) ToProtectionContainerMappingPropertiesResponseOutput() ProtectionContainerMappingPropertiesResponseOutput {
-	return i.ToProtectionContainerMappingPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerMappingPropertiesResponseArgs) ToProtectionContainerMappingPropertiesResponseOutputWithContext(ctx context.Context) ProtectionContainerMappingPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPropertiesResponseOutput)
-}
-
-func (i ProtectionContainerMappingPropertiesResponseArgs) ToProtectionContainerMappingPropertiesResponsePtrOutput() ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return i.ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerMappingPropertiesResponseArgs) ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPropertiesResponseOutput).ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ProtectionContainerMappingPropertiesResponsePtrInput is an input type that accepts ProtectionContainerMappingPropertiesResponseArgs, ProtectionContainerMappingPropertiesResponsePtr and ProtectionContainerMappingPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ProtectionContainerMappingPropertiesResponsePtrInput` via:
-//
-//          ProtectionContainerMappingPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ProtectionContainerMappingPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToProtectionContainerMappingPropertiesResponsePtrOutput() ProtectionContainerMappingPropertiesResponsePtrOutput
-	ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(context.Context) ProtectionContainerMappingPropertiesResponsePtrOutput
-}
-
-type protectionContainerMappingPropertiesResponsePtrType ProtectionContainerMappingPropertiesResponseArgs
-
-func ProtectionContainerMappingPropertiesResponsePtr(v *ProtectionContainerMappingPropertiesResponseArgs) ProtectionContainerMappingPropertiesResponsePtrInput {
-	return (*protectionContainerMappingPropertiesResponsePtrType)(v)
-}
-
-func (*protectionContainerMappingPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i *protectionContainerMappingPropertiesResponsePtrType) ToProtectionContainerMappingPropertiesResponsePtrOutput() ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return i.ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *protectionContainerMappingPropertiesResponsePtrType) ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPropertiesResponsePtrOutput)
 }
 
 // Protection container mapping properties.
@@ -10513,76 +6373,6 @@ type ProtectionContainerMappingProviderSpecificDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 }
 
-// ProtectionContainerMappingProviderSpecificDetailsResponseInput is an input type that accepts ProtectionContainerMappingProviderSpecificDetailsResponseArgs and ProtectionContainerMappingProviderSpecificDetailsResponseOutput values.
-// You can construct a concrete instance of `ProtectionContainerMappingProviderSpecificDetailsResponseInput` via:
-//
-//          ProtectionContainerMappingProviderSpecificDetailsResponseArgs{...}
-type ProtectionContainerMappingProviderSpecificDetailsResponseInput interface {
-	pulumi.Input
-
-	ToProtectionContainerMappingProviderSpecificDetailsResponseOutput() ProtectionContainerMappingProviderSpecificDetailsResponseOutput
-	ToProtectionContainerMappingProviderSpecificDetailsResponseOutputWithContext(context.Context) ProtectionContainerMappingProviderSpecificDetailsResponseOutput
-}
-
-// Container mapping provider specific details.
-type ProtectionContainerMappingProviderSpecificDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerMappingProviderSpecificDetailsResponse)(nil)).Elem()
-}
-
-func (i ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ToProtectionContainerMappingProviderSpecificDetailsResponseOutput() ProtectionContainerMappingProviderSpecificDetailsResponseOutput {
-	return i.ToProtectionContainerMappingProviderSpecificDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ToProtectionContainerMappingProviderSpecificDetailsResponseOutputWithContext(ctx context.Context) ProtectionContainerMappingProviderSpecificDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingProviderSpecificDetailsResponseOutput)
-}
-
-func (i ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput() ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput {
-	return i.ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingProviderSpecificDetailsResponseOutput).ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(ctx)
-}
-
-// ProtectionContainerMappingProviderSpecificDetailsResponsePtrInput is an input type that accepts ProtectionContainerMappingProviderSpecificDetailsResponseArgs, ProtectionContainerMappingProviderSpecificDetailsResponsePtr and ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `ProtectionContainerMappingProviderSpecificDetailsResponsePtrInput` via:
-//
-//          ProtectionContainerMappingProviderSpecificDetailsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ProtectionContainerMappingProviderSpecificDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput() ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput
-	ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(context.Context) ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput
-}
-
-type protectionContainerMappingProviderSpecificDetailsResponsePtrType ProtectionContainerMappingProviderSpecificDetailsResponseArgs
-
-func ProtectionContainerMappingProviderSpecificDetailsResponsePtr(v *ProtectionContainerMappingProviderSpecificDetailsResponseArgs) ProtectionContainerMappingProviderSpecificDetailsResponsePtrInput {
-	return (*protectionContainerMappingProviderSpecificDetailsResponsePtrType)(v)
-}
-
-func (*protectionContainerMappingProviderSpecificDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerMappingProviderSpecificDetailsResponse)(nil)).Elem()
-}
-
-func (i *protectionContainerMappingProviderSpecificDetailsResponsePtrType) ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput() ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput {
-	return i.ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *protectionContainerMappingProviderSpecificDetailsResponsePtrType) ToProtectionContainerMappingProviderSpecificDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingProviderSpecificDetailsResponsePtrOutput)
-}
-
 // Container mapping provider specific details.
 type ProtectionContainerMappingProviderSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -10657,45 +6447,6 @@ type RcmAzureMigrationPolicyDetailsResponse struct {
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-// RcmAzureMigrationPolicyDetailsResponseInput is an input type that accepts RcmAzureMigrationPolicyDetailsResponseArgs and RcmAzureMigrationPolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `RcmAzureMigrationPolicyDetailsResponseInput` via:
-//
-//          RcmAzureMigrationPolicyDetailsResponseArgs{...}
-type RcmAzureMigrationPolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToRcmAzureMigrationPolicyDetailsResponseOutput() RcmAzureMigrationPolicyDetailsResponseOutput
-	ToRcmAzureMigrationPolicyDetailsResponseOutputWithContext(context.Context) RcmAzureMigrationPolicyDetailsResponseOutput
-}
-
-// RCM based Azure migration specific policy details.
-type RcmAzureMigrationPolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (RcmAzureMigrationPolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RcmAzureMigrationPolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i RcmAzureMigrationPolicyDetailsResponseArgs) ToRcmAzureMigrationPolicyDetailsResponseOutput() RcmAzureMigrationPolicyDetailsResponseOutput {
-	return i.ToRcmAzureMigrationPolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i RcmAzureMigrationPolicyDetailsResponseArgs) ToRcmAzureMigrationPolicyDetailsResponseOutputWithContext(ctx context.Context) RcmAzureMigrationPolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RcmAzureMigrationPolicyDetailsResponseOutput)
 }
 
 // RCM based Azure migration specific policy details.
@@ -10812,56 +6563,6 @@ func (i RecoveryPlanActionArray) ToRecoveryPlanActionArrayOutputWithContext(ctx 
 }
 
 // Recovery plan action details.
-type RecoveryPlanActionOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanAction)(nil)).Elem()
-}
-
-func (o RecoveryPlanActionOutput) ToRecoveryPlanActionOutput() RecoveryPlanActionOutput {
-	return o
-}
-
-func (o RecoveryPlanActionOutput) ToRecoveryPlanActionOutputWithContext(ctx context.Context) RecoveryPlanActionOutput {
-	return o
-}
-
-// The action name.
-func (o RecoveryPlanActionOutput) ActionName() pulumi.StringOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) string { return v.ActionName }).(pulumi.StringOutput)
-}
-
-// The list of failover directions.
-func (o RecoveryPlanActionOutput) FailoverDirections() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverDirections }).(pulumi.StringArrayOutput)
-}
-
-// The list of failover types.
-func (o RecoveryPlanActionOutput) FailoverTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverTypes }).(pulumi.StringArrayOutput)
-}
-
-type RecoveryPlanActionArrayOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanAction)(nil)).Elem()
-}
-
-func (o RecoveryPlanActionArrayOutput) ToRecoveryPlanActionArrayOutput() RecoveryPlanActionArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanActionArrayOutput) ToRecoveryPlanActionArrayOutputWithContext(ctx context.Context) RecoveryPlanActionArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanActionArrayOutput) Index(i pulumi.IntInput) RecoveryPlanActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryPlanAction {
-		return vs[0].([]RecoveryPlanAction)[vs[1].(int)]
-	}).(RecoveryPlanActionOutput)
-}
-
-// Recovery plan action details.
 type RecoveryPlanActionResponse struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
@@ -10871,66 +6572,6 @@ type RecoveryPlanActionResponse struct {
 	FailoverDirections []string `pulumi:"failoverDirections"`
 	// The list of failover types.
 	FailoverTypes []string `pulumi:"failoverTypes"`
-}
-
-// RecoveryPlanActionResponseInput is an input type that accepts RecoveryPlanActionResponseArgs and RecoveryPlanActionResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanActionResponseInput` via:
-//
-//          RecoveryPlanActionResponseArgs{...}
-type RecoveryPlanActionResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanActionResponseOutput() RecoveryPlanActionResponseOutput
-	ToRecoveryPlanActionResponseOutputWithContext(context.Context) RecoveryPlanActionResponseOutput
-}
-
-// Recovery plan action details.
-type RecoveryPlanActionResponseArgs struct {
-	// The action name.
-	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// The custom details.
-	CustomDetails pulumi.Input `pulumi:"customDetails"`
-	// The list of failover directions.
-	FailoverDirections pulumi.StringArrayInput `pulumi:"failoverDirections"`
-	// The list of failover types.
-	FailoverTypes pulumi.StringArrayInput `pulumi:"failoverTypes"`
-}
-
-func (RecoveryPlanActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanActionResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanActionResponseArgs) ToRecoveryPlanActionResponseOutput() RecoveryPlanActionResponseOutput {
-	return i.ToRecoveryPlanActionResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanActionResponseArgs) ToRecoveryPlanActionResponseOutputWithContext(ctx context.Context) RecoveryPlanActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionResponseOutput)
-}
-
-// RecoveryPlanActionResponseArrayInput is an input type that accepts RecoveryPlanActionResponseArray and RecoveryPlanActionResponseArrayOutput values.
-// You can construct a concrete instance of `RecoveryPlanActionResponseArrayInput` via:
-//
-//          RecoveryPlanActionResponseArray{ RecoveryPlanActionResponseArgs{...} }
-type RecoveryPlanActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanActionResponseArrayOutput() RecoveryPlanActionResponseArrayOutput
-	ToRecoveryPlanActionResponseArrayOutputWithContext(context.Context) RecoveryPlanActionResponseArrayOutput
-}
-
-type RecoveryPlanActionResponseArray []RecoveryPlanActionResponseInput
-
-func (RecoveryPlanActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanActionResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanActionResponseArray) ToRecoveryPlanActionResponseArrayOutput() RecoveryPlanActionResponseArrayOutput {
-	return i.ToRecoveryPlanActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanActionResponseArray) ToRecoveryPlanActionResponseArrayOutputWithContext(ctx context.Context) RecoveryPlanActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionResponseArrayOutput)
 }
 
 // Recovery plan action details.
@@ -10998,41 +6639,6 @@ type RecoveryPlanAutomationRunbookActionDetailsResponse struct {
 	RunbookId *string `pulumi:"runbookId"`
 	// The runbook timeout.
 	Timeout *string `pulumi:"timeout"`
-}
-
-// RecoveryPlanAutomationRunbookActionDetailsResponseInput is an input type that accepts RecoveryPlanAutomationRunbookActionDetailsResponseArgs and RecoveryPlanAutomationRunbookActionDetailsResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanAutomationRunbookActionDetailsResponseInput` via:
-//
-//          RecoveryPlanAutomationRunbookActionDetailsResponseArgs{...}
-type RecoveryPlanAutomationRunbookActionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanAutomationRunbookActionDetailsResponseOutput() RecoveryPlanAutomationRunbookActionDetailsResponseOutput
-	ToRecoveryPlanAutomationRunbookActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanAutomationRunbookActionDetailsResponseOutput
-}
-
-// Recovery plan Automation runbook action details.
-type RecoveryPlanAutomationRunbookActionDetailsResponseArgs struct {
-	// The fabric location.
-	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The runbook ARM Id.
-	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
-	// The runbook timeout.
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
-}
-
-func (RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanAutomationRunbookActionDetailsResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ToRecoveryPlanAutomationRunbookActionDetailsResponseOutput() RecoveryPlanAutomationRunbookActionDetailsResponseOutput {
-	return i.ToRecoveryPlanAutomationRunbookActionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ToRecoveryPlanAutomationRunbookActionDetailsResponseOutputWithContext(ctx context.Context) RecoveryPlanAutomationRunbookActionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanAutomationRunbookActionDetailsResponseOutput)
 }
 
 // Recovery plan Automation runbook action details.
@@ -11143,61 +6749,6 @@ func (i RecoveryPlanGroupArray) ToRecoveryPlanGroupArrayOutputWithContext(ctx co
 }
 
 // Recovery plan group details.
-type RecoveryPlanGroupOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanGroup)(nil)).Elem()
-}
-
-func (o RecoveryPlanGroupOutput) ToRecoveryPlanGroupOutput() RecoveryPlanGroupOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupOutput) ToRecoveryPlanGroupOutputWithContext(ctx context.Context) RecoveryPlanGroupOutput {
-	return o
-}
-
-// The end group actions.
-func (o RecoveryPlanGroupOutput) EndGroupActions() RecoveryPlanActionArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanAction { return v.EndGroupActions }).(RecoveryPlanActionArrayOutput)
-}
-
-// The group type.
-func (o RecoveryPlanGroupOutput) GroupType() pulumi.StringOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) string { return v.GroupType }).(pulumi.StringOutput)
-}
-
-// The list of protected items.
-func (o RecoveryPlanGroupOutput) ReplicationProtectedItems() RecoveryPlanProtectedItemArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanProtectedItem { return v.ReplicationProtectedItems }).(RecoveryPlanProtectedItemArrayOutput)
-}
-
-// The start group actions.
-func (o RecoveryPlanGroupOutput) StartGroupActions() RecoveryPlanActionArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanAction { return v.StartGroupActions }).(RecoveryPlanActionArrayOutput)
-}
-
-type RecoveryPlanGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanGroup)(nil)).Elem()
-}
-
-func (o RecoveryPlanGroupArrayOutput) ToRecoveryPlanGroupArrayOutput() RecoveryPlanGroupArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupArrayOutput) ToRecoveryPlanGroupArrayOutputWithContext(ctx context.Context) RecoveryPlanGroupArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanGroupArrayOutput) Index(i pulumi.IntInput) RecoveryPlanGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryPlanGroup {
-		return vs[0].([]RecoveryPlanGroup)[vs[1].(int)]
-	}).(RecoveryPlanGroupOutput)
-}
-
-// Recovery plan group details.
 type RecoveryPlanGroupResponse struct {
 	// The end group actions.
 	EndGroupActions []RecoveryPlanActionResponse `pulumi:"endGroupActions"`
@@ -11207,66 +6758,6 @@ type RecoveryPlanGroupResponse struct {
 	ReplicationProtectedItems []RecoveryPlanProtectedItemResponse `pulumi:"replicationProtectedItems"`
 	// The start group actions.
 	StartGroupActions []RecoveryPlanActionResponse `pulumi:"startGroupActions"`
-}
-
-// RecoveryPlanGroupResponseInput is an input type that accepts RecoveryPlanGroupResponseArgs and RecoveryPlanGroupResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanGroupResponseInput` via:
-//
-//          RecoveryPlanGroupResponseArgs{...}
-type RecoveryPlanGroupResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanGroupResponseOutput() RecoveryPlanGroupResponseOutput
-	ToRecoveryPlanGroupResponseOutputWithContext(context.Context) RecoveryPlanGroupResponseOutput
-}
-
-// Recovery plan group details.
-type RecoveryPlanGroupResponseArgs struct {
-	// The end group actions.
-	EndGroupActions RecoveryPlanActionResponseArrayInput `pulumi:"endGroupActions"`
-	// The group type.
-	GroupType pulumi.StringInput `pulumi:"groupType"`
-	// The list of protected items.
-	ReplicationProtectedItems RecoveryPlanProtectedItemResponseArrayInput `pulumi:"replicationProtectedItems"`
-	// The start group actions.
-	StartGroupActions RecoveryPlanActionResponseArrayInput `pulumi:"startGroupActions"`
-}
-
-func (RecoveryPlanGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanGroupResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanGroupResponseArgs) ToRecoveryPlanGroupResponseOutput() RecoveryPlanGroupResponseOutput {
-	return i.ToRecoveryPlanGroupResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanGroupResponseArgs) ToRecoveryPlanGroupResponseOutputWithContext(ctx context.Context) RecoveryPlanGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupResponseOutput)
-}
-
-// RecoveryPlanGroupResponseArrayInput is an input type that accepts RecoveryPlanGroupResponseArray and RecoveryPlanGroupResponseArrayOutput values.
-// You can construct a concrete instance of `RecoveryPlanGroupResponseArrayInput` via:
-//
-//          RecoveryPlanGroupResponseArray{ RecoveryPlanGroupResponseArgs{...} }
-type RecoveryPlanGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanGroupResponseArrayOutput() RecoveryPlanGroupResponseArrayOutput
-	ToRecoveryPlanGroupResponseArrayOutputWithContext(context.Context) RecoveryPlanGroupResponseArrayOutput
-}
-
-type RecoveryPlanGroupResponseArray []RecoveryPlanGroupResponseInput
-
-func (RecoveryPlanGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanGroupResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanGroupResponseArray) ToRecoveryPlanGroupResponseArrayOutput() RecoveryPlanGroupResponseArrayOutput {
-	return i.ToRecoveryPlanGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanGroupResponseArray) ToRecoveryPlanGroupResponseArrayOutputWithContext(ctx context.Context) RecoveryPlanGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupResponseArrayOutput)
 }
 
 // Recovery plan group details.
@@ -11334,37 +6825,6 @@ type RecoveryPlanManualActionDetailsResponse struct {
 	InstanceType string `pulumi:"instanceType"`
 }
 
-// RecoveryPlanManualActionDetailsResponseInput is an input type that accepts RecoveryPlanManualActionDetailsResponseArgs and RecoveryPlanManualActionDetailsResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanManualActionDetailsResponseInput` via:
-//
-//          RecoveryPlanManualActionDetailsResponseArgs{...}
-type RecoveryPlanManualActionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanManualActionDetailsResponseOutput() RecoveryPlanManualActionDetailsResponseOutput
-	ToRecoveryPlanManualActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanManualActionDetailsResponseOutput
-}
-
-// Recovery plan manual action details.
-type RecoveryPlanManualActionDetailsResponseArgs struct {
-	// The manual action description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (RecoveryPlanManualActionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanManualActionDetailsResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanManualActionDetailsResponseArgs) ToRecoveryPlanManualActionDetailsResponseOutput() RecoveryPlanManualActionDetailsResponseOutput {
-	return i.ToRecoveryPlanManualActionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanManualActionDetailsResponseArgs) ToRecoveryPlanManualActionDetailsResponseOutputWithContext(ctx context.Context) RecoveryPlanManualActionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanManualActionDetailsResponseOutput)
-}
-
 // Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -11422,104 +6882,6 @@ type RecoveryPlanPropertiesResponse struct {
 	RecoveryFabricId *string `pulumi:"recoveryFabricId"`
 	// The list of replication providers.
 	ReplicationProviders []string `pulumi:"replicationProviders"`
-}
-
-// RecoveryPlanPropertiesResponseInput is an input type that accepts RecoveryPlanPropertiesResponseArgs and RecoveryPlanPropertiesResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanPropertiesResponseInput` via:
-//
-//          RecoveryPlanPropertiesResponseArgs{...}
-type RecoveryPlanPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanPropertiesResponseOutput() RecoveryPlanPropertiesResponseOutput
-	ToRecoveryPlanPropertiesResponseOutputWithContext(context.Context) RecoveryPlanPropertiesResponseOutput
-}
-
-// Recovery plan custom details.
-type RecoveryPlanPropertiesResponseArgs struct {
-	// The list of allowed operations.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// The current scenario details.
-	CurrentScenario CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
-	// The recovery plan status.
-	CurrentScenarioStatus pulumi.StringPtrInput `pulumi:"currentScenarioStatus"`
-	// The recovery plan status description.
-	CurrentScenarioStatusDescription pulumi.StringPtrInput `pulumi:"currentScenarioStatusDescription"`
-	// The failover deployment model.
-	FailoverDeploymentModel pulumi.StringPtrInput `pulumi:"failoverDeploymentModel"`
-	// The friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The recovery plan groups.
-	Groups RecoveryPlanGroupResponseArrayInput `pulumi:"groups"`
-	// The start time of the last planned failover.
-	LastPlannedFailoverTime pulumi.StringPtrInput `pulumi:"lastPlannedFailoverTime"`
-	// The start time of the last test failover.
-	LastTestFailoverTime pulumi.StringPtrInput `pulumi:"lastTestFailoverTime"`
-	// The start time of the last unplanned failover.
-	LastUnplannedFailoverTime pulumi.StringPtrInput `pulumi:"lastUnplannedFailoverTime"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The primary fabric Id.
-	PrimaryFabricId pulumi.StringPtrInput `pulumi:"primaryFabricId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery fabric Id.
-	RecoveryFabricId pulumi.StringPtrInput `pulumi:"recoveryFabricId"`
-	// The list of replication providers.
-	ReplicationProviders pulumi.StringArrayInput `pulumi:"replicationProviders"`
-}
-
-func (RecoveryPlanPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanPropertiesResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanPropertiesResponseArgs) ToRecoveryPlanPropertiesResponseOutput() RecoveryPlanPropertiesResponseOutput {
-	return i.ToRecoveryPlanPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanPropertiesResponseArgs) ToRecoveryPlanPropertiesResponseOutputWithContext(ctx context.Context) RecoveryPlanPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanPropertiesResponseOutput)
-}
-
-func (i RecoveryPlanPropertiesResponseArgs) ToRecoveryPlanPropertiesResponsePtrOutput() RecoveryPlanPropertiesResponsePtrOutput {
-	return i.ToRecoveryPlanPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanPropertiesResponseArgs) ToRecoveryPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) RecoveryPlanPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanPropertiesResponseOutput).ToRecoveryPlanPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// RecoveryPlanPropertiesResponsePtrInput is an input type that accepts RecoveryPlanPropertiesResponseArgs, RecoveryPlanPropertiesResponsePtr and RecoveryPlanPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `RecoveryPlanPropertiesResponsePtrInput` via:
-//
-//          RecoveryPlanPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecoveryPlanPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanPropertiesResponsePtrOutput() RecoveryPlanPropertiesResponsePtrOutput
-	ToRecoveryPlanPropertiesResponsePtrOutputWithContext(context.Context) RecoveryPlanPropertiesResponsePtrOutput
-}
-
-type recoveryPlanPropertiesResponsePtrType RecoveryPlanPropertiesResponseArgs
-
-func RecoveryPlanPropertiesResponsePtr(v *RecoveryPlanPropertiesResponseArgs) RecoveryPlanPropertiesResponsePtrInput {
-	return (*recoveryPlanPropertiesResponsePtrType)(v)
-}
-
-func (*recoveryPlanPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecoveryPlanPropertiesResponse)(nil)).Elem()
-}
-
-func (i *recoveryPlanPropertiesResponsePtrType) ToRecoveryPlanPropertiesResponsePtrOutput() RecoveryPlanPropertiesResponsePtrOutput {
-	return i.ToRecoveryPlanPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recoveryPlanPropertiesResponsePtrType) ToRecoveryPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) RecoveryPlanPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanPropertiesResponsePtrOutput)
 }
 
 // Recovery plan custom details.
@@ -11855,112 +7217,11 @@ func (i RecoveryPlanProtectedItemArray) ToRecoveryPlanProtectedItemArrayOutputWi
 }
 
 // Recovery plan protected item.
-type RecoveryPlanProtectedItemOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanProtectedItem)(nil)).Elem()
-}
-
-func (o RecoveryPlanProtectedItemOutput) ToRecoveryPlanProtectedItemOutput() RecoveryPlanProtectedItemOutput {
-	return o
-}
-
-func (o RecoveryPlanProtectedItemOutput) ToRecoveryPlanProtectedItemOutputWithContext(ctx context.Context) RecoveryPlanProtectedItemOutput {
-	return o
-}
-
-// The ARM Id of the recovery plan protected item.
-func (o RecoveryPlanProtectedItemOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecoveryPlanProtectedItem) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The virtual machine Id.
-func (o RecoveryPlanProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecoveryPlanProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
-}
-
-type RecoveryPlanProtectedItemArrayOutput struct{ *pulumi.OutputState }
-
-func (RecoveryPlanProtectedItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanProtectedItem)(nil)).Elem()
-}
-
-func (o RecoveryPlanProtectedItemArrayOutput) ToRecoveryPlanProtectedItemArrayOutput() RecoveryPlanProtectedItemArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanProtectedItemArrayOutput) ToRecoveryPlanProtectedItemArrayOutputWithContext(ctx context.Context) RecoveryPlanProtectedItemArrayOutput {
-	return o
-}
-
-func (o RecoveryPlanProtectedItemArrayOutput) Index(i pulumi.IntInput) RecoveryPlanProtectedItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryPlanProtectedItem {
-		return vs[0].([]RecoveryPlanProtectedItem)[vs[1].(int)]
-	}).(RecoveryPlanProtectedItemOutput)
-}
-
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponse struct {
 	// The ARM Id of the recovery plan protected item.
 	Id *string `pulumi:"id"`
 	// The virtual machine Id.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
-}
-
-// RecoveryPlanProtectedItemResponseInput is an input type that accepts RecoveryPlanProtectedItemResponseArgs and RecoveryPlanProtectedItemResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanProtectedItemResponseInput` via:
-//
-//          RecoveryPlanProtectedItemResponseArgs{...}
-type RecoveryPlanProtectedItemResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanProtectedItemResponseOutput() RecoveryPlanProtectedItemResponseOutput
-	ToRecoveryPlanProtectedItemResponseOutputWithContext(context.Context) RecoveryPlanProtectedItemResponseOutput
-}
-
-// Recovery plan protected item.
-type RecoveryPlanProtectedItemResponseArgs struct {
-	// The ARM Id of the recovery plan protected item.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The virtual machine Id.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-}
-
-func (RecoveryPlanProtectedItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanProtectedItemResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanProtectedItemResponseArgs) ToRecoveryPlanProtectedItemResponseOutput() RecoveryPlanProtectedItemResponseOutput {
-	return i.ToRecoveryPlanProtectedItemResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanProtectedItemResponseArgs) ToRecoveryPlanProtectedItemResponseOutputWithContext(ctx context.Context) RecoveryPlanProtectedItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemResponseOutput)
-}
-
-// RecoveryPlanProtectedItemResponseArrayInput is an input type that accepts RecoveryPlanProtectedItemResponseArray and RecoveryPlanProtectedItemResponseArrayOutput values.
-// You can construct a concrete instance of `RecoveryPlanProtectedItemResponseArrayInput` via:
-//
-//          RecoveryPlanProtectedItemResponseArray{ RecoveryPlanProtectedItemResponseArgs{...} }
-type RecoveryPlanProtectedItemResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanProtectedItemResponseArrayOutput() RecoveryPlanProtectedItemResponseArrayOutput
-	ToRecoveryPlanProtectedItemResponseArrayOutputWithContext(context.Context) RecoveryPlanProtectedItemResponseArrayOutput
-}
-
-type RecoveryPlanProtectedItemResponseArray []RecoveryPlanProtectedItemResponseInput
-
-func (RecoveryPlanProtectedItemResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecoveryPlanProtectedItemResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanProtectedItemResponseArray) ToRecoveryPlanProtectedItemResponseArrayOutput() RecoveryPlanProtectedItemResponseArrayOutput {
-	return i.ToRecoveryPlanProtectedItemResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanProtectedItemResponseArray) ToRecoveryPlanProtectedItemResponseArrayOutputWithContext(ctx context.Context) RecoveryPlanProtectedItemResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemResponseArrayOutput)
 }
 
 // Recovery plan protected item.
@@ -12018,41 +7279,6 @@ type RecoveryPlanScriptActionDetailsResponse struct {
 	Path string `pulumi:"path"`
 	// The script timeout.
 	Timeout *string `pulumi:"timeout"`
-}
-
-// RecoveryPlanScriptActionDetailsResponseInput is an input type that accepts RecoveryPlanScriptActionDetailsResponseArgs and RecoveryPlanScriptActionDetailsResponseOutput values.
-// You can construct a concrete instance of `RecoveryPlanScriptActionDetailsResponseInput` via:
-//
-//          RecoveryPlanScriptActionDetailsResponseArgs{...}
-type RecoveryPlanScriptActionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToRecoveryPlanScriptActionDetailsResponseOutput() RecoveryPlanScriptActionDetailsResponseOutput
-	ToRecoveryPlanScriptActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanScriptActionDetailsResponseOutput
-}
-
-// Recovery plan script action details.
-type RecoveryPlanScriptActionDetailsResponseArgs struct {
-	// The fabric location.
-	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The script path.
-	Path pulumi.StringInput `pulumi:"path"`
-	// The script timeout.
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
-}
-
-func (RecoveryPlanScriptActionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecoveryPlanScriptActionDetailsResponse)(nil)).Elem()
-}
-
-func (i RecoveryPlanScriptActionDetailsResponseArgs) ToRecoveryPlanScriptActionDetailsResponseOutput() RecoveryPlanScriptActionDetailsResponseOutput {
-	return i.ToRecoveryPlanScriptActionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i RecoveryPlanScriptActionDetailsResponseArgs) ToRecoveryPlanScriptActionDetailsResponseOutputWithContext(ctx context.Context) RecoveryPlanScriptActionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanScriptActionDetailsResponseOutput)
 }
 
 // Recovery plan script action details.
@@ -12146,128 +7372,6 @@ type ReplicationProtectedItemPropertiesResponse struct {
 	TestFailoverState *string `pulumi:"testFailoverState"`
 	// The Test failover state description.
 	TestFailoverStateDescription *string `pulumi:"testFailoverStateDescription"`
-}
-
-// ReplicationProtectedItemPropertiesResponseInput is an input type that accepts ReplicationProtectedItemPropertiesResponseArgs and ReplicationProtectedItemPropertiesResponseOutput values.
-// You can construct a concrete instance of `ReplicationProtectedItemPropertiesResponseInput` via:
-//
-//          ReplicationProtectedItemPropertiesResponseArgs{...}
-type ReplicationProtectedItemPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToReplicationProtectedItemPropertiesResponseOutput() ReplicationProtectedItemPropertiesResponseOutput
-	ToReplicationProtectedItemPropertiesResponseOutputWithContext(context.Context) ReplicationProtectedItemPropertiesResponseOutput
-}
-
-// Replication protected item custom data details.
-type ReplicationProtectedItemPropertiesResponseArgs struct {
-	// The Current active location of the PE.
-	ActiveLocation pulumi.StringPtrInput `pulumi:"activeLocation"`
-	// The allowed operations on the Replication protected item.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// The current scenario.
-	CurrentScenario CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
-	// The consolidated failover health for the VM.
-	FailoverHealth pulumi.StringPtrInput `pulumi:"failoverHealth"`
-	// List of failover health errors.
-	FailoverHealthErrors HealthErrorResponseArrayInput `pulumi:"failoverHealthErrors"`
-	// The recovery point ARM Id to which the Vm was failed over.
-	FailoverRecoveryPointId pulumi.StringPtrInput `pulumi:"failoverRecoveryPointId"`
-	// The name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The Last successful failover time.
-	LastSuccessfulFailoverTime pulumi.StringPtrInput `pulumi:"lastSuccessfulFailoverTime"`
-	// The Last successful test failover time.
-	LastSuccessfulTestFailoverTime pulumi.StringPtrInput `pulumi:"lastSuccessfulTestFailoverTime"`
-	// The name of Policy governing this PE.
-	PolicyFriendlyName pulumi.StringPtrInput `pulumi:"policyFriendlyName"`
-	// The ID of Policy governing this PE.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// The friendly name of the primary fabric.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The name of primary protection container friendly name.
-	PrimaryProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"primaryProtectionContainerFriendlyName"`
-	// The protected item ARM Id.
-	ProtectableItemId pulumi.StringPtrInput `pulumi:"protectableItemId"`
-	// The type of protected item type.
-	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
-	// The protection status.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// The protection state description.
-	ProtectionStateDescription pulumi.StringPtrInput `pulumi:"protectionStateDescription"`
-	// The Replication provider custom settings.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
-	// The recovery container Id.
-	RecoveryContainerId pulumi.StringPtrInput `pulumi:"recoveryContainerId"`
-	// The friendly name of recovery fabric.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The Arm Id of recovery fabric.
-	RecoveryFabricId pulumi.StringPtrInput `pulumi:"recoveryFabricId"`
-	// The name of recovery container friendly name.
-	RecoveryProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"recoveryProtectionContainerFriendlyName"`
-	// The recovery provider ARM Id.
-	RecoveryServicesProviderId pulumi.StringPtrInput `pulumi:"recoveryServicesProviderId"`
-	// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-	ReplicationHealth pulumi.StringPtrInput `pulumi:"replicationHealth"`
-	// List of replication health errors.
-	ReplicationHealthErrors HealthErrorResponseArrayInput `pulumi:"replicationHealthErrors"`
-	// The Test failover state.
-	TestFailoverState pulumi.StringPtrInput `pulumi:"testFailoverState"`
-	// The Test failover state description.
-	TestFailoverStateDescription pulumi.StringPtrInput `pulumi:"testFailoverStateDescription"`
-}
-
-func (ReplicationProtectedItemPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i ReplicationProtectedItemPropertiesResponseArgs) ToReplicationProtectedItemPropertiesResponseOutput() ReplicationProtectedItemPropertiesResponseOutput {
-	return i.ToReplicationProtectedItemPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ReplicationProtectedItemPropertiesResponseArgs) ToReplicationProtectedItemPropertiesResponseOutputWithContext(ctx context.Context) ReplicationProtectedItemPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemPropertiesResponseOutput)
-}
-
-func (i ReplicationProtectedItemPropertiesResponseArgs) ToReplicationProtectedItemPropertiesResponsePtrOutput() ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return i.ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationProtectedItemPropertiesResponseArgs) ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemPropertiesResponseOutput).ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ReplicationProtectedItemPropertiesResponsePtrInput is an input type that accepts ReplicationProtectedItemPropertiesResponseArgs, ReplicationProtectedItemPropertiesResponsePtr and ReplicationProtectedItemPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ReplicationProtectedItemPropertiesResponsePtrInput` via:
-//
-//          ReplicationProtectedItemPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ReplicationProtectedItemPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToReplicationProtectedItemPropertiesResponsePtrOutput() ReplicationProtectedItemPropertiesResponsePtrOutput
-	ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(context.Context) ReplicationProtectedItemPropertiesResponsePtrOutput
-}
-
-type replicationProtectedItemPropertiesResponsePtrType ReplicationProtectedItemPropertiesResponseArgs
-
-func ReplicationProtectedItemPropertiesResponsePtr(v *ReplicationProtectedItemPropertiesResponseArgs) ReplicationProtectedItemPropertiesResponsePtrInput {
-	return (*replicationProtectedItemPropertiesResponsePtrType)(v)
-}
-
-func (*replicationProtectedItemPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationProtectedItemPropertiesResponse)(nil)).Elem()
-}
-
-func (i *replicationProtectedItemPropertiesResponsePtrType) ToReplicationProtectedItemPropertiesResponsePtrOutput() ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return i.ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationProtectedItemPropertiesResponsePtrType) ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemPropertiesResponsePtrOutput)
 }
 
 // Replication protected item custom data details.
@@ -12806,66 +7910,6 @@ func (i *replicationProviderSpecificContainerMappingInputPtrType) ToReplicationP
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProviderSpecificContainerMappingInputPtrOutput)
 }
 
-// Provider specific input for pairing operations.
-type ReplicationProviderSpecificContainerMappingInputOutput struct{ *pulumi.OutputState }
-
-func (ReplicationProviderSpecificContainerMappingInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProviderSpecificContainerMappingInput)(nil)).Elem()
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationProviderSpecificContainerMappingInputOutput() ReplicationProviderSpecificContainerMappingInputOutput {
-	return o
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationProviderSpecificContainerMappingInputOutputWithContext(ctx context.Context) ReplicationProviderSpecificContainerMappingInputOutput {
-	return o
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationProviderSpecificContainerMappingInputPtrOutput() ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o.ToReplicationProviderSpecificContainerMappingInputPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputOutput) ToReplicationProviderSpecificContainerMappingInputPtrOutputWithContext(ctx context.Context) ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o.ApplyT(func(v ReplicationProviderSpecificContainerMappingInput) *ReplicationProviderSpecificContainerMappingInput {
-		return &v
-	}).(ReplicationProviderSpecificContainerMappingInputPtrOutput)
-}
-
-// The class type.
-func (o ReplicationProviderSpecificContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicationProviderSpecificContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-type ReplicationProviderSpecificContainerMappingInputPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationProviderSpecificContainerMappingInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationProviderSpecificContainerMappingInput)(nil)).Elem()
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) ToReplicationProviderSpecificContainerMappingInputPtrOutput() ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) ToReplicationProviderSpecificContainerMappingInputPtrOutputWithContext(ctx context.Context) ReplicationProviderSpecificContainerMappingInputPtrOutput {
-	return o
-}
-
-func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) Elem() ReplicationProviderSpecificContainerMappingInputOutput {
-	return o.ApplyT(func(v *ReplicationProviderSpecificContainerMappingInput) ReplicationProviderSpecificContainerMappingInput {
-		return *v
-	}).(ReplicationProviderSpecificContainerMappingInputOutput)
-}
-
-// The class type.
-func (o ReplicationProviderSpecificContainerMappingInputPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReplicationProviderSpecificContainerMappingInput) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
 // The retention details of the MT.
 type RetentionVolumeResponse struct {
 	// The volume capacity.
@@ -12876,66 +7920,6 @@ type RetentionVolumeResponse struct {
 	ThresholdPercentage *int `pulumi:"thresholdPercentage"`
 	// The volume name.
 	VolumeName *string `pulumi:"volumeName"`
-}
-
-// RetentionVolumeResponseInput is an input type that accepts RetentionVolumeResponseArgs and RetentionVolumeResponseOutput values.
-// You can construct a concrete instance of `RetentionVolumeResponseInput` via:
-//
-//          RetentionVolumeResponseArgs{...}
-type RetentionVolumeResponseInput interface {
-	pulumi.Input
-
-	ToRetentionVolumeResponseOutput() RetentionVolumeResponseOutput
-	ToRetentionVolumeResponseOutputWithContext(context.Context) RetentionVolumeResponseOutput
-}
-
-// The retention details of the MT.
-type RetentionVolumeResponseArgs struct {
-	// The volume capacity.
-	CapacityInBytes pulumi.IntPtrInput `pulumi:"capacityInBytes"`
-	// The free space available in this volume.
-	FreeSpaceInBytes pulumi.IntPtrInput `pulumi:"freeSpaceInBytes"`
-	// The threshold percentage.
-	ThresholdPercentage pulumi.IntPtrInput `pulumi:"thresholdPercentage"`
-	// The volume name.
-	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
-}
-
-func (RetentionVolumeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetentionVolumeResponse)(nil)).Elem()
-}
-
-func (i RetentionVolumeResponseArgs) ToRetentionVolumeResponseOutput() RetentionVolumeResponseOutput {
-	return i.ToRetentionVolumeResponseOutputWithContext(context.Background())
-}
-
-func (i RetentionVolumeResponseArgs) ToRetentionVolumeResponseOutputWithContext(ctx context.Context) RetentionVolumeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionVolumeResponseOutput)
-}
-
-// RetentionVolumeResponseArrayInput is an input type that accepts RetentionVolumeResponseArray and RetentionVolumeResponseArrayOutput values.
-// You can construct a concrete instance of `RetentionVolumeResponseArrayInput` via:
-//
-//          RetentionVolumeResponseArray{ RetentionVolumeResponseArgs{...} }
-type RetentionVolumeResponseArrayInput interface {
-	pulumi.Input
-
-	ToRetentionVolumeResponseArrayOutput() RetentionVolumeResponseArrayOutput
-	ToRetentionVolumeResponseArrayOutputWithContext(context.Context) RetentionVolumeResponseArrayOutput
-}
-
-type RetentionVolumeResponseArray []RetentionVolumeResponseInput
-
-func (RetentionVolumeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RetentionVolumeResponse)(nil)).Elem()
-}
-
-func (i RetentionVolumeResponseArray) ToRetentionVolumeResponseArrayOutput() RetentionVolumeResponseArrayOutput {
-	return i.ToRetentionVolumeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RetentionVolumeResponseArray) ToRetentionVolumeResponseArrayOutputWithContext(ctx context.Context) RetentionVolumeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionVolumeResponseArrayOutput)
 }
 
 // The retention details of the MT.
@@ -13007,68 +7991,6 @@ type RoleAssignmentResponse struct {
 	Scope *string `pulumi:"scope"`
 }
 
-// RoleAssignmentResponseInput is an input type that accepts RoleAssignmentResponseArgs and RoleAssignmentResponseOutput values.
-// You can construct a concrete instance of `RoleAssignmentResponseInput` via:
-//
-//          RoleAssignmentResponseArgs{...}
-type RoleAssignmentResponseInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentResponseOutput() RoleAssignmentResponseOutput
-	ToRoleAssignmentResponseOutputWithContext(context.Context) RoleAssignmentResponseOutput
-}
-
-// Azure role assignment details.
-type RoleAssignmentResponseArgs struct {
-	// The ARM Id of the role assignment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the role assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Principal Id.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Role definition id.
-	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
-	// Role assignment scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-}
-
-func (RoleAssignmentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentResponse)(nil)).Elem()
-}
-
-func (i RoleAssignmentResponseArgs) ToRoleAssignmentResponseOutput() RoleAssignmentResponseOutput {
-	return i.ToRoleAssignmentResponseOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentResponseArgs) ToRoleAssignmentResponseOutputWithContext(ctx context.Context) RoleAssignmentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentResponseOutput)
-}
-
-// RoleAssignmentResponseArrayInput is an input type that accepts RoleAssignmentResponseArray and RoleAssignmentResponseArrayOutput values.
-// You can construct a concrete instance of `RoleAssignmentResponseArrayInput` via:
-//
-//          RoleAssignmentResponseArray{ RoleAssignmentResponseArgs{...} }
-type RoleAssignmentResponseArrayInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentResponseArrayOutput() RoleAssignmentResponseArrayOutput
-	ToRoleAssignmentResponseArrayOutputWithContext(context.Context) RoleAssignmentResponseArrayOutput
-}
-
-type RoleAssignmentResponseArray []RoleAssignmentResponseInput
-
-func (RoleAssignmentResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoleAssignmentResponse)(nil)).Elem()
-}
-
-func (i RoleAssignmentResponseArray) ToRoleAssignmentResponseArrayOutput() RoleAssignmentResponseArrayOutput {
-	return i.ToRoleAssignmentResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentResponseArray) ToRoleAssignmentResponseArrayOutputWithContext(ctx context.Context) RoleAssignmentResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentResponseArrayOutput)
-}
-
 // Azure role assignment details.
 type RoleAssignmentResponseOutput struct{ *pulumi.OutputState }
 
@@ -13135,62 +8057,6 @@ type RunAsAccountResponse struct {
 	AccountId *string `pulumi:"accountId"`
 	// The CS RunAs account name.
 	AccountName *string `pulumi:"accountName"`
-}
-
-// RunAsAccountResponseInput is an input type that accepts RunAsAccountResponseArgs and RunAsAccountResponseOutput values.
-// You can construct a concrete instance of `RunAsAccountResponseInput` via:
-//
-//          RunAsAccountResponseArgs{...}
-type RunAsAccountResponseInput interface {
-	pulumi.Input
-
-	ToRunAsAccountResponseOutput() RunAsAccountResponseOutput
-	ToRunAsAccountResponseOutputWithContext(context.Context) RunAsAccountResponseOutput
-}
-
-// CS Accounts Details.
-type RunAsAccountResponseArgs struct {
-	// The CS RunAs account Id.
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The CS RunAs account name.
-	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-}
-
-func (RunAsAccountResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunAsAccountResponse)(nil)).Elem()
-}
-
-func (i RunAsAccountResponseArgs) ToRunAsAccountResponseOutput() RunAsAccountResponseOutput {
-	return i.ToRunAsAccountResponseOutputWithContext(context.Background())
-}
-
-func (i RunAsAccountResponseArgs) ToRunAsAccountResponseOutputWithContext(ctx context.Context) RunAsAccountResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunAsAccountResponseOutput)
-}
-
-// RunAsAccountResponseArrayInput is an input type that accepts RunAsAccountResponseArray and RunAsAccountResponseArrayOutput values.
-// You can construct a concrete instance of `RunAsAccountResponseArrayInput` via:
-//
-//          RunAsAccountResponseArray{ RunAsAccountResponseArgs{...} }
-type RunAsAccountResponseArrayInput interface {
-	pulumi.Input
-
-	ToRunAsAccountResponseArrayOutput() RunAsAccountResponseArrayOutput
-	ToRunAsAccountResponseArrayOutputWithContext(context.Context) RunAsAccountResponseArrayOutput
-}
-
-type RunAsAccountResponseArray []RunAsAccountResponseInput
-
-func (RunAsAccountResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RunAsAccountResponse)(nil)).Elem()
-}
-
-func (i RunAsAccountResponseArray) ToRunAsAccountResponseArrayOutput() RunAsAccountResponseArrayOutput {
-	return i.ToRunAsAccountResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RunAsAccountResponseArray) ToRunAsAccountResponseArrayOutputWithContext(ctx context.Context) RunAsAccountResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunAsAccountResponseArrayOutput)
 }
 
 // CS Accounts Details.
@@ -13273,100 +8139,10 @@ func (i SanEnableProtectionInputArgs) ToSanEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SanEnableProtectionInputOutput)
 }
 
-// San enable protection provider specific input.
-type SanEnableProtectionInputOutput struct{ *pulumi.OutputState }
-
-func (SanEnableProtectionInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SanEnableProtectionInput)(nil)).Elem()
-}
-
-func (o SanEnableProtectionInputOutput) ToSanEnableProtectionInputOutput() SanEnableProtectionInputOutput {
-	return o
-}
-
-func (o SanEnableProtectionInputOutput) ToSanEnableProtectionInputOutputWithContext(ctx context.Context) SanEnableProtectionInputOutput {
-	return o
-}
-
-// The class type.
-func (o SanEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SanEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
 // Storage mapping properties.
 type StorageClassificationMappingPropertiesResponse struct {
 	// Target storage object Id.
 	TargetStorageClassificationId *string `pulumi:"targetStorageClassificationId"`
-}
-
-// StorageClassificationMappingPropertiesResponseInput is an input type that accepts StorageClassificationMappingPropertiesResponseArgs and StorageClassificationMappingPropertiesResponseOutput values.
-// You can construct a concrete instance of `StorageClassificationMappingPropertiesResponseInput` via:
-//
-//          StorageClassificationMappingPropertiesResponseArgs{...}
-type StorageClassificationMappingPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStorageClassificationMappingPropertiesResponseOutput() StorageClassificationMappingPropertiesResponseOutput
-	ToStorageClassificationMappingPropertiesResponseOutputWithContext(context.Context) StorageClassificationMappingPropertiesResponseOutput
-}
-
-// Storage mapping properties.
-type StorageClassificationMappingPropertiesResponseArgs struct {
-	// Target storage object Id.
-	TargetStorageClassificationId pulumi.StringPtrInput `pulumi:"targetStorageClassificationId"`
-}
-
-func (StorageClassificationMappingPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageClassificationMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i StorageClassificationMappingPropertiesResponseArgs) ToStorageClassificationMappingPropertiesResponseOutput() StorageClassificationMappingPropertiesResponseOutput {
-	return i.ToStorageClassificationMappingPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StorageClassificationMappingPropertiesResponseArgs) ToStorageClassificationMappingPropertiesResponseOutputWithContext(ctx context.Context) StorageClassificationMappingPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageClassificationMappingPropertiesResponseOutput)
-}
-
-func (i StorageClassificationMappingPropertiesResponseArgs) ToStorageClassificationMappingPropertiesResponsePtrOutput() StorageClassificationMappingPropertiesResponsePtrOutput {
-	return i.ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageClassificationMappingPropertiesResponseArgs) ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageClassificationMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageClassificationMappingPropertiesResponseOutput).ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// StorageClassificationMappingPropertiesResponsePtrInput is an input type that accepts StorageClassificationMappingPropertiesResponseArgs, StorageClassificationMappingPropertiesResponsePtr and StorageClassificationMappingPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `StorageClassificationMappingPropertiesResponsePtrInput` via:
-//
-//          StorageClassificationMappingPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageClassificationMappingPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageClassificationMappingPropertiesResponsePtrOutput() StorageClassificationMappingPropertiesResponsePtrOutput
-	ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(context.Context) StorageClassificationMappingPropertiesResponsePtrOutput
-}
-
-type storageClassificationMappingPropertiesResponsePtrType StorageClassificationMappingPropertiesResponseArgs
-
-func StorageClassificationMappingPropertiesResponsePtr(v *StorageClassificationMappingPropertiesResponseArgs) StorageClassificationMappingPropertiesResponsePtrInput {
-	return (*storageClassificationMappingPropertiesResponsePtrType)(v)
-}
-
-func (*storageClassificationMappingPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageClassificationMappingPropertiesResponse)(nil)).Elem()
-}
-
-func (i *storageClassificationMappingPropertiesResponsePtrType) ToStorageClassificationMappingPropertiesResponsePtrOutput() StorageClassificationMappingPropertiesResponsePtrOutput {
-	return i.ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageClassificationMappingPropertiesResponsePtrType) ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageClassificationMappingPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageClassificationMappingPropertiesResponsePtrOutput)
 }
 
 // Storage mapping properties.
@@ -13505,64 +8281,6 @@ func (i *storageMappingInputPropertiesPtrType) ToStorageMappingInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageMappingInputPropertiesPtrOutput)
 }
 
-// Storage mapping input properties.
-type StorageMappingInputPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StorageMappingInputPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageMappingInputProperties)(nil)).Elem()
-}
-
-func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesOutput() StorageMappingInputPropertiesOutput {
-	return o
-}
-
-func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesOutputWithContext(ctx context.Context) StorageMappingInputPropertiesOutput {
-	return o
-}
-
-func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrOutput() StorageMappingInputPropertiesPtrOutput {
-	return o.ToStorageMappingInputPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrOutputWithContext(ctx context.Context) StorageMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageMappingInputProperties) *StorageMappingInputProperties {
-		return &v
-	}).(StorageMappingInputPropertiesPtrOutput)
-}
-
-// The ID of the storage object.
-func (o StorageMappingInputPropertiesOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageMappingInputProperties) *string { return v.TargetStorageClassificationId }).(pulumi.StringPtrOutput)
-}
-
-type StorageMappingInputPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageMappingInputPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageMappingInputProperties)(nil)).Elem()
-}
-
-func (o StorageMappingInputPropertiesPtrOutput) ToStorageMappingInputPropertiesPtrOutput() StorageMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o StorageMappingInputPropertiesPtrOutput) ToStorageMappingInputPropertiesPtrOutputWithContext(ctx context.Context) StorageMappingInputPropertiesPtrOutput {
-	return o
-}
-
-func (o StorageMappingInputPropertiesPtrOutput) Elem() StorageMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *StorageMappingInputProperties) StorageMappingInputProperties { return *v }).(StorageMappingInputPropertiesOutput)
-}
-
-// The ID of the storage object.
-func (o StorageMappingInputPropertiesPtrOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageMappingInputProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetStorageClassificationId
-	}).(pulumi.StringPtrOutput)
-}
-
 // vCenter properties.
 type VCenterPropertiesResponse struct {
 	// The VCenter discovery status.
@@ -13585,94 +8303,6 @@ type VCenterPropertiesResponse struct {
 	ProcessServerId *string `pulumi:"processServerId"`
 	// The account Id which has privileges to discover the vCenter.
 	RunAsAccountId *string `pulumi:"runAsAccountId"`
-}
-
-// VCenterPropertiesResponseInput is an input type that accepts VCenterPropertiesResponseArgs and VCenterPropertiesResponseOutput values.
-// You can construct a concrete instance of `VCenterPropertiesResponseInput` via:
-//
-//          VCenterPropertiesResponseArgs{...}
-type VCenterPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVCenterPropertiesResponseOutput() VCenterPropertiesResponseOutput
-	ToVCenterPropertiesResponseOutputWithContext(context.Context) VCenterPropertiesResponseOutput
-}
-
-// vCenter properties.
-type VCenterPropertiesResponseArgs struct {
-	// The VCenter discovery status.
-	DiscoveryStatus pulumi.StringPtrInput `pulumi:"discoveryStatus"`
-	// The ARM resource name of the fabric containing this VCenter.
-	FabricArmResourceName pulumi.StringPtrInput `pulumi:"fabricArmResourceName"`
-	// Friendly name of the vCenter.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The infrastructure Id of vCenter.
-	InfrastructureId pulumi.StringPtrInput `pulumi:"infrastructureId"`
-	// VCenter internal ID.
-	InternalId pulumi.StringPtrInput `pulumi:"internalId"`
-	// The IP address of the vCenter.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The time when the last heartbeat was received by vCenter.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The port number for discovery.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The account Id which has privileges to discover the vCenter.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
-}
-
-func (VCenterPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VCenterPropertiesResponse)(nil)).Elem()
-}
-
-func (i VCenterPropertiesResponseArgs) ToVCenterPropertiesResponseOutput() VCenterPropertiesResponseOutput {
-	return i.ToVCenterPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VCenterPropertiesResponseArgs) ToVCenterPropertiesResponseOutputWithContext(ctx context.Context) VCenterPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesResponseOutput)
-}
-
-func (i VCenterPropertiesResponseArgs) ToVCenterPropertiesResponsePtrOutput() VCenterPropertiesResponsePtrOutput {
-	return i.ToVCenterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VCenterPropertiesResponseArgs) ToVCenterPropertiesResponsePtrOutputWithContext(ctx context.Context) VCenterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesResponseOutput).ToVCenterPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VCenterPropertiesResponsePtrInput is an input type that accepts VCenterPropertiesResponseArgs, VCenterPropertiesResponsePtr and VCenterPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VCenterPropertiesResponsePtrInput` via:
-//
-//          VCenterPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VCenterPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVCenterPropertiesResponsePtrOutput() VCenterPropertiesResponsePtrOutput
-	ToVCenterPropertiesResponsePtrOutputWithContext(context.Context) VCenterPropertiesResponsePtrOutput
-}
-
-type vcenterPropertiesResponsePtrType VCenterPropertiesResponseArgs
-
-func VCenterPropertiesResponsePtr(v *VCenterPropertiesResponseArgs) VCenterPropertiesResponsePtrInput {
-	return (*vcenterPropertiesResponsePtrType)(v)
-}
-
-func (*vcenterPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VCenterPropertiesResponse)(nil)).Elem()
-}
-
-func (i *vcenterPropertiesResponsePtrType) ToVCenterPropertiesResponsePtrOutput() VCenterPropertiesResponsePtrOutput {
-	return i.ToVCenterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *vcenterPropertiesResponsePtrType) ToVCenterPropertiesResponsePtrOutputWithContext(ctx context.Context) VCenterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesResponsePtrOutput)
 }
 
 // vCenter properties.
@@ -13896,82 +8526,6 @@ type VMNicDetailsResponse struct {
 	VMSubnetName *string `pulumi:"vMSubnetName"`
 }
 
-// VMNicDetailsResponseInput is an input type that accepts VMNicDetailsResponseArgs and VMNicDetailsResponseOutput values.
-// You can construct a concrete instance of `VMNicDetailsResponseInput` via:
-//
-//          VMNicDetailsResponseArgs{...}
-type VMNicDetailsResponseInput interface {
-	pulumi.Input
-
-	ToVMNicDetailsResponseOutput() VMNicDetailsResponseOutput
-	ToVMNicDetailsResponseOutputWithContext(context.Context) VMNicDetailsResponseOutput
-}
-
-// Hyper V VM network details.
-type VMNicDetailsResponseArgs struct {
-	// Ip address type.
-	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
-	// The nic Id.
-	NicId pulumi.StringPtrInput `pulumi:"nicId"`
-	// Primary nic static IP address.
-	PrimaryNicStaticIPAddress pulumi.StringPtrInput `pulumi:"primaryNicStaticIPAddress"`
-	// IP allocation type for recovery VM.
-	RecoveryNicIpAddressType pulumi.StringPtrInput `pulumi:"recoveryNicIpAddressType"`
-	// Recovery VM network Id.
-	RecoveryVMNetworkId pulumi.StringPtrInput `pulumi:"recoveryVMNetworkId"`
-	// Recovery VM subnet name.
-	RecoveryVMSubnetName pulumi.StringPtrInput `pulumi:"recoveryVMSubnetName"`
-	// The replica nic Id.
-	ReplicaNicId pulumi.StringPtrInput `pulumi:"replicaNicId"`
-	// Replica nic static IP address.
-	ReplicaNicStaticIPAddress pulumi.StringPtrInput `pulumi:"replicaNicStaticIPAddress"`
-	// Selection type for failover.
-	SelectionType pulumi.StringPtrInput `pulumi:"selectionType"`
-	// The source nic ARM Id.
-	SourceNicArmId pulumi.StringPtrInput `pulumi:"sourceNicArmId"`
-	// VM network name.
-	VMNetworkName pulumi.StringPtrInput `pulumi:"vMNetworkName"`
-	// VM subnet name.
-	VMSubnetName pulumi.StringPtrInput `pulumi:"vMSubnetName"`
-}
-
-func (VMNicDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMNicDetailsResponse)(nil)).Elem()
-}
-
-func (i VMNicDetailsResponseArgs) ToVMNicDetailsResponseOutput() VMNicDetailsResponseOutput {
-	return i.ToVMNicDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i VMNicDetailsResponseArgs) ToVMNicDetailsResponseOutputWithContext(ctx context.Context) VMNicDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VMNicDetailsResponseOutput)
-}
-
-// VMNicDetailsResponseArrayInput is an input type that accepts VMNicDetailsResponseArray and VMNicDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `VMNicDetailsResponseArrayInput` via:
-//
-//          VMNicDetailsResponseArray{ VMNicDetailsResponseArgs{...} }
-type VMNicDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToVMNicDetailsResponseArrayOutput() VMNicDetailsResponseArrayOutput
-	ToVMNicDetailsResponseArrayOutputWithContext(context.Context) VMNicDetailsResponseArrayOutput
-}
-
-type VMNicDetailsResponseArray []VMNicDetailsResponseInput
-
-func (VMNicDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VMNicDetailsResponse)(nil)).Elem()
-}
-
-func (i VMNicDetailsResponseArray) ToVMNicDetailsResponseArrayOutput() VMNicDetailsResponseArrayOutput {
-	return i.ToVMNicDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VMNicDetailsResponseArray) ToVMNicDetailsResponseArrayOutputWithContext(ctx context.Context) VMNicDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VMNicDetailsResponseArrayOutput)
-}
-
 // Hyper V VM network details.
 type VMNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -14114,41 +8668,6 @@ func (i VMwareCbtPolicyCreationInputArgs) ToVMwareCbtPolicyCreationInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtPolicyCreationInputOutput)
 }
 
-// VMware Cbt Policy creation input.
-type VMwareCbtPolicyCreationInputOutput struct{ *pulumi.OutputState }
-
-func (VMwareCbtPolicyCreationInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareCbtPolicyCreationInput)(nil)).Elem()
-}
-
-func (o VMwareCbtPolicyCreationInputOutput) ToVMwareCbtPolicyCreationInputOutput() VMwareCbtPolicyCreationInputOutput {
-	return o
-}
-
-func (o VMwareCbtPolicyCreationInputOutput) ToVMwareCbtPolicyCreationInputOutputWithContext(ctx context.Context) VMwareCbtPolicyCreationInputOutput {
-	return o
-}
-
-// The app consistent snapshot frequency (in minutes).
-func (o VMwareCbtPolicyCreationInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The crash consistent snapshot frequency (in minutes).
-func (o VMwareCbtPolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
-}
-
-// The class type.
-func (o VMwareCbtPolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-// The duration in minutes until which the recovery points need to be stored.
-func (o VMwareCbtPolicyCreationInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
-}
-
 // Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponse struct {
 	// The number of source and target servers configured to talk to this CS.
@@ -14213,95 +8732,6 @@ type VMwareDetailsResponse struct {
 	WebLoad *string `pulumi:"webLoad"`
 	// The web load status.
 	WebLoadStatus *string `pulumi:"webLoadStatus"`
-}
-
-// VMwareDetailsResponseInput is an input type that accepts VMwareDetailsResponseArgs and VMwareDetailsResponseOutput values.
-// You can construct a concrete instance of `VMwareDetailsResponseInput` via:
-//
-//          VMwareDetailsResponseArgs{...}
-type VMwareDetailsResponseInput interface {
-	pulumi.Input
-
-	ToVMwareDetailsResponseOutput() VMwareDetailsResponseOutput
-	ToVMwareDetailsResponseOutputWithContext(context.Context) VMwareDetailsResponseOutput
-}
-
-// Store the fabric details specific to the VMware fabric.
-type VMwareDetailsResponseArgs struct {
-	// The number of source and target servers configured to talk to this CS.
-	AgentCount pulumi.StringPtrInput `pulumi:"agentCount"`
-	// The agent Version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The available memory.
-	AvailableMemoryInBytes pulumi.IntPtrInput `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes pulumi.IntPtrInput `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus pulumi.StringPtrInput `pulumi:"cpuLoadStatus"`
-	// The CS service status.
-	CsServiceStatus pulumi.StringPtrInput `pulumi:"csServiceStatus"`
-	// The database server load.
-	DatabaseServerLoad pulumi.StringPtrInput `pulumi:"databaseServerLoad"`
-	// The database server load status.
-	DatabaseServerLoadStatus pulumi.StringPtrInput `pulumi:"databaseServerLoadStatus"`
-	// The host name.
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from CS server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The list of Master Target servers associated with the fabric.
-	MasterTargetServers MasterTargetServerResponseArrayInput `pulumi:"masterTargetServers"`
-	// The memory usage status.
-	MemoryUsageStatus pulumi.StringPtrInput `pulumi:"memoryUsageStatus"`
-	// The number of process servers.
-	ProcessServerCount pulumi.StringPtrInput `pulumi:"processServerCount"`
-	// The list of Process Servers associated with the fabric.
-	ProcessServers ProcessServerResponseArrayInput `pulumi:"processServers"`
-	// The number of protected servers.
-	ProtectedServers pulumi.StringPtrInput `pulumi:"protectedServers"`
-	// PS template version.
-	PsTemplateVersion pulumi.StringPtrInput `pulumi:"psTemplateVersion"`
-	// The number of replication pairs configured in this CS.
-	ReplicationPairCount pulumi.StringPtrInput `pulumi:"replicationPairCount"`
-	// The list of run as accounts created on the server.
-	RunAsAccounts RunAsAccountResponseArrayInput `pulumi:"runAsAccounts"`
-	// The space usage status.
-	SpaceUsageStatus pulumi.StringPtrInput `pulumi:"spaceUsageStatus"`
-	// CS SSL cert expiry date.
-	SslCertExpiryDate pulumi.StringPtrInput `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays pulumi.IntPtrInput `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad pulumi.StringPtrInput `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes pulumi.IntPtrInput `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes pulumi.IntPtrInput `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
-	// The web load.
-	WebLoad pulumi.StringPtrInput `pulumi:"webLoad"`
-	// The web load status.
-	WebLoadStatus pulumi.StringPtrInput `pulumi:"webLoadStatus"`
-}
-
-func (VMwareDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareDetailsResponse)(nil)).Elem()
-}
-
-func (i VMwareDetailsResponseArgs) ToVMwareDetailsResponseOutput() VMwareDetailsResponseOutput {
-	return i.ToVMwareDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i VMwareDetailsResponseArgs) ToVMwareDetailsResponseOutputWithContext(ctx context.Context) VMwareDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VMwareDetailsResponseOutput)
 }
 
 // Store the fabric details specific to the VMware fabric.
@@ -14484,39 +8914,6 @@ type VMwareV2FabricSpecificDetailsResponse struct {
 	SrsServiceEndpoint *string `pulumi:"srsServiceEndpoint"`
 }
 
-// VMwareV2FabricSpecificDetailsResponseInput is an input type that accepts VMwareV2FabricSpecificDetailsResponseArgs and VMwareV2FabricSpecificDetailsResponseOutput values.
-// You can construct a concrete instance of `VMwareV2FabricSpecificDetailsResponseInput` via:
-//
-//          VMwareV2FabricSpecificDetailsResponseArgs{...}
-type VMwareV2FabricSpecificDetailsResponseInput interface {
-	pulumi.Input
-
-	ToVMwareV2FabricSpecificDetailsResponseOutput() VMwareV2FabricSpecificDetailsResponseOutput
-	ToVMwareV2FabricSpecificDetailsResponseOutputWithContext(context.Context) VMwareV2FabricSpecificDetailsResponseOutput
-}
-
-// VMwareV2 fabric Specific Details.
-type VMwareV2FabricSpecificDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The endpoint for making requests to the RCM Service.
-	RcmServiceEndpoint pulumi.StringPtrInput `pulumi:"rcmServiceEndpoint"`
-	// The endpoint for making requests to the SRS Service.
-	SrsServiceEndpoint pulumi.StringPtrInput `pulumi:"srsServiceEndpoint"`
-}
-
-func (VMwareV2FabricSpecificDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareV2FabricSpecificDetailsResponse)(nil)).Elem()
-}
-
-func (i VMwareV2FabricSpecificDetailsResponseArgs) ToVMwareV2FabricSpecificDetailsResponseOutput() VMwareV2FabricSpecificDetailsResponseOutput {
-	return i.ToVMwareV2FabricSpecificDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i VMwareV2FabricSpecificDetailsResponseArgs) ToVMwareV2FabricSpecificDetailsResponseOutputWithContext(ctx context.Context) VMwareV2FabricSpecificDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VMwareV2FabricSpecificDetailsResponseOutput)
-}
-
 // VMwareV2 fabric Specific Details.
 type VMwareV2FabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
@@ -14551,35 +8948,6 @@ func (o VMwareV2FabricSpecificDetailsResponseOutput) SrsServiceEndpoint() pulumi
 type VmmDetailsResponse struct {
 	// Gets the class type. Overridden in derived classes.
 	InstanceType string `pulumi:"instanceType"`
-}
-
-// VmmDetailsResponseInput is an input type that accepts VmmDetailsResponseArgs and VmmDetailsResponseOutput values.
-// You can construct a concrete instance of `VmmDetailsResponseInput` via:
-//
-//          VmmDetailsResponseArgs{...}
-type VmmDetailsResponseInput interface {
-	pulumi.Input
-
-	ToVmmDetailsResponseOutput() VmmDetailsResponseOutput
-	ToVmmDetailsResponseOutputWithContext(context.Context) VmmDetailsResponseOutput
-}
-
-// VMM fabric specific details.
-type VmmDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (VmmDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmmDetailsResponse)(nil)).Elem()
-}
-
-func (i VmmDetailsResponseArgs) ToVmmDetailsResponseOutput() VmmDetailsResponseOutput {
-	return i.ToVmmDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i VmmDetailsResponseArgs) ToVmmDetailsResponseOutputWithContext(ctx context.Context) VmmDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmmDetailsResponseOutput)
 }
 
 // VMM fabric specific details.
@@ -14637,59 +9005,10 @@ func (i VmmToAzureCreateNetworkMappingInputArgs) ToVmmToAzureCreateNetworkMappin
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
-type VmmToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
-
-func (VmmToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmmToAzureCreateNetworkMappingInput)(nil)).Elem()
-}
-
-func (o VmmToAzureCreateNetworkMappingInputOutput) ToVmmToAzureCreateNetworkMappingInputOutput() VmmToAzureCreateNetworkMappingInputOutput {
-	return o
-}
-
-func (o VmmToAzureCreateNetworkMappingInputOutput) ToVmmToAzureCreateNetworkMappingInputOutputWithContext(ctx context.Context) VmmToAzureCreateNetworkMappingInputOutput {
-	return o
-}
-
-// The instance type.
-func (o VmmToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VmmToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
 // E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
 	InstanceType string `pulumi:"instanceType"`
-}
-
-// VmmToAzureNetworkMappingSettingsResponseInput is an input type that accepts VmmToAzureNetworkMappingSettingsResponseArgs and VmmToAzureNetworkMappingSettingsResponseOutput values.
-// You can construct a concrete instance of `VmmToAzureNetworkMappingSettingsResponseInput` via:
-//
-//          VmmToAzureNetworkMappingSettingsResponseArgs{...}
-type VmmToAzureNetworkMappingSettingsResponseInput interface {
-	pulumi.Input
-
-	ToVmmToAzureNetworkMappingSettingsResponseOutput() VmmToAzureNetworkMappingSettingsResponseOutput
-	ToVmmToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToAzureNetworkMappingSettingsResponseOutput
-}
-
-// E2A Network Mapping fabric specific settings.
-type VmmToAzureNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (VmmToAzureNetworkMappingSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmmToAzureNetworkMappingSettingsResponse)(nil)).Elem()
-}
-
-func (i VmmToAzureNetworkMappingSettingsResponseArgs) ToVmmToAzureNetworkMappingSettingsResponseOutput() VmmToAzureNetworkMappingSettingsResponseOutput {
-	return i.ToVmmToAzureNetworkMappingSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i VmmToAzureNetworkMappingSettingsResponseArgs) ToVmmToAzureNetworkMappingSettingsResponseOutputWithContext(ctx context.Context) VmmToAzureNetworkMappingSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureNetworkMappingSettingsResponseOutput)
 }
 
 // E2A Network Mapping fabric specific settings.
@@ -14747,59 +9066,10 @@ func (i VmmToVmmCreateNetworkMappingInputArgs) ToVmmToVmmCreateNetworkMappingInp
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
-type VmmToVmmCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
-
-func (VmmToVmmCreateNetworkMappingInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmmToVmmCreateNetworkMappingInput)(nil)).Elem()
-}
-
-func (o VmmToVmmCreateNetworkMappingInputOutput) ToVmmToVmmCreateNetworkMappingInputOutput() VmmToVmmCreateNetworkMappingInputOutput {
-	return o
-}
-
-func (o VmmToVmmCreateNetworkMappingInputOutput) ToVmmToVmmCreateNetworkMappingInputOutputWithContext(ctx context.Context) VmmToVmmCreateNetworkMappingInputOutput {
-	return o
-}
-
-// The instance type.
-func (o VmmToVmmCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VmmToVmmCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
 // E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponse struct {
 	// Gets the Instance type.
 	InstanceType string `pulumi:"instanceType"`
-}
-
-// VmmToVmmNetworkMappingSettingsResponseInput is an input type that accepts VmmToVmmNetworkMappingSettingsResponseArgs and VmmToVmmNetworkMappingSettingsResponseOutput values.
-// You can construct a concrete instance of `VmmToVmmNetworkMappingSettingsResponseInput` via:
-//
-//          VmmToVmmNetworkMappingSettingsResponseArgs{...}
-type VmmToVmmNetworkMappingSettingsResponseInput interface {
-	pulumi.Input
-
-	ToVmmToVmmNetworkMappingSettingsResponseOutput() VmmToVmmNetworkMappingSettingsResponseOutput
-	ToVmmToVmmNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToVmmNetworkMappingSettingsResponseOutput
-}
-
-// E2E Network Mapping fabric specific settings.
-type VmmToVmmNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-}
-
-func (VmmToVmmNetworkMappingSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmmToVmmNetworkMappingSettingsResponse)(nil)).Elem()
-}
-
-func (i VmmToVmmNetworkMappingSettingsResponseArgs) ToVmmToVmmNetworkMappingSettingsResponseOutput() VmmToVmmNetworkMappingSettingsResponseOutput {
-	return i.ToVmmToVmmNetworkMappingSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i VmmToVmmNetworkMappingSettingsResponseArgs) ToVmmToVmmNetworkMappingSettingsResponseOutputWithContext(ctx context.Context) VmmToVmmNetworkMappingSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmNetworkMappingSettingsResponseOutput)
 }
 
 // E2E Network Mapping fabric specific settings.
@@ -14834,43 +9104,6 @@ type VmwareCbtPolicyDetailsResponse struct {
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
 	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-// VmwareCbtPolicyDetailsResponseInput is an input type that accepts VmwareCbtPolicyDetailsResponseArgs and VmwareCbtPolicyDetailsResponseOutput values.
-// You can construct a concrete instance of `VmwareCbtPolicyDetailsResponseInput` via:
-//
-//          VmwareCbtPolicyDetailsResponseArgs{...}
-type VmwareCbtPolicyDetailsResponseInput interface {
-	pulumi.Input
-
-	ToVmwareCbtPolicyDetailsResponseOutput() VmwareCbtPolicyDetailsResponseOutput
-	ToVmwareCbtPolicyDetailsResponseOutputWithContext(context.Context) VmwareCbtPolicyDetailsResponseOutput
-}
-
-// VMware Cbt specific policy details.
-type VmwareCbtPolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
-}
-
-func (VmwareCbtPolicyDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmwareCbtPolicyDetailsResponse)(nil)).Elem()
-}
-
-func (i VmwareCbtPolicyDetailsResponseArgs) ToVmwareCbtPolicyDetailsResponseOutput() VmwareCbtPolicyDetailsResponseOutput {
-	return i.ToVmwareCbtPolicyDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i VmwareCbtPolicyDetailsResponseArgs) ToVmwareCbtPolicyDetailsResponseOutputWithContext(ctx context.Context) VmwareCbtPolicyDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmwareCbtPolicyDetailsResponseOutput)
 }
 
 // VMware Cbt specific policy details.

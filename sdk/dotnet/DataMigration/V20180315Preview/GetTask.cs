@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180315Preview
         /// <summary>
         /// Custom task properties
         /// </summary>
-        public readonly Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponseResult, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseResult>>>>>> Properties;
+        public readonly Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponse, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse>>>>>> Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180315Preview
 
             string name,
 
-            Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponseResult, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponseResult, Union<Outputs.GetUserTablesSqlTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponseResult, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponseResult, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponseResult>>>>>> properties,
+            Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponse, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse>>>>>> properties,
 
             string type)
         {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -284,11 +284,11 @@ class ActivityDependencyResponse(dict):
     """
     def __init__(__self__, *,
                  activity: str,
-                 dependency_conditions: List[str]):
+                 dependency_conditions: Sequence[str]):
         """
         Activity dependency information.
         :param str activity: Activity name.
-        :param List[str] dependency_conditions: Match-Condition for the dependency.
+        :param Sequence[str] dependency_conditions: Match-Condition for the dependency.
         """
         pulumi.set(__self__, "activity", activity)
         pulumi.set(__self__, "dependency_conditions", dependency_conditions)
@@ -303,7 +303,7 @@ class ActivityDependencyResponse(dict):
 
     @property
     @pulumi.getter(name="dependencyConditions")
-    def dependency_conditions(self) -> List[str]:
+    def dependency_conditions(self) -> Sequence[str]:
         """
         Match-Condition for the dependency.
         """
@@ -320,14 +320,14 @@ class ActivityPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  retry: Optional[Mapping[str, Any]] = None,
-                 retry_interval_in_seconds: Optional[float] = None,
+                 retry_interval_in_seconds: Optional[int] = None,
                  secure_input: Optional[bool] = None,
                  secure_output: Optional[bool] = None,
                  timeout: Optional[Mapping[str, Any]] = None):
         """
         Execution policy for an activity.
         :param Mapping[str, Any] retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param float retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
+        :param int retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
         :param bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
         :param bool secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
         :param Mapping[str, Any] timeout: Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -353,7 +353,7 @@ class ActivityPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="retryIntervalInSeconds")
-    def retry_interval_in_seconds(self) -> Optional[float]:
+    def retry_interval_in_seconds(self) -> Optional[int]:
         """
         Interval between each retry attempt (in seconds). The default is 30 sec.
         """
@@ -398,7 +398,7 @@ class AmazonMWSLinkedServiceResponse(dict):
                  marketplace_id: Mapping[str, Any],
                  seller_id: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -415,7 +415,7 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param Mapping[str, Any] marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
         :param Mapping[str, Any] seller_id: The Amazon seller ID.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -494,7 +494,7 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -584,7 +584,7 @@ class AmazonMWSObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -595,7 +595,7 @@ class AmazonMWSObjectDatasetResponse(dict):
         Amazon Marketplace Web Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -638,7 +638,7 @@ class AmazonMWSObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -705,7 +705,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
                  database: Mapping[str, Any],
                  server: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -718,7 +718,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param Mapping[str, Any] database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -773,7 +773,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -847,7 +847,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -859,7 +859,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
         The Amazon Redshift table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -905,7 +905,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -980,7 +980,7 @@ class AmazonS3DatasetResponse(dict):
                  bucket_name: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -998,7 +998,7 @@ class AmazonS3DatasetResponse(dict):
         :param Mapping[str, Any] bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the Amazon S3 object.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -1068,7 +1068,7 @@ class AmazonS3DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1182,7 +1182,7 @@ class AmazonS3LinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  access_key_id: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -1193,7 +1193,7 @@ class AmazonS3LinkedServiceResponse(dict):
         Linked service for Amazon S3.
         :param str type: Type of linked service.
         :param Mapping[str, Any] access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -1237,7 +1237,7 @@ class AmazonS3LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -1377,9 +1377,9 @@ class AvroDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  avro_compression_codec: Optional[str] = None,
-                 avro_compression_level: Optional[float] = None,
+                 avro_compression_level: Optional[int] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -1390,7 +1390,7 @@ class AvroDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the avro storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -1443,7 +1443,7 @@ class AvroDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1456,7 +1456,7 @@ class AvroDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="avroCompressionLevel")
-    def avro_compression_level(self) -> Optional[float]:
+    def avro_compression_level(self) -> Optional[int]:
         return pulumi.get(self, "avro_compression_level")
 
     @property
@@ -1600,7 +1600,7 @@ class AzureBatchLinkedServiceResponse(dict):
                  pool_name: Mapping[str, Any],
                  type: str,
                  access_key: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -1613,7 +1613,7 @@ class AzureBatchLinkedServiceResponse(dict):
         :param Mapping[str, Any] pool_name: The Azure Batch pool name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_key: The Azure Batch account access key.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -1687,7 +1687,7 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -1737,7 +1737,7 @@ class AzureBlobDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Mapping[str, Any]] = None,
@@ -1754,7 +1754,7 @@ class AzureBlobDatasetResponse(dict):
         The Azure Blob storage.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Mapping[str, Any] file_name: The name of the Azure Blob. Type: string (or Expression with resultType string).
@@ -1815,7 +1815,7 @@ class AzureBlobDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -1929,7 +1929,7 @@ class AzureBlobFSDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Mapping[str, Any]] = None,
@@ -1943,7 +1943,7 @@ class AzureBlobFSDatasetResponse(dict):
         The Azure Data Lake Storage Gen2 storage.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the blob storage.
         :param str description: Dataset description.
         :param Mapping[str, Any] file_name: The name of the Azure Data Lake Storage Gen2. Type: string (or Expression with resultType string).
@@ -1995,7 +1995,7 @@ class AzureBlobFSDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2086,7 +2086,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
                  type: str,
                  url: Mapping[str, Any],
                  account_key: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -2100,7 +2100,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: Endpoint for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] account_key: Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -2159,7 +2159,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -2302,7 +2302,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
@@ -2319,7 +2319,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         The azure blob storage linked service.
         :param str type: Type of linked service.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -2381,7 +2381,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -2560,7 +2560,7 @@ class AzureDataExplorerLinkedServiceResponse(dict):
                  service_principal_key: Any,
                  tenant: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -2572,7 +2572,7 @@ class AzureDataExplorerLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key of the service principal used to authenticate against Kusto.
         :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -2642,7 +2642,7 @@ class AzureDataExplorerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -2684,7 +2684,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -2695,7 +2695,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
         The Azure Data Explorer (Kusto) dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -2738,7 +2738,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -2805,7 +2805,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
                  account_name: Mapping[str, Any],
                  tenant: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  data_lake_analytics_uri: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -2820,7 +2820,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param Mapping[str, Any] account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param str description: Linked service description.
@@ -2881,7 +2881,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -2971,7 +2971,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  file_name: Optional[Mapping[str, Any]] = None,
@@ -2985,7 +2985,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
         Azure Data Lake Store dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the item(s) in the Azure Data Lake Store.
         :param str description: Dataset description.
         :param Mapping[str, Any] file_name: The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
@@ -3037,7 +3037,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -3128,7 +3128,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
                  data_lake_store_uri: Mapping[str, Any],
                  type: str,
                  account_name: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -3144,7 +3144,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         :param Mapping[str, Any] data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Mapping[str, Any] account_name: Data Lake Store account name. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -3209,7 +3209,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -3357,7 +3357,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  access_token: Any,
                  domain: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -3379,7 +3379,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -3461,7 +3461,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -3607,7 +3607,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -3624,7 +3624,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
         Azure File Storage linked service.
         :param str type: Type of linked service.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -3686,7 +3686,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -3849,7 +3849,7 @@ class AzureFunctionLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  function_app_url: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -3859,7 +3859,7 @@ class AzureFunctionLinkedServiceResponse(dict):
         Azure Function linked service.
         :param Mapping[str, Any] function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -3899,7 +3899,7 @@ class AzureFunctionLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -3957,7 +3957,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  base_url: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -3965,7 +3965,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
         Azure Key Vault linked service.
         :param Mapping[str, Any] base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -3999,7 +3999,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4101,7 +4101,7 @@ class AzureMLLinkedServiceResponse(dict):
                  api_key: Any,
                  ml_endpoint: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -4115,7 +4115,7 @@ class AzureMLLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] api_key: The API key for accessing the Azure ML model endpoint.
         :param Mapping[str, Any] ml_endpoint: The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -4173,7 +4173,7 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4257,7 +4257,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
                  resource_group_name: Mapping[str, Any],
                  subscription_id: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -4271,7 +4271,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
         :param Mapping[str, Any] resource_group_name: Azure ML Service workspace resource group name. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] subscription_id: Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -4335,7 +4335,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4408,7 +4408,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -4418,7 +4418,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
         """
         Azure Database for MariaDB linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -4452,7 +4452,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4518,7 +4518,7 @@ class AzureMariaDBTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -4529,7 +4529,7 @@ class AzureMariaDBTableDatasetResponse(dict):
         Azure Database for MariaDB dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4572,7 +4572,7 @@ class AzureMariaDBTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4638,7 +4638,7 @@ class AzureMySqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -4648,7 +4648,7 @@ class AzureMySqlLinkedServiceResponse(dict):
         Azure MySQL database linked service.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -4688,7 +4688,7 @@ class AzureMySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4746,7 +4746,7 @@ class AzureMySqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -4758,7 +4758,7 @@ class AzureMySqlTableDatasetResponse(dict):
         The Azure MySQL database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -4804,7 +4804,7 @@ class AzureMySqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -4877,7 +4877,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -4887,7 +4887,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         """
         Azure PostgreSQL linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -4921,7 +4921,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -4987,7 +4987,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -4999,7 +4999,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
         Azure PostgreSQL dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -5045,7 +5045,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5120,7 +5120,7 @@ class AzureSearchIndexDatasetResponse(dict):
                  index_name: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -5131,7 +5131,7 @@ class AzureSearchIndexDatasetResponse(dict):
         :param Mapping[str, Any] index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -5180,7 +5180,7 @@ class AzureSearchIndexDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5238,7 +5238,7 @@ class AzureSearchLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -5248,7 +5248,7 @@ class AzureSearchLinkedServiceResponse(dict):
         Linked service for Windows Azure Search Service.
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: URL for Azure Search service. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -5288,7 +5288,7 @@ class AzureSearchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -5346,7 +5346,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -5360,7 +5360,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
         Azure SQL Data Warehouse linked service.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -5412,7 +5412,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -5502,7 +5502,7 @@ class AzureSqlDWTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -5514,7 +5514,7 @@ class AzureSqlDWTableDatasetResponse(dict):
         The Azure SQL Data Warehouse dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -5560,7 +5560,7 @@ class AzureSqlDWTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -5634,7 +5634,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -5648,7 +5648,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         Microsoft Azure SQL Database linked service.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -5700,7 +5700,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -5790,7 +5790,7 @@ class AzureSqlMILinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -5804,7 +5804,7 @@ class AzureSqlMILinkedServiceResponse(dict):
         Azure SQL Managed Instance linked service.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -5856,7 +5856,7 @@ class AzureSqlMILinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -5946,7 +5946,7 @@ class AzureSqlMITableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -5958,7 +5958,7 @@ class AzureSqlMITableDatasetResponse(dict):
         The Azure SQL Managed Instance dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6004,7 +6004,7 @@ class AzureSqlMITableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6078,7 +6078,7 @@ class AzureSqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -6090,7 +6090,7 @@ class AzureSqlTableDatasetResponse(dict):
         The Azure SQL Server database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6136,7 +6136,7 @@ class AzureSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6210,7 +6210,7 @@ class AzureStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -6222,7 +6222,7 @@ class AzureStorageLinkedServiceResponse(dict):
         The storage account linked service.
         :param str type: Type of linked service.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -6269,7 +6269,7 @@ class AzureStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -6344,7 +6344,7 @@ class AzureTableDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -6355,7 +6355,7 @@ class AzureTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -6404,7 +6404,7 @@ class AzureTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6462,7 +6462,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -6474,7 +6474,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
         The azure table storage linked service.
         :param str type: Type of linked service.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -6521,7 +6521,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -6596,7 +6596,7 @@ class BinaryDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -6608,7 +6608,7 @@ class BinaryDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the Binary storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the binary dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -6660,7 +6660,7 @@ class BinaryDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -6726,7 +6726,7 @@ class CassandraLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  host: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -6739,7 +6739,7 @@ class CassandraLinkedServiceResponse(dict):
         Linked service for Cassandra data source.
         :param Mapping[str, Any] host: Host name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -6788,7 +6788,7 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -6870,7 +6870,7 @@ class CassandraTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  keyspace: Optional[Mapping[str, Any]] = None,
@@ -6882,7 +6882,7 @@ class CassandraTableDatasetResponse(dict):
         The Cassandra database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, Any] keyspace: The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
@@ -6928,7 +6928,7 @@ class CassandraTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7000,21 +7000,21 @@ class ChainingTriggerResponse(dict):
     Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
     """
     def __init__(__self__, *,
-                 depends_on: List['outputs.PipelineReferenceResponse'],
+                 depends_on: Sequence['outputs.PipelineReferenceResponse'],
                  pipeline: 'outputs.TriggerPipelineReferenceResponse',
                  run_dimension: str,
                  runtime_state: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None):
         """
         Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
-        :param List['PipelineReferenceResponseArgs'] depends_on: Upstream Pipelines.
+        :param Sequence['PipelineReferenceResponseArgs'] depends_on: Upstream Pipelines.
         :param 'TriggerPipelineReferenceResponseArgs' pipeline: Pipeline for which runs are created when all upstream pipelines complete successfully.
         :param str run_dimension: Run Dimension property that needs to be emitted by upstream pipelines.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
         """
         pulumi.set(__self__, "depends_on", depends_on)
@@ -7029,7 +7029,7 @@ class ChainingTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> List['outputs.PipelineReferenceResponse']:
+    def depends_on(self) -> Sequence['outputs.PipelineReferenceResponse']:
         """
         Upstream Pipelines.
         """
@@ -7069,7 +7069,7 @@ class ChainingTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the trigger.
         """
@@ -7153,7 +7153,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  entity_name: Optional[Mapping[str, Any]] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -7164,7 +7164,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
         The Common Data Service for Apps entity dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -7207,7 +7207,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7274,7 +7274,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  authentication_type: str,
                  deployment_type: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -7293,7 +7293,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param str deployment_type: The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -7366,7 +7366,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -7537,7 +7537,7 @@ class ConcurLinkedServiceResponse(dict):
                  client_id: Mapping[str, Any],
                  type: str,
                  username: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -7551,7 +7551,7 @@ class ConcurLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_id: Application client_id supplied by Concur App Management.
         :param str type: Type of linked service.
         :param Mapping[str, Any] username: The user name that you use to access Concur Service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -7609,7 +7609,7 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -7691,7 +7691,7 @@ class ConcurObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -7702,7 +7702,7 @@ class ConcurObjectDatasetResponse(dict):
         Concur Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -7745,7 +7745,7 @@ class ConcurObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -7858,16 +7858,16 @@ class ControlActivityResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
-                 depends_on: Optional[List['outputs.ActivityDependencyResponse']] = None,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
-                 user_properties: Optional[List['outputs.UserPropertyResponse']] = None):
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all control activities like IfCondition, ForEach , Until.
         :param str name: Activity name.
         :param str type: Type of activity.
-        :param List['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param List['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Container')
@@ -7896,7 +7896,7 @@ class ControlActivityResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List['outputs.ActivityDependencyResponse']]:
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
         """
         Activity depends on condition.
         """
@@ -7912,7 +7912,7 @@ class ControlActivityResponse(dict):
 
     @property
     @pulumi.getter(name="userProperties")
-    def user_properties(self) -> Optional[List['outputs.UserPropertyResponse']]:
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
         Activity user properties.
         """
@@ -7931,7 +7931,7 @@ class CosmosDbLinkedServiceResponse(dict):
                  type: str,
                  account_endpoint: Optional[Mapping[str, Any]] = None,
                  account_key: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  database: Optional[Mapping[str, Any]] = None,
@@ -7943,7 +7943,7 @@ class CosmosDbLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] account_endpoint: The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] account_key: The account key of the Azure CosmosDB account. Type: SecureString or AzureKeyVaultSecretReference.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Mapping[str, Any] database: The name of the database. Type: string (or Expression with resultType string)
@@ -7997,7 +7997,7 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -8064,7 +8064,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
                  collection: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -8075,7 +8075,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
         :param Mapping[str, Any] collection: The collection name of the CosmosDB (MongoDB API) database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8124,7 +8124,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8183,7 +8183,7 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
                  connection_string: Mapping[str, Any],
                  database: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -8192,7 +8192,7 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
         :param Mapping[str, Any] connection_string: The CosmosDB (MongoDB API) connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Mapping[str, Any] database: The name of the CosmosDB (MongoDB API) database that you want to access. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -8235,7 +8235,7 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -8278,7 +8278,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
                  collection_name: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -8289,7 +8289,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
         :param Mapping[str, Any] collection_name: CosmosDB (SQL API) collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8338,7 +8338,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8395,7 +8395,7 @@ class CouchbaseLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  cred_string: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
@@ -8405,7 +8405,7 @@ class CouchbaseLinkedServiceResponse(dict):
         """
         Couchbase server linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param 'AzureKeyVaultSecretReferenceResponseArgs' cred_string: The Azure key vault secret reference of credString in connection string.
@@ -8439,7 +8439,7 @@ class CouchbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -8505,7 +8505,7 @@ class CouchbaseTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -8516,7 +8516,7 @@ class CouchbaseTableDatasetResponse(dict):
         Couchbase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8559,7 +8559,7 @@ class CouchbaseTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -8624,14 +8624,14 @@ class CustomDataSourceLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Custom linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -8656,7 +8656,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -8698,7 +8698,7 @@ class CustomDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -8708,7 +8708,7 @@ class CustomDatasetResponse(dict):
         The custom dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -8748,7 +8748,7 @@ class CustomDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9249,7 +9249,7 @@ class Db2LinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  certificate_common_name: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -9265,7 +9265,7 @@ class Db2LinkedServiceResponse(dict):
         """
         Linked service for DB2 data source.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection. It is mutually exclusive with connectionString property.
         :param Mapping[str, Any] certificate_common_name: Certificate Common Name when TLS is enabled. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -9317,7 +9317,7 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -9431,7 +9431,7 @@ class Db2TableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -9443,7 +9443,7 @@ class Db2TableDatasetResponse(dict):
         The Db2 table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -9489,7 +9489,7 @@ class Db2TableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9564,7 +9564,7 @@ class DelimitedTextDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  column_delimiter: Optional[Mapping[str, Any]] = None,
                  compression_codec: Optional[Mapping[str, Any]] = None,
                  compression_level: Optional[Mapping[str, Any]] = None,
@@ -9584,7 +9584,7 @@ class DelimitedTextDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the delimited text storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Mapping[str, Any] column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] compression_level: The data compression method used for DelimitedText.
         :param str description: Dataset description.
@@ -9659,7 +9659,7 @@ class DelimitedTextDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9787,7 +9787,7 @@ class DocumentDbCollectionDatasetResponse(dict):
                  collection_name: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -9798,7 +9798,7 @@ class DocumentDbCollectionDatasetResponse(dict):
         :param Mapping[str, Any] collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -9847,7 +9847,7 @@ class DocumentDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -9904,7 +9904,7 @@ class DrillLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -9914,7 +9914,7 @@ class DrillLinkedServiceResponse(dict):
         """
         Drill server linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -9948,7 +9948,7 @@ class DrillLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -10014,7 +10014,7 @@ class DrillTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -10026,7 +10026,7 @@ class DrillTableDatasetResponse(dict):
         Drill server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10072,7 +10072,7 @@ class DrillTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10150,7 +10150,7 @@ class DynamicsAXLinkedServiceResponse(dict):
                  tenant: Mapping[str, Any],
                  type: str,
                  url: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -10163,7 +10163,7 @@ class DynamicsAXLinkedServiceResponse(dict):
         :param Mapping[str, Any] tenant: Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: The Dynamics AX (or Dynamics 365 Finance and Operations) instance OData endpoint.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -10236,7 +10236,7 @@ class DynamicsAXLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -10287,7 +10287,7 @@ class DynamicsAXResourceDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  path: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -10298,7 +10298,7 @@ class DynamicsAXResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] path: The path of the Dynamics AX OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -10347,7 +10347,7 @@ class DynamicsAXResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10405,7 +10405,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  entity_name: Optional[Mapping[str, Any]] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -10416,7 +10416,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
         The Dynamics CRM entity dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -10459,7 +10459,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10526,7 +10526,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  authentication_type: str,
                  deployment_type: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -10545,7 +10545,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param str deployment_type: The deployment type of the Dynamics CRM instance. 'Online' for Dynamics CRM Online and 'OnPremisesWithIfd' for Dynamics CRM on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -10618,7 +10618,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -10740,7 +10740,7 @@ class DynamicsEntityDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  entity_name: Optional[Mapping[str, Any]] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -10751,7 +10751,7 @@ class DynamicsEntityDatasetResponse(dict):
         The Dynamics entity dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] entity_name: The logical name of the entity. Type: string (or Expression with resultType string).
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -10794,7 +10794,7 @@ class DynamicsEntityDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -10861,7 +10861,7 @@ class DynamicsLinkedServiceResponse(dict):
                  authentication_type: Mapping[str, Any],
                  deployment_type: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -10880,7 +10880,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param Mapping[str, Any] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -10953,7 +10953,7 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -11076,7 +11076,7 @@ class EloquaLinkedServiceResponse(dict):
                  endpoint: Mapping[str, Any],
                  type: str,
                  username: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -11090,7 +11090,7 @@ class EloquaLinkedServiceResponse(dict):
         :param Mapping[str, Any] endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param str type: Type of linked service.
         :param Mapping[str, Any] username: The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -11148,7 +11148,7 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -11230,7 +11230,7 @@ class EloquaObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -11241,7 +11241,7 @@ class EloquaObjectDatasetResponse(dict):
         Eloqua server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -11284,7 +11284,7 @@ class EloquaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11437,7 +11437,7 @@ class ExcelDatasetResponse(dict):
                  location: Any,
                  sheet_name: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  first_row_as_header: Optional[Mapping[str, Any]] = None,
@@ -11453,7 +11453,7 @@ class ExcelDatasetResponse(dict):
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the excel storage.
         :param Mapping[str, Any] sheet_name: The sheet of excel file. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] first_row_as_header: When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
@@ -11523,7 +11523,7 @@ class ExcelDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -11613,20 +11613,20 @@ class ExecutionActivityResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
-                 depends_on: Optional[List['outputs.ActivityDependencyResponse']] = None,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
-                 user_properties: Optional[List['outputs.UserPropertyResponse']] = None):
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all execution activities.
         :param str name: Activity name.
         :param str type: Type of activity.
-        :param List['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
+        :param Sequence['ActivityDependencyResponseArgs'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param 'ActivityPolicyResponseArgs' policy: Activity policy.
-        :param List['UserPropertyResponseArgs'] user_properties: Activity user properties.
+        :param Sequence['UserPropertyResponseArgs'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'Execution')
@@ -11659,7 +11659,7 @@ class ExecutionActivityResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List['outputs.ActivityDependencyResponse']]:
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
         """
         Activity depends on condition.
         """
@@ -11691,7 +11691,7 @@ class ExecutionActivityResponse(dict):
 
     @property
     @pulumi.getter(name="userProperties")
-    def user_properties(self) -> Optional[List['outputs.UserPropertyResponse']]:
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
         Activity user properties.
         """
@@ -11953,7 +11953,7 @@ class FileServerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  host: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -11964,7 +11964,7 @@ class FileServerLinkedServiceResponse(dict):
         File system linked service.
         :param Mapping[str, Any] host: Host name of the server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -12007,7 +12007,7 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -12122,7 +12122,7 @@ class FileShareDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  file_filter: Optional[Mapping[str, Any]] = None,
@@ -12139,7 +12139,7 @@ class FileShareDatasetResponse(dict):
         An on-premises file system dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the file system.
         :param str description: Dataset description.
         :param Mapping[str, Any] file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
@@ -12200,7 +12200,7 @@ class FileShareDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12314,7 +12314,7 @@ class FtpServerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  host: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -12329,7 +12329,7 @@ class FtpServerLinkedServiceResponse(dict):
         A FTP server Linked Service.
         :param Mapping[str, Any] host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -12384,7 +12384,7 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -12569,7 +12569,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                  client_customer_id: Mapping[str, Any],
                  developer_token: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -12587,7 +12587,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -12663,7 +12663,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -12769,7 +12769,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -12780,7 +12780,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
         Google AdWords service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -12823,7 +12823,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -12891,7 +12891,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
                  project: Mapping[str, Any],
                  type: str,
                  additional_projects: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -12910,7 +12910,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         :param Mapping[str, Any] project: The default BigQuery project to query against.
         :param str type: Type of linked service.
         :param Mapping[str, Any] additional_projects: A comma-separated list of public BigQuery projects to access.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -12990,7 +12990,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -13104,7 +13104,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  dataset: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -13117,7 +13117,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
         Google BigQuery service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Mapping[str, Any] dataset: The database name of the Google BigQuery. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -13166,7 +13166,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13248,7 +13248,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  access_key_id: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -13259,7 +13259,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
         Linked service for Google Cloud Storage.
         :param str type: Type of linked service.
         :param Mapping[str, Any] access_key_id: The access key identifier of the Google Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -13303,7 +13303,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -13441,7 +13441,7 @@ class GreenplumLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -13451,7 +13451,7 @@ class GreenplumLinkedServiceResponse(dict):
         """
         Greenplum Database linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -13485,7 +13485,7 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -13551,7 +13551,7 @@ class GreenplumTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -13563,7 +13563,7 @@ class GreenplumTableDatasetResponse(dict):
         Greenplum Database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13609,7 +13609,7 @@ class GreenplumTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -13686,7 +13686,7 @@ class HBaseLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -13704,7 +13704,7 @@ class HBaseLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -13788,7 +13788,7 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -13886,7 +13886,7 @@ class HBaseObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -13897,7 +13897,7 @@ class HBaseObjectDatasetResponse(dict):
         HBase server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -13940,7 +13940,7 @@ class HBaseObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -14006,7 +14006,7 @@ class HDInsightLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  cluster_uri: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -14021,7 +14021,7 @@ class HDInsightLinkedServiceResponse(dict):
         HDInsight linked service.
         :param Mapping[str, Any] cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -14076,7 +14076,7 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -14180,8 +14180,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  time_to_live: Mapping[str, Any],
                  type: str,
                  version: Mapping[str, Any],
-                 additional_linked_service_names: Optional[List['outputs.LinkedServiceReferenceResponse']] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 additional_linked_service_names: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  cluster_name_prefix: Optional[Mapping[str, Any]] = None,
                  cluster_password: Optional[Any] = None,
                  cluster_ssh_password: Optional[Any] = None,
@@ -14201,7 +14201,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  map_reduce_configuration: Optional[Mapping[str, Any]] = None,
                  oozie_configuration: Optional[Mapping[str, Any]] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 script_actions: Optional[List['outputs.ScriptActionResponse']] = None,
+                 script_actions: Optional[Sequence['outputs.ScriptActionResponse']] = None,
                  service_principal_id: Optional[Mapping[str, Any]] = None,
                  service_principal_key: Optional[Any] = None,
                  spark_version: Optional[Mapping[str, Any]] = None,
@@ -14220,8 +14220,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Mapping[str, Any] time_to_live: The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Mapping[str, Any] version: Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-        :param List['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence['LinkedServiceReferenceResponseArgs'] additional_linked_service_names: Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_password: The password to access the cluster.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
@@ -14241,7 +14241,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Mapping[str, Any] map_reduce_configuration: Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
         :param Mapping[str, Any] oozie_configuration: Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
-        :param List['ScriptActionResponseArgs'] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
+        :param Sequence['ScriptActionResponseArgs'] script_actions: Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
         :param Mapping[str, Any] service_principal_id: The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: The key for the service principal id.
         :param Mapping[str, Any] spark_version: The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
@@ -14386,7 +14386,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="additionalLinkedServiceNames")
-    def additional_linked_service_names(self) -> Optional[List['outputs.LinkedServiceReferenceResponse']]:
+    def additional_linked_service_names(self) -> Optional[Sequence['outputs.LinkedServiceReferenceResponse']]:
         """
         Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
         """
@@ -14394,7 +14394,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -14554,7 +14554,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[List['outputs.ScriptActionResponse']]:
+    def script_actions(self) -> Optional[Sequence['outputs.ScriptActionResponse']]:
         """
         Custom script actions to run on HDI ondemand cluster once it's up. Please refer to https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fr-server%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json#understanding-script-actions.
         """
@@ -14636,7 +14636,7 @@ class HdfsLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -14648,7 +14648,7 @@ class HdfsLinkedServiceResponse(dict):
         Hadoop Distributed File System (HDFS) linked service.
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -14694,7 +14694,7 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -14820,7 +14820,7 @@ class HiveLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -14844,7 +14844,7 @@ class HiveLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -14946,7 +14946,7 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -15092,7 +15092,7 @@ class HiveObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -15104,7 +15104,7 @@ class HiveObjectDatasetResponse(dict):
         Hive Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -15150,7 +15150,7 @@ class HiveObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15225,7 +15225,7 @@ class HttpDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  additional_headers: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -15243,7 +15243,7 @@ class HttpDatasetResponse(dict):
         :param Mapping[str, Any] additional_headers: The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
                ...
                request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used on files.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -15310,7 +15310,7 @@ class HttpDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15408,7 +15408,7 @@ class HttpLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  cert_thumbprint: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -15423,7 +15423,7 @@ class HttpLinkedServiceResponse(dict):
         Linked service for an HTTP source.
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Mapping[str, Any] cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -15478,7 +15478,7 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -15638,7 +15638,7 @@ class HubspotLinkedServiceResponse(dict):
                  client_id: Mapping[str, Any],
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -15653,7 +15653,7 @@ class HubspotLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_id: The client ID associated with your Hubspot application.
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token obtained when initially authenticating your OAuth integration.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Hubspot application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -15715,7 +15715,7 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -15805,7 +15805,7 @@ class HubspotObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -15816,7 +15816,7 @@ class HubspotObjectDatasetResponse(dict):
         Hubspot Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -15859,7 +15859,7 @@ class HubspotObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -15928,7 +15928,7 @@ class ImpalaLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -15946,7 +15946,7 @@ class ImpalaLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -16030,7 +16030,7 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -16128,7 +16128,7 @@ class ImpalaObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -16140,7 +16140,7 @@ class ImpalaObjectDatasetResponse(dict):
         Impala server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16186,7 +16186,7 @@ class ImpalaObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16260,7 +16260,7 @@ class InformixLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
@@ -16273,7 +16273,7 @@ class InformixLinkedServiceResponse(dict):
         Informix linked service.
         :param Mapping[str, Any] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the Informix as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -16322,7 +16322,7 @@ class InformixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -16404,7 +16404,7 @@ class InformixTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -16415,7 +16415,7 @@ class InformixTableDatasetResponse(dict):
         The Informix table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -16458,7 +16458,7 @@ class InformixTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -16524,17 +16524,17 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
     def __init__(__self__, *,
                  data_flow_properties: Optional['outputs.IntegrationRuntimeDataFlowPropertiesResponse'] = None,
                  location: Optional[str] = None,
-                 max_parallel_executions_per_node: Optional[float] = None,
+                 max_parallel_executions_per_node: Optional[int] = None,
                  node_size: Optional[str] = None,
-                 number_of_nodes: Optional[float] = None,
+                 number_of_nodes: Optional[int] = None,
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
         :param 'IntegrationRuntimeDataFlowPropertiesResponseArgs' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-        :param float max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
-        :param float number_of_nodes: The required number of nodes for managed integration runtime.
+        :param int number_of_nodes: The required number of nodes for managed integration runtime.
         :param 'IntegrationRuntimeVNetPropertiesResponseArgs' v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
@@ -16568,7 +16568,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[float]:
+    def max_parallel_executions_per_node(self) -> Optional[int]:
         """
         Maximum parallel executions count per node for managed integration runtime.
         """
@@ -16584,7 +16584,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[float]:
+    def number_of_nodes(self) -> Optional[int]:
         """
         The required number of nodes for managed integration runtime.
         """
@@ -16647,13 +16647,13 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  compute_type: Optional[str] = None,
-                 core_count: Optional[float] = None,
-                 time_to_live: Optional[float] = None):
+                 core_count: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
         """
         Data flow properties for managed integration runtime.
         :param str compute_type: Compute type of the cluster which will execute data flow job.
-        :param float core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param float time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        :param int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
@@ -16672,7 +16672,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[float]:
+    def core_count(self) -> Optional[int]:
         """
         Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         """
@@ -16680,7 +16680,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[float]:
+    def time_to_live(self) -> Optional[int]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
@@ -16860,18 +16860,18 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  custom_setup_script_properties: Optional['outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse'] = None,
                  data_proxy_properties: Optional['outputs.IntegrationRuntimeDataProxyPropertiesResponse'] = None,
                  edition: Optional[str] = None,
-                 express_custom_setup_properties: Optional[List[Any]] = None,
+                 express_custom_setup_properties: Optional[Sequence[Any]] = None,
                  license_type: Optional[str] = None,
-                 package_stores: Optional[List['outputs.PackageStoreResponse']] = None):
+                 package_stores: Optional[Sequence['outputs.PackageStoreResponse']] = None):
         """
         SSIS properties for managed integration runtime.
         :param 'IntegrationRuntimeSsisCatalogInfoResponseArgs' catalog_info: Catalog information for managed dedicated integration runtime.
         :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param 'IntegrationRuntimeDataProxyPropertiesResponseArgs' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param str edition: The edition for the SSIS Integration Runtime
-        :param List[Union['AzPowerShellSetupResponseArgs', 'CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param Sequence[Union['AzPowerShellSetupResponseArgs', 'CmdkeySetupResponseArgs', 'ComponentSetupResponseArgs', 'EnvironmentVariableSetupResponseArgs']] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param str license_type: License type for bringing your own license scenario.
-        :param List['PackageStoreResponseArgs'] package_stores: Package stores for the SSIS Integration Runtime.
+        :param Sequence['PackageStoreResponseArgs'] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
@@ -16922,7 +16922,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="expressCustomSetupProperties")
-    def express_custom_setup_properties(self) -> Optional[List[Any]]:
+    def express_custom_setup_properties(self) -> Optional[Sequence[Any]]:
         """
         Custom setup without script properties for a SSIS integration runtime.
         """
@@ -16938,7 +16938,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="packageStores")
-    def package_stores(self) -> Optional[List['outputs.PackageStoreResponse']]:
+    def package_stores(self) -> Optional[Sequence['outputs.PackageStoreResponse']]:
         """
         Package stores for the SSIS Integration Runtime.
         """
@@ -16954,12 +16954,12 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
     VNet properties for managed integration runtime.
     """
     def __init__(__self__, *,
-                 public_ips: Optional[List[str]] = None,
+                 public_ips: Optional[Sequence[str]] = None,
                  subnet: Optional[str] = None,
                  v_net_id: Optional[str] = None):
         """
         VNet properties for managed integration runtime.
-        :param List[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param Sequence[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param str subnet: The name of the subnet this integration runtime will join.
         :param str v_net_id: The ID of the VNet that this integration runtime will join.
         """
@@ -16972,7 +16972,7 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[List[str]]:
+    def public_ips(self) -> Optional[Sequence[str]]:
         """
         Resource IDs of the public IP addresses that this integration runtime will use.
         """
@@ -17007,7 +17007,7 @@ class JiraLinkedServiceResponse(dict):
                  host: Mapping[str, Any],
                  type: str,
                  username: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -17022,7 +17022,7 @@ class JiraLinkedServiceResponse(dict):
         :param Mapping[str, Any] host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param str type: Type of linked service.
         :param Mapping[str, Any] username: The user name that you use to access Jira Service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -17083,7 +17083,7 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -17173,7 +17173,7 @@ class JiraObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -17184,7 +17184,7 @@ class JiraObjectDatasetResponse(dict):
         Jira Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -17227,7 +17227,7 @@ class JiraObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17294,7 +17294,7 @@ class JsonDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  encoding_name: Optional[Mapping[str, Any]] = None,
@@ -17307,7 +17307,7 @@ class JsonDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -17362,7 +17362,7 @@ class JsonDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -17666,7 +17666,7 @@ class MagentoLinkedServiceResponse(dict):
                  host: Mapping[str, Any],
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -17679,7 +17679,7 @@ class MagentoLinkedServiceResponse(dict):
         :param Mapping[str, Any] host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token from Magento.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -17735,7 +17735,7 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -17809,7 +17809,7 @@ class MagentoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -17820,7 +17820,7 @@ class MagentoObjectDatasetResponse(dict):
         Magento server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -17863,7 +17863,7 @@ class MagentoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18002,7 +18002,7 @@ class ManagedPrivateEndpointResponse(dict):
                  is_reserved: bool,
                  provisioning_state: str,
                  connection_state: Optional['outputs.ConnectionStatePropertiesResponse'] = None,
-                 fqdns: Optional[List[str]] = None,
+                 fqdns: Optional[Sequence[str]] = None,
                  group_id: Optional[str] = None,
                  private_link_resource_id: Optional[str] = None):
         """
@@ -18010,7 +18010,7 @@ class ManagedPrivateEndpointResponse(dict):
         :param bool is_reserved: Denotes whether the managed private endpoint is reserved
         :param str provisioning_state: The managed private endpoint provisioning state
         :param 'ConnectionStatePropertiesResponseArgs' connection_state: The managed private endpoint connection state
-        :param List[str] fqdns: Fully qualified domain names
+        :param Sequence[str] fqdns: Fully qualified domain names
         :param str group_id: The groupId to which the managed private endpoint is created
         :param str private_link_resource_id: The ARM resource ID of the resource to which the managed private endpoint is created
         """
@@ -18051,7 +18051,7 @@ class ManagedPrivateEndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[List[str]]:
+    def fqdns(self) -> Optional[Sequence[str]]:
         """
         Fully qualified domain names
         """
@@ -18083,23 +18083,23 @@ class MappingDataFlowResponse(dict):
     Mapping data flow.
     """
     def __init__(__self__, *,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
                  script: Optional[str] = None,
-                 sinks: Optional[List['outputs.DataFlowSinkResponse']] = None,
-                 sources: Optional[List['outputs.DataFlowSourceResponse']] = None,
-                 transformations: Optional[List['outputs.TransformationResponse']] = None,
+                 sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
+                 sources: Optional[Sequence['outputs.DataFlowSourceResponse']] = None,
+                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None,
                  type: Optional[str] = None):
         """
         Mapping data flow.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the data flow.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
         :param 'DataFlowResponseFolderArgs' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param str script: DataFlow script.
-        :param List['DataFlowSinkResponseArgs'] sinks: List of sinks in data flow.
-        :param List['DataFlowSourceResponseArgs'] sources: List of sources in data flow.
-        :param List['TransformationResponseArgs'] transformations: List of transformations in data flow.
+        :param Sequence['DataFlowSinkResponseArgs'] sinks: List of sinks in data flow.
+        :param Sequence['DataFlowSourceResponseArgs'] sources: List of sources in data flow.
+        :param Sequence['TransformationResponseArgs'] transformations: List of transformations in data flow.
         :param str type: Type of data flow.
         """
         if annotations is not None:
@@ -18121,7 +18121,7 @@ class MappingDataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the data flow.
         """
@@ -18153,7 +18153,7 @@ class MappingDataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[List['outputs.DataFlowSinkResponse']]:
+    def sinks(self) -> Optional[Sequence['outputs.DataFlowSinkResponse']]:
         """
         List of sinks in data flow.
         """
@@ -18161,7 +18161,7 @@ class MappingDataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[List['outputs.DataFlowSourceResponse']]:
+    def sources(self) -> Optional[Sequence['outputs.DataFlowSourceResponse']]:
         """
         List of sources in data flow.
         """
@@ -18169,7 +18169,7 @@ class MappingDataFlowResponse(dict):
 
     @property
     @pulumi.getter
-    def transformations(self) -> Optional[List['outputs.TransformationResponse']]:
+    def transformations(self) -> Optional[Sequence['outputs.TransformationResponse']]:
         """
         List of transformations in data flow.
         """
@@ -18194,7 +18194,7 @@ class MariaDBLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -18204,7 +18204,7 @@ class MariaDBLinkedServiceResponse(dict):
         """
         MariaDB server linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -18238,7 +18238,7 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -18304,7 +18304,7 @@ class MariaDBTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -18315,7 +18315,7 @@ class MariaDBTableDatasetResponse(dict):
         MariaDB server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18358,7 +18358,7 @@ class MariaDBTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18425,7 +18425,7 @@ class MarketoLinkedServiceResponse(dict):
                  client_id: Mapping[str, Any],
                  endpoint: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -18439,7 +18439,7 @@ class MarketoLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_id: The client Id of your Marketo service.
         :param Mapping[str, Any] endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret of your Marketo service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -18497,7 +18497,7 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -18579,7 +18579,7 @@ class MarketoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -18590,7 +18590,7 @@ class MarketoObjectDatasetResponse(dict):
         Marketo server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18633,7 +18633,7 @@ class MarketoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18699,7 +18699,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
@@ -18712,7 +18712,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
         Microsoft Access linked service.
         :param Mapping[str, Any] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the Microsoft Access as ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -18761,7 +18761,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -18843,7 +18843,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -18854,7 +18854,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
         The Microsoft Access table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -18897,7 +18897,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -18964,7 +18964,7 @@ class MongoDbCollectionDatasetResponse(dict):
                  collection_name: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -18975,7 +18975,7 @@ class MongoDbCollectionDatasetResponse(dict):
         :param Mapping[str, Any] collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -19024,7 +19024,7 @@ class MongoDbCollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -19084,7 +19084,7 @@ class MongoDbLinkedServiceResponse(dict):
                  server: Mapping[str, Any],
                  type: str,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  auth_source: Optional[Mapping[str, Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -19101,7 +19101,7 @@ class MongoDbLinkedServiceResponse(dict):
         :param Mapping[str, Any] server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
         :param str authentication_type: The authentication type to be used to connect to the MongoDB database.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -19175,7 +19175,7 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -19274,7 +19274,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
                  collection: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -19285,7 +19285,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
         :param Mapping[str, Any] collection: The collection name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -19334,7 +19334,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -19393,7 +19393,7 @@ class MongoDbV2LinkedServiceResponse(dict):
                  connection_string: Mapping[str, Any],
                  database: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -19402,7 +19402,7 @@ class MongoDbV2LinkedServiceResponse(dict):
         :param Mapping[str, Any] connection_string: The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Mapping[str, Any] database: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -19445,7 +19445,7 @@ class MongoDbV2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -19487,16 +19487,16 @@ class MultiplePipelineTriggerResponse(dict):
     def __init__(__self__, *,
                  runtime_state: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
-                 pipelines: Optional[List['outputs.TriggerPipelineReferenceResponse']] = None):
+                 pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Base class for all triggers that support one to many model for trigger to pipeline.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
-        :param List['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
+        :param Sequence['TriggerPipelineReferenceResponseArgs'] pipelines: Pipelines that need to be started.
         """
         pulumi.set(__self__, "runtime_state", runtime_state)
         pulumi.set(__self__, "type", 'MultiplePipelineTrigger')
@@ -19525,7 +19525,7 @@ class MultiplePipelineTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the trigger.
         """
@@ -19541,7 +19541,7 @@ class MultiplePipelineTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def pipelines(self) -> Optional[List['outputs.TriggerPipelineReferenceResponse']]:
+    def pipelines(self) -> Optional[Sequence['outputs.TriggerPipelineReferenceResponse']]:
         """
         Pipelines that need to be started.
         """
@@ -19559,7 +19559,7 @@ class MySqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -19569,7 +19569,7 @@ class MySqlLinkedServiceResponse(dict):
         Linked service for MySQL data source.
         :param Mapping[str, Any] connection_string: The connection string.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -19609,7 +19609,7 @@ class MySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -19667,7 +19667,7 @@ class MySqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -19678,7 +19678,7 @@ class MySqlTableDatasetResponse(dict):
         The MySQL table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -19721,7 +19721,7 @@ class MySqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -19786,7 +19786,7 @@ class NetezzaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -19796,7 +19796,7 @@ class NetezzaLinkedServiceResponse(dict):
         """
         Netezza linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -19830,7 +19830,7 @@ class NetezzaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -19896,7 +19896,7 @@ class NetezzaTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -19908,7 +19908,7 @@ class NetezzaTableDatasetResponse(dict):
         Netezza dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -19954,7 +19954,7 @@ class NetezzaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -20030,7 +20030,7 @@ class ODataLinkedServiceResponse(dict):
                  url: Mapping[str, Any],
                  aad_resource_id: Optional[Mapping[str, Any]] = None,
                  aad_service_principal_credential_type: Optional[str] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -20050,7 +20050,7 @@ class ODataLinkedServiceResponse(dict):
         :param Mapping[str, Any] url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] aad_resource_id: Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
         :param str aad_service_principal_credential_type: Specify the credential type (key or cert) is used for service principal.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: Type of authentication used to connect to the OData service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -20134,7 +20134,7 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -20256,7 +20256,7 @@ class ODataResourceDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -20267,7 +20267,7 @@ class ODataResourceDatasetResponse(dict):
         The Open Data Protocol (OData) resource dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -20310,7 +20310,7 @@ class ODataResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -20376,7 +20376,7 @@ class OdbcLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
@@ -20389,7 +20389,7 @@ class OdbcLinkedServiceResponse(dict):
         Open Database Connectivity (ODBC) linked service.
         :param Mapping[str, Any] connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] authentication_type: Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
@@ -20438,7 +20438,7 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -20520,7 +20520,7 @@ class OdbcTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -20531,7 +20531,7 @@ class OdbcTableDatasetResponse(dict):
         The ODBC table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -20574,7 +20574,7 @@ class OdbcTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -20641,7 +20641,7 @@ class Office365DatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -20653,7 +20653,7 @@ class Office365DatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] table_name: Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -20705,7 +20705,7 @@ class Office365DatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -20774,7 +20774,7 @@ class Office365LinkedServiceResponse(dict):
                  service_principal_key: Any,
                  service_principal_tenant_id: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -20786,7 +20786,7 @@ class Office365LinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] service_principal_key: Specify the application's key.
         :param Mapping[str, Any] service_principal_tenant_id: Specify the tenant information under which your Azure AD web application resides. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -20850,7 +20850,7 @@ class Office365LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -20900,7 +20900,7 @@ class OracleLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -20910,7 +20910,7 @@ class OracleLinkedServiceResponse(dict):
         Oracle database.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -20950,7 +20950,7 @@ class OracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -21010,7 +21010,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
                  password: Any,
                  type: str,
                  username: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -21024,7 +21024,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] password: The password corresponding to the user name that you provided in the username key.
         :param str type: Type of linked service.
         :param Mapping[str, Any] username: The user name that you use to access Oracle Service Cloud server.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -21088,7 +21088,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -21162,7 +21162,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -21173,7 +21173,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
         Oracle Service Cloud dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -21216,7 +21216,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -21282,7 +21282,7 @@ class OracleTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -21294,7 +21294,7 @@ class OracleTableDatasetResponse(dict):
         The on-premises Oracle database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -21340,7 +21340,7 @@ class OracleTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -21415,7 +21415,7 @@ class OrcDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  orc_compression_codec: Optional[str] = None,
@@ -21427,7 +21427,7 @@ class OrcDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the ORC data storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -21478,7 +21478,7 @@ class OrcDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -21664,7 +21664,7 @@ class ParquetDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression_codec: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -21676,7 +21676,7 @@ class ParquetDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the parquet storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -21727,7 +21727,7 @@ class ParquetDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -21840,7 +21840,7 @@ class PaypalLinkedServiceResponse(dict):
                  client_id: Mapping[str, Any],
                  host: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -21854,7 +21854,7 @@ class PaypalLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_id: The client ID associated with your PayPal application.
         :param Mapping[str, Any] host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your PayPal application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -21912,7 +21912,7 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -21994,7 +21994,7 @@ class PaypalObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -22005,7 +22005,7 @@ class PaypalObjectDatasetResponse(dict):
         Paypal Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -22048,7 +22048,7 @@ class PaypalObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -22117,7 +22117,7 @@ class PhoenixLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -22136,7 +22136,7 @@ class PhoenixLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -22223,7 +22223,7 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -22329,7 +22329,7 @@ class PhoenixObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -22341,7 +22341,7 @@ class PhoenixObjectDatasetResponse(dict):
         Phoenix server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -22387,7 +22387,7 @@ class PhoenixObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -22535,7 +22535,7 @@ class PostgreSqlLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -22545,7 +22545,7 @@ class PostgreSqlLinkedServiceResponse(dict):
         Linked service for PostgreSQL data source.
         :param Mapping[str, Any] connection_string: The connection string.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -22585,7 +22585,7 @@ class PostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -22643,7 +22643,7 @@ class PostgreSqlTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -22655,7 +22655,7 @@ class PostgreSqlTableDatasetResponse(dict):
         The PostgreSQL table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -22701,7 +22701,7 @@ class PostgreSqlTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -22780,7 +22780,7 @@ class PrestoLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -22801,7 +22801,7 @@ class PrestoLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -22906,7 +22906,7 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -23012,7 +23012,7 @@ class PrestoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -23024,7 +23024,7 @@ class PrestoObjectDatasetResponse(dict):
         Presto server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -23070,7 +23070,7 @@ class PrestoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -23145,7 +23145,7 @@ class QuickBooksLinkedServiceResponse(dict):
                  type: str,
                  access_token: Optional[Any] = None,
                  access_token_secret: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  company_id: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Mapping[str, Any]] = None,
@@ -23161,7 +23161,7 @@ class QuickBooksLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for OAuth 1.0 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token_secret: The access token secret for OAuth 1.0 authentication.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] company_id: The company ID of the QuickBooks company to authorize.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_properties: Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.
@@ -23227,7 +23227,7 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -23325,7 +23325,7 @@ class QuickBooksObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -23336,7 +23336,7 @@ class QuickBooksObjectDatasetResponse(dict):
         QuickBooks server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -23379,7 +23379,7 @@ class QuickBooksObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -23445,7 +23445,7 @@ class RelationalTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -23456,7 +23456,7 @@ class RelationalTableDatasetResponse(dict):
         The relational table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -23499,7 +23499,7 @@ class RelationalTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -23566,20 +23566,20 @@ class RerunTumblingWindowTriggerResponse(dict):
                  parent_trigger: Mapping[str, Any],
                  requested_end_time: str,
                  requested_start_time: str,
-                 rerun_concurrency: float,
+                 rerun_concurrency: int,
                  runtime_state: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None):
         """
         Trigger that schedules pipeline reruns for all fixed time interval windows from a requested start time to requested end time.
         :param Mapping[str, Any] parent_trigger: The parent trigger reference.
         :param str requested_end_time: The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
         :param str requested_start_time: The start time for the time period for which restatement is initiated. Only UTC time is currently supported.
-        :param float rerun_concurrency: The max number of parallel time windows (ready for execution) for which a rerun is triggered.
+        :param int rerun_concurrency: The max number of parallel time windows (ready for execution) for which a rerun is triggered.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str type: Trigger type.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
         :param str description: Trigger description.
         """
         pulumi.set(__self__, "parent_trigger", parent_trigger)
@@ -23619,7 +23619,7 @@ class RerunTumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="rerunConcurrency")
-    def rerun_concurrency(self) -> float:
+    def rerun_concurrency(self) -> int:
         """
         The max number of parallel time windows (ready for execution) for which a rerun is triggered.
         """
@@ -23643,7 +23643,7 @@ class RerunTumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the trigger.
         """
@@ -23670,7 +23670,7 @@ class ResponsysLinkedServiceResponse(dict):
                  client_id: Mapping[str, Any],
                  endpoint: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -23684,7 +23684,7 @@ class ResponsysLinkedServiceResponse(dict):
         :param Mapping[str, Any] client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] endpoint: The endpoint of the Responsys server.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -23742,7 +23742,7 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -23824,7 +23824,7 @@ class ResponsysObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -23835,7 +23835,7 @@ class ResponsysObjectDatasetResponse(dict):
         Responsys dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -23878,7 +23878,7 @@ class ResponsysObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -23945,7 +23945,7 @@ class RestResourceDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
                  additional_headers: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  pagination_rules: Optional[Mapping[str, Any]] = None,
@@ -23960,7 +23960,7 @@ class RestResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
         :param Mapping[str, Any] additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, Any] pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
@@ -24022,7 +24022,7 @@ class RestResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -24114,7 +24114,7 @@ class RestServiceLinkedServiceResponse(dict):
                  type: str,
                  url: Mapping[str, Any],
                  aad_resource_id: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  azure_cloud_type: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -24132,7 +24132,7 @@ class RestServiceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: The base URL of the REST service.
         :param Mapping[str, Any] aad_resource_id: The resource you are requesting authorization to use.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -24209,7 +24209,7 @@ class RestServiceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -24314,11 +24314,11 @@ class RetryPolicyResponse(dict):
     """
     def __init__(__self__, *,
                  count: Optional[Mapping[str, Any]] = None,
-                 interval_in_seconds: Optional[float] = None):
+                 interval_in_seconds: Optional[int] = None):
         """
         Execution policy for an activity.
         :param Mapping[str, Any] count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-        :param float interval_in_seconds: Interval between retries in seconds. Default is 30.
+        :param int interval_in_seconds: Interval between retries in seconds. Default is 30.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -24335,7 +24335,7 @@ class RetryPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         Interval between retries in seconds. Default is 30.
         """
@@ -24352,7 +24352,7 @@ class SalesforceLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  api_version: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -24365,7 +24365,7 @@ class SalesforceLinkedServiceResponse(dict):
         """
         Linked service for Salesforce.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -24408,7 +24408,7 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -24497,7 +24497,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -24511,7 +24511,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         """
         Salesforce Marketing Cloud linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -24557,7 +24557,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -24655,7 +24655,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -24666,7 +24666,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
         Salesforce Marketing Cloud dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -24709,7 +24709,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -24775,7 +24775,7 @@ class SalesforceObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  object_api_name: Optional[Mapping[str, Any]] = None,
@@ -24786,7 +24786,7 @@ class SalesforceObjectDatasetResponse(dict):
         The Salesforce object dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, Any] object_api_name: The Salesforce object API name. Type: string (or Expression with resultType string).
@@ -24829,7 +24829,7 @@ class SalesforceObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -24894,7 +24894,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  api_version: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -24908,7 +24908,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
         """
         Linked service for Salesforce Service Cloud.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -24954,7 +24954,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -25052,7 +25052,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  object_api_name: Optional[Mapping[str, Any]] = None,
@@ -25063,7 +25063,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
         The Salesforce Service Cloud object dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, Any] object_api_name: The Salesforce Service Cloud object API name. Type: string (or Expression with resultType string).
@@ -25106,7 +25106,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -25174,7 +25174,7 @@ class SapBWLinkedServiceResponse(dict):
                  server: Mapping[str, Any],
                  system_number: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -25187,7 +25187,7 @@ class SapBWLinkedServiceResponse(dict):
         :param Mapping[str, Any] server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -25248,7 +25248,7 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -25314,7 +25314,7 @@ class SapBwCubeDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -25324,7 +25324,7 @@ class SapBwCubeDatasetResponse(dict):
         The SAP BW cube dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -25364,7 +25364,7 @@ class SapBwCubeDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -25422,7 +25422,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: Mapping[str, Any],
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -25433,7 +25433,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         Linked service for SAP Cloud for Customer.
         :param str type: Type of linked service.
         :param Mapping[str, Any] url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -25476,7 +25476,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -25543,7 +25543,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  path: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -25554,7 +25554,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -25603,7 +25603,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -25661,7 +25661,7 @@ class SapEccLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  url: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
@@ -25672,7 +25672,7 @@ class SapEccLinkedServiceResponse(dict):
         Linked service for SAP ERP Central Component(SAP ECC).
         :param str type: Type of linked service.
         :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
@@ -25715,7 +25715,7 @@ class SapEccLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -25782,7 +25782,7 @@ class SapEccResourceDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  path: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -25793,7 +25793,7 @@ class SapEccResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -25842,7 +25842,7 @@ class SapEccResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -25899,7 +25899,7 @@ class SapHanaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
@@ -25912,7 +25912,7 @@ class SapHanaLinkedServiceResponse(dict):
         """
         SAP HANA Linked Service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: SAP HANA ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -25955,7 +25955,7 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -26045,7 +26045,7 @@ class SapHanaTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -26056,7 +26056,7 @@ class SapHanaTableDatasetResponse(dict):
         SAP HANA Table properties.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -26099,7 +26099,7 @@ class SapHanaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -26164,7 +26164,7 @@ class SapOpenHubLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -26182,7 +26182,7 @@ class SapOpenHubLinkedServiceResponse(dict):
         """
         SAP Business Warehouse Open Hub Destination Linked Service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -26240,7 +26240,7 @@ class SapOpenHubLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -26371,7 +26371,7 @@ class SapOpenHubTableDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  open_hub_destination_name: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  base_request_id: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  exclude_last_request: Optional[Mapping[str, Any]] = None,
@@ -26384,7 +26384,7 @@ class SapOpenHubTableDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] open_hub_destination_name: The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Mapping[str, Any] base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param str description: Dataset description.
         :param Mapping[str, Any] exclude_last_request: Whether to exclude the records of the last request. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -26439,7 +26439,7 @@ class SapOpenHubTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -26512,7 +26512,7 @@ class SapTableLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -26535,7 +26535,7 @@ class SapTableLinkedServiceResponse(dict):
         """
         SAP Table Linked Service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -26608,7 +26608,7 @@ class SapTableLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -26779,7 +26779,7 @@ class SapTableResourceDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  table_name: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -26790,7 +26790,7 @@ class SapTableResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Mapping[str, Any] table_name: The name of the SAP Table. Type: string (or Expression with resultType string).
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -26839,7 +26839,7 @@ class SapTableResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -27090,7 +27090,7 @@ class ServiceNowLinkedServiceResponse(dict):
                  authentication_type: str,
                  endpoint: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -27107,7 +27107,7 @@ class ServiceNowLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to use.
         :param Mapping[str, Any] endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: The client id for OAuth2 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret for OAuth2 authentication.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -27174,7 +27174,7 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -27280,7 +27280,7 @@ class ServiceNowObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -27291,7 +27291,7 @@ class ServiceNowObjectDatasetResponse(dict):
         ServiceNow server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -27334,7 +27334,7 @@ class ServiceNowObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -27449,7 +27449,7 @@ class SftpServerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  host: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -27467,7 +27467,7 @@ class SftpServerLinkedServiceResponse(dict):
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
         :param Mapping[str, Any] host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -27531,7 +27531,7 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -27656,7 +27656,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
                  site_url: Mapping[str, Any],
                  tenant_id: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -27668,7 +27668,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         :param Mapping[str, Any] site_url: The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] tenant_id: The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -27732,7 +27732,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -27782,7 +27782,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  list_name: Optional[Mapping[str, Any]] = None,
@@ -27793,7 +27793,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
         The sharepoint online list resource dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, Any] list_name: The name of the SharePoint Online list. Type: string (or Expression with resultType string).
@@ -27836,7 +27836,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -27903,7 +27903,7 @@ class ShopifyLinkedServiceResponse(dict):
                  host: Mapping[str, Any],
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -27916,7 +27916,7 @@ class ShopifyLinkedServiceResponse(dict):
         :param Mapping[str, Any] host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -27972,7 +27972,7 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -28046,7 +28046,7 @@ class ShopifyObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -28057,7 +28057,7 @@ class ShopifyObjectDatasetResponse(dict):
         Shopify Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -28100,7 +28100,7 @@ class ShopifyObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -28166,7 +28166,7 @@ class SnowflakeDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -28177,7 +28177,7 @@ class SnowflakeDatasetResponse(dict):
         The snowflake dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -28220,7 +28220,7 @@ class SnowflakeDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -28286,7 +28286,7 @@ class SnowflakeLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -28296,7 +28296,7 @@ class SnowflakeLinkedServiceResponse(dict):
         Snowflake linked service.
         :param Mapping[str, Any] connection_string: The connection string of snowflake. Type: string, SecureString.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -28336,7 +28336,7 @@ class SnowflakeLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -28398,7 +28398,7 @@ class SparkLinkedServiceResponse(dict):
                  type: str,
                  allow_host_name_cn_mismatch: Optional[Mapping[str, Any]] = None,
                  allow_self_signed_server_cert: Optional[Mapping[str, Any]] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Mapping[str, Any]] = None,
@@ -28419,7 +28419,7 @@ class SparkLinkedServiceResponse(dict):
         :param str type: Type of linked service.
         :param Mapping[str, Any] allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
         :param Mapping[str, Any] allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
@@ -28518,7 +28518,7 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -28632,7 +28632,7 @@ class SparkObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -28644,7 +28644,7 @@ class SparkObjectDatasetResponse(dict):
         Spark Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -28690,7 +28690,7 @@ class SparkObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -28764,7 +28764,7 @@ class SqlServerLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  connection_string: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[Mapping[str, Any]] = None,
@@ -28775,7 +28775,7 @@ class SqlServerLinkedServiceResponse(dict):
         SQL Server linked service.
         :param Mapping[str, Any] connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, Any] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -28818,7 +28818,7 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -28884,7 +28884,7 @@ class SqlServerTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -28896,7 +28896,7 @@ class SqlServerTableDatasetResponse(dict):
         The on-premises SQL Server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -28942,7 +28942,7 @@ class SqlServerTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -29015,7 +29015,7 @@ class SquareLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  client_id: Optional[Mapping[str, Any]] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
@@ -29031,7 +29031,7 @@ class SquareLinkedServiceResponse(dict):
         """
         Square Service linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param Mapping[str, Any] client_id: The client ID associated with your Square application.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] client_secret: The client secret associated with your Square application.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
@@ -29083,7 +29083,7 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -29197,7 +29197,7 @@ class SquareObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -29208,7 +29208,7 @@ class SquareObjectDatasetResponse(dict):
         Square Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -29251,7 +29251,7 @@ class SquareObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -29318,7 +29318,7 @@ class SybaseLinkedServiceResponse(dict):
                  database: Mapping[str, Any],
                  server: Mapping[str, Any],
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -29332,7 +29332,7 @@ class SybaseLinkedServiceResponse(dict):
         :param Mapping[str, Any] database: Database name for connection. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] server: Server name for connection. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -29390,7 +29390,7 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -29472,7 +29472,7 @@ class SybaseTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -29483,7 +29483,7 @@ class SybaseTableDatasetResponse(dict):
         The Sybase table dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -29526,7 +29526,7 @@ class SybaseTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -29591,7 +29591,7 @@ class TeradataLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
@@ -29604,7 +29604,7 @@ class TeradataLinkedServiceResponse(dict):
         """
         Linked service for Teradata data source.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -29647,7 +29647,7 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -29737,7 +29737,7 @@ class TeradataTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  database: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
@@ -29749,7 +29749,7 @@ class TeradataTableDatasetResponse(dict):
         The Teradata database dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Mapping[str, Any] database: The database name of Teradata. Type: string (or Expression with resultType string).
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
@@ -29795,7 +29795,7 @@ class TeradataTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -30172,30 +30172,30 @@ class TumblingWindowTriggerResponse(dict):
     """
     def __init__(__self__, *,
                  frequency: str,
-                 interval: float,
-                 max_concurrency: float,
+                 interval: int,
+                 max_concurrency: int,
                  pipeline: 'outputs.TriggerPipelineReferenceResponse',
                  runtime_state: str,
                  start_time: str,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  delay: Optional[Mapping[str, Any]] = None,
-                 depends_on: Optional[List[Any]] = None,
+                 depends_on: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  end_time: Optional[str] = None,
                  retry_policy: Optional['outputs.RetryPolicyResponse'] = None):
         """
         Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
         :param str frequency: The frequency of the time windows.
-        :param float interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
-        :param float max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
+        :param int interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
+        :param int max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
         :param 'TriggerPipelineReferenceResponseArgs' pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
         :param str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param str start_time: The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param str type: Trigger type.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the trigger.
         :param Mapping[str, Any] delay: Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param List[Union['SelfDependencyTumblingWindowTriggerReferenceResponseArgs', 'TriggerDependencyReferenceResponseArgs']] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
+        :param Sequence[Union['SelfDependencyTumblingWindowTriggerReferenceResponseArgs', 'TriggerDependencyReferenceResponseArgs']] depends_on: Triggers that this trigger depends on. Only tumbling window triggers are supported.
         :param str description: Trigger description.
         :param str end_time: The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
         :param 'RetryPolicyResponseArgs' retry_policy: Retry policy that will be applied for failed pipeline runs.
@@ -30230,7 +30230,7 @@ class TumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         The interval of the time windows. The minimum interval allowed is 15 Minutes.
         """
@@ -30238,7 +30238,7 @@ class TumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> float:
+    def max_concurrency(self) -> int:
         """
         The max number of parallel time windows (ready for execution) for which a new run is triggered.
         """
@@ -30278,7 +30278,7 @@ class TumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the trigger.
         """
@@ -30294,7 +30294,7 @@ class TumblingWindowTriggerResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List[Any]]:
+    def depends_on(self) -> Optional[Sequence[Any]]:
         """
         Triggers that this trigger depends on. Only tumbling window triggers are supported.
         """
@@ -30408,7 +30408,7 @@ class VerticaLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -30418,7 +30418,7 @@ class VerticaLinkedServiceResponse(dict):
         """
         Vertica linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
@@ -30452,7 +30452,7 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -30518,7 +30518,7 @@ class VerticaTableDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -30530,7 +30530,7 @@ class VerticaTableDatasetResponse(dict):
         Vertica dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -30576,7 +30576,7 @@ class VerticaTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -30802,7 +30802,7 @@ class WebLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  type_properties: Any,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
@@ -30810,7 +30810,7 @@ class WebLinkedServiceResponse(dict):
         Web linked service.
         :param str type: Type of linked service.
         :param Union['WebAnonymousAuthenticationResponseArgs', 'WebBasicAuthenticationResponseArgs', 'WebClientCertificateAuthenticationResponseArgs'] type_properties: Web linked service properties.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for linked service.
@@ -30844,7 +30844,7 @@ class WebLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -30887,7 +30887,7 @@ class WebTableDatasetResponse(dict):
                  index: Mapping[str, Any],
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -30899,7 +30899,7 @@ class WebTableDatasetResponse(dict):
         :param Mapping[str, Any] index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -30951,7 +30951,7 @@ class WebTableDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -31016,7 +31016,7 @@ class XeroLinkedServiceResponse(dict):
     """
     def __init__(__self__, *,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Mapping[str, Any]] = None,
                  consumer_key: Optional[Any] = None,
@@ -31031,7 +31031,7 @@ class XeroLinkedServiceResponse(dict):
         """
         Xero Service linked service.
         :param str type: Type of linked service.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_properties: Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] consumer_key: The consumer key associated with the Xero application.
@@ -31081,7 +31081,7 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -31188,7 +31188,7 @@ class XeroObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -31199,7 +31199,7 @@ class XeroObjectDatasetResponse(dict):
         Xero Service dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -31242,7 +31242,7 @@ class XeroObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -31309,7 +31309,7 @@ class XmlDatasetResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  location: Any,
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  compression: Optional[Any] = None,
                  description: Optional[str] = None,
                  encoding_name: Optional[Mapping[str, Any]] = None,
@@ -31323,7 +31323,7 @@ class XmlDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param Union['AmazonS3LocationResponseArgs', 'AzureBlobFSLocationResponseArgs', 'AzureBlobStorageLocationResponseArgs', 'AzureDataLakeStoreLocationResponseArgs', 'AzureFileStorageLocationResponseArgs', 'FileServerLocationResponseArgs', 'FtpServerLocationResponseArgs', 'GoogleCloudStorageLocationResponseArgs', 'HdfsLocationResponseArgs', 'HttpServerLocationResponseArgs', 'SftpLocationResponseArgs'] location: The location of the json data storage.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Union['DatasetBZip2CompressionResponseArgs', 'DatasetDeflateCompressionResponseArgs', 'DatasetGZipCompressionResponseArgs', 'DatasetTarCompressionResponseArgs', 'DatasetTarGZipCompressionResponseArgs', 'DatasetZipDeflateCompressionResponseArgs'] compression: The data compression method used for the json dataset.
         :param str description: Dataset description.
         :param Mapping[str, Any] encoding_name: The code page name of the preferred encoding. If not specified, the default value is UTF-8, unless BOM denotes another Unicode encoding. Refer to the name column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
@@ -31381,7 +31381,7 @@ class XmlDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """
@@ -31463,7 +31463,7 @@ class ZohoLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  access_token: Optional[Any] = None,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Mapping[str, Any]] = None,
                  description: Optional[str] = None,
@@ -31477,7 +31477,7 @@ class ZohoLinkedServiceResponse(dict):
         Zoho server linked service.
         :param str type: Type of linked service.
         :param Union['AzureKeyVaultSecretReferenceResponseArgs', 'SecureStringResponseArgs'] access_token: The access token for Zoho authentication.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponseArgs' connect_via: The integration runtime reference.
         :param Mapping[str, Any] connection_properties: Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
@@ -31530,7 +31530,7 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the linked service.
         """
@@ -31620,7 +31620,7 @@ class ZohoObjectDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 annotations: Optional[List[Mapping[str, Any]]] = None,
+                 annotations: Optional[Sequence[Mapping[str, Any]]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -31631,7 +31631,7 @@ class ZohoObjectDatasetResponse(dict):
         Zoho server dataset.
         :param 'LinkedServiceReferenceResponseArgs' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
-        :param List[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param Sequence[Mapping[str, Any]] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolderArgs' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         :param Mapping[str, 'ParameterSpecificationResponseArgs'] parameters: Parameters for dataset.
@@ -31674,7 +31674,7 @@ class ZohoObjectDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[Mapping[str, Any]]]:
+    def annotations(self) -> Optional[Sequence[Mapping[str, Any]]]:
         """
         List of tags that can be used for describing the Dataset.
         """

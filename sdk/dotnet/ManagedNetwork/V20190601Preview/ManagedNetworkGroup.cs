@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// The collection of management groups covered by the Managed Network
         /// </summary>
         [Output("managementGroups")]
-        public Output<ImmutableArray<Outputs.ResourceIdResponseResult>> ManagementGroups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> ManagementGroups { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// The collection of  subnets covered by the Managed Network
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.ResourceIdResponseResult>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// The collection of subscriptions covered by the Managed Network
         /// </summary>
         [Output("subscriptions")]
-        public Output<ImmutableArray<Outputs.ResourceIdResponseResult>> Subscriptions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Subscriptions { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// The collection of virtual nets covered by the Managed Network
         /// </summary>
         [Output("virtualNetworks")]
-        public Output<ImmutableArray<Outputs.ResourceIdResponseResult>> VirtualNetworks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> VirtualNetworks { get; private set; } = null!;
 
 
         /// <summary>

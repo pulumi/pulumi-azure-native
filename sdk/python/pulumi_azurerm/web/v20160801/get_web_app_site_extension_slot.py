@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetWebAppSiteExtensionSlotResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if download_count and not isinstance(download_count, float):
-            raise TypeError("Expected argument 'download_count' to be a float")
+        if download_count and not isinstance(download_count, int):
+            raise TypeError("Expected argument 'download_count' to be a int")
         pulumi.set(__self__, "download_count", download_count)
         if extension_url and not isinstance(extension_url, str):
             raise TypeError("Expected argument 'extension_url' to be a str")
@@ -86,7 +86,7 @@ class GetWebAppSiteExtensionSlotResult:
 
     @property
     @pulumi.getter
-    def authors(self) -> Optional[List[str]]:
+    def authors(self) -> Optional[Sequence[str]]:
         """
         List of authors.
         """
@@ -110,7 +110,7 @@ class GetWebAppSiteExtensionSlotResult:
 
     @property
     @pulumi.getter(name="downloadCount")
-    def download_count(self) -> Optional[float]:
+    def download_count(self) -> Optional[int]:
         """
         Count of downloads.
         """

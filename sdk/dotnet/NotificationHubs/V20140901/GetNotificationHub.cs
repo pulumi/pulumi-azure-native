@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
         /// <summary>
         /// Gets or sets properties of the NotificationHub.
         /// </summary>
-        public readonly Outputs.NotificationHubPropertiesResponseResult Properties;
+        public readonly Outputs.NotificationHubPropertiesResponse Properties;
         /// <summary>
         /// Gets or sets tags of the NotificationHub.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
 
             string? name,
 
-            Outputs.NotificationHubPropertiesResponseResult properties,
+            Outputs.NotificationHubPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

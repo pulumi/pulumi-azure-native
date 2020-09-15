@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Cache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
-                 cache_size_gb: Optional[pulumi.Input[float]] = None,
+                 cache_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-        :param pulumi.Input[float] cache_size_gb: The size of this Cache, in GB.
+        :param pulumi.Input[int] cache_size_gb: The size of this Cache, in GB.
         :param pulumi.Input[pulumi.InputType['CacheEncryptionSettingsArgs']] encryption_settings: Specifies encryption settings of the cache.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
@@ -116,7 +116,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSizeGB")
-    def cache_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def cache_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         The size of this Cache, in GB.
         """
@@ -156,7 +156,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> pulumi.Output[List[str]]:
+    def mount_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Array of IP addresses that can be used by clients mounting this Cache.
         """

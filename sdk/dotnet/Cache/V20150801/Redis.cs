@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Cache.V20150801
         /// What SKU of Redis cache to deploy.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Redis SSL port.

@@ -75,112 +75,11 @@ func (i ActivityDependencyArray) ToActivityDependencyArrayOutputWithContext(ctx 
 }
 
 // Activity dependency information.
-type ActivityDependencyOutput struct{ *pulumi.OutputState }
-
-func (ActivityDependencyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityDependency)(nil)).Elem()
-}
-
-func (o ActivityDependencyOutput) ToActivityDependencyOutput() ActivityDependencyOutput {
-	return o
-}
-
-func (o ActivityDependencyOutput) ToActivityDependencyOutputWithContext(ctx context.Context) ActivityDependencyOutput {
-	return o
-}
-
-// Activity name.
-func (o ActivityDependencyOutput) Activity() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityDependency) string { return v.Activity }).(pulumi.StringOutput)
-}
-
-// Match-Condition for the dependency.
-func (o ActivityDependencyOutput) DependencyConditions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ActivityDependency) []string { return v.DependencyConditions }).(pulumi.StringArrayOutput)
-}
-
-type ActivityDependencyArrayOutput struct{ *pulumi.OutputState }
-
-func (ActivityDependencyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityDependency)(nil)).Elem()
-}
-
-func (o ActivityDependencyArrayOutput) ToActivityDependencyArrayOutput() ActivityDependencyArrayOutput {
-	return o
-}
-
-func (o ActivityDependencyArrayOutput) ToActivityDependencyArrayOutputWithContext(ctx context.Context) ActivityDependencyArrayOutput {
-	return o
-}
-
-func (o ActivityDependencyArrayOutput) Index(i pulumi.IntInput) ActivityDependencyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityDependency {
-		return vs[0].([]ActivityDependency)[vs[1].(int)]
-	}).(ActivityDependencyOutput)
-}
-
-// Activity dependency information.
 type ActivityDependencyResponse struct {
 	// Activity name.
 	Activity string `pulumi:"activity"`
 	// Match-Condition for the dependency.
 	DependencyConditions []string `pulumi:"dependencyConditions"`
-}
-
-// ActivityDependencyResponseInput is an input type that accepts ActivityDependencyResponseArgs and ActivityDependencyResponseOutput values.
-// You can construct a concrete instance of `ActivityDependencyResponseInput` via:
-//
-//          ActivityDependencyResponseArgs{...}
-type ActivityDependencyResponseInput interface {
-	pulumi.Input
-
-	ToActivityDependencyResponseOutput() ActivityDependencyResponseOutput
-	ToActivityDependencyResponseOutputWithContext(context.Context) ActivityDependencyResponseOutput
-}
-
-// Activity dependency information.
-type ActivityDependencyResponseArgs struct {
-	// Activity name.
-	Activity pulumi.StringInput `pulumi:"activity"`
-	// Match-Condition for the dependency.
-	DependencyConditions pulumi.StringArrayInput `pulumi:"dependencyConditions"`
-}
-
-func (ActivityDependencyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityDependencyResponse)(nil)).Elem()
-}
-
-func (i ActivityDependencyResponseArgs) ToActivityDependencyResponseOutput() ActivityDependencyResponseOutput {
-	return i.ToActivityDependencyResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityDependencyResponseArgs) ToActivityDependencyResponseOutputWithContext(ctx context.Context) ActivityDependencyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityDependencyResponseOutput)
-}
-
-// ActivityDependencyResponseArrayInput is an input type that accepts ActivityDependencyResponseArray and ActivityDependencyResponseArrayOutput values.
-// You can construct a concrete instance of `ActivityDependencyResponseArrayInput` via:
-//
-//          ActivityDependencyResponseArray{ ActivityDependencyResponseArgs{...} }
-type ActivityDependencyResponseArrayInput interface {
-	pulumi.Input
-
-	ToActivityDependencyResponseArrayOutput() ActivityDependencyResponseArrayOutput
-	ToActivityDependencyResponseArrayOutputWithContext(context.Context) ActivityDependencyResponseArrayOutput
-}
-
-type ActivityDependencyResponseArray []ActivityDependencyResponseInput
-
-func (ActivityDependencyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityDependencyResponse)(nil)).Elem()
-}
-
-func (i ActivityDependencyResponseArray) ToActivityDependencyResponseArrayOutput() ActivityDependencyResponseArrayOutput {
-	return i.ToActivityDependencyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityDependencyResponseArray) ToActivityDependencyResponseArrayOutputWithContext(ctx context.Context) ActivityDependencyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityDependencyResponseArrayOutput)
 }
 
 // Activity dependency information.
@@ -317,109 +216,6 @@ func (i *activityPolicyPtrType) ToActivityPolicyPtrOutputWithContext(ctx context
 }
 
 // Execution policy for an activity.
-type ActivityPolicyOutput struct{ *pulumi.OutputState }
-
-func (ActivityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityPolicy)(nil)).Elem()
-}
-
-func (o ActivityPolicyOutput) ToActivityPolicyOutput() ActivityPolicyOutput {
-	return o
-}
-
-func (o ActivityPolicyOutput) ToActivityPolicyOutputWithContext(ctx context.Context) ActivityPolicyOutput {
-	return o
-}
-
-func (o ActivityPolicyOutput) ToActivityPolicyPtrOutput() ActivityPolicyPtrOutput {
-	return o.ToActivityPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityPolicyOutput) ToActivityPolicyPtrOutputWithContext(ctx context.Context) ActivityPolicyPtrOutput {
-	return o.ApplyT(func(v ActivityPolicy) *ActivityPolicy {
-		return &v
-	}).(ActivityPolicyPtrOutput)
-}
-
-// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o ActivityPolicyOutput) Retry() pulumi.MapOutput {
-	return o.ApplyT(func(v ActivityPolicy) map[string]interface{} { return v.Retry }).(pulumi.MapOutput)
-}
-
-// Interval between each retry attempt (in seconds). The default is 30 sec.
-func (o ActivityPolicyOutput) RetryIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ActivityPolicy) *int { return v.RetryIntervalInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// When set to true, Output from activity is considered as secure and will not be logged to monitoring.
-func (o ActivityPolicyOutput) SecureOutput() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ActivityPolicy) *bool { return v.SecureOutput }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-func (o ActivityPolicyOutput) Timeout() pulumi.MapOutput {
-	return o.ApplyT(func(v ActivityPolicy) map[string]interface{} { return v.Timeout }).(pulumi.MapOutput)
-}
-
-type ActivityPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityPolicy)(nil)).Elem()
-}
-
-func (o ActivityPolicyPtrOutput) ToActivityPolicyPtrOutput() ActivityPolicyPtrOutput {
-	return o
-}
-
-func (o ActivityPolicyPtrOutput) ToActivityPolicyPtrOutputWithContext(ctx context.Context) ActivityPolicyPtrOutput {
-	return o
-}
-
-func (o ActivityPolicyPtrOutput) Elem() ActivityPolicyOutput {
-	return o.ApplyT(func(v *ActivityPolicy) ActivityPolicy { return *v }).(ActivityPolicyOutput)
-}
-
-// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o ActivityPolicyPtrOutput) Retry() pulumi.MapOutput {
-	return o.ApplyT(func(v *ActivityPolicy) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Retry
-	}).(pulumi.MapOutput)
-}
-
-// Interval between each retry attempt (in seconds). The default is 30 sec.
-func (o ActivityPolicyPtrOutput) RetryIntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ActivityPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RetryIntervalInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// When set to true, Output from activity is considered as secure and will not be logged to monitoring.
-func (o ActivityPolicyPtrOutput) SecureOutput() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ActivityPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SecureOutput
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-func (o ActivityPolicyPtrOutput) Timeout() pulumi.MapOutput {
-	return o.ApplyT(func(v *ActivityPolicy) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Timeout
-	}).(pulumi.MapOutput)
-}
-
-// Execution policy for an activity.
 type ActivityPolicyResponse struct {
 	// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
 	Retry map[string]interface{} `pulumi:"retry"`
@@ -429,82 +225,6 @@ type ActivityPolicyResponse struct {
 	SecureOutput *bool `pulumi:"secureOutput"`
 	// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Timeout map[string]interface{} `pulumi:"timeout"`
-}
-
-// ActivityPolicyResponseInput is an input type that accepts ActivityPolicyResponseArgs and ActivityPolicyResponseOutput values.
-// You can construct a concrete instance of `ActivityPolicyResponseInput` via:
-//
-//          ActivityPolicyResponseArgs{...}
-type ActivityPolicyResponseInput interface {
-	pulumi.Input
-
-	ToActivityPolicyResponseOutput() ActivityPolicyResponseOutput
-	ToActivityPolicyResponseOutputWithContext(context.Context) ActivityPolicyResponseOutput
-}
-
-// Execution policy for an activity.
-type ActivityPolicyResponseArgs struct {
-	// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-	Retry pulumi.MapInput `pulumi:"retry"`
-	// Interval between each retry attempt (in seconds). The default is 30 sec.
-	RetryIntervalInSeconds pulumi.IntPtrInput `pulumi:"retryIntervalInSeconds"`
-	// When set to true, Output from activity is considered as secure and will not be logged to monitoring.
-	SecureOutput pulumi.BoolPtrInput `pulumi:"secureOutput"`
-	// Specifies the timeout for the activity to run. The default timeout is 7 days. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-	Timeout pulumi.MapInput `pulumi:"timeout"`
-}
-
-func (ActivityPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityPolicyResponse)(nil)).Elem()
-}
-
-func (i ActivityPolicyResponseArgs) ToActivityPolicyResponseOutput() ActivityPolicyResponseOutput {
-	return i.ToActivityPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityPolicyResponseArgs) ToActivityPolicyResponseOutputWithContext(ctx context.Context) ActivityPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityPolicyResponseOutput)
-}
-
-func (i ActivityPolicyResponseArgs) ToActivityPolicyResponsePtrOutput() ActivityPolicyResponsePtrOutput {
-	return i.ToActivityPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActivityPolicyResponseArgs) ToActivityPolicyResponsePtrOutputWithContext(ctx context.Context) ActivityPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityPolicyResponseOutput).ToActivityPolicyResponsePtrOutputWithContext(ctx)
-}
-
-// ActivityPolicyResponsePtrInput is an input type that accepts ActivityPolicyResponseArgs, ActivityPolicyResponsePtr and ActivityPolicyResponsePtrOutput values.
-// You can construct a concrete instance of `ActivityPolicyResponsePtrInput` via:
-//
-//          ActivityPolicyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ActivityPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToActivityPolicyResponsePtrOutput() ActivityPolicyResponsePtrOutput
-	ToActivityPolicyResponsePtrOutputWithContext(context.Context) ActivityPolicyResponsePtrOutput
-}
-
-type activityPolicyResponsePtrType ActivityPolicyResponseArgs
-
-func ActivityPolicyResponsePtr(v *ActivityPolicyResponseArgs) ActivityPolicyResponsePtrInput {
-	return (*activityPolicyResponsePtrType)(v)
-}
-
-func (*activityPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityPolicyResponse)(nil)).Elem()
-}
-
-func (i *activityPolicyResponsePtrType) ToActivityPolicyResponsePtrOutput() ActivityPolicyResponsePtrOutput {
-	return i.ToActivityPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activityPolicyResponsePtrType) ToActivityPolicyResponsePtrOutputWithContext(ctx context.Context) ActivityPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityPolicyResponsePtrOutput)
 }
 
 // Execution policy for an activity.
@@ -702,96 +422,6 @@ func (i AmazonMWSLinkedServiceArgs) ToAmazonMWSLinkedServiceOutputWithContext(ct
 }
 
 // Amazon Marketplace Web Service linked service.
-type AmazonMWSLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AmazonMWSLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonMWSLinkedService)(nil)).Elem()
-}
-
-func (o AmazonMWSLinkedServiceOutput) ToAmazonMWSLinkedServiceOutput() AmazonMWSLinkedServiceOutput {
-	return o
-}
-
-func (o AmazonMWSLinkedServiceOutput) ToAmazonMWSLinkedServiceOutputWithContext(ctx context.Context) AmazonMWSLinkedServiceOutput {
-	return o
-}
-
-// The access key id used to access data.
-func (o AmazonMWSLinkedServiceOutput) AccessKeyId() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.AccessKeyId }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AmazonMWSLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AmazonMWSLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AmazonMWSLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AmazonMWSLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
-func (o AmazonMWSLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
-func (o AmazonMWSLinkedServiceOutput) MarketplaceID() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.MarketplaceID }).(pulumi.MapOutput)
-}
-
-// The Amazon MWS authentication token.
-func (o AmazonMWSLinkedServiceOutput) MwsAuthToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) interface{} { return v.MwsAuthToken }).(pulumi.AnyOutput)
-}
-
-// Parameters for linked service.
-func (o AmazonMWSLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The secret key used to access data.
-func (o AmazonMWSLinkedServiceOutput) SecretKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) interface{} { return v.SecretKey }).(pulumi.AnyOutput)
-}
-
-// The Amazon seller ID.
-func (o AmazonMWSLinkedServiceOutput) SellerID() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.SellerID }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AmazonMWSLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o AmazonMWSLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o AmazonMWSLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o AmazonMWSLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Amazon Marketplace Web Service linked service.
 type AmazonMWSLinkedServiceResponse struct {
 	// The access key id used to access data.
 	AccessKeyId map[string]interface{} `pulumi:"accessKeyId"`
@@ -823,63 +453,6 @@ type AmazonMWSLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// AmazonMWSLinkedServiceResponseInput is an input type that accepts AmazonMWSLinkedServiceResponseArgs and AmazonMWSLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AmazonMWSLinkedServiceResponseInput` via:
-//
-//          AmazonMWSLinkedServiceResponseArgs{...}
-type AmazonMWSLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAmazonMWSLinkedServiceResponseOutput() AmazonMWSLinkedServiceResponseOutput
-	ToAmazonMWSLinkedServiceResponseOutputWithContext(context.Context) AmazonMWSLinkedServiceResponseOutput
-}
-
-// Amazon Marketplace Web Service linked service.
-type AmazonMWSLinkedServiceResponseArgs struct {
-	// The access key id used to access data.
-	AccessKeyId pulumi.MapInput `pulumi:"accessKeyId"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
-	MarketplaceID pulumi.MapInput `pulumi:"marketplaceID"`
-	// The Amazon MWS authentication token.
-	MwsAuthToken pulumi.Input `pulumi:"mwsAuthToken"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The secret key used to access data.
-	SecretKey pulumi.Input `pulumi:"secretKey"`
-	// The Amazon seller ID.
-	SellerID pulumi.MapInput `pulumi:"sellerID"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (AmazonMWSLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonMWSLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AmazonMWSLinkedServiceResponseArgs) ToAmazonMWSLinkedServiceResponseOutput() AmazonMWSLinkedServiceResponseOutput {
-	return i.ToAmazonMWSLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AmazonMWSLinkedServiceResponseArgs) ToAmazonMWSLinkedServiceResponseOutputWithContext(ctx context.Context) AmazonMWSLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmazonMWSLinkedServiceResponseOutput)
 }
 
 // Amazon Marketplace Web Service linked service.
@@ -1028,51 +601,6 @@ func (i AmazonMWSObjectDatasetArgs) ToAmazonMWSObjectDatasetOutputWithContext(ct
 }
 
 // Amazon Marketplace Web Service dataset.
-type AmazonMWSObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (AmazonMWSObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonMWSObjectDataset)(nil)).Elem()
-}
-
-func (o AmazonMWSObjectDatasetOutput) ToAmazonMWSObjectDatasetOutput() AmazonMWSObjectDatasetOutput {
-	return o
-}
-
-func (o AmazonMWSObjectDatasetOutput) ToAmazonMWSObjectDatasetOutputWithContext(ctx context.Context) AmazonMWSObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AmazonMWSObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AmazonMWSObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AmazonMWSObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AmazonMWSObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AmazonMWSObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AmazonMWSObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AmazonMWSObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Amazon Marketplace Web Service dataset.
 type AmazonMWSObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -1086,45 +614,6 @@ type AmazonMWSObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AmazonMWSObjectDatasetResponseInput is an input type that accepts AmazonMWSObjectDatasetResponseArgs and AmazonMWSObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `AmazonMWSObjectDatasetResponseInput` via:
-//
-//          AmazonMWSObjectDatasetResponseArgs{...}
-type AmazonMWSObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAmazonMWSObjectDatasetResponseOutput() AmazonMWSObjectDatasetResponseOutput
-	ToAmazonMWSObjectDatasetResponseOutputWithContext(context.Context) AmazonMWSObjectDatasetResponseOutput
-}
-
-// Amazon Marketplace Web Service dataset.
-type AmazonMWSObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AmazonMWSObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonMWSObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i AmazonMWSObjectDatasetResponseArgs) ToAmazonMWSObjectDatasetResponseOutput() AmazonMWSObjectDatasetResponseOutput {
-	return i.ToAmazonMWSObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AmazonMWSObjectDatasetResponseArgs) ToAmazonMWSObjectDatasetResponseOutputWithContext(ctx context.Context) AmazonMWSObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmazonMWSObjectDatasetResponseOutput)
 }
 
 // Amazon Marketplace Web Service dataset.
@@ -1248,76 +737,6 @@ func (i AmazonRedshiftLinkedServiceArgs) ToAmazonRedshiftLinkedServiceOutputWith
 }
 
 // Linked service for Amazon Redshift.
-type AmazonRedshiftLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AmazonRedshiftLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonRedshiftLinkedService)(nil)).Elem()
-}
-
-func (o AmazonRedshiftLinkedServiceOutput) ToAmazonRedshiftLinkedServiceOutput() AmazonRedshiftLinkedServiceOutput {
-	return o
-}
-
-func (o AmazonRedshiftLinkedServiceOutput) ToAmazonRedshiftLinkedServiceOutputWithContext(ctx context.Context) AmazonRedshiftLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AmazonRedshiftLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AmazonRedshiftLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
-func (o AmazonRedshiftLinkedServiceOutput) Database() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AmazonRedshiftLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AmazonRedshiftLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AmazonRedshiftLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password of the Amazon Redshift source.
-func (o AmazonRedshiftLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
-func (o AmazonRedshiftLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
-func (o AmazonRedshiftLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AmazonRedshiftLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
-func (o AmazonRedshiftLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonRedshiftLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for Amazon Redshift.
 type AmazonRedshiftLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -1341,55 +760,6 @@ type AmazonRedshiftLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// AmazonRedshiftLinkedServiceResponseInput is an input type that accepts AmazonRedshiftLinkedServiceResponseArgs and AmazonRedshiftLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AmazonRedshiftLinkedServiceResponseInput` via:
-//
-//          AmazonRedshiftLinkedServiceResponseArgs{...}
-type AmazonRedshiftLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAmazonRedshiftLinkedServiceResponseOutput() AmazonRedshiftLinkedServiceResponseOutput
-	ToAmazonRedshiftLinkedServiceResponseOutputWithContext(context.Context) AmazonRedshiftLinkedServiceResponseOutput
-}
-
-// Linked service for Amazon Redshift.
-type AmazonRedshiftLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
-	Database pulumi.MapInput `pulumi:"database"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password of the Amazon Redshift source.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
-	Port pulumi.MapInput `pulumi:"port"`
-	// The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The username of the Amazon Redshift source. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (AmazonRedshiftLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonRedshiftLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AmazonRedshiftLinkedServiceResponseArgs) ToAmazonRedshiftLinkedServiceResponseOutput() AmazonRedshiftLinkedServiceResponseOutput {
-	return i.ToAmazonRedshiftLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AmazonRedshiftLinkedServiceResponseArgs) ToAmazonRedshiftLinkedServiceResponseOutputWithContext(ctx context.Context) AmazonRedshiftLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmazonRedshiftLinkedServiceResponseOutput)
 }
 
 // Linked service for Amazon Redshift.
@@ -1544,81 +914,6 @@ func (i AmazonS3DatasetArgs) ToAmazonS3DatasetOutputWithContext(ctx context.Cont
 }
 
 // A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
-type AmazonS3DatasetOutput struct{ *pulumi.OutputState }
-
-func (AmazonS3DatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonS3Dataset)(nil)).Elem()
-}
-
-func (o AmazonS3DatasetOutput) ToAmazonS3DatasetOutput() AmazonS3DatasetOutput {
-	return o
-}
-
-func (o AmazonS3DatasetOutput) ToAmazonS3DatasetOutputWithContext(ctx context.Context) AmazonS3DatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AmazonS3DatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-func (o AmazonS3DatasetOutput) BucketName() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]interface{} { return v.BucketName }).(pulumi.MapOutput)
-}
-
-// The data compression method used for the Amazon S3 object.
-func (o AmazonS3DatasetOutput) Compression() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) interface{} { return v.Compression }).(pulumi.AnyOutput)
-}
-
-// Dataset description.
-func (o AmazonS3DatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The format of files.
-func (o AmazonS3DatasetOutput) Format() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) interface{} { return v.Format }).(pulumi.AnyOutput)
-}
-
-// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-func (o AmazonS3DatasetOutput) Key() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]interface{} { return v.Key }).(pulumi.MapOutput)
-}
-
-// Linked service reference.
-func (o AmazonS3DatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AmazonS3DatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-func (o AmazonS3DatasetOutput) Prefix() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]interface{} { return v.Prefix }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AmazonS3DatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AmazonS3DatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The version for the S3 object. Type: string (or Expression with resultType string).
-func (o AmazonS3DatasetOutput) Version() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3Dataset) map[string]interface{} { return v.Version }).(pulumi.MapOutput)
-}
-
-// A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
 type AmazonS3DatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -1644,57 +939,6 @@ type AmazonS3DatasetResponse struct {
 	Type string `pulumi:"type"`
 	// The version for the S3 object. Type: string (or Expression with resultType string).
 	Version map[string]interface{} `pulumi:"version"`
-}
-
-// AmazonS3DatasetResponseInput is an input type that accepts AmazonS3DatasetResponseArgs and AmazonS3DatasetResponseOutput values.
-// You can construct a concrete instance of `AmazonS3DatasetResponseInput` via:
-//
-//          AmazonS3DatasetResponseArgs{...}
-type AmazonS3DatasetResponseInput interface {
-	pulumi.Input
-
-	ToAmazonS3DatasetResponseOutput() AmazonS3DatasetResponseOutput
-	ToAmazonS3DatasetResponseOutputWithContext(context.Context) AmazonS3DatasetResponseOutput
-}
-
-// A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
-type AmazonS3DatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
-	BucketName pulumi.MapInput `pulumi:"bucketName"`
-	// The data compression method used for the Amazon S3 object.
-	Compression pulumi.Input `pulumi:"compression"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The format of files.
-	Format pulumi.Input `pulumi:"format"`
-	// The key of the Amazon S3 object. Type: string (or Expression with resultType string).
-	Key pulumi.MapInput `pulumi:"key"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The prefix filter for the S3 object name. Type: string (or Expression with resultType string).
-	Prefix pulumi.MapInput `pulumi:"prefix"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The version for the S3 object. Type: string (or Expression with resultType string).
-	Version pulumi.MapInput `pulumi:"version"`
-}
-
-func (AmazonS3DatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonS3DatasetResponse)(nil)).Elem()
-}
-
-func (i AmazonS3DatasetResponseArgs) ToAmazonS3DatasetResponseOutput() AmazonS3DatasetResponseOutput {
-	return i.ToAmazonS3DatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AmazonS3DatasetResponseArgs) ToAmazonS3DatasetResponseOutputWithContext(ctx context.Context) AmazonS3DatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmazonS3DatasetResponseOutput)
 }
 
 // A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
@@ -1836,61 +1080,6 @@ func (i AmazonS3LinkedServiceArgs) ToAmazonS3LinkedServiceOutputWithContext(ctx 
 }
 
 // Linked service for Amazon S3.
-type AmazonS3LinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AmazonS3LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonS3LinkedService)(nil)).Elem()
-}
-
-func (o AmazonS3LinkedServiceOutput) ToAmazonS3LinkedServiceOutput() AmazonS3LinkedServiceOutput {
-	return o
-}
-
-func (o AmazonS3LinkedServiceOutput) ToAmazonS3LinkedServiceOutputWithContext(ctx context.Context) AmazonS3LinkedServiceOutput {
-	return o
-}
-
-// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-func (o AmazonS3LinkedServiceOutput) AccessKeyId() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) map[string]interface{} { return v.AccessKeyId }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AmazonS3LinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AmazonS3LinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AmazonS3LinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AmazonS3LinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AmazonS3LinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
-func (o AmazonS3LinkedServiceOutput) SecretAccessKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) interface{} { return v.SecretAccessKey }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o AmazonS3LinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AmazonS3LinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Linked service for Amazon S3.
 type AmazonS3LinkedServiceResponse struct {
 	// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
 	AccessKeyId map[string]interface{} `pulumi:"accessKeyId"`
@@ -1908,49 +1097,6 @@ type AmazonS3LinkedServiceResponse struct {
 	SecretAccessKey interface{} `pulumi:"secretAccessKey"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AmazonS3LinkedServiceResponseInput is an input type that accepts AmazonS3LinkedServiceResponseArgs and AmazonS3LinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AmazonS3LinkedServiceResponseInput` via:
-//
-//          AmazonS3LinkedServiceResponseArgs{...}
-type AmazonS3LinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAmazonS3LinkedServiceResponseOutput() AmazonS3LinkedServiceResponseOutput
-	ToAmazonS3LinkedServiceResponseOutputWithContext(context.Context) AmazonS3LinkedServiceResponseOutput
-}
-
-// Linked service for Amazon S3.
-type AmazonS3LinkedServiceResponseArgs struct {
-	// The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
-	AccessKeyId pulumi.MapInput `pulumi:"accessKeyId"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
-	SecretAccessKey pulumi.Input `pulumi:"secretAccessKey"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AmazonS3LinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AmazonS3LinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AmazonS3LinkedServiceResponseArgs) ToAmazonS3LinkedServiceResponseOutput() AmazonS3LinkedServiceResponseOutput {
-	return i.ToAmazonS3LinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AmazonS3LinkedServiceResponseArgs) ToAmazonS3LinkedServiceResponseOutputWithContext(ctx context.Context) AmazonS3LinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmazonS3LinkedServiceResponseOutput)
 }
 
 // Linked service for Amazon S3.
@@ -2052,36 +1198,6 @@ func (i AvroFormatArgs) ToAvroFormatOutputWithContext(ctx context.Context) AvroF
 }
 
 // The data stored in Avro format.
-type AvroFormatOutput struct{ *pulumi.OutputState }
-
-func (AvroFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvroFormat)(nil)).Elem()
-}
-
-func (o AvroFormatOutput) ToAvroFormatOutput() AvroFormatOutput {
-	return o
-}
-
-func (o AvroFormatOutput) ToAvroFormatOutputWithContext(ctx context.Context) AvroFormatOutput {
-	return o
-}
-
-// Deserializer. Type: string (or Expression with resultType string).
-func (o AvroFormatOutput) Deserializer() pulumi.MapOutput {
-	return o.ApplyT(func(v AvroFormat) map[string]interface{} { return v.Deserializer }).(pulumi.MapOutput)
-}
-
-// Serializer. Type: string (or Expression with resultType string).
-func (o AvroFormatOutput) Serializer() pulumi.MapOutput {
-	return o.ApplyT(func(v AvroFormat) map[string]interface{} { return v.Serializer }).(pulumi.MapOutput)
-}
-
-// Type of dataset storage format.
-func (o AvroFormatOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AvroFormat) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The data stored in Avro format.
 type AvroFormatResponse struct {
 	// Deserializer. Type: string (or Expression with resultType string).
 	Deserializer map[string]interface{} `pulumi:"deserializer"`
@@ -2089,39 +1205,6 @@ type AvroFormatResponse struct {
 	Serializer map[string]interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
 	Type string `pulumi:"type"`
-}
-
-// AvroFormatResponseInput is an input type that accepts AvroFormatResponseArgs and AvroFormatResponseOutput values.
-// You can construct a concrete instance of `AvroFormatResponseInput` via:
-//
-//          AvroFormatResponseArgs{...}
-type AvroFormatResponseInput interface {
-	pulumi.Input
-
-	ToAvroFormatResponseOutput() AvroFormatResponseOutput
-	ToAvroFormatResponseOutputWithContext(context.Context) AvroFormatResponseOutput
-}
-
-// The data stored in Avro format.
-type AvroFormatResponseArgs struct {
-	// Deserializer. Type: string (or Expression with resultType string).
-	Deserializer pulumi.MapInput `pulumi:"deserializer"`
-	// Serializer. Type: string (or Expression with resultType string).
-	Serializer pulumi.MapInput `pulumi:"serializer"`
-	// Type of dataset storage format.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AvroFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvroFormatResponse)(nil)).Elem()
-}
-
-func (i AvroFormatResponseArgs) ToAvroFormatResponseOutput() AvroFormatResponseOutput {
-	return i.ToAvroFormatResponseOutputWithContext(context.Background())
-}
-
-func (i AvroFormatResponseArgs) ToAvroFormatResponseOutputWithContext(ctx context.Context) AvroFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvroFormatResponseOutput)
 }
 
 // The data stored in Avro format.
@@ -2230,76 +1313,6 @@ func (i AzureBatchLinkedServiceArgs) ToAzureBatchLinkedServiceOutputWithContext(
 }
 
 // Azure Batch linked service.
-type AzureBatchLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureBatchLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureBatchLinkedService)(nil)).Elem()
-}
-
-func (o AzureBatchLinkedServiceOutput) ToAzureBatchLinkedServiceOutput() AzureBatchLinkedServiceOutput {
-	return o
-}
-
-func (o AzureBatchLinkedServiceOutput) ToAzureBatchLinkedServiceOutputWithContext(ctx context.Context) AzureBatchLinkedServiceOutput {
-	return o
-}
-
-// The Azure Batch account access key.
-func (o AzureBatchLinkedServiceOutput) AccessKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) interface{} { return v.AccessKey }).(pulumi.AnyOutput)
-}
-
-// The Azure Batch account name. Type: string (or Expression with resultType string).
-func (o AzureBatchLinkedServiceOutput) AccountName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) map[string]interface{} { return v.AccountName }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureBatchLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The Azure Batch URI. Type: string (or Expression with resultType string).
-func (o AzureBatchLinkedServiceOutput) BatchUri() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) map[string]interface{} { return v.BatchUri }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o AzureBatchLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AzureBatchLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureBatchLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The Azure Storage linked service reference.
-func (o AzureBatchLinkedServiceOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for linked service.
-func (o AzureBatchLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The Azure Batch pool name. Type: string (or Expression with resultType string).
-func (o AzureBatchLinkedServiceOutput) PoolName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) map[string]interface{} { return v.PoolName }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureBatchLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureBatchLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Batch linked service.
 type AzureBatchLinkedServiceResponse struct {
 	// The Azure Batch account access key.
 	AccessKey interface{} `pulumi:"accessKey"`
@@ -2323,55 +1336,6 @@ type AzureBatchLinkedServiceResponse struct {
 	PoolName map[string]interface{} `pulumi:"poolName"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureBatchLinkedServiceResponseInput is an input type that accepts AzureBatchLinkedServiceResponseArgs and AzureBatchLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureBatchLinkedServiceResponseInput` via:
-//
-//          AzureBatchLinkedServiceResponseArgs{...}
-type AzureBatchLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureBatchLinkedServiceResponseOutput() AzureBatchLinkedServiceResponseOutput
-	ToAzureBatchLinkedServiceResponseOutputWithContext(context.Context) AzureBatchLinkedServiceResponseOutput
-}
-
-// Azure Batch linked service.
-type AzureBatchLinkedServiceResponseArgs struct {
-	// The Azure Batch account access key.
-	AccessKey pulumi.Input `pulumi:"accessKey"`
-	// The Azure Batch account name. Type: string (or Expression with resultType string).
-	AccountName pulumi.MapInput `pulumi:"accountName"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The Azure Batch URI. Type: string (or Expression with resultType string).
-	BatchUri pulumi.MapInput `pulumi:"batchUri"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The Azure Storage linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The Azure Batch pool name. Type: string (or Expression with resultType string).
-	PoolName pulumi.MapInput `pulumi:"poolName"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureBatchLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureBatchLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureBatchLinkedServiceResponseArgs) ToAzureBatchLinkedServiceResponseOutput() AzureBatchLinkedServiceResponseOutput {
-	return i.ToAzureBatchLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureBatchLinkedServiceResponseArgs) ToAzureBatchLinkedServiceResponseOutputWithContext(ctx context.Context) AzureBatchLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureBatchLinkedServiceResponseOutput)
 }
 
 // Azure Batch linked service.
@@ -2520,76 +1484,6 @@ func (i AzureBlobDatasetArgs) ToAzureBlobDatasetOutputWithContext(ctx context.Co
 }
 
 // The Azure Blob storage.
-type AzureBlobDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureBlobDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureBlobDataset)(nil)).Elem()
-}
-
-func (o AzureBlobDatasetOutput) ToAzureBlobDatasetOutput() AzureBlobDatasetOutput {
-	return o
-}
-
-func (o AzureBlobDatasetOutput) ToAzureBlobDatasetOutputWithContext(ctx context.Context) AzureBlobDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureBlobDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureBlobDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The data compression method used for the blob storage.
-func (o AzureBlobDatasetOutput) Compression() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureBlobDataset) interface{} { return v.Compression }).(pulumi.AnyOutput)
-}
-
-// Dataset description.
-func (o AzureBlobDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureBlobDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Azure Blob. Type: string (or Expression with resultType string).
-func (o AzureBlobDatasetOutput) FileName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBlobDataset) map[string]interface{} { return v.FileName }).(pulumi.MapOutput)
-}
-
-// The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-func (o AzureBlobDatasetOutput) FolderPath() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBlobDataset) map[string]interface{} { return v.FolderPath }).(pulumi.MapOutput)
-}
-
-// The format of the Azure Blob storage.
-func (o AzureBlobDatasetOutput) Format() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureBlobDataset) interface{} { return v.Format }).(pulumi.AnyOutput)
-}
-
-// Linked service reference.
-func (o AzureBlobDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureBlobDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureBlobDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureBlobDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureBlobDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBlobDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The root of blob path. Type: string (or Expression with resultType string).
-func (o AzureBlobDatasetOutput) TableRootLocation() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureBlobDataset) map[string]interface{} { return v.TableRootLocation }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureBlobDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureBlobDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure Blob storage.
 type AzureBlobDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -2613,55 +1507,6 @@ type AzureBlobDatasetResponse struct {
 	TableRootLocation map[string]interface{} `pulumi:"tableRootLocation"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureBlobDatasetResponseInput is an input type that accepts AzureBlobDatasetResponseArgs and AzureBlobDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureBlobDatasetResponseInput` via:
-//
-//          AzureBlobDatasetResponseArgs{...}
-type AzureBlobDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureBlobDatasetResponseOutput() AzureBlobDatasetResponseOutput
-	ToAzureBlobDatasetResponseOutputWithContext(context.Context) AzureBlobDatasetResponseOutput
-}
-
-// The Azure Blob storage.
-type AzureBlobDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The data compression method used for the blob storage.
-	Compression pulumi.Input `pulumi:"compression"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the Azure Blob. Type: string (or Expression with resultType string).
-	FileName pulumi.MapInput `pulumi:"fileName"`
-	// The path of the Azure Blob storage. Type: string (or Expression with resultType string).
-	FolderPath pulumi.MapInput `pulumi:"folderPath"`
-	// The format of the Azure Blob storage.
-	Format pulumi.Input `pulumi:"format"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The root of blob path. Type: string (or Expression with resultType string).
-	TableRootLocation pulumi.MapInput `pulumi:"tableRootLocation"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureBlobDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureBlobDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureBlobDatasetResponseArgs) ToAzureBlobDatasetResponseOutput() AzureBlobDatasetResponseOutput {
-	return i.ToAzureBlobDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureBlobDatasetResponseArgs) ToAzureBlobDatasetResponseOutputWithContext(ctx context.Context) AzureBlobDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobDatasetResponseOutput)
 }
 
 // The Azure Blob storage.
@@ -2818,86 +1663,6 @@ func (i AzureDataLakeAnalyticsLinkedServiceArgs) ToAzureDataLakeAnalyticsLinkedS
 }
 
 // Azure Data Lake Analytics linked service.
-type AzureDataLakeAnalyticsLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureDataLakeAnalyticsLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeAnalyticsLinkedService)(nil)).Elem()
-}
-
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ToAzureDataLakeAnalyticsLinkedServiceOutput() AzureDataLakeAnalyticsLinkedServiceOutput {
-	return o
-}
-
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ToAzureDataLakeAnalyticsLinkedServiceOutputWithContext(ctx context.Context) AzureDataLakeAnalyticsLinkedServiceOutput {
-	return o
-}
-
-// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) AccountName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.AccountName }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) DataLakeAnalyticsUri() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.DataLakeAnalyticsUri }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ResourceGroupName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.ResourceGroupName }).(pulumi.MapOutput)
-}
-
-// The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The Key of the application used to authenticate against the Azure Data Lake Analytics account.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) SubscriptionId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.SubscriptionId }).(pulumi.MapOutput)
-}
-
-// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureDataLakeAnalyticsLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureDataLakeAnalyticsLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Data Lake Analytics linked service.
 type AzureDataLakeAnalyticsLinkedServiceResponse struct {
 	// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
 	AccountName map[string]interface{} `pulumi:"accountName"`
@@ -2925,59 +1690,6 @@ type AzureDataLakeAnalyticsLinkedServiceResponse struct {
 	Tenant map[string]interface{} `pulumi:"tenant"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureDataLakeAnalyticsLinkedServiceResponseInput is an input type that accepts AzureDataLakeAnalyticsLinkedServiceResponseArgs and AzureDataLakeAnalyticsLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureDataLakeAnalyticsLinkedServiceResponseInput` via:
-//
-//          AzureDataLakeAnalyticsLinkedServiceResponseArgs{...}
-type AzureDataLakeAnalyticsLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureDataLakeAnalyticsLinkedServiceResponseOutput() AzureDataLakeAnalyticsLinkedServiceResponseOutput
-	ToAzureDataLakeAnalyticsLinkedServiceResponseOutputWithContext(context.Context) AzureDataLakeAnalyticsLinkedServiceResponseOutput
-}
-
-// Azure Data Lake Analytics linked service.
-type AzureDataLakeAnalyticsLinkedServiceResponseArgs struct {
-	// The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
-	AccountName pulumi.MapInput `pulumi:"accountName"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
-	DataLakeAnalyticsUri pulumi.MapInput `pulumi:"dataLakeAnalyticsUri"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-	ResourceGroupName pulumi.MapInput `pulumi:"resourceGroupName"`
-	// The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The Key of the application used to authenticate against the Azure Data Lake Analytics account.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// Data Lake Analytics account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-	SubscriptionId pulumi.MapInput `pulumi:"subscriptionId"`
-	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureDataLakeAnalyticsLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeAnalyticsLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureDataLakeAnalyticsLinkedServiceResponseArgs) ToAzureDataLakeAnalyticsLinkedServiceResponseOutput() AzureDataLakeAnalyticsLinkedServiceResponseOutput {
-	return i.ToAzureDataLakeAnalyticsLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureDataLakeAnalyticsLinkedServiceResponseArgs) ToAzureDataLakeAnalyticsLinkedServiceResponseOutputWithContext(ctx context.Context) AzureDataLakeAnalyticsLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeAnalyticsLinkedServiceResponseOutput)
 }
 
 // Azure Data Lake Analytics linked service.
@@ -3142,71 +1854,6 @@ func (i AzureDataLakeStoreDatasetArgs) ToAzureDataLakeStoreDatasetOutputWithCont
 }
 
 // Azure Data Lake Store dataset.
-type AzureDataLakeStoreDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureDataLakeStoreDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeStoreDataset)(nil)).Elem()
-}
-
-func (o AzureDataLakeStoreDatasetOutput) ToAzureDataLakeStoreDatasetOutput() AzureDataLakeStoreDatasetOutput {
-	return o
-}
-
-func (o AzureDataLakeStoreDatasetOutput) ToAzureDataLakeStoreDatasetOutputWithContext(ctx context.Context) AzureDataLakeStoreDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureDataLakeStoreDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The data compression method used for the item(s) in the Azure Data Lake Store.
-func (o AzureDataLakeStoreDatasetOutput) Compression() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) interface{} { return v.Compression }).(pulumi.AnyOutput)
-}
-
-// Dataset description.
-func (o AzureDataLakeStoreDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreDatasetOutput) FileName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) map[string]interface{} { return v.FileName }).(pulumi.MapOutput)
-}
-
-// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreDatasetOutput) FolderPath() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) map[string]interface{} { return v.FolderPath }).(pulumi.MapOutput)
-}
-
-// The format of the Data Lake Store.
-func (o AzureDataLakeStoreDatasetOutput) Format() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) interface{} { return v.Format }).(pulumi.AnyOutput)
-}
-
-// Linked service reference.
-func (o AzureDataLakeStoreDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureDataLakeStoreDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureDataLakeStoreDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureDataLakeStoreDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Data Lake Store dataset.
 type AzureDataLakeStoreDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -3228,53 +1875,6 @@ type AzureDataLakeStoreDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureDataLakeStoreDatasetResponseInput is an input type that accepts AzureDataLakeStoreDatasetResponseArgs and AzureDataLakeStoreDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureDataLakeStoreDatasetResponseInput` via:
-//
-//          AzureDataLakeStoreDatasetResponseArgs{...}
-type AzureDataLakeStoreDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureDataLakeStoreDatasetResponseOutput() AzureDataLakeStoreDatasetResponseOutput
-	ToAzureDataLakeStoreDatasetResponseOutputWithContext(context.Context) AzureDataLakeStoreDatasetResponseOutput
-}
-
-// Azure Data Lake Store dataset.
-type AzureDataLakeStoreDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The data compression method used for the item(s) in the Azure Data Lake Store.
-	Compression pulumi.Input `pulumi:"compression"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the file in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-	FileName pulumi.MapInput `pulumi:"fileName"`
-	// Path to the folder in the Azure Data Lake Store. Type: string (or Expression with resultType string).
-	FolderPath pulumi.MapInput `pulumi:"folderPath"`
-	// The format of the Data Lake Store.
-	Format pulumi.Input `pulumi:"format"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureDataLakeStoreDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeStoreDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureDataLakeStoreDatasetResponseArgs) ToAzureDataLakeStoreDatasetResponseOutput() AzureDataLakeStoreDatasetResponseOutput {
-	return i.ToAzureDataLakeStoreDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureDataLakeStoreDatasetResponseArgs) ToAzureDataLakeStoreDatasetResponseOutputWithContext(ctx context.Context) AzureDataLakeStoreDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeStoreDatasetResponseOutput)
 }
 
 // Azure Data Lake Store dataset.
@@ -3428,86 +2028,6 @@ func (i AzureDataLakeStoreLinkedServiceArgs) ToAzureDataLakeStoreLinkedServiceOu
 }
 
 // Azure Data Lake Store linked service.
-type AzureDataLakeStoreLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureDataLakeStoreLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeStoreLinkedService)(nil)).Elem()
-}
-
-func (o AzureDataLakeStoreLinkedServiceOutput) ToAzureDataLakeStoreLinkedServiceOutput() AzureDataLakeStoreLinkedServiceOutput {
-	return o
-}
-
-func (o AzureDataLakeStoreLinkedServiceOutput) ToAzureDataLakeStoreLinkedServiceOutputWithContext(ctx context.Context) AzureDataLakeStoreLinkedServiceOutput {
-	return o
-}
-
-// Data Lake Store account name. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) AccountName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.AccountName }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureDataLakeStoreLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureDataLakeStoreLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Data Lake Store service URI. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) DataLakeStoreUri() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.DataLakeStoreUri }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureDataLakeStoreLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureDataLakeStoreLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) ResourceGroupName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.ResourceGroupName }).(pulumi.MapOutput)
-}
-
-// The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The Key of the application used to authenticate against the Azure Data Lake Store account.
-func (o AzureDataLakeStoreLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) SubscriptionId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.SubscriptionId }).(pulumi.MapOutput)
-}
-
-// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o AzureDataLakeStoreLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureDataLakeStoreLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureDataLakeStoreLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Data Lake Store linked service.
 type AzureDataLakeStoreLinkedServiceResponse struct {
 	// Data Lake Store account name. Type: string (or Expression with resultType string).
 	AccountName map[string]interface{} `pulumi:"accountName"`
@@ -3535,59 +2055,6 @@ type AzureDataLakeStoreLinkedServiceResponse struct {
 	Tenant map[string]interface{} `pulumi:"tenant"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureDataLakeStoreLinkedServiceResponseInput is an input type that accepts AzureDataLakeStoreLinkedServiceResponseArgs and AzureDataLakeStoreLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureDataLakeStoreLinkedServiceResponseInput` via:
-//
-//          AzureDataLakeStoreLinkedServiceResponseArgs{...}
-type AzureDataLakeStoreLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureDataLakeStoreLinkedServiceResponseOutput() AzureDataLakeStoreLinkedServiceResponseOutput
-	ToAzureDataLakeStoreLinkedServiceResponseOutputWithContext(context.Context) AzureDataLakeStoreLinkedServiceResponseOutput
-}
-
-// Azure Data Lake Store linked service.
-type AzureDataLakeStoreLinkedServiceResponseArgs struct {
-	// Data Lake Store account name. Type: string (or Expression with resultType string).
-	AccountName pulumi.MapInput `pulumi:"accountName"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Data Lake Store service URI. Type: string (or Expression with resultType string).
-	DataLakeStoreUri pulumi.MapInput `pulumi:"dataLakeStoreUri"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
-	ResourceGroupName pulumi.MapInput `pulumi:"resourceGroupName"`
-	// The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The Key of the application used to authenticate against the Azure Data Lake Store account.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// Data Lake Store account subscription ID (if different from Data Factory account). Type: string (or Expression with resultType string).
-	SubscriptionId pulumi.MapInput `pulumi:"subscriptionId"`
-	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureDataLakeStoreLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDataLakeStoreLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureDataLakeStoreLinkedServiceResponseArgs) ToAzureDataLakeStoreLinkedServiceResponseOutput() AzureDataLakeStoreLinkedServiceResponseOutput {
-	return i.ToAzureDataLakeStoreLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureDataLakeStoreLinkedServiceResponseArgs) ToAzureDataLakeStoreLinkedServiceResponseOutputWithContext(ctx context.Context) AzureDataLakeStoreLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeStoreLinkedServiceResponseOutput)
 }
 
 // Azure Data Lake Store linked service.
@@ -3758,86 +2225,6 @@ func (i AzureDatabricksLinkedServiceArgs) ToAzureDatabricksLinkedServiceOutputWi
 }
 
 // Azure Databricks linked service.
-type AzureDatabricksLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureDatabricksLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDatabricksLinkedService)(nil)).Elem()
-}
-
-func (o AzureDatabricksLinkedServiceOutput) ToAzureDatabricksLinkedServiceOutput() AzureDatabricksLinkedServiceOutput {
-	return o
-}
-
-func (o AzureDatabricksLinkedServiceOutput) ToAzureDatabricksLinkedServiceOutputWithContext(ctx context.Context) AzureDatabricksLinkedServiceOutput {
-	return o
-}
-
-// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureDatabricksLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureDatabricksLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AzureDatabricksLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) Domain() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.Domain }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) ExistingClusterId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.ExistingClusterId }).(pulumi.MapOutput)
-}
-
-// The node types of new cluster. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) NewClusterNodeType() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.NewClusterNodeType }).(pulumi.MapOutput)
-}
-
-// Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) NewClusterNumOfWorker() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.NewClusterNumOfWorker }).(pulumi.MapOutput)
-}
-
-// a set of optional, user-specified Spark configuration key-value pairs.
-func (o AzureDatabricksLinkedServiceOutput) NewClusterSparkConf() pulumi.MapMapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]map[string]interface{} { return v.NewClusterSparkConf }).(pulumi.MapMapOutput)
-}
-
-// The Spark version of new cluster. Type: string (or Expression with resultType string).
-func (o AzureDatabricksLinkedServiceOutput) NewClusterVersion() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]interface{} { return v.NewClusterVersion }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureDatabricksLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o AzureDatabricksLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureDatabricksLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Databricks linked service.
 type AzureDatabricksLinkedServiceResponse struct {
 	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -3865,59 +2252,6 @@ type AzureDatabricksLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureDatabricksLinkedServiceResponseInput is an input type that accepts AzureDatabricksLinkedServiceResponseArgs and AzureDatabricksLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureDatabricksLinkedServiceResponseInput` via:
-//
-//          AzureDatabricksLinkedServiceResponseArgs{...}
-type AzureDatabricksLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureDatabricksLinkedServiceResponseOutput() AzureDatabricksLinkedServiceResponseOutput
-	ToAzureDatabricksLinkedServiceResponseOutputWithContext(context.Context) AzureDatabricksLinkedServiceResponseOutput
-}
-
-// Azure Databricks linked service.
-type AzureDatabricksLinkedServiceResponseArgs struct {
-	// Access token for databricks REST API. Refer to https://docs.azuredatabricks.net/api/latest/authentication.html. Type: string (or Expression with resultType string).
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
-	Domain pulumi.MapInput `pulumi:"domain"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The id of an existing cluster that will be used for all runs of this job. Type: string (or Expression with resultType string).
-	ExistingClusterId pulumi.MapInput `pulumi:"existingClusterId"`
-	// The node types of new cluster. Type: string (or Expression with resultType string).
-	NewClusterNodeType pulumi.MapInput `pulumi:"newClusterNodeType"`
-	// Number of worker nodes that new cluster should have. A string formatted Int32, like '1' means numOfWorker is 1 or '1:10' means auto-scale from 1 as min and 10 as max. Type: string (or Expression with resultType string).
-	NewClusterNumOfWorker pulumi.MapInput `pulumi:"newClusterNumOfWorker"`
-	// a set of optional, user-specified Spark configuration key-value pairs.
-	NewClusterSparkConf pulumi.MapMapInput `pulumi:"newClusterSparkConf"`
-	// The Spark version of new cluster. Type: string (or Expression with resultType string).
-	NewClusterVersion pulumi.MapInput `pulumi:"newClusterVersion"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureDatabricksLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureDatabricksLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureDatabricksLinkedServiceResponseArgs) ToAzureDatabricksLinkedServiceResponseOutput() AzureDatabricksLinkedServiceResponseOutput {
-	return i.ToAzureDatabricksLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureDatabricksLinkedServiceResponseArgs) ToAzureDatabricksLinkedServiceResponseOutputWithContext(ctx context.Context) AzureDatabricksLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureDatabricksLinkedServiceResponseOutput)
 }
 
 // Azure Databricks linked service.
@@ -4060,51 +2394,6 @@ func (i AzureKeyVaultLinkedServiceArgs) ToAzureKeyVaultLinkedServiceOutputWithCo
 }
 
 // Azure Key Vault linked service.
-type AzureKeyVaultLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureKeyVaultLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureKeyVaultLinkedService)(nil)).Elem()
-}
-
-func (o AzureKeyVaultLinkedServiceOutput) ToAzureKeyVaultLinkedServiceOutput() AzureKeyVaultLinkedServiceOutput {
-	return o
-}
-
-func (o AzureKeyVaultLinkedServiceOutput) ToAzureKeyVaultLinkedServiceOutputWithContext(ctx context.Context) AzureKeyVaultLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureKeyVaultLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
-func (o AzureKeyVaultLinkedServiceOutput) BaseUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) map[string]interface{} { return v.BaseUrl }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o AzureKeyVaultLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AzureKeyVaultLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Parameters for linked service.
-func (o AzureKeyVaultLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o AzureKeyVaultLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureKeyVaultLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Key Vault linked service.
 type AzureKeyVaultLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -4118,45 +2407,6 @@ type AzureKeyVaultLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureKeyVaultLinkedServiceResponseInput is an input type that accepts AzureKeyVaultLinkedServiceResponseArgs and AzureKeyVaultLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureKeyVaultLinkedServiceResponseInput` via:
-//
-//          AzureKeyVaultLinkedServiceResponseArgs{...}
-type AzureKeyVaultLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureKeyVaultLinkedServiceResponseOutput() AzureKeyVaultLinkedServiceResponseOutput
-	ToAzureKeyVaultLinkedServiceResponseOutputWithContext(context.Context) AzureKeyVaultLinkedServiceResponseOutput
-}
-
-// Azure Key Vault linked service.
-type AzureKeyVaultLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
-	BaseUrl pulumi.MapInput `pulumi:"baseUrl"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureKeyVaultLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureKeyVaultLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureKeyVaultLinkedServiceResponseArgs) ToAzureKeyVaultLinkedServiceResponseOutput() AzureKeyVaultLinkedServiceResponseOutput {
-	return i.ToAzureKeyVaultLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureKeyVaultLinkedServiceResponseArgs) ToAzureKeyVaultLinkedServiceResponseOutputWithContext(ctx context.Context) AzureKeyVaultLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureKeyVaultLinkedServiceResponseOutput)
 }
 
 // Azure Key Vault linked service.
@@ -4254,41 +2504,6 @@ func (i AzureKeyVaultSecretReferenceArgs) ToAzureKeyVaultSecretReferenceOutputWi
 }
 
 // Azure Key Vault secret reference.
-type AzureKeyVaultSecretReferenceOutput struct{ *pulumi.OutputState }
-
-func (AzureKeyVaultSecretReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureKeyVaultSecretReference)(nil)).Elem()
-}
-
-func (o AzureKeyVaultSecretReferenceOutput) ToAzureKeyVaultSecretReferenceOutput() AzureKeyVaultSecretReferenceOutput {
-	return o
-}
-
-func (o AzureKeyVaultSecretReferenceOutput) ToAzureKeyVaultSecretReferenceOutputWithContext(ctx context.Context) AzureKeyVaultSecretReferenceOutput {
-	return o
-}
-
-// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
-func (o AzureKeyVaultSecretReferenceOutput) SecretName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureKeyVaultSecretReference) map[string]interface{} { return v.SecretName }).(pulumi.MapOutput)
-}
-
-// The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
-func (o AzureKeyVaultSecretReferenceOutput) SecretVersion() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureKeyVaultSecretReference) map[string]interface{} { return v.SecretVersion }).(pulumi.MapOutput)
-}
-
-// The Azure Key Vault linked service reference.
-func (o AzureKeyVaultSecretReferenceOutput) Store() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureKeyVaultSecretReference) LinkedServiceReference { return v.Store }).(LinkedServiceReferenceOutput)
-}
-
-// Type of the secret.
-func (o AzureKeyVaultSecretReferenceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureKeyVaultSecretReference) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure Key Vault secret reference.
 type AzureKeyVaultSecretReferenceResponse struct {
 	// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
 	SecretName map[string]interface{} `pulumi:"secretName"`
@@ -4298,41 +2513,6 @@ type AzureKeyVaultSecretReferenceResponse struct {
 	Store LinkedServiceReferenceResponse `pulumi:"store"`
 	// Type of the secret.
 	Type string `pulumi:"type"`
-}
-
-// AzureKeyVaultSecretReferenceResponseInput is an input type that accepts AzureKeyVaultSecretReferenceResponseArgs and AzureKeyVaultSecretReferenceResponseOutput values.
-// You can construct a concrete instance of `AzureKeyVaultSecretReferenceResponseInput` via:
-//
-//          AzureKeyVaultSecretReferenceResponseArgs{...}
-type AzureKeyVaultSecretReferenceResponseInput interface {
-	pulumi.Input
-
-	ToAzureKeyVaultSecretReferenceResponseOutput() AzureKeyVaultSecretReferenceResponseOutput
-	ToAzureKeyVaultSecretReferenceResponseOutputWithContext(context.Context) AzureKeyVaultSecretReferenceResponseOutput
-}
-
-// Azure Key Vault secret reference.
-type AzureKeyVaultSecretReferenceResponseArgs struct {
-	// The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
-	SecretName pulumi.MapInput `pulumi:"secretName"`
-	// The version of the secret in Azure Key Vault. The default value is the latest version of the secret. Type: string (or Expression with resultType string).
-	SecretVersion pulumi.MapInput `pulumi:"secretVersion"`
-	// The Azure Key Vault linked service reference.
-	Store LinkedServiceReferenceResponseInput `pulumi:"store"`
-	// Type of the secret.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureKeyVaultSecretReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureKeyVaultSecretReferenceResponse)(nil)).Elem()
-}
-
-func (i AzureKeyVaultSecretReferenceResponseArgs) ToAzureKeyVaultSecretReferenceResponseOutput() AzureKeyVaultSecretReferenceResponseOutput {
-	return i.ToAzureKeyVaultSecretReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureKeyVaultSecretReferenceResponseArgs) ToAzureKeyVaultSecretReferenceResponseOutputWithContext(ctx context.Context) AzureKeyVaultSecretReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureKeyVaultSecretReferenceResponseOutput)
 }
 
 // Azure Key Vault secret reference.
@@ -4450,81 +2630,6 @@ func (i AzureMLLinkedServiceArgs) ToAzureMLLinkedServiceOutputWithContext(ctx co
 }
 
 // Azure ML Web Service linked service.
-type AzureMLLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureMLLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMLLinkedService)(nil)).Elem()
-}
-
-func (o AzureMLLinkedServiceOutput) ToAzureMLLinkedServiceOutput() AzureMLLinkedServiceOutput {
-	return o
-}
-
-func (o AzureMLLinkedServiceOutput) ToAzureMLLinkedServiceOutputWithContext(ctx context.Context) AzureMLLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureMLLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The API key for accessing the Azure ML model endpoint.
-func (o AzureMLLinkedServiceOutput) ApiKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) interface{} { return v.ApiKey }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o AzureMLLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AzureMLLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureMLLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-func (o AzureMLLinkedServiceOutput) MlEndpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]interface{} { return v.MlEndpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureMLLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
-func (o AzureMLLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-func (o AzureMLLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o AzureMLLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureMLLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-func (o AzureMLLinkedServiceOutput) UpdateResourceEndpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMLLinkedService) map[string]interface{} { return v.UpdateResourceEndpoint }).(pulumi.MapOutput)
-}
-
-// Azure ML Web Service linked service.
 type AzureMLLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -4550,57 +2655,6 @@ type AzureMLLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
 	UpdateResourceEndpoint map[string]interface{} `pulumi:"updateResourceEndpoint"`
-}
-
-// AzureMLLinkedServiceResponseInput is an input type that accepts AzureMLLinkedServiceResponseArgs and AzureMLLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureMLLinkedServiceResponseInput` via:
-//
-//          AzureMLLinkedServiceResponseArgs{...}
-type AzureMLLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureMLLinkedServiceResponseOutput() AzureMLLinkedServiceResponseOutput
-	ToAzureMLLinkedServiceResponseOutputWithContext(context.Context) AzureMLLinkedServiceResponseOutput
-}
-
-// Azure ML Web Service linked service.
-type AzureMLLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The API key for accessing the Azure ML model endpoint.
-	ApiKey pulumi.Input `pulumi:"apiKey"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The Batch Execution REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-	MlEndpoint pulumi.MapInput `pulumi:"mlEndpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML web service.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The Update Resource REST URL for an Azure ML Web Service endpoint. Type: string (or Expression with resultType string).
-	UpdateResourceEndpoint pulumi.MapInput `pulumi:"updateResourceEndpoint"`
-}
-
-func (AzureMLLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMLLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureMLLinkedServiceResponseArgs) ToAzureMLLinkedServiceResponseOutput() AzureMLLinkedServiceResponseOutput {
-	return i.ToAzureMLLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureMLLinkedServiceResponseArgs) ToAzureMLLinkedServiceResponseOutputWithContext(ctx context.Context) AzureMLLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMLLinkedServiceResponseOutput)
 }
 
 // Azure ML Web Service linked service.
@@ -4738,56 +2792,6 @@ func (i AzureMySqlLinkedServiceArgs) ToAzureMySqlLinkedServiceOutputWithContext(
 }
 
 // Azure MySQL database linked service.
-type AzureMySqlLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureMySqlLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMySqlLinkedService)(nil)).Elem()
-}
-
-func (o AzureMySqlLinkedServiceOutput) ToAzureMySqlLinkedServiceOutput() AzureMySqlLinkedServiceOutput {
-	return o
-}
-
-func (o AzureMySqlLinkedServiceOutput) ToAzureMySqlLinkedServiceOutputWithContext(ctx context.Context) AzureMySqlLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureMySqlLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureMySqlLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o AzureMySqlLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureMySqlLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureMySqlLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureMySqlLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o AzureMySqlLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureMySqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure MySQL database linked service.
 type AzureMySqlLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -4803,47 +2807,6 @@ type AzureMySqlLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureMySqlLinkedServiceResponseInput is an input type that accepts AzureMySqlLinkedServiceResponseArgs and AzureMySqlLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureMySqlLinkedServiceResponseInput` via:
-//
-//          AzureMySqlLinkedServiceResponseArgs{...}
-type AzureMySqlLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureMySqlLinkedServiceResponseOutput() AzureMySqlLinkedServiceResponseOutput
-	ToAzureMySqlLinkedServiceResponseOutputWithContext(context.Context) AzureMySqlLinkedServiceResponseOutput
-}
-
-// Azure MySQL database linked service.
-type AzureMySqlLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureMySqlLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMySqlLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureMySqlLinkedServiceResponseArgs) ToAzureMySqlLinkedServiceResponseOutput() AzureMySqlLinkedServiceResponseOutput {
-	return i.ToAzureMySqlLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureMySqlLinkedServiceResponseArgs) ToAzureMySqlLinkedServiceResponseOutputWithContext(ctx context.Context) AzureMySqlLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMySqlLinkedServiceResponseOutput)
 }
 
 // Azure MySQL database linked service.
@@ -4956,56 +2919,6 @@ func (i AzureMySqlTableDatasetArgs) ToAzureMySqlTableDatasetOutputWithContext(ct
 }
 
 // The Azure MySQL database dataset.
-type AzureMySqlTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureMySqlTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMySqlTableDataset)(nil)).Elem()
-}
-
-func (o AzureMySqlTableDatasetOutput) ToAzureMySqlTableDatasetOutput() AzureMySqlTableDatasetOutput {
-	return o
-}
-
-func (o AzureMySqlTableDatasetOutput) ToAzureMySqlTableDatasetOutputWithContext(ctx context.Context) AzureMySqlTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureMySqlTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzureMySqlTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AzureMySqlTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureMySqlTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureMySqlTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The Azure MySQL database table name. Type: string (or Expression with resultType string).
-func (o AzureMySqlTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureMySqlTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureMySqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure MySQL database dataset.
 type AzureMySqlTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -5021,47 +2934,6 @@ type AzureMySqlTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureMySqlTableDatasetResponseInput is an input type that accepts AzureMySqlTableDatasetResponseArgs and AzureMySqlTableDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureMySqlTableDatasetResponseInput` via:
-//
-//          AzureMySqlTableDatasetResponseArgs{...}
-type AzureMySqlTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureMySqlTableDatasetResponseOutput() AzureMySqlTableDatasetResponseOutput
-	ToAzureMySqlTableDatasetResponseOutputWithContext(context.Context) AzureMySqlTableDatasetResponseOutput
-}
-
-// The Azure MySQL database dataset.
-type AzureMySqlTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The Azure MySQL database table name. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureMySqlTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMySqlTableDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureMySqlTableDatasetResponseArgs) ToAzureMySqlTableDatasetResponseOutput() AzureMySqlTableDatasetResponseOutput {
-	return i.ToAzureMySqlTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureMySqlTableDatasetResponseArgs) ToAzureMySqlTableDatasetResponseOutputWithContext(ctx context.Context) AzureMySqlTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMySqlTableDatasetResponseOutput)
 }
 
 // The Azure MySQL database dataset.
@@ -5174,56 +3046,6 @@ func (i AzurePostgreSqlLinkedServiceArgs) ToAzurePostgreSqlLinkedServiceOutputWi
 }
 
 // Azure PostgreSQL linked service.
-type AzurePostgreSqlLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzurePostgreSqlLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePostgreSqlLinkedService)(nil)).Elem()
-}
-
-func (o AzurePostgreSqlLinkedServiceOutput) ToAzurePostgreSqlLinkedServiceOutput() AzurePostgreSqlLinkedServiceOutput {
-	return o
-}
-
-func (o AzurePostgreSqlLinkedServiceOutput) ToAzurePostgreSqlLinkedServiceOutputWithContext(ctx context.Context) AzurePostgreSqlLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzurePostgreSqlLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzurePostgreSqlLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o AzurePostgreSqlLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzurePostgreSqlLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzurePostgreSqlLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzurePostgreSqlLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o AzurePostgreSqlLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzurePostgreSqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure PostgreSQL linked service.
 type AzurePostgreSqlLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -5239,47 +3061,6 @@ type AzurePostgreSqlLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzurePostgreSqlLinkedServiceResponseInput is an input type that accepts AzurePostgreSqlLinkedServiceResponseArgs and AzurePostgreSqlLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzurePostgreSqlLinkedServiceResponseInput` via:
-//
-//          AzurePostgreSqlLinkedServiceResponseArgs{...}
-type AzurePostgreSqlLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzurePostgreSqlLinkedServiceResponseOutput() AzurePostgreSqlLinkedServiceResponseOutput
-	ToAzurePostgreSqlLinkedServiceResponseOutputWithContext(context.Context) AzurePostgreSqlLinkedServiceResponseOutput
-}
-
-// Azure PostgreSQL linked service.
-type AzurePostgreSqlLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzurePostgreSqlLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePostgreSqlLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzurePostgreSqlLinkedServiceResponseArgs) ToAzurePostgreSqlLinkedServiceResponseOutput() AzurePostgreSqlLinkedServiceResponseOutput {
-	return i.ToAzurePostgreSqlLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzurePostgreSqlLinkedServiceResponseArgs) ToAzurePostgreSqlLinkedServiceResponseOutputWithContext(ctx context.Context) AzurePostgreSqlLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzurePostgreSqlLinkedServiceResponseOutput)
 }
 
 // Azure PostgreSQL linked service.
@@ -5390,51 +3171,6 @@ func (i AzurePostgreSqlTableDatasetArgs) ToAzurePostgreSqlTableDatasetOutputWith
 }
 
 // Azure PostgreSQL dataset.
-type AzurePostgreSqlTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzurePostgreSqlTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePostgreSqlTableDataset)(nil)).Elem()
-}
-
-func (o AzurePostgreSqlTableDatasetOutput) ToAzurePostgreSqlTableDatasetOutput() AzurePostgreSqlTableDatasetOutput {
-	return o
-}
-
-func (o AzurePostgreSqlTableDatasetOutput) ToAzurePostgreSqlTableDatasetOutputWithContext(ctx context.Context) AzurePostgreSqlTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzurePostgreSqlTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzurePostgreSqlTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AzurePostgreSqlTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzurePostgreSqlTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzurePostgreSqlTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzurePostgreSqlTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzurePostgreSqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure PostgreSQL dataset.
 type AzurePostgreSqlTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -5448,45 +3184,6 @@ type AzurePostgreSqlTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzurePostgreSqlTableDatasetResponseInput is an input type that accepts AzurePostgreSqlTableDatasetResponseArgs and AzurePostgreSqlTableDatasetResponseOutput values.
-// You can construct a concrete instance of `AzurePostgreSqlTableDatasetResponseInput` via:
-//
-//          AzurePostgreSqlTableDatasetResponseArgs{...}
-type AzurePostgreSqlTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzurePostgreSqlTableDatasetResponseOutput() AzurePostgreSqlTableDatasetResponseOutput
-	ToAzurePostgreSqlTableDatasetResponseOutputWithContext(context.Context) AzurePostgreSqlTableDatasetResponseOutput
-}
-
-// Azure PostgreSQL dataset.
-type AzurePostgreSqlTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzurePostgreSqlTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePostgreSqlTableDatasetResponse)(nil)).Elem()
-}
-
-func (i AzurePostgreSqlTableDatasetResponseArgs) ToAzurePostgreSqlTableDatasetResponseOutput() AzurePostgreSqlTableDatasetResponseOutput {
-	return i.ToAzurePostgreSqlTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzurePostgreSqlTableDatasetResponseArgs) ToAzurePostgreSqlTableDatasetResponseOutputWithContext(ctx context.Context) AzurePostgreSqlTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzurePostgreSqlTableDatasetResponseOutput)
 }
 
 // Azure PostgreSQL dataset.
@@ -5596,56 +3293,6 @@ func (i AzureSearchIndexDatasetArgs) ToAzureSearchIndexDatasetOutputWithContext(
 }
 
 // The Azure Search Index.
-type AzureSearchIndexDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureSearchIndexDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSearchIndexDataset)(nil)).Elem()
-}
-
-func (o AzureSearchIndexDatasetOutput) ToAzureSearchIndexDatasetOutput() AzureSearchIndexDatasetOutput {
-	return o
-}
-
-func (o AzureSearchIndexDatasetOutput) ToAzureSearchIndexDatasetOutputWithContext(ctx context.Context) AzureSearchIndexDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSearchIndexDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzureSearchIndexDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Azure Search Index. Type: string (or Expression with resultType string).
-func (o AzureSearchIndexDatasetOutput) IndexName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) map[string]interface{} { return v.IndexName }).(pulumi.MapOutput)
-}
-
-// Linked service reference.
-func (o AzureSearchIndexDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureSearchIndexDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureSearchIndexDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureSearchIndexDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSearchIndexDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure Search Index.
 type AzureSearchIndexDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -5661,47 +3308,6 @@ type AzureSearchIndexDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureSearchIndexDatasetResponseInput is an input type that accepts AzureSearchIndexDatasetResponseArgs and AzureSearchIndexDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureSearchIndexDatasetResponseInput` via:
-//
-//          AzureSearchIndexDatasetResponseArgs{...}
-type AzureSearchIndexDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureSearchIndexDatasetResponseOutput() AzureSearchIndexDatasetResponseOutput
-	ToAzureSearchIndexDatasetResponseOutputWithContext(context.Context) AzureSearchIndexDatasetResponseOutput
-}
-
-// The Azure Search Index.
-type AzureSearchIndexDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the Azure Search Index. Type: string (or Expression with resultType string).
-	IndexName pulumi.MapInput `pulumi:"indexName"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureSearchIndexDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSearchIndexDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureSearchIndexDatasetResponseArgs) ToAzureSearchIndexDatasetResponseOutput() AzureSearchIndexDatasetResponseOutput {
-	return i.ToAzureSearchIndexDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSearchIndexDatasetResponseArgs) ToAzureSearchIndexDatasetResponseOutputWithContext(ctx context.Context) AzureSearchIndexDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSearchIndexDatasetResponseOutput)
 }
 
 // The Azure Search Index.
@@ -5818,61 +3424,6 @@ func (i AzureSearchLinkedServiceArgs) ToAzureSearchLinkedServiceOutputWithContex
 }
 
 // Linked service for Windows Azure Search Service.
-type AzureSearchLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureSearchLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSearchLinkedService)(nil)).Elem()
-}
-
-func (o AzureSearchLinkedServiceOutput) ToAzureSearchLinkedServiceOutput() AzureSearchLinkedServiceOutput {
-	return o
-}
-
-func (o AzureSearchLinkedServiceOutput) ToAzureSearchLinkedServiceOutputWithContext(ctx context.Context) AzureSearchLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSearchLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureSearchLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o AzureSearchLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureSearchLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Admin Key for Azure Search service
-func (o AzureSearchLinkedServiceOutput) Key() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) interface{} { return v.Key }).(pulumi.AnyOutput)
-}
-
-// Parameters for linked service.
-func (o AzureSearchLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o AzureSearchLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// URL for Azure Search service. Type: string (or Expression with resultType string).
-func (o AzureSearchLinkedServiceOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSearchLinkedService) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// Linked service for Windows Azure Search Service.
 type AzureSearchLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -5890,49 +3441,6 @@ type AzureSearchLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// URL for Azure Search service. Type: string (or Expression with resultType string).
 	Url map[string]interface{} `pulumi:"url"`
-}
-
-// AzureSearchLinkedServiceResponseInput is an input type that accepts AzureSearchLinkedServiceResponseArgs and AzureSearchLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureSearchLinkedServiceResponseInput` via:
-//
-//          AzureSearchLinkedServiceResponseArgs{...}
-type AzureSearchLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureSearchLinkedServiceResponseOutput() AzureSearchLinkedServiceResponseOutput
-	ToAzureSearchLinkedServiceResponseOutputWithContext(context.Context) AzureSearchLinkedServiceResponseOutput
-}
-
-// Linked service for Windows Azure Search Service.
-type AzureSearchLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Admin Key for Azure Search service
-	Key pulumi.Input `pulumi:"key"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// URL for Azure Search service. Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-}
-
-func (AzureSearchLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSearchLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureSearchLinkedServiceResponseArgs) ToAzureSearchLinkedServiceResponseOutput() AzureSearchLinkedServiceResponseOutput {
-	return i.ToAzureSearchLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSearchLinkedServiceResponseArgs) ToAzureSearchLinkedServiceResponseOutputWithContext(ctx context.Context) AzureSearchLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSearchLinkedServiceResponseOutput)
 }
 
 // Linked service for Windows Azure Search Service.
@@ -6064,71 +3572,6 @@ func (i AzureSqlDWLinkedServiceArgs) ToAzureSqlDWLinkedServiceOutputWithContext(
 }
 
 // Azure SQL Data Warehouse linked service.
-type AzureSqlDWLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlDWLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDWLinkedService)(nil)).Elem()
-}
-
-func (o AzureSqlDWLinkedServiceOutput) ToAzureSqlDWLinkedServiceOutput() AzureSqlDWLinkedServiceOutput {
-	return o
-}
-
-func (o AzureSqlDWLinkedServiceOutput) ToAzureSqlDWLinkedServiceOutputWithContext(ctx context.Context) AzureSqlDWLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSqlDWLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureSqlDWLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o AzureSqlDWLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureSqlDWLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureSqlDWLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureSqlDWLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-func (o AzureSqlDWLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The key of the service principal used to authenticate against Azure SQL Data Warehouse.
-func (o AzureSqlDWLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o AzureSqlDWLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureSqlDWLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSqlDWLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Azure SQL Data Warehouse linked service.
 type AzureSqlDWLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -6150,53 +3593,6 @@ type AzureSqlDWLinkedServiceResponse struct {
 	Tenant map[string]interface{} `pulumi:"tenant"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureSqlDWLinkedServiceResponseInput is an input type that accepts AzureSqlDWLinkedServiceResponseArgs and AzureSqlDWLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureSqlDWLinkedServiceResponseInput` via:
-//
-//          AzureSqlDWLinkedServiceResponseArgs{...}
-type AzureSqlDWLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureSqlDWLinkedServiceResponseOutput() AzureSqlDWLinkedServiceResponseOutput
-	ToAzureSqlDWLinkedServiceResponseOutputWithContext(context.Context) AzureSqlDWLinkedServiceResponseOutput
-}
-
-// Azure SQL Data Warehouse linked service.
-type AzureSqlDWLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The key of the service principal used to authenticate against Azure SQL Data Warehouse.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureSqlDWLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDWLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureSqlDWLinkedServiceResponseArgs) ToAzureSqlDWLinkedServiceResponseOutput() AzureSqlDWLinkedServiceResponseOutput {
-	return i.ToAzureSqlDWLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSqlDWLinkedServiceResponseArgs) ToAzureSqlDWLinkedServiceResponseOutputWithContext(ctx context.Context) AzureSqlDWLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDWLinkedServiceResponseOutput)
 }
 
 // Azure SQL Data Warehouse linked service.
@@ -6324,56 +3720,6 @@ func (i AzureSqlDWTableDatasetArgs) ToAzureSqlDWTableDatasetOutputWithContext(ct
 }
 
 // The Azure SQL Data Warehouse dataset.
-type AzureSqlDWTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlDWTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDWTableDataset)(nil)).Elem()
-}
-
-func (o AzureSqlDWTableDatasetOutput) ToAzureSqlDWTableDatasetOutput() AzureSqlDWTableDatasetOutput {
-	return o
-}
-
-func (o AzureSqlDWTableDatasetOutput) ToAzureSqlDWTableDatasetOutputWithContext(ctx context.Context) AzureSqlDWTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSqlDWTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzureSqlDWTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AzureSqlDWTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureSqlDWTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureSqlDWTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-func (o AzureSqlDWTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureSqlDWTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSqlDWTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure SQL Data Warehouse dataset.
 type AzureSqlDWTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -6389,47 +3735,6 @@ type AzureSqlDWTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureSqlDWTableDatasetResponseInput is an input type that accepts AzureSqlDWTableDatasetResponseArgs and AzureSqlDWTableDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureSqlDWTableDatasetResponseInput` via:
-//
-//          AzureSqlDWTableDatasetResponseArgs{...}
-type AzureSqlDWTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureSqlDWTableDatasetResponseOutput() AzureSqlDWTableDatasetResponseOutput
-	ToAzureSqlDWTableDatasetResponseOutputWithContext(context.Context) AzureSqlDWTableDatasetResponseOutput
-}
-
-// The Azure SQL Data Warehouse dataset.
-type AzureSqlDWTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureSqlDWTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDWTableDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureSqlDWTableDatasetResponseArgs) ToAzureSqlDWTableDatasetResponseOutput() AzureSqlDWTableDatasetResponseOutput {
-	return i.ToAzureSqlDWTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSqlDWTableDatasetResponseArgs) ToAzureSqlDWTableDatasetResponseOutputWithContext(ctx context.Context) AzureSqlDWTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDWTableDatasetResponseOutput)
 }
 
 // The Azure SQL Data Warehouse dataset.
@@ -6554,71 +3859,6 @@ func (i AzureSqlDatabaseLinkedServiceArgs) ToAzureSqlDatabaseLinkedServiceOutput
 }
 
 // Microsoft Azure SQL Database linked service.
-type AzureSqlDatabaseLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlDatabaseLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDatabaseLinkedService)(nil)).Elem()
-}
-
-func (o AzureSqlDatabaseLinkedServiceOutput) ToAzureSqlDatabaseLinkedServiceOutput() AzureSqlDatabaseLinkedServiceOutput {
-	return o
-}
-
-func (o AzureSqlDatabaseLinkedServiceOutput) ToAzureSqlDatabaseLinkedServiceOutputWithContext(ctx context.Context) AzureSqlDatabaseLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSqlDatabaseLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureSqlDatabaseLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o AzureSqlDatabaseLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureSqlDatabaseLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureSqlDatabaseLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureSqlDatabaseLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
-func (o AzureSqlDatabaseLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The key of the service principal used to authenticate against Azure SQL Database.
-func (o AzureSqlDatabaseLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o AzureSqlDatabaseLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o AzureSqlDatabaseLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSqlDatabaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Microsoft Azure SQL Database linked service.
 type AzureSqlDatabaseLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -6640,53 +3880,6 @@ type AzureSqlDatabaseLinkedServiceResponse struct {
 	Tenant map[string]interface{} `pulumi:"tenant"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureSqlDatabaseLinkedServiceResponseInput is an input type that accepts AzureSqlDatabaseLinkedServiceResponseArgs and AzureSqlDatabaseLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureSqlDatabaseLinkedServiceResponseInput` via:
-//
-//          AzureSqlDatabaseLinkedServiceResponseArgs{...}
-type AzureSqlDatabaseLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureSqlDatabaseLinkedServiceResponseOutput() AzureSqlDatabaseLinkedServiceResponseOutput
-	ToAzureSqlDatabaseLinkedServiceResponseOutputWithContext(context.Context) AzureSqlDatabaseLinkedServiceResponseOutput
-}
-
-// Microsoft Azure SQL Database linked service.
-type AzureSqlDatabaseLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The key of the service principal used to authenticate against Azure SQL Database.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureSqlDatabaseLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlDatabaseLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureSqlDatabaseLinkedServiceResponseArgs) ToAzureSqlDatabaseLinkedServiceResponseOutput() AzureSqlDatabaseLinkedServiceResponseOutput {
-	return i.ToAzureSqlDatabaseLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSqlDatabaseLinkedServiceResponseArgs) ToAzureSqlDatabaseLinkedServiceResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseLinkedServiceResponseOutput)
 }
 
 // Microsoft Azure SQL Database linked service.
@@ -6818,56 +4011,6 @@ func (i AzureSqlTableDatasetArgs) ToAzureSqlTableDatasetOutputWithContext(ctx co
 }
 
 // The Azure SQL Server database dataset.
-type AzureSqlTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureSqlTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlTableDataset)(nil)).Elem()
-}
-
-func (o AzureSqlTableDatasetOutput) ToAzureSqlTableDatasetOutput() AzureSqlTableDatasetOutput {
-	return o
-}
-
-func (o AzureSqlTableDatasetOutput) ToAzureSqlTableDatasetOutputWithContext(ctx context.Context) AzureSqlTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureSqlTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzureSqlTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AzureSqlTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureSqlTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureSqlTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the Azure SQL database. Type: string (or Expression with resultType string).
-func (o AzureSqlTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureSqlTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureSqlTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure SQL Server database dataset.
 type AzureSqlTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -6883,47 +4026,6 @@ type AzureSqlTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureSqlTableDatasetResponseInput is an input type that accepts AzureSqlTableDatasetResponseArgs and AzureSqlTableDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureSqlTableDatasetResponseInput` via:
-//
-//          AzureSqlTableDatasetResponseArgs{...}
-type AzureSqlTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureSqlTableDatasetResponseOutput() AzureSqlTableDatasetResponseOutput
-	ToAzureSqlTableDatasetResponseOutputWithContext(context.Context) AzureSqlTableDatasetResponseOutput
-}
-
-// The Azure SQL Server database dataset.
-type AzureSqlTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the Azure SQL database. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureSqlTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureSqlTableDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureSqlTableDatasetResponseArgs) ToAzureSqlTableDatasetResponseOutput() AzureSqlTableDatasetResponseOutput {
-	return i.ToAzureSqlTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureSqlTableDatasetResponseArgs) ToAzureSqlTableDatasetResponseOutputWithContext(ctx context.Context) AzureSqlTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlTableDatasetResponseOutput)
 }
 
 // The Azure SQL Server database dataset.
@@ -7040,61 +4142,6 @@ func (i AzureStorageLinkedServiceArgs) ToAzureStorageLinkedServiceOutputWithCont
 }
 
 // The storage account linked service.
-type AzureStorageLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (AzureStorageLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureStorageLinkedService)(nil)).Elem()
-}
-
-func (o AzureStorageLinkedServiceOutput) ToAzureStorageLinkedServiceOutput() AzureStorageLinkedServiceOutput {
-	return o
-}
-
-func (o AzureStorageLinkedServiceOutput) ToAzureStorageLinkedServiceOutputWithContext(ctx context.Context) AzureStorageLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureStorageLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o AzureStorageLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o AzureStorageLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o AzureStorageLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o AzureStorageLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o AzureStorageLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
-func (o AzureStorageLinkedServiceOutput) SasUri() pulumi.AnyOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) interface{} { return v.SasUri }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o AzureStorageLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureStorageLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The storage account linked service.
 type AzureStorageLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -7112,49 +4159,6 @@ type AzureStorageLinkedServiceResponse struct {
 	SasUri interface{} `pulumi:"sasUri"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// AzureStorageLinkedServiceResponseInput is an input type that accepts AzureStorageLinkedServiceResponseArgs and AzureStorageLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `AzureStorageLinkedServiceResponseInput` via:
-//
-//          AzureStorageLinkedServiceResponseArgs{...}
-type AzureStorageLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToAzureStorageLinkedServiceResponseOutput() AzureStorageLinkedServiceResponseOutput
-	ToAzureStorageLinkedServiceResponseOutputWithContext(context.Context) AzureStorageLinkedServiceResponseOutput
-}
-
-// The storage account linked service.
-type AzureStorageLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property.
-	SasUri pulumi.Input `pulumi:"sasUri"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureStorageLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureStorageLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i AzureStorageLinkedServiceResponseArgs) ToAzureStorageLinkedServiceResponseOutput() AzureStorageLinkedServiceResponseOutput {
-	return i.ToAzureStorageLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i AzureStorageLinkedServiceResponseArgs) ToAzureStorageLinkedServiceResponseOutputWithContext(ctx context.Context) AzureStorageLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageLinkedServiceResponseOutput)
 }
 
 // The storage account linked service.
@@ -7274,56 +4278,6 @@ func (i AzureTableDatasetArgs) ToAzureTableDatasetOutputWithContext(ctx context.
 }
 
 // The Azure Table storage dataset.
-type AzureTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (AzureTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureTableDataset)(nil)).Elem()
-}
-
-func (o AzureTableDatasetOutput) ToAzureTableDatasetOutput() AzureTableDatasetOutput {
-	return o
-}
-
-func (o AzureTableDatasetOutput) ToAzureTableDatasetOutputWithContext(ctx context.Context) AzureTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o AzureTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v AzureTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o AzureTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o AzureTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v AzureTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o AzureTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v AzureTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o AzureTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
-func (o AzureTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v AzureTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o AzureTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Azure Table storage dataset.
 type AzureTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -7339,47 +4293,6 @@ type AzureTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// AzureTableDatasetResponseInput is an input type that accepts AzureTableDatasetResponseArgs and AzureTableDatasetResponseOutput values.
-// You can construct a concrete instance of `AzureTableDatasetResponseInput` via:
-//
-//          AzureTableDatasetResponseArgs{...}
-type AzureTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToAzureTableDatasetResponseOutput() AzureTableDatasetResponseOutput
-	ToAzureTableDatasetResponseOutputWithContext(context.Context) AzureTableDatasetResponseOutput
-}
-
-// The Azure Table storage dataset.
-type AzureTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the Azure Table storage. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AzureTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureTableDatasetResponse)(nil)).Elem()
-}
-
-func (i AzureTableDatasetResponseArgs) ToAzureTableDatasetResponseOutput() AzureTableDatasetResponseOutput {
-	return i.ToAzureTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i AzureTableDatasetResponseArgs) ToAzureTableDatasetResponseOutputWithContext(ctx context.Context) AzureTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureTableDatasetResponseOutput)
 }
 
 // The Azure Table storage dataset.
@@ -7508,76 +4421,6 @@ func (i CassandraLinkedServiceArgs) ToCassandraLinkedServiceOutputWithContext(ct
 }
 
 // Linked service for Cassandra data source.
-type CassandraLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (CassandraLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraLinkedService)(nil)).Elem()
-}
-
-func (o CassandraLinkedServiceOutput) ToCassandraLinkedServiceOutput() CassandraLinkedServiceOutput {
-	return o
-}
-
-func (o CassandraLinkedServiceOutput) ToCassandraLinkedServiceOutputWithContext(ctx context.Context) CassandraLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CassandraLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CassandraLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
-func (o CassandraLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o CassandraLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v CassandraLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o CassandraLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o CassandraLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Host name for connection. Type: string (or Expression with resultType string).
-func (o CassandraLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o CassandraLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for authentication.
-func (o CassandraLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v CassandraLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The port for the connection. Type: integer (or Expression with resultType integer).
-func (o CassandraLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o CassandraLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username for authentication. Type: string (or Expression with resultType string).
-func (o CassandraLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for Cassandra data source.
 type CassandraLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -7601,55 +4444,6 @@ type CassandraLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// CassandraLinkedServiceResponseInput is an input type that accepts CassandraLinkedServiceResponseArgs and CassandraLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `CassandraLinkedServiceResponseInput` via:
-//
-//          CassandraLinkedServiceResponseArgs{...}
-type CassandraLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToCassandraLinkedServiceResponseOutput() CassandraLinkedServiceResponseOutput
-	ToCassandraLinkedServiceResponseOutputWithContext(context.Context) CassandraLinkedServiceResponseOutput
-}
-
-// Linked service for Cassandra data source.
-type CassandraLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Host name for connection. Type: string (or Expression with resultType string).
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// The port for the connection. Type: integer (or Expression with resultType integer).
-	Port pulumi.MapInput `pulumi:"port"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username for authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (CassandraLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i CassandraLinkedServiceResponseArgs) ToCassandraLinkedServiceResponseOutput() CassandraLinkedServiceResponseOutput {
-	return i.ToCassandraLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i CassandraLinkedServiceResponseArgs) ToCassandraLinkedServiceResponseOutputWithContext(ctx context.Context) CassandraLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraLinkedServiceResponseOutput)
 }
 
 // Linked service for Cassandra data source.
@@ -7786,61 +4580,6 @@ func (i CassandraTableDatasetArgs) ToCassandraTableDatasetOutputWithContext(ctx 
 }
 
 // The Cassandra database dataset.
-type CassandraTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (CassandraTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraTableDataset)(nil)).Elem()
-}
-
-func (o CassandraTableDatasetOutput) ToCassandraTableDatasetOutput() CassandraTableDatasetOutput {
-	return o
-}
-
-func (o CassandraTableDatasetOutput) ToCassandraTableDatasetOutputWithContext(ctx context.Context) CassandraTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CassandraTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CassandraTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o CassandraTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-func (o CassandraTableDatasetOutput) Keyspace() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableDataset) map[string]interface{} { return v.Keyspace }).(pulumi.MapOutput)
-}
-
-// Linked service reference.
-func (o CassandraTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v CassandraTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o CassandraTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CassandraTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o CassandraTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the Cassandra database. Type: string (or Expression with resultType string).
-func (o CassandraTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o CassandraTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Cassandra database dataset.
 type CassandraTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -7858,49 +4597,6 @@ type CassandraTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// CassandraTableDatasetResponseInput is an input type that accepts CassandraTableDatasetResponseArgs and CassandraTableDatasetResponseOutput values.
-// You can construct a concrete instance of `CassandraTableDatasetResponseInput` via:
-//
-//          CassandraTableDatasetResponseArgs{...}
-type CassandraTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToCassandraTableDatasetResponseOutput() CassandraTableDatasetResponseOutput
-	ToCassandraTableDatasetResponseOutputWithContext(context.Context) CassandraTableDatasetResponseOutput
-}
-
-// The Cassandra database dataset.
-type CassandraTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The keyspace of the Cassandra database. Type: string (or Expression with resultType string).
-	Keyspace pulumi.MapInput `pulumi:"keyspace"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the Cassandra database. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CassandraTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraTableDatasetResponse)(nil)).Elem()
-}
-
-func (i CassandraTableDatasetResponseArgs) ToCassandraTableDatasetResponseOutput() CassandraTableDatasetResponseOutput {
-	return i.ToCassandraTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i CassandraTableDatasetResponseArgs) ToCassandraTableDatasetResponseOutputWithContext(ctx context.Context) CassandraTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableDatasetResponseOutput)
 }
 
 // The Cassandra database dataset.
@@ -8038,81 +4734,6 @@ func (i ConcurLinkedServiceArgs) ToConcurLinkedServiceOutputWithContext(ctx cont
 }
 
 // Concur Service linked service.
-type ConcurLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ConcurLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConcurLinkedService)(nil)).Elem()
-}
-
-func (o ConcurLinkedServiceOutput) ToConcurLinkedServiceOutput() ConcurLinkedServiceOutput {
-	return o
-}
-
-func (o ConcurLinkedServiceOutput) ToConcurLinkedServiceOutputWithContext(ctx context.Context) ConcurLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ConcurLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ConcurLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Application client_id supplied by Concur App Management.
-func (o ConcurLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o ConcurLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ConcurLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ConcurLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConcurLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ConcurLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ConcurLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name that you provided in the username field.
-func (o ConcurLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v ConcurLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o ConcurLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConcurLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o ConcurLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o ConcurLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o ConcurLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// The user name that you use to access Concur Service.
-func (o ConcurLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Concur Service linked service.
 type ConcurLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -8138,57 +4759,6 @@ type ConcurLinkedServiceResponse struct {
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
 	// The user name that you use to access Concur Service.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// ConcurLinkedServiceResponseInput is an input type that accepts ConcurLinkedServiceResponseArgs and ConcurLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ConcurLinkedServiceResponseInput` via:
-//
-//          ConcurLinkedServiceResponseArgs{...}
-type ConcurLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToConcurLinkedServiceResponseOutput() ConcurLinkedServiceResponseOutput
-	ToConcurLinkedServiceResponseOutputWithContext(context.Context) ConcurLinkedServiceResponseOutput
-}
-
-// Concur Service linked service.
-type ConcurLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Application client_id supplied by Concur App Management.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name that you provided in the username field.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-	// The user name that you use to access Concur Service.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (ConcurLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConcurLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ConcurLinkedServiceResponseArgs) ToConcurLinkedServiceResponseOutput() ConcurLinkedServiceResponseOutput {
-	return i.ToConcurLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ConcurLinkedServiceResponseArgs) ToConcurLinkedServiceResponseOutputWithContext(ctx context.Context) ConcurLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConcurLinkedServiceResponseOutput)
 }
 
 // Concur Service linked service.
@@ -8322,51 +4892,6 @@ func (i ConcurObjectDatasetArgs) ToConcurObjectDatasetOutputWithContext(ctx cont
 }
 
 // Concur Service dataset.
-type ConcurObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ConcurObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConcurObjectDataset)(nil)).Elem()
-}
-
-func (o ConcurObjectDatasetOutput) ToConcurObjectDatasetOutput() ConcurObjectDatasetOutput {
-	return o
-}
-
-func (o ConcurObjectDatasetOutput) ToConcurObjectDatasetOutputWithContext(ctx context.Context) ConcurObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ConcurObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ConcurObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ConcurObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ConcurObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ConcurObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ConcurObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConcurObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Concur Service dataset.
 type ConcurObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -8380,45 +4905,6 @@ type ConcurObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ConcurObjectDatasetResponseInput is an input type that accepts ConcurObjectDatasetResponseArgs and ConcurObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ConcurObjectDatasetResponseInput` via:
-//
-//          ConcurObjectDatasetResponseArgs{...}
-type ConcurObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToConcurObjectDatasetResponseOutput() ConcurObjectDatasetResponseOutput
-	ToConcurObjectDatasetResponseOutputWithContext(context.Context) ConcurObjectDatasetResponseOutput
-}
-
-// Concur Service dataset.
-type ConcurObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConcurObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConcurObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ConcurObjectDatasetResponseArgs) ToConcurObjectDatasetResponseOutput() ConcurObjectDatasetResponseOutput {
-	return i.ToConcurObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ConcurObjectDatasetResponseArgs) ToConcurObjectDatasetResponseOutputWithContext(ctx context.Context) ConcurObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConcurObjectDatasetResponseOutput)
 }
 
 // Concur Service dataset.
@@ -8514,41 +5000,6 @@ func (i ControlActivityArgs) ToControlActivityOutputWithContext(ctx context.Cont
 }
 
 // Base class for all control activities like IfCondition, ForEach , Until.
-type ControlActivityOutput struct{ *pulumi.OutputState }
-
-func (ControlActivityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlActivity)(nil)).Elem()
-}
-
-func (o ControlActivityOutput) ToControlActivityOutput() ControlActivityOutput {
-	return o
-}
-
-func (o ControlActivityOutput) ToControlActivityOutputWithContext(ctx context.Context) ControlActivityOutput {
-	return o
-}
-
-// Activity depends on condition.
-func (o ControlActivityOutput) DependsOn() ActivityDependencyArrayOutput {
-	return o.ApplyT(func(v ControlActivity) []ActivityDependency { return v.DependsOn }).(ActivityDependencyArrayOutput)
-}
-
-// Activity description.
-func (o ControlActivityOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ControlActivity) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Activity name.
-func (o ControlActivityOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ControlActivity) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Type of activity.
-func (o ControlActivityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ControlActivity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for all control activities like IfCondition, ForEach , Until.
 type ControlActivityResponse struct {
 	// Activity depends on condition.
 	DependsOn []ActivityDependencyResponse `pulumi:"dependsOn"`
@@ -8558,41 +5009,6 @@ type ControlActivityResponse struct {
 	Name string `pulumi:"name"`
 	// Type of activity.
 	Type string `pulumi:"type"`
-}
-
-// ControlActivityResponseInput is an input type that accepts ControlActivityResponseArgs and ControlActivityResponseOutput values.
-// You can construct a concrete instance of `ControlActivityResponseInput` via:
-//
-//          ControlActivityResponseArgs{...}
-type ControlActivityResponseInput interface {
-	pulumi.Input
-
-	ToControlActivityResponseOutput() ControlActivityResponseOutput
-	ToControlActivityResponseOutputWithContext(context.Context) ControlActivityResponseOutput
-}
-
-// Base class for all control activities like IfCondition, ForEach , Until.
-type ControlActivityResponseArgs struct {
-	// Activity depends on condition.
-	DependsOn ActivityDependencyResponseArrayInput `pulumi:"dependsOn"`
-	// Activity description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Activity name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Type of activity.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ControlActivityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControlActivityResponse)(nil)).Elem()
-}
-
-func (i ControlActivityResponseArgs) ToControlActivityResponseOutput() ControlActivityResponseOutput {
-	return i.ToControlActivityResponseOutputWithContext(context.Background())
-}
-
-func (i ControlActivityResponseArgs) ToControlActivityResponseOutputWithContext(ctx context.Context) ControlActivityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControlActivityResponseOutput)
 }
 
 // Base class for all control activities like IfCondition, ForEach , Until.
@@ -8690,56 +5106,6 @@ func (i CosmosDbLinkedServiceArgs) ToCosmosDbLinkedServiceOutputWithContext(ctx 
 }
 
 // Microsoft Azure Cosmos Database (CosmosDB) linked service.
-type CosmosDbLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (CosmosDbLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CosmosDbLinkedService)(nil)).Elem()
-}
-
-func (o CosmosDbLinkedServiceOutput) ToCosmosDbLinkedServiceOutput() CosmosDbLinkedServiceOutput {
-	return o
-}
-
-func (o CosmosDbLinkedServiceOutput) ToCosmosDbLinkedServiceOutputWithContext(ctx context.Context) CosmosDbLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CosmosDbLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o CosmosDbLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o CosmosDbLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o CosmosDbLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o CosmosDbLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o CosmosDbLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o CosmosDbLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CosmosDbLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Microsoft Azure Cosmos Database (CosmosDB) linked service.
 type CosmosDbLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -8755,47 +5121,6 @@ type CosmosDbLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// CosmosDbLinkedServiceResponseInput is an input type that accepts CosmosDbLinkedServiceResponseArgs and CosmosDbLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `CosmosDbLinkedServiceResponseInput` via:
-//
-//          CosmosDbLinkedServiceResponseArgs{...}
-type CosmosDbLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToCosmosDbLinkedServiceResponseOutput() CosmosDbLinkedServiceResponseOutput
-	ToCosmosDbLinkedServiceResponseOutputWithContext(context.Context) CosmosDbLinkedServiceResponseOutput
-}
-
-// Microsoft Azure Cosmos Database (CosmosDB) linked service.
-type CosmosDbLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CosmosDbLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CosmosDbLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i CosmosDbLinkedServiceResponseArgs) ToCosmosDbLinkedServiceResponseOutput() CosmosDbLinkedServiceResponseOutput {
-	return i.ToCosmosDbLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i CosmosDbLinkedServiceResponseArgs) ToCosmosDbLinkedServiceResponseOutputWithContext(ctx context.Context) CosmosDbLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CosmosDbLinkedServiceResponseOutput)
 }
 
 // Microsoft Azure Cosmos Database (CosmosDB) linked service.
@@ -8908,56 +5233,6 @@ func (i CouchbaseLinkedServiceArgs) ToCouchbaseLinkedServiceOutputWithContext(ct
 }
 
 // Couchbase server linked service.
-type CouchbaseLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (CouchbaseLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CouchbaseLinkedService)(nil)).Elem()
-}
-
-func (o CouchbaseLinkedServiceOutput) ToCouchbaseLinkedServiceOutput() CouchbaseLinkedServiceOutput {
-	return o
-}
-
-func (o CouchbaseLinkedServiceOutput) ToCouchbaseLinkedServiceOutputWithContext(ctx context.Context) CouchbaseLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CouchbaseLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o CouchbaseLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o CouchbaseLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o CouchbaseLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o CouchbaseLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o CouchbaseLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o CouchbaseLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CouchbaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Couchbase server linked service.
 type CouchbaseLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -8973,47 +5248,6 @@ type CouchbaseLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// CouchbaseLinkedServiceResponseInput is an input type that accepts CouchbaseLinkedServiceResponseArgs and CouchbaseLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `CouchbaseLinkedServiceResponseInput` via:
-//
-//          CouchbaseLinkedServiceResponseArgs{...}
-type CouchbaseLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToCouchbaseLinkedServiceResponseOutput() CouchbaseLinkedServiceResponseOutput
-	ToCouchbaseLinkedServiceResponseOutputWithContext(context.Context) CouchbaseLinkedServiceResponseOutput
-}
-
-// Couchbase server linked service.
-type CouchbaseLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CouchbaseLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CouchbaseLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i CouchbaseLinkedServiceResponseArgs) ToCouchbaseLinkedServiceResponseOutput() CouchbaseLinkedServiceResponseOutput {
-	return i.ToCouchbaseLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i CouchbaseLinkedServiceResponseArgs) ToCouchbaseLinkedServiceResponseOutputWithContext(ctx context.Context) CouchbaseLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CouchbaseLinkedServiceResponseOutput)
 }
 
 // Couchbase server linked service.
@@ -9122,51 +5356,6 @@ func (i CouchbaseTableDatasetArgs) ToCouchbaseTableDatasetOutputWithContext(ctx 
 }
 
 // Couchbase server dataset.
-type CouchbaseTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (CouchbaseTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CouchbaseTableDataset)(nil)).Elem()
-}
-
-func (o CouchbaseTableDatasetOutput) ToCouchbaseTableDatasetOutput() CouchbaseTableDatasetOutput {
-	return o
-}
-
-func (o CouchbaseTableDatasetOutput) ToCouchbaseTableDatasetOutputWithContext(ctx context.Context) CouchbaseTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CouchbaseTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o CouchbaseTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o CouchbaseTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o CouchbaseTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o CouchbaseTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o CouchbaseTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CouchbaseTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Couchbase server dataset.
 type CouchbaseTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -9180,45 +5369,6 @@ type CouchbaseTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// CouchbaseTableDatasetResponseInput is an input type that accepts CouchbaseTableDatasetResponseArgs and CouchbaseTableDatasetResponseOutput values.
-// You can construct a concrete instance of `CouchbaseTableDatasetResponseInput` via:
-//
-//          CouchbaseTableDatasetResponseArgs{...}
-type CouchbaseTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToCouchbaseTableDatasetResponseOutput() CouchbaseTableDatasetResponseOutput
-	ToCouchbaseTableDatasetResponseOutputWithContext(context.Context) CouchbaseTableDatasetResponseOutput
-}
-
-// Couchbase server dataset.
-type CouchbaseTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CouchbaseTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CouchbaseTableDatasetResponse)(nil)).Elem()
-}
-
-func (i CouchbaseTableDatasetResponseArgs) ToCouchbaseTableDatasetResponseOutput() CouchbaseTableDatasetResponseOutput {
-	return i.ToCouchbaseTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i CouchbaseTableDatasetResponseArgs) ToCouchbaseTableDatasetResponseOutputWithContext(ctx context.Context) CouchbaseTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CouchbaseTableDatasetResponseOutput)
 }
 
 // Couchbase server dataset.
@@ -9318,46 +5468,6 @@ func (i CustomDataSourceLinkedServiceArgs) ToCustomDataSourceLinkedServiceOutput
 }
 
 // Custom linked service.
-type CustomDataSourceLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (CustomDataSourceLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataSourceLinkedService)(nil)).Elem()
-}
-
-func (o CustomDataSourceLinkedServiceOutput) ToCustomDataSourceLinkedServiceOutput() CustomDataSourceLinkedServiceOutput {
-	return o
-}
-
-func (o CustomDataSourceLinkedServiceOutput) ToCustomDataSourceLinkedServiceOutputWithContext(ctx context.Context) CustomDataSourceLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CustomDataSourceLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CustomDataSourceLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o CustomDataSourceLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v CustomDataSourceLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o CustomDataSourceLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDataSourceLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Parameters for linked service.
-func (o CustomDataSourceLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CustomDataSourceLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o CustomDataSourceLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDataSourceLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Custom linked service.
 type CustomDataSourceLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -9369,43 +5479,6 @@ type CustomDataSourceLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// CustomDataSourceLinkedServiceResponseInput is an input type that accepts CustomDataSourceLinkedServiceResponseArgs and CustomDataSourceLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `CustomDataSourceLinkedServiceResponseInput` via:
-//
-//          CustomDataSourceLinkedServiceResponseArgs{...}
-type CustomDataSourceLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToCustomDataSourceLinkedServiceResponseOutput() CustomDataSourceLinkedServiceResponseOutput
-	ToCustomDataSourceLinkedServiceResponseOutputWithContext(context.Context) CustomDataSourceLinkedServiceResponseOutput
-}
-
-// Custom linked service.
-type CustomDataSourceLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomDataSourceLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataSourceLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i CustomDataSourceLinkedServiceResponseArgs) ToCustomDataSourceLinkedServiceResponseOutput() CustomDataSourceLinkedServiceResponseOutput {
-	return i.ToCustomDataSourceLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i CustomDataSourceLinkedServiceResponseArgs) ToCustomDataSourceLinkedServiceResponseOutputWithContext(ctx context.Context) CustomDataSourceLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDataSourceLinkedServiceResponseOutput)
 }
 
 // Custom linked service.
@@ -9508,51 +5581,6 @@ func (i CustomDatasetArgs) ToCustomDatasetOutputWithContext(ctx context.Context)
 }
 
 // The custom dataset.
-type CustomDatasetOutput struct{ *pulumi.OutputState }
-
-func (CustomDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDataset)(nil)).Elem()
-}
-
-func (o CustomDatasetOutput) ToCustomDatasetOutput() CustomDatasetOutput {
-	return o
-}
-
-func (o CustomDatasetOutput) ToCustomDatasetOutputWithContext(ctx context.Context) CustomDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o CustomDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v CustomDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o CustomDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o CustomDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v CustomDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o CustomDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v CustomDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o CustomDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v CustomDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o CustomDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The custom dataset.
 type CustomDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -9566,45 +5594,6 @@ type CustomDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// CustomDatasetResponseInput is an input type that accepts CustomDatasetResponseArgs and CustomDatasetResponseOutput values.
-// You can construct a concrete instance of `CustomDatasetResponseInput` via:
-//
-//          CustomDatasetResponseArgs{...}
-type CustomDatasetResponseInput interface {
-	pulumi.Input
-
-	ToCustomDatasetResponseOutput() CustomDatasetResponseOutput
-	ToCustomDatasetResponseOutputWithContext(context.Context) CustomDatasetResponseOutput
-}
-
-// The custom dataset.
-type CustomDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDatasetResponse)(nil)).Elem()
-}
-
-func (i CustomDatasetResponseArgs) ToCustomDatasetResponseOutput() CustomDatasetResponseOutput {
-	return i.ToCustomDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i CustomDatasetResponseArgs) ToCustomDatasetResponseOutputWithContext(ctx context.Context) CustomDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDatasetResponseOutput)
 }
 
 // The custom dataset.
@@ -9688,58 +5677,9 @@ func (i DatasetBZip2CompressionArgs) ToDatasetBZip2CompressionOutputWithContext(
 }
 
 // The BZip2 compression method used on a dataset.
-type DatasetBZip2CompressionOutput struct{ *pulumi.OutputState }
-
-func (DatasetBZip2CompressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBZip2Compression)(nil)).Elem()
-}
-
-func (o DatasetBZip2CompressionOutput) ToDatasetBZip2CompressionOutput() DatasetBZip2CompressionOutput {
-	return o
-}
-
-func (o DatasetBZip2CompressionOutput) ToDatasetBZip2CompressionOutputWithContext(ctx context.Context) DatasetBZip2CompressionOutput {
-	return o
-}
-
-// Type of dataset compression.
-func (o DatasetBZip2CompressionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetBZip2Compression) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The BZip2 compression method used on a dataset.
 type DatasetBZip2CompressionResponse struct {
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
-}
-
-// DatasetBZip2CompressionResponseInput is an input type that accepts DatasetBZip2CompressionResponseArgs and DatasetBZip2CompressionResponseOutput values.
-// You can construct a concrete instance of `DatasetBZip2CompressionResponseInput` via:
-//
-//          DatasetBZip2CompressionResponseArgs{...}
-type DatasetBZip2CompressionResponseInput interface {
-	pulumi.Input
-
-	ToDatasetBZip2CompressionResponseOutput() DatasetBZip2CompressionResponseOutput
-	ToDatasetBZip2CompressionResponseOutputWithContext(context.Context) DatasetBZip2CompressionResponseOutput
-}
-
-// The BZip2 compression method used on a dataset.
-type DatasetBZip2CompressionResponseArgs struct {
-	// Type of dataset compression.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatasetBZip2CompressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetBZip2CompressionResponse)(nil)).Elem()
-}
-
-func (i DatasetBZip2CompressionResponseArgs) ToDatasetBZip2CompressionResponseOutput() DatasetBZip2CompressionResponseOutput {
-	return i.ToDatasetBZip2CompressionResponseOutputWithContext(context.Background())
-}
-
-func (i DatasetBZip2CompressionResponseArgs) ToDatasetBZip2CompressionResponseOutputWithContext(ctx context.Context) DatasetBZip2CompressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetBZip2CompressionResponseOutput)
 }
 
 // The BZip2 compression method used on a dataset.
@@ -9802,67 +5742,11 @@ func (i DatasetDeflateCompressionArgs) ToDatasetDeflateCompressionOutputWithCont
 }
 
 // The Deflate compression method used on a dataset.
-type DatasetDeflateCompressionOutput struct{ *pulumi.OutputState }
-
-func (DatasetDeflateCompressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDeflateCompression)(nil)).Elem()
-}
-
-func (o DatasetDeflateCompressionOutput) ToDatasetDeflateCompressionOutput() DatasetDeflateCompressionOutput {
-	return o
-}
-
-func (o DatasetDeflateCompressionOutput) ToDatasetDeflateCompressionOutputWithContext(ctx context.Context) DatasetDeflateCompressionOutput {
-	return o
-}
-
-// The Deflate compression level.
-func (o DatasetDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
-}
-
-// Type of dataset compression.
-func (o DatasetDeflateCompressionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDeflateCompression) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Deflate compression method used on a dataset.
 type DatasetDeflateCompressionResponse struct {
 	// The Deflate compression level.
 	Level map[string]interface{} `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
-}
-
-// DatasetDeflateCompressionResponseInput is an input type that accepts DatasetDeflateCompressionResponseArgs and DatasetDeflateCompressionResponseOutput values.
-// You can construct a concrete instance of `DatasetDeflateCompressionResponseInput` via:
-//
-//          DatasetDeflateCompressionResponseArgs{...}
-type DatasetDeflateCompressionResponseInput interface {
-	pulumi.Input
-
-	ToDatasetDeflateCompressionResponseOutput() DatasetDeflateCompressionResponseOutput
-	ToDatasetDeflateCompressionResponseOutputWithContext(context.Context) DatasetDeflateCompressionResponseOutput
-}
-
-// The Deflate compression method used on a dataset.
-type DatasetDeflateCompressionResponseArgs struct {
-	// The Deflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
-	// Type of dataset compression.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatasetDeflateCompressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDeflateCompressionResponse)(nil)).Elem()
-}
-
-func (i DatasetDeflateCompressionResponseArgs) ToDatasetDeflateCompressionResponseOutput() DatasetDeflateCompressionResponseOutput {
-	return i.ToDatasetDeflateCompressionResponseOutputWithContext(context.Background())
-}
-
-func (i DatasetDeflateCompressionResponseArgs) ToDatasetDeflateCompressionResponseOutputWithContext(ctx context.Context) DatasetDeflateCompressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetDeflateCompressionResponseOutput)
 }
 
 // The Deflate compression method used on a dataset.
@@ -9930,67 +5814,11 @@ func (i DatasetGZipCompressionArgs) ToDatasetGZipCompressionOutputWithContext(ct
 }
 
 // The GZip compression method used on a dataset.
-type DatasetGZipCompressionOutput struct{ *pulumi.OutputState }
-
-func (DatasetGZipCompressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGZipCompression)(nil)).Elem()
-}
-
-func (o DatasetGZipCompressionOutput) ToDatasetGZipCompressionOutput() DatasetGZipCompressionOutput {
-	return o
-}
-
-func (o DatasetGZipCompressionOutput) ToDatasetGZipCompressionOutputWithContext(ctx context.Context) DatasetGZipCompressionOutput {
-	return o
-}
-
-// The GZip compression level.
-func (o DatasetGZipCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetGZipCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
-}
-
-// Type of dataset compression.
-func (o DatasetGZipCompressionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetGZipCompression) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The GZip compression method used on a dataset.
 type DatasetGZipCompressionResponse struct {
 	// The GZip compression level.
 	Level map[string]interface{} `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
-}
-
-// DatasetGZipCompressionResponseInput is an input type that accepts DatasetGZipCompressionResponseArgs and DatasetGZipCompressionResponseOutput values.
-// You can construct a concrete instance of `DatasetGZipCompressionResponseInput` via:
-//
-//          DatasetGZipCompressionResponseArgs{...}
-type DatasetGZipCompressionResponseInput interface {
-	pulumi.Input
-
-	ToDatasetGZipCompressionResponseOutput() DatasetGZipCompressionResponseOutput
-	ToDatasetGZipCompressionResponseOutputWithContext(context.Context) DatasetGZipCompressionResponseOutput
-}
-
-// The GZip compression method used on a dataset.
-type DatasetGZipCompressionResponseArgs struct {
-	// The GZip compression level.
-	Level pulumi.MapInput `pulumi:"level"`
-	// Type of dataset compression.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatasetGZipCompressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetGZipCompressionResponse)(nil)).Elem()
-}
-
-func (i DatasetGZipCompressionResponseArgs) ToDatasetGZipCompressionResponseOutput() DatasetGZipCompressionResponseOutput {
-	return i.ToDatasetGZipCompressionResponseOutputWithContext(context.Background())
-}
-
-func (i DatasetGZipCompressionResponseArgs) ToDatasetGZipCompressionResponseOutputWithContext(ctx context.Context) DatasetGZipCompressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetGZipCompressionResponseOutput)
 }
 
 // The GZip compression method used on a dataset.
@@ -10058,67 +5886,11 @@ func (i DatasetZipDeflateCompressionArgs) ToDatasetZipDeflateCompressionOutputWi
 }
 
 // The ZipDeflate compression method used on a dataset.
-type DatasetZipDeflateCompressionOutput struct{ *pulumi.OutputState }
-
-func (DatasetZipDeflateCompressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetZipDeflateCompression)(nil)).Elem()
-}
-
-func (o DatasetZipDeflateCompressionOutput) ToDatasetZipDeflateCompressionOutput() DatasetZipDeflateCompressionOutput {
-	return o
-}
-
-func (o DatasetZipDeflateCompressionOutput) ToDatasetZipDeflateCompressionOutputWithContext(ctx context.Context) DatasetZipDeflateCompressionOutput {
-	return o
-}
-
-// The ZipDeflate compression level.
-func (o DatasetZipDeflateCompressionOutput) Level() pulumi.MapOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompression) map[string]interface{} { return v.Level }).(pulumi.MapOutput)
-}
-
-// Type of dataset compression.
-func (o DatasetZipDeflateCompressionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetZipDeflateCompression) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The ZipDeflate compression method used on a dataset.
 type DatasetZipDeflateCompressionResponse struct {
 	// The ZipDeflate compression level.
 	Level map[string]interface{} `pulumi:"level"`
 	// Type of dataset compression.
 	Type string `pulumi:"type"`
-}
-
-// DatasetZipDeflateCompressionResponseInput is an input type that accepts DatasetZipDeflateCompressionResponseArgs and DatasetZipDeflateCompressionResponseOutput values.
-// You can construct a concrete instance of `DatasetZipDeflateCompressionResponseInput` via:
-//
-//          DatasetZipDeflateCompressionResponseArgs{...}
-type DatasetZipDeflateCompressionResponseInput interface {
-	pulumi.Input
-
-	ToDatasetZipDeflateCompressionResponseOutput() DatasetZipDeflateCompressionResponseOutput
-	ToDatasetZipDeflateCompressionResponseOutputWithContext(context.Context) DatasetZipDeflateCompressionResponseOutput
-}
-
-// The ZipDeflate compression method used on a dataset.
-type DatasetZipDeflateCompressionResponseArgs struct {
-	// The ZipDeflate compression level.
-	Level pulumi.MapInput `pulumi:"level"`
-	// Type of dataset compression.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatasetZipDeflateCompressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetZipDeflateCompressionResponse)(nil)).Elem()
-}
-
-func (i DatasetZipDeflateCompressionResponseArgs) ToDatasetZipDeflateCompressionResponseOutput() DatasetZipDeflateCompressionResponseOutput {
-	return i.ToDatasetZipDeflateCompressionResponseOutputWithContext(context.Background())
-}
-
-func (i DatasetZipDeflateCompressionResponseArgs) ToDatasetZipDeflateCompressionResponseOutputWithContext(ctx context.Context) DatasetZipDeflateCompressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatasetZipDeflateCompressionResponseOutput)
 }
 
 // The ZipDeflate compression method used on a dataset.
@@ -10222,76 +5994,6 @@ func (i Db2LinkedServiceArgs) ToDb2LinkedServiceOutputWithContext(ctx context.Co
 }
 
 // Linked service for DB2 data source.
-type Db2LinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (Db2LinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Db2LinkedService)(nil)).Elem()
-}
-
-func (o Db2LinkedServiceOutput) ToDb2LinkedServiceOutput() Db2LinkedServiceOutput {
-	return o
-}
-
-func (o Db2LinkedServiceOutput) ToDb2LinkedServiceOutputWithContext(ctx context.Context) Db2LinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o Db2LinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v Db2LinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// AuthenticationType to be used for connection.
-func (o Db2LinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Db2LinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o Db2LinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v Db2LinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Database name for connection. Type: string (or Expression with resultType string).
-func (o Db2LinkedServiceOutput) Database() pulumi.MapOutput {
-	return o.ApplyT(func(v Db2LinkedService) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o Db2LinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Db2LinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o Db2LinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v Db2LinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o Db2LinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v Db2LinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for authentication.
-func (o Db2LinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v Db2LinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Server name for connection. Type: string (or Expression with resultType string).
-func (o Db2LinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v Db2LinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o Db2LinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Db2LinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username for authentication. Type: string (or Expression with resultType string).
-func (o Db2LinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v Db2LinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for DB2 data source.
 type Db2LinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -10315,55 +6017,6 @@ type Db2LinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// Db2LinkedServiceResponseInput is an input type that accepts Db2LinkedServiceResponseArgs and Db2LinkedServiceResponseOutput values.
-// You can construct a concrete instance of `Db2LinkedServiceResponseInput` via:
-//
-//          Db2LinkedServiceResponseArgs{...}
-type Db2LinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToDb2LinkedServiceResponseOutput() Db2LinkedServiceResponseOutput
-	ToDb2LinkedServiceResponseOutputWithContext(context.Context) Db2LinkedServiceResponseOutput
-}
-
-// Linked service for DB2 data source.
-type Db2LinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// AuthenticationType to be used for connection.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Database name for connection. Type: string (or Expression with resultType string).
-	Database pulumi.MapInput `pulumi:"database"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Server name for connection. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username for authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (Db2LinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Db2LinkedServiceResponse)(nil)).Elem()
-}
-
-func (i Db2LinkedServiceResponseArgs) ToDb2LinkedServiceResponseOutput() Db2LinkedServiceResponseOutput {
-	return i.ToDb2LinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i Db2LinkedServiceResponseArgs) ToDb2LinkedServiceResponseOutputWithContext(ctx context.Context) Db2LinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Db2LinkedServiceResponseOutput)
 }
 
 // Linked service for DB2 data source.
@@ -10496,56 +6149,6 @@ func (i DocumentDbCollectionDatasetArgs) ToDocumentDbCollectionDatasetOutputWith
 }
 
 // Microsoft Azure Document Database Collection dataset.
-type DocumentDbCollectionDatasetOutput struct{ *pulumi.OutputState }
-
-func (DocumentDbCollectionDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDbCollectionDataset)(nil)).Elem()
-}
-
-func (o DocumentDbCollectionDatasetOutput) ToDocumentDbCollectionDatasetOutput() DocumentDbCollectionDatasetOutput {
-	return o
-}
-
-func (o DocumentDbCollectionDatasetOutput) ToDocumentDbCollectionDatasetOutputWithContext(ctx context.Context) DocumentDbCollectionDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o DocumentDbCollectionDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Document Database collection name. Type: string (or Expression with resultType string).
-func (o DocumentDbCollectionDatasetOutput) CollectionName() pulumi.MapOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) map[string]interface{} { return v.CollectionName }).(pulumi.MapOutput)
-}
-
-// Dataset description.
-func (o DocumentDbCollectionDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o DocumentDbCollectionDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o DocumentDbCollectionDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DocumentDbCollectionDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o DocumentDbCollectionDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DocumentDbCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Microsoft Azure Document Database Collection dataset.
 type DocumentDbCollectionDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -10561,47 +6164,6 @@ type DocumentDbCollectionDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// DocumentDbCollectionDatasetResponseInput is an input type that accepts DocumentDbCollectionDatasetResponseArgs and DocumentDbCollectionDatasetResponseOutput values.
-// You can construct a concrete instance of `DocumentDbCollectionDatasetResponseInput` via:
-//
-//          DocumentDbCollectionDatasetResponseArgs{...}
-type DocumentDbCollectionDatasetResponseInput interface {
-	pulumi.Input
-
-	ToDocumentDbCollectionDatasetResponseOutput() DocumentDbCollectionDatasetResponseOutput
-	ToDocumentDbCollectionDatasetResponseOutputWithContext(context.Context) DocumentDbCollectionDatasetResponseOutput
-}
-
-// Microsoft Azure Document Database Collection dataset.
-type DocumentDbCollectionDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Document Database collection name. Type: string (or Expression with resultType string).
-	CollectionName pulumi.MapInput `pulumi:"collectionName"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DocumentDbCollectionDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDbCollectionDatasetResponse)(nil)).Elem()
-}
-
-func (i DocumentDbCollectionDatasetResponseArgs) ToDocumentDbCollectionDatasetResponseOutput() DocumentDbCollectionDatasetResponseOutput {
-	return i.ToDocumentDbCollectionDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i DocumentDbCollectionDatasetResponseArgs) ToDocumentDbCollectionDatasetResponseOutputWithContext(ctx context.Context) DocumentDbCollectionDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentDbCollectionDatasetResponseOutput)
 }
 
 // Microsoft Azure Document Database Collection dataset.
@@ -10716,56 +6278,6 @@ func (i DrillLinkedServiceArgs) ToDrillLinkedServiceOutputWithContext(ctx contex
 }
 
 // Drill server linked service.
-type DrillLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (DrillLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DrillLinkedService)(nil)).Elem()
-}
-
-func (o DrillLinkedServiceOutput) ToDrillLinkedServiceOutput() DrillLinkedServiceOutput {
-	return o
-}
-
-func (o DrillLinkedServiceOutput) ToDrillLinkedServiceOutputWithContext(ctx context.Context) DrillLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o DrillLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DrillLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o DrillLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v DrillLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o DrillLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v DrillLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o DrillLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DrillLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o DrillLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v DrillLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o DrillLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v DrillLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o DrillLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DrillLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Drill server linked service.
 type DrillLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -10781,47 +6293,6 @@ type DrillLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// DrillLinkedServiceResponseInput is an input type that accepts DrillLinkedServiceResponseArgs and DrillLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `DrillLinkedServiceResponseInput` via:
-//
-//          DrillLinkedServiceResponseArgs{...}
-type DrillLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToDrillLinkedServiceResponseOutput() DrillLinkedServiceResponseOutput
-	ToDrillLinkedServiceResponseOutputWithContext(context.Context) DrillLinkedServiceResponseOutput
-}
-
-// Drill server linked service.
-type DrillLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DrillLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DrillLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i DrillLinkedServiceResponseArgs) ToDrillLinkedServiceResponseOutput() DrillLinkedServiceResponseOutput {
-	return i.ToDrillLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i DrillLinkedServiceResponseArgs) ToDrillLinkedServiceResponseOutputWithContext(ctx context.Context) DrillLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DrillLinkedServiceResponseOutput)
 }
 
 // Drill server linked service.
@@ -10930,51 +6401,6 @@ func (i DrillTableDatasetArgs) ToDrillTableDatasetOutputWithContext(ctx context.
 }
 
 // Drill server dataset.
-type DrillTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (DrillTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DrillTableDataset)(nil)).Elem()
-}
-
-func (o DrillTableDatasetOutput) ToDrillTableDatasetOutput() DrillTableDatasetOutput {
-	return o
-}
-
-func (o DrillTableDatasetOutput) ToDrillTableDatasetOutputWithContext(ctx context.Context) DrillTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o DrillTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DrillTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o DrillTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DrillTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o DrillTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v DrillTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o DrillTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v DrillTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DrillTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v DrillTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o DrillTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DrillTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Drill server dataset.
 type DrillTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -10988,45 +6414,6 @@ type DrillTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// DrillTableDatasetResponseInput is an input type that accepts DrillTableDatasetResponseArgs and DrillTableDatasetResponseOutput values.
-// You can construct a concrete instance of `DrillTableDatasetResponseInput` via:
-//
-//          DrillTableDatasetResponseArgs{...}
-type DrillTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToDrillTableDatasetResponseOutput() DrillTableDatasetResponseOutput
-	ToDrillTableDatasetResponseOutputWithContext(context.Context) DrillTableDatasetResponseOutput
-}
-
-// Drill server dataset.
-type DrillTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DrillTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DrillTableDatasetResponse)(nil)).Elem()
-}
-
-func (i DrillTableDatasetResponseArgs) ToDrillTableDatasetResponseOutput() DrillTableDatasetResponseOutput {
-	return i.ToDrillTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i DrillTableDatasetResponseArgs) ToDrillTableDatasetResponseOutputWithContext(ctx context.Context) DrillTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DrillTableDatasetResponseOutput)
 }
 
 // Drill server dataset.
@@ -11134,56 +6521,6 @@ func (i DynamicsEntityDatasetArgs) ToDynamicsEntityDatasetOutputWithContext(ctx 
 }
 
 // The Dynamics entity dataset.
-type DynamicsEntityDatasetOutput struct{ *pulumi.OutputState }
-
-func (DynamicsEntityDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicsEntityDataset)(nil)).Elem()
-}
-
-func (o DynamicsEntityDatasetOutput) ToDynamicsEntityDatasetOutput() DynamicsEntityDatasetOutput {
-	return o
-}
-
-func (o DynamicsEntityDatasetOutput) ToDynamicsEntityDatasetOutputWithContext(ctx context.Context) DynamicsEntityDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o DynamicsEntityDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o DynamicsEntityDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The logical name of the entity. Type: string (or Expression with resultType string).
-func (o DynamicsEntityDatasetOutput) EntityName() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) map[string]interface{} { return v.EntityName }).(pulumi.MapOutput)
-}
-
-// Linked service reference.
-func (o DynamicsEntityDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o DynamicsEntityDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o DynamicsEntityDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o DynamicsEntityDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicsEntityDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Dynamics entity dataset.
 type DynamicsEntityDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -11199,47 +6536,6 @@ type DynamicsEntityDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// DynamicsEntityDatasetResponseInput is an input type that accepts DynamicsEntityDatasetResponseArgs and DynamicsEntityDatasetResponseOutput values.
-// You can construct a concrete instance of `DynamicsEntityDatasetResponseInput` via:
-//
-//          DynamicsEntityDatasetResponseArgs{...}
-type DynamicsEntityDatasetResponseInput interface {
-	pulumi.Input
-
-	ToDynamicsEntityDatasetResponseOutput() DynamicsEntityDatasetResponseOutput
-	ToDynamicsEntityDatasetResponseOutputWithContext(context.Context) DynamicsEntityDatasetResponseOutput
-}
-
-// The Dynamics entity dataset.
-type DynamicsEntityDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The logical name of the entity. Type: string (or Expression with resultType string).
-	EntityName pulumi.MapInput `pulumi:"entityName"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DynamicsEntityDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicsEntityDatasetResponse)(nil)).Elem()
-}
-
-func (i DynamicsEntityDatasetResponseArgs) ToDynamicsEntityDatasetResponseOutput() DynamicsEntityDatasetResponseOutput {
-	return i.ToDynamicsEntityDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i DynamicsEntityDatasetResponseArgs) ToDynamicsEntityDatasetResponseOutputWithContext(ctx context.Context) DynamicsEntityDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DynamicsEntityDatasetResponseOutput)
 }
 
 // The Dynamics entity dataset.
@@ -11380,91 +6676,6 @@ func (i DynamicsLinkedServiceArgs) ToDynamicsLinkedServiceOutputWithContext(ctx 
 }
 
 // Dynamics linked service.
-type DynamicsLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (DynamicsLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicsLinkedService)(nil)).Elem()
-}
-
-func (o DynamicsLinkedServiceOutput) ToDynamicsLinkedServiceOutput() DynamicsLinkedServiceOutput {
-	return o
-}
-
-func (o DynamicsLinkedServiceOutput) ToDynamicsLinkedServiceOutputWithContext(ctx context.Context) DynamicsLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o DynamicsLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o DynamicsLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) DeploymentType() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.DeploymentType }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o DynamicsLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) HostName() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.HostName }).(pulumi.MapOutput)
-}
-
-// The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) OrganizationName() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.OrganizationName }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o DynamicsLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password to access the Dynamics instance.
-func (o DynamicsLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o DynamicsLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) ServiceUri() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.ServiceUri }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o DynamicsLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
-func (o DynamicsLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v DynamicsLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Dynamics linked service.
 type DynamicsLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -11494,61 +6705,6 @@ type DynamicsLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// DynamicsLinkedServiceResponseInput is an input type that accepts DynamicsLinkedServiceResponseArgs and DynamicsLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `DynamicsLinkedServiceResponseInput` via:
-//
-//          DynamicsLinkedServiceResponseArgs{...}
-type DynamicsLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToDynamicsLinkedServiceResponseOutput() DynamicsLinkedServiceResponseOutput
-	ToDynamicsLinkedServiceResponseOutputWithContext(context.Context) DynamicsLinkedServiceResponseOutput
-}
-
-// Dynamics linked service.
-type DynamicsLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
-	DeploymentType pulumi.MapInput `pulumi:"deploymentType"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
-	HostName pulumi.MapInput `pulumi:"hostName"`
-	// The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
-	OrganizationName pulumi.MapInput `pulumi:"organizationName"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password to access the Dynamics instance.
-	Password pulumi.Input `pulumi:"password"`
-	// The port of on-premises Dynamics server. The property is required for on-prem and not allowed for online. Default is 443. Type: integer (or Expression with resultType integer), minimum: 0.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The URL to the Microsoft Dynamics server. The property is required for on-line and not allowed for on-prem. Type: string (or Expression with resultType string).
-	ServiceUri pulumi.MapInput `pulumi:"serviceUri"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name to access the Dynamics instance. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (DynamicsLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DynamicsLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i DynamicsLinkedServiceResponseArgs) ToDynamicsLinkedServiceResponseOutput() DynamicsLinkedServiceResponseOutput {
-	return i.ToDynamicsLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i DynamicsLinkedServiceResponseArgs) ToDynamicsLinkedServiceResponseOutputWithContext(ctx context.Context) DynamicsLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DynamicsLinkedServiceResponseOutput)
 }
 
 // Dynamics linked service.
@@ -11716,81 +6872,6 @@ func (i EloquaLinkedServiceArgs) ToEloquaLinkedServiceOutputWithContext(ctx cont
 }
 
 // Eloqua server linked service.
-type EloquaLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (EloquaLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EloquaLinkedService)(nil)).Elem()
-}
-
-func (o EloquaLinkedServiceOutput) ToEloquaLinkedServiceOutput() EloquaLinkedServiceOutput {
-	return o
-}
-
-func (o EloquaLinkedServiceOutput) ToEloquaLinkedServiceOutputWithContext(ctx context.Context) EloquaLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o EloquaLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v EloquaLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o EloquaLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v EloquaLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o EloquaLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EloquaLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o EloquaLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Eloqua server. (i.e. eloqua.example.com)
-func (o EloquaLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o EloquaLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name.
-func (o EloquaLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v EloquaLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o EloquaLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EloquaLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o EloquaLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o EloquaLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o EloquaLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-func (o EloquaLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Eloqua server linked service.
 type EloquaLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -11816,57 +6897,6 @@ type EloquaLinkedServiceResponse struct {
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
 	// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// EloquaLinkedServiceResponseInput is an input type that accepts EloquaLinkedServiceResponseArgs and EloquaLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `EloquaLinkedServiceResponseInput` via:
-//
-//          EloquaLinkedServiceResponseArgs{...}
-type EloquaLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToEloquaLinkedServiceResponseOutput() EloquaLinkedServiceResponseOutput
-	ToEloquaLinkedServiceResponseOutputWithContext(context.Context) EloquaLinkedServiceResponseOutput
-}
-
-// Eloqua server linked service.
-type EloquaLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Eloqua server. (i.e. eloqua.example.com)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-	// The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (EloquaLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EloquaLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i EloquaLinkedServiceResponseArgs) ToEloquaLinkedServiceResponseOutput() EloquaLinkedServiceResponseOutput {
-	return i.ToEloquaLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i EloquaLinkedServiceResponseArgs) ToEloquaLinkedServiceResponseOutputWithContext(ctx context.Context) EloquaLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EloquaLinkedServiceResponseOutput)
 }
 
 // Eloqua server linked service.
@@ -12000,51 +7030,6 @@ func (i EloquaObjectDatasetArgs) ToEloquaObjectDatasetOutputWithContext(ctx cont
 }
 
 // Eloqua server dataset.
-type EloquaObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (EloquaObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EloquaObjectDataset)(nil)).Elem()
-}
-
-func (o EloquaObjectDatasetOutput) ToEloquaObjectDatasetOutput() EloquaObjectDatasetOutput {
-	return o
-}
-
-func (o EloquaObjectDatasetOutput) ToEloquaObjectDatasetOutputWithContext(ctx context.Context) EloquaObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o EloquaObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o EloquaObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o EloquaObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o EloquaObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o EloquaObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o EloquaObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EloquaObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Eloqua server dataset.
 type EloquaObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -12058,45 +7043,6 @@ type EloquaObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// EloquaObjectDatasetResponseInput is an input type that accepts EloquaObjectDatasetResponseArgs and EloquaObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `EloquaObjectDatasetResponseInput` via:
-//
-//          EloquaObjectDatasetResponseArgs{...}
-type EloquaObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToEloquaObjectDatasetResponseOutput() EloquaObjectDatasetResponseOutput
-	ToEloquaObjectDatasetResponseOutputWithContext(context.Context) EloquaObjectDatasetResponseOutput
-}
-
-// Eloqua server dataset.
-type EloquaObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EloquaObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EloquaObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i EloquaObjectDatasetResponseArgs) ToEloquaObjectDatasetResponseOutput() EloquaObjectDatasetResponseOutput {
-	return i.ToEloquaObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i EloquaObjectDatasetResponseArgs) ToEloquaObjectDatasetResponseOutputWithContext(ctx context.Context) EloquaObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EloquaObjectDatasetResponseOutput)
 }
 
 // Eloqua server dataset.
@@ -12225,156 +7171,11 @@ func (i *entityReferencePtrType) ToEntityReferencePtrOutputWithContext(ctx conte
 }
 
 // The entity reference.
-type EntityReferenceOutput struct{ *pulumi.OutputState }
-
-func (EntityReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityReference)(nil)).Elem()
-}
-
-func (o EntityReferenceOutput) ToEntityReferenceOutput() EntityReferenceOutput {
-	return o
-}
-
-func (o EntityReferenceOutput) ToEntityReferenceOutputWithContext(ctx context.Context) EntityReferenceOutput {
-	return o
-}
-
-func (o EntityReferenceOutput) ToEntityReferencePtrOutput() EntityReferencePtrOutput {
-	return o.ToEntityReferencePtrOutputWithContext(context.Background())
-}
-
-func (o EntityReferenceOutput) ToEntityReferencePtrOutputWithContext(ctx context.Context) EntityReferencePtrOutput {
-	return o.ApplyT(func(v EntityReference) *EntityReference {
-		return &v
-	}).(EntityReferencePtrOutput)
-}
-
-// The name of this referenced entity.
-func (o EntityReferenceOutput) ReferenceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityReference) *string { return v.ReferenceName }).(pulumi.StringPtrOutput)
-}
-
-// The type of this referenced entity.
-func (o EntityReferenceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EntityReference) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type EntityReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (EntityReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityReference)(nil)).Elem()
-}
-
-func (o EntityReferencePtrOutput) ToEntityReferencePtrOutput() EntityReferencePtrOutput {
-	return o
-}
-
-func (o EntityReferencePtrOutput) ToEntityReferencePtrOutputWithContext(ctx context.Context) EntityReferencePtrOutput {
-	return o
-}
-
-func (o EntityReferencePtrOutput) Elem() EntityReferenceOutput {
-	return o.ApplyT(func(v *EntityReference) EntityReference { return *v }).(EntityReferenceOutput)
-}
-
-// The name of this referenced entity.
-func (o EntityReferencePtrOutput) ReferenceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EntityReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReferenceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of this referenced entity.
-func (o EntityReferencePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EntityReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The entity reference.
 type EntityReferenceResponse struct {
 	// The name of this referenced entity.
 	ReferenceName *string `pulumi:"referenceName"`
 	// The type of this referenced entity.
 	Type *string `pulumi:"type"`
-}
-
-// EntityReferenceResponseInput is an input type that accepts EntityReferenceResponseArgs and EntityReferenceResponseOutput values.
-// You can construct a concrete instance of `EntityReferenceResponseInput` via:
-//
-//          EntityReferenceResponseArgs{...}
-type EntityReferenceResponseInput interface {
-	pulumi.Input
-
-	ToEntityReferenceResponseOutput() EntityReferenceResponseOutput
-	ToEntityReferenceResponseOutputWithContext(context.Context) EntityReferenceResponseOutput
-}
-
-// The entity reference.
-type EntityReferenceResponseArgs struct {
-	// The name of this referenced entity.
-	ReferenceName pulumi.StringPtrInput `pulumi:"referenceName"`
-	// The type of this referenced entity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (EntityReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityReferenceResponse)(nil)).Elem()
-}
-
-func (i EntityReferenceResponseArgs) ToEntityReferenceResponseOutput() EntityReferenceResponseOutput {
-	return i.ToEntityReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i EntityReferenceResponseArgs) ToEntityReferenceResponseOutputWithContext(ctx context.Context) EntityReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityReferenceResponseOutput)
-}
-
-func (i EntityReferenceResponseArgs) ToEntityReferenceResponsePtrOutput() EntityReferenceResponsePtrOutput {
-	return i.ToEntityReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EntityReferenceResponseArgs) ToEntityReferenceResponsePtrOutputWithContext(ctx context.Context) EntityReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityReferenceResponseOutput).ToEntityReferenceResponsePtrOutputWithContext(ctx)
-}
-
-// EntityReferenceResponsePtrInput is an input type that accepts EntityReferenceResponseArgs, EntityReferenceResponsePtr and EntityReferenceResponsePtrOutput values.
-// You can construct a concrete instance of `EntityReferenceResponsePtrInput` via:
-//
-//          EntityReferenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EntityReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToEntityReferenceResponsePtrOutput() EntityReferenceResponsePtrOutput
-	ToEntityReferenceResponsePtrOutputWithContext(context.Context) EntityReferenceResponsePtrOutput
-}
-
-type entityReferenceResponsePtrType EntityReferenceResponseArgs
-
-func EntityReferenceResponsePtr(v *EntityReferenceResponseArgs) EntityReferenceResponsePtrInput {
-	return (*entityReferenceResponsePtrType)(v)
-}
-
-func (*entityReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EntityReferenceResponse)(nil)).Elem()
-}
-
-func (i *entityReferenceResponsePtrType) ToEntityReferenceResponsePtrOutput() EntityReferenceResponsePtrOutput {
-	return i.ToEntityReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *entityReferenceResponsePtrType) ToEntityReferenceResponsePtrOutputWithContext(ctx context.Context) EntityReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EntityReferenceResponsePtrOutput)
 }
 
 // The entity reference.
@@ -12506,51 +7307,6 @@ func (i ExecutionActivityArgs) ToExecutionActivityOutputWithContext(ctx context.
 }
 
 // Base class for all execution activities.
-type ExecutionActivityOutput struct{ *pulumi.OutputState }
-
-func (ExecutionActivityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExecutionActivity)(nil)).Elem()
-}
-
-func (o ExecutionActivityOutput) ToExecutionActivityOutput() ExecutionActivityOutput {
-	return o
-}
-
-func (o ExecutionActivityOutput) ToExecutionActivityOutputWithContext(ctx context.Context) ExecutionActivityOutput {
-	return o
-}
-
-// Activity depends on condition.
-func (o ExecutionActivityOutput) DependsOn() ActivityDependencyArrayOutput {
-	return o.ApplyT(func(v ExecutionActivity) []ActivityDependency { return v.DependsOn }).(ActivityDependencyArrayOutput)
-}
-
-// Activity description.
-func (o ExecutionActivityOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExecutionActivity) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ExecutionActivityOutput) LinkedServiceName() LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v ExecutionActivity) *LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferencePtrOutput)
-}
-
-// Activity name.
-func (o ExecutionActivityOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExecutionActivity) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Activity policy.
-func (o ExecutionActivityOutput) Policy() ActivityPolicyPtrOutput {
-	return o.ApplyT(func(v ExecutionActivity) *ActivityPolicy { return v.Policy }).(ActivityPolicyPtrOutput)
-}
-
-// Type of activity.
-func (o ExecutionActivityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ExecutionActivity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for all execution activities.
 type ExecutionActivityResponse struct {
 	// Activity depends on condition.
 	DependsOn []ActivityDependencyResponse `pulumi:"dependsOn"`
@@ -12564,45 +7320,6 @@ type ExecutionActivityResponse struct {
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
 	Type string `pulumi:"type"`
-}
-
-// ExecutionActivityResponseInput is an input type that accepts ExecutionActivityResponseArgs and ExecutionActivityResponseOutput values.
-// You can construct a concrete instance of `ExecutionActivityResponseInput` via:
-//
-//          ExecutionActivityResponseArgs{...}
-type ExecutionActivityResponseInput interface {
-	pulumi.Input
-
-	ToExecutionActivityResponseOutput() ExecutionActivityResponseOutput
-	ToExecutionActivityResponseOutputWithContext(context.Context) ExecutionActivityResponseOutput
-}
-
-// Base class for all execution activities.
-type ExecutionActivityResponseArgs struct {
-	// Activity depends on condition.
-	DependsOn ActivityDependencyResponseArrayInput `pulumi:"dependsOn"`
-	// Activity description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponsePtrInput `pulumi:"linkedServiceName"`
-	// Activity name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Activity policy.
-	Policy ActivityPolicyResponsePtrInput `pulumi:"policy"`
-	// Type of activity.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ExecutionActivityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExecutionActivityResponse)(nil)).Elem()
-}
-
-func (i ExecutionActivityResponseArgs) ToExecutionActivityResponseOutput() ExecutionActivityResponseOutput {
-	return i.ToExecutionActivityResponseOutputWithContext(context.Background())
-}
-
-func (i ExecutionActivityResponseArgs) ToExecutionActivityResponseOutputWithContext(ctx context.Context) ExecutionActivityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExecutionActivityResponseOutput)
 }
 
 // Base class for all execution activities.
@@ -12727,64 +7444,6 @@ func (i *factoryIdentityPtrType) ToFactoryIdentityPtrOutputWithContext(ctx conte
 }
 
 // Identity properties of the factory resource.
-type FactoryIdentityOutput struct{ *pulumi.OutputState }
-
-func (FactoryIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryIdentity)(nil)).Elem()
-}
-
-func (o FactoryIdentityOutput) ToFactoryIdentityOutput() FactoryIdentityOutput {
-	return o
-}
-
-func (o FactoryIdentityOutput) ToFactoryIdentityOutputWithContext(ctx context.Context) FactoryIdentityOutput {
-	return o
-}
-
-func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutput() FactoryIdentityPtrOutput {
-	return o.ToFactoryIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context.Context) FactoryIdentityPtrOutput {
-	return o.ApplyT(func(v FactoryIdentity) *FactoryIdentity {
-		return &v
-	}).(FactoryIdentityPtrOutput)
-}
-
-// The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type FactoryIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (FactoryIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FactoryIdentity)(nil)).Elem()
-}
-
-func (o FactoryIdentityPtrOutput) ToFactoryIdentityPtrOutput() FactoryIdentityPtrOutput {
-	return o
-}
-
-func (o FactoryIdentityPtrOutput) ToFactoryIdentityPtrOutputWithContext(ctx context.Context) FactoryIdentityPtrOutput {
-	return o
-}
-
-func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
-	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
-}
-
-// The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Identity properties of the factory resource.
 type FactoryIdentityResponse struct {
 	// The principal id of the identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -12792,80 +7451,6 @@ type FactoryIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
 	Type string `pulumi:"type"`
-}
-
-// FactoryIdentityResponseInput is an input type that accepts FactoryIdentityResponseArgs and FactoryIdentityResponseOutput values.
-// You can construct a concrete instance of `FactoryIdentityResponseInput` via:
-//
-//          FactoryIdentityResponseArgs{...}
-type FactoryIdentityResponseInput interface {
-	pulumi.Input
-
-	ToFactoryIdentityResponseOutput() FactoryIdentityResponseOutput
-	ToFactoryIdentityResponseOutputWithContext(context.Context) FactoryIdentityResponseOutput
-}
-
-// Identity properties of the factory resource.
-type FactoryIdentityResponseArgs struct {
-	// The principal id of the identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The client tenant id of the identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FactoryIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryIdentityResponse)(nil)).Elem()
-}
-
-func (i FactoryIdentityResponseArgs) ToFactoryIdentityResponseOutput() FactoryIdentityResponseOutput {
-	return i.ToFactoryIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i FactoryIdentityResponseArgs) ToFactoryIdentityResponseOutputWithContext(ctx context.Context) FactoryIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryIdentityResponseOutput)
-}
-
-func (i FactoryIdentityResponseArgs) ToFactoryIdentityResponsePtrOutput() FactoryIdentityResponsePtrOutput {
-	return i.ToFactoryIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FactoryIdentityResponseArgs) ToFactoryIdentityResponsePtrOutputWithContext(ctx context.Context) FactoryIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryIdentityResponseOutput).ToFactoryIdentityResponsePtrOutputWithContext(ctx)
-}
-
-// FactoryIdentityResponsePtrInput is an input type that accepts FactoryIdentityResponseArgs, FactoryIdentityResponsePtr and FactoryIdentityResponsePtrOutput values.
-// You can construct a concrete instance of `FactoryIdentityResponsePtrInput` via:
-//
-//          FactoryIdentityResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FactoryIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToFactoryIdentityResponsePtrOutput() FactoryIdentityResponsePtrOutput
-	ToFactoryIdentityResponsePtrOutputWithContext(context.Context) FactoryIdentityResponsePtrOutput
-}
-
-type factoryIdentityResponsePtrType FactoryIdentityResponseArgs
-
-func FactoryIdentityResponsePtr(v *FactoryIdentityResponseArgs) FactoryIdentityResponsePtrInput {
-	return (*factoryIdentityResponsePtrType)(v)
-}
-
-func (*factoryIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FactoryIdentityResponse)(nil)).Elem()
-}
-
-func (i *factoryIdentityResponsePtrType) ToFactoryIdentityResponsePtrOutput() FactoryIdentityResponsePtrOutput {
-	return i.ToFactoryIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *factoryIdentityResponsePtrType) ToFactoryIdentityResponsePtrOutputWithContext(ctx context.Context) FactoryIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryIdentityResponsePtrOutput)
 }
 
 // Identity properties of the factory resource.
@@ -13057,154 +7642,6 @@ func (i *factoryVSTSConfigurationPtrType) ToFactoryVSTSConfigurationPtrOutputWit
 }
 
 // Factory's VSTS repo information.
-type FactoryVSTSConfigurationOutput struct{ *pulumi.OutputState }
-
-func (FactoryVSTSConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryVSTSConfiguration)(nil)).Elem()
-}
-
-func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationOutput() FactoryVSTSConfigurationOutput {
-	return o
-}
-
-func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationOutputWithContext(ctx context.Context) FactoryVSTSConfigurationOutput {
-	return o
-}
-
-func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationPtrOutput() FactoryVSTSConfigurationPtrOutput {
-	return o.ToFactoryVSTSConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o FactoryVSTSConfigurationOutput) ToFactoryVSTSConfigurationPtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *FactoryVSTSConfiguration {
-		return &v
-	}).(FactoryVSTSConfigurationPtrOutput)
-}
-
-// VSTS account name.
-func (o FactoryVSTSConfigurationOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.AccountName }).(pulumi.StringPtrOutput)
-}
-
-// VSTS collaboration branch.
-func (o FactoryVSTSConfigurationOutput) CollaborationBranch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
-}
-
-// VSTS last commit id.
-func (o FactoryVSTSConfigurationOutput) LastCommitId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.LastCommitId }).(pulumi.StringPtrOutput)
-}
-
-// VSTS project name.
-func (o FactoryVSTSConfigurationOutput) ProjectName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.ProjectName }).(pulumi.StringPtrOutput)
-}
-
-// VSTS repository name.
-func (o FactoryVSTSConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
-}
-
-// VSTS root folder.
-func (o FactoryVSTSConfigurationOutput) RootFolder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.RootFolder }).(pulumi.StringPtrOutput)
-}
-
-// VSTS tenant id.
-func (o FactoryVSTSConfigurationOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FactoryVSTSConfiguration) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-type FactoryVSTSConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (FactoryVSTSConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FactoryVSTSConfiguration)(nil)).Elem()
-}
-
-func (o FactoryVSTSConfigurationPtrOutput) ToFactoryVSTSConfigurationPtrOutput() FactoryVSTSConfigurationPtrOutput {
-	return o
-}
-
-func (o FactoryVSTSConfigurationPtrOutput) ToFactoryVSTSConfigurationPtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationPtrOutput {
-	return o
-}
-
-func (o FactoryVSTSConfigurationPtrOutput) Elem() FactoryVSTSConfigurationOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) FactoryVSTSConfiguration { return *v }).(FactoryVSTSConfigurationOutput)
-}
-
-// VSTS account name.
-func (o FactoryVSTSConfigurationPtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS collaboration branch.
-func (o FactoryVSTSConfigurationPtrOutput) CollaborationBranch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CollaborationBranch
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS last commit id.
-func (o FactoryVSTSConfigurationPtrOutput) LastCommitId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastCommitId
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS project name.
-func (o FactoryVSTSConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProjectName
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS repository name.
-func (o FactoryVSTSConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RepositoryName
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS root folder.
-func (o FactoryVSTSConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RootFolder
-	}).(pulumi.StringPtrOutput)
-}
-
-// VSTS tenant id.
-func (o FactoryVSTSConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryVSTSConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Factory's VSTS repo information.
 type FactoryVSTSConfigurationResponse struct {
 	// VSTS account name.
 	AccountName *string `pulumi:"accountName"`
@@ -13220,88 +7657,6 @@ type FactoryVSTSConfigurationResponse struct {
 	RootFolder *string `pulumi:"rootFolder"`
 	// VSTS tenant id.
 	TenantId *string `pulumi:"tenantId"`
-}
-
-// FactoryVSTSConfigurationResponseInput is an input type that accepts FactoryVSTSConfigurationResponseArgs and FactoryVSTSConfigurationResponseOutput values.
-// You can construct a concrete instance of `FactoryVSTSConfigurationResponseInput` via:
-//
-//          FactoryVSTSConfigurationResponseArgs{...}
-type FactoryVSTSConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToFactoryVSTSConfigurationResponseOutput() FactoryVSTSConfigurationResponseOutput
-	ToFactoryVSTSConfigurationResponseOutputWithContext(context.Context) FactoryVSTSConfigurationResponseOutput
-}
-
-// Factory's VSTS repo information.
-type FactoryVSTSConfigurationResponseArgs struct {
-	// VSTS account name.
-	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// VSTS collaboration branch.
-	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
-	// VSTS last commit id.
-	LastCommitId pulumi.StringPtrInput `pulumi:"lastCommitId"`
-	// VSTS project name.
-	ProjectName pulumi.StringPtrInput `pulumi:"projectName"`
-	// VSTS repository name.
-	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
-	// VSTS root folder.
-	RootFolder pulumi.StringPtrInput `pulumi:"rootFolder"`
-	// VSTS tenant id.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (FactoryVSTSConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FactoryVSTSConfigurationResponse)(nil)).Elem()
-}
-
-func (i FactoryVSTSConfigurationResponseArgs) ToFactoryVSTSConfigurationResponseOutput() FactoryVSTSConfigurationResponseOutput {
-	return i.ToFactoryVSTSConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i FactoryVSTSConfigurationResponseArgs) ToFactoryVSTSConfigurationResponseOutputWithContext(ctx context.Context) FactoryVSTSConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryVSTSConfigurationResponseOutput)
-}
-
-func (i FactoryVSTSConfigurationResponseArgs) ToFactoryVSTSConfigurationResponsePtrOutput() FactoryVSTSConfigurationResponsePtrOutput {
-	return i.ToFactoryVSTSConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FactoryVSTSConfigurationResponseArgs) ToFactoryVSTSConfigurationResponsePtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryVSTSConfigurationResponseOutput).ToFactoryVSTSConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// FactoryVSTSConfigurationResponsePtrInput is an input type that accepts FactoryVSTSConfigurationResponseArgs, FactoryVSTSConfigurationResponsePtr and FactoryVSTSConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `FactoryVSTSConfigurationResponsePtrInput` via:
-//
-//          FactoryVSTSConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FactoryVSTSConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToFactoryVSTSConfigurationResponsePtrOutput() FactoryVSTSConfigurationResponsePtrOutput
-	ToFactoryVSTSConfigurationResponsePtrOutputWithContext(context.Context) FactoryVSTSConfigurationResponsePtrOutput
-}
-
-type factoryVSTSConfigurationResponsePtrType FactoryVSTSConfigurationResponseArgs
-
-func FactoryVSTSConfigurationResponsePtr(v *FactoryVSTSConfigurationResponseArgs) FactoryVSTSConfigurationResponsePtrInput {
-	return (*factoryVSTSConfigurationResponsePtrType)(v)
-}
-
-func (*factoryVSTSConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FactoryVSTSConfigurationResponse)(nil)).Elem()
-}
-
-func (i *factoryVSTSConfigurationResponsePtrType) ToFactoryVSTSConfigurationResponsePtrOutput() FactoryVSTSConfigurationResponsePtrOutput {
-	return i.ToFactoryVSTSConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *factoryVSTSConfigurationResponsePtrType) ToFactoryVSTSConfigurationResponsePtrOutputWithContext(ctx context.Context) FactoryVSTSConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FactoryVSTSConfigurationResponsePtrOutput)
 }
 
 // Factory's VSTS repo information.
@@ -13520,66 +7875,6 @@ func (i FileServerLinkedServiceArgs) ToFileServerLinkedServiceOutputWithContext(
 }
 
 // File system linked service.
-type FileServerLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (FileServerLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServerLinkedService)(nil)).Elem()
-}
-
-func (o FileServerLinkedServiceOutput) ToFileServerLinkedServiceOutput() FileServerLinkedServiceOutput {
-	return o
-}
-
-func (o FileServerLinkedServiceOutput) ToFileServerLinkedServiceOutputWithContext(ctx context.Context) FileServerLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o FileServerLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v FileServerLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o FileServerLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v FileServerLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o FileServerLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileServerLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o FileServerLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v FileServerLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Host name of the server. Type: string (or Expression with resultType string).
-func (o FileServerLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v FileServerLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o FileServerLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v FileServerLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password to logon the server.
-func (o FileServerLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v FileServerLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o FileServerLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FileServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User ID to logon the server. Type: string (or Expression with resultType string).
-func (o FileServerLinkedServiceOutput) UserId() pulumi.MapOutput {
-	return o.ApplyT(func(v FileServerLinkedService) map[string]interface{} { return v.UserId }).(pulumi.MapOutput)
-}
-
-// File system linked service.
 type FileServerLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -13599,51 +7894,6 @@ type FileServerLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// User ID to logon the server. Type: string (or Expression with resultType string).
 	UserId map[string]interface{} `pulumi:"userId"`
-}
-
-// FileServerLinkedServiceResponseInput is an input type that accepts FileServerLinkedServiceResponseArgs and FileServerLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `FileServerLinkedServiceResponseInput` via:
-//
-//          FileServerLinkedServiceResponseArgs{...}
-type FileServerLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToFileServerLinkedServiceResponseOutput() FileServerLinkedServiceResponseOutput
-	ToFileServerLinkedServiceResponseOutputWithContext(context.Context) FileServerLinkedServiceResponseOutput
-}
-
-// File system linked service.
-type FileServerLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Host name of the server. Type: string (or Expression with resultType string).
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password to logon the server.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// User ID to logon the server. Type: string (or Expression with resultType string).
-	UserId pulumi.MapInput `pulumi:"userId"`
-}
-
-func (FileServerLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServerLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i FileServerLinkedServiceResponseArgs) ToFileServerLinkedServiceResponseOutput() FileServerLinkedServiceResponseOutput {
-	return i.ToFileServerLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i FileServerLinkedServiceResponseArgs) ToFileServerLinkedServiceResponseOutputWithContext(ctx context.Context) FileServerLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileServerLinkedServiceResponseOutput)
 }
 
 // File system linked service.
@@ -13782,76 +8032,6 @@ func (i FileShareDatasetArgs) ToFileShareDatasetOutputWithContext(ctx context.Co
 }
 
 // An on-premises file system dataset.
-type FileShareDatasetOutput struct{ *pulumi.OutputState }
-
-func (FileShareDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShareDataset)(nil)).Elem()
-}
-
-func (o FileShareDatasetOutput) ToFileShareDatasetOutput() FileShareDatasetOutput {
-	return o
-}
-
-func (o FileShareDatasetOutput) ToFileShareDatasetOutputWithContext(ctx context.Context) FileShareDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o FileShareDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v FileShareDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The data compression method used for the file system.
-func (o FileShareDatasetOutput) Compression() pulumi.AnyOutput {
-	return o.ApplyT(func(v FileShareDataset) interface{} { return v.Compression }).(pulumi.AnyOutput)
-}
-
-// Dataset description.
-func (o FileShareDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileShareDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
-func (o FileShareDatasetOutput) FileFilter() pulumi.MapOutput {
-	return o.ApplyT(func(v FileShareDataset) map[string]interface{} { return v.FileFilter }).(pulumi.MapOutput)
-}
-
-// The name of the on-premises file system. Type: string (or Expression with resultType string).
-func (o FileShareDatasetOutput) FileName() pulumi.MapOutput {
-	return o.ApplyT(func(v FileShareDataset) map[string]interface{} { return v.FileName }).(pulumi.MapOutput)
-}
-
-// The path of the on-premises file system. Type: string (or Expression with resultType string).
-func (o FileShareDatasetOutput) FolderPath() pulumi.MapOutput {
-	return o.ApplyT(func(v FileShareDataset) map[string]interface{} { return v.FolderPath }).(pulumi.MapOutput)
-}
-
-// The format of the files.
-func (o FileShareDatasetOutput) Format() pulumi.AnyOutput {
-	return o.ApplyT(func(v FileShareDataset) interface{} { return v.Format }).(pulumi.AnyOutput)
-}
-
-// Linked service reference.
-func (o FileShareDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v FileShareDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o FileShareDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v FileShareDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o FileShareDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v FileShareDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o FileShareDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FileShareDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An on-premises file system dataset.
 type FileShareDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -13875,55 +8055,6 @@ type FileShareDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// FileShareDatasetResponseInput is an input type that accepts FileShareDatasetResponseArgs and FileShareDatasetResponseOutput values.
-// You can construct a concrete instance of `FileShareDatasetResponseInput` via:
-//
-//          FileShareDatasetResponseArgs{...}
-type FileShareDatasetResponseInput interface {
-	pulumi.Input
-
-	ToFileShareDatasetResponseOutput() FileShareDatasetResponseOutput
-	ToFileShareDatasetResponseOutputWithContext(context.Context) FileShareDatasetResponseOutput
-}
-
-// An on-premises file system dataset.
-type FileShareDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The data compression method used for the file system.
-	Compression pulumi.Input `pulumi:"compression"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
-	FileFilter pulumi.MapInput `pulumi:"fileFilter"`
-	// The name of the on-premises file system. Type: string (or Expression with resultType string).
-	FileName pulumi.MapInput `pulumi:"fileName"`
-	// The path of the on-premises file system. Type: string (or Expression with resultType string).
-	FolderPath pulumi.MapInput `pulumi:"folderPath"`
-	// The format of the files.
-	Format pulumi.Input `pulumi:"format"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FileShareDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShareDatasetResponse)(nil)).Elem()
-}
-
-func (i FileShareDatasetResponseArgs) ToFileShareDatasetResponseOutput() FileShareDatasetResponseOutput {
-	return i.ToFileShareDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i FileShareDatasetResponseArgs) ToFileShareDatasetResponseOutputWithContext(ctx context.Context) FileShareDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileShareDatasetResponseOutput)
 }
 
 // An on-premises file system dataset.
@@ -14080,86 +8211,6 @@ func (i FtpServerLinkedServiceArgs) ToFtpServerLinkedServiceOutputWithContext(ct
 }
 
 // A FTP server Linked Service.
-type FtpServerLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (FtpServerLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FtpServerLinkedService)(nil)).Elem()
-}
-
-func (o FtpServerLinkedServiceOutput) ToFtpServerLinkedServiceOutput() FtpServerLinkedServiceOutput {
-	return o
-}
-
-func (o FtpServerLinkedServiceOutput) ToFtpServerLinkedServiceOutputWithContext(ctx context.Context) FtpServerLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o FtpServerLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to be used to connect to the FTP server.
-func (o FtpServerLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o FtpServerLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o FtpServerLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-func (o FtpServerLinkedServiceOutput) EnableServerCertificateValidation() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.EnableServerCertificateValidation }).(pulumi.MapOutput)
-}
-
-// If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-func (o FtpServerLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o FtpServerLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Host name of the FTP server. Type: string (or Expression with resultType string).
-func (o FtpServerLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o FtpServerLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password to logon the FTP server.
-func (o FtpServerLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o FtpServerLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o FtpServerLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username to logon the FTP server. Type: string (or Expression with resultType string).
-func (o FtpServerLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v FtpServerLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// A FTP server Linked Service.
 type FtpServerLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -14187,59 +8238,6 @@ type FtpServerLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username to logon the FTP server. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// FtpServerLinkedServiceResponseInput is an input type that accepts FtpServerLinkedServiceResponseArgs and FtpServerLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `FtpServerLinkedServiceResponseInput` via:
-//
-//          FtpServerLinkedServiceResponseArgs{...}
-type FtpServerLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToFtpServerLinkedServiceResponseOutput() FtpServerLinkedServiceResponseOutput
-	ToFtpServerLinkedServiceResponseOutputWithContext(context.Context) FtpServerLinkedServiceResponseOutput
-}
-
-// A FTP server Linked Service.
-type FtpServerLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to be used to connect to the FTP server.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-	EnableServerCertificateValidation pulumi.MapInput `pulumi:"enableServerCertificateValidation"`
-	// If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Host name of the FTP server. Type: string (or Expression with resultType string).
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password to logon the FTP server.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
-	Port pulumi.MapInput `pulumi:"port"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username to logon the FTP server. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (FtpServerLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FtpServerLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i FtpServerLinkedServiceResponseArgs) ToFtpServerLinkedServiceResponseOutput() FtpServerLinkedServiceResponseOutput {
-	return i.ToFtpServerLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i FtpServerLinkedServiceResponseArgs) ToFtpServerLinkedServiceResponseOutputWithContext(ctx context.Context) FtpServerLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FtpServerLinkedServiceResponseOutput)
 }
 
 // A FTP server Linked Service.
@@ -14424,106 +8422,6 @@ func (i GoogleBigQueryLinkedServiceArgs) ToGoogleBigQueryLinkedServiceOutputWith
 }
 
 // Google BigQuery service linked service.
-type GoogleBigQueryLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (GoogleBigQueryLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoogleBigQueryLinkedService)(nil)).Elem()
-}
-
-func (o GoogleBigQueryLinkedServiceOutput) ToGoogleBigQueryLinkedServiceOutput() GoogleBigQueryLinkedServiceOutput {
-	return o
-}
-
-func (o GoogleBigQueryLinkedServiceOutput) ToGoogleBigQueryLinkedServiceOutputWithContext(ctx context.Context) GoogleBigQueryLinkedServiceOutput {
-	return o
-}
-
-// A comma-separated list of public BigQuery projects to access.
-func (o GoogleBigQueryLinkedServiceOutput) AdditionalProjects() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.AdditionalProjects }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o GoogleBigQueryLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-func (o GoogleBigQueryLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The client id of the google application used to acquire the refresh token.
-func (o GoogleBigQueryLinkedServiceOutput) ClientId() pulumi.AnyOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) interface{} { return v.ClientId }).(pulumi.AnyOutput)
-}
-
-// The client secret of the google application used to acquire the refresh token.
-func (o GoogleBigQueryLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o GoogleBigQueryLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o GoogleBigQueryLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-func (o GoogleBigQueryLinkedServiceOutput) Email() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.Email }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o GoogleBigQueryLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
-func (o GoogleBigQueryLinkedServiceOutput) KeyFilePath() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.KeyFilePath }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o GoogleBigQueryLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The default BigQuery project to query against.
-func (o GoogleBigQueryLinkedServiceOutput) Project() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.Project }).(pulumi.MapOutput)
-}
-
-// The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
-func (o GoogleBigQueryLinkedServiceOutput) RefreshToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) interface{} { return v.RefreshToken }).(pulumi.AnyOutput)
-}
-
-// Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
-func (o GoogleBigQueryLinkedServiceOutput) RequestGoogleDriveScope() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.RequestGoogleDriveScope }).(pulumi.MapOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o GoogleBigQueryLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o GoogleBigQueryLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o GoogleBigQueryLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// Google BigQuery service linked service.
 type GoogleBigQueryLinkedServiceResponse struct {
 	// A comma-separated list of public BigQuery projects to access.
 	AdditionalProjects map[string]interface{} `pulumi:"additionalProjects"`
@@ -14559,67 +8457,6 @@ type GoogleBigQueryLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
 	UseSystemTrustStore map[string]interface{} `pulumi:"useSystemTrustStore"`
-}
-
-// GoogleBigQueryLinkedServiceResponseInput is an input type that accepts GoogleBigQueryLinkedServiceResponseArgs and GoogleBigQueryLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `GoogleBigQueryLinkedServiceResponseInput` via:
-//
-//          GoogleBigQueryLinkedServiceResponseArgs{...}
-type GoogleBigQueryLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToGoogleBigQueryLinkedServiceResponseOutput() GoogleBigQueryLinkedServiceResponseOutput
-	ToGoogleBigQueryLinkedServiceResponseOutputWithContext(context.Context) GoogleBigQueryLinkedServiceResponseOutput
-}
-
-// Google BigQuery service linked service.
-type GoogleBigQueryLinkedServiceResponseArgs struct {
-	// A comma-separated list of public BigQuery projects to access.
-	AdditionalProjects pulumi.MapInput `pulumi:"additionalProjects"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The client id of the google application used to acquire the refresh token.
-	ClientId pulumi.Input `pulumi:"clientId"`
-	// The client secret of the google application used to acquire the refresh token.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-	Email pulumi.MapInput `pulumi:"email"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
-	KeyFilePath pulumi.MapInput `pulumi:"keyFilePath"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The default BigQuery project to query against.
-	Project pulumi.MapInput `pulumi:"project"`
-	// The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
-	RefreshToken pulumi.Input `pulumi:"refreshToken"`
-	// Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
-	RequestGoogleDriveScope pulumi.MapInput `pulumi:"requestGoogleDriveScope"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-}
-
-func (GoogleBigQueryLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoogleBigQueryLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i GoogleBigQueryLinkedServiceResponseArgs) ToGoogleBigQueryLinkedServiceResponseOutput() GoogleBigQueryLinkedServiceResponseOutput {
-	return i.ToGoogleBigQueryLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i GoogleBigQueryLinkedServiceResponseArgs) ToGoogleBigQueryLinkedServiceResponseOutputWithContext(ctx context.Context) GoogleBigQueryLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GoogleBigQueryLinkedServiceResponseOutput)
 }
 
 // Google BigQuery service linked service.
@@ -14780,51 +8617,6 @@ func (i GoogleBigQueryObjectDatasetArgs) ToGoogleBigQueryObjectDatasetOutputWith
 }
 
 // Google BigQuery service dataset.
-type GoogleBigQueryObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (GoogleBigQueryObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoogleBigQueryObjectDataset)(nil)).Elem()
-}
-
-func (o GoogleBigQueryObjectDatasetOutput) ToGoogleBigQueryObjectDatasetOutput() GoogleBigQueryObjectDatasetOutput {
-	return o
-}
-
-func (o GoogleBigQueryObjectDatasetOutput) ToGoogleBigQueryObjectDatasetOutputWithContext(ctx context.Context) GoogleBigQueryObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o GoogleBigQueryObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o GoogleBigQueryObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o GoogleBigQueryObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o GoogleBigQueryObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o GoogleBigQueryObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o GoogleBigQueryObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GoogleBigQueryObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Google BigQuery service dataset.
 type GoogleBigQueryObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -14838,45 +8630,6 @@ type GoogleBigQueryObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// GoogleBigQueryObjectDatasetResponseInput is an input type that accepts GoogleBigQueryObjectDatasetResponseArgs and GoogleBigQueryObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `GoogleBigQueryObjectDatasetResponseInput` via:
-//
-//          GoogleBigQueryObjectDatasetResponseArgs{...}
-type GoogleBigQueryObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToGoogleBigQueryObjectDatasetResponseOutput() GoogleBigQueryObjectDatasetResponseOutput
-	ToGoogleBigQueryObjectDatasetResponseOutputWithContext(context.Context) GoogleBigQueryObjectDatasetResponseOutput
-}
-
-// Google BigQuery service dataset.
-type GoogleBigQueryObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GoogleBigQueryObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoogleBigQueryObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i GoogleBigQueryObjectDatasetResponseArgs) ToGoogleBigQueryObjectDatasetResponseOutput() GoogleBigQueryObjectDatasetResponseOutput {
-	return i.ToGoogleBigQueryObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i GoogleBigQueryObjectDatasetResponseArgs) ToGoogleBigQueryObjectDatasetResponseOutputWithContext(ctx context.Context) GoogleBigQueryObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GoogleBigQueryObjectDatasetResponseOutput)
 }
 
 // Google BigQuery service dataset.
@@ -14986,56 +8739,6 @@ func (i GreenplumLinkedServiceArgs) ToGreenplumLinkedServiceOutputWithContext(ct
 }
 
 // Greenplum Database linked service.
-type GreenplumLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (GreenplumLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GreenplumLinkedService)(nil)).Elem()
-}
-
-func (o GreenplumLinkedServiceOutput) ToGreenplumLinkedServiceOutput() GreenplumLinkedServiceOutput {
-	return o
-}
-
-func (o GreenplumLinkedServiceOutput) ToGreenplumLinkedServiceOutputWithContext(ctx context.Context) GreenplumLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o GreenplumLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o GreenplumLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o GreenplumLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o GreenplumLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o GreenplumLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o GreenplumLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o GreenplumLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GreenplumLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Greenplum Database linked service.
 type GreenplumLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -15051,47 +8754,6 @@ type GreenplumLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// GreenplumLinkedServiceResponseInput is an input type that accepts GreenplumLinkedServiceResponseArgs and GreenplumLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `GreenplumLinkedServiceResponseInput` via:
-//
-//          GreenplumLinkedServiceResponseArgs{...}
-type GreenplumLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToGreenplumLinkedServiceResponseOutput() GreenplumLinkedServiceResponseOutput
-	ToGreenplumLinkedServiceResponseOutputWithContext(context.Context) GreenplumLinkedServiceResponseOutput
-}
-
-// Greenplum Database linked service.
-type GreenplumLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GreenplumLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GreenplumLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i GreenplumLinkedServiceResponseArgs) ToGreenplumLinkedServiceResponseOutput() GreenplumLinkedServiceResponseOutput {
-	return i.ToGreenplumLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i GreenplumLinkedServiceResponseArgs) ToGreenplumLinkedServiceResponseOutputWithContext(ctx context.Context) GreenplumLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GreenplumLinkedServiceResponseOutput)
 }
 
 // Greenplum Database linked service.
@@ -15200,51 +8862,6 @@ func (i GreenplumTableDatasetArgs) ToGreenplumTableDatasetOutputWithContext(ctx 
 }
 
 // Greenplum Database dataset.
-type GreenplumTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (GreenplumTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GreenplumTableDataset)(nil)).Elem()
-}
-
-func (o GreenplumTableDatasetOutput) ToGreenplumTableDatasetOutput() GreenplumTableDatasetOutput {
-	return o
-}
-
-func (o GreenplumTableDatasetOutput) ToGreenplumTableDatasetOutputWithContext(ctx context.Context) GreenplumTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o GreenplumTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o GreenplumTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o GreenplumTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o GreenplumTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o GreenplumTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o GreenplumTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GreenplumTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Greenplum Database dataset.
 type GreenplumTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -15258,45 +8875,6 @@ type GreenplumTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// GreenplumTableDatasetResponseInput is an input type that accepts GreenplumTableDatasetResponseArgs and GreenplumTableDatasetResponseOutput values.
-// You can construct a concrete instance of `GreenplumTableDatasetResponseInput` via:
-//
-//          GreenplumTableDatasetResponseArgs{...}
-type GreenplumTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToGreenplumTableDatasetResponseOutput() GreenplumTableDatasetResponseOutput
-	ToGreenplumTableDatasetResponseOutputWithContext(context.Context) GreenplumTableDatasetResponseOutput
-}
-
-// Greenplum Database dataset.
-type GreenplumTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GreenplumTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GreenplumTableDatasetResponse)(nil)).Elem()
-}
-
-func (i GreenplumTableDatasetResponseArgs) ToGreenplumTableDatasetResponseOutput() GreenplumTableDatasetResponseOutput {
-	return i.ToGreenplumTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i GreenplumTableDatasetResponseArgs) ToGreenplumTableDatasetResponseOutputWithContext(ctx context.Context) GreenplumTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GreenplumTableDatasetResponseOutput)
 }
 
 // Greenplum Database dataset.
@@ -15440,101 +9018,6 @@ func (i HBaseLinkedServiceArgs) ToHBaseLinkedServiceOutputWithContext(ctx contex
 }
 
 // HBase server linked service.
-type HBaseLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HBaseLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseLinkedService)(nil)).Elem()
-}
-
-func (o HBaseLinkedServiceOutput) ToHBaseLinkedServiceOutput() HBaseLinkedServiceOutput {
-	return o
-}
-
-func (o HBaseLinkedServiceOutput) ToHBaseLinkedServiceOutputWithContext(ctx context.Context) HBaseLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o HBaseLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o HBaseLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HBaseLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HBaseLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication mechanism to use to connect to the HBase server.
-func (o HBaseLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The integration runtime reference.
-func (o HBaseLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HBaseLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HBaseLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HBaseLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o HBaseLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HBaseLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The IP address or host name of the HBase server. (i.e. 192.168.222.160)
-func (o HBaseLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
-func (o HBaseLinkedServiceOutput) HttpPath() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.HttpPath }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HBaseLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name.
-func (o HBaseLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v HBaseLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
-func (o HBaseLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o HBaseLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o HBaseLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The user name used to connect to the HBase instance.
-func (o HBaseLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// HBase server linked service.
 type HBaseLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -15568,65 +9051,6 @@ type HBaseLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The user name used to connect to the HBase instance.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// HBaseLinkedServiceResponseInput is an input type that accepts HBaseLinkedServiceResponseArgs and HBaseLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HBaseLinkedServiceResponseInput` via:
-//
-//          HBaseLinkedServiceResponseArgs{...}
-type HBaseLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHBaseLinkedServiceResponseOutput() HBaseLinkedServiceResponseOutput
-	ToHBaseLinkedServiceResponseOutputWithContext(context.Context) HBaseLinkedServiceResponseOutput
-}
-
-// HBase server linked service.
-type HBaseLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication mechanism to use to connect to the HBase server.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The IP address or host name of the HBase server. (i.e. 192.168.222.160)
-	Host pulumi.MapInput `pulumi:"host"`
-	// The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
-	HttpPath pulumi.MapInput `pulumi:"httpPath"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The user name used to connect to the HBase instance.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (HBaseLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HBaseLinkedServiceResponseArgs) ToHBaseLinkedServiceResponseOutput() HBaseLinkedServiceResponseOutput {
-	return i.ToHBaseLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HBaseLinkedServiceResponseArgs) ToHBaseLinkedServiceResponseOutputWithContext(ctx context.Context) HBaseLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseLinkedServiceResponseOutput)
 }
 
 // HBase server linked service.
@@ -15780,51 +9204,6 @@ func (i HBaseObjectDatasetArgs) ToHBaseObjectDatasetOutputWithContext(ctx contex
 }
 
 // HBase server dataset.
-type HBaseObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (HBaseObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseObjectDataset)(nil)).Elem()
-}
-
-func (o HBaseObjectDatasetOutput) ToHBaseObjectDatasetOutput() HBaseObjectDatasetOutput {
-	return o
-}
-
-func (o HBaseObjectDatasetOutput) ToHBaseObjectDatasetOutputWithContext(ctx context.Context) HBaseObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HBaseObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o HBaseObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o HBaseObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o HBaseObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o HBaseObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o HBaseObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// HBase server dataset.
 type HBaseObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -15838,45 +9217,6 @@ type HBaseObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// HBaseObjectDatasetResponseInput is an input type that accepts HBaseObjectDatasetResponseArgs and HBaseObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `HBaseObjectDatasetResponseInput` via:
-//
-//          HBaseObjectDatasetResponseArgs{...}
-type HBaseObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToHBaseObjectDatasetResponseOutput() HBaseObjectDatasetResponseOutput
-	ToHBaseObjectDatasetResponseOutputWithContext(context.Context) HBaseObjectDatasetResponseOutput
-}
-
-// HBase server dataset.
-type HBaseObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HBaseObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HBaseObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i HBaseObjectDatasetResponseArgs) ToHBaseObjectDatasetResponseOutput() HBaseObjectDatasetResponseOutput {
-	return i.ToHBaseObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i HBaseObjectDatasetResponseArgs) ToHBaseObjectDatasetResponseOutputWithContext(ctx context.Context) HBaseObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HBaseObjectDatasetResponseOutput)
 }
 
 // HBase server dataset.
@@ -16000,76 +9340,6 @@ func (i HDInsightLinkedServiceArgs) ToHDInsightLinkedServiceOutputWithContext(ct
 }
 
 // HDInsight linked service.
-type HDInsightLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HDInsightLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HDInsightLinkedService)(nil)).Elem()
-}
-
-func (o HDInsightLinkedServiceOutput) ToHDInsightLinkedServiceOutput() HDInsightLinkedServiceOutput {
-	return o
-}
-
-func (o HDInsightLinkedServiceOutput) ToHDInsightLinkedServiceOutputWithContext(ctx context.Context) HDInsightLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HDInsightLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// HDInsight cluster URI. Type: string (or Expression with resultType string).
-func (o HDInsightLinkedServiceOutput) ClusterUri() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) map[string]interface{} { return v.ClusterUri }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o HDInsightLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HDInsightLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HDInsightLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// A reference to the Azure SQL linked service that points to the HCatalog database.
-func (o HDInsightLinkedServiceOutput) HcatalogLinkedServiceName() LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) *LinkedServiceReference { return v.HcatalogLinkedServiceName }).(LinkedServiceReferencePtrOutput)
-}
-
-// The Azure Storage linked service reference.
-func (o HDInsightLinkedServiceOutput) LinkedServiceName() LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) *LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferencePtrOutput)
-}
-
-// Parameters for linked service.
-func (o HDInsightLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// HDInsight cluster password.
-func (o HDInsightLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o HDInsightLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// HDInsight cluster user name. Type: string (or Expression with resultType string).
-func (o HDInsightLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// HDInsight linked service.
 type HDInsightLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -16093,55 +9363,6 @@ type HDInsightLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// HDInsight cluster user name. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// HDInsightLinkedServiceResponseInput is an input type that accepts HDInsightLinkedServiceResponseArgs and HDInsightLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HDInsightLinkedServiceResponseInput` via:
-//
-//          HDInsightLinkedServiceResponseArgs{...}
-type HDInsightLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHDInsightLinkedServiceResponseOutput() HDInsightLinkedServiceResponseOutput
-	ToHDInsightLinkedServiceResponseOutputWithContext(context.Context) HDInsightLinkedServiceResponseOutput
-}
-
-// HDInsight linked service.
-type HDInsightLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// HDInsight cluster URI. Type: string (or Expression with resultType string).
-	ClusterUri pulumi.MapInput `pulumi:"clusterUri"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// A reference to the Azure SQL linked service that points to the HCatalog database.
-	HcatalogLinkedServiceName LinkedServiceReferenceResponsePtrInput `pulumi:"hcatalogLinkedServiceName"`
-	// The Azure Storage linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponsePtrInput `pulumi:"linkedServiceName"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// HDInsight cluster password.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// HDInsight cluster user name. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (HDInsightLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HDInsightLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HDInsightLinkedServiceResponseArgs) ToHDInsightLinkedServiceResponseOutput() HDInsightLinkedServiceResponseOutput {
-	return i.ToHDInsightLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HDInsightLinkedServiceResponseArgs) ToHDInsightLinkedServiceResponseOutputWithContext(ctx context.Context) HDInsightLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HDInsightLinkedServiceResponseOutput)
 }
 
 // HDInsight linked service.
@@ -16388,196 +9609,6 @@ func (i HDInsightOnDemandLinkedServiceArgs) ToHDInsightOnDemandLinkedServiceOutp
 }
 
 // HDInsight ondemand linked service.
-type HDInsightOnDemandLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HDInsightOnDemandLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HDInsightOnDemandLinkedService)(nil)).Elem()
-}
-
-func (o HDInsightOnDemandLinkedServiceOutput) ToHDInsightOnDemandLinkedServiceOutput() HDInsightOnDemandLinkedServiceOutput {
-	return o
-}
-
-func (o HDInsightOnDemandLinkedServiceOutput) ToHDInsightOnDemandLinkedServiceOutputWithContext(ctx context.Context) HDInsightOnDemandLinkedServiceOutput {
-	return o
-}
-
-// Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-func (o HDInsightOnDemandLinkedServiceOutput) AdditionalLinkedServiceNames() LinkedServiceReferenceArrayOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) []LinkedServiceReference { return v.AdditionalLinkedServiceNames }).(LinkedServiceReferenceArrayOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HDInsightOnDemandLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterNamePrefix() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterNamePrefix }).(pulumi.MapOutput)
-}
-
-// The password to access the cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterPassword() pulumi.AnyOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) interface{} { return v.ClusterPassword }).(pulumi.AnyOutput)
-}
-
-// The resource group where the cluster belongs. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterResourceGroup() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterResourceGroup }).(pulumi.MapOutput)
-}
-
-// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterSize() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterSize }).(pulumi.MapOutput)
-}
-
-// The password to SSH remotely connect cluster’s node (for Linux).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterSshPassword() pulumi.AnyOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) interface{} { return v.ClusterSshPassword }).(pulumi.AnyOutput)
-}
-
-// The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterSshUserName() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterSshUserName }).(pulumi.MapOutput)
-}
-
-// The cluster type. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterType() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterType }).(pulumi.MapOutput)
-}
-
-// The username to access the cluster. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ClusterUserName() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ClusterUserName }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o HDInsightOnDemandLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
-func (o HDInsightOnDemandLinkedServiceOutput) CoreConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.CoreConfiguration }).(pulumi.MapOutput)
-}
-
-// Specifies the size of the data node for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) DataNodeSize() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.DataNodeSize }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o HDInsightOnDemandLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) HBaseConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.HBaseConfiguration }).(pulumi.MapOutput)
-}
-
-// The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
-func (o HDInsightOnDemandLinkedServiceOutput) HcatalogLinkedServiceName() LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) *LinkedServiceReference { return v.HcatalogLinkedServiceName }).(LinkedServiceReferencePtrOutput)
-}
-
-// Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) HdfsConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.HdfsConfiguration }).(pulumi.MapOutput)
-}
-
-// Specifies the size of the head node for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) HeadNodeSize() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.HeadNodeSize }).(pulumi.MapOutput)
-}
-
-// Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) HiveConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.HiveConfiguration }).(pulumi.MapOutput)
-}
-
-// The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) HostSubscriptionId() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.HostSubscriptionId }).(pulumi.MapOutput)
-}
-
-// Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
-func (o HDInsightOnDemandLinkedServiceOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) MapReduceConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.MapReduceConfiguration }).(pulumi.MapOutput)
-}
-
-// Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) OozieConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.OozieConfiguration }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HDInsightOnDemandLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) ServicePrincipalId() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ServicePrincipalId }).(pulumi.MapOutput)
-}
-
-// The key for the service principal id.
-func (o HDInsightOnDemandLinkedServiceOutput) ServicePrincipalKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) interface{} { return v.ServicePrincipalKey }).(pulumi.AnyOutput)
-}
-
-// The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) SparkVersion() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.SparkVersion }).(pulumi.MapOutput)
-}
-
-// Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) StormConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.StormConfiguration }).(pulumi.MapOutput)
-}
-
-// The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) Tenant() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.Tenant }).(pulumi.MapOutput)
-}
-
-// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) TimeToLive() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.TimeToLive }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o HDInsightOnDemandLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-func (o HDInsightOnDemandLinkedServiceOutput) Version() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.Version }).(pulumi.MapOutput)
-}
-
-// Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) YarnConfiguration() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.YarnConfiguration }).(pulumi.MapOutput)
-}
-
-// Specifies the size of the Zoo Keeper node for the HDInsight cluster.
-func (o HDInsightOnDemandLinkedServiceOutput) ZookeeperNodeSize() pulumi.MapOutput {
-	return o.ApplyT(func(v HDInsightOnDemandLinkedService) map[string]interface{} { return v.ZookeeperNodeSize }).(pulumi.MapOutput)
-}
-
-// HDInsight ondemand linked service.
 type HDInsightOnDemandLinkedServiceResponse struct {
 	// Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
 	AdditionalLinkedServiceNames []LinkedServiceReferenceResponse `pulumi:"additionalLinkedServiceNames"`
@@ -16649,103 +9680,6 @@ type HDInsightOnDemandLinkedServiceResponse struct {
 	YarnConfiguration map[string]interface{} `pulumi:"yarnConfiguration"`
 	// Specifies the size of the Zoo Keeper node for the HDInsight cluster.
 	ZookeeperNodeSize map[string]interface{} `pulumi:"zookeeperNodeSize"`
-}
-
-// HDInsightOnDemandLinkedServiceResponseInput is an input type that accepts HDInsightOnDemandLinkedServiceResponseArgs and HDInsightOnDemandLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HDInsightOnDemandLinkedServiceResponseInput` via:
-//
-//          HDInsightOnDemandLinkedServiceResponseArgs{...}
-type HDInsightOnDemandLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHDInsightOnDemandLinkedServiceResponseOutput() HDInsightOnDemandLinkedServiceResponseOutput
-	ToHDInsightOnDemandLinkedServiceResponseOutputWithContext(context.Context) HDInsightOnDemandLinkedServiceResponseOutput
-}
-
-// HDInsight ondemand linked service.
-type HDInsightOnDemandLinkedServiceResponseArgs struct {
-	// Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.
-	AdditionalLinkedServiceNames LinkedServiceReferenceResponseArrayInput `pulumi:"additionalLinkedServiceNames"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
-	ClusterNamePrefix pulumi.MapInput `pulumi:"clusterNamePrefix"`
-	// The password to access the cluster.
-	ClusterPassword pulumi.Input `pulumi:"clusterPassword"`
-	// The resource group where the cluster belongs. Type: string (or Expression with resultType string).
-	ClusterResourceGroup pulumi.MapInput `pulumi:"clusterResourceGroup"`
-	// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
-	ClusterSize pulumi.MapInput `pulumi:"clusterSize"`
-	// The password to SSH remotely connect cluster’s node (for Linux).
-	ClusterSshPassword pulumi.Input `pulumi:"clusterSshPassword"`
-	// The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
-	ClusterSshUserName pulumi.MapInput `pulumi:"clusterSshUserName"`
-	// The cluster type. Type: string (or Expression with resultType string).
-	ClusterType pulumi.MapInput `pulumi:"clusterType"`
-	// The username to access the cluster. Type: string (or Expression with resultType string).
-	ClusterUserName pulumi.MapInput `pulumi:"clusterUserName"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
-	CoreConfiguration pulumi.MapInput `pulumi:"coreConfiguration"`
-	// Specifies the size of the data node for the HDInsight cluster.
-	DataNodeSize pulumi.MapInput `pulumi:"dataNodeSize"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
-	HBaseConfiguration pulumi.MapInput `pulumi:"hBaseConfiguration"`
-	// The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
-	HcatalogLinkedServiceName LinkedServiceReferenceResponsePtrInput `pulumi:"hcatalogLinkedServiceName"`
-	// Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
-	HdfsConfiguration pulumi.MapInput `pulumi:"hdfsConfiguration"`
-	// Specifies the size of the head node for the HDInsight cluster.
-	HeadNodeSize pulumi.MapInput `pulumi:"headNodeSize"`
-	// Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.
-	HiveConfiguration pulumi.MapInput `pulumi:"hiveConfiguration"`
-	// The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
-	HostSubscriptionId pulumi.MapInput `pulumi:"hostSubscriptionId"`
-	// Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.
-	MapReduceConfiguration pulumi.MapInput `pulumi:"mapReduceConfiguration"`
-	// Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.
-	OozieConfiguration pulumi.MapInput `pulumi:"oozieConfiguration"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The service principal id for the hostSubscriptionId. Type: string (or Expression with resultType string).
-	ServicePrincipalId pulumi.MapInput `pulumi:"servicePrincipalId"`
-	// The key for the service principal id.
-	ServicePrincipalKey pulumi.Input `pulumi:"servicePrincipalKey"`
-	// The version of spark if the cluster type is 'spark'. Type: string (or Expression with resultType string).
-	SparkVersion pulumi.MapInput `pulumi:"sparkVersion"`
-	// Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.
-	StormConfiguration pulumi.MapInput `pulumi:"stormConfiguration"`
-	// The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
-	Tenant pulumi.MapInput `pulumi:"tenant"`
-	// The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster stays alive after completion of an activity run if there are no other active jobs in the cluster. The minimum value is 5 mins. Type: string (or Expression with resultType string).
-	TimeToLive pulumi.MapInput `pulumi:"timeToLive"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Version of the HDInsight cluster.  Type: string (or Expression with resultType string).
-	Version pulumi.MapInput `pulumi:"version"`
-	// Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.
-	YarnConfiguration pulumi.MapInput `pulumi:"yarnConfiguration"`
-	// Specifies the size of the Zoo Keeper node for the HDInsight cluster.
-	ZookeeperNodeSize pulumi.MapInput `pulumi:"zookeeperNodeSize"`
-}
-
-func (HDInsightOnDemandLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HDInsightOnDemandLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HDInsightOnDemandLinkedServiceResponseArgs) ToHDInsightOnDemandLinkedServiceResponseOutput() HDInsightOnDemandLinkedServiceResponseOutput {
-	return i.ToHDInsightOnDemandLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HDInsightOnDemandLinkedServiceResponseArgs) ToHDInsightOnDemandLinkedServiceResponseOutputWithContext(ctx context.Context) HDInsightOnDemandLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HDInsightOnDemandLinkedServiceResponseOutput)
 }
 
 // HDInsight ondemand linked service.
@@ -17020,71 +9954,6 @@ func (i HdfsLinkedServiceArgs) ToHdfsLinkedServiceOutputWithContext(ctx context.
 }
 
 // Hadoop Distributed File System (HDFS) linked service.
-type HdfsLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HdfsLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HdfsLinkedService)(nil)).Elem()
-}
-
-func (o HdfsLinkedServiceOutput) ToHdfsLinkedServiceOutput() HdfsLinkedServiceOutput {
-	return o
-}
-
-func (o HdfsLinkedServiceOutput) ToHdfsLinkedServiceOutputWithContext(ctx context.Context) HdfsLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HdfsLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HdfsLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
-func (o HdfsLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v HdfsLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o HdfsLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HdfsLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HdfsLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HdfsLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HdfsLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HdfsLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HdfsLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HdfsLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for Windows authentication.
-func (o HdfsLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v HdfsLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o HdfsLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HdfsLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-func (o HdfsLinkedServiceOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v HdfsLinkedService) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// User name for Windows authentication. Type: string (or Expression with resultType string).
-func (o HdfsLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v HdfsLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// Hadoop Distributed File System (HDFS) linked service.
 type HdfsLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -17106,53 +9975,6 @@ type HdfsLinkedServiceResponse struct {
 	Url map[string]interface{} `pulumi:"url"`
 	// User name for Windows authentication. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// HdfsLinkedServiceResponseInput is an input type that accepts HdfsLinkedServiceResponseArgs and HdfsLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HdfsLinkedServiceResponseInput` via:
-//
-//          HdfsLinkedServiceResponseArgs{...}
-type HdfsLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHdfsLinkedServiceResponseOutput() HdfsLinkedServiceResponseOutput
-	ToHdfsLinkedServiceResponseOutputWithContext(context.Context) HdfsLinkedServiceResponseOutput
-}
-
-// Hadoop Distributed File System (HDFS) linked service.
-type HdfsLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for Windows authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-	// User name for Windows authentication. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (HdfsLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HdfsLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HdfsLinkedServiceResponseArgs) ToHdfsLinkedServiceResponseOutput() HdfsLinkedServiceResponseOutput {
-	return i.ToHdfsLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HdfsLinkedServiceResponseArgs) ToHdfsLinkedServiceResponseOutputWithContext(ctx context.Context) HdfsLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HdfsLinkedServiceResponseOutput)
 }
 
 // Hadoop Distributed File System (HDFS) linked service.
@@ -17340,131 +10162,6 @@ func (i HiveLinkedServiceArgs) ToHiveLinkedServiceOutputWithContext(ctx context.
 }
 
 // Hive Server linked service.
-type HiveLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HiveLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HiveLinkedService)(nil)).Elem()
-}
-
-func (o HiveLinkedServiceOutput) ToHiveLinkedServiceOutput() HiveLinkedServiceOutput {
-	return o
-}
-
-func (o HiveLinkedServiceOutput) ToHiveLinkedServiceOutputWithContext(ctx context.Context) HiveLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o HiveLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o HiveLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HiveLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HiveLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication method used to access the Hive server.
-func (o HiveLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v HiveLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The integration runtime reference.
-func (o HiveLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HiveLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HiveLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HiveLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o HiveLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HiveLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
-func (o HiveLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// The partial URL corresponding to the Hive server.
-func (o HiveLinkedServiceOutput) HttpPath() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.HttpPath }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HiveLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name that you provided in the Username field
-func (o HiveLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v HiveLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Hive server uses to listen for client connections.
-func (o HiveLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The type of Hive server.
-func (o HiveLinkedServiceOutput) ServerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HiveLinkedService) *string { return v.ServerType }).(pulumi.StringPtrOutput)
-}
-
-// true to indicate using the ZooKeeper service, false not.
-func (o HiveLinkedServiceOutput) ServiceDiscoveryMode() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.ServiceDiscoveryMode }).(pulumi.MapOutput)
-}
-
-// The transport protocol to use in the Thrift layer.
-func (o HiveLinkedServiceOutput) ThriftTransportProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HiveLinkedService) *string { return v.ThriftTransportProtocol }).(pulumi.StringPtrOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o HiveLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o HiveLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HiveLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
-func (o HiveLinkedServiceOutput) UseNativeQuery() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.UseNativeQuery }).(pulumi.MapOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o HiveLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// The user name that you use to access Hive Server.
-func (o HiveLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// The namespace on ZooKeeper under which Hive Server 2 nodes are added.
-func (o HiveLinkedServiceOutput) ZooKeeperNameSpace() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveLinkedService) map[string]interface{} { return v.ZooKeeperNameSpace }).(pulumi.MapOutput)
-}
-
-// Hive Server linked service.
 type HiveLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -17510,77 +10207,6 @@ type HiveLinkedServiceResponse struct {
 	Username map[string]interface{} `pulumi:"username"`
 	// The namespace on ZooKeeper under which Hive Server 2 nodes are added.
 	ZooKeeperNameSpace map[string]interface{} `pulumi:"zooKeeperNameSpace"`
-}
-
-// HiveLinkedServiceResponseInput is an input type that accepts HiveLinkedServiceResponseArgs and HiveLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HiveLinkedServiceResponseInput` via:
-//
-//          HiveLinkedServiceResponseArgs{...}
-type HiveLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHiveLinkedServiceResponseOutput() HiveLinkedServiceResponseOutput
-	ToHiveLinkedServiceResponseOutputWithContext(context.Context) HiveLinkedServiceResponseOutput
-}
-
-// Hive Server linked service.
-type HiveLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication method used to access the Hive server.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
-	Host pulumi.MapInput `pulumi:"host"`
-	// The partial URL corresponding to the Hive server.
-	HttpPath pulumi.MapInput `pulumi:"httpPath"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name that you provided in the Username field
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Hive server uses to listen for client connections.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The type of Hive server.
-	ServerType pulumi.StringPtrInput `pulumi:"serverType"`
-	// true to indicate using the ZooKeeper service, false not.
-	ServiceDiscoveryMode pulumi.MapInput `pulumi:"serviceDiscoveryMode"`
-	// The transport protocol to use in the Thrift layer.
-	ThriftTransportProtocol pulumi.StringPtrInput `pulumi:"thriftTransportProtocol"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
-	UseNativeQuery pulumi.MapInput `pulumi:"useNativeQuery"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-	// The user name that you use to access Hive Server.
-	Username pulumi.MapInput `pulumi:"username"`
-	// The namespace on ZooKeeper under which Hive Server 2 nodes are added.
-	ZooKeeperNameSpace pulumi.MapInput `pulumi:"zooKeeperNameSpace"`
-}
-
-func (HiveLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HiveLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HiveLinkedServiceResponseArgs) ToHiveLinkedServiceResponseOutput() HiveLinkedServiceResponseOutput {
-	return i.ToHiveLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HiveLinkedServiceResponseArgs) ToHiveLinkedServiceResponseOutputWithContext(ctx context.Context) HiveLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HiveLinkedServiceResponseOutput)
 }
 
 // Hive Server linked service.
@@ -17764,51 +10390,6 @@ func (i HiveObjectDatasetArgs) ToHiveObjectDatasetOutputWithContext(ctx context.
 }
 
 // Hive Server dataset.
-type HiveObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (HiveObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HiveObjectDataset)(nil)).Elem()
-}
-
-func (o HiveObjectDatasetOutput) ToHiveObjectDatasetOutput() HiveObjectDatasetOutput {
-	return o
-}
-
-func (o HiveObjectDatasetOutput) ToHiveObjectDatasetOutputWithContext(ctx context.Context) HiveObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HiveObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HiveObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o HiveObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HiveObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o HiveObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v HiveObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o HiveObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HiveObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o HiveObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v HiveObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o HiveObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HiveObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hive Server dataset.
 type HiveObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -17822,45 +10403,6 @@ type HiveObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// HiveObjectDatasetResponseInput is an input type that accepts HiveObjectDatasetResponseArgs and HiveObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `HiveObjectDatasetResponseInput` via:
-//
-//          HiveObjectDatasetResponseArgs{...}
-type HiveObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToHiveObjectDatasetResponseOutput() HiveObjectDatasetResponseOutput
-	ToHiveObjectDatasetResponseOutputWithContext(context.Context) HiveObjectDatasetResponseOutput
-}
-
-// Hive Server dataset.
-type HiveObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HiveObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HiveObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i HiveObjectDatasetResponseArgs) ToHiveObjectDatasetResponseOutput() HiveObjectDatasetResponseOutput {
-	return i.ToHiveObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i HiveObjectDatasetResponseArgs) ToHiveObjectDatasetResponseOutputWithContext(ctx context.Context) HiveObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HiveObjectDatasetResponseOutput)
 }
 
 // Hive Server dataset.
@@ -17992,83 +10534,6 @@ func (i HttpDatasetArgs) ToHttpDatasetOutputWithContext(ctx context.Context) Htt
 }
 
 // A file in an HTTP web server.
-type HttpDatasetOutput struct{ *pulumi.OutputState }
-
-func (HttpDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpDataset)(nil)).Elem()
-}
-
-func (o HttpDatasetOutput) ToHttpDatasetOutput() HttpDatasetOutput {
-	return o
-}
-
-func (o HttpDatasetOutput) ToHttpDatasetOutputWithContext(ctx context.Context) HttpDatasetOutput {
-	return o
-}
-
-// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
-// ...
-// request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-func (o HttpDatasetOutput) AdditionalHeaders() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]interface{} { return v.AdditionalHeaders }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HttpDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HttpDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The data compression method used on files.
-func (o HttpDatasetOutput) Compression() pulumi.AnyOutput {
-	return o.ApplyT(func(v HttpDataset) interface{} { return v.Compression }).(pulumi.AnyOutput)
-}
-
-// Dataset description.
-func (o HttpDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The format of files.
-func (o HttpDatasetOutput) Format() pulumi.AnyOutput {
-	return o.ApplyT(func(v HttpDataset) interface{} { return v.Format }).(pulumi.AnyOutput)
-}
-
-// Linked service reference.
-func (o HttpDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v HttpDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o HttpDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-func (o HttpDatasetOutput) RelativeUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]interface{} { return v.RelativeUrl }).(pulumi.MapOutput)
-}
-
-// The body for the HTTP request. Type: string (or Expression with resultType string).
-func (o HttpDatasetOutput) RequestBody() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]interface{} { return v.RequestBody }).(pulumi.MapOutput)
-}
-
-// The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-func (o HttpDatasetOutput) RequestMethod() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]interface{} { return v.RequestMethod }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o HttpDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o HttpDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A file in an HTTP web server.
 type HttpDatasetResponse struct {
 	// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
 	// ...
@@ -18096,59 +10561,6 @@ type HttpDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// HttpDatasetResponseInput is an input type that accepts HttpDatasetResponseArgs and HttpDatasetResponseOutput values.
-// You can construct a concrete instance of `HttpDatasetResponseInput` via:
-//
-//          HttpDatasetResponseArgs{...}
-type HttpDatasetResponseInput interface {
-	pulumi.Input
-
-	ToHttpDatasetResponseOutput() HttpDatasetResponseOutput
-	ToHttpDatasetResponseOutputWithContext(context.Context) HttpDatasetResponseOutput
-}
-
-// A file in an HTTP web server.
-type HttpDatasetResponseArgs struct {
-	// The headers for the HTTP Request. e.g. request-header-name-1:request-header-value-1
-	// ...
-	// request-header-name-n:request-header-value-n Type: string (or Expression with resultType string).
-	AdditionalHeaders pulumi.MapInput `pulumi:"additionalHeaders"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The data compression method used on files.
-	Compression pulumi.Input `pulumi:"compression"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The format of files.
-	Format pulumi.Input `pulumi:"format"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The relative URL based on the URL in the HttpLinkedService refers to an HTTP file Type: string (or Expression with resultType string).
-	RelativeUrl pulumi.MapInput `pulumi:"relativeUrl"`
-	// The body for the HTTP request. Type: string (or Expression with resultType string).
-	RequestBody pulumi.MapInput `pulumi:"requestBody"`
-	// The HTTP method for the HTTP request. Type: string (or Expression with resultType string).
-	RequestMethod pulumi.MapInput `pulumi:"requestMethod"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HttpDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpDatasetResponse)(nil)).Elem()
-}
-
-func (i HttpDatasetResponseArgs) ToHttpDatasetResponseOutput() HttpDatasetResponseOutput {
-	return i.ToHttpDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i HttpDatasetResponseArgs) ToHttpDatasetResponseOutputWithContext(ctx context.Context) HttpDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpDatasetResponseOutput)
 }
 
 // A file in an HTTP web server.
@@ -18312,86 +10724,6 @@ func (i HttpLinkedServiceArgs) ToHttpLinkedServiceOutputWithContext(ctx context.
 }
 
 // Linked service for an HTTP source.
-type HttpLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HttpLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpLinkedService)(nil)).Elem()
-}
-
-func (o HttpLinkedServiceOutput) ToHttpLinkedServiceOutput() HttpLinkedServiceOutput {
-	return o
-}
-
-func (o HttpLinkedServiceOutput) ToHttpLinkedServiceOutputWithContext(ctx context.Context) HttpLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HttpLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HttpLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to be used to connect to the HTTP server.
-func (o HttpLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-func (o HttpLinkedServiceOutput) CertThumbprint() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.CertThumbprint }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o HttpLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HttpLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HttpLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-func (o HttpLinkedServiceOutput) EmbeddedCertData() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.EmbeddedCertData }).(pulumi.MapOutput)
-}
-
-// If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-func (o HttpLinkedServiceOutput) EnableServerCertificateValidation() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.EnableServerCertificateValidation }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HttpLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HttpLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-func (o HttpLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v HttpLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o HttpLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HttpLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-func (o HttpLinkedServiceOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
-func (o HttpLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v HttpLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// Linked service for an HTTP source.
 type HttpLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -18419,59 +10751,6 @@ type HttpLinkedServiceResponse struct {
 	Url map[string]interface{} `pulumi:"url"`
 	// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// HttpLinkedServiceResponseInput is an input type that accepts HttpLinkedServiceResponseArgs and HttpLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HttpLinkedServiceResponseInput` via:
-//
-//          HttpLinkedServiceResponseArgs{...}
-type HttpLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHttpLinkedServiceResponseOutput() HttpLinkedServiceResponseOutput
-	ToHttpLinkedServiceResponseOutputWithContext(context.Context) HttpLinkedServiceResponseOutput
-}
-
-// Linked service for an HTTP source.
-type HttpLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to be used to connect to the HTTP server.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-	CertThumbprint pulumi.MapInput `pulumi:"certThumbprint"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
-	EmbeddedCertData pulumi.MapInput `pulumi:"embeddedCertData"`
-	// If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-	EnableServerCertificateValidation pulumi.MapInput `pulumi:"enableServerCertificateValidation"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-	// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (HttpLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HttpLinkedServiceResponseArgs) ToHttpLinkedServiceResponseOutput() HttpLinkedServiceResponseOutput {
-	return i.ToHttpLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HttpLinkedServiceResponseArgs) ToHttpLinkedServiceResponseOutputWithContext(ctx context.Context) HttpLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpLinkedServiceResponseOutput)
 }
 
 // Linked service for an HTTP source.
@@ -18638,86 +10917,6 @@ func (i HubspotLinkedServiceArgs) ToHubspotLinkedServiceOutputWithContext(ctx co
 }
 
 // Hubspot Service linked service.
-type HubspotLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (HubspotLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubspotLinkedService)(nil)).Elem()
-}
-
-func (o HubspotLinkedServiceOutput) ToHubspotLinkedServiceOutput() HubspotLinkedServiceOutput {
-	return o
-}
-
-func (o HubspotLinkedServiceOutput) ToHubspotLinkedServiceOutputWithContext(ctx context.Context) HubspotLinkedServiceOutput {
-	return o
-}
-
-// The access token obtained when initially authenticating your OAuth integration.
-func (o HubspotLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v HubspotLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HubspotLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HubspotLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client ID associated with your Hubspot application.
-func (o HubspotLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret associated with your Hubspot application.
-func (o HubspotLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v HubspotLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o HubspotLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v HubspotLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o HubspotLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubspotLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o HubspotLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o HubspotLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The refresh token obtained when initially authenticating your OAuth integration.
-func (o HubspotLinkedServiceOutput) RefreshToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v HubspotLinkedService) interface{} { return v.RefreshToken }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o HubspotLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubspotLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o HubspotLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o HubspotLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o HubspotLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Hubspot Service linked service.
 type HubspotLinkedServiceResponse struct {
 	// The access token obtained when initially authenticating your OAuth integration.
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -18745,59 +10944,6 @@ type HubspotLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// HubspotLinkedServiceResponseInput is an input type that accepts HubspotLinkedServiceResponseArgs and HubspotLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `HubspotLinkedServiceResponseInput` via:
-//
-//          HubspotLinkedServiceResponseArgs{...}
-type HubspotLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToHubspotLinkedServiceResponseOutput() HubspotLinkedServiceResponseOutput
-	ToHubspotLinkedServiceResponseOutputWithContext(context.Context) HubspotLinkedServiceResponseOutput
-}
-
-// Hubspot Service linked service.
-type HubspotLinkedServiceResponseArgs struct {
-	// The access token obtained when initially authenticating your OAuth integration.
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client ID associated with your Hubspot application.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret associated with your Hubspot application.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The refresh token obtained when initially authenticating your OAuth integration.
-	RefreshToken pulumi.Input `pulumi:"refreshToken"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (HubspotLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubspotLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i HubspotLinkedServiceResponseArgs) ToHubspotLinkedServiceResponseOutput() HubspotLinkedServiceResponseOutput {
-	return i.ToHubspotLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i HubspotLinkedServiceResponseArgs) ToHubspotLinkedServiceResponseOutputWithContext(ctx context.Context) HubspotLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubspotLinkedServiceResponseOutput)
 }
 
 // Hubspot Service linked service.
@@ -18936,51 +11082,6 @@ func (i HubspotObjectDatasetArgs) ToHubspotObjectDatasetOutputWithContext(ctx co
 }
 
 // Hubspot Service dataset.
-type HubspotObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (HubspotObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubspotObjectDataset)(nil)).Elem()
-}
-
-func (o HubspotObjectDatasetOutput) ToHubspotObjectDatasetOutput() HubspotObjectDatasetOutput {
-	return o
-}
-
-func (o HubspotObjectDatasetOutput) ToHubspotObjectDatasetOutputWithContext(ctx context.Context) HubspotObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o HubspotObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o HubspotObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o HubspotObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o HubspotObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o HubspotObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o HubspotObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubspotObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Hubspot Service dataset.
 type HubspotObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -18994,45 +11095,6 @@ type HubspotObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// HubspotObjectDatasetResponseInput is an input type that accepts HubspotObjectDatasetResponseArgs and HubspotObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `HubspotObjectDatasetResponseInput` via:
-//
-//          HubspotObjectDatasetResponseArgs{...}
-type HubspotObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToHubspotObjectDatasetResponseOutput() HubspotObjectDatasetResponseOutput
-	ToHubspotObjectDatasetResponseOutputWithContext(context.Context) HubspotObjectDatasetResponseOutput
-}
-
-// Hubspot Service dataset.
-type HubspotObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubspotObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubspotObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i HubspotObjectDatasetResponseArgs) ToHubspotObjectDatasetResponseOutput() HubspotObjectDatasetResponseOutput {
-	return i.ToHubspotObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i HubspotObjectDatasetResponseArgs) ToHubspotObjectDatasetResponseOutputWithContext(ctx context.Context) HubspotObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubspotObjectDatasetResponseOutput)
 }
 
 // Hubspot Service dataset.
@@ -19176,101 +11238,6 @@ func (i ImpalaLinkedServiceArgs) ToImpalaLinkedServiceOutputWithContext(ctx cont
 }
 
 // Impala server linked service.
-type ImpalaLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ImpalaLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImpalaLinkedService)(nil)).Elem()
-}
-
-func (o ImpalaLinkedServiceOutput) ToImpalaLinkedServiceOutput() ImpalaLinkedServiceOutput {
-	return o
-}
-
-func (o ImpalaLinkedServiceOutput) ToImpalaLinkedServiceOutputWithContext(ctx context.Context) ImpalaLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o ImpalaLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o ImpalaLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ImpalaLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to use.
-func (o ImpalaLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The integration runtime reference.
-func (o ImpalaLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ImpalaLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o ImpalaLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ImpalaLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The IP address or host name of the Impala server. (i.e. 192.168.222.160)
-func (o ImpalaLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ImpalaLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name when using UsernameAndPassword.
-func (o ImpalaLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-func (o ImpalaLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o ImpalaLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o ImpalaLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o ImpalaLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
-func (o ImpalaLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Impala server linked service.
 type ImpalaLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -19304,65 +11271,6 @@ type ImpalaLinkedServiceResponse struct {
 	UseSystemTrustStore map[string]interface{} `pulumi:"useSystemTrustStore"`
 	// The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// ImpalaLinkedServiceResponseInput is an input type that accepts ImpalaLinkedServiceResponseArgs and ImpalaLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ImpalaLinkedServiceResponseInput` via:
-//
-//          ImpalaLinkedServiceResponseArgs{...}
-type ImpalaLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToImpalaLinkedServiceResponseOutput() ImpalaLinkedServiceResponseOutput
-	ToImpalaLinkedServiceResponseOutputWithContext(context.Context) ImpalaLinkedServiceResponseOutput
-}
-
-// Impala server linked service.
-type ImpalaLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to use.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The IP address or host name of the Impala server. (i.e. 192.168.222.160)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name when using UsernameAndPassword.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-	// The user name used to access the Impala server. The default value is anonymous when using SASLUsername.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (ImpalaLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImpalaLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ImpalaLinkedServiceResponseArgs) ToImpalaLinkedServiceResponseOutput() ImpalaLinkedServiceResponseOutput {
-	return i.ToImpalaLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ImpalaLinkedServiceResponseArgs) ToImpalaLinkedServiceResponseOutputWithContext(ctx context.Context) ImpalaLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImpalaLinkedServiceResponseOutput)
 }
 
 // Impala server linked service.
@@ -19516,51 +11424,6 @@ func (i ImpalaObjectDatasetArgs) ToImpalaObjectDatasetOutputWithContext(ctx cont
 }
 
 // Impala server dataset.
-type ImpalaObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ImpalaObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImpalaObjectDataset)(nil)).Elem()
-}
-
-func (o ImpalaObjectDatasetOutput) ToImpalaObjectDatasetOutput() ImpalaObjectDatasetOutput {
-	return o
-}
-
-func (o ImpalaObjectDatasetOutput) ToImpalaObjectDatasetOutputWithContext(ctx context.Context) ImpalaObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ImpalaObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ImpalaObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ImpalaObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ImpalaObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ImpalaObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ImpalaObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImpalaObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Impala server dataset.
 type ImpalaObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -19574,45 +11437,6 @@ type ImpalaObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ImpalaObjectDatasetResponseInput is an input type that accepts ImpalaObjectDatasetResponseArgs and ImpalaObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ImpalaObjectDatasetResponseInput` via:
-//
-//          ImpalaObjectDatasetResponseArgs{...}
-type ImpalaObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToImpalaObjectDatasetResponseOutput() ImpalaObjectDatasetResponseOutput
-	ToImpalaObjectDatasetResponseOutputWithContext(context.Context) ImpalaObjectDatasetResponseOutput
-}
-
-// Impala server dataset.
-type ImpalaObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ImpalaObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImpalaObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ImpalaObjectDatasetResponseArgs) ToImpalaObjectDatasetResponseOutput() ImpalaObjectDatasetResponseOutput {
-	return i.ToImpalaObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ImpalaObjectDatasetResponseArgs) ToImpalaObjectDatasetResponseOutputWithContext(ctx context.Context) ImpalaObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImpalaObjectDatasetResponseOutput)
 }
 
 // Impala server dataset.
@@ -19753,124 +11577,6 @@ func (i *integrationRuntimeComputePropertiesPtrType) ToIntegrationRuntimeCompute
 }
 
 // The compute resource properties for managed integration runtime.
-type IntegrationRuntimeComputePropertiesOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeComputePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeComputeProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePropertiesOutput() IntegrationRuntimeComputePropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePropertiesOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePropertiesPtrOutput() IntegrationRuntimeComputePropertiesPtrOutput {
-	return o.ToIntegrationRuntimeComputePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeComputePropertiesOutput) ToIntegrationRuntimeComputePropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *IntegrationRuntimeComputeProperties {
-		return &v
-	}).(IntegrationRuntimeComputePropertiesPtrOutput)
-}
-
-// The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-func (o IntegrationRuntimeComputePropertiesOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Maximum parallel executions count per node for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesOutput) MaxParallelExecutionsPerNode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *int { return v.MaxParallelExecutionsPerNode }).(pulumi.IntPtrOutput)
-}
-
-// The node size requirement to managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesOutput) NodeSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *string { return v.NodeSize }).(pulumi.StringPtrOutput)
-}
-
-// The required number of nodes for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesOutput) NumberOfNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *int { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
-}
-
-// VNet properties for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesOutput) VNetProperties() IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeComputeProperties) *IntegrationRuntimeVNetProperties { return v.VNetProperties }).(IntegrationRuntimeVNetPropertiesPtrOutput)
-}
-
-type IntegrationRuntimeComputePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeComputePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeComputeProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeComputePropertiesPtrOutput) ToIntegrationRuntimeComputePropertiesPtrOutput() IntegrationRuntimeComputePropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeComputePropertiesPtrOutput) ToIntegrationRuntimeComputePropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeComputePropertiesPtrOutput) Elem() IntegrationRuntimeComputePropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) IntegrationRuntimeComputeProperties { return *v }).(IntegrationRuntimeComputePropertiesOutput)
-}
-
-// The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-func (o IntegrationRuntimeComputePropertiesPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Maximum parallel executions count per node for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesPtrOutput) MaxParallelExecutionsPerNode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxParallelExecutionsPerNode
-	}).(pulumi.IntPtrOutput)
-}
-
-// The node size requirement to managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesPtrOutput) NodeSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NodeSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The required number of nodes for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesPtrOutput) NumberOfNodes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumberOfNodes
-	}).(pulumi.IntPtrOutput)
-}
-
-// VNet properties for managed integration runtime.
-func (o IntegrationRuntimeComputePropertiesPtrOutput) VNetProperties() IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeComputeProperties) *IntegrationRuntimeVNetProperties {
-		if v == nil {
-			return nil
-		}
-		return v.VNetProperties
-	}).(IntegrationRuntimeVNetPropertiesPtrOutput)
-}
-
-// The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputePropertiesResponse struct {
 	// The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
 	Location *string `pulumi:"location"`
@@ -19882,84 +11588,6 @@ type IntegrationRuntimeComputePropertiesResponse struct {
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
 	// VNet properties for managed integration runtime.
 	VNetProperties *IntegrationRuntimeVNetPropertiesResponse `pulumi:"vNetProperties"`
-}
-
-// IntegrationRuntimeComputePropertiesResponseInput is an input type that accepts IntegrationRuntimeComputePropertiesResponseArgs and IntegrationRuntimeComputePropertiesResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeComputePropertiesResponseInput` via:
-//
-//          IntegrationRuntimeComputePropertiesResponseArgs{...}
-type IntegrationRuntimeComputePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeComputePropertiesResponseOutput() IntegrationRuntimeComputePropertiesResponseOutput
-	ToIntegrationRuntimeComputePropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeComputePropertiesResponseOutput
-}
-
-// The compute resource properties for managed integration runtime.
-type IntegrationRuntimeComputePropertiesResponseArgs struct {
-	// The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Maximum parallel executions count per node for managed integration runtime.
-	MaxParallelExecutionsPerNode pulumi.IntPtrInput `pulumi:"maxParallelExecutionsPerNode"`
-	// The node size requirement to managed integration runtime.
-	NodeSize pulumi.StringPtrInput `pulumi:"nodeSize"`
-	// The required number of nodes for managed integration runtime.
-	NumberOfNodes pulumi.IntPtrInput `pulumi:"numberOfNodes"`
-	// VNet properties for managed integration runtime.
-	VNetProperties IntegrationRuntimeVNetPropertiesResponsePtrInput `pulumi:"vNetProperties"`
-}
-
-func (IntegrationRuntimeComputePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeComputePropertiesResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeComputePropertiesResponseArgs) ToIntegrationRuntimeComputePropertiesResponseOutput() IntegrationRuntimeComputePropertiesResponseOutput {
-	return i.ToIntegrationRuntimeComputePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeComputePropertiesResponseArgs) ToIntegrationRuntimeComputePropertiesResponseOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeComputePropertiesResponseOutput)
-}
-
-func (i IntegrationRuntimeComputePropertiesResponseArgs) ToIntegrationRuntimeComputePropertiesResponsePtrOutput() IntegrationRuntimeComputePropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeComputePropertiesResponseArgs) ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeComputePropertiesResponseOutput).ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeComputePropertiesResponsePtrInput is an input type that accepts IntegrationRuntimeComputePropertiesResponseArgs, IntegrationRuntimeComputePropertiesResponsePtr and IntegrationRuntimeComputePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeComputePropertiesResponsePtrInput` via:
-//
-//          IntegrationRuntimeComputePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeComputePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeComputePropertiesResponsePtrOutput() IntegrationRuntimeComputePropertiesResponsePtrOutput
-	ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(context.Context) IntegrationRuntimeComputePropertiesResponsePtrOutput
-}
-
-type integrationRuntimeComputePropertiesResponsePtrType IntegrationRuntimeComputePropertiesResponseArgs
-
-func IntegrationRuntimeComputePropertiesResponsePtr(v *IntegrationRuntimeComputePropertiesResponseArgs) IntegrationRuntimeComputePropertiesResponsePtrInput {
-	return (*integrationRuntimeComputePropertiesResponsePtrType)(v)
-}
-
-func (*integrationRuntimeComputePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeComputePropertiesResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeComputePropertiesResponsePtrType) ToIntegrationRuntimeComputePropertiesResponsePtrOutput() IntegrationRuntimeComputePropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeComputePropertiesResponsePtrType) ToIntegrationRuntimeComputePropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeComputePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeComputePropertiesResponsePtrOutput)
 }
 
 // The compute resource properties for managed integration runtime.
@@ -20165,158 +11793,11 @@ func (i *integrationRuntimeCustomSetupScriptPropertiesPtrType) ToIntegrationRunt
 }
 
 // Custom setup script properties for a managed dedicated integration runtime.
-type IntegrationRuntimeCustomSetupScriptPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeCustomSetupScriptPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeCustomSetupScriptProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesOutput() IntegrationRuntimeCustomSetupScriptPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutput() IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o.ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeCustomSetupScriptProperties) *IntegrationRuntimeCustomSetupScriptProperties {
-		return &v
-	}).(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput)
-}
-
-// The URI of the Azure blob container that contains the custom setup script.
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) BlobContainerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeCustomSetupScriptProperties) *string { return v.BlobContainerUri }).(pulumi.StringPtrOutput)
-}
-
-// The SAS token of the Azure blob container.
-func (o IntegrationRuntimeCustomSetupScriptPropertiesOutput) SasToken() SecureStringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeCustomSetupScriptProperties) *SecureString { return v.SasToken }).(SecureStringPtrOutput)
-}
-
-type IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeCustomSetupScriptProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutput() IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) ToIntegrationRuntimeCustomSetupScriptPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) Elem() IntegrationRuntimeCustomSetupScriptPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeCustomSetupScriptProperties) IntegrationRuntimeCustomSetupScriptProperties {
-		return *v
-	}).(IntegrationRuntimeCustomSetupScriptPropertiesOutput)
-}
-
-// The URI of the Azure blob container that contains the custom setup script.
-func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) BlobContainerUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeCustomSetupScriptProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BlobContainerUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SAS token of the Azure blob container.
-func (o IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput) SasToken() SecureStringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeCustomSetupScriptProperties) *SecureString {
-		if v == nil {
-			return nil
-		}
-		return v.SasToken
-	}).(SecureStringPtrOutput)
-}
-
-// Custom setup script properties for a managed dedicated integration runtime.
 type IntegrationRuntimeCustomSetupScriptPropertiesResponse struct {
 	// The URI of the Azure blob container that contains the custom setup script.
 	BlobContainerUri *string `pulumi:"blobContainerUri"`
 	// The SAS token of the Azure blob container.
 	SasToken *SecureStringResponse `pulumi:"sasToken"`
-}
-
-// IntegrationRuntimeCustomSetupScriptPropertiesResponseInput is an input type that accepts IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs and IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeCustomSetupScriptPropertiesResponseInput` via:
-//
-//          IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs{...}
-type IntegrationRuntimeCustomSetupScriptPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutput() IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput
-	ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput
-}
-
-// Custom setup script properties for a managed dedicated integration runtime.
-type IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs struct {
-	// The URI of the Azure blob container that contains the custom setup script.
-	BlobContainerUri pulumi.StringPtrInput `pulumi:"blobContainerUri"`
-	// The SAS token of the Azure blob container.
-	SasToken SecureStringResponsePtrInput `pulumi:"sasToken"`
-}
-
-func (IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeCustomSetupScriptPropertiesResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutput() IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput {
-	return i.ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) ToIntegrationRuntimeCustomSetupScriptPropertiesResponseOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput)
-}
-
-func (i IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput() IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomSetupScriptPropertiesResponseOutput).ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrInput is an input type that accepts IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs, IntegrationRuntimeCustomSetupScriptPropertiesResponsePtr and IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrInput` via:
-//
-//          IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput() IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput
-	ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput
-}
-
-type integrationRuntimeCustomSetupScriptPropertiesResponsePtrType IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs
-
-func IntegrationRuntimeCustomSetupScriptPropertiesResponsePtr(v *IntegrationRuntimeCustomSetupScriptPropertiesResponseArgs) IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrInput {
-	return (*integrationRuntimeCustomSetupScriptPropertiesResponsePtrType)(v)
-}
-
-func (*integrationRuntimeCustomSetupScriptPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeCustomSetupScriptPropertiesResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeCustomSetupScriptPropertiesResponsePtrType) ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput() IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeCustomSetupScriptPropertiesResponsePtrType) ToIntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrOutput)
 }
 
 // Custom setup script properties for a managed dedicated integration runtime.
@@ -20479,94 +11960,6 @@ func (i *integrationRuntimeDataProxyPropertiesPtrType) ToIntegrationRuntimeDataP
 }
 
 // Data proxy properties for a managed dedicated integration runtime.
-type IntegrationRuntimeDataProxyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeDataProxyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeDataProxyProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataProxyPropertiesOutput() IntegrationRuntimeDataProxyPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataProxyPropertiesOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataProxyPropertiesPtrOutput() IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o.ToIntegrationRuntimeDataProxyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesOutput) ToIntegrationRuntimeDataProxyPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeDataProxyProperties) *IntegrationRuntimeDataProxyProperties {
-		return &v
-	}).(IntegrationRuntimeDataProxyPropertiesPtrOutput)
-}
-
-// The self-hosted integration runtime reference.
-func (o IntegrationRuntimeDataProxyPropertiesOutput) ConnectVia() EntityReferencePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeDataProxyProperties) *EntityReference { return v.ConnectVia }).(EntityReferencePtrOutput)
-}
-
-// The path to contain the staged data in the Blob storage.
-func (o IntegrationRuntimeDataProxyPropertiesOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeDataProxyProperties) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// The staging linked service reference.
-func (o IntegrationRuntimeDataProxyPropertiesOutput) StagingLinkedService() EntityReferencePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeDataProxyProperties) *EntityReference { return v.StagingLinkedService }).(EntityReferencePtrOutput)
-}
-
-type IntegrationRuntimeDataProxyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeDataProxyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeDataProxyProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) ToIntegrationRuntimeDataProxyPropertiesPtrOutput() IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) ToIntegrationRuntimeDataProxyPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) Elem() IntegrationRuntimeDataProxyPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) IntegrationRuntimeDataProxyProperties { return *v }).(IntegrationRuntimeDataProxyPropertiesOutput)
-}
-
-// The self-hosted integration runtime reference.
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) ConnectVia() EntityReferencePtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) *EntityReference {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectVia
-	}).(EntityReferencePtrOutput)
-}
-
-// The path to contain the staged data in the Blob storage.
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// The staging linked service reference.
-func (o IntegrationRuntimeDataProxyPropertiesPtrOutput) StagingLinkedService() EntityReferencePtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeDataProxyProperties) *EntityReference {
-		if v == nil {
-			return nil
-		}
-		return v.StagingLinkedService
-	}).(EntityReferencePtrOutput)
-}
-
-// Data proxy properties for a managed dedicated integration runtime.
 type IntegrationRuntimeDataProxyPropertiesResponse struct {
 	// The self-hosted integration runtime reference.
 	ConnectVia *EntityReferenceResponse `pulumi:"connectVia"`
@@ -20574,80 +11967,6 @@ type IntegrationRuntimeDataProxyPropertiesResponse struct {
 	Path *string `pulumi:"path"`
 	// The staging linked service reference.
 	StagingLinkedService *EntityReferenceResponse `pulumi:"stagingLinkedService"`
-}
-
-// IntegrationRuntimeDataProxyPropertiesResponseInput is an input type that accepts IntegrationRuntimeDataProxyPropertiesResponseArgs and IntegrationRuntimeDataProxyPropertiesResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeDataProxyPropertiesResponseInput` via:
-//
-//          IntegrationRuntimeDataProxyPropertiesResponseArgs{...}
-type IntegrationRuntimeDataProxyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeDataProxyPropertiesResponseOutput() IntegrationRuntimeDataProxyPropertiesResponseOutput
-	ToIntegrationRuntimeDataProxyPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeDataProxyPropertiesResponseOutput
-}
-
-// Data proxy properties for a managed dedicated integration runtime.
-type IntegrationRuntimeDataProxyPropertiesResponseArgs struct {
-	// The self-hosted integration runtime reference.
-	ConnectVia EntityReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The path to contain the staged data in the Blob storage.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The staging linked service reference.
-	StagingLinkedService EntityReferenceResponsePtrInput `pulumi:"stagingLinkedService"`
-}
-
-func (IntegrationRuntimeDataProxyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeDataProxyPropertiesResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeDataProxyPropertiesResponseArgs) ToIntegrationRuntimeDataProxyPropertiesResponseOutput() IntegrationRuntimeDataProxyPropertiesResponseOutput {
-	return i.ToIntegrationRuntimeDataProxyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeDataProxyPropertiesResponseArgs) ToIntegrationRuntimeDataProxyPropertiesResponseOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataProxyPropertiesResponseOutput)
-}
-
-func (i IntegrationRuntimeDataProxyPropertiesResponseArgs) ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutput() IntegrationRuntimeDataProxyPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeDataProxyPropertiesResponseArgs) ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataProxyPropertiesResponseOutput).ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeDataProxyPropertiesResponsePtrInput is an input type that accepts IntegrationRuntimeDataProxyPropertiesResponseArgs, IntegrationRuntimeDataProxyPropertiesResponsePtr and IntegrationRuntimeDataProxyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeDataProxyPropertiesResponsePtrInput` via:
-//
-//          IntegrationRuntimeDataProxyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeDataProxyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutput() IntegrationRuntimeDataProxyPropertiesResponsePtrOutput
-	ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(context.Context) IntegrationRuntimeDataProxyPropertiesResponsePtrOutput
-}
-
-type integrationRuntimeDataProxyPropertiesResponsePtrType IntegrationRuntimeDataProxyPropertiesResponseArgs
-
-func IntegrationRuntimeDataProxyPropertiesResponsePtr(v *IntegrationRuntimeDataProxyPropertiesResponseArgs) IntegrationRuntimeDataProxyPropertiesResponsePtrInput {
-	return (*integrationRuntimeDataProxyPropertiesResponsePtrType)(v)
-}
-
-func (*integrationRuntimeDataProxyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeDataProxyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeDataProxyPropertiesResponsePtrType) ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutput() IntegrationRuntimeDataProxyPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeDataProxyPropertiesResponsePtrType) ToIntegrationRuntimeDataProxyPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeDataProxyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeDataProxyPropertiesResponsePtrOutput)
 }
 
 // Data proxy properties for a managed dedicated integration runtime.
@@ -20827,94 +12146,6 @@ func (i *integrationRuntimeReferencePtrType) ToIntegrationRuntimeReferencePtrOut
 }
 
 // Integration runtime reference type.
-type IntegrationRuntimeReferenceOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeReference)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferenceOutput() IntegrationRuntimeReferenceOutput {
-	return o
-}
-
-func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferenceOutputWithContext(ctx context.Context) IntegrationRuntimeReferenceOutput {
-	return o
-}
-
-func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferencePtrOutput() IntegrationRuntimeReferencePtrOutput {
-	return o.ToIntegrationRuntimeReferencePtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeReferenceOutput) ToIntegrationRuntimeReferencePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeReference) *IntegrationRuntimeReference {
-		return &v
-	}).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Arguments for integration runtime.
-func (o IntegrationRuntimeReferenceOutput) Parameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v IntegrationRuntimeReference) map[string]map[string]interface{} { return v.Parameters }).(pulumi.MapMapOutput)
-}
-
-// Reference integration runtime name.
-func (o IntegrationRuntimeReferenceOutput) ReferenceName() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeReference) string { return v.ReferenceName }).(pulumi.StringOutput)
-}
-
-// Type of integration runtime.
-func (o IntegrationRuntimeReferenceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationRuntimeReference) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type IntegrationRuntimeReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeReference)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeReferencePtrOutput) ToIntegrationRuntimeReferencePtrOutput() IntegrationRuntimeReferencePtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeReferencePtrOutput) ToIntegrationRuntimeReferencePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferencePtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeReferencePtrOutput) Elem() IntegrationRuntimeReferenceOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReference) IntegrationRuntimeReference { return *v }).(IntegrationRuntimeReferenceOutput)
-}
-
-// Arguments for integration runtime.
-func (o IntegrationRuntimeReferencePtrOutput) Parameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReference) map[string]map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.MapMapOutput)
-}
-
-// Reference integration runtime name.
-func (o IntegrationRuntimeReferencePtrOutput) ReferenceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ReferenceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of integration runtime.
-func (o IntegrationRuntimeReferencePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Integration runtime reference type.
 type IntegrationRuntimeReferenceResponse struct {
 	// Arguments for integration runtime.
 	Parameters map[string]map[string]interface{} `pulumi:"parameters"`
@@ -20922,80 +12153,6 @@ type IntegrationRuntimeReferenceResponse struct {
 	ReferenceName string `pulumi:"referenceName"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
-}
-
-// IntegrationRuntimeReferenceResponseInput is an input type that accepts IntegrationRuntimeReferenceResponseArgs and IntegrationRuntimeReferenceResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeReferenceResponseInput` via:
-//
-//          IntegrationRuntimeReferenceResponseArgs{...}
-type IntegrationRuntimeReferenceResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeReferenceResponseOutput() IntegrationRuntimeReferenceResponseOutput
-	ToIntegrationRuntimeReferenceResponseOutputWithContext(context.Context) IntegrationRuntimeReferenceResponseOutput
-}
-
-// Integration runtime reference type.
-type IntegrationRuntimeReferenceResponseArgs struct {
-	// Arguments for integration runtime.
-	Parameters pulumi.MapMapInput `pulumi:"parameters"`
-	// Reference integration runtime name.
-	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
-	// Type of integration runtime.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationRuntimeReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeReferenceResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeReferenceResponseArgs) ToIntegrationRuntimeReferenceResponseOutput() IntegrationRuntimeReferenceResponseOutput {
-	return i.ToIntegrationRuntimeReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeReferenceResponseArgs) ToIntegrationRuntimeReferenceResponseOutputWithContext(ctx context.Context) IntegrationRuntimeReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeReferenceResponseOutput)
-}
-
-func (i IntegrationRuntimeReferenceResponseArgs) ToIntegrationRuntimeReferenceResponsePtrOutput() IntegrationRuntimeReferenceResponsePtrOutput {
-	return i.ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeReferenceResponseArgs) ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeReferenceResponseOutput).ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeReferenceResponsePtrInput is an input type that accepts IntegrationRuntimeReferenceResponseArgs, IntegrationRuntimeReferenceResponsePtr and IntegrationRuntimeReferenceResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeReferenceResponsePtrInput` via:
-//
-//          IntegrationRuntimeReferenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeReferenceResponsePtrOutput() IntegrationRuntimeReferenceResponsePtrOutput
-	ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(context.Context) IntegrationRuntimeReferenceResponsePtrOutput
-}
-
-type integrationRuntimeReferenceResponsePtrType IntegrationRuntimeReferenceResponseArgs
-
-func IntegrationRuntimeReferenceResponsePtr(v *IntegrationRuntimeReferenceResponseArgs) IntegrationRuntimeReferenceResponsePtrInput {
-	return (*integrationRuntimeReferenceResponsePtrType)(v)
-}
-
-func (*integrationRuntimeReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeReferenceResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeReferenceResponsePtrType) ToIntegrationRuntimeReferenceResponsePtrOutput() IntegrationRuntimeReferenceResponsePtrOutput {
-	return i.ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeReferenceResponsePtrType) ToIntegrationRuntimeReferenceResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeReferenceResponsePtrOutput)
 }
 
 // Integration runtime reference type.
@@ -21175,109 +12332,6 @@ func (i *integrationRuntimeSsisCatalogInfoPtrType) ToIntegrationRuntimeSsisCatal
 }
 
 // Catalog information for managed dedicated integration runtime.
-type IntegrationRuntimeSsisCatalogInfoOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeSsisCatalogInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoOutput() IntegrationRuntimeSsisCatalogInfoOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *IntegrationRuntimeSsisCatalogInfo {
-		return &v
-	}).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
-}
-
-// The password of the administrator user account of the catalog database.
-func (o IntegrationRuntimeSsisCatalogInfoOutput) CatalogAdminPassword() SecureStringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *SecureString { return v.CatalogAdminPassword }).(SecureStringPtrOutput)
-}
-
-// The administrator user name of catalog database.
-func (o IntegrationRuntimeSsisCatalogInfoOutput) CatalogAdminUserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.CatalogAdminUserName }).(pulumi.StringPtrOutput)
-}
-
-// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
-func (o IntegrationRuntimeSsisCatalogInfoOutput) CatalogPricingTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.CatalogPricingTier }).(pulumi.StringPtrOutput)
-}
-
-// The catalog database server URL.
-func (o IntegrationRuntimeSsisCatalogInfoOutput) CatalogServerEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisCatalogInfo) *string { return v.CatalogServerEndpoint }).(pulumi.StringPtrOutput)
-}
-
-type IntegrationRuntimeSsisCatalogInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeSsisCatalogInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSsisCatalogInfo)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutput() IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) ToIntegrationRuntimeSsisCatalogInfoPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) Elem() IntegrationRuntimeSsisCatalogInfoOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) IntegrationRuntimeSsisCatalogInfo { return *v }).(IntegrationRuntimeSsisCatalogInfoOutput)
-}
-
-// The password of the administrator user account of the catalog database.
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogAdminPassword() SecureStringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *SecureString {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogAdminPassword
-	}).(SecureStringPtrOutput)
-}
-
-// The administrator user name of catalog database.
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogAdminUserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogAdminUserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogPricingTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogPricingTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The catalog database server URL.
-func (o IntegrationRuntimeSsisCatalogInfoPtrOutput) CatalogServerEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogServerEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Catalog information for managed dedicated integration runtime.
 type IntegrationRuntimeSsisCatalogInfoResponse struct {
 	// The password of the administrator user account of the catalog database.
 	CatalogAdminPassword *SecureStringResponse `pulumi:"catalogAdminPassword"`
@@ -21287,82 +12341,6 @@ type IntegrationRuntimeSsisCatalogInfoResponse struct {
 	CatalogPricingTier *string `pulumi:"catalogPricingTier"`
 	// The catalog database server URL.
 	CatalogServerEndpoint *string `pulumi:"catalogServerEndpoint"`
-}
-
-// IntegrationRuntimeSsisCatalogInfoResponseInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoResponseArgs and IntegrationRuntimeSsisCatalogInfoResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoResponseInput` via:
-//
-//          IntegrationRuntimeSsisCatalogInfoResponseArgs{...}
-type IntegrationRuntimeSsisCatalogInfoResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeSsisCatalogInfoResponseOutput() IntegrationRuntimeSsisCatalogInfoResponseOutput
-	ToIntegrationRuntimeSsisCatalogInfoResponseOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoResponseOutput
-}
-
-// Catalog information for managed dedicated integration runtime.
-type IntegrationRuntimeSsisCatalogInfoResponseArgs struct {
-	// The password of the administrator user account of the catalog database.
-	CatalogAdminPassword SecureStringResponsePtrInput `pulumi:"catalogAdminPassword"`
-	// The administrator user name of catalog database.
-	CatalogAdminUserName pulumi.StringPtrInput `pulumi:"catalogAdminUserName"`
-	// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
-	CatalogPricingTier pulumi.StringPtrInput `pulumi:"catalogPricingTier"`
-	// The catalog database server URL.
-	CatalogServerEndpoint pulumi.StringPtrInput `pulumi:"catalogServerEndpoint"`
-}
-
-func (IntegrationRuntimeSsisCatalogInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogInfoResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeSsisCatalogInfoResponseArgs) ToIntegrationRuntimeSsisCatalogInfoResponseOutput() IntegrationRuntimeSsisCatalogInfoResponseOutput {
-	return i.ToIntegrationRuntimeSsisCatalogInfoResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeSsisCatalogInfoResponseArgs) ToIntegrationRuntimeSsisCatalogInfoResponseOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoResponseOutput)
-}
-
-func (i IntegrationRuntimeSsisCatalogInfoResponseArgs) ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutput() IntegrationRuntimeSsisCatalogInfoResponsePtrOutput {
-	return i.ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeSsisCatalogInfoResponseArgs) ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoResponseOutput).ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeSsisCatalogInfoResponsePtrInput is an input type that accepts IntegrationRuntimeSsisCatalogInfoResponseArgs, IntegrationRuntimeSsisCatalogInfoResponsePtr and IntegrationRuntimeSsisCatalogInfoResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeSsisCatalogInfoResponsePtrInput` via:
-//
-//          IntegrationRuntimeSsisCatalogInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeSsisCatalogInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutput() IntegrationRuntimeSsisCatalogInfoResponsePtrOutput
-	ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogInfoResponsePtrOutput
-}
-
-type integrationRuntimeSsisCatalogInfoResponsePtrType IntegrationRuntimeSsisCatalogInfoResponseArgs
-
-func IntegrationRuntimeSsisCatalogInfoResponsePtr(v *IntegrationRuntimeSsisCatalogInfoResponseArgs) IntegrationRuntimeSsisCatalogInfoResponsePtrInput {
-	return (*integrationRuntimeSsisCatalogInfoResponsePtrType)(v)
-}
-
-func (*integrationRuntimeSsisCatalogInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSsisCatalogInfoResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeSsisCatalogInfoResponsePtrType) ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutput() IntegrationRuntimeSsisCatalogInfoResponsePtrOutput {
-	return i.ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeSsisCatalogInfoResponsePtrType) ToIntegrationRuntimeSsisCatalogInfoResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisCatalogInfoResponsePtrOutput)
 }
 
 // Catalog information for managed dedicated integration runtime.
@@ -21563,128 +12541,6 @@ func (i *integrationRuntimeSsisPropertiesPtrType) ToIntegrationRuntimeSsisProper
 }
 
 // SSIS properties for managed integration runtime.
-type IntegrationRuntimeSsisPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeSsisPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsisProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisPropertiesOutput() IntegrationRuntimeSsisPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisPropertiesOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisPropertiesPtrOutput() IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o.ToIntegrationRuntimeSsisPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeSsisPropertiesOutput) ToIntegrationRuntimeSsisPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *IntegrationRuntimeSsisProperties {
-		return &v
-	}).(IntegrationRuntimeSsisPropertiesPtrOutput)
-}
-
-// Catalog information for managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesOutput) CatalogInfo() IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *IntegrationRuntimeSsisCatalogInfo { return v.CatalogInfo }).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
-}
-
-// Custom setup script properties for a managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesOutput) CustomSetupScriptProperties() IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *IntegrationRuntimeCustomSetupScriptProperties {
-		return v.CustomSetupScriptProperties
-	}).(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput)
-}
-
-// Data proxy properties for a managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesOutput) DataProxyProperties() IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *IntegrationRuntimeDataProxyProperties {
-		return v.DataProxyProperties
-	}).(IntegrationRuntimeDataProxyPropertiesPtrOutput)
-}
-
-// The edition for the SSIS Integration Runtime
-func (o IntegrationRuntimeSsisPropertiesOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *string { return v.Edition }).(pulumi.StringPtrOutput)
-}
-
-// License type for bringing your own license scenario.
-func (o IntegrationRuntimeSsisPropertiesOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeSsisProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
-}
-
-type IntegrationRuntimeSsisPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeSsisPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSsisProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) ToIntegrationRuntimeSsisPropertiesPtrOutput() IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) ToIntegrationRuntimeSsisPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) Elem() IntegrationRuntimeSsisPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) IntegrationRuntimeSsisProperties { return *v }).(IntegrationRuntimeSsisPropertiesOutput)
-}
-
-// Catalog information for managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) CatalogInfo() IntegrationRuntimeSsisCatalogInfoPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) *IntegrationRuntimeSsisCatalogInfo {
-		if v == nil {
-			return nil
-		}
-		return v.CatalogInfo
-	}).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
-}
-
-// Custom setup script properties for a managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) CustomSetupScriptProperties() IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) *IntegrationRuntimeCustomSetupScriptProperties {
-		if v == nil {
-			return nil
-		}
-		return v.CustomSetupScriptProperties
-	}).(IntegrationRuntimeCustomSetupScriptPropertiesPtrOutput)
-}
-
-// Data proxy properties for a managed dedicated integration runtime.
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) DataProxyProperties() IntegrationRuntimeDataProxyPropertiesPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) *IntegrationRuntimeDataProxyProperties {
-		if v == nil {
-			return nil
-		}
-		return v.DataProxyProperties
-	}).(IntegrationRuntimeDataProxyPropertiesPtrOutput)
-}
-
-// The edition for the SSIS Integration Runtime
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Edition
-	}).(pulumi.StringPtrOutput)
-}
-
-// License type for bringing your own license scenario.
-func (o IntegrationRuntimeSsisPropertiesPtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeSsisProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-// SSIS properties for managed integration runtime.
 type IntegrationRuntimeSsisPropertiesResponse struct {
 	// Catalog information for managed dedicated integration runtime.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfoResponse `pulumi:"catalogInfo"`
@@ -21696,84 +12552,6 @@ type IntegrationRuntimeSsisPropertiesResponse struct {
 	Edition *string `pulumi:"edition"`
 	// License type for bringing your own license scenario.
 	LicenseType *string `pulumi:"licenseType"`
-}
-
-// IntegrationRuntimeSsisPropertiesResponseInput is an input type that accepts IntegrationRuntimeSsisPropertiesResponseArgs and IntegrationRuntimeSsisPropertiesResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeSsisPropertiesResponseInput` via:
-//
-//          IntegrationRuntimeSsisPropertiesResponseArgs{...}
-type IntegrationRuntimeSsisPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeSsisPropertiesResponseOutput() IntegrationRuntimeSsisPropertiesResponseOutput
-	ToIntegrationRuntimeSsisPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeSsisPropertiesResponseOutput
-}
-
-// SSIS properties for managed integration runtime.
-type IntegrationRuntimeSsisPropertiesResponseArgs struct {
-	// Catalog information for managed dedicated integration runtime.
-	CatalogInfo IntegrationRuntimeSsisCatalogInfoResponsePtrInput `pulumi:"catalogInfo"`
-	// Custom setup script properties for a managed dedicated integration runtime.
-	CustomSetupScriptProperties IntegrationRuntimeCustomSetupScriptPropertiesResponsePtrInput `pulumi:"customSetupScriptProperties"`
-	// Data proxy properties for a managed dedicated integration runtime.
-	DataProxyProperties IntegrationRuntimeDataProxyPropertiesResponsePtrInput `pulumi:"dataProxyProperties"`
-	// The edition for the SSIS Integration Runtime
-	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// License type for bringing your own license scenario.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-}
-
-func (IntegrationRuntimeSsisPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeSsisPropertiesResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeSsisPropertiesResponseArgs) ToIntegrationRuntimeSsisPropertiesResponseOutput() IntegrationRuntimeSsisPropertiesResponseOutput {
-	return i.ToIntegrationRuntimeSsisPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeSsisPropertiesResponseArgs) ToIntegrationRuntimeSsisPropertiesResponseOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPropertiesResponseOutput)
-}
-
-func (i IntegrationRuntimeSsisPropertiesResponseArgs) ToIntegrationRuntimeSsisPropertiesResponsePtrOutput() IntegrationRuntimeSsisPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeSsisPropertiesResponseArgs) ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPropertiesResponseOutput).ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeSsisPropertiesResponsePtrInput is an input type that accepts IntegrationRuntimeSsisPropertiesResponseArgs, IntegrationRuntimeSsisPropertiesResponsePtr and IntegrationRuntimeSsisPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeSsisPropertiesResponsePtrInput` via:
-//
-//          IntegrationRuntimeSsisPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeSsisPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeSsisPropertiesResponsePtrOutput() IntegrationRuntimeSsisPropertiesResponsePtrOutput
-	ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(context.Context) IntegrationRuntimeSsisPropertiesResponsePtrOutput
-}
-
-type integrationRuntimeSsisPropertiesResponsePtrType IntegrationRuntimeSsisPropertiesResponseArgs
-
-func IntegrationRuntimeSsisPropertiesResponsePtr(v *IntegrationRuntimeSsisPropertiesResponseArgs) IntegrationRuntimeSsisPropertiesResponsePtrInput {
-	return (*integrationRuntimeSsisPropertiesResponsePtrType)(v)
-}
-
-func (*integrationRuntimeSsisPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeSsisPropertiesResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeSsisPropertiesResponsePtrType) ToIntegrationRuntimeSsisPropertiesResponsePtrOutput() IntegrationRuntimeSsisPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeSsisPropertiesResponsePtrType) ToIntegrationRuntimeSsisPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisPropertiesResponsePtrOutput)
 }
 
 // SSIS properties for managed integration runtime.
@@ -21981,156 +12759,11 @@ func (i *integrationRuntimeVNetPropertiesPtrType) ToIntegrationRuntimeVNetProper
 }
 
 // VNet properties for managed integration runtime.
-type IntegrationRuntimeVNetPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeVNetPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeVNetProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetPropertiesOutput() IntegrationRuntimeVNetPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetPropertiesOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesOutput {
-	return o
-}
-
-func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetPropertiesPtrOutput() IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o.ToIntegrationRuntimeVNetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IntegrationRuntimeVNetPropertiesOutput) ToIntegrationRuntimeVNetPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *IntegrationRuntimeVNetProperties {
-		return &v
-	}).(IntegrationRuntimeVNetPropertiesPtrOutput)
-}
-
-// The name of the subnet this integration runtime will join.
-func (o IntegrationRuntimeVNetPropertiesOutput) Subnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.Subnet }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the VNet that this integration runtime will join.
-func (o IntegrationRuntimeVNetPropertiesOutput) VNetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.VNetId }).(pulumi.StringPtrOutput)
-}
-
-type IntegrationRuntimeVNetPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IntegrationRuntimeVNetPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeVNetProperties)(nil)).Elem()
-}
-
-func (o IntegrationRuntimeVNetPropertiesPtrOutput) ToIntegrationRuntimeVNetPropertiesPtrOutput() IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeVNetPropertiesPtrOutput) ToIntegrationRuntimeVNetPropertiesPtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesPtrOutput {
-	return o
-}
-
-func (o IntegrationRuntimeVNetPropertiesPtrOutput) Elem() IntegrationRuntimeVNetPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) IntegrationRuntimeVNetProperties { return *v }).(IntegrationRuntimeVNetPropertiesOutput)
-}
-
-// The name of the subnet this integration runtime will join.
-func (o IntegrationRuntimeVNetPropertiesPtrOutput) Subnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Subnet
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the VNet that this integration runtime will join.
-func (o IntegrationRuntimeVNetPropertiesPtrOutput) VNetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VNetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// VNet properties for managed integration runtime.
 type IntegrationRuntimeVNetPropertiesResponse struct {
 	// The name of the subnet this integration runtime will join.
 	Subnet *string `pulumi:"subnet"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId *string `pulumi:"vNetId"`
-}
-
-// IntegrationRuntimeVNetPropertiesResponseInput is an input type that accepts IntegrationRuntimeVNetPropertiesResponseArgs and IntegrationRuntimeVNetPropertiesResponseOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeVNetPropertiesResponseInput` via:
-//
-//          IntegrationRuntimeVNetPropertiesResponseArgs{...}
-type IntegrationRuntimeVNetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeVNetPropertiesResponseOutput() IntegrationRuntimeVNetPropertiesResponseOutput
-	ToIntegrationRuntimeVNetPropertiesResponseOutputWithContext(context.Context) IntegrationRuntimeVNetPropertiesResponseOutput
-}
-
-// VNet properties for managed integration runtime.
-type IntegrationRuntimeVNetPropertiesResponseArgs struct {
-	// The name of the subnet this integration runtime will join.
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
-	// The ID of the VNet that this integration runtime will join.
-	VNetId pulumi.StringPtrInput `pulumi:"vNetId"`
-}
-
-func (IntegrationRuntimeVNetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntimeVNetPropertiesResponse)(nil)).Elem()
-}
-
-func (i IntegrationRuntimeVNetPropertiesResponseArgs) ToIntegrationRuntimeVNetPropertiesResponseOutput() IntegrationRuntimeVNetPropertiesResponseOutput {
-	return i.ToIntegrationRuntimeVNetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeVNetPropertiesResponseArgs) ToIntegrationRuntimeVNetPropertiesResponseOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeVNetPropertiesResponseOutput)
-}
-
-func (i IntegrationRuntimeVNetPropertiesResponseArgs) ToIntegrationRuntimeVNetPropertiesResponsePtrOutput() IntegrationRuntimeVNetPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IntegrationRuntimeVNetPropertiesResponseArgs) ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeVNetPropertiesResponseOutput).ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// IntegrationRuntimeVNetPropertiesResponsePtrInput is an input type that accepts IntegrationRuntimeVNetPropertiesResponseArgs, IntegrationRuntimeVNetPropertiesResponsePtr and IntegrationRuntimeVNetPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `IntegrationRuntimeVNetPropertiesResponsePtrInput` via:
-//
-//          IntegrationRuntimeVNetPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type IntegrationRuntimeVNetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToIntegrationRuntimeVNetPropertiesResponsePtrOutput() IntegrationRuntimeVNetPropertiesResponsePtrOutput
-	ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(context.Context) IntegrationRuntimeVNetPropertiesResponsePtrOutput
-}
-
-type integrationRuntimeVNetPropertiesResponsePtrType IntegrationRuntimeVNetPropertiesResponseArgs
-
-func IntegrationRuntimeVNetPropertiesResponsePtr(v *IntegrationRuntimeVNetPropertiesResponseArgs) IntegrationRuntimeVNetPropertiesResponsePtrInput {
-	return (*integrationRuntimeVNetPropertiesResponsePtrType)(v)
-}
-
-func (*integrationRuntimeVNetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationRuntimeVNetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *integrationRuntimeVNetPropertiesResponsePtrType) ToIntegrationRuntimeVNetPropertiesResponsePtrOutput() IntegrationRuntimeVNetPropertiesResponsePtrOutput {
-	return i.ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *integrationRuntimeVNetPropertiesResponsePtrType) ToIntegrationRuntimeVNetPropertiesResponsePtrOutputWithContext(ctx context.Context) IntegrationRuntimeVNetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeVNetPropertiesResponsePtrOutput)
 }
 
 // VNet properties for managed integration runtime.
@@ -22290,86 +12923,6 @@ func (i JiraLinkedServiceArgs) ToJiraLinkedServiceOutputWithContext(ctx context.
 }
 
 // Jira Service linked service.
-type JiraLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (JiraLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JiraLinkedService)(nil)).Elem()
-}
-
-func (o JiraLinkedServiceOutput) ToJiraLinkedServiceOutput() JiraLinkedServiceOutput {
-	return o
-}
-
-func (o JiraLinkedServiceOutput) ToJiraLinkedServiceOutputWithContext(ctx context.Context) JiraLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o JiraLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v JiraLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o JiraLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v JiraLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o JiraLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JiraLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o JiraLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The IP address or host name of the Jira service. (e.g. jira.example.com)
-func (o JiraLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o JiraLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name that you provided in the username field.
-func (o JiraLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v JiraLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
-func (o JiraLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o JiraLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JiraLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o JiraLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o JiraLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o JiraLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// The user name that you use to access Jira Service.
-func (o JiraLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Jira Service linked service.
 type JiraLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -22397,59 +12950,6 @@ type JiraLinkedServiceResponse struct {
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
 	// The user name that you use to access Jira Service.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// JiraLinkedServiceResponseInput is an input type that accepts JiraLinkedServiceResponseArgs and JiraLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `JiraLinkedServiceResponseInput` via:
-//
-//          JiraLinkedServiceResponseArgs{...}
-type JiraLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToJiraLinkedServiceResponseOutput() JiraLinkedServiceResponseOutput
-	ToJiraLinkedServiceResponseOutputWithContext(context.Context) JiraLinkedServiceResponseOutput
-}
-
-// Jira Service linked service.
-type JiraLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The IP address or host name of the Jira service. (e.g. jira.example.com)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name that you provided in the username field.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
-	Port pulumi.MapInput `pulumi:"port"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-	// The user name that you use to access Jira Service.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (JiraLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JiraLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i JiraLinkedServiceResponseArgs) ToJiraLinkedServiceResponseOutput() JiraLinkedServiceResponseOutput {
-	return i.ToJiraLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i JiraLinkedServiceResponseArgs) ToJiraLinkedServiceResponseOutputWithContext(ctx context.Context) JiraLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JiraLinkedServiceResponseOutput)
 }
 
 // Jira Service linked service.
@@ -22588,51 +13088,6 @@ func (i JiraObjectDatasetArgs) ToJiraObjectDatasetOutputWithContext(ctx context.
 }
 
 // Jira Service dataset.
-type JiraObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (JiraObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JiraObjectDataset)(nil)).Elem()
-}
-
-func (o JiraObjectDatasetOutput) ToJiraObjectDatasetOutput() JiraObjectDatasetOutput {
-	return o
-}
-
-func (o JiraObjectDatasetOutput) ToJiraObjectDatasetOutputWithContext(ctx context.Context) JiraObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o JiraObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v JiraObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o JiraObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JiraObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o JiraObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v JiraObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o JiraObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v JiraObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o JiraObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v JiraObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o JiraObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JiraObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Jira Service dataset.
 type JiraObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -22646,45 +13101,6 @@ type JiraObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// JiraObjectDatasetResponseInput is an input type that accepts JiraObjectDatasetResponseArgs and JiraObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `JiraObjectDatasetResponseInput` via:
-//
-//          JiraObjectDatasetResponseArgs{...}
-type JiraObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToJiraObjectDatasetResponseOutput() JiraObjectDatasetResponseOutput
-	ToJiraObjectDatasetResponseOutputWithContext(context.Context) JiraObjectDatasetResponseOutput
-}
-
-// Jira Service dataset.
-type JiraObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JiraObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JiraObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i JiraObjectDatasetResponseArgs) ToJiraObjectDatasetResponseOutput() JiraObjectDatasetResponseOutput {
-	return i.ToJiraObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i JiraObjectDatasetResponseArgs) ToJiraObjectDatasetResponseOutputWithContext(ctx context.Context) JiraObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JiraObjectDatasetResponseOutput)
 }
 
 // Jira Service dataset.
@@ -22796,61 +13212,6 @@ func (i JsonFormatArgs) ToJsonFormatOutputWithContext(ctx context.Context) JsonF
 }
 
 // The data stored in JSON format.
-type JsonFormatOutput struct{ *pulumi.OutputState }
-
-func (JsonFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JsonFormat)(nil)).Elem()
-}
-
-func (o JsonFormatOutput) ToJsonFormatOutput() JsonFormatOutput {
-	return o
-}
-
-func (o JsonFormatOutput) ToJsonFormatOutputWithContext(ctx context.Context) JsonFormatOutput {
-	return o
-}
-
-// Deserializer. Type: string (or Expression with resultType string).
-func (o JsonFormatOutput) Deserializer() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.Deserializer }).(pulumi.MapOutput)
-}
-
-// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
-func (o JsonFormatOutput) EncodingName() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.EncodingName }).(pulumi.MapOutput)
-}
-
-// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-func (o JsonFormatOutput) FilePattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JsonFormat) *string { return v.FilePattern }).(pulumi.StringPtrOutput)
-}
-
-// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
-func (o JsonFormatOutput) JsonNodeReference() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.JsonNodeReference }).(pulumi.MapOutput)
-}
-
-// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
-func (o JsonFormatOutput) JsonPathDefinition() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.JsonPathDefinition }).(pulumi.MapOutput)
-}
-
-// The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
-func (o JsonFormatOutput) NestingSeparator() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.NestingSeparator }).(pulumi.MapOutput)
-}
-
-// Serializer. Type: string (or Expression with resultType string).
-func (o JsonFormatOutput) Serializer() pulumi.MapOutput {
-	return o.ApplyT(func(v JsonFormat) map[string]interface{} { return v.Serializer }).(pulumi.MapOutput)
-}
-
-// Type of dataset storage format.
-func (o JsonFormatOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JsonFormat) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The data stored in JSON format.
 type JsonFormatResponse struct {
 	// Deserializer. Type: string (or Expression with resultType string).
 	Deserializer map[string]interface{} `pulumi:"deserializer"`
@@ -22868,49 +13229,6 @@ type JsonFormatResponse struct {
 	Serializer map[string]interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
 	Type string `pulumi:"type"`
-}
-
-// JsonFormatResponseInput is an input type that accepts JsonFormatResponseArgs and JsonFormatResponseOutput values.
-// You can construct a concrete instance of `JsonFormatResponseInput` via:
-//
-//          JsonFormatResponseArgs{...}
-type JsonFormatResponseInput interface {
-	pulumi.Input
-
-	ToJsonFormatResponseOutput() JsonFormatResponseOutput
-	ToJsonFormatResponseOutputWithContext(context.Context) JsonFormatResponseOutput
-}
-
-// The data stored in JSON format.
-type JsonFormatResponseArgs struct {
-	// Deserializer. Type: string (or Expression with resultType string).
-	Deserializer pulumi.MapInput `pulumi:"deserializer"`
-	// The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
-	EncodingName pulumi.MapInput `pulumi:"encodingName"`
-	// File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
-	FilePattern pulumi.StringPtrInput `pulumi:"filePattern"`
-	// The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
-	JsonNodeReference pulumi.MapInput `pulumi:"jsonNodeReference"`
-	// The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
-	JsonPathDefinition pulumi.MapInput `pulumi:"jsonPathDefinition"`
-	// The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
-	NestingSeparator pulumi.MapInput `pulumi:"nestingSeparator"`
-	// Serializer. Type: string (or Expression with resultType string).
-	Serializer pulumi.MapInput `pulumi:"serializer"`
-	// Type of dataset storage format.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JsonFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JsonFormatResponse)(nil)).Elem()
-}
-
-func (i JsonFormatResponseArgs) ToJsonFormatResponseOutput() JsonFormatResponseOutput {
-	return i.ToJsonFormatResponseOutputWithContext(context.Background())
-}
-
-func (i JsonFormatResponseArgs) ToJsonFormatResponseOutputWithContext(ctx context.Context) JsonFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JsonFormatResponseOutput)
 }
 
 // The data stored in JSON format.
@@ -23008,67 +13326,11 @@ func (i LinkedIntegrationRuntimeKeyArgs) ToLinkedIntegrationRuntimeKeyOutputWith
 }
 
 // The base definition of a secret type.
-type LinkedIntegrationRuntimeKeyOutput struct{ *pulumi.OutputState }
-
-func (LinkedIntegrationRuntimeKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedIntegrationRuntimeKey)(nil)).Elem()
-}
-
-func (o LinkedIntegrationRuntimeKeyOutput) ToLinkedIntegrationRuntimeKeyOutput() LinkedIntegrationRuntimeKeyOutput {
-	return o
-}
-
-func (o LinkedIntegrationRuntimeKeyOutput) ToLinkedIntegrationRuntimeKeyOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeKeyOutput {
-	return o
-}
-
-// Type of the secret.
-func (o LinkedIntegrationRuntimeKeyOutput) AuthorizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedIntegrationRuntimeKey) string { return v.AuthorizationType }).(pulumi.StringOutput)
-}
-
-// Type of the secret.
-func (o LinkedIntegrationRuntimeKeyOutput) Key() SecureStringOutput {
-	return o.ApplyT(func(v LinkedIntegrationRuntimeKey) SecureString { return v.Key }).(SecureStringOutput)
-}
-
-// The base definition of a secret type.
 type LinkedIntegrationRuntimeKeyResponse struct {
 	// Type of the secret.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// Type of the secret.
 	Key SecureStringResponse `pulumi:"key"`
-}
-
-// LinkedIntegrationRuntimeKeyResponseInput is an input type that accepts LinkedIntegrationRuntimeKeyResponseArgs and LinkedIntegrationRuntimeKeyResponseOutput values.
-// You can construct a concrete instance of `LinkedIntegrationRuntimeKeyResponseInput` via:
-//
-//          LinkedIntegrationRuntimeKeyResponseArgs{...}
-type LinkedIntegrationRuntimeKeyResponseInput interface {
-	pulumi.Input
-
-	ToLinkedIntegrationRuntimeKeyResponseOutput() LinkedIntegrationRuntimeKeyResponseOutput
-	ToLinkedIntegrationRuntimeKeyResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeKeyResponseOutput
-}
-
-// The base definition of a secret type.
-type LinkedIntegrationRuntimeKeyResponseArgs struct {
-	// Type of the secret.
-	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
-	// Type of the secret.
-	Key SecureStringResponseInput `pulumi:"key"`
-}
-
-func (LinkedIntegrationRuntimeKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedIntegrationRuntimeKeyResponse)(nil)).Elem()
-}
-
-func (i LinkedIntegrationRuntimeKeyResponseArgs) ToLinkedIntegrationRuntimeKeyResponseOutput() LinkedIntegrationRuntimeKeyResponseOutput {
-	return i.ToLinkedIntegrationRuntimeKeyResponseOutputWithContext(context.Background())
-}
-
-func (i LinkedIntegrationRuntimeKeyResponseArgs) ToLinkedIntegrationRuntimeKeyResponseOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeKeyResponseOutput)
 }
 
 // The base definition of a secret type.
@@ -23136,67 +13398,11 @@ func (i LinkedIntegrationRuntimeRbacArgs) ToLinkedIntegrationRuntimeRbacOutputWi
 }
 
 // The base definition of a secret type.
-type LinkedIntegrationRuntimeRbacOutput struct{ *pulumi.OutputState }
-
-func (LinkedIntegrationRuntimeRbacOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedIntegrationRuntimeRbac)(nil)).Elem()
-}
-
-func (o LinkedIntegrationRuntimeRbacOutput) ToLinkedIntegrationRuntimeRbacOutput() LinkedIntegrationRuntimeRbacOutput {
-	return o
-}
-
-func (o LinkedIntegrationRuntimeRbacOutput) ToLinkedIntegrationRuntimeRbacOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeRbacOutput {
-	return o
-}
-
-// Type of the secret.
-func (o LinkedIntegrationRuntimeRbacOutput) AuthorizationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedIntegrationRuntimeRbac) string { return v.AuthorizationType }).(pulumi.StringOutput)
-}
-
-// The resource ID of the integration runtime to be shared.
-func (o LinkedIntegrationRuntimeRbacOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedIntegrationRuntimeRbac) string { return v.ResourceId }).(pulumi.StringOutput)
-}
-
-// The base definition of a secret type.
 type LinkedIntegrationRuntimeRbacResponse struct {
 	// Type of the secret.
 	AuthorizationType string `pulumi:"authorizationType"`
 	// The resource ID of the integration runtime to be shared.
 	ResourceId string `pulumi:"resourceId"`
-}
-
-// LinkedIntegrationRuntimeRbacResponseInput is an input type that accepts LinkedIntegrationRuntimeRbacResponseArgs and LinkedIntegrationRuntimeRbacResponseOutput values.
-// You can construct a concrete instance of `LinkedIntegrationRuntimeRbacResponseInput` via:
-//
-//          LinkedIntegrationRuntimeRbacResponseArgs{...}
-type LinkedIntegrationRuntimeRbacResponseInput interface {
-	pulumi.Input
-
-	ToLinkedIntegrationRuntimeRbacResponseOutput() LinkedIntegrationRuntimeRbacResponseOutput
-	ToLinkedIntegrationRuntimeRbacResponseOutputWithContext(context.Context) LinkedIntegrationRuntimeRbacResponseOutput
-}
-
-// The base definition of a secret type.
-type LinkedIntegrationRuntimeRbacResponseArgs struct {
-	// Type of the secret.
-	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
-	// The resource ID of the integration runtime to be shared.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-}
-
-func (LinkedIntegrationRuntimeRbacResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedIntegrationRuntimeRbacResponse)(nil)).Elem()
-}
-
-func (i LinkedIntegrationRuntimeRbacResponseArgs) ToLinkedIntegrationRuntimeRbacResponseOutput() LinkedIntegrationRuntimeRbacResponseOutput {
-	return i.ToLinkedIntegrationRuntimeRbacResponseOutputWithContext(context.Background())
-}
-
-func (i LinkedIntegrationRuntimeRbacResponseArgs) ToLinkedIntegrationRuntimeRbacResponseOutputWithContext(ctx context.Context) LinkedIntegrationRuntimeRbacResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedIntegrationRuntimeRbacResponseOutput)
 }
 
 // The base definition of a secret type.
@@ -23334,114 +13540,6 @@ func (i LinkedServiceReferenceArray) ToLinkedServiceReferenceArrayOutputWithCont
 }
 
 // Linked service reference type.
-type LinkedServiceReferenceOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceReference)(nil)).Elem()
-}
-
-func (o LinkedServiceReferenceOutput) ToLinkedServiceReferenceOutput() LinkedServiceReferenceOutput {
-	return o
-}
-
-func (o LinkedServiceReferenceOutput) ToLinkedServiceReferenceOutputWithContext(ctx context.Context) LinkedServiceReferenceOutput {
-	return o
-}
-
-func (o LinkedServiceReferenceOutput) ToLinkedServiceReferencePtrOutput() LinkedServiceReferencePtrOutput {
-	return o.ToLinkedServiceReferencePtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceReferenceOutput) ToLinkedServiceReferencePtrOutputWithContext(ctx context.Context) LinkedServiceReferencePtrOutput {
-	return o.ApplyT(func(v LinkedServiceReference) *LinkedServiceReference {
-		return &v
-	}).(LinkedServiceReferencePtrOutput)
-}
-
-// Arguments for LinkedService.
-func (o LinkedServiceReferenceOutput) Parameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v LinkedServiceReference) map[string]map[string]interface{} { return v.Parameters }).(pulumi.MapMapOutput)
-}
-
-// Reference LinkedService name.
-func (o LinkedServiceReferenceOutput) ReferenceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServiceReference) string { return v.ReferenceName }).(pulumi.StringOutput)
-}
-
-// Linked service reference type.
-func (o LinkedServiceReferenceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServiceReference) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type LinkedServiceReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceReference)(nil)).Elem()
-}
-
-func (o LinkedServiceReferencePtrOutput) ToLinkedServiceReferencePtrOutput() LinkedServiceReferencePtrOutput {
-	return o
-}
-
-func (o LinkedServiceReferencePtrOutput) ToLinkedServiceReferencePtrOutputWithContext(ctx context.Context) LinkedServiceReferencePtrOutput {
-	return o
-}
-
-func (o LinkedServiceReferencePtrOutput) Elem() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v *LinkedServiceReference) LinkedServiceReference { return *v }).(LinkedServiceReferenceOutput)
-}
-
-// Arguments for LinkedService.
-func (o LinkedServiceReferencePtrOutput) Parameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v *LinkedServiceReference) map[string]map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.MapMapOutput)
-}
-
-// Reference LinkedService name.
-func (o LinkedServiceReferencePtrOutput) ReferenceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ReferenceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference type.
-func (o LinkedServiceReferencePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type LinkedServiceReferenceArrayOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceReferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceReference)(nil)).Elem()
-}
-
-func (o LinkedServiceReferenceArrayOutput) ToLinkedServiceReferenceArrayOutput() LinkedServiceReferenceArrayOutput {
-	return o
-}
-
-func (o LinkedServiceReferenceArrayOutput) ToLinkedServiceReferenceArrayOutputWithContext(ctx context.Context) LinkedServiceReferenceArrayOutput {
-	return o
-}
-
-func (o LinkedServiceReferenceArrayOutput) Index(i pulumi.IntInput) LinkedServiceReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceReference {
-		return vs[0].([]LinkedServiceReference)[vs[1].(int)]
-	}).(LinkedServiceReferenceOutput)
-}
-
-// Linked service reference type.
 type LinkedServiceReferenceResponse struct {
 	// Arguments for LinkedService.
 	Parameters map[string]map[string]interface{} `pulumi:"parameters"`
@@ -23449,105 +13547,6 @@ type LinkedServiceReferenceResponse struct {
 	ReferenceName string `pulumi:"referenceName"`
 	// Linked service reference type.
 	Type string `pulumi:"type"`
-}
-
-// LinkedServiceReferenceResponseInput is an input type that accepts LinkedServiceReferenceResponseArgs and LinkedServiceReferenceResponseOutput values.
-// You can construct a concrete instance of `LinkedServiceReferenceResponseInput` via:
-//
-//          LinkedServiceReferenceResponseArgs{...}
-type LinkedServiceReferenceResponseInput interface {
-	pulumi.Input
-
-	ToLinkedServiceReferenceResponseOutput() LinkedServiceReferenceResponseOutput
-	ToLinkedServiceReferenceResponseOutputWithContext(context.Context) LinkedServiceReferenceResponseOutput
-}
-
-// Linked service reference type.
-type LinkedServiceReferenceResponseArgs struct {
-	// Arguments for LinkedService.
-	Parameters pulumi.MapMapInput `pulumi:"parameters"`
-	// Reference LinkedService name.
-	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
-	// Linked service reference type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LinkedServiceReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceReferenceResponse)(nil)).Elem()
-}
-
-func (i LinkedServiceReferenceResponseArgs) ToLinkedServiceReferenceResponseOutput() LinkedServiceReferenceResponseOutput {
-	return i.ToLinkedServiceReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i LinkedServiceReferenceResponseArgs) ToLinkedServiceReferenceResponseOutputWithContext(ctx context.Context) LinkedServiceReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceReferenceResponseOutput)
-}
-
-func (i LinkedServiceReferenceResponseArgs) ToLinkedServiceReferenceResponsePtrOutput() LinkedServiceReferenceResponsePtrOutput {
-	return i.ToLinkedServiceReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LinkedServiceReferenceResponseArgs) ToLinkedServiceReferenceResponsePtrOutputWithContext(ctx context.Context) LinkedServiceReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceReferenceResponseOutput).ToLinkedServiceReferenceResponsePtrOutputWithContext(ctx)
-}
-
-// LinkedServiceReferenceResponsePtrInput is an input type that accepts LinkedServiceReferenceResponseArgs, LinkedServiceReferenceResponsePtr and LinkedServiceReferenceResponsePtrOutput values.
-// You can construct a concrete instance of `LinkedServiceReferenceResponsePtrInput` via:
-//
-//          LinkedServiceReferenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LinkedServiceReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceReferenceResponsePtrOutput() LinkedServiceReferenceResponsePtrOutput
-	ToLinkedServiceReferenceResponsePtrOutputWithContext(context.Context) LinkedServiceReferenceResponsePtrOutput
-}
-
-type linkedServiceReferenceResponsePtrType LinkedServiceReferenceResponseArgs
-
-func LinkedServiceReferenceResponsePtr(v *LinkedServiceReferenceResponseArgs) LinkedServiceReferenceResponsePtrInput {
-	return (*linkedServiceReferenceResponsePtrType)(v)
-}
-
-func (*linkedServiceReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceReferenceResponse)(nil)).Elem()
-}
-
-func (i *linkedServiceReferenceResponsePtrType) ToLinkedServiceReferenceResponsePtrOutput() LinkedServiceReferenceResponsePtrOutput {
-	return i.ToLinkedServiceReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceReferenceResponsePtrType) ToLinkedServiceReferenceResponsePtrOutputWithContext(ctx context.Context) LinkedServiceReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceReferenceResponsePtrOutput)
-}
-
-// LinkedServiceReferenceResponseArrayInput is an input type that accepts LinkedServiceReferenceResponseArray and LinkedServiceReferenceResponseArrayOutput values.
-// You can construct a concrete instance of `LinkedServiceReferenceResponseArrayInput` via:
-//
-//          LinkedServiceReferenceResponseArray{ LinkedServiceReferenceResponseArgs{...} }
-type LinkedServiceReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToLinkedServiceReferenceResponseArrayOutput() LinkedServiceReferenceResponseArrayOutput
-	ToLinkedServiceReferenceResponseArrayOutputWithContext(context.Context) LinkedServiceReferenceResponseArrayOutput
-}
-
-type LinkedServiceReferenceResponseArray []LinkedServiceReferenceResponseInput
-
-func (LinkedServiceReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedServiceReferenceResponse)(nil)).Elem()
-}
-
-func (i LinkedServiceReferenceResponseArray) ToLinkedServiceReferenceResponseArrayOutput() LinkedServiceReferenceResponseArrayOutput {
-	return i.ToLinkedServiceReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LinkedServiceReferenceResponseArray) ToLinkedServiceReferenceResponseArrayOutputWithContext(ctx context.Context) LinkedServiceReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceReferenceResponseArrayOutput)
 }
 
 // Linked service reference type.
@@ -23734,76 +13733,6 @@ func (i MagentoLinkedServiceArgs) ToMagentoLinkedServiceOutputWithContext(ctx co
 }
 
 // Magento server linked service.
-type MagentoLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (MagentoLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MagentoLinkedService)(nil)).Elem()
-}
-
-func (o MagentoLinkedServiceOutput) ToMagentoLinkedServiceOutput() MagentoLinkedServiceOutput {
-	return o
-}
-
-func (o MagentoLinkedServiceOutput) ToMagentoLinkedServiceOutputWithContext(ctx context.Context) MagentoLinkedServiceOutput {
-	return o
-}
-
-// The access token from Magento.
-func (o MagentoLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v MagentoLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MagentoLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MagentoLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o MagentoLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v MagentoLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o MagentoLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MagentoLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o MagentoLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
-func (o MagentoLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o MagentoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o MagentoLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MagentoLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o MagentoLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o MagentoLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o MagentoLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Magento server linked service.
 type MagentoLinkedServiceResponse struct {
 	// The access token from Magento.
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -23827,55 +13756,6 @@ type MagentoLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// MagentoLinkedServiceResponseInput is an input type that accepts MagentoLinkedServiceResponseArgs and MagentoLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `MagentoLinkedServiceResponseInput` via:
-//
-//          MagentoLinkedServiceResponseArgs{...}
-type MagentoLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToMagentoLinkedServiceResponseOutput() MagentoLinkedServiceResponseOutput
-	ToMagentoLinkedServiceResponseOutputWithContext(context.Context) MagentoLinkedServiceResponseOutput
-}
-
-// Magento server linked service.
-type MagentoLinkedServiceResponseArgs struct {
-	// The access token from Magento.
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (MagentoLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MagentoLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i MagentoLinkedServiceResponseArgs) ToMagentoLinkedServiceResponseOutput() MagentoLinkedServiceResponseOutput {
-	return i.ToMagentoLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i MagentoLinkedServiceResponseArgs) ToMagentoLinkedServiceResponseOutputWithContext(ctx context.Context) MagentoLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MagentoLinkedServiceResponseOutput)
 }
 
 // Magento server linked service.
@@ -24004,51 +13884,6 @@ func (i MagentoObjectDatasetArgs) ToMagentoObjectDatasetOutputWithContext(ctx co
 }
 
 // Magento server dataset.
-type MagentoObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (MagentoObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MagentoObjectDataset)(nil)).Elem()
-}
-
-func (o MagentoObjectDatasetOutput) ToMagentoObjectDatasetOutput() MagentoObjectDatasetOutput {
-	return o
-}
-
-func (o MagentoObjectDatasetOutput) ToMagentoObjectDatasetOutputWithContext(ctx context.Context) MagentoObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MagentoObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o MagentoObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o MagentoObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o MagentoObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o MagentoObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o MagentoObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MagentoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Magento server dataset.
 type MagentoObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -24062,45 +13897,6 @@ type MagentoObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// MagentoObjectDatasetResponseInput is an input type that accepts MagentoObjectDatasetResponseArgs and MagentoObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `MagentoObjectDatasetResponseInput` via:
-//
-//          MagentoObjectDatasetResponseArgs{...}
-type MagentoObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToMagentoObjectDatasetResponseOutput() MagentoObjectDatasetResponseOutput
-	ToMagentoObjectDatasetResponseOutputWithContext(context.Context) MagentoObjectDatasetResponseOutput
-}
-
-// Magento server dataset.
-type MagentoObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MagentoObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MagentoObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i MagentoObjectDatasetResponseArgs) ToMagentoObjectDatasetResponseOutput() MagentoObjectDatasetResponseOutput {
-	return i.ToMagentoObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i MagentoObjectDatasetResponseArgs) ToMagentoObjectDatasetResponseOutputWithContext(ctx context.Context) MagentoObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MagentoObjectDatasetResponseOutput)
 }
 
 // Magento server dataset.
@@ -24196,41 +13992,6 @@ func (i ManagedIntegrationRuntimeArgs) ToManagedIntegrationRuntimeOutputWithCont
 }
 
 // Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-type ManagedIntegrationRuntimeOutput struct{ *pulumi.OutputState }
-
-func (ManagedIntegrationRuntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIntegrationRuntime)(nil)).Elem()
-}
-
-func (o ManagedIntegrationRuntimeOutput) ToManagedIntegrationRuntimeOutput() ManagedIntegrationRuntimeOutput {
-	return o
-}
-
-func (o ManagedIntegrationRuntimeOutput) ToManagedIntegrationRuntimeOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeOutput {
-	return o
-}
-
-// The compute resource for managed integration runtime.
-func (o ManagedIntegrationRuntimeOutput) ComputeProperties() IntegrationRuntimeComputePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeComputeProperties { return v.ComputeProperties }).(IntegrationRuntimeComputePropertiesPtrOutput)
-}
-
-// Integration runtime description.
-func (o ManagedIntegrationRuntimeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedIntegrationRuntime) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// SSIS properties for managed integration runtime.
-func (o ManagedIntegrationRuntimeOutput) SsisProperties() IntegrationRuntimeSsisPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedIntegrationRuntime) *IntegrationRuntimeSsisProperties { return v.SsisProperties }).(IntegrationRuntimeSsisPropertiesPtrOutput)
-}
-
-// Type of integration runtime.
-func (o ManagedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
 type ManagedIntegrationRuntimeResponse struct {
 	// The compute resource for managed integration runtime.
 	ComputeProperties *IntegrationRuntimeComputePropertiesResponse `pulumi:"computeProperties"`
@@ -24242,43 +14003,6 @@ type ManagedIntegrationRuntimeResponse struct {
 	State string `pulumi:"state"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
-}
-
-// ManagedIntegrationRuntimeResponseInput is an input type that accepts ManagedIntegrationRuntimeResponseArgs and ManagedIntegrationRuntimeResponseOutput values.
-// You can construct a concrete instance of `ManagedIntegrationRuntimeResponseInput` via:
-//
-//          ManagedIntegrationRuntimeResponseArgs{...}
-type ManagedIntegrationRuntimeResponseInput interface {
-	pulumi.Input
-
-	ToManagedIntegrationRuntimeResponseOutput() ManagedIntegrationRuntimeResponseOutput
-	ToManagedIntegrationRuntimeResponseOutputWithContext(context.Context) ManagedIntegrationRuntimeResponseOutput
-}
-
-// Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-type ManagedIntegrationRuntimeResponseArgs struct {
-	// The compute resource for managed integration runtime.
-	ComputeProperties IntegrationRuntimeComputePropertiesResponsePtrInput `pulumi:"computeProperties"`
-	// Integration runtime description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// SSIS properties for managed integration runtime.
-	SsisProperties IntegrationRuntimeSsisPropertiesResponsePtrInput `pulumi:"ssisProperties"`
-	// Integration runtime state, only valid for managed dedicated integration runtime.
-	State pulumi.StringInput `pulumi:"state"`
-	// Type of integration runtime.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedIntegrationRuntimeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIntegrationRuntimeResponse)(nil)).Elem()
-}
-
-func (i ManagedIntegrationRuntimeResponseArgs) ToManagedIntegrationRuntimeResponseOutput() ManagedIntegrationRuntimeResponseOutput {
-	return i.ToManagedIntegrationRuntimeResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedIntegrationRuntimeResponseArgs) ToManagedIntegrationRuntimeResponseOutputWithContext(ctx context.Context) ManagedIntegrationRuntimeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIntegrationRuntimeResponseOutput)
 }
 
 // Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -24385,56 +14109,6 @@ func (i MariaDBLinkedServiceArgs) ToMariaDBLinkedServiceOutputWithContext(ctx co
 }
 
 // MariaDB server linked service.
-type MariaDBLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (MariaDBLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MariaDBLinkedService)(nil)).Elem()
-}
-
-func (o MariaDBLinkedServiceOutput) ToMariaDBLinkedServiceOutput() MariaDBLinkedServiceOutput {
-	return o
-}
-
-func (o MariaDBLinkedServiceOutput) ToMariaDBLinkedServiceOutputWithContext(ctx context.Context) MariaDBLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MariaDBLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o MariaDBLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o MariaDBLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o MariaDBLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o MariaDBLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o MariaDBLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o MariaDBLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MariaDBLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// MariaDB server linked service.
 type MariaDBLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -24450,47 +14124,6 @@ type MariaDBLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// MariaDBLinkedServiceResponseInput is an input type that accepts MariaDBLinkedServiceResponseArgs and MariaDBLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `MariaDBLinkedServiceResponseInput` via:
-//
-//          MariaDBLinkedServiceResponseArgs{...}
-type MariaDBLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToMariaDBLinkedServiceResponseOutput() MariaDBLinkedServiceResponseOutput
-	ToMariaDBLinkedServiceResponseOutputWithContext(context.Context) MariaDBLinkedServiceResponseOutput
-}
-
-// MariaDB server linked service.
-type MariaDBLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MariaDBLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MariaDBLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i MariaDBLinkedServiceResponseArgs) ToMariaDBLinkedServiceResponseOutput() MariaDBLinkedServiceResponseOutput {
-	return i.ToMariaDBLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i MariaDBLinkedServiceResponseArgs) ToMariaDBLinkedServiceResponseOutputWithContext(ctx context.Context) MariaDBLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MariaDBLinkedServiceResponseOutput)
 }
 
 // MariaDB server linked service.
@@ -24599,51 +14232,6 @@ func (i MariaDBTableDatasetArgs) ToMariaDBTableDatasetOutputWithContext(ctx cont
 }
 
 // MariaDB server dataset.
-type MariaDBTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (MariaDBTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MariaDBTableDataset)(nil)).Elem()
-}
-
-func (o MariaDBTableDatasetOutput) ToMariaDBTableDatasetOutput() MariaDBTableDatasetOutput {
-	return o
-}
-
-func (o MariaDBTableDatasetOutput) ToMariaDBTableDatasetOutputWithContext(ctx context.Context) MariaDBTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MariaDBTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o MariaDBTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o MariaDBTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o MariaDBTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o MariaDBTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o MariaDBTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MariaDBTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// MariaDB server dataset.
 type MariaDBTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -24657,45 +14245,6 @@ type MariaDBTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// MariaDBTableDatasetResponseInput is an input type that accepts MariaDBTableDatasetResponseArgs and MariaDBTableDatasetResponseOutput values.
-// You can construct a concrete instance of `MariaDBTableDatasetResponseInput` via:
-//
-//          MariaDBTableDatasetResponseArgs{...}
-type MariaDBTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToMariaDBTableDatasetResponseOutput() MariaDBTableDatasetResponseOutput
-	ToMariaDBTableDatasetResponseOutputWithContext(context.Context) MariaDBTableDatasetResponseOutput
-}
-
-// MariaDB server dataset.
-type MariaDBTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MariaDBTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MariaDBTableDatasetResponse)(nil)).Elem()
-}
-
-func (i MariaDBTableDatasetResponseArgs) ToMariaDBTableDatasetResponseOutput() MariaDBTableDatasetResponseOutput {
-	return i.ToMariaDBTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i MariaDBTableDatasetResponseArgs) ToMariaDBTableDatasetResponseOutputWithContext(ctx context.Context) MariaDBTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MariaDBTableDatasetResponseOutput)
 }
 
 // MariaDB server dataset.
@@ -24823,81 +14372,6 @@ func (i MarketoLinkedServiceArgs) ToMarketoLinkedServiceOutputWithContext(ctx co
 }
 
 // Marketo server linked service.
-type MarketoLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (MarketoLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MarketoLinkedService)(nil)).Elem()
-}
-
-func (o MarketoLinkedServiceOutput) ToMarketoLinkedServiceOutput() MarketoLinkedServiceOutput {
-	return o
-}
-
-func (o MarketoLinkedServiceOutput) ToMarketoLinkedServiceOutputWithContext(ctx context.Context) MarketoLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MarketoLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MarketoLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client Id of your Marketo service.
-func (o MarketoLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret of your Marketo service.
-func (o MarketoLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v MarketoLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o MarketoLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v MarketoLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o MarketoLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MarketoLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o MarketoLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
-func (o MarketoLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o MarketoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o MarketoLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MarketoLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o MarketoLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o MarketoLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o MarketoLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Marketo server linked service.
 type MarketoLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -24923,57 +14397,6 @@ type MarketoLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// MarketoLinkedServiceResponseInput is an input type that accepts MarketoLinkedServiceResponseArgs and MarketoLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `MarketoLinkedServiceResponseInput` via:
-//
-//          MarketoLinkedServiceResponseArgs{...}
-type MarketoLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToMarketoLinkedServiceResponseOutput() MarketoLinkedServiceResponseOutput
-	ToMarketoLinkedServiceResponseOutputWithContext(context.Context) MarketoLinkedServiceResponseOutput
-}
-
-// Marketo server linked service.
-type MarketoLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client Id of your Marketo service.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret of your Marketo service.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (MarketoLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MarketoLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i MarketoLinkedServiceResponseArgs) ToMarketoLinkedServiceResponseOutput() MarketoLinkedServiceResponseOutput {
-	return i.ToMarketoLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i MarketoLinkedServiceResponseArgs) ToMarketoLinkedServiceResponseOutputWithContext(ctx context.Context) MarketoLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MarketoLinkedServiceResponseOutput)
 }
 
 // Marketo server linked service.
@@ -25107,51 +14530,6 @@ func (i MarketoObjectDatasetArgs) ToMarketoObjectDatasetOutputWithContext(ctx co
 }
 
 // Marketo server dataset.
-type MarketoObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (MarketoObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MarketoObjectDataset)(nil)).Elem()
-}
-
-func (o MarketoObjectDatasetOutput) ToMarketoObjectDatasetOutput() MarketoObjectDatasetOutput {
-	return o
-}
-
-func (o MarketoObjectDatasetOutput) ToMarketoObjectDatasetOutputWithContext(ctx context.Context) MarketoObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MarketoObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o MarketoObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o MarketoObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o MarketoObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o MarketoObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o MarketoObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MarketoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Marketo server dataset.
 type MarketoObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -25165,45 +14543,6 @@ type MarketoObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// MarketoObjectDatasetResponseInput is an input type that accepts MarketoObjectDatasetResponseArgs and MarketoObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `MarketoObjectDatasetResponseInput` via:
-//
-//          MarketoObjectDatasetResponseArgs{...}
-type MarketoObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToMarketoObjectDatasetResponseOutput() MarketoObjectDatasetResponseOutput
-	ToMarketoObjectDatasetResponseOutputWithContext(context.Context) MarketoObjectDatasetResponseOutput
-}
-
-// Marketo server dataset.
-type MarketoObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MarketoObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MarketoObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i MarketoObjectDatasetResponseArgs) ToMarketoObjectDatasetResponseOutput() MarketoObjectDatasetResponseOutput {
-	return i.ToMarketoObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i MarketoObjectDatasetResponseArgs) ToMarketoObjectDatasetResponseOutputWithContext(ctx context.Context) MarketoObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MarketoObjectDatasetResponseOutput)
 }
 
 // Marketo server dataset.
@@ -25311,56 +14650,6 @@ func (i MongoDbCollectionDatasetArgs) ToMongoDbCollectionDatasetOutputWithContex
 }
 
 // The MongoDB database dataset.
-type MongoDbCollectionDatasetOutput struct{ *pulumi.OutputState }
-
-func (MongoDbCollectionDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDbCollectionDataset)(nil)).Elem()
-}
-
-func (o MongoDbCollectionDatasetOutput) ToMongoDbCollectionDatasetOutput() MongoDbCollectionDatasetOutput {
-	return o
-}
-
-func (o MongoDbCollectionDatasetOutput) ToMongoDbCollectionDatasetOutputWithContext(ctx context.Context) MongoDbCollectionDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MongoDbCollectionDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The table name of the MongoDB database. Type: string (or Expression with resultType string).
-func (o MongoDbCollectionDatasetOutput) CollectionName() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) map[string]interface{} { return v.CollectionName }).(pulumi.MapOutput)
-}
-
-// Dataset description.
-func (o MongoDbCollectionDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o MongoDbCollectionDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o MongoDbCollectionDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o MongoDbCollectionDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o MongoDbCollectionDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDbCollectionDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The MongoDB database dataset.
 type MongoDbCollectionDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -25376,47 +14665,6 @@ type MongoDbCollectionDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// MongoDbCollectionDatasetResponseInput is an input type that accepts MongoDbCollectionDatasetResponseArgs and MongoDbCollectionDatasetResponseOutput values.
-// You can construct a concrete instance of `MongoDbCollectionDatasetResponseInput` via:
-//
-//          MongoDbCollectionDatasetResponseArgs{...}
-type MongoDbCollectionDatasetResponseInput interface {
-	pulumi.Input
-
-	ToMongoDbCollectionDatasetResponseOutput() MongoDbCollectionDatasetResponseOutput
-	ToMongoDbCollectionDatasetResponseOutputWithContext(context.Context) MongoDbCollectionDatasetResponseOutput
-}
-
-// The MongoDB database dataset.
-type MongoDbCollectionDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The table name of the MongoDB database. Type: string (or Expression with resultType string).
-	CollectionName pulumi.MapInput `pulumi:"collectionName"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MongoDbCollectionDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDbCollectionDatasetResponse)(nil)).Elem()
-}
-
-func (i MongoDbCollectionDatasetResponseArgs) ToMongoDbCollectionDatasetResponseOutput() MongoDbCollectionDatasetResponseOutput {
-	return i.ToMongoDbCollectionDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i MongoDbCollectionDatasetResponseArgs) ToMongoDbCollectionDatasetResponseOutputWithContext(ctx context.Context) MongoDbCollectionDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoDbCollectionDatasetResponseOutput)
 }
 
 // The MongoDB database dataset.
@@ -25563,96 +14811,6 @@ func (i MongoDbLinkedServiceArgs) ToMongoDbLinkedServiceOutputWithContext(ctx co
 }
 
 // Linked service for MongoDb data source.
-type MongoDbLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (MongoDbLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDbLinkedService)(nil)).Elem()
-}
-
-func (o MongoDbLinkedServiceOutput) ToMongoDbLinkedServiceOutput() MongoDbLinkedServiceOutput {
-	return o
-}
-
-func (o MongoDbLinkedServiceOutput) ToMongoDbLinkedServiceOutputWithContext(ctx context.Context) MongoDbLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-func (o MongoDbLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MongoDbLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Database to verify the username and password. Type: string (or Expression with resultType string).
-func (o MongoDbLinkedServiceOutput) AuthSource() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.AuthSource }).(pulumi.MapOutput)
-}
-
-// The authentication type to be used to connect to the MongoDB database.
-func (o MongoDbLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o MongoDbLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-func (o MongoDbLinkedServiceOutput) DatabaseName() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.DatabaseName }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o MongoDbLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-func (o MongoDbLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o MongoDbLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o MongoDbLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for authentication.
-func (o MongoDbLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o MongoDbLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
-func (o MongoDbLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o MongoDbLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username for authentication. Type: string (or Expression with resultType string).
-func (o MongoDbLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDbLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for MongoDb data source.
 type MongoDbLinkedServiceResponse struct {
 	// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
 	AllowSelfSignedServerCert map[string]interface{} `pulumi:"allowSelfSignedServerCert"`
@@ -25684,63 +14842,6 @@ type MongoDbLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// MongoDbLinkedServiceResponseInput is an input type that accepts MongoDbLinkedServiceResponseArgs and MongoDbLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `MongoDbLinkedServiceResponseInput` via:
-//
-//          MongoDbLinkedServiceResponseArgs{...}
-type MongoDbLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToMongoDbLinkedServiceResponseOutput() MongoDbLinkedServiceResponseOutput
-	ToMongoDbLinkedServiceResponseOutputWithContext(context.Context) MongoDbLinkedServiceResponseOutput
-}
-
-// Linked service for MongoDb data source.
-type MongoDbLinkedServiceResponseArgs struct {
-	// Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Database to verify the username and password. Type: string (or Expression with resultType string).
-	AuthSource pulumi.MapInput `pulumi:"authSource"`
-	// The authentication type to be used to connect to the MongoDB database.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
-	DatabaseName pulumi.MapInput `pulumi:"databaseName"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username for authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (MongoDbLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDbLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i MongoDbLinkedServiceResponseArgs) ToMongoDbLinkedServiceResponseOutput() MongoDbLinkedServiceResponseOutput {
-	return i.ToMongoDbLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i MongoDbLinkedServiceResponseArgs) ToMongoDbLinkedServiceResponseOutputWithContext(ctx context.Context) MongoDbLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoDbLinkedServiceResponseOutput)
 }
 
 // Linked service for MongoDb data source.
@@ -25877,36 +14978,6 @@ func (i MultiplePipelineTriggerArgs) ToMultiplePipelineTriggerOutputWithContext(
 }
 
 // Base class for all triggers that support one to many model for trigger to pipeline.
-type MultiplePipelineTriggerOutput struct{ *pulumi.OutputState }
-
-func (MultiplePipelineTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiplePipelineTrigger)(nil)).Elem()
-}
-
-func (o MultiplePipelineTriggerOutput) ToMultiplePipelineTriggerOutput() MultiplePipelineTriggerOutput {
-	return o
-}
-
-func (o MultiplePipelineTriggerOutput) ToMultiplePipelineTriggerOutputWithContext(ctx context.Context) MultiplePipelineTriggerOutput {
-	return o
-}
-
-// Trigger description.
-func (o MultiplePipelineTriggerOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MultiplePipelineTrigger) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Pipelines that need to be started.
-func (o MultiplePipelineTriggerOutput) Pipelines() TriggerPipelineReferenceArrayOutput {
-	return o.ApplyT(func(v MultiplePipelineTrigger) []TriggerPipelineReference { return v.Pipelines }).(TriggerPipelineReferenceArrayOutput)
-}
-
-// Trigger type.
-func (o MultiplePipelineTriggerOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MultiplePipelineTrigger) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for all triggers that support one to many model for trigger to pipeline.
 type MultiplePipelineTriggerResponse struct {
 	// Trigger description.
 	Description *string `pulumi:"description"`
@@ -25916,41 +14987,6 @@ type MultiplePipelineTriggerResponse struct {
 	RuntimeState string `pulumi:"runtimeState"`
 	// Trigger type.
 	Type string `pulumi:"type"`
-}
-
-// MultiplePipelineTriggerResponseInput is an input type that accepts MultiplePipelineTriggerResponseArgs and MultiplePipelineTriggerResponseOutput values.
-// You can construct a concrete instance of `MultiplePipelineTriggerResponseInput` via:
-//
-//          MultiplePipelineTriggerResponseArgs{...}
-type MultiplePipelineTriggerResponseInput interface {
-	pulumi.Input
-
-	ToMultiplePipelineTriggerResponseOutput() MultiplePipelineTriggerResponseOutput
-	ToMultiplePipelineTriggerResponseOutputWithContext(context.Context) MultiplePipelineTriggerResponseOutput
-}
-
-// Base class for all triggers that support one to many model for trigger to pipeline.
-type MultiplePipelineTriggerResponseArgs struct {
-	// Trigger description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Pipelines that need to be started.
-	Pipelines TriggerPipelineReferenceResponseArrayInput `pulumi:"pipelines"`
-	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
-	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
-	// Trigger type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MultiplePipelineTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultiplePipelineTriggerResponse)(nil)).Elem()
-}
-
-func (i MultiplePipelineTriggerResponseArgs) ToMultiplePipelineTriggerResponseOutput() MultiplePipelineTriggerResponseOutput {
-	return i.ToMultiplePipelineTriggerResponseOutputWithContext(context.Background())
-}
-
-func (i MultiplePipelineTriggerResponseArgs) ToMultiplePipelineTriggerResponseOutputWithContext(ctx context.Context) MultiplePipelineTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultiplePipelineTriggerResponseOutput)
 }
 
 // Base class for all triggers that support one to many model for trigger to pipeline.
@@ -26048,56 +15084,6 @@ func (i MySqlLinkedServiceArgs) ToMySqlLinkedServiceOutputWithContext(ctx contex
 }
 
 // Linked service for MySQL data source.
-type MySqlLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (MySqlLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MySqlLinkedService)(nil)).Elem()
-}
-
-func (o MySqlLinkedServiceOutput) ToMySqlLinkedServiceOutput() MySqlLinkedServiceOutput {
-	return o
-}
-
-func (o MySqlLinkedServiceOutput) ToMySqlLinkedServiceOutputWithContext(ctx context.Context) MySqlLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o MySqlLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v MySqlLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o MySqlLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v MySqlLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string.
-func (o MySqlLinkedServiceOutput) ConnectionString() pulumi.AnyOutput {
-	return o.ApplyT(func(v MySqlLinkedService) interface{} { return v.ConnectionString }).(pulumi.AnyOutput)
-}
-
-// Linked service description.
-func (o MySqlLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MySqlLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o MySqlLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v MySqlLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o MySqlLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v MySqlLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o MySqlLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MySqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Linked service for MySQL data source.
 type MySqlLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -26113,47 +15099,6 @@ type MySqlLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// MySqlLinkedServiceResponseInput is an input type that accepts MySqlLinkedServiceResponseArgs and MySqlLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `MySqlLinkedServiceResponseInput` via:
-//
-//          MySqlLinkedServiceResponseArgs{...}
-type MySqlLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToMySqlLinkedServiceResponseOutput() MySqlLinkedServiceResponseOutput
-	ToMySqlLinkedServiceResponseOutputWithContext(context.Context) MySqlLinkedServiceResponseOutput
-}
-
-// Linked service for MySQL data source.
-type MySqlLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string.
-	ConnectionString pulumi.Input `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MySqlLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MySqlLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i MySqlLinkedServiceResponseArgs) ToMySqlLinkedServiceResponseOutput() MySqlLinkedServiceResponseOutput {
-	return i.ToMySqlLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i MySqlLinkedServiceResponseArgs) ToMySqlLinkedServiceResponseOutputWithContext(ctx context.Context) MySqlLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MySqlLinkedServiceResponseOutput)
 }
 
 // Linked service for MySQL data source.
@@ -26266,56 +15211,6 @@ func (i NetezzaLinkedServiceArgs) ToNetezzaLinkedServiceOutputWithContext(ctx co
 }
 
 // Netezza linked service.
-type NetezzaLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (NetezzaLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetezzaLinkedService)(nil)).Elem()
-}
-
-func (o NetezzaLinkedServiceOutput) ToNetezzaLinkedServiceOutput() NetezzaLinkedServiceOutput {
-	return o
-}
-
-func (o NetezzaLinkedServiceOutput) ToNetezzaLinkedServiceOutputWithContext(ctx context.Context) NetezzaLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o NetezzaLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o NetezzaLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o NetezzaLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o NetezzaLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o NetezzaLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o NetezzaLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o NetezzaLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetezzaLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Netezza linked service.
 type NetezzaLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -26331,47 +15226,6 @@ type NetezzaLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// NetezzaLinkedServiceResponseInput is an input type that accepts NetezzaLinkedServiceResponseArgs and NetezzaLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `NetezzaLinkedServiceResponseInput` via:
-//
-//          NetezzaLinkedServiceResponseArgs{...}
-type NetezzaLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToNetezzaLinkedServiceResponseOutput() NetezzaLinkedServiceResponseOutput
-	ToNetezzaLinkedServiceResponseOutputWithContext(context.Context) NetezzaLinkedServiceResponseOutput
-}
-
-// Netezza linked service.
-type NetezzaLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NetezzaLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetezzaLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i NetezzaLinkedServiceResponseArgs) ToNetezzaLinkedServiceResponseOutput() NetezzaLinkedServiceResponseOutput {
-	return i.ToNetezzaLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i NetezzaLinkedServiceResponseArgs) ToNetezzaLinkedServiceResponseOutputWithContext(ctx context.Context) NetezzaLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetezzaLinkedServiceResponseOutput)
 }
 
 // Netezza linked service.
@@ -26480,51 +15334,6 @@ func (i NetezzaTableDatasetArgs) ToNetezzaTableDatasetOutputWithContext(ctx cont
 }
 
 // Netezza dataset.
-type NetezzaTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (NetezzaTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetezzaTableDataset)(nil)).Elem()
-}
-
-func (o NetezzaTableDatasetOutput) ToNetezzaTableDatasetOutput() NetezzaTableDatasetOutput {
-	return o
-}
-
-func (o NetezzaTableDatasetOutput) ToNetezzaTableDatasetOutputWithContext(ctx context.Context) NetezzaTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o NetezzaTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o NetezzaTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o NetezzaTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o NetezzaTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o NetezzaTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o NetezzaTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NetezzaTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Netezza dataset.
 type NetezzaTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -26538,45 +15347,6 @@ type NetezzaTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// NetezzaTableDatasetResponseInput is an input type that accepts NetezzaTableDatasetResponseArgs and NetezzaTableDatasetResponseOutput values.
-// You can construct a concrete instance of `NetezzaTableDatasetResponseInput` via:
-//
-//          NetezzaTableDatasetResponseArgs{...}
-type NetezzaTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToNetezzaTableDatasetResponseOutput() NetezzaTableDatasetResponseOutput
-	ToNetezzaTableDatasetResponseOutputWithContext(context.Context) NetezzaTableDatasetResponseOutput
-}
-
-// Netezza dataset.
-type NetezzaTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (NetezzaTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetezzaTableDatasetResponse)(nil)).Elem()
-}
-
-func (i NetezzaTableDatasetResponseArgs) ToNetezzaTableDatasetResponseOutput() NetezzaTableDatasetResponseOutput {
-	return i.ToNetezzaTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i NetezzaTableDatasetResponseArgs) ToNetezzaTableDatasetResponseOutputWithContext(ctx context.Context) NetezzaTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetezzaTableDatasetResponseOutput)
 }
 
 // Netezza dataset.
@@ -26696,71 +15466,6 @@ func (i ODataLinkedServiceArgs) ToODataLinkedServiceOutputWithContext(ctx contex
 }
 
 // Open Data Protocol (OData) linked service.
-type ODataLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ODataLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataLinkedService)(nil)).Elem()
-}
-
-func (o ODataLinkedServiceOutput) ToODataLinkedServiceOutput() ODataLinkedServiceOutput {
-	return o
-}
-
-func (o ODataLinkedServiceOutput) ToODataLinkedServiceOutputWithContext(ctx context.Context) ODataLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ODataLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ODataLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Type of authentication used to connect to the OData service.
-func (o ODataLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ODataLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o ODataLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ODataLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ODataLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ODataLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ODataLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ODataLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ODataLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ODataLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password of the OData service.
-func (o ODataLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v ODataLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o ODataLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ODataLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
-func (o ODataLinkedServiceOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v ODataLinkedService) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// User name of the OData service. Type: string (or Expression with resultType string).
-func (o ODataLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v ODataLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// Open Data Protocol (OData) linked service.
 type ODataLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -26782,53 +15487,6 @@ type ODataLinkedServiceResponse struct {
 	Url map[string]interface{} `pulumi:"url"`
 	// User name of the OData service. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// ODataLinkedServiceResponseInput is an input type that accepts ODataLinkedServiceResponseArgs and ODataLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ODataLinkedServiceResponseInput` via:
-//
-//          ODataLinkedServiceResponseArgs{...}
-type ODataLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToODataLinkedServiceResponseOutput() ODataLinkedServiceResponseOutput
-	ToODataLinkedServiceResponseOutputWithContext(context.Context) ODataLinkedServiceResponseOutput
-}
-
-// Open Data Protocol (OData) linked service.
-type ODataLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Type of authentication used to connect to the OData service.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password of the OData service.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL of the OData service endpoint. Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-	// User name of the OData service. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (ODataLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ODataLinkedServiceResponseArgs) ToODataLinkedServiceResponseOutput() ODataLinkedServiceResponseOutput {
-	return i.ToODataLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ODataLinkedServiceResponseArgs) ToODataLinkedServiceResponseOutputWithContext(ctx context.Context) ODataLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ODataLinkedServiceResponseOutput)
 }
 
 // Open Data Protocol (OData) linked service.
@@ -26956,56 +15614,6 @@ func (i ODataResourceDatasetArgs) ToODataResourceDatasetOutputWithContext(ctx co
 }
 
 // The Open Data Protocol (OData) resource dataset.
-type ODataResourceDatasetOutput struct{ *pulumi.OutputState }
-
-func (ODataResourceDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataResourceDataset)(nil)).Elem()
-}
-
-func (o ODataResourceDatasetOutput) ToODataResourceDatasetOutput() ODataResourceDatasetOutput {
-	return o
-}
-
-func (o ODataResourceDatasetOutput) ToODataResourceDatasetOutputWithContext(ctx context.Context) ODataResourceDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ODataResourceDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ODataResourceDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ODataResourceDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ODataResourceDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ODataResourceDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ODataResourceDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ODataResourceDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ODataResourceDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The OData resource path. Type: string (or Expression with resultType string).
-func (o ODataResourceDatasetOutput) Path() pulumi.MapOutput {
-	return o.ApplyT(func(v ODataResourceDataset) map[string]interface{} { return v.Path }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ODataResourceDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ODataResourceDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ODataResourceDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ODataResourceDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Open Data Protocol (OData) resource dataset.
 type ODataResourceDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -27021,47 +15629,6 @@ type ODataResourceDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ODataResourceDatasetResponseInput is an input type that accepts ODataResourceDatasetResponseArgs and ODataResourceDatasetResponseOutput values.
-// You can construct a concrete instance of `ODataResourceDatasetResponseInput` via:
-//
-//          ODataResourceDatasetResponseArgs{...}
-type ODataResourceDatasetResponseInput interface {
-	pulumi.Input
-
-	ToODataResourceDatasetResponseOutput() ODataResourceDatasetResponseOutput
-	ToODataResourceDatasetResponseOutputWithContext(context.Context) ODataResourceDatasetResponseOutput
-}
-
-// The Open Data Protocol (OData) resource dataset.
-type ODataResourceDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The OData resource path. Type: string (or Expression with resultType string).
-	Path pulumi.MapInput `pulumi:"path"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ODataResourceDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataResourceDatasetResponse)(nil)).Elem()
-}
-
-func (i ODataResourceDatasetResponseArgs) ToODataResourceDatasetResponseOutput() ODataResourceDatasetResponseOutput {
-	return i.ToODataResourceDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ODataResourceDatasetResponseArgs) ToODataResourceDatasetResponseOutputWithContext(ctx context.Context) ODataResourceDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ODataResourceDatasetResponseOutput)
 }
 
 // The Open Data Protocol (OData) resource dataset.
@@ -27190,76 +15757,6 @@ func (i OdbcLinkedServiceArgs) ToOdbcLinkedServiceOutputWithContext(ctx context.
 }
 
 // Open Database Connectivity (ODBC) linked service.
-type OdbcLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (OdbcLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OdbcLinkedService)(nil)).Elem()
-}
-
-func (o OdbcLinkedServiceOutput) ToOdbcLinkedServiceOutput() OdbcLinkedServiceOutput {
-	return o
-}
-
-func (o OdbcLinkedServiceOutput) ToOdbcLinkedServiceOutputWithContext(ctx context.Context) OdbcLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o OdbcLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v OdbcLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-func (o OdbcLinkedServiceOutput) AuthenticationType() pulumi.MapOutput {
-	return o.ApplyT(func(v OdbcLinkedService) map[string]interface{} { return v.AuthenticationType }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o OdbcLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v OdbcLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o OdbcLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v OdbcLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// The access credential portion of the connection string specified in driver-specific property-value format.
-func (o OdbcLinkedServiceOutput) Credential() pulumi.AnyOutput {
-	return o.ApplyT(func(v OdbcLinkedService) interface{} { return v.Credential }).(pulumi.AnyOutput)
-}
-
-// Linked service description.
-func (o OdbcLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OdbcLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o OdbcLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v OdbcLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o OdbcLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v OdbcLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for Basic authentication.
-func (o OdbcLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v OdbcLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o OdbcLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OdbcLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// User name for Basic authentication. Type: string (or Expression with resultType string).
-func (o OdbcLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v OdbcLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// Open Database Connectivity (ODBC) linked service.
 type OdbcLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -27283,55 +15780,6 @@ type OdbcLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// OdbcLinkedServiceResponseInput is an input type that accepts OdbcLinkedServiceResponseArgs and OdbcLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `OdbcLinkedServiceResponseInput` via:
-//
-//          OdbcLinkedServiceResponseArgs{...}
-type OdbcLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToOdbcLinkedServiceResponseOutput() OdbcLinkedServiceResponseOutput
-	ToOdbcLinkedServiceResponseOutputWithContext(context.Context) OdbcLinkedServiceResponseOutput
-}
-
-// Open Database Connectivity (ODBC) linked service.
-type OdbcLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).
-	AuthenticationType pulumi.MapInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// The access credential portion of the connection string specified in driver-specific property-value format.
-	Credential pulumi.Input `pulumi:"credential"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for Basic authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// User name for Basic authentication. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (OdbcLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OdbcLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i OdbcLinkedServiceResponseArgs) ToOdbcLinkedServiceResponseOutput() OdbcLinkedServiceResponseOutput {
-	return i.ToOdbcLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i OdbcLinkedServiceResponseArgs) ToOdbcLinkedServiceResponseOutputWithContext(ctx context.Context) OdbcLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OdbcLinkedServiceResponseOutput)
 }
 
 // Open Database Connectivity (ODBC) linked service.
@@ -27464,56 +15912,6 @@ func (i OracleLinkedServiceArgs) ToOracleLinkedServiceOutputWithContext(ctx cont
 }
 
 // Oracle database.
-type OracleLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (OracleLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OracleLinkedService)(nil)).Elem()
-}
-
-func (o OracleLinkedServiceOutput) ToOracleLinkedServiceOutput() OracleLinkedServiceOutput {
-	return o
-}
-
-func (o OracleLinkedServiceOutput) ToOracleLinkedServiceOutputWithContext(ctx context.Context) OracleLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o OracleLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v OracleLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o OracleLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v OracleLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o OracleLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v OracleLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o OracleLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OracleLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o OracleLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v OracleLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o OracleLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v OracleLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o OracleLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OracleLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Oracle database.
 type OracleLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -27529,47 +15927,6 @@ type OracleLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// OracleLinkedServiceResponseInput is an input type that accepts OracleLinkedServiceResponseArgs and OracleLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `OracleLinkedServiceResponseInput` via:
-//
-//          OracleLinkedServiceResponseArgs{...}
-type OracleLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToOracleLinkedServiceResponseOutput() OracleLinkedServiceResponseOutput
-	ToOracleLinkedServiceResponseOutputWithContext(context.Context) OracleLinkedServiceResponseOutput
-}
-
-// Oracle database.
-type OracleLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OracleLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OracleLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i OracleLinkedServiceResponseArgs) ToOracleLinkedServiceResponseOutput() OracleLinkedServiceResponseOutput {
-	return i.ToOracleLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i OracleLinkedServiceResponseArgs) ToOracleLinkedServiceResponseOutputWithContext(ctx context.Context) OracleLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OracleLinkedServiceResponseOutput)
 }
 
 // Oracle database.
@@ -27682,56 +16039,6 @@ func (i OracleTableDatasetArgs) ToOracleTableDatasetOutputWithContext(ctx contex
 }
 
 // The on-premises Oracle database dataset.
-type OracleTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (OracleTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OracleTableDataset)(nil)).Elem()
-}
-
-func (o OracleTableDatasetOutput) ToOracleTableDatasetOutput() OracleTableDatasetOutput {
-	return o
-}
-
-func (o OracleTableDatasetOutput) ToOracleTableDatasetOutputWithContext(ctx context.Context) OracleTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o OracleTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v OracleTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o OracleTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OracleTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o OracleTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v OracleTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o OracleTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v OracleTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o OracleTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v OracleTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
-func (o OracleTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v OracleTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o OracleTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OracleTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The on-premises Oracle database dataset.
 type OracleTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -27747,47 +16054,6 @@ type OracleTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// OracleTableDatasetResponseInput is an input type that accepts OracleTableDatasetResponseArgs and OracleTableDatasetResponseOutput values.
-// You can construct a concrete instance of `OracleTableDatasetResponseInput` via:
-//
-//          OracleTableDatasetResponseArgs{...}
-type OracleTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToOracleTableDatasetResponseOutput() OracleTableDatasetResponseOutput
-	ToOracleTableDatasetResponseOutputWithContext(context.Context) OracleTableDatasetResponseOutput
-}
-
-// The on-premises Oracle database dataset.
-type OracleTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the on-premises Oracle database. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OracleTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OracleTableDatasetResponse)(nil)).Elem()
-}
-
-func (i OracleTableDatasetResponseArgs) ToOracleTableDatasetResponseOutput() OracleTableDatasetResponseOutput {
-	return i.ToOracleTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i OracleTableDatasetResponseArgs) ToOracleTableDatasetResponseOutputWithContext(ctx context.Context) OracleTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OracleTableDatasetResponseOutput)
 }
 
 // The on-premises Oracle database dataset.
@@ -27884,36 +16150,6 @@ func (i OrcFormatArgs) ToOrcFormatOutputWithContext(ctx context.Context) OrcForm
 }
 
 // The data stored in Optimized Row Columnar (ORC) format.
-type OrcFormatOutput struct{ *pulumi.OutputState }
-
-func (OrcFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrcFormat)(nil)).Elem()
-}
-
-func (o OrcFormatOutput) ToOrcFormatOutput() OrcFormatOutput {
-	return o
-}
-
-func (o OrcFormatOutput) ToOrcFormatOutputWithContext(ctx context.Context) OrcFormatOutput {
-	return o
-}
-
-// Deserializer. Type: string (or Expression with resultType string).
-func (o OrcFormatOutput) Deserializer() pulumi.MapOutput {
-	return o.ApplyT(func(v OrcFormat) map[string]interface{} { return v.Deserializer }).(pulumi.MapOutput)
-}
-
-// Serializer. Type: string (or Expression with resultType string).
-func (o OrcFormatOutput) Serializer() pulumi.MapOutput {
-	return o.ApplyT(func(v OrcFormat) map[string]interface{} { return v.Serializer }).(pulumi.MapOutput)
-}
-
-// Type of dataset storage format.
-func (o OrcFormatOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OrcFormat) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The data stored in Optimized Row Columnar (ORC) format.
 type OrcFormatResponse struct {
 	// Deserializer. Type: string (or Expression with resultType string).
 	Deserializer map[string]interface{} `pulumi:"deserializer"`
@@ -27921,39 +16157,6 @@ type OrcFormatResponse struct {
 	Serializer map[string]interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
 	Type string `pulumi:"type"`
-}
-
-// OrcFormatResponseInput is an input type that accepts OrcFormatResponseArgs and OrcFormatResponseOutput values.
-// You can construct a concrete instance of `OrcFormatResponseInput` via:
-//
-//          OrcFormatResponseArgs{...}
-type OrcFormatResponseInput interface {
-	pulumi.Input
-
-	ToOrcFormatResponseOutput() OrcFormatResponseOutput
-	ToOrcFormatResponseOutputWithContext(context.Context) OrcFormatResponseOutput
-}
-
-// The data stored in Optimized Row Columnar (ORC) format.
-type OrcFormatResponseArgs struct {
-	// Deserializer. Type: string (or Expression with resultType string).
-	Deserializer pulumi.MapInput `pulumi:"deserializer"`
-	// Serializer. Type: string (or Expression with resultType string).
-	Serializer pulumi.MapInput `pulumi:"serializer"`
-	// Type of dataset storage format.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OrcFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrcFormatResponse)(nil)).Elem()
-}
-
-func (i OrcFormatResponseArgs) ToOrcFormatResponseOutput() OrcFormatResponseOutput {
-	return i.ToOrcFormatResponseOutputWithContext(context.Background())
-}
-
-func (i OrcFormatResponseArgs) ToOrcFormatResponseOutputWithContext(ctx context.Context) OrcFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrcFormatResponseOutput)
 }
 
 // The data stored in Optimized Row Columnar (ORC) format.
@@ -28051,112 +16254,11 @@ func (i ParameterSpecificationMap) ToParameterSpecificationMapOutputWithContext(
 }
 
 // Definition of a single parameter for an entity.
-type ParameterSpecificationOutput struct{ *pulumi.OutputState }
-
-func (ParameterSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterSpecification)(nil)).Elem()
-}
-
-func (o ParameterSpecificationOutput) ToParameterSpecificationOutput() ParameterSpecificationOutput {
-	return o
-}
-
-func (o ParameterSpecificationOutput) ToParameterSpecificationOutputWithContext(ctx context.Context) ParameterSpecificationOutput {
-	return o
-}
-
-// Default value of parameter.
-func (o ParameterSpecificationOutput) DefaultValue() pulumi.MapOutput {
-	return o.ApplyT(func(v ParameterSpecification) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
-}
-
-// Parameter type.
-func (o ParameterSpecificationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ParameterSpecification) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ParameterSpecificationMapOutput struct{ *pulumi.OutputState }
-
-func (ParameterSpecificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ParameterSpecification)(nil)).Elem()
-}
-
-func (o ParameterSpecificationMapOutput) ToParameterSpecificationMapOutput() ParameterSpecificationMapOutput {
-	return o
-}
-
-func (o ParameterSpecificationMapOutput) ToParameterSpecificationMapOutputWithContext(ctx context.Context) ParameterSpecificationMapOutput {
-	return o
-}
-
-func (o ParameterSpecificationMapOutput) MapIndex(k pulumi.StringInput) ParameterSpecificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterSpecification {
-		return vs[0].(map[string]ParameterSpecification)[vs[1].(string)]
-	}).(ParameterSpecificationOutput)
-}
-
-// Definition of a single parameter for an entity.
 type ParameterSpecificationResponse struct {
 	// Default value of parameter.
 	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
 	// Parameter type.
 	Type string `pulumi:"type"`
-}
-
-// ParameterSpecificationResponseInput is an input type that accepts ParameterSpecificationResponseArgs and ParameterSpecificationResponseOutput values.
-// You can construct a concrete instance of `ParameterSpecificationResponseInput` via:
-//
-//          ParameterSpecificationResponseArgs{...}
-type ParameterSpecificationResponseInput interface {
-	pulumi.Input
-
-	ToParameterSpecificationResponseOutput() ParameterSpecificationResponseOutput
-	ToParameterSpecificationResponseOutputWithContext(context.Context) ParameterSpecificationResponseOutput
-}
-
-// Definition of a single parameter for an entity.
-type ParameterSpecificationResponseArgs struct {
-	// Default value of parameter.
-	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
-	// Parameter type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ParameterSpecificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterSpecificationResponse)(nil)).Elem()
-}
-
-func (i ParameterSpecificationResponseArgs) ToParameterSpecificationResponseOutput() ParameterSpecificationResponseOutput {
-	return i.ToParameterSpecificationResponseOutputWithContext(context.Background())
-}
-
-func (i ParameterSpecificationResponseArgs) ToParameterSpecificationResponseOutputWithContext(ctx context.Context) ParameterSpecificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterSpecificationResponseOutput)
-}
-
-// ParameterSpecificationResponseMapInput is an input type that accepts ParameterSpecificationResponseMap and ParameterSpecificationResponseMapOutput values.
-// You can construct a concrete instance of `ParameterSpecificationResponseMapInput` via:
-//
-//          ParameterSpecificationResponseMap{ "key": ParameterSpecificationResponseArgs{...} }
-type ParameterSpecificationResponseMapInput interface {
-	pulumi.Input
-
-	ToParameterSpecificationResponseMapOutput() ParameterSpecificationResponseMapOutput
-	ToParameterSpecificationResponseMapOutputWithContext(context.Context) ParameterSpecificationResponseMapOutput
-}
-
-type ParameterSpecificationResponseMap map[string]ParameterSpecificationResponseInput
-
-func (ParameterSpecificationResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ParameterSpecificationResponse)(nil)).Elem()
-}
-
-func (i ParameterSpecificationResponseMap) ToParameterSpecificationResponseMapOutput() ParameterSpecificationResponseMapOutput {
-	return i.ToParameterSpecificationResponseMapOutputWithContext(context.Background())
-}
-
-func (i ParameterSpecificationResponseMap) ToParameterSpecificationResponseMapOutputWithContext(ctx context.Context) ParameterSpecificationResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterSpecificationResponseMapOutput)
 }
 
 // Definition of a single parameter for an entity.
@@ -28248,36 +16350,6 @@ func (i ParquetFormatArgs) ToParquetFormatOutputWithContext(ctx context.Context)
 }
 
 // The data stored in Parquet format.
-type ParquetFormatOutput struct{ *pulumi.OutputState }
-
-func (ParquetFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParquetFormat)(nil)).Elem()
-}
-
-func (o ParquetFormatOutput) ToParquetFormatOutput() ParquetFormatOutput {
-	return o
-}
-
-func (o ParquetFormatOutput) ToParquetFormatOutputWithContext(ctx context.Context) ParquetFormatOutput {
-	return o
-}
-
-// Deserializer. Type: string (or Expression with resultType string).
-func (o ParquetFormatOutput) Deserializer() pulumi.MapOutput {
-	return o.ApplyT(func(v ParquetFormat) map[string]interface{} { return v.Deserializer }).(pulumi.MapOutput)
-}
-
-// Serializer. Type: string (or Expression with resultType string).
-func (o ParquetFormatOutput) Serializer() pulumi.MapOutput {
-	return o.ApplyT(func(v ParquetFormat) map[string]interface{} { return v.Serializer }).(pulumi.MapOutput)
-}
-
-// Type of dataset storage format.
-func (o ParquetFormatOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ParquetFormat) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The data stored in Parquet format.
 type ParquetFormatResponse struct {
 	// Deserializer. Type: string (or Expression with resultType string).
 	Deserializer map[string]interface{} `pulumi:"deserializer"`
@@ -28285,39 +16357,6 @@ type ParquetFormatResponse struct {
 	Serializer map[string]interface{} `pulumi:"serializer"`
 	// Type of dataset storage format.
 	Type string `pulumi:"type"`
-}
-
-// ParquetFormatResponseInput is an input type that accepts ParquetFormatResponseArgs and ParquetFormatResponseOutput values.
-// You can construct a concrete instance of `ParquetFormatResponseInput` via:
-//
-//          ParquetFormatResponseArgs{...}
-type ParquetFormatResponseInput interface {
-	pulumi.Input
-
-	ToParquetFormatResponseOutput() ParquetFormatResponseOutput
-	ToParquetFormatResponseOutputWithContext(context.Context) ParquetFormatResponseOutput
-}
-
-// The data stored in Parquet format.
-type ParquetFormatResponseArgs struct {
-	// Deserializer. Type: string (or Expression with resultType string).
-	Deserializer pulumi.MapInput `pulumi:"deserializer"`
-	// Serializer. Type: string (or Expression with resultType string).
-	Serializer pulumi.MapInput `pulumi:"serializer"`
-	// Type of dataset storage format.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ParquetFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParquetFormatResponse)(nil)).Elem()
-}
-
-func (i ParquetFormatResponseArgs) ToParquetFormatResponseOutput() ParquetFormatResponseOutput {
-	return i.ToParquetFormatResponseOutputWithContext(context.Background())
-}
-
-func (i ParquetFormatResponseArgs) ToParquetFormatResponseOutputWithContext(ctx context.Context) ParquetFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParquetFormatResponseOutput)
 }
 
 // The data stored in Parquet format.
@@ -28430,81 +16469,6 @@ func (i PaypalLinkedServiceArgs) ToPaypalLinkedServiceOutputWithContext(ctx cont
 }
 
 // Paypal Service linked service.
-type PaypalLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (PaypalLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaypalLinkedService)(nil)).Elem()
-}
-
-func (o PaypalLinkedServiceOutput) ToPaypalLinkedServiceOutput() PaypalLinkedServiceOutput {
-	return o
-}
-
-func (o PaypalLinkedServiceOutput) ToPaypalLinkedServiceOutputWithContext(ctx context.Context) PaypalLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PaypalLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PaypalLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client ID associated with your PayPal application.
-func (o PaypalLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret associated with your PayPal application.
-func (o PaypalLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v PaypalLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o PaypalLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v PaypalLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o PaypalLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PaypalLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o PaypalLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
-func (o PaypalLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o PaypalLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o PaypalLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PaypalLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o PaypalLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o PaypalLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o PaypalLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Paypal Service linked service.
 type PaypalLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -28530,57 +16494,6 @@ type PaypalLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// PaypalLinkedServiceResponseInput is an input type that accepts PaypalLinkedServiceResponseArgs and PaypalLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `PaypalLinkedServiceResponseInput` via:
-//
-//          PaypalLinkedServiceResponseArgs{...}
-type PaypalLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToPaypalLinkedServiceResponseOutput() PaypalLinkedServiceResponseOutput
-	ToPaypalLinkedServiceResponseOutputWithContext(context.Context) PaypalLinkedServiceResponseOutput
-}
-
-// Paypal Service linked service.
-type PaypalLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client ID associated with your PayPal application.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret associated with your PayPal application.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (PaypalLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaypalLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i PaypalLinkedServiceResponseArgs) ToPaypalLinkedServiceResponseOutput() PaypalLinkedServiceResponseOutput {
-	return i.ToPaypalLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i PaypalLinkedServiceResponseArgs) ToPaypalLinkedServiceResponseOutputWithContext(ctx context.Context) PaypalLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaypalLinkedServiceResponseOutput)
 }
 
 // Paypal Service linked service.
@@ -28714,51 +16627,6 @@ func (i PaypalObjectDatasetArgs) ToPaypalObjectDatasetOutputWithContext(ctx cont
 }
 
 // Paypal Service dataset.
-type PaypalObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (PaypalObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaypalObjectDataset)(nil)).Elem()
-}
-
-func (o PaypalObjectDatasetOutput) ToPaypalObjectDatasetOutput() PaypalObjectDatasetOutput {
-	return o
-}
-
-func (o PaypalObjectDatasetOutput) ToPaypalObjectDatasetOutputWithContext(ctx context.Context) PaypalObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PaypalObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o PaypalObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o PaypalObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o PaypalObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o PaypalObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o PaypalObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PaypalObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Paypal Service dataset.
 type PaypalObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -28772,45 +16640,6 @@ type PaypalObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// PaypalObjectDatasetResponseInput is an input type that accepts PaypalObjectDatasetResponseArgs and PaypalObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `PaypalObjectDatasetResponseInput` via:
-//
-//          PaypalObjectDatasetResponseArgs{...}
-type PaypalObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToPaypalObjectDatasetResponseOutput() PaypalObjectDatasetResponseOutput
-	ToPaypalObjectDatasetResponseOutputWithContext(context.Context) PaypalObjectDatasetResponseOutput
-}
-
-// Paypal Service dataset.
-type PaypalObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PaypalObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PaypalObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i PaypalObjectDatasetResponseArgs) ToPaypalObjectDatasetResponseOutput() PaypalObjectDatasetResponseOutput {
-	return i.ToPaypalObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i PaypalObjectDatasetResponseArgs) ToPaypalObjectDatasetResponseOutputWithContext(ctx context.Context) PaypalObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PaypalObjectDatasetResponseOutput)
 }
 
 // Paypal Service dataset.
@@ -28958,106 +16787,6 @@ func (i PhoenixLinkedServiceArgs) ToPhoenixLinkedServiceOutputWithContext(ctx co
 }
 
 // Phoenix server linked service.
-type PhoenixLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (PhoenixLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhoenixLinkedService)(nil)).Elem()
-}
-
-func (o PhoenixLinkedServiceOutput) ToPhoenixLinkedServiceOutput() PhoenixLinkedServiceOutput {
-	return o
-}
-
-func (o PhoenixLinkedServiceOutput) ToPhoenixLinkedServiceOutputWithContext(ctx context.Context) PhoenixLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o PhoenixLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o PhoenixLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PhoenixLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication mechanism used to connect to the Phoenix server.
-func (o PhoenixLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The integration runtime reference.
-func (o PhoenixLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o PhoenixLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o PhoenixLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o PhoenixLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
-func (o PhoenixLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
-func (o PhoenixLinkedServiceOutput) HttpPath() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.HttpPath }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o PhoenixLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name.
-func (o PhoenixLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
-func (o PhoenixLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o PhoenixLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o PhoenixLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o PhoenixLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// The user name used to connect to the Phoenix server.
-func (o PhoenixLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Phoenix server linked service.
 type PhoenixLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -29093,67 +16822,6 @@ type PhoenixLinkedServiceResponse struct {
 	UseSystemTrustStore map[string]interface{} `pulumi:"useSystemTrustStore"`
 	// The user name used to connect to the Phoenix server.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// PhoenixLinkedServiceResponseInput is an input type that accepts PhoenixLinkedServiceResponseArgs and PhoenixLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `PhoenixLinkedServiceResponseInput` via:
-//
-//          PhoenixLinkedServiceResponseArgs{...}
-type PhoenixLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToPhoenixLinkedServiceResponseOutput() PhoenixLinkedServiceResponseOutput
-	ToPhoenixLinkedServiceResponseOutputWithContext(context.Context) PhoenixLinkedServiceResponseOutput
-}
-
-// Phoenix server linked service.
-type PhoenixLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication mechanism used to connect to the Phoenix server.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
-	Host pulumi.MapInput `pulumi:"host"`
-	// The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
-	HttpPath pulumi.MapInput `pulumi:"httpPath"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-	// The user name used to connect to the Phoenix server.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (PhoenixLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhoenixLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i PhoenixLinkedServiceResponseArgs) ToPhoenixLinkedServiceResponseOutput() PhoenixLinkedServiceResponseOutput {
-	return i.ToPhoenixLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i PhoenixLinkedServiceResponseArgs) ToPhoenixLinkedServiceResponseOutputWithContext(ctx context.Context) PhoenixLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PhoenixLinkedServiceResponseOutput)
 }
 
 // Phoenix server linked service.
@@ -29312,51 +16980,6 @@ func (i PhoenixObjectDatasetArgs) ToPhoenixObjectDatasetOutputWithContext(ctx co
 }
 
 // Phoenix server dataset.
-type PhoenixObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (PhoenixObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhoenixObjectDataset)(nil)).Elem()
-}
-
-func (o PhoenixObjectDatasetOutput) ToPhoenixObjectDatasetOutput() PhoenixObjectDatasetOutput {
-	return o
-}
-
-func (o PhoenixObjectDatasetOutput) ToPhoenixObjectDatasetOutputWithContext(ctx context.Context) PhoenixObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PhoenixObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o PhoenixObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o PhoenixObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o PhoenixObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o PhoenixObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o PhoenixObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PhoenixObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Phoenix server dataset.
 type PhoenixObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -29370,45 +16993,6 @@ type PhoenixObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// PhoenixObjectDatasetResponseInput is an input type that accepts PhoenixObjectDatasetResponseArgs and PhoenixObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `PhoenixObjectDatasetResponseInput` via:
-//
-//          PhoenixObjectDatasetResponseArgs{...}
-type PhoenixObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToPhoenixObjectDatasetResponseOutput() PhoenixObjectDatasetResponseOutput
-	ToPhoenixObjectDatasetResponseOutputWithContext(context.Context) PhoenixObjectDatasetResponseOutput
-}
-
-// Phoenix server dataset.
-type PhoenixObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PhoenixObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PhoenixObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i PhoenixObjectDatasetResponseArgs) ToPhoenixObjectDatasetResponseOutput() PhoenixObjectDatasetResponseOutput {
-	return i.ToPhoenixObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i PhoenixObjectDatasetResponseArgs) ToPhoenixObjectDatasetResponseOutputWithContext(ctx context.Context) PhoenixObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PhoenixObjectDatasetResponseOutput)
 }
 
 // Phoenix server dataset.
@@ -29541,94 +17125,6 @@ func (i *pipelineReferencePtrType) ToPipelineReferencePtrOutputWithContext(ctx c
 }
 
 // Pipeline reference type.
-type PipelineReferenceOutput struct{ *pulumi.OutputState }
-
-func (PipelineReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineReference)(nil)).Elem()
-}
-
-func (o PipelineReferenceOutput) ToPipelineReferenceOutput() PipelineReferenceOutput {
-	return o
-}
-
-func (o PipelineReferenceOutput) ToPipelineReferenceOutputWithContext(ctx context.Context) PipelineReferenceOutput {
-	return o
-}
-
-func (o PipelineReferenceOutput) ToPipelineReferencePtrOutput() PipelineReferencePtrOutput {
-	return o.ToPipelineReferencePtrOutputWithContext(context.Background())
-}
-
-func (o PipelineReferenceOutput) ToPipelineReferencePtrOutputWithContext(ctx context.Context) PipelineReferencePtrOutput {
-	return o.ApplyT(func(v PipelineReference) *PipelineReference {
-		return &v
-	}).(PipelineReferencePtrOutput)
-}
-
-// Reference name.
-func (o PipelineReferenceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineReference) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Reference pipeline name.
-func (o PipelineReferenceOutput) ReferenceName() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineReference) string { return v.ReferenceName }).(pulumi.StringOutput)
-}
-
-// Pipeline reference type.
-func (o PipelineReferenceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PipelineReference) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type PipelineReferencePtrOutput struct{ *pulumi.OutputState }
-
-func (PipelineReferencePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineReference)(nil)).Elem()
-}
-
-func (o PipelineReferencePtrOutput) ToPipelineReferencePtrOutput() PipelineReferencePtrOutput {
-	return o
-}
-
-func (o PipelineReferencePtrOutput) ToPipelineReferencePtrOutputWithContext(ctx context.Context) PipelineReferencePtrOutput {
-	return o
-}
-
-func (o PipelineReferencePtrOutput) Elem() PipelineReferenceOutput {
-	return o.ApplyT(func(v *PipelineReference) PipelineReference { return *v }).(PipelineReferenceOutput)
-}
-
-// Reference name.
-func (o PipelineReferencePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineReference) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Reference pipeline name.
-func (o PipelineReferencePtrOutput) ReferenceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ReferenceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Pipeline reference type.
-func (o PipelineReferencePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PipelineReference) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Pipeline reference type.
 type PipelineReferenceResponse struct {
 	// Reference name.
 	Name *string `pulumi:"name"`
@@ -29636,80 +17132,6 @@ type PipelineReferenceResponse struct {
 	ReferenceName string `pulumi:"referenceName"`
 	// Pipeline reference type.
 	Type string `pulumi:"type"`
-}
-
-// PipelineReferenceResponseInput is an input type that accepts PipelineReferenceResponseArgs and PipelineReferenceResponseOutput values.
-// You can construct a concrete instance of `PipelineReferenceResponseInput` via:
-//
-//          PipelineReferenceResponseArgs{...}
-type PipelineReferenceResponseInput interface {
-	pulumi.Input
-
-	ToPipelineReferenceResponseOutput() PipelineReferenceResponseOutput
-	ToPipelineReferenceResponseOutputWithContext(context.Context) PipelineReferenceResponseOutput
-}
-
-// Pipeline reference type.
-type PipelineReferenceResponseArgs struct {
-	// Reference name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Reference pipeline name.
-	ReferenceName pulumi.StringInput `pulumi:"referenceName"`
-	// Pipeline reference type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PipelineReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineReferenceResponse)(nil)).Elem()
-}
-
-func (i PipelineReferenceResponseArgs) ToPipelineReferenceResponseOutput() PipelineReferenceResponseOutput {
-	return i.ToPipelineReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i PipelineReferenceResponseArgs) ToPipelineReferenceResponseOutputWithContext(ctx context.Context) PipelineReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineReferenceResponseOutput)
-}
-
-func (i PipelineReferenceResponseArgs) ToPipelineReferenceResponsePtrOutput() PipelineReferenceResponsePtrOutput {
-	return i.ToPipelineReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PipelineReferenceResponseArgs) ToPipelineReferenceResponsePtrOutputWithContext(ctx context.Context) PipelineReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineReferenceResponseOutput).ToPipelineReferenceResponsePtrOutputWithContext(ctx)
-}
-
-// PipelineReferenceResponsePtrInput is an input type that accepts PipelineReferenceResponseArgs, PipelineReferenceResponsePtr and PipelineReferenceResponsePtrOutput values.
-// You can construct a concrete instance of `PipelineReferenceResponsePtrInput` via:
-//
-//          PipelineReferenceResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PipelineReferenceResponsePtrInput interface {
-	pulumi.Input
-
-	ToPipelineReferenceResponsePtrOutput() PipelineReferenceResponsePtrOutput
-	ToPipelineReferenceResponsePtrOutputWithContext(context.Context) PipelineReferenceResponsePtrOutput
-}
-
-type pipelineReferenceResponsePtrType PipelineReferenceResponseArgs
-
-func PipelineReferenceResponsePtr(v *PipelineReferenceResponseArgs) PipelineReferenceResponsePtrInput {
-	return (*pipelineReferenceResponsePtrType)(v)
-}
-
-func (*pipelineReferenceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipelineReferenceResponse)(nil)).Elem()
-}
-
-func (i *pipelineReferenceResponsePtrType) ToPipelineReferenceResponsePtrOutput() PipelineReferenceResponsePtrOutput {
-	return i.ToPipelineReferenceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *pipelineReferenceResponsePtrType) ToPipelineReferenceResponsePtrOutputWithContext(ctx context.Context) PipelineReferenceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipelineReferenceResponsePtrOutput)
 }
 
 // Pipeline reference type.
@@ -29860,56 +17282,6 @@ func (i PostgreSqlLinkedServiceArgs) ToPostgreSqlLinkedServiceOutputWithContext(
 }
 
 // Linked service for PostgreSQL data source.
-type PostgreSqlLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (PostgreSqlLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgreSqlLinkedService)(nil)).Elem()
-}
-
-func (o PostgreSqlLinkedServiceOutput) ToPostgreSqlLinkedServiceOutput() PostgreSqlLinkedServiceOutput {
-	return o
-}
-
-func (o PostgreSqlLinkedServiceOutput) ToPostgreSqlLinkedServiceOutputWithContext(ctx context.Context) PostgreSqlLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PostgreSqlLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o PostgreSqlLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string.
-func (o PostgreSqlLinkedServiceOutput) ConnectionString() pulumi.AnyOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) interface{} { return v.ConnectionString }).(pulumi.AnyOutput)
-}
-
-// Linked service description.
-func (o PostgreSqlLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o PostgreSqlLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o PostgreSqlLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o PostgreSqlLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PostgreSqlLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Linked service for PostgreSQL data source.
 type PostgreSqlLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -29925,47 +17297,6 @@ type PostgreSqlLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// PostgreSqlLinkedServiceResponseInput is an input type that accepts PostgreSqlLinkedServiceResponseArgs and PostgreSqlLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `PostgreSqlLinkedServiceResponseInput` via:
-//
-//          PostgreSqlLinkedServiceResponseArgs{...}
-type PostgreSqlLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToPostgreSqlLinkedServiceResponseOutput() PostgreSqlLinkedServiceResponseOutput
-	ToPostgreSqlLinkedServiceResponseOutputWithContext(context.Context) PostgreSqlLinkedServiceResponseOutput
-}
-
-// Linked service for PostgreSQL data source.
-type PostgreSqlLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string.
-	ConnectionString pulumi.Input `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PostgreSqlLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgreSqlLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i PostgreSqlLinkedServiceResponseArgs) ToPostgreSqlLinkedServiceResponseOutput() PostgreSqlLinkedServiceResponseOutput {
-	return i.ToPostgreSqlLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i PostgreSqlLinkedServiceResponseArgs) ToPostgreSqlLinkedServiceResponseOutputWithContext(ctx context.Context) PostgreSqlLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgreSqlLinkedServiceResponseOutput)
 }
 
 // Linked service for PostgreSQL data source.
@@ -30126,116 +17457,6 @@ func (i PrestoLinkedServiceArgs) ToPrestoLinkedServiceOutputWithContext(ctx cont
 }
 
 // Presto server linked service.
-type PrestoLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (PrestoLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrestoLinkedService)(nil)).Elem()
-}
-
-func (o PrestoLinkedServiceOutput) ToPrestoLinkedServiceOutput() PrestoLinkedServiceOutput {
-	return o
-}
-
-func (o PrestoLinkedServiceOutput) ToPrestoLinkedServiceOutputWithContext(ctx context.Context) PrestoLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o PrestoLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o PrestoLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PrestoLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PrestoLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication mechanism used to connect to the Presto server.
-func (o PrestoLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v PrestoLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The catalog context for all request against the server.
-func (o PrestoLinkedServiceOutput) Catalog() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.Catalog }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o PrestoLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v PrestoLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o PrestoLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrestoLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o PrestoLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o PrestoLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The IP address or host name of the Presto server. (i.e. 192.168.222.160)
-func (o PrestoLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o PrestoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name.
-func (o PrestoLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v PrestoLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
-func (o PrestoLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The version of the Presto server. (i.e. 0.148-t)
-func (o PrestoLinkedServiceOutput) ServerVersion() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.ServerVersion }).(pulumi.MapOutput)
-}
-
-// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
-func (o PrestoLinkedServiceOutput) TimeZoneID() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.TimeZoneID }).(pulumi.MapOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o PrestoLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o PrestoLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrestoLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o PrestoLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// The user name used to connect to the Presto server.
-func (o PrestoLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Presto server linked service.
 type PrestoLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -30275,71 +17496,6 @@ type PrestoLinkedServiceResponse struct {
 	UseSystemTrustStore map[string]interface{} `pulumi:"useSystemTrustStore"`
 	// The user name used to connect to the Presto server.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// PrestoLinkedServiceResponseInput is an input type that accepts PrestoLinkedServiceResponseArgs and PrestoLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `PrestoLinkedServiceResponseInput` via:
-//
-//          PrestoLinkedServiceResponseArgs{...}
-type PrestoLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToPrestoLinkedServiceResponseOutput() PrestoLinkedServiceResponseOutput
-	ToPrestoLinkedServiceResponseOutputWithContext(context.Context) PrestoLinkedServiceResponseOutput
-}
-
-// Presto server linked service.
-type PrestoLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication mechanism used to connect to the Presto server.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The catalog context for all request against the server.
-	Catalog pulumi.MapInput `pulumi:"catalog"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The IP address or host name of the Presto server. (i.e. 192.168.222.160)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The version of the Presto server. (i.e. 0.148-t)
-	ServerVersion pulumi.MapInput `pulumi:"serverVersion"`
-	// The local time zone used by the connection. Valid values for this option are specified in the IANA Time Zone Database. The default value is the system time zone.
-	TimeZoneID pulumi.MapInput `pulumi:"timeZoneID"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-	// The user name used to connect to the Presto server.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (PrestoLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrestoLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i PrestoLinkedServiceResponseArgs) ToPrestoLinkedServiceResponseOutput() PrestoLinkedServiceResponseOutput {
-	return i.ToPrestoLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i PrestoLinkedServiceResponseArgs) ToPrestoLinkedServiceResponseOutputWithContext(ctx context.Context) PrestoLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrestoLinkedServiceResponseOutput)
 }
 
 // Presto server linked service.
@@ -30508,51 +17664,6 @@ func (i PrestoObjectDatasetArgs) ToPrestoObjectDatasetOutputWithContext(ctx cont
 }
 
 // Presto server dataset.
-type PrestoObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (PrestoObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrestoObjectDataset)(nil)).Elem()
-}
-
-func (o PrestoObjectDatasetOutput) ToPrestoObjectDatasetOutput() PrestoObjectDatasetOutput {
-	return o
-}
-
-func (o PrestoObjectDatasetOutput) ToPrestoObjectDatasetOutputWithContext(ctx context.Context) PrestoObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o PrestoObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o PrestoObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o PrestoObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o PrestoObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o PrestoObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o PrestoObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrestoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Presto server dataset.
 type PrestoObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -30566,45 +17677,6 @@ type PrestoObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// PrestoObjectDatasetResponseInput is an input type that accepts PrestoObjectDatasetResponseArgs and PrestoObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `PrestoObjectDatasetResponseInput` via:
-//
-//          PrestoObjectDatasetResponseArgs{...}
-type PrestoObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToPrestoObjectDatasetResponseOutput() PrestoObjectDatasetResponseOutput
-	ToPrestoObjectDatasetResponseOutputWithContext(context.Context) PrestoObjectDatasetResponseOutput
-}
-
-// Presto server dataset.
-type PrestoObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrestoObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrestoObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i PrestoObjectDatasetResponseArgs) ToPrestoObjectDatasetResponseOutput() PrestoObjectDatasetResponseOutput {
-	return i.ToPrestoObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i PrestoObjectDatasetResponseArgs) ToPrestoObjectDatasetResponseOutputWithContext(ctx context.Context) PrestoObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrestoObjectDatasetResponseOutput)
 }
 
 // Presto server dataset.
@@ -30736,86 +17808,6 @@ func (i QuickBooksLinkedServiceArgs) ToQuickBooksLinkedServiceOutputWithContext(
 }
 
 // QuickBooks server linked service.
-type QuickBooksLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (QuickBooksLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickBooksLinkedService)(nil)).Elem()
-}
-
-func (o QuickBooksLinkedServiceOutput) ToQuickBooksLinkedServiceOutput() QuickBooksLinkedServiceOutput {
-	return o
-}
-
-func (o QuickBooksLinkedServiceOutput) ToQuickBooksLinkedServiceOutputWithContext(ctx context.Context) QuickBooksLinkedServiceOutput {
-	return o
-}
-
-// The access token for OAuth 1.0 authentication.
-func (o QuickBooksLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// The access token secret for OAuth 1.0 authentication.
-func (o QuickBooksLinkedServiceOutput) AccessTokenSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) interface{} { return v.AccessTokenSecret }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o QuickBooksLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The company ID of the QuickBooks company to authorize.
-func (o QuickBooksLinkedServiceOutput) CompanyId() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]interface{} { return v.CompanyId }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o QuickBooksLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The consumer key for OAuth 1.0 authentication.
-func (o QuickBooksLinkedServiceOutput) ConsumerKey() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]interface{} { return v.ConsumerKey }).(pulumi.MapOutput)
-}
-
-// The consumer secret for OAuth 1.0 authentication.
-func (o QuickBooksLinkedServiceOutput) ConsumerSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) interface{} { return v.ConsumerSecret }).(pulumi.AnyOutput)
-}
-
-// Linked service description.
-func (o QuickBooksLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o QuickBooksLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
-func (o QuickBooksLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o QuickBooksLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o QuickBooksLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o QuickBooksLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// QuickBooks server linked service.
 type QuickBooksLinkedServiceResponse struct {
 	// The access token for OAuth 1.0 authentication.
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -30843,59 +17835,6 @@ type QuickBooksLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
 	UseEncryptedEndpoints map[string]interface{} `pulumi:"useEncryptedEndpoints"`
-}
-
-// QuickBooksLinkedServiceResponseInput is an input type that accepts QuickBooksLinkedServiceResponseArgs and QuickBooksLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `QuickBooksLinkedServiceResponseInput` via:
-//
-//          QuickBooksLinkedServiceResponseArgs{...}
-type QuickBooksLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToQuickBooksLinkedServiceResponseOutput() QuickBooksLinkedServiceResponseOutput
-	ToQuickBooksLinkedServiceResponseOutputWithContext(context.Context) QuickBooksLinkedServiceResponseOutput
-}
-
-// QuickBooks server linked service.
-type QuickBooksLinkedServiceResponseArgs struct {
-	// The access token for OAuth 1.0 authentication.
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// The access token secret for OAuth 1.0 authentication.
-	AccessTokenSecret pulumi.Input `pulumi:"accessTokenSecret"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The company ID of the QuickBooks company to authorize.
-	CompanyId pulumi.MapInput `pulumi:"companyId"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The consumer key for OAuth 1.0 authentication.
-	ConsumerKey pulumi.MapInput `pulumi:"consumerKey"`
-	// The consumer secret for OAuth 1.0 authentication.
-	ConsumerSecret pulumi.Input `pulumi:"consumerSecret"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-}
-
-func (QuickBooksLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickBooksLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i QuickBooksLinkedServiceResponseArgs) ToQuickBooksLinkedServiceResponseOutput() QuickBooksLinkedServiceResponseOutput {
-	return i.ToQuickBooksLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i QuickBooksLinkedServiceResponseArgs) ToQuickBooksLinkedServiceResponseOutputWithContext(ctx context.Context) QuickBooksLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickBooksLinkedServiceResponseOutput)
 }
 
 // QuickBooks server linked service.
@@ -31034,51 +17973,6 @@ func (i QuickBooksObjectDatasetArgs) ToQuickBooksObjectDatasetOutputWithContext(
 }
 
 // QuickBooks server dataset.
-type QuickBooksObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (QuickBooksObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickBooksObjectDataset)(nil)).Elem()
-}
-
-func (o QuickBooksObjectDatasetOutput) ToQuickBooksObjectDatasetOutput() QuickBooksObjectDatasetOutput {
-	return o
-}
-
-func (o QuickBooksObjectDatasetOutput) ToQuickBooksObjectDatasetOutputWithContext(ctx context.Context) QuickBooksObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o QuickBooksObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o QuickBooksObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o QuickBooksObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o QuickBooksObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o QuickBooksObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o QuickBooksObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v QuickBooksObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// QuickBooks server dataset.
 type QuickBooksObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -31092,45 +17986,6 @@ type QuickBooksObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// QuickBooksObjectDatasetResponseInput is an input type that accepts QuickBooksObjectDatasetResponseArgs and QuickBooksObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `QuickBooksObjectDatasetResponseInput` via:
-//
-//          QuickBooksObjectDatasetResponseArgs{...}
-type QuickBooksObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToQuickBooksObjectDatasetResponseOutput() QuickBooksObjectDatasetResponseOutput
-	ToQuickBooksObjectDatasetResponseOutputWithContext(context.Context) QuickBooksObjectDatasetResponseOutput
-}
-
-// QuickBooks server dataset.
-type QuickBooksObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (QuickBooksObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickBooksObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i QuickBooksObjectDatasetResponseArgs) ToQuickBooksObjectDatasetResponseOutput() QuickBooksObjectDatasetResponseOutput {
-	return i.ToQuickBooksObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i QuickBooksObjectDatasetResponseArgs) ToQuickBooksObjectDatasetResponseOutputWithContext(ctx context.Context) QuickBooksObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QuickBooksObjectDatasetResponseOutput)
 }
 
 // QuickBooks server dataset.
@@ -31238,56 +18093,6 @@ func (i RelationalTableDatasetArgs) ToRelationalTableDatasetOutputWithContext(ct
 }
 
 // The relational table dataset.
-type RelationalTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (RelationalTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationalTableDataset)(nil)).Elem()
-}
-
-func (o RelationalTableDatasetOutput) ToRelationalTableDatasetOutput() RelationalTableDatasetOutput {
-	return o
-}
-
-func (o RelationalTableDatasetOutput) ToRelationalTableDatasetOutputWithContext(ctx context.Context) RelationalTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o RelationalTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v RelationalTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o RelationalTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelationalTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o RelationalTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v RelationalTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o RelationalTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v RelationalTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o RelationalTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v RelationalTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The relational table name. Type: string (or Expression with resultType string).
-func (o RelationalTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v RelationalTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o RelationalTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationalTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The relational table dataset.
 type RelationalTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -31303,47 +18108,6 @@ type RelationalTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// RelationalTableDatasetResponseInput is an input type that accepts RelationalTableDatasetResponseArgs and RelationalTableDatasetResponseOutput values.
-// You can construct a concrete instance of `RelationalTableDatasetResponseInput` via:
-//
-//          RelationalTableDatasetResponseArgs{...}
-type RelationalTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToRelationalTableDatasetResponseOutput() RelationalTableDatasetResponseOutput
-	ToRelationalTableDatasetResponseOutputWithContext(context.Context) RelationalTableDatasetResponseOutput
-}
-
-// The relational table dataset.
-type RelationalTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The relational table name. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RelationalTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationalTableDatasetResponse)(nil)).Elem()
-}
-
-func (i RelationalTableDatasetResponseArgs) ToRelationalTableDatasetResponseOutput() RelationalTableDatasetResponseOutput {
-	return i.ToRelationalTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i RelationalTableDatasetResponseArgs) ToRelationalTableDatasetResponseOutputWithContext(ctx context.Context) RelationalTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationalTableDatasetResponseOutput)
 }
 
 // The relational table dataset.
@@ -31476,81 +18240,6 @@ func (i ResponsysLinkedServiceArgs) ToResponsysLinkedServiceOutputWithContext(ct
 }
 
 // Responsys linked service.
-type ResponsysLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ResponsysLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsysLinkedService)(nil)).Elem()
-}
-
-func (o ResponsysLinkedServiceOutput) ToResponsysLinkedServiceOutput() ResponsysLinkedServiceOutput {
-	return o
-}
-
-func (o ResponsysLinkedServiceOutput) ToResponsysLinkedServiceOutputWithContext(ctx context.Context) ResponsysLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ResponsysLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
-func (o ResponsysLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
-func (o ResponsysLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o ResponsysLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ResponsysLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ResponsysLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Responsys server.
-func (o ResponsysLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ResponsysLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o ResponsysLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o ResponsysLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o ResponsysLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o ResponsysLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Responsys linked service.
 type ResponsysLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -31576,57 +18265,6 @@ type ResponsysLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// ResponsysLinkedServiceResponseInput is an input type that accepts ResponsysLinkedServiceResponseArgs and ResponsysLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ResponsysLinkedServiceResponseInput` via:
-//
-//          ResponsysLinkedServiceResponseArgs{...}
-type ResponsysLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToResponsysLinkedServiceResponseOutput() ResponsysLinkedServiceResponseOutput
-	ToResponsysLinkedServiceResponseOutputWithContext(context.Context) ResponsysLinkedServiceResponseOutput
-}
-
-// Responsys linked service.
-type ResponsysLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Responsys server.
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (ResponsysLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsysLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ResponsysLinkedServiceResponseArgs) ToResponsysLinkedServiceResponseOutput() ResponsysLinkedServiceResponseOutput {
-	return i.ToResponsysLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ResponsysLinkedServiceResponseArgs) ToResponsysLinkedServiceResponseOutputWithContext(ctx context.Context) ResponsysLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsysLinkedServiceResponseOutput)
 }
 
 // Responsys linked service.
@@ -31760,51 +18398,6 @@ func (i ResponsysObjectDatasetArgs) ToResponsysObjectDatasetOutputWithContext(ct
 }
 
 // Responsys dataset.
-type ResponsysObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ResponsysObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsysObjectDataset)(nil)).Elem()
-}
-
-func (o ResponsysObjectDatasetOutput) ToResponsysObjectDatasetOutput() ResponsysObjectDatasetOutput {
-	return o
-}
-
-func (o ResponsysObjectDatasetOutput) ToResponsysObjectDatasetOutputWithContext(ctx context.Context) ResponsysObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ResponsysObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ResponsysObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ResponsysObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ResponsysObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ResponsysObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ResponsysObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ResponsysObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Responsys dataset.
 type ResponsysObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -31818,45 +18411,6 @@ type ResponsysObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ResponsysObjectDatasetResponseInput is an input type that accepts ResponsysObjectDatasetResponseArgs and ResponsysObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ResponsysObjectDatasetResponseInput` via:
-//
-//          ResponsysObjectDatasetResponseArgs{...}
-type ResponsysObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToResponsysObjectDatasetResponseOutput() ResponsysObjectDatasetResponseOutput
-	ToResponsysObjectDatasetResponseOutputWithContext(context.Context) ResponsysObjectDatasetResponseOutput
-}
-
-// Responsys dataset.
-type ResponsysObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ResponsysObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsysObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ResponsysObjectDatasetResponseArgs) ToResponsysObjectDatasetResponseOutput() ResponsysObjectDatasetResponseOutput {
-	return i.ToResponsysObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ResponsysObjectDatasetResponseArgs) ToResponsysObjectDatasetResponseOutputWithContext(ctx context.Context) ResponsysObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsysObjectDatasetResponseOutput)
 }
 
 // Responsys dataset.
@@ -31985,156 +18539,11 @@ func (i *retryPolicyPtrType) ToRetryPolicyPtrOutputWithContext(ctx context.Conte
 }
 
 // Execution policy for an activity.
-type RetryPolicyOutput struct{ *pulumi.OutputState }
-
-func (RetryPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetryPolicy)(nil)).Elem()
-}
-
-func (o RetryPolicyOutput) ToRetryPolicyOutput() RetryPolicyOutput {
-	return o
-}
-
-func (o RetryPolicyOutput) ToRetryPolicyOutputWithContext(ctx context.Context) RetryPolicyOutput {
-	return o
-}
-
-func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
-	return o.ToRetryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
-		return &v
-	}).(RetryPolicyPtrOutput)
-}
-
-// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o RetryPolicyOutput) Count() pulumi.MapOutput {
-	return o.ApplyT(func(v RetryPolicy) map[string]interface{} { return v.Count }).(pulumi.MapOutput)
-}
-
-// Interval between retries in seconds. Default is 30.
-func (o RetryPolicyOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
-}
-
-type RetryPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RetryPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetryPolicy)(nil)).Elem()
-}
-
-func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
-	return o
-}
-
-func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o
-}
-
-func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
-}
-
-// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o RetryPolicyPtrOutput) Count() pulumi.MapOutput {
-	return o.ApplyT(func(v *RetryPolicy) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.MapOutput)
-}
-
-// Interval between retries in seconds. Default is 30.
-func (o RetryPolicyPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RetryPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IntervalInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Execution policy for an activity.
 type RetryPolicyResponse struct {
 	// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
 	Count map[string]interface{} `pulumi:"count"`
 	// Interval between retries in seconds. Default is 30.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-}
-
-// RetryPolicyResponseInput is an input type that accepts RetryPolicyResponseArgs and RetryPolicyResponseOutput values.
-// You can construct a concrete instance of `RetryPolicyResponseInput` via:
-//
-//          RetryPolicyResponseArgs{...}
-type RetryPolicyResponseInput interface {
-	pulumi.Input
-
-	ToRetryPolicyResponseOutput() RetryPolicyResponseOutput
-	ToRetryPolicyResponseOutputWithContext(context.Context) RetryPolicyResponseOutput
-}
-
-// Execution policy for an activity.
-type RetryPolicyResponseArgs struct {
-	// Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
-	Count pulumi.MapInput `pulumi:"count"`
-	// Interval between retries in seconds. Default is 30.
-	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
-}
-
-func (RetryPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetryPolicyResponse)(nil)).Elem()
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponseOutput() RetryPolicyResponseOutput {
-	return i.ToRetryPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponseOutputWithContext(ctx context.Context) RetryPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponseOutput)
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput {
-	return i.ToRetryPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RetryPolicyResponseArgs) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponseOutput).ToRetryPolicyResponsePtrOutputWithContext(ctx)
-}
-
-// RetryPolicyResponsePtrInput is an input type that accepts RetryPolicyResponseArgs, RetryPolicyResponsePtr and RetryPolicyResponsePtrOutput values.
-// You can construct a concrete instance of `RetryPolicyResponsePtrInput` via:
-//
-//          RetryPolicyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RetryPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput
-	ToRetryPolicyResponsePtrOutputWithContext(context.Context) RetryPolicyResponsePtrOutput
-}
-
-type retryPolicyResponsePtrType RetryPolicyResponseArgs
-
-func RetryPolicyResponsePtr(v *RetryPolicyResponseArgs) RetryPolicyResponsePtrInput {
-	return (*retryPolicyResponsePtrType)(v)
-}
-
-func (*retryPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetryPolicyResponse)(nil)).Elem()
-}
-
-func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutput() RetryPolicyResponsePtrOutput {
-	return i.ToRetryPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *retryPolicyResponsePtrType) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyResponsePtrOutput)
 }
 
 // Execution policy for an activity.
@@ -32282,71 +18691,6 @@ func (i SalesforceLinkedServiceArgs) ToSalesforceLinkedServiceOutputWithContext(
 }
 
 // Linked service for Salesforce.
-type SalesforceLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SalesforceLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceLinkedService)(nil)).Elem()
-}
-
-func (o SalesforceLinkedServiceOutput) ToSalesforceLinkedServiceOutput() SalesforceLinkedServiceOutput {
-	return o
-}
-
-func (o SalesforceLinkedServiceOutput) ToSalesforceLinkedServiceOutputWithContext(ctx context.Context) SalesforceLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SalesforceLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o SalesforceLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SalesforceLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SalesforceLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-func (o SalesforceLinkedServiceOutput) EnvironmentUrl() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) map[string]interface{} { return v.EnvironmentUrl }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SalesforceLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password for Basic authentication of the Salesforce instance.
-func (o SalesforceLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The security token is required to remotely access Salesforce instance.
-func (o SalesforceLinkedServiceOutput) SecurityToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) interface{} { return v.SecurityToken }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o SalesforceLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
-func (o SalesforceLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for Salesforce.
 type SalesforceLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -32368,53 +18712,6 @@ type SalesforceLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// SalesforceLinkedServiceResponseInput is an input type that accepts SalesforceLinkedServiceResponseArgs and SalesforceLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SalesforceLinkedServiceResponseInput` via:
-//
-//          SalesforceLinkedServiceResponseArgs{...}
-type SalesforceLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSalesforceLinkedServiceResponseOutput() SalesforceLinkedServiceResponseOutput
-	ToSalesforceLinkedServiceResponseOutputWithContext(context.Context) SalesforceLinkedServiceResponseOutput
-}
-
-// Linked service for Salesforce.
-type SalesforceLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
-	EnvironmentUrl pulumi.MapInput `pulumi:"environmentUrl"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password for Basic authentication of the Salesforce instance.
-	Password pulumi.Input `pulumi:"password"`
-	// The security token is required to remotely access Salesforce instance.
-	SecurityToken pulumi.Input `pulumi:"securityToken"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The username for Basic authentication of the Salesforce instance. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (SalesforceLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SalesforceLinkedServiceResponseArgs) ToSalesforceLinkedServiceResponseOutput() SalesforceLinkedServiceResponseOutput {
-	return i.ToSalesforceLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SalesforceLinkedServiceResponseArgs) ToSalesforceLinkedServiceResponseOutputWithContext(ctx context.Context) SalesforceLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SalesforceLinkedServiceResponseOutput)
 }
 
 // Linked service for Salesforce.
@@ -32558,76 +18855,6 @@ func (i SalesforceMarketingCloudLinkedServiceArgs) ToSalesforceMarketingCloudLin
 }
 
 // Salesforce Marketing Cloud linked service.
-type SalesforceMarketingCloudLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SalesforceMarketingCloudLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceMarketingCloudLinkedService)(nil)).Elem()
-}
-
-func (o SalesforceMarketingCloudLinkedServiceOutput) ToSalesforceMarketingCloudLinkedServiceOutput() SalesforceMarketingCloudLinkedServiceOutput {
-	return o
-}
-
-func (o SalesforceMarketingCloudLinkedServiceOutput) ToSalesforceMarketingCloudLinkedServiceOutputWithContext(ctx context.Context) SalesforceMarketingCloudLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SalesforceMarketingCloudLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-func (o SalesforceMarketingCloudLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-func (o SalesforceMarketingCloudLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o SalesforceMarketingCloudLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SalesforceMarketingCloudLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SalesforceMarketingCloudLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SalesforceMarketingCloudLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o SalesforceMarketingCloudLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o SalesforceMarketingCloudLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o SalesforceMarketingCloudLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o SalesforceMarketingCloudLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Salesforce Marketing Cloud linked service.
 type SalesforceMarketingCloudLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -32651,55 +18878,6 @@ type SalesforceMarketingCloudLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// SalesforceMarketingCloudLinkedServiceResponseInput is an input type that accepts SalesforceMarketingCloudLinkedServiceResponseArgs and SalesforceMarketingCloudLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SalesforceMarketingCloudLinkedServiceResponseInput` via:
-//
-//          SalesforceMarketingCloudLinkedServiceResponseArgs{...}
-type SalesforceMarketingCloudLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSalesforceMarketingCloudLinkedServiceResponseOutput() SalesforceMarketingCloudLinkedServiceResponseOutput
-	ToSalesforceMarketingCloudLinkedServiceResponseOutputWithContext(context.Context) SalesforceMarketingCloudLinkedServiceResponseOutput
-}
-
-// Salesforce Marketing Cloud linked service.
-type SalesforceMarketingCloudLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client ID associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret associated with the Salesforce Marketing Cloud application. Type: string (or Expression with resultType string).
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (SalesforceMarketingCloudLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceMarketingCloudLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SalesforceMarketingCloudLinkedServiceResponseArgs) ToSalesforceMarketingCloudLinkedServiceResponseOutput() SalesforceMarketingCloudLinkedServiceResponseOutput {
-	return i.ToSalesforceMarketingCloudLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SalesforceMarketingCloudLinkedServiceResponseArgs) ToSalesforceMarketingCloudLinkedServiceResponseOutputWithContext(ctx context.Context) SalesforceMarketingCloudLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SalesforceMarketingCloudLinkedServiceResponseOutput)
 }
 
 // Salesforce Marketing Cloud linked service.
@@ -32840,51 +19018,6 @@ func (i SalesforceMarketingCloudObjectDatasetArgs) ToSalesforceMarketingCloudObj
 }
 
 // Salesforce Marketing Cloud dataset.
-type SalesforceMarketingCloudObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (SalesforceMarketingCloudObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceMarketingCloudObjectDataset)(nil)).Elem()
-}
-
-func (o SalesforceMarketingCloudObjectDatasetOutput) ToSalesforceMarketingCloudObjectDatasetOutput() SalesforceMarketingCloudObjectDatasetOutput {
-	return o
-}
-
-func (o SalesforceMarketingCloudObjectDatasetOutput) ToSalesforceMarketingCloudObjectDatasetOutputWithContext(ctx context.Context) SalesforceMarketingCloudObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SalesforceMarketingCloudObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SalesforceMarketingCloudObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SalesforceMarketingCloudObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SalesforceMarketingCloudObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SalesforceMarketingCloudObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SalesforceMarketingCloudObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SalesforceMarketingCloudObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Salesforce Marketing Cloud dataset.
 type SalesforceMarketingCloudObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -32898,45 +19031,6 @@ type SalesforceMarketingCloudObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SalesforceMarketingCloudObjectDatasetResponseInput is an input type that accepts SalesforceMarketingCloudObjectDatasetResponseArgs and SalesforceMarketingCloudObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `SalesforceMarketingCloudObjectDatasetResponseInput` via:
-//
-//          SalesforceMarketingCloudObjectDatasetResponseArgs{...}
-type SalesforceMarketingCloudObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSalesforceMarketingCloudObjectDatasetResponseOutput() SalesforceMarketingCloudObjectDatasetResponseOutput
-	ToSalesforceMarketingCloudObjectDatasetResponseOutputWithContext(context.Context) SalesforceMarketingCloudObjectDatasetResponseOutput
-}
-
-// Salesforce Marketing Cloud dataset.
-type SalesforceMarketingCloudObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SalesforceMarketingCloudObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceMarketingCloudObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i SalesforceMarketingCloudObjectDatasetResponseArgs) ToSalesforceMarketingCloudObjectDatasetResponseOutput() SalesforceMarketingCloudObjectDatasetResponseOutput {
-	return i.ToSalesforceMarketingCloudObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SalesforceMarketingCloudObjectDatasetResponseArgs) ToSalesforceMarketingCloudObjectDatasetResponseOutputWithContext(ctx context.Context) SalesforceMarketingCloudObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SalesforceMarketingCloudObjectDatasetResponseOutput)
 }
 
 // Salesforce Marketing Cloud dataset.
@@ -33048,56 +19142,6 @@ func (i SalesforceObjectDatasetArgs) ToSalesforceObjectDatasetOutputWithContext(
 }
 
 // The Salesforce object dataset.
-type SalesforceObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (SalesforceObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceObjectDataset)(nil)).Elem()
-}
-
-func (o SalesforceObjectDatasetOutput) ToSalesforceObjectDatasetOutput() SalesforceObjectDatasetOutput {
-	return o
-}
-
-func (o SalesforceObjectDatasetOutput) ToSalesforceObjectDatasetOutputWithContext(ctx context.Context) SalesforceObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SalesforceObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SalesforceObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SalesforceObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// The Salesforce object API name. Type: string (or Expression with resultType string).
-func (o SalesforceObjectDatasetOutput) ObjectApiName() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) map[string]interface{} { return v.ObjectApiName }).(pulumi.MapOutput)
-}
-
-// Parameters for dataset.
-func (o SalesforceObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SalesforceObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SalesforceObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SalesforceObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Salesforce object dataset.
 type SalesforceObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -33113,47 +19157,6 @@ type SalesforceObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SalesforceObjectDatasetResponseInput is an input type that accepts SalesforceObjectDatasetResponseArgs and SalesforceObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `SalesforceObjectDatasetResponseInput` via:
-//
-//          SalesforceObjectDatasetResponseArgs{...}
-type SalesforceObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSalesforceObjectDatasetResponseOutput() SalesforceObjectDatasetResponseOutput
-	ToSalesforceObjectDatasetResponseOutputWithContext(context.Context) SalesforceObjectDatasetResponseOutput
-}
-
-// The Salesforce object dataset.
-type SalesforceObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// The Salesforce object API name. Type: string (or Expression with resultType string).
-	ObjectApiName pulumi.MapInput `pulumi:"objectApiName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SalesforceObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SalesforceObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i SalesforceObjectDatasetResponseArgs) ToSalesforceObjectDatasetResponseOutput() SalesforceObjectDatasetResponseOutput {
-	return i.ToSalesforceObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SalesforceObjectDatasetResponseArgs) ToSalesforceObjectDatasetResponseOutputWithContext(ctx context.Context) SalesforceObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SalesforceObjectDatasetResponseOutput)
 }
 
 // The Salesforce object dataset.
@@ -33282,76 +19285,6 @@ func (i SapBWLinkedServiceArgs) ToSapBWLinkedServiceOutputWithContext(ctx contex
 }
 
 // SAP Business Warehouse Linked Service.
-type SapBWLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SapBWLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapBWLinkedService)(nil)).Elem()
-}
-
-func (o SapBWLinkedServiceOutput) ToSapBWLinkedServiceOutput() SapBWLinkedServiceOutput {
-	return o
-}
-
-func (o SapBWLinkedServiceOutput) ToSapBWLinkedServiceOutputWithContext(ctx context.Context) SapBWLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapBWLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapBWLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-func (o SapBWLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The integration runtime reference.
-func (o SapBWLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SapBWLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SapBWLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapBWLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SapBWLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SapBWLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password to access the SAP BW server.
-func (o SapBWLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SapBWLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-func (o SapBWLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
-func (o SapBWLinkedServiceOutput) SystemNumber() pulumi.MapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]interface{} { return v.SystemNumber }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SapBWLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapBWLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username to access the SAP BW server. Type: string (or Expression with resultType string).
-func (o SapBWLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v SapBWLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// SAP Business Warehouse Linked Service.
 type SapBWLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -33375,55 +19308,6 @@ type SapBWLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// SapBWLinkedServiceResponseInput is an input type that accepts SapBWLinkedServiceResponseArgs and SapBWLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SapBWLinkedServiceResponseInput` via:
-//
-//          SapBWLinkedServiceResponseArgs{...}
-type SapBWLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSapBWLinkedServiceResponseOutput() SapBWLinkedServiceResponseOutput
-	ToSapBWLinkedServiceResponseOutputWithContext(context.Context) SapBWLinkedServiceResponseOutput
-}
-
-// SAP Business Warehouse Linked Service.
-type SapBWLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password to access the SAP BW server.
-	Password pulumi.Input `pulumi:"password"`
-	// Host name of the SAP BW instance. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
-	SystemNumber pulumi.MapInput `pulumi:"systemNumber"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username to access the SAP BW server. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (SapBWLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapBWLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SapBWLinkedServiceResponseArgs) ToSapBWLinkedServiceResponseOutput() SapBWLinkedServiceResponseOutput {
-	return i.ToSapBWLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SapBWLinkedServiceResponseArgs) ToSapBWLinkedServiceResponseOutputWithContext(ctx context.Context) SapBWLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapBWLinkedServiceResponseOutput)
 }
 
 // SAP Business Warehouse Linked Service.
@@ -33564,66 +19448,6 @@ func (i SapCloudForCustomerLinkedServiceArgs) ToSapCloudForCustomerLinkedService
 }
 
 // Linked service for SAP Cloud for Customer.
-type SapCloudForCustomerLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SapCloudForCustomerLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapCloudForCustomerLinkedService)(nil)).Elem()
-}
-
-func (o SapCloudForCustomerLinkedServiceOutput) ToSapCloudForCustomerLinkedServiceOutput() SapCloudForCustomerLinkedServiceOutput {
-	return o
-}
-
-func (o SapCloudForCustomerLinkedServiceOutput) ToSapCloudForCustomerLinkedServiceOutputWithContext(ctx context.Context) SapCloudForCustomerLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapCloudForCustomerLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o SapCloudForCustomerLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SapCloudForCustomerLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-func (o SapCloudForCustomerLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SapCloudForCustomerLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password for Basic authentication.
-func (o SapCloudForCustomerLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o SapCloudForCustomerLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-func (o SapCloudForCustomerLinkedServiceOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// The username for Basic authentication. Type: string (or Expression with resultType string).
-func (o SapCloudForCustomerLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for SAP Cloud for Customer.
 type SapCloudForCustomerLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -33643,51 +19467,6 @@ type SapCloudForCustomerLinkedServiceResponse struct {
 	Url map[string]interface{} `pulumi:"url"`
 	// The username for Basic authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// SapCloudForCustomerLinkedServiceResponseInput is an input type that accepts SapCloudForCustomerLinkedServiceResponseArgs and SapCloudForCustomerLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SapCloudForCustomerLinkedServiceResponseInput` via:
-//
-//          SapCloudForCustomerLinkedServiceResponseArgs{...}
-type SapCloudForCustomerLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSapCloudForCustomerLinkedServiceResponseOutput() SapCloudForCustomerLinkedServiceResponseOutput
-	ToSapCloudForCustomerLinkedServiceResponseOutputWithContext(context.Context) SapCloudForCustomerLinkedServiceResponseOutput
-}
-
-// Linked service for SAP Cloud for Customer.
-type SapCloudForCustomerLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password for Basic authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-	// The username for Basic authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (SapCloudForCustomerLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapCloudForCustomerLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SapCloudForCustomerLinkedServiceResponseArgs) ToSapCloudForCustomerLinkedServiceResponseOutput() SapCloudForCustomerLinkedServiceResponseOutput {
-	return i.ToSapCloudForCustomerLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SapCloudForCustomerLinkedServiceResponseArgs) ToSapCloudForCustomerLinkedServiceResponseOutputWithContext(ctx context.Context) SapCloudForCustomerLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapCloudForCustomerLinkedServiceResponseOutput)
 }
 
 // Linked service for SAP Cloud for Customer.
@@ -33814,56 +19593,6 @@ func (i SapCloudForCustomerResourceDatasetArgs) ToSapCloudForCustomerResourceDat
 }
 
 // The path of the SAP Cloud for Customer OData entity.
-type SapCloudForCustomerResourceDatasetOutput struct{ *pulumi.OutputState }
-
-func (SapCloudForCustomerResourceDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapCloudForCustomerResourceDataset)(nil)).Elem()
-}
-
-func (o SapCloudForCustomerResourceDatasetOutput) ToSapCloudForCustomerResourceDatasetOutput() SapCloudForCustomerResourceDatasetOutput {
-	return o
-}
-
-func (o SapCloudForCustomerResourceDatasetOutput) ToSapCloudForCustomerResourceDatasetOutputWithContext(ctx context.Context) SapCloudForCustomerResourceDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapCloudForCustomerResourceDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SapCloudForCustomerResourceDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SapCloudForCustomerResourceDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SapCloudForCustomerResourceDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
-func (o SapCloudForCustomerResourceDatasetOutput) Path() pulumi.MapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) map[string]interface{} { return v.Path }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SapCloudForCustomerResourceDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SapCloudForCustomerResourceDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapCloudForCustomerResourceDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The path of the SAP Cloud for Customer OData entity.
 type SapCloudForCustomerResourceDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -33879,47 +19608,6 @@ type SapCloudForCustomerResourceDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SapCloudForCustomerResourceDatasetResponseInput is an input type that accepts SapCloudForCustomerResourceDatasetResponseArgs and SapCloudForCustomerResourceDatasetResponseOutput values.
-// You can construct a concrete instance of `SapCloudForCustomerResourceDatasetResponseInput` via:
-//
-//          SapCloudForCustomerResourceDatasetResponseArgs{...}
-type SapCloudForCustomerResourceDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSapCloudForCustomerResourceDatasetResponseOutput() SapCloudForCustomerResourceDatasetResponseOutput
-	ToSapCloudForCustomerResourceDatasetResponseOutputWithContext(context.Context) SapCloudForCustomerResourceDatasetResponseOutput
-}
-
-// The path of the SAP Cloud for Customer OData entity.
-type SapCloudForCustomerResourceDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
-	Path pulumi.MapInput `pulumi:"path"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SapCloudForCustomerResourceDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapCloudForCustomerResourceDatasetResponse)(nil)).Elem()
-}
-
-func (i SapCloudForCustomerResourceDatasetResponseArgs) ToSapCloudForCustomerResourceDatasetResponseOutput() SapCloudForCustomerResourceDatasetResponseOutput {
-	return i.ToSapCloudForCustomerResourceDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SapCloudForCustomerResourceDatasetResponseArgs) ToSapCloudForCustomerResourceDatasetResponseOutputWithContext(ctx context.Context) SapCloudForCustomerResourceDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapCloudForCustomerResourceDatasetResponseOutput)
 }
 
 // The path of the SAP Cloud for Customer OData entity.
@@ -34044,66 +19732,6 @@ func (i SapEccLinkedServiceArgs) ToSapEccLinkedServiceOutputWithContext(ctx cont
 }
 
 // Linked service for SAP ERP Central Component(SAP ECC).
-type SapEccLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SapEccLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapEccLinkedService)(nil)).Elem()
-}
-
-func (o SapEccLinkedServiceOutput) ToSapEccLinkedServiceOutput() SapEccLinkedServiceOutput {
-	return o
-}
-
-func (o SapEccLinkedServiceOutput) ToSapEccLinkedServiceOutputWithContext(ctx context.Context) SapEccLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapEccLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapEccLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o SapEccLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SapEccLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SapEccLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapEccLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-func (o SapEccLinkedServiceOutput) EncryptedCredential() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapEccLinkedService) *string { return v.EncryptedCredential }).(pulumi.StringPtrOutput)
-}
-
-// Parameters for linked service.
-func (o SapEccLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapEccLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password for Basic authentication.
-func (o SapEccLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SapEccLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o SapEccLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapEccLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-func (o SapEccLinkedServiceOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v SapEccLinkedService) string { return v.Url }).(pulumi.StringOutput)
-}
-
-// The username for Basic authentication. Type: string (or Expression with resultType string).
-func (o SapEccLinkedServiceOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapEccLinkedService) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-// Linked service for SAP ERP Central Component(SAP ECC).
 type SapEccLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -34123,51 +19751,6 @@ type SapEccLinkedServiceResponse struct {
 	Url string `pulumi:"url"`
 	// The username for Basic authentication. Type: string (or Expression with resultType string).
 	Username *string `pulumi:"username"`
-}
-
-// SapEccLinkedServiceResponseInput is an input type that accepts SapEccLinkedServiceResponseArgs and SapEccLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SapEccLinkedServiceResponseInput` via:
-//
-//          SapEccLinkedServiceResponseArgs{...}
-type SapEccLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSapEccLinkedServiceResponseOutput() SapEccLinkedServiceResponseOutput
-	ToSapEccLinkedServiceResponseOutputWithContext(context.Context) SapEccLinkedServiceResponseOutput
-}
-
-// Linked service for SAP ERP Central Component(SAP ECC).
-type SapEccLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.StringPtrInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password for Basic authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
-	Url pulumi.StringInput `pulumi:"url"`
-	// The username for Basic authentication. Type: string (or Expression with resultType string).
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (SapEccLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapEccLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SapEccLinkedServiceResponseArgs) ToSapEccLinkedServiceResponseOutput() SapEccLinkedServiceResponseOutput {
-	return i.ToSapEccLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SapEccLinkedServiceResponseArgs) ToSapEccLinkedServiceResponseOutputWithContext(ctx context.Context) SapEccLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapEccLinkedServiceResponseOutput)
 }
 
 // Linked service for SAP ERP Central Component(SAP ECC).
@@ -34290,56 +19873,6 @@ func (i SapEccResourceDatasetArgs) ToSapEccResourceDatasetOutputWithContext(ctx 
 }
 
 // The path of the SAP ECC OData entity.
-type SapEccResourceDatasetOutput struct{ *pulumi.OutputState }
-
-func (SapEccResourceDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapEccResourceDataset)(nil)).Elem()
-}
-
-func (o SapEccResourceDatasetOutput) ToSapEccResourceDatasetOutput() SapEccResourceDatasetOutput {
-	return o
-}
-
-func (o SapEccResourceDatasetOutput) ToSapEccResourceDatasetOutputWithContext(ctx context.Context) SapEccResourceDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapEccResourceDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SapEccResourceDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SapEccResourceDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SapEccResourceDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
-func (o SapEccResourceDatasetOutput) Path() pulumi.MapOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) map[string]interface{} { return v.Path }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SapEccResourceDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SapEccResourceDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapEccResourceDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The path of the SAP ECC OData entity.
 type SapEccResourceDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -34355,47 +19888,6 @@ type SapEccResourceDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SapEccResourceDatasetResponseInput is an input type that accepts SapEccResourceDatasetResponseArgs and SapEccResourceDatasetResponseOutput values.
-// You can construct a concrete instance of `SapEccResourceDatasetResponseInput` via:
-//
-//          SapEccResourceDatasetResponseArgs{...}
-type SapEccResourceDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSapEccResourceDatasetResponseOutput() SapEccResourceDatasetResponseOutput
-	ToSapEccResourceDatasetResponseOutputWithContext(context.Context) SapEccResourceDatasetResponseOutput
-}
-
-// The path of the SAP ECC OData entity.
-type SapEccResourceDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
-	Path pulumi.MapInput `pulumi:"path"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SapEccResourceDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapEccResourceDatasetResponse)(nil)).Elem()
-}
-
-func (i SapEccResourceDatasetResponseArgs) ToSapEccResourceDatasetResponseOutput() SapEccResourceDatasetResponseOutput {
-	return i.ToSapEccResourceDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SapEccResourceDatasetResponseArgs) ToSapEccResourceDatasetResponseOutputWithContext(ctx context.Context) SapEccResourceDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapEccResourceDatasetResponseOutput)
 }
 
 // The path of the SAP ECC OData entity.
@@ -34520,71 +20012,6 @@ func (i SapHanaLinkedServiceArgs) ToSapHanaLinkedServiceOutputWithContext(ctx co
 }
 
 // SAP HANA Linked Service.
-type SapHanaLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SapHanaLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapHanaLinkedService)(nil)).Elem()
-}
-
-func (o SapHanaLinkedServiceOutput) ToSapHanaLinkedServiceOutput() SapHanaLinkedServiceOutput {
-	return o
-}
-
-func (o SapHanaLinkedServiceOutput) ToSapHanaLinkedServiceOutputWithContext(ctx context.Context) SapHanaLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SapHanaLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to be used to connect to the SAP HANA server.
-func (o SapHanaLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o SapHanaLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SapHanaLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SapHanaLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SapHanaLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password to access the SAP HANA server.
-func (o SapHanaLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
-func (o SapHanaLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SapHanaLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
-func (o SapHanaLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v SapHanaLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// SAP HANA Linked Service.
 type SapHanaLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -34606,53 +20033,6 @@ type SapHanaLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// SapHanaLinkedServiceResponseInput is an input type that accepts SapHanaLinkedServiceResponseArgs and SapHanaLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SapHanaLinkedServiceResponseInput` via:
-//
-//          SapHanaLinkedServiceResponseArgs{...}
-type SapHanaLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSapHanaLinkedServiceResponseOutput() SapHanaLinkedServiceResponseOutput
-	ToSapHanaLinkedServiceResponseOutputWithContext(context.Context) SapHanaLinkedServiceResponseOutput
-}
-
-// SAP HANA Linked Service.
-type SapHanaLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to be used to connect to the SAP HANA server.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password to access the SAP HANA server.
-	Password pulumi.Input `pulumi:"password"`
-	// Host name of the SAP HANA server. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username to access the SAP HANA server. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (SapHanaLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapHanaLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SapHanaLinkedServiceResponseArgs) ToSapHanaLinkedServiceResponseOutput() SapHanaLinkedServiceResponseOutput {
-	return i.ToSapHanaLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SapHanaLinkedServiceResponseArgs) ToSapHanaLinkedServiceResponseOutputWithContext(ctx context.Context) SapHanaLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SapHanaLinkedServiceResponseOutput)
 }
 
 // SAP HANA Linked Service.
@@ -34801,156 +20181,11 @@ func (i *secureStringPtrType) ToSecureStringPtrOutputWithContext(ctx context.Con
 }
 
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
-type SecureStringOutput struct{ *pulumi.OutputState }
-
-func (SecureStringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecureString)(nil)).Elem()
-}
-
-func (o SecureStringOutput) ToSecureStringOutput() SecureStringOutput {
-	return o
-}
-
-func (o SecureStringOutput) ToSecureStringOutputWithContext(ctx context.Context) SecureStringOutput {
-	return o
-}
-
-func (o SecureStringOutput) ToSecureStringPtrOutput() SecureStringPtrOutput {
-	return o.ToSecureStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecureStringOutput) ToSecureStringPtrOutputWithContext(ctx context.Context) SecureStringPtrOutput {
-	return o.ApplyT(func(v SecureString) *SecureString {
-		return &v
-	}).(SecureStringPtrOutput)
-}
-
-// Type of the secret.
-func (o SecureStringOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SecureString) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Value of secure string.
-func (o SecureStringOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v SecureString) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type SecureStringPtrOutput struct{ *pulumi.OutputState }
-
-func (SecureStringPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecureString)(nil)).Elem()
-}
-
-func (o SecureStringPtrOutput) ToSecureStringPtrOutput() SecureStringPtrOutput {
-	return o
-}
-
-func (o SecureStringPtrOutput) ToSecureStringPtrOutputWithContext(ctx context.Context) SecureStringPtrOutput {
-	return o
-}
-
-func (o SecureStringPtrOutput) Elem() SecureStringOutput {
-	return o.ApplyT(func(v *SecureString) SecureString { return *v }).(SecureStringOutput)
-}
-
-// Type of the secret.
-func (o SecureStringPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecureString) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of secure string.
-func (o SecureStringPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecureString) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureStringResponse struct {
 	// Type of the secret.
 	Type string `pulumi:"type"`
 	// Value of secure string.
 	Value string `pulumi:"value"`
-}
-
-// SecureStringResponseInput is an input type that accepts SecureStringResponseArgs and SecureStringResponseOutput values.
-// You can construct a concrete instance of `SecureStringResponseInput` via:
-//
-//          SecureStringResponseArgs{...}
-type SecureStringResponseInput interface {
-	pulumi.Input
-
-	ToSecureStringResponseOutput() SecureStringResponseOutput
-	ToSecureStringResponseOutputWithContext(context.Context) SecureStringResponseOutput
-}
-
-// Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
-type SecureStringResponseArgs struct {
-	// Type of the secret.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of secure string.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SecureStringResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecureStringResponse)(nil)).Elem()
-}
-
-func (i SecureStringResponseArgs) ToSecureStringResponseOutput() SecureStringResponseOutput {
-	return i.ToSecureStringResponseOutputWithContext(context.Background())
-}
-
-func (i SecureStringResponseArgs) ToSecureStringResponseOutputWithContext(ctx context.Context) SecureStringResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecureStringResponseOutput)
-}
-
-func (i SecureStringResponseArgs) ToSecureStringResponsePtrOutput() SecureStringResponsePtrOutput {
-	return i.ToSecureStringResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SecureStringResponseArgs) ToSecureStringResponsePtrOutputWithContext(ctx context.Context) SecureStringResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecureStringResponseOutput).ToSecureStringResponsePtrOutputWithContext(ctx)
-}
-
-// SecureStringResponsePtrInput is an input type that accepts SecureStringResponseArgs, SecureStringResponsePtr and SecureStringResponsePtrOutput values.
-// You can construct a concrete instance of `SecureStringResponsePtrInput` via:
-//
-//          SecureStringResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SecureStringResponsePtrInput interface {
-	pulumi.Input
-
-	ToSecureStringResponsePtrOutput() SecureStringResponsePtrOutput
-	ToSecureStringResponsePtrOutputWithContext(context.Context) SecureStringResponsePtrOutput
-}
-
-type secureStringResponsePtrType SecureStringResponseArgs
-
-func SecureStringResponsePtr(v *SecureStringResponseArgs) SecureStringResponsePtrInput {
-	return (*secureStringResponsePtrType)(v)
-}
-
-func (*secureStringResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecureStringResponse)(nil)).Elem()
-}
-
-func (i *secureStringResponsePtrType) ToSecureStringResponsePtrOutput() SecureStringResponsePtrOutput {
-	return i.ToSecureStringResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *secureStringResponsePtrType) ToSecureStringResponsePtrOutputWithContext(ctx context.Context) SecureStringResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecureStringResponsePtrOutput)
 }
 
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
@@ -35070,36 +20305,6 @@ func (i SelfHostedIntegrationRuntimeArgs) ToSelfHostedIntegrationRuntimeOutputWi
 }
 
 // Self-hosted integration runtime.
-type SelfHostedIntegrationRuntimeOutput struct{ *pulumi.OutputState }
-
-func (SelfHostedIntegrationRuntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelfHostedIntegrationRuntime)(nil)).Elem()
-}
-
-func (o SelfHostedIntegrationRuntimeOutput) ToSelfHostedIntegrationRuntimeOutput() SelfHostedIntegrationRuntimeOutput {
-	return o
-}
-
-func (o SelfHostedIntegrationRuntimeOutput) ToSelfHostedIntegrationRuntimeOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeOutput {
-	return o
-}
-
-// Integration runtime description.
-func (o SelfHostedIntegrationRuntimeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SelfHostedIntegrationRuntime) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The base definition of a secret type.
-func (o SelfHostedIntegrationRuntimeOutput) LinkedInfo() pulumi.AnyOutput {
-	return o.ApplyT(func(v SelfHostedIntegrationRuntime) interface{} { return v.LinkedInfo }).(pulumi.AnyOutput)
-}
-
-// Type of integration runtime.
-func (o SelfHostedIntegrationRuntimeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SelfHostedIntegrationRuntime) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Self-hosted integration runtime.
 type SelfHostedIntegrationRuntimeResponse struct {
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
@@ -35107,39 +20312,6 @@ type SelfHostedIntegrationRuntimeResponse struct {
 	LinkedInfo interface{} `pulumi:"linkedInfo"`
 	// Type of integration runtime.
 	Type string `pulumi:"type"`
-}
-
-// SelfHostedIntegrationRuntimeResponseInput is an input type that accepts SelfHostedIntegrationRuntimeResponseArgs and SelfHostedIntegrationRuntimeResponseOutput values.
-// You can construct a concrete instance of `SelfHostedIntegrationRuntimeResponseInput` via:
-//
-//          SelfHostedIntegrationRuntimeResponseArgs{...}
-type SelfHostedIntegrationRuntimeResponseInput interface {
-	pulumi.Input
-
-	ToSelfHostedIntegrationRuntimeResponseOutput() SelfHostedIntegrationRuntimeResponseOutput
-	ToSelfHostedIntegrationRuntimeResponseOutputWithContext(context.Context) SelfHostedIntegrationRuntimeResponseOutput
-}
-
-// Self-hosted integration runtime.
-type SelfHostedIntegrationRuntimeResponseArgs struct {
-	// Integration runtime description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The base definition of a secret type.
-	LinkedInfo pulumi.Input `pulumi:"linkedInfo"`
-	// Type of integration runtime.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SelfHostedIntegrationRuntimeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelfHostedIntegrationRuntimeResponse)(nil)).Elem()
-}
-
-func (i SelfHostedIntegrationRuntimeResponseArgs) ToSelfHostedIntegrationRuntimeResponseOutput() SelfHostedIntegrationRuntimeResponseOutput {
-	return i.ToSelfHostedIntegrationRuntimeResponseOutputWithContext(context.Background())
-}
-
-func (i SelfHostedIntegrationRuntimeResponseArgs) ToSelfHostedIntegrationRuntimeResponseOutputWithContext(ctx context.Context) SelfHostedIntegrationRuntimeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SelfHostedIntegrationRuntimeResponseOutput)
 }
 
 // Self-hosted integration runtime.
@@ -35264,96 +20436,6 @@ func (i ServiceNowLinkedServiceArgs) ToServiceNowLinkedServiceOutputWithContext(
 }
 
 // ServiceNow server linked service.
-type ServiceNowLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ServiceNowLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNowLinkedService)(nil)).Elem()
-}
-
-func (o ServiceNowLinkedServiceOutput) ToServiceNowLinkedServiceOutput() ServiceNowLinkedServiceOutput {
-	return o
-}
-
-func (o ServiceNowLinkedServiceOutput) ToServiceNowLinkedServiceOutputWithContext(ctx context.Context) ServiceNowLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ServiceNowLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to use.
-func (o ServiceNowLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The client id for OAuth2 authentication.
-func (o ServiceNowLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret for OAuth2 authentication.
-func (o ServiceNowLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o ServiceNowLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ServiceNowLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ServiceNowLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
-func (o ServiceNowLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ServiceNowLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name for Basic and OAuth2 authentication.
-func (o ServiceNowLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o ServiceNowLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o ServiceNowLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o ServiceNowLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o ServiceNowLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
-func (o ServiceNowLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// ServiceNow server linked service.
 type ServiceNowLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -35385,63 +20467,6 @@ type ServiceNowLinkedServiceResponse struct {
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
 	// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// ServiceNowLinkedServiceResponseInput is an input type that accepts ServiceNowLinkedServiceResponseArgs and ServiceNowLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ServiceNowLinkedServiceResponseInput` via:
-//
-//          ServiceNowLinkedServiceResponseArgs{...}
-type ServiceNowLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToServiceNowLinkedServiceResponseOutput() ServiceNowLinkedServiceResponseOutput
-	ToServiceNowLinkedServiceResponseOutputWithContext(context.Context) ServiceNowLinkedServiceResponseOutput
-}
-
-// ServiceNow server linked service.
-type ServiceNowLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to use.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The client id for OAuth2 authentication.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret for OAuth2 authentication.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name for Basic and OAuth2 authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-	// The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (ServiceNowLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNowLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ServiceNowLinkedServiceResponseArgs) ToServiceNowLinkedServiceResponseOutput() ServiceNowLinkedServiceResponseOutput {
-	return i.ToServiceNowLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceNowLinkedServiceResponseArgs) ToServiceNowLinkedServiceResponseOutputWithContext(ctx context.Context) ServiceNowLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowLinkedServiceResponseOutput)
 }
 
 // ServiceNow server linked service.
@@ -35590,51 +20615,6 @@ func (i ServiceNowObjectDatasetArgs) ToServiceNowObjectDatasetOutputWithContext(
 }
 
 // ServiceNow server dataset.
-type ServiceNowObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ServiceNowObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNowObjectDataset)(nil)).Elem()
-}
-
-func (o ServiceNowObjectDatasetOutput) ToServiceNowObjectDatasetOutput() ServiceNowObjectDatasetOutput {
-	return o
-}
-
-func (o ServiceNowObjectDatasetOutput) ToServiceNowObjectDatasetOutputWithContext(ctx context.Context) ServiceNowObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ServiceNowObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ServiceNowObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ServiceNowObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ServiceNowObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ServiceNowObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ServiceNowObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceNowObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// ServiceNow server dataset.
 type ServiceNowObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -35648,45 +20628,6 @@ type ServiceNowObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ServiceNowObjectDatasetResponseInput is an input type that accepts ServiceNowObjectDatasetResponseArgs and ServiceNowObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ServiceNowObjectDatasetResponseInput` via:
-//
-//          ServiceNowObjectDatasetResponseArgs{...}
-type ServiceNowObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToServiceNowObjectDatasetResponseOutput() ServiceNowObjectDatasetResponseOutput
-	ToServiceNowObjectDatasetResponseOutputWithContext(context.Context) ServiceNowObjectDatasetResponseOutput
-}
-
-// ServiceNow server dataset.
-type ServiceNowObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceNowObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceNowObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ServiceNowObjectDatasetResponseArgs) ToServiceNowObjectDatasetResponseOutput() ServiceNowObjectDatasetResponseOutput {
-	return i.ToServiceNowObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceNowObjectDatasetResponseArgs) ToServiceNowObjectDatasetResponseOutputWithContext(ctx context.Context) ServiceNowObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceNowObjectDatasetResponseOutput)
 }
 
 // ServiceNow server dataset.
@@ -35830,101 +20771,6 @@ func (i SftpServerLinkedServiceArgs) ToSftpServerLinkedServiceOutputWithContext(
 }
 
 // A linked service for an SSH File Transfer Protocol (SFTP) server.
-type SftpServerLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SftpServerLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SftpServerLinkedService)(nil)).Elem()
-}
-
-func (o SftpServerLinkedServiceOutput) ToSftpServerLinkedServiceOutput() SftpServerLinkedServiceOutput {
-	return o
-}
-
-func (o SftpServerLinkedServiceOutput) ToSftpServerLinkedServiceOutputWithContext(ctx context.Context) SftpServerLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SftpServerLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication type to be used to connect to the FTP server.
-func (o SftpServerLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o SftpServerLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SftpServerLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SftpServerLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The SFTP server host name. Type: string (or Expression with resultType string).
-func (o SftpServerLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
-func (o SftpServerLinkedServiceOutput) HostKeyFingerprint() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.HostKeyFingerprint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SftpServerLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password to decrypt the SSH private key if the SSH private key is encrypted.
-func (o SftpServerLinkedServiceOutput) PassPhrase() pulumi.AnyOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) interface{} { return v.PassPhrase }).(pulumi.AnyOutput)
-}
-
-// Password to logon the SFTP server for Basic authentication.
-func (o SftpServerLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o SftpServerLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
-func (o SftpServerLinkedServiceOutput) PrivateKeyContent() pulumi.AnyOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) interface{} { return v.PrivateKeyContent }).(pulumi.AnyOutput)
-}
-
-// The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
-func (o SftpServerLinkedServiceOutput) PrivateKeyPath() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.PrivateKeyPath }).(pulumi.MapOutput)
-}
-
-// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
-func (o SftpServerLinkedServiceOutput) SkipHostKeyValidation() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.SkipHostKeyValidation }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SftpServerLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
-func (o SftpServerLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v SftpServerLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// A linked service for an SSH File Transfer Protocol (SFTP) server.
 type SftpServerLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -35958,65 +20804,6 @@ type SftpServerLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// SftpServerLinkedServiceResponseInput is an input type that accepts SftpServerLinkedServiceResponseArgs and SftpServerLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SftpServerLinkedServiceResponseInput` via:
-//
-//          SftpServerLinkedServiceResponseArgs{...}
-type SftpServerLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSftpServerLinkedServiceResponseOutput() SftpServerLinkedServiceResponseOutput
-	ToSftpServerLinkedServiceResponseOutputWithContext(context.Context) SftpServerLinkedServiceResponseOutput
-}
-
-// A linked service for an SSH File Transfer Protocol (SFTP) server.
-type SftpServerLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication type to be used to connect to the FTP server.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The SFTP server host name. Type: string (or Expression with resultType string).
-	Host pulumi.MapInput `pulumi:"host"`
-	// The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
-	HostKeyFingerprint pulumi.MapInput `pulumi:"hostKeyFingerprint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password to decrypt the SSH private key if the SSH private key is encrypted.
-	PassPhrase pulumi.Input `pulumi:"passPhrase"`
-	// Password to logon the SFTP server for Basic authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port number that the SFTP server uses to listen for client connections. Default value is 22. Type: integer (or Expression with resultType integer), minimum: 0.
-	Port pulumi.MapInput `pulumi:"port"`
-	// Base64 encoded SSH private key content for SshPublicKey authentication. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format.
-	PrivateKeyContent pulumi.Input `pulumi:"privateKeyContent"`
-	// The SSH private key file path for SshPublicKey authentication. Only valid for on-premises copy. For on-premises copy with SshPublicKey authentication, either PrivateKeyPath or PrivateKeyContent should be specified. SSH private key should be OpenSSH format. Type: string (or Expression with resultType string).
-	PrivateKeyPath pulumi.MapInput `pulumi:"privateKeyPath"`
-	// If true, skip the SSH host key validation. Default value is false. Type: boolean (or Expression with resultType boolean).
-	SkipHostKeyValidation pulumi.MapInput `pulumi:"skipHostKeyValidation"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The username used to log on to the SFTP server. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (SftpServerLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SftpServerLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SftpServerLinkedServiceResponseArgs) ToSftpServerLinkedServiceResponseOutput() SftpServerLinkedServiceResponseOutput {
-	return i.ToSftpServerLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SftpServerLinkedServiceResponseArgs) ToSftpServerLinkedServiceResponseOutputWithContext(ctx context.Context) SftpServerLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SftpServerLinkedServiceResponseOutput)
 }
 
 // A linked service for an SSH File Transfer Protocol (SFTP) server.
@@ -36190,76 +20977,6 @@ func (i ShopifyLinkedServiceArgs) ToShopifyLinkedServiceOutputWithContext(ctx co
 }
 
 // Shopify Service linked service.
-type ShopifyLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ShopifyLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShopifyLinkedService)(nil)).Elem()
-}
-
-func (o ShopifyLinkedServiceOutput) ToShopifyLinkedServiceOutput() ShopifyLinkedServiceOutput {
-	return o
-}
-
-func (o ShopifyLinkedServiceOutput) ToShopifyLinkedServiceOutputWithContext(ctx context.Context) ShopifyLinkedServiceOutput {
-	return o
-}
-
-// The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-func (o ShopifyLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ShopifyLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o ShopifyLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ShopifyLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ShopifyLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
-func (o ShopifyLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ShopifyLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o ShopifyLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o ShopifyLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o ShopifyLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o ShopifyLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Shopify Service linked service.
 type ShopifyLinkedServiceResponse struct {
 	// The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -36283,55 +21000,6 @@ type ShopifyLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// ShopifyLinkedServiceResponseInput is an input type that accepts ShopifyLinkedServiceResponseArgs and ShopifyLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ShopifyLinkedServiceResponseInput` via:
-//
-//          ShopifyLinkedServiceResponseArgs{...}
-type ShopifyLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToShopifyLinkedServiceResponseOutput() ShopifyLinkedServiceResponseOutput
-	ToShopifyLinkedServiceResponseOutputWithContext(context.Context) ShopifyLinkedServiceResponseOutput
-}
-
-// Shopify Service linked service.
-type ShopifyLinkedServiceResponseArgs struct {
-	// The API access token that can be used to access Shopify’s data. The token won't expire if it is offline mode.
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (ShopifyLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShopifyLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ShopifyLinkedServiceResponseArgs) ToShopifyLinkedServiceResponseOutput() ShopifyLinkedServiceResponseOutput {
-	return i.ToShopifyLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ShopifyLinkedServiceResponseArgs) ToShopifyLinkedServiceResponseOutputWithContext(ctx context.Context) ShopifyLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShopifyLinkedServiceResponseOutput)
 }
 
 // Shopify Service linked service.
@@ -36460,51 +21128,6 @@ func (i ShopifyObjectDatasetArgs) ToShopifyObjectDatasetOutputWithContext(ctx co
 }
 
 // Shopify Service dataset.
-type ShopifyObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ShopifyObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShopifyObjectDataset)(nil)).Elem()
-}
-
-func (o ShopifyObjectDatasetOutput) ToShopifyObjectDatasetOutput() ShopifyObjectDatasetOutput {
-	return o
-}
-
-func (o ShopifyObjectDatasetOutput) ToShopifyObjectDatasetOutputWithContext(ctx context.Context) ShopifyObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ShopifyObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ShopifyObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ShopifyObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ShopifyObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ShopifyObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ShopifyObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ShopifyObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Shopify Service dataset.
 type ShopifyObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -36518,45 +21141,6 @@ type ShopifyObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ShopifyObjectDatasetResponseInput is an input type that accepts ShopifyObjectDatasetResponseArgs and ShopifyObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ShopifyObjectDatasetResponseInput` via:
-//
-//          ShopifyObjectDatasetResponseArgs{...}
-type ShopifyObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToShopifyObjectDatasetResponseOutput() ShopifyObjectDatasetResponseOutput
-	ToShopifyObjectDatasetResponseOutputWithContext(context.Context) ShopifyObjectDatasetResponseOutput
-}
-
-// Shopify Service dataset.
-type ShopifyObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ShopifyObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShopifyObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ShopifyObjectDatasetResponseArgs) ToShopifyObjectDatasetResponseOutput() ShopifyObjectDatasetResponseOutput {
-	return i.ToShopifyObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ShopifyObjectDatasetResponseArgs) ToShopifyObjectDatasetResponseOutputWithContext(ctx context.Context) ShopifyObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShopifyObjectDatasetResponseOutput)
 }
 
 // Shopify Service dataset.
@@ -36712,116 +21296,6 @@ func (i SparkLinkedServiceArgs) ToSparkLinkedServiceOutputWithContext(ctx contex
 }
 
 // Spark Server linked service.
-type SparkLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SparkLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkLinkedService)(nil)).Elem()
-}
-
-func (o SparkLinkedServiceOutput) ToSparkLinkedServiceOutput() SparkLinkedServiceOutput {
-	return o
-}
-
-func (o SparkLinkedServiceOutput) ToSparkLinkedServiceOutputWithContext(ctx context.Context) SparkLinkedServiceOutput {
-	return o
-}
-
-// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-func (o SparkLinkedServiceOutput) AllowHostNameCNMismatch() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.AllowHostNameCNMismatch }).(pulumi.MapOutput)
-}
-
-// Specifies whether to allow self-signed certificates from the server. The default value is false.
-func (o SparkLinkedServiceOutput) AllowSelfSignedServerCert() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.AllowSelfSignedServerCert }).(pulumi.MapOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SparkLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SparkLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The authentication method used to access the Spark server.
-func (o SparkLinkedServiceOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkLinkedService) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The integration runtime reference.
-func (o SparkLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SparkLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SparkLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-func (o SparkLinkedServiceOutput) EnableSsl() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.EnableSsl }).(pulumi.MapOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SparkLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// IP address or host name of the Spark server
-func (o SparkLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// The partial URL corresponding to the Spark server.
-func (o SparkLinkedServiceOutput) HttpPath() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.HttpPath }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SparkLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The password corresponding to the user name that you provided in the Username field
-func (o SparkLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SparkLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The TCP port that the Spark server uses to listen for client connections.
-func (o SparkLinkedServiceOutput) Port() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.Port }).(pulumi.MapOutput)
-}
-
-// The type of Spark server.
-func (o SparkLinkedServiceOutput) ServerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkLinkedService) *string { return v.ServerType }).(pulumi.StringPtrOutput)
-}
-
-// The transport protocol to use in the Thrift layer.
-func (o SparkLinkedServiceOutput) ThriftTransportProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkLinkedService) *string { return v.ThriftTransportProtocol }).(pulumi.StringPtrOutput)
-}
-
-// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-func (o SparkLinkedServiceOutput) TrustedCertPath() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.TrustedCertPath }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SparkLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-func (o SparkLinkedServiceOutput) UseSystemTrustStore() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.UseSystemTrustStore }).(pulumi.MapOutput)
-}
-
-// The user name that you use to access Spark Server.
-func (o SparkLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Spark Server linked service.
 type SparkLinkedServiceResponse struct {
 	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
 	AllowHostNameCNMismatch map[string]interface{} `pulumi:"allowHostNameCNMismatch"`
@@ -36861,71 +21335,6 @@ type SparkLinkedServiceResponse struct {
 	UseSystemTrustStore map[string]interface{} `pulumi:"useSystemTrustStore"`
 	// The user name that you use to access Spark Server.
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// SparkLinkedServiceResponseInput is an input type that accepts SparkLinkedServiceResponseArgs and SparkLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SparkLinkedServiceResponseInput` via:
-//
-//          SparkLinkedServiceResponseArgs{...}
-type SparkLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSparkLinkedServiceResponseOutput() SparkLinkedServiceResponseOutput
-	ToSparkLinkedServiceResponseOutputWithContext(context.Context) SparkLinkedServiceResponseOutput
-}
-
-// Spark Server linked service.
-type SparkLinkedServiceResponseArgs struct {
-	// Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
-	AllowHostNameCNMismatch pulumi.MapInput `pulumi:"allowHostNameCNMismatch"`
-	// Specifies whether to allow self-signed certificates from the server. The default value is false.
-	AllowSelfSignedServerCert pulumi.MapInput `pulumi:"allowSelfSignedServerCert"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The authentication method used to access the Spark server.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-	EnableSsl pulumi.MapInput `pulumi:"enableSsl"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// IP address or host name of the Spark server
-	Host pulumi.MapInput `pulumi:"host"`
-	// The partial URL corresponding to the Spark server.
-	HttpPath pulumi.MapInput `pulumi:"httpPath"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The password corresponding to the user name that you provided in the Username field
-	Password pulumi.Input `pulumi:"password"`
-	// The TCP port that the Spark server uses to listen for client connections.
-	Port pulumi.MapInput `pulumi:"port"`
-	// The type of Spark server.
-	ServerType pulumi.StringPtrInput `pulumi:"serverType"`
-	// The transport protocol to use in the Thrift layer.
-	ThriftTransportProtocol pulumi.StringPtrInput `pulumi:"thriftTransportProtocol"`
-	// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-	TrustedCertPath pulumi.MapInput `pulumi:"trustedCertPath"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
-	UseSystemTrustStore pulumi.MapInput `pulumi:"useSystemTrustStore"`
-	// The user name that you use to access Spark Server.
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (SparkLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SparkLinkedServiceResponseArgs) ToSparkLinkedServiceResponseOutput() SparkLinkedServiceResponseOutput {
-	return i.ToSparkLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SparkLinkedServiceResponseArgs) ToSparkLinkedServiceResponseOutputWithContext(ctx context.Context) SparkLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkLinkedServiceResponseOutput)
 }
 
 // Spark Server linked service.
@@ -37094,51 +21503,6 @@ func (i SparkObjectDatasetArgs) ToSparkObjectDatasetOutputWithContext(ctx contex
 }
 
 // Spark Server dataset.
-type SparkObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (SparkObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkObjectDataset)(nil)).Elem()
-}
-
-func (o SparkObjectDatasetOutput) ToSparkObjectDatasetOutput() SparkObjectDatasetOutput {
-	return o
-}
-
-func (o SparkObjectDatasetOutput) ToSparkObjectDatasetOutputWithContext(ctx context.Context) SparkObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SparkObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SparkObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SparkObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SparkObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SparkObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SparkObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SparkObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SparkObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SparkObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SparkObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Spark Server dataset.
 type SparkObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -37152,45 +21516,6 @@ type SparkObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SparkObjectDatasetResponseInput is an input type that accepts SparkObjectDatasetResponseArgs and SparkObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `SparkObjectDatasetResponseInput` via:
-//
-//          SparkObjectDatasetResponseArgs{...}
-type SparkObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSparkObjectDatasetResponseOutput() SparkObjectDatasetResponseOutput
-	ToSparkObjectDatasetResponseOutputWithContext(context.Context) SparkObjectDatasetResponseOutput
-}
-
-// Spark Server dataset.
-type SparkObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SparkObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SparkObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i SparkObjectDatasetResponseArgs) ToSparkObjectDatasetResponseOutput() SparkObjectDatasetResponseOutput {
-	return i.ToSparkObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SparkObjectDatasetResponseArgs) ToSparkObjectDatasetResponseOutputWithContext(ctx context.Context) SparkObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SparkObjectDatasetResponseOutput)
 }
 
 // Spark Server dataset.
@@ -37306,66 +21631,6 @@ func (i SqlServerLinkedServiceArgs) ToSqlServerLinkedServiceOutputWithContext(ct
 }
 
 // SQL Server linked service.
-type SqlServerLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SqlServerLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerLinkedService)(nil)).Elem()
-}
-
-func (o SqlServerLinkedServiceOutput) ToSqlServerLinkedServiceOutput() SqlServerLinkedServiceOutput {
-	return o
-}
-
-func (o SqlServerLinkedServiceOutput) ToSqlServerLinkedServiceOutputWithContext(ctx context.Context) SqlServerLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SqlServerLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o SqlServerLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o SqlServerLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o SqlServerLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SqlServerLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SqlServerLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The on-premises Windows authentication password.
-func (o SqlServerLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o SqlServerLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
-func (o SqlServerLinkedServiceOutput) UserName() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlServerLinkedService) map[string]interface{} { return v.UserName }).(pulumi.MapOutput)
-}
-
-// SQL Server linked service.
 type SqlServerLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -37385,51 +21650,6 @@ type SqlServerLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
 	UserName map[string]interface{} `pulumi:"userName"`
-}
-
-// SqlServerLinkedServiceResponseInput is an input type that accepts SqlServerLinkedServiceResponseArgs and SqlServerLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SqlServerLinkedServiceResponseInput` via:
-//
-//          SqlServerLinkedServiceResponseArgs{...}
-type SqlServerLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSqlServerLinkedServiceResponseOutput() SqlServerLinkedServiceResponseOutput
-	ToSqlServerLinkedServiceResponseOutputWithContext(context.Context) SqlServerLinkedServiceResponseOutput
-}
-
-// SQL Server linked service.
-type SqlServerLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The on-premises Windows authentication password.
-	Password pulumi.Input `pulumi:"password"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
-	UserName pulumi.MapInput `pulumi:"userName"`
-}
-
-func (SqlServerLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SqlServerLinkedServiceResponseArgs) ToSqlServerLinkedServiceResponseOutput() SqlServerLinkedServiceResponseOutput {
-	return i.ToSqlServerLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SqlServerLinkedServiceResponseArgs) ToSqlServerLinkedServiceResponseOutputWithContext(ctx context.Context) SqlServerLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerLinkedServiceResponseOutput)
 }
 
 // SQL Server linked service.
@@ -37552,56 +21772,6 @@ func (i SqlServerTableDatasetArgs) ToSqlServerTableDatasetOutputWithContext(ctx 
 }
 
 // The on-premises SQL Server dataset.
-type SqlServerTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (SqlServerTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerTableDataset)(nil)).Elem()
-}
-
-func (o SqlServerTableDatasetOutput) ToSqlServerTableDatasetOutput() SqlServerTableDatasetOutput {
-	return o
-}
-
-func (o SqlServerTableDatasetOutput) ToSqlServerTableDatasetOutputWithContext(ctx context.Context) SqlServerTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SqlServerTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SqlServerTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SqlServerTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SqlServerTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SqlServerTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
-func (o SqlServerTableDatasetOutput) TableName() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) map[string]interface{} { return v.TableName }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SqlServerTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlServerTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The on-premises SQL Server dataset.
 type SqlServerTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -37617,47 +21787,6 @@ type SqlServerTableDatasetResponse struct {
 	TableName map[string]interface{} `pulumi:"tableName"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SqlServerTableDatasetResponseInput is an input type that accepts SqlServerTableDatasetResponseArgs and SqlServerTableDatasetResponseOutput values.
-// You can construct a concrete instance of `SqlServerTableDatasetResponseInput` via:
-//
-//          SqlServerTableDatasetResponseArgs{...}
-type SqlServerTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSqlServerTableDatasetResponseOutput() SqlServerTableDatasetResponseOutput
-	ToSqlServerTableDatasetResponseOutputWithContext(context.Context) SqlServerTableDatasetResponseOutput
-}
-
-// The on-premises SQL Server dataset.
-type SqlServerTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// The table name of the SQL Server dataset. Type: string (or Expression with resultType string).
-	TableName pulumi.MapInput `pulumi:"tableName"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlServerTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerTableDatasetResponse)(nil)).Elem()
-}
-
-func (i SqlServerTableDatasetResponseArgs) ToSqlServerTableDatasetResponseOutput() SqlServerTableDatasetResponseOutput {
-	return i.ToSqlServerTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SqlServerTableDatasetResponseArgs) ToSqlServerTableDatasetResponseOutputWithContext(ctx context.Context) SqlServerTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerTableDatasetResponseOutput)
 }
 
 // The on-premises SQL Server dataset.
@@ -37794,86 +21923,6 @@ func (i SquareLinkedServiceArgs) ToSquareLinkedServiceOutputWithContext(ctx cont
 }
 
 // Square Service linked service.
-type SquareLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SquareLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SquareLinkedService)(nil)).Elem()
-}
-
-func (o SquareLinkedServiceOutput) ToSquareLinkedServiceOutput() SquareLinkedServiceOutput {
-	return o
-}
-
-func (o SquareLinkedServiceOutput) ToSquareLinkedServiceOutputWithContext(ctx context.Context) SquareLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SquareLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SquareLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The client ID associated with your Square application.
-func (o SquareLinkedServiceOutput) ClientId() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.ClientId }).(pulumi.MapOutput)
-}
-
-// The client secret associated with your Square application.
-func (o SquareLinkedServiceOutput) ClientSecret() pulumi.AnyOutput {
-	return o.ApplyT(func(v SquareLinkedService) interface{} { return v.ClientSecret }).(pulumi.AnyOutput)
-}
-
-// The integration runtime reference.
-func (o SquareLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SquareLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o SquareLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SquareLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SquareLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The URL of the Square instance. (i.e. mystore.mysquare.com)
-func (o SquareLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SquareLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
-func (o SquareLinkedServiceOutput) RedirectUri() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.RedirectUri }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SquareLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SquareLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o SquareLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o SquareLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o SquareLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Square Service linked service.
 type SquareLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -37901,59 +21950,6 @@ type SquareLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// SquareLinkedServiceResponseInput is an input type that accepts SquareLinkedServiceResponseArgs and SquareLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SquareLinkedServiceResponseInput` via:
-//
-//          SquareLinkedServiceResponseArgs{...}
-type SquareLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSquareLinkedServiceResponseOutput() SquareLinkedServiceResponseOutput
-	ToSquareLinkedServiceResponseOutputWithContext(context.Context) SquareLinkedServiceResponseOutput
-}
-
-// Square Service linked service.
-type SquareLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The client ID associated with your Square application.
-	ClientId pulumi.MapInput `pulumi:"clientId"`
-	// The client secret associated with your Square application.
-	ClientSecret pulumi.Input `pulumi:"clientSecret"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The URL of the Square instance. (i.e. mystore.mysquare.com)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
-	RedirectUri pulumi.MapInput `pulumi:"redirectUri"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (SquareLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SquareLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SquareLinkedServiceResponseArgs) ToSquareLinkedServiceResponseOutput() SquareLinkedServiceResponseOutput {
-	return i.ToSquareLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SquareLinkedServiceResponseArgs) ToSquareLinkedServiceResponseOutputWithContext(ctx context.Context) SquareLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SquareLinkedServiceResponseOutput)
 }
 
 // Square Service linked service.
@@ -38092,51 +22088,6 @@ func (i SquareObjectDatasetArgs) ToSquareObjectDatasetOutputWithContext(ctx cont
 }
 
 // Square Service dataset.
-type SquareObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (SquareObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SquareObjectDataset)(nil)).Elem()
-}
-
-func (o SquareObjectDatasetOutput) ToSquareObjectDatasetOutput() SquareObjectDatasetOutput {
-	return o
-}
-
-func (o SquareObjectDatasetOutput) ToSquareObjectDatasetOutputWithContext(ctx context.Context) SquareObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SquareObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SquareObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o SquareObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SquareObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o SquareObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v SquareObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o SquareObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SquareObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o SquareObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v SquareObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o SquareObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SquareObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Square Service dataset.
 type SquareObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -38150,45 +22101,6 @@ type SquareObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// SquareObjectDatasetResponseInput is an input type that accepts SquareObjectDatasetResponseArgs and SquareObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `SquareObjectDatasetResponseInput` via:
-//
-//          SquareObjectDatasetResponseArgs{...}
-type SquareObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToSquareObjectDatasetResponseOutput() SquareObjectDatasetResponseOutput
-	ToSquareObjectDatasetResponseOutputWithContext(context.Context) SquareObjectDatasetResponseOutput
-}
-
-// Square Service dataset.
-type SquareObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SquareObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SquareObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i SquareObjectDatasetResponseArgs) ToSquareObjectDatasetResponseOutput() SquareObjectDatasetResponseOutput {
-	return i.ToSquareObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i SquareObjectDatasetResponseArgs) ToSquareObjectDatasetResponseOutputWithContext(ctx context.Context) SquareObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SquareObjectDatasetResponseOutput)
 }
 
 // Square Service dataset.
@@ -38316,81 +22228,6 @@ func (i SybaseLinkedServiceArgs) ToSybaseLinkedServiceOutputWithContext(ctx cont
 }
 
 // Linked service for Sybase data source.
-type SybaseLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (SybaseLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SybaseLinkedService)(nil)).Elem()
-}
-
-func (o SybaseLinkedServiceOutput) ToSybaseLinkedServiceOutput() SybaseLinkedServiceOutput {
-	return o
-}
-
-func (o SybaseLinkedServiceOutput) ToSybaseLinkedServiceOutputWithContext(ctx context.Context) SybaseLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o SybaseLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v SybaseLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// AuthenticationType to be used for connection.
-func (o SybaseLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SybaseLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o SybaseLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v SybaseLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Database name for connection. Type: string (or Expression with resultType string).
-func (o SybaseLinkedServiceOutput) Database() pulumi.MapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]interface{} { return v.Database }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o SybaseLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SybaseLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o SybaseLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o SybaseLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for authentication.
-func (o SybaseLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v SybaseLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Schema name for connection. Type: string (or Expression with resultType string).
-func (o SybaseLinkedServiceOutput) Schema() pulumi.MapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]interface{} { return v.Schema }).(pulumi.MapOutput)
-}
-
-// Server name for connection. Type: string (or Expression with resultType string).
-func (o SybaseLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o SybaseLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SybaseLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username for authentication. Type: string (or Expression with resultType string).
-func (o SybaseLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v SybaseLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for Sybase data source.
 type SybaseLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -38416,57 +22253,6 @@ type SybaseLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// SybaseLinkedServiceResponseInput is an input type that accepts SybaseLinkedServiceResponseArgs and SybaseLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `SybaseLinkedServiceResponseInput` via:
-//
-//          SybaseLinkedServiceResponseArgs{...}
-type SybaseLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToSybaseLinkedServiceResponseOutput() SybaseLinkedServiceResponseOutput
-	ToSybaseLinkedServiceResponseOutputWithContext(context.Context) SybaseLinkedServiceResponseOutput
-}
-
-// Linked service for Sybase data source.
-type SybaseLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// AuthenticationType to be used for connection.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Database name for connection. Type: string (or Expression with resultType string).
-	Database pulumi.MapInput `pulumi:"database"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Schema name for connection. Type: string (or Expression with resultType string).
-	Schema pulumi.MapInput `pulumi:"schema"`
-	// Server name for connection. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username for authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (SybaseLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SybaseLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i SybaseLinkedServiceResponseArgs) ToSybaseLinkedServiceResponseOutput() SybaseLinkedServiceResponseOutput {
-	return i.ToSybaseLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i SybaseLinkedServiceResponseArgs) ToSybaseLinkedServiceResponseOutputWithContext(ctx context.Context) SybaseLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SybaseLinkedServiceResponseOutput)
 }
 
 // Linked service for Sybase data source.
@@ -38616,71 +22402,6 @@ func (i TeradataLinkedServiceArgs) ToTeradataLinkedServiceOutputWithContext(ctx 
 }
 
 // Linked service for Teradata data source.
-type TeradataLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (TeradataLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeradataLinkedService)(nil)).Elem()
-}
-
-func (o TeradataLinkedServiceOutput) ToTeradataLinkedServiceOutput() TeradataLinkedServiceOutput {
-	return o
-}
-
-func (o TeradataLinkedServiceOutput) ToTeradataLinkedServiceOutputWithContext(ctx context.Context) TeradataLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o TeradataLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v TeradataLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// AuthenticationType to be used for connection.
-func (o TeradataLinkedServiceOutput) AuthenticationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TeradataLinkedService) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
-}
-
-// The integration runtime reference.
-func (o TeradataLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v TeradataLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o TeradataLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TeradataLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o TeradataLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v TeradataLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o TeradataLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v TeradataLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Password for authentication.
-func (o TeradataLinkedServiceOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v TeradataLinkedService) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Server name for connection. Type: string (or Expression with resultType string).
-func (o TeradataLinkedServiceOutput) Server() pulumi.MapOutput {
-	return o.ApplyT(func(v TeradataLinkedService) map[string]interface{} { return v.Server }).(pulumi.MapOutput)
-}
-
-// Type of linked service.
-func (o TeradataLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TeradataLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Username for authentication. Type: string (or Expression with resultType string).
-func (o TeradataLinkedServiceOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v TeradataLinkedService) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// Linked service for Teradata data source.
 type TeradataLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -38702,53 +22423,6 @@ type TeradataLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Username for authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// TeradataLinkedServiceResponseInput is an input type that accepts TeradataLinkedServiceResponseArgs and TeradataLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `TeradataLinkedServiceResponseInput` via:
-//
-//          TeradataLinkedServiceResponseArgs{...}
-type TeradataLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToTeradataLinkedServiceResponseOutput() TeradataLinkedServiceResponseOutput
-	ToTeradataLinkedServiceResponseOutputWithContext(context.Context) TeradataLinkedServiceResponseOutput
-}
-
-// Linked service for Teradata data source.
-type TeradataLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// AuthenticationType to be used for connection.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Password for authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// Server name for connection. Type: string (or Expression with resultType string).
-	Server pulumi.MapInput `pulumi:"server"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Username for authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (TeradataLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeradataLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i TeradataLinkedServiceResponseArgs) ToTeradataLinkedServiceResponseOutput() TeradataLinkedServiceResponseOutput {
-	return i.ToTeradataLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i TeradataLinkedServiceResponseArgs) ToTeradataLinkedServiceResponseOutputWithContext(ctx context.Context) TeradataLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeradataLinkedServiceResponseOutput)
 }
 
 // Linked service for Teradata data source.
@@ -38896,81 +22570,6 @@ func (i TextFormatArgs) ToTextFormatOutputWithContext(ctx context.Context) TextF
 }
 
 // The data stored in text format.
-type TextFormatOutput struct{ *pulumi.OutputState }
-
-func (TextFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TextFormat)(nil)).Elem()
-}
-
-func (o TextFormatOutput) ToTextFormatOutput() TextFormatOutput {
-	return o
-}
-
-func (o TextFormatOutput) ToTextFormatOutputWithContext(ctx context.Context) TextFormatOutput {
-	return o
-}
-
-// The column delimiter. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) ColumnDelimiter() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.ColumnDelimiter }).(pulumi.MapOutput)
-}
-
-// Deserializer. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) Deserializer() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.Deserializer }).(pulumi.MapOutput)
-}
-
-// The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) EncodingName() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.EncodingName }).(pulumi.MapOutput)
-}
-
-// The escape character. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) EscapeChar() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.EscapeChar }).(pulumi.MapOutput)
-}
-
-// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-func (o TextFormatOutput) FirstRowAsHeader() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.FirstRowAsHeader }).(pulumi.MapOutput)
-}
-
-// The null value string. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) NullValue() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.NullValue }).(pulumi.MapOutput)
-}
-
-// The quote character. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) QuoteChar() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.QuoteChar }).(pulumi.MapOutput)
-}
-
-// The row delimiter. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) RowDelimiter() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.RowDelimiter }).(pulumi.MapOutput)
-}
-
-// Serializer. Type: string (or Expression with resultType string).
-func (o TextFormatOutput) Serializer() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.Serializer }).(pulumi.MapOutput)
-}
-
-// The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
-func (o TextFormatOutput) SkipLineCount() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.SkipLineCount }).(pulumi.MapOutput)
-}
-
-// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
-func (o TextFormatOutput) TreatEmptyAsNull() pulumi.MapOutput {
-	return o.ApplyT(func(v TextFormat) map[string]interface{} { return v.TreatEmptyAsNull }).(pulumi.MapOutput)
-}
-
-// Type of dataset storage format.
-func (o TextFormatOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TextFormat) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The data stored in text format.
 type TextFormatResponse struct {
 	// The column delimiter. Type: string (or Expression with resultType string).
 	ColumnDelimiter map[string]interface{} `pulumi:"columnDelimiter"`
@@ -38996,57 +22595,6 @@ type TextFormatResponse struct {
 	TreatEmptyAsNull map[string]interface{} `pulumi:"treatEmptyAsNull"`
 	// Type of dataset storage format.
 	Type string `pulumi:"type"`
-}
-
-// TextFormatResponseInput is an input type that accepts TextFormatResponseArgs and TextFormatResponseOutput values.
-// You can construct a concrete instance of `TextFormatResponseInput` via:
-//
-//          TextFormatResponseArgs{...}
-type TextFormatResponseInput interface {
-	pulumi.Input
-
-	ToTextFormatResponseOutput() TextFormatResponseOutput
-	ToTextFormatResponseOutputWithContext(context.Context) TextFormatResponseOutput
-}
-
-// The data stored in text format.
-type TextFormatResponseArgs struct {
-	// The column delimiter. Type: string (or Expression with resultType string).
-	ColumnDelimiter pulumi.MapInput `pulumi:"columnDelimiter"`
-	// Deserializer. Type: string (or Expression with resultType string).
-	Deserializer pulumi.MapInput `pulumi:"deserializer"`
-	// The code page name of the preferred encoding. If miss, the default value is ΓÇ£utf-8ΓÇ¥, unless BOM denotes another Unicode encoding. Refer to the ΓÇ£NameΓÇ¥ column of the table in the following link to set supported values: https://msdn.microsoft.com/library/system.text.encoding.aspx. Type: string (or Expression with resultType string).
-	EncodingName pulumi.MapInput `pulumi:"encodingName"`
-	// The escape character. Type: string (or Expression with resultType string).
-	EscapeChar pulumi.MapInput `pulumi:"escapeChar"`
-	// When used as input, treat the first row of data as headers. When used as output,write the headers into the output as the first row of data. The default value is false. Type: boolean (or Expression with resultType boolean).
-	FirstRowAsHeader pulumi.MapInput `pulumi:"firstRowAsHeader"`
-	// The null value string. Type: string (or Expression with resultType string).
-	NullValue pulumi.MapInput `pulumi:"nullValue"`
-	// The quote character. Type: string (or Expression with resultType string).
-	QuoteChar pulumi.MapInput `pulumi:"quoteChar"`
-	// The row delimiter. Type: string (or Expression with resultType string).
-	RowDelimiter pulumi.MapInput `pulumi:"rowDelimiter"`
-	// Serializer. Type: string (or Expression with resultType string).
-	Serializer pulumi.MapInput `pulumi:"serializer"`
-	// The number of lines/rows to be skipped when parsing text files. The default value is 0. Type: integer (or Expression with resultType integer).
-	SkipLineCount pulumi.MapInput `pulumi:"skipLineCount"`
-	// Treat empty column values in the text file as null. The default value is true. Type: boolean (or Expression with resultType boolean).
-	TreatEmptyAsNull pulumi.MapInput `pulumi:"treatEmptyAsNull"`
-	// Type of dataset storage format.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TextFormatResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TextFormatResponse)(nil)).Elem()
-}
-
-func (i TextFormatResponseArgs) ToTextFormatResponseOutput() TextFormatResponseOutput {
-	return i.ToTextFormatResponseOutputWithContext(context.Background())
-}
-
-func (i TextFormatResponseArgs) ToTextFormatResponseOutputWithContext(ctx context.Context) TextFormatResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TextFormatResponseOutput)
 }
 
 // The data stored in text format.
@@ -39189,112 +22737,11 @@ func (i TriggerPipelineReferenceArray) ToTriggerPipelineReferenceArrayOutputWith
 }
 
 // Pipeline that needs to be triggered with the given parameters.
-type TriggerPipelineReferenceOutput struct{ *pulumi.OutputState }
-
-func (TriggerPipelineReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerPipelineReference)(nil)).Elem()
-}
-
-func (o TriggerPipelineReferenceOutput) ToTriggerPipelineReferenceOutput() TriggerPipelineReferenceOutput {
-	return o
-}
-
-func (o TriggerPipelineReferenceOutput) ToTriggerPipelineReferenceOutputWithContext(ctx context.Context) TriggerPipelineReferenceOutput {
-	return o
-}
-
-// Pipeline parameters.
-func (o TriggerPipelineReferenceOutput) Parameters() pulumi.MapMapOutput {
-	return o.ApplyT(func(v TriggerPipelineReference) map[string]map[string]interface{} { return v.Parameters }).(pulumi.MapMapOutput)
-}
-
-// Pipeline reference.
-func (o TriggerPipelineReferenceOutput) PipelineReference() PipelineReferencePtrOutput {
-	return o.ApplyT(func(v TriggerPipelineReference) *PipelineReference { return v.PipelineReference }).(PipelineReferencePtrOutput)
-}
-
-type TriggerPipelineReferenceArrayOutput struct{ *pulumi.OutputState }
-
-func (TriggerPipelineReferenceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TriggerPipelineReference)(nil)).Elem()
-}
-
-func (o TriggerPipelineReferenceArrayOutput) ToTriggerPipelineReferenceArrayOutput() TriggerPipelineReferenceArrayOutput {
-	return o
-}
-
-func (o TriggerPipelineReferenceArrayOutput) ToTriggerPipelineReferenceArrayOutputWithContext(ctx context.Context) TriggerPipelineReferenceArrayOutput {
-	return o
-}
-
-func (o TriggerPipelineReferenceArrayOutput) Index(i pulumi.IntInput) TriggerPipelineReferenceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerPipelineReference {
-		return vs[0].([]TriggerPipelineReference)[vs[1].(int)]
-	}).(TriggerPipelineReferenceOutput)
-}
-
-// Pipeline that needs to be triggered with the given parameters.
 type TriggerPipelineReferenceResponse struct {
 	// Pipeline parameters.
 	Parameters map[string]map[string]interface{} `pulumi:"parameters"`
 	// Pipeline reference.
 	PipelineReference *PipelineReferenceResponse `pulumi:"pipelineReference"`
-}
-
-// TriggerPipelineReferenceResponseInput is an input type that accepts TriggerPipelineReferenceResponseArgs and TriggerPipelineReferenceResponseOutput values.
-// You can construct a concrete instance of `TriggerPipelineReferenceResponseInput` via:
-//
-//          TriggerPipelineReferenceResponseArgs{...}
-type TriggerPipelineReferenceResponseInput interface {
-	pulumi.Input
-
-	ToTriggerPipelineReferenceResponseOutput() TriggerPipelineReferenceResponseOutput
-	ToTriggerPipelineReferenceResponseOutputWithContext(context.Context) TriggerPipelineReferenceResponseOutput
-}
-
-// Pipeline that needs to be triggered with the given parameters.
-type TriggerPipelineReferenceResponseArgs struct {
-	// Pipeline parameters.
-	Parameters pulumi.MapMapInput `pulumi:"parameters"`
-	// Pipeline reference.
-	PipelineReference PipelineReferenceResponsePtrInput `pulumi:"pipelineReference"`
-}
-
-func (TriggerPipelineReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TriggerPipelineReferenceResponse)(nil)).Elem()
-}
-
-func (i TriggerPipelineReferenceResponseArgs) ToTriggerPipelineReferenceResponseOutput() TriggerPipelineReferenceResponseOutput {
-	return i.ToTriggerPipelineReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i TriggerPipelineReferenceResponseArgs) ToTriggerPipelineReferenceResponseOutputWithContext(ctx context.Context) TriggerPipelineReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerPipelineReferenceResponseOutput)
-}
-
-// TriggerPipelineReferenceResponseArrayInput is an input type that accepts TriggerPipelineReferenceResponseArray and TriggerPipelineReferenceResponseArrayOutput values.
-// You can construct a concrete instance of `TriggerPipelineReferenceResponseArrayInput` via:
-//
-//          TriggerPipelineReferenceResponseArray{ TriggerPipelineReferenceResponseArgs{...} }
-type TriggerPipelineReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToTriggerPipelineReferenceResponseArrayOutput() TriggerPipelineReferenceResponseArrayOutput
-	ToTriggerPipelineReferenceResponseArrayOutputWithContext(context.Context) TriggerPipelineReferenceResponseArrayOutput
-}
-
-type TriggerPipelineReferenceResponseArray []TriggerPipelineReferenceResponseInput
-
-func (TriggerPipelineReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TriggerPipelineReferenceResponse)(nil)).Elem()
-}
-
-func (i TriggerPipelineReferenceResponseArray) ToTriggerPipelineReferenceResponseArrayOutput() TriggerPipelineReferenceResponseArrayOutput {
-	return i.ToTriggerPipelineReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TriggerPipelineReferenceResponseArray) ToTriggerPipelineReferenceResponseArrayOutputWithContext(ctx context.Context) TriggerPipelineReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerPipelineReferenceResponseArrayOutput)
 }
 
 // Pipeline that needs to be triggered with the given parameters.
@@ -39414,71 +22861,6 @@ func (i TumblingWindowTriggerArgs) ToTumblingWindowTriggerOutputWithContext(ctx 
 }
 
 // Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
-type TumblingWindowTriggerOutput struct{ *pulumi.OutputState }
-
-func (TumblingWindowTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TumblingWindowTrigger)(nil)).Elem()
-}
-
-func (o TumblingWindowTriggerOutput) ToTumblingWindowTriggerOutput() TumblingWindowTriggerOutput {
-	return o
-}
-
-func (o TumblingWindowTriggerOutput) ToTumblingWindowTriggerOutputWithContext(ctx context.Context) TumblingWindowTriggerOutput {
-	return o
-}
-
-// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-func (o TumblingWindowTriggerOutput) Delay() pulumi.MapOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) map[string]interface{} { return v.Delay }).(pulumi.MapOutput)
-}
-
-// Trigger description.
-func (o TumblingWindowTriggerOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-func (o TumblingWindowTriggerOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-// The frequency of the time windows.
-func (o TumblingWindowTriggerOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) string { return v.Frequency }).(pulumi.StringOutput)
-}
-
-// The interval of the time windows. The minimum interval allowed is 15 Minutes.
-func (o TumblingWindowTriggerOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) int { return v.Interval }).(pulumi.IntOutput)
-}
-
-// The max number of parallel time windows (ready for execution) for which a new run is triggered.
-func (o TumblingWindowTriggerOutput) MaxConcurrency() pulumi.IntOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) int { return v.MaxConcurrency }).(pulumi.IntOutput)
-}
-
-// Pipeline for which runs are created when an event is fired for trigger window that is ready.
-func (o TumblingWindowTriggerOutput) Pipeline() TriggerPipelineReferenceOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) TriggerPipelineReference { return v.Pipeline }).(TriggerPipelineReferenceOutput)
-}
-
-// Retry policy that will be applied for failed pipeline runs.
-func (o TumblingWindowTriggerOutput) RetryPolicy() RetryPolicyPtrOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) *RetryPolicy { return v.RetryPolicy }).(RetryPolicyPtrOutput)
-}
-
-// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-func (o TumblingWindowTriggerOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) string { return v.StartTime }).(pulumi.StringOutput)
-}
-
-// Trigger type.
-func (o TumblingWindowTriggerOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TumblingWindowTrigger) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
 type TumblingWindowTriggerResponse struct {
 	// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
 	Delay map[string]interface{} `pulumi:"delay"`
@@ -39502,55 +22884,6 @@ type TumblingWindowTriggerResponse struct {
 	StartTime string `pulumi:"startTime"`
 	// Trigger type.
 	Type string `pulumi:"type"`
-}
-
-// TumblingWindowTriggerResponseInput is an input type that accepts TumblingWindowTriggerResponseArgs and TumblingWindowTriggerResponseOutput values.
-// You can construct a concrete instance of `TumblingWindowTriggerResponseInput` via:
-//
-//          TumblingWindowTriggerResponseArgs{...}
-type TumblingWindowTriggerResponseInput interface {
-	pulumi.Input
-
-	ToTumblingWindowTriggerResponseOutput() TumblingWindowTriggerResponseOutput
-	ToTumblingWindowTriggerResponseOutputWithContext(context.Context) TumblingWindowTriggerResponseOutput
-}
-
-// Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
-type TumblingWindowTriggerResponseArgs struct {
-	// Specifies how long the trigger waits past due time before triggering new run. It doesn't alter window start and end time. The default is 0. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-	Delay pulumi.MapInput `pulumi:"delay"`
-	// Trigger description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The end time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The frequency of the time windows.
-	Frequency pulumi.StringInput `pulumi:"frequency"`
-	// The interval of the time windows. The minimum interval allowed is 15 Minutes.
-	Interval pulumi.IntInput `pulumi:"interval"`
-	// The max number of parallel time windows (ready for execution) for which a new run is triggered.
-	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
-	// Pipeline for which runs are created when an event is fired for trigger window that is ready.
-	Pipeline TriggerPipelineReferenceResponseInput `pulumi:"pipeline"`
-	// Retry policy that will be applied for failed pipeline runs.
-	RetryPolicy RetryPolicyResponsePtrInput `pulumi:"retryPolicy"`
-	// Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
-	RuntimeState pulumi.StringInput `pulumi:"runtimeState"`
-	// The start time for the time period for the trigger during which events are fired for windows that are ready. Only UTC time is currently supported.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Trigger type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TumblingWindowTriggerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TumblingWindowTriggerResponse)(nil)).Elem()
-}
-
-func (i TumblingWindowTriggerResponseArgs) ToTumblingWindowTriggerResponseOutput() TumblingWindowTriggerResponseOutput {
-	return i.ToTumblingWindowTriggerResponseOutputWithContext(context.Background())
-}
-
-func (i TumblingWindowTriggerResponseArgs) ToTumblingWindowTriggerResponseOutputWithContext(ctx context.Context) TumblingWindowTriggerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TumblingWindowTriggerResponseOutput)
 }
 
 // Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
@@ -39683,56 +23016,6 @@ func (i VerticaLinkedServiceArgs) ToVerticaLinkedServiceOutputWithContext(ctx co
 }
 
 // Vertica linked service.
-type VerticaLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (VerticaLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VerticaLinkedService)(nil)).Elem()
-}
-
-func (o VerticaLinkedServiceOutput) ToVerticaLinkedServiceOutput() VerticaLinkedServiceOutput {
-	return o
-}
-
-func (o VerticaLinkedServiceOutput) ToVerticaLinkedServiceOutputWithContext(ctx context.Context) VerticaLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o VerticaLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v VerticaLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o VerticaLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v VerticaLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-func (o VerticaLinkedServiceOutput) ConnectionString() pulumi.MapOutput {
-	return o.ApplyT(func(v VerticaLinkedService) map[string]interface{} { return v.ConnectionString }).(pulumi.MapOutput)
-}
-
-// Linked service description.
-func (o VerticaLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VerticaLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o VerticaLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v VerticaLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o VerticaLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v VerticaLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o VerticaLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VerticaLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Vertica linked service.
 type VerticaLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -39748,47 +23031,6 @@ type VerticaLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// Type of linked service.
 	Type string `pulumi:"type"`
-}
-
-// VerticaLinkedServiceResponseInput is an input type that accepts VerticaLinkedServiceResponseArgs and VerticaLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `VerticaLinkedServiceResponseInput` via:
-//
-//          VerticaLinkedServiceResponseArgs{...}
-type VerticaLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToVerticaLinkedServiceResponseOutput() VerticaLinkedServiceResponseOutput
-	ToVerticaLinkedServiceResponseOutputWithContext(context.Context) VerticaLinkedServiceResponseOutput
-}
-
-// Vertica linked service.
-type VerticaLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-	ConnectionString pulumi.MapInput `pulumi:"connectionString"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VerticaLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VerticaLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i VerticaLinkedServiceResponseArgs) ToVerticaLinkedServiceResponseOutput() VerticaLinkedServiceResponseOutput {
-	return i.ToVerticaLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i VerticaLinkedServiceResponseArgs) ToVerticaLinkedServiceResponseOutputWithContext(ctx context.Context) VerticaLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VerticaLinkedServiceResponseOutput)
 }
 
 // Vertica linked service.
@@ -39897,51 +23139,6 @@ func (i VerticaTableDatasetArgs) ToVerticaTableDatasetOutputWithContext(ctx cont
 }
 
 // Vertica dataset.
-type VerticaTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (VerticaTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VerticaTableDataset)(nil)).Elem()
-}
-
-func (o VerticaTableDatasetOutput) ToVerticaTableDatasetOutput() VerticaTableDatasetOutput {
-	return o
-}
-
-func (o VerticaTableDatasetOutput) ToVerticaTableDatasetOutputWithContext(ctx context.Context) VerticaTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o VerticaTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v VerticaTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o VerticaTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VerticaTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o VerticaTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v VerticaTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o VerticaTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v VerticaTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o VerticaTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v VerticaTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o VerticaTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VerticaTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Vertica dataset.
 type VerticaTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -39955,45 +23152,6 @@ type VerticaTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// VerticaTableDatasetResponseInput is an input type that accepts VerticaTableDatasetResponseArgs and VerticaTableDatasetResponseOutput values.
-// You can construct a concrete instance of `VerticaTableDatasetResponseInput` via:
-//
-//          VerticaTableDatasetResponseArgs{...}
-type VerticaTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToVerticaTableDatasetResponseOutput() VerticaTableDatasetResponseOutput
-	ToVerticaTableDatasetResponseOutputWithContext(context.Context) VerticaTableDatasetResponseOutput
-}
-
-// Vertica dataset.
-type VerticaTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VerticaTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VerticaTableDatasetResponse)(nil)).Elem()
-}
-
-func (i VerticaTableDatasetResponseArgs) ToVerticaTableDatasetResponseOutput() VerticaTableDatasetResponseOutput {
-	return i.ToVerticaTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i VerticaTableDatasetResponseArgs) ToVerticaTableDatasetResponseOutputWithContext(ctx context.Context) VerticaTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VerticaTableDatasetResponseOutput)
 }
 
 // Vertica dataset.
@@ -40081,67 +23239,11 @@ func (i WebAnonymousAuthenticationArgs) ToWebAnonymousAuthenticationOutputWithCo
 }
 
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
-type WebAnonymousAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (WebAnonymousAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAnonymousAuthentication)(nil)).Elem()
-}
-
-func (o WebAnonymousAuthenticationOutput) ToWebAnonymousAuthenticationOutput() WebAnonymousAuthenticationOutput {
-	return o
-}
-
-func (o WebAnonymousAuthenticationOutput) ToWebAnonymousAuthenticationOutputWithContext(ctx context.Context) WebAnonymousAuthenticationOutput {
-	return o
-}
-
-// Type of authentication used to connect to the web table source.
-func (o WebAnonymousAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebAnonymousAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-func (o WebAnonymousAuthenticationOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v WebAnonymousAuthentication) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
 type WebAnonymousAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url map[string]interface{} `pulumi:"url"`
-}
-
-// WebAnonymousAuthenticationResponseInput is an input type that accepts WebAnonymousAuthenticationResponseArgs and WebAnonymousAuthenticationResponseOutput values.
-// You can construct a concrete instance of `WebAnonymousAuthenticationResponseInput` via:
-//
-//          WebAnonymousAuthenticationResponseArgs{...}
-type WebAnonymousAuthenticationResponseInput interface {
-	pulumi.Input
-
-	ToWebAnonymousAuthenticationResponseOutput() WebAnonymousAuthenticationResponseOutput
-	ToWebAnonymousAuthenticationResponseOutputWithContext(context.Context) WebAnonymousAuthenticationResponseOutput
-}
-
-// A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
-type WebAnonymousAuthenticationResponseArgs struct {
-	// Type of authentication used to connect to the web table source.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-}
-
-func (WebAnonymousAuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAnonymousAuthenticationResponse)(nil)).Elem()
-}
-
-func (i WebAnonymousAuthenticationResponseArgs) ToWebAnonymousAuthenticationResponseOutput() WebAnonymousAuthenticationResponseOutput {
-	return i.ToWebAnonymousAuthenticationResponseOutputWithContext(context.Background())
-}
-
-func (i WebAnonymousAuthenticationResponseArgs) ToWebAnonymousAuthenticationResponseOutputWithContext(ctx context.Context) WebAnonymousAuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAnonymousAuthenticationResponseOutput)
 }
 
 // A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
@@ -40217,41 +23319,6 @@ func (i WebBasicAuthenticationArgs) ToWebBasicAuthenticationOutputWithContext(ct
 }
 
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
-type WebBasicAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (WebBasicAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebBasicAuthentication)(nil)).Elem()
-}
-
-func (o WebBasicAuthenticationOutput) ToWebBasicAuthenticationOutput() WebBasicAuthenticationOutput {
-	return o
-}
-
-func (o WebBasicAuthenticationOutput) ToWebBasicAuthenticationOutputWithContext(ctx context.Context) WebBasicAuthenticationOutput {
-	return o
-}
-
-// Type of authentication used to connect to the web table source.
-func (o WebBasicAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebBasicAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// The password for Basic authentication.
-func (o WebBasicAuthenticationOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebBasicAuthentication) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-func (o WebBasicAuthenticationOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v WebBasicAuthentication) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// User name for Basic authentication. Type: string (or Expression with resultType string).
-func (o WebBasicAuthenticationOutput) Username() pulumi.MapOutput {
-	return o.ApplyT(func(v WebBasicAuthentication) map[string]interface{} { return v.Username }).(pulumi.MapOutput)
-}
-
-// A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
 type WebBasicAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
 	AuthenticationType string `pulumi:"authenticationType"`
@@ -40261,41 +23328,6 @@ type WebBasicAuthenticationResponse struct {
 	Url map[string]interface{} `pulumi:"url"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	Username map[string]interface{} `pulumi:"username"`
-}
-
-// WebBasicAuthenticationResponseInput is an input type that accepts WebBasicAuthenticationResponseArgs and WebBasicAuthenticationResponseOutput values.
-// You can construct a concrete instance of `WebBasicAuthenticationResponseInput` via:
-//
-//          WebBasicAuthenticationResponseArgs{...}
-type WebBasicAuthenticationResponseInput interface {
-	pulumi.Input
-
-	ToWebBasicAuthenticationResponseOutput() WebBasicAuthenticationResponseOutput
-	ToWebBasicAuthenticationResponseOutputWithContext(context.Context) WebBasicAuthenticationResponseOutput
-}
-
-// A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
-type WebBasicAuthenticationResponseArgs struct {
-	// Type of authentication used to connect to the web table source.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// The password for Basic authentication.
-	Password pulumi.Input `pulumi:"password"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-	// User name for Basic authentication. Type: string (or Expression with resultType string).
-	Username pulumi.MapInput `pulumi:"username"`
-}
-
-func (WebBasicAuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebBasicAuthenticationResponse)(nil)).Elem()
-}
-
-func (i WebBasicAuthenticationResponseArgs) ToWebBasicAuthenticationResponseOutput() WebBasicAuthenticationResponseOutput {
-	return i.ToWebBasicAuthenticationResponseOutputWithContext(context.Background())
-}
-
-func (i WebBasicAuthenticationResponseArgs) ToWebBasicAuthenticationResponseOutputWithContext(ctx context.Context) WebBasicAuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebBasicAuthenticationResponseOutput)
 }
 
 // A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
@@ -40381,41 +23413,6 @@ func (i WebClientCertificateAuthenticationArgs) ToWebClientCertificateAuthentica
 }
 
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
-type WebClientCertificateAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (WebClientCertificateAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebClientCertificateAuthentication)(nil)).Elem()
-}
-
-func (o WebClientCertificateAuthenticationOutput) ToWebClientCertificateAuthenticationOutput() WebClientCertificateAuthenticationOutput {
-	return o
-}
-
-func (o WebClientCertificateAuthenticationOutput) ToWebClientCertificateAuthenticationOutputWithContext(ctx context.Context) WebClientCertificateAuthenticationOutput {
-	return o
-}
-
-// Type of authentication used to connect to the web table source.
-func (o WebClientCertificateAuthenticationOutput) AuthenticationType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebClientCertificateAuthentication) string { return v.AuthenticationType }).(pulumi.StringOutput)
-}
-
-// Password for the PFX file.
-func (o WebClientCertificateAuthenticationOutput) Password() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebClientCertificateAuthentication) interface{} { return v.Password }).(pulumi.AnyOutput)
-}
-
-// Base64-encoded contents of a PFX file.
-func (o WebClientCertificateAuthenticationOutput) Pfx() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebClientCertificateAuthentication) interface{} { return v.Pfx }).(pulumi.AnyOutput)
-}
-
-// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-func (o WebClientCertificateAuthenticationOutput) Url() pulumi.MapOutput {
-	return o.ApplyT(func(v WebClientCertificateAuthentication) map[string]interface{} { return v.Url }).(pulumi.MapOutput)
-}
-
-// A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
 type WebClientCertificateAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
 	AuthenticationType string `pulumi:"authenticationType"`
@@ -40425,41 +23422,6 @@ type WebClientCertificateAuthenticationResponse struct {
 	Pfx interface{} `pulumi:"pfx"`
 	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url map[string]interface{} `pulumi:"url"`
-}
-
-// WebClientCertificateAuthenticationResponseInput is an input type that accepts WebClientCertificateAuthenticationResponseArgs and WebClientCertificateAuthenticationResponseOutput values.
-// You can construct a concrete instance of `WebClientCertificateAuthenticationResponseInput` via:
-//
-//          WebClientCertificateAuthenticationResponseArgs{...}
-type WebClientCertificateAuthenticationResponseInput interface {
-	pulumi.Input
-
-	ToWebClientCertificateAuthenticationResponseOutput() WebClientCertificateAuthenticationResponseOutput
-	ToWebClientCertificateAuthenticationResponseOutputWithContext(context.Context) WebClientCertificateAuthenticationResponseOutput
-}
-
-// A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
-type WebClientCertificateAuthenticationResponseArgs struct {
-	// Type of authentication used to connect to the web table source.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Password for the PFX file.
-	Password pulumi.Input `pulumi:"password"`
-	// Base64-encoded contents of a PFX file.
-	Pfx pulumi.Input `pulumi:"pfx"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
-	Url pulumi.MapInput `pulumi:"url"`
-}
-
-func (WebClientCertificateAuthenticationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebClientCertificateAuthenticationResponse)(nil)).Elem()
-}
-
-func (i WebClientCertificateAuthenticationResponseArgs) ToWebClientCertificateAuthenticationResponseOutput() WebClientCertificateAuthenticationResponseOutput {
-	return i.ToWebClientCertificateAuthenticationResponseOutputWithContext(context.Background())
-}
-
-func (i WebClientCertificateAuthenticationResponseArgs) ToWebClientCertificateAuthenticationResponseOutputWithContext(ctx context.Context) WebClientCertificateAuthenticationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebClientCertificateAuthenticationResponseOutput)
 }
 
 // A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
@@ -40553,51 +23515,6 @@ func (i WebLinkedServiceArgs) ToWebLinkedServiceOutputWithContext(ctx context.Co
 }
 
 // Web linked service.
-type WebLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (WebLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebLinkedService)(nil)).Elem()
-}
-
-func (o WebLinkedServiceOutput) ToWebLinkedServiceOutput() WebLinkedServiceOutput {
-	return o
-}
-
-func (o WebLinkedServiceOutput) ToWebLinkedServiceOutputWithContext(ctx context.Context) WebLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o WebLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v WebLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o WebLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v WebLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o WebLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Parameters for linked service.
-func (o WebLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v WebLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o WebLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Web linked service properties.
-func (o WebLinkedServiceOutput) TypeProperties() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebLinkedService) interface{} { return v.TypeProperties }).(pulumi.AnyOutput)
-}
-
-// Web linked service.
 type WebLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -40611,45 +23528,6 @@ type WebLinkedServiceResponse struct {
 	Type string `pulumi:"type"`
 	// Web linked service properties.
 	TypeProperties interface{} `pulumi:"typeProperties"`
-}
-
-// WebLinkedServiceResponseInput is an input type that accepts WebLinkedServiceResponseArgs and WebLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `WebLinkedServiceResponseInput` via:
-//
-//          WebLinkedServiceResponseArgs{...}
-type WebLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToWebLinkedServiceResponseOutput() WebLinkedServiceResponseOutput
-	ToWebLinkedServiceResponseOutputWithContext(context.Context) WebLinkedServiceResponseOutput
-}
-
-// Web linked service.
-type WebLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Web linked service properties.
-	TypeProperties pulumi.Input `pulumi:"typeProperties"`
-}
-
-func (WebLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i WebLinkedServiceResponseArgs) ToWebLinkedServiceResponseOutput() WebLinkedServiceResponseOutput {
-	return i.ToWebLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i WebLinkedServiceResponseArgs) ToWebLinkedServiceResponseOutputWithContext(ctx context.Context) WebLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebLinkedServiceResponseOutput)
 }
 
 // Web linked service.
@@ -40761,61 +23639,6 @@ func (i WebTableDatasetArgs) ToWebTableDatasetOutputWithContext(ctx context.Cont
 }
 
 // The dataset points to a HTML table in the web page.
-type WebTableDatasetOutput struct{ *pulumi.OutputState }
-
-func (WebTableDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTableDataset)(nil)).Elem()
-}
-
-func (o WebTableDatasetOutput) ToWebTableDatasetOutput() WebTableDatasetOutput {
-	return o
-}
-
-func (o WebTableDatasetOutput) ToWebTableDatasetOutputWithContext(ctx context.Context) WebTableDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o WebTableDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v WebTableDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o WebTableDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTableDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-func (o WebTableDatasetOutput) Index() pulumi.MapOutput {
-	return o.ApplyT(func(v WebTableDataset) map[string]interface{} { return v.Index }).(pulumi.MapOutput)
-}
-
-// Linked service reference.
-func (o WebTableDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v WebTableDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o WebTableDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v WebTableDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-func (o WebTableDatasetOutput) Path() pulumi.MapOutput {
-	return o.ApplyT(func(v WebTableDataset) map[string]interface{} { return v.Path }).(pulumi.MapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o WebTableDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v WebTableDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o WebTableDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTableDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The dataset points to a HTML table in the web page.
 type WebTableDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -40833,49 +23656,6 @@ type WebTableDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// WebTableDatasetResponseInput is an input type that accepts WebTableDatasetResponseArgs and WebTableDatasetResponseOutput values.
-// You can construct a concrete instance of `WebTableDatasetResponseInput` via:
-//
-//          WebTableDatasetResponseArgs{...}
-type WebTableDatasetResponseInput interface {
-	pulumi.Input
-
-	ToWebTableDatasetResponseOutput() WebTableDatasetResponseOutput
-	ToWebTableDatasetResponseOutputWithContext(context.Context) WebTableDatasetResponseOutput
-}
-
-// The dataset points to a HTML table in the web page.
-type WebTableDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
-	Index pulumi.MapInput `pulumi:"index"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The relative URL to the web page from the linked service URL. Type: string (or Expression with resultType string).
-	Path pulumi.MapInput `pulumi:"path"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebTableDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTableDatasetResponse)(nil)).Elem()
-}
-
-func (i WebTableDatasetResponseArgs) ToWebTableDatasetResponseOutput() WebTableDatasetResponseOutput {
-	return i.ToWebTableDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i WebTableDatasetResponseArgs) ToWebTableDatasetResponseOutputWithContext(ctx context.Context) WebTableDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTableDatasetResponseOutput)
 }
 
 // The dataset points to a HTML table in the web page.
@@ -41015,82 +23795,6 @@ func (i XeroLinkedServiceArgs) ToXeroLinkedServiceOutputWithContext(ctx context.
 }
 
 // Xero Service linked service.
-type XeroLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (XeroLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XeroLinkedService)(nil)).Elem()
-}
-
-func (o XeroLinkedServiceOutput) ToXeroLinkedServiceOutput() XeroLinkedServiceOutput {
-	return o
-}
-
-func (o XeroLinkedServiceOutput) ToXeroLinkedServiceOutputWithContext(ctx context.Context) XeroLinkedServiceOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o XeroLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v XeroLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o XeroLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v XeroLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// The consumer key associated with the Xero application.
-func (o XeroLinkedServiceOutput) ConsumerKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v XeroLinkedService) interface{} { return v.ConsumerKey }).(pulumi.AnyOutput)
-}
-
-// Linked service description.
-func (o XeroLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v XeroLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o XeroLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Xero server. (i.e. api.xero.com)
-func (o XeroLinkedServiceOutput) Host() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]interface{} { return v.Host }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o XeroLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
-// ).
-func (o XeroLinkedServiceOutput) PrivateKey() pulumi.AnyOutput {
-	return o.ApplyT(func(v XeroLinkedService) interface{} { return v.PrivateKey }).(pulumi.AnyOutput)
-}
-
-// Type of linked service.
-func (o XeroLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v XeroLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o XeroLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o XeroLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o XeroLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Xero Service linked service.
 type XeroLinkedServiceResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -41117,58 +23821,6 @@ type XeroLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// XeroLinkedServiceResponseInput is an input type that accepts XeroLinkedServiceResponseArgs and XeroLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `XeroLinkedServiceResponseInput` via:
-//
-//          XeroLinkedServiceResponseArgs{...}
-type XeroLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToXeroLinkedServiceResponseOutput() XeroLinkedServiceResponseOutput
-	ToXeroLinkedServiceResponseOutputWithContext(context.Context) XeroLinkedServiceResponseOutput
-}
-
-// Xero Service linked service.
-type XeroLinkedServiceResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// The consumer key associated with the Xero application.
-	ConsumerKey pulumi.Input `pulumi:"consumerKey"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Xero server. (i.e. api.xero.com)
-	Host pulumi.MapInput `pulumi:"host"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
-	// ).
-	PrivateKey pulumi.Input `pulumi:"privateKey"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (XeroLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*XeroLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i XeroLinkedServiceResponseArgs) ToXeroLinkedServiceResponseOutput() XeroLinkedServiceResponseOutput {
-	return i.ToXeroLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i XeroLinkedServiceResponseArgs) ToXeroLinkedServiceResponseOutputWithContext(ctx context.Context) XeroLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XeroLinkedServiceResponseOutput)
 }
 
 // Xero Service linked service.
@@ -41303,51 +23955,6 @@ func (i XeroObjectDatasetArgs) ToXeroObjectDatasetOutputWithContext(ctx context.
 }
 
 // Xero Service dataset.
-type XeroObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (XeroObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XeroObjectDataset)(nil)).Elem()
-}
-
-func (o XeroObjectDatasetOutput) ToXeroObjectDatasetOutput() XeroObjectDatasetOutput {
-	return o
-}
-
-func (o XeroObjectDatasetOutput) ToXeroObjectDatasetOutputWithContext(ctx context.Context) XeroObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o XeroObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v XeroObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o XeroObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v XeroObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o XeroObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v XeroObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o XeroObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v XeroObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o XeroObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v XeroObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o XeroObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v XeroObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Xero Service dataset.
 type XeroObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -41361,45 +23968,6 @@ type XeroObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// XeroObjectDatasetResponseInput is an input type that accepts XeroObjectDatasetResponseArgs and XeroObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `XeroObjectDatasetResponseInput` via:
-//
-//          XeroObjectDatasetResponseArgs{...}
-type XeroObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToXeroObjectDatasetResponseOutput() XeroObjectDatasetResponseOutput
-	ToXeroObjectDatasetResponseOutputWithContext(context.Context) XeroObjectDatasetResponseOutput
-}
-
-// Xero Service dataset.
-type XeroObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (XeroObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*XeroObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i XeroObjectDatasetResponseArgs) ToXeroObjectDatasetResponseOutput() XeroObjectDatasetResponseOutput {
-	return i.ToXeroObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i XeroObjectDatasetResponseArgs) ToXeroObjectDatasetResponseOutputWithContext(ctx context.Context) XeroObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XeroObjectDatasetResponseOutput)
 }
 
 // Xero Service dataset.
@@ -41523,76 +24091,6 @@ func (i ZohoLinkedServiceArgs) ToZohoLinkedServiceOutputWithContext(ctx context.
 }
 
 // Zoho server linked service.
-type ZohoLinkedServiceOutput struct{ *pulumi.OutputState }
-
-func (ZohoLinkedServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZohoLinkedService)(nil)).Elem()
-}
-
-func (o ZohoLinkedServiceOutput) ToZohoLinkedServiceOutput() ZohoLinkedServiceOutput {
-	return o
-}
-
-func (o ZohoLinkedServiceOutput) ToZohoLinkedServiceOutputWithContext(ctx context.Context) ZohoLinkedServiceOutput {
-	return o
-}
-
-// The access token for Zoho authentication.
-func (o ZohoLinkedServiceOutput) AccessToken() pulumi.AnyOutput {
-	return o.ApplyT(func(v ZohoLinkedService) interface{} { return v.AccessToken }).(pulumi.AnyOutput)
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ZohoLinkedServiceOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ZohoLinkedService) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// The integration runtime reference.
-func (o ZohoLinkedServiceOutput) ConnectVia() IntegrationRuntimeReferencePtrOutput {
-	return o.ApplyT(func(v ZohoLinkedService) *IntegrationRuntimeReference { return v.ConnectVia }).(IntegrationRuntimeReferencePtrOutput)
-}
-
-// Linked service description.
-func (o ZohoLinkedServiceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ZohoLinkedService) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-func (o ZohoLinkedServiceOutput) EncryptedCredential() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]interface{} { return v.EncryptedCredential }).(pulumi.MapOutput)
-}
-
-// The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
-func (o ZohoLinkedServiceOutput) Endpoint() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]interface{} { return v.Endpoint }).(pulumi.MapOutput)
-}
-
-// Parameters for linked service.
-func (o ZohoLinkedServiceOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Type of linked service.
-func (o ZohoLinkedServiceOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ZohoLinkedService) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-func (o ZohoLinkedServiceOutput) UseEncryptedEndpoints() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]interface{} { return v.UseEncryptedEndpoints }).(pulumi.MapOutput)
-}
-
-// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-func (o ZohoLinkedServiceOutput) UseHostVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]interface{} { return v.UseHostVerification }).(pulumi.MapOutput)
-}
-
-// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-func (o ZohoLinkedServiceOutput) UsePeerVerification() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoLinkedService) map[string]interface{} { return v.UsePeerVerification }).(pulumi.MapOutput)
-}
-
-// Zoho server linked service.
 type ZohoLinkedServiceResponse struct {
 	// The access token for Zoho authentication.
 	AccessToken interface{} `pulumi:"accessToken"`
@@ -41616,55 +24114,6 @@ type ZohoLinkedServiceResponse struct {
 	UseHostVerification map[string]interface{} `pulumi:"useHostVerification"`
 	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
 	UsePeerVerification map[string]interface{} `pulumi:"usePeerVerification"`
-}
-
-// ZohoLinkedServiceResponseInput is an input type that accepts ZohoLinkedServiceResponseArgs and ZohoLinkedServiceResponseOutput values.
-// You can construct a concrete instance of `ZohoLinkedServiceResponseInput` via:
-//
-//          ZohoLinkedServiceResponseArgs{...}
-type ZohoLinkedServiceResponseInput interface {
-	pulumi.Input
-
-	ToZohoLinkedServiceResponseOutput() ZohoLinkedServiceResponseOutput
-	ToZohoLinkedServiceResponseOutputWithContext(context.Context) ZohoLinkedServiceResponseOutput
-}
-
-// Zoho server linked service.
-type ZohoLinkedServiceResponseArgs struct {
-	// The access token for Zoho authentication.
-	AccessToken pulumi.Input `pulumi:"accessToken"`
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// The integration runtime reference.
-	ConnectVia IntegrationRuntimeReferenceResponsePtrInput `pulumi:"connectVia"`
-	// Linked service description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-	EncryptedCredential pulumi.MapInput `pulumi:"encryptedCredential"`
-	// The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
-	Endpoint pulumi.MapInput `pulumi:"endpoint"`
-	// Parameters for linked service.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Type of linked service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
-	UseEncryptedEndpoints pulumi.MapInput `pulumi:"useEncryptedEndpoints"`
-	// Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
-	UseHostVerification pulumi.MapInput `pulumi:"useHostVerification"`
-	// Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.
-	UsePeerVerification pulumi.MapInput `pulumi:"usePeerVerification"`
-}
-
-func (ZohoLinkedServiceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZohoLinkedServiceResponse)(nil)).Elem()
-}
-
-func (i ZohoLinkedServiceResponseArgs) ToZohoLinkedServiceResponseOutput() ZohoLinkedServiceResponseOutput {
-	return i.ToZohoLinkedServiceResponseOutputWithContext(context.Background())
-}
-
-func (i ZohoLinkedServiceResponseArgs) ToZohoLinkedServiceResponseOutputWithContext(ctx context.Context) ZohoLinkedServiceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZohoLinkedServiceResponseOutput)
 }
 
 // Zoho server linked service.
@@ -41793,51 +24242,6 @@ func (i ZohoObjectDatasetArgs) ToZohoObjectDatasetOutputWithContext(ctx context.
 }
 
 // Zoho server dataset.
-type ZohoObjectDatasetOutput struct{ *pulumi.OutputState }
-
-func (ZohoObjectDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZohoObjectDataset)(nil)).Elem()
-}
-
-func (o ZohoObjectDatasetOutput) ToZohoObjectDatasetOutput() ZohoObjectDatasetOutput {
-	return o
-}
-
-func (o ZohoObjectDatasetOutput) ToZohoObjectDatasetOutputWithContext(ctx context.Context) ZohoObjectDatasetOutput {
-	return o
-}
-
-// List of tags that can be used for describing the Dataset.
-func (o ZohoObjectDatasetOutput) Annotations() pulumi.MapArrayOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) []map[string]interface{} { return v.Annotations }).(pulumi.MapArrayOutput)
-}
-
-// Dataset description.
-func (o ZohoObjectDatasetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Linked service reference.
-func (o ZohoObjectDatasetOutput) LinkedServiceName() LinkedServiceReferenceOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) LinkedServiceReference { return v.LinkedServiceName }).(LinkedServiceReferenceOutput)
-}
-
-// Parameters for dataset.
-func (o ZohoObjectDatasetOutput) Parameters() ParameterSpecificationMapOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) map[string]ParameterSpecification { return v.Parameters }).(ParameterSpecificationMapOutput)
-}
-
-// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-func (o ZohoObjectDatasetOutput) Structure() pulumi.MapOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) map[string]interface{} { return v.Structure }).(pulumi.MapOutput)
-}
-
-// Type of dataset.
-func (o ZohoObjectDatasetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ZohoObjectDataset) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Zoho server dataset.
 type ZohoObjectDatasetResponse struct {
 	// List of tags that can be used for describing the Dataset.
 	Annotations []map[string]interface{} `pulumi:"annotations"`
@@ -41851,45 +24255,6 @@ type ZohoObjectDatasetResponse struct {
 	Structure map[string]interface{} `pulumi:"structure"`
 	// Type of dataset.
 	Type string `pulumi:"type"`
-}
-
-// ZohoObjectDatasetResponseInput is an input type that accepts ZohoObjectDatasetResponseArgs and ZohoObjectDatasetResponseOutput values.
-// You can construct a concrete instance of `ZohoObjectDatasetResponseInput` via:
-//
-//          ZohoObjectDatasetResponseArgs{...}
-type ZohoObjectDatasetResponseInput interface {
-	pulumi.Input
-
-	ToZohoObjectDatasetResponseOutput() ZohoObjectDatasetResponseOutput
-	ToZohoObjectDatasetResponseOutputWithContext(context.Context) ZohoObjectDatasetResponseOutput
-}
-
-// Zoho server dataset.
-type ZohoObjectDatasetResponseArgs struct {
-	// List of tags that can be used for describing the Dataset.
-	Annotations pulumi.MapArrayInput `pulumi:"annotations"`
-	// Dataset description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Linked service reference.
-	LinkedServiceName LinkedServiceReferenceResponseInput `pulumi:"linkedServiceName"`
-	// Parameters for dataset.
-	Parameters ParameterSpecificationResponseMapInput `pulumi:"parameters"`
-	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-	Structure pulumi.MapInput `pulumi:"structure"`
-	// Type of dataset.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ZohoObjectDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZohoObjectDatasetResponse)(nil)).Elem()
-}
-
-func (i ZohoObjectDatasetResponseArgs) ToZohoObjectDatasetResponseOutput() ZohoObjectDatasetResponseOutput {
-	return i.ToZohoObjectDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ZohoObjectDatasetResponseArgs) ToZohoObjectDatasetResponseOutputWithContext(ctx context.Context) ZohoObjectDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZohoObjectDatasetResponseOutput)
 }
 
 // Zoho server dataset.

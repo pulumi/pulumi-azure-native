@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Workspace default data lake storage account details
         /// </summary>
-        public readonly Outputs.DataLakeStorageAccountDetailsResponseResult? DefaultDataLakeStorage;
+        public readonly Outputs.DataLakeStorageAccountDetailsResponse? DefaultDataLakeStorage;
         /// <summary>
         /// Workspace level configs and feature flags
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Identity of the workspace
         /// </summary>
-        public readonly Outputs.ManagedIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Private endpoint connections to the workspace
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Resource provisioning state
         /// </summary>
@@ -98,17 +98,17 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
         /// <summary>
         /// Virtual Network profile
         /// </summary>
-        public readonly Outputs.VirtualNetworkProfileResponseResult? VirtualNetworkProfile;
+        public readonly Outputs.VirtualNetworkProfileResponse? VirtualNetworkProfile;
 
         [OutputConstructor]
         private GetWorkspaceResult(
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
-            Outputs.DataLakeStorageAccountDetailsResponseResult? defaultDataLakeStorage,
+            Outputs.DataLakeStorageAccountDetailsResponse? defaultDataLakeStorage,
 
             ImmutableDictionary<string, ImmutableDictionary<string, object>> extraProperties,
 
-            Outputs.ManagedIdentityResponseResult? identity,
+            Outputs.ManagedIdentityResponse? identity,
 
             string location,
 
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Synapse.V20190601Preview
 
             string type,
 
-            Outputs.VirtualNetworkProfileResponseResult? virtualNetworkProfile)
+            Outputs.VirtualNetworkProfileResponse? virtualNetworkProfile)
         {
             ConnectivityEndpoints = connectivityEndpoints;
             DefaultDataLakeStorage = defaultDataLakeStorage;

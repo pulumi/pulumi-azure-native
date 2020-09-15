@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -96,7 +96,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySets")
-    def availability_sets(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def availability_sets(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         A list of references to all availability sets in the proximity placement group.
         """
@@ -144,7 +144,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineScaleSets")
-    def virtual_machine_scale_sets(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def virtual_machine_scale_sets(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         A list of references to all virtual machine scale sets in the proximity placement group.
         """
@@ -152,7 +152,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def virtual_machines(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         A list of references to all virtual machines in the proximity placement group.
         """

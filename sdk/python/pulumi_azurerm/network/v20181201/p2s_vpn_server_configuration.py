@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,17 +20,17 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]]] = None,
-                 p2_s_vpn_server_config_radius_server_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]]] = None,
-                 p2_s_vpn_server_config_vpn_client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]]] = None,
-                 p2_s_vpn_server_config_vpn_client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRootCertificateArgs']]]]] = None,
+                 p2_s_vpn_server_config_radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]]] = None,
+                 p2_s_vpn_server_config_radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]]] = None,
+                 p2_s_vpn_server_config_vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]]] = None,
+                 p2_s_vpn_server_config_vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRootCertificateArgs']]]]] = None,
                  p2_s_vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                  radius_server_address: Optional[pulumi.Input[str]] = None,
                  radius_server_secret: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
-                 vpn_client_ipsec_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
-                 vpn_protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
+                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,17 +42,17 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]] p2_s_vpn_server_config_vpn_client_revoked_certificates: VPN client revoked certificate of P2SVpnServerConfiguration.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRootCertificateArgs']]]] p2_s_vpn_server_config_vpn_client_root_certificates: VPN client root certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusClientRootCertificateArgs']]]] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigRadiusServerRootCertificateArgs']]]] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRevokedCertificateArgs']]]] p2_s_vpn_server_config_vpn_client_revoked_certificates: VPN client revoked certificate of P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigVpnClientRootCertificateArgs']]]] p2_s_vpn_server_config_vpn_client_root_certificates: VPN client root certificate of P2SVpnServerConfiguration.
         :param pulumi.Input[str] p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
         :param pulumi.Input[str] radius_server_address: The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
         :param pulumi.Input[str] radius_server_secret: The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWan.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-        :param pulumi.Input[List[pulumi.Input[str]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,12 +137,12 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnGateways")
-    def p2_s_vpn_gateways(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def p2_s_vpn_gateways(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         return pulumi.get(self, "p2_s_vpn_gateways")
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusClientRootCertificates")
-    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]]:
+    def p2_s_vpn_server_config_radius_client_root_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']]]:
         """
         Radius client root certificate of P2SVpnServerConfiguration.
         """
@@ -150,7 +150,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigRadiusServerRootCertificates")
-    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]]:
+    def p2_s_vpn_server_config_radius_server_root_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']]]:
         """
         Radius Server root certificate of P2SVpnServerConfiguration.
         """
@@ -158,7 +158,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRevokedCertificates")
-    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]]:
+    def p2_s_vpn_server_config_vpn_client_revoked_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse']]]:
         """
         VPN client revoked certificate of P2SVpnServerConfiguration.
         """
@@ -166,7 +166,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigVpnClientRootCertificates")
-    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]]:
+    def p2_s_vpn_server_config_vpn_client_root_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.P2SVpnServerConfigVpnClientRootCertificateResponse']]]:
         """
         VPN client root certificate of P2SVpnServerConfiguration.
         """
@@ -198,7 +198,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnClientIpsecPolicies")
-    def vpn_client_ipsec_policies(self) -> pulumi.Output[Optional[List['outputs.IpsecPolicyResponse']]]:
+    def vpn_client_ipsec_policies(self) -> pulumi.Output[Optional[Sequence['outputs.IpsecPolicyResponse']]]:
         """
         VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         """
@@ -206,7 +206,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnProtocols")
-    def vpn_protocols(self) -> pulumi.Output[Optional[List[str]]]:
+    def vpn_protocols(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         VPN protocols for the P2SVpnServerConfiguration.
         """

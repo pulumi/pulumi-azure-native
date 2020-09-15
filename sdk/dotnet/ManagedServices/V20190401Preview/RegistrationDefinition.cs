@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.ManagedServices.V20190401Preview
         /// Plan details for the managed services.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Properties of a registration definition.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RegistrationDefinitionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.RegistrationDefinitionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

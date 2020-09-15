@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -137,7 +137,7 @@ class OpenShiftManagedClusterAgentPoolProfileResponse(dict):
     Defines the configuration of the OpenShift cluster VMs.
     """
     def __init__(__self__, *,
-                 count: float,
+                 count: int,
                  name: str,
                  vm_size: str,
                  os_type: Optional[str] = None,
@@ -145,7 +145,7 @@ class OpenShiftManagedClusterAgentPoolProfileResponse(dict):
                  subnet_cidr: Optional[str] = None):
         """
         Defines the configuration of the OpenShift cluster VMs.
-        :param float count: Number of agents (VMs) to host docker containers.
+        :param int count: Number of agents (VMs) to host docker containers.
         :param str name: Unique name of the pool profile in the context of the subscription and resource group.
         :param str vm_size: Size of agent VMs.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -164,7 +164,7 @@ class OpenShiftManagedClusterAgentPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> float:
+    def count(self) -> int:
         """
         Number of agents (VMs) to host docker containers.
         """
@@ -220,17 +220,17 @@ class OpenShiftManagedClusterAuthProfileResponse(dict):
     Defines all possible authentication profiles for the OpenShift cluster.
     """
     def __init__(__self__, *,
-                 identity_providers: Optional[List['outputs.OpenShiftManagedClusterIdentityProviderResponse']] = None):
+                 identity_providers: Optional[Sequence['outputs.OpenShiftManagedClusterIdentityProviderResponse']] = None):
         """
         Defines all possible authentication profiles for the OpenShift cluster.
-        :param List['OpenShiftManagedClusterIdentityProviderResponseArgs'] identity_providers: Type of authentication profile to use.
+        :param Sequence['OpenShiftManagedClusterIdentityProviderResponseArgs'] identity_providers: Type of authentication profile to use.
         """
         if identity_providers is not None:
             pulumi.set(__self__, "identity_providers", identity_providers)
 
     @property
     @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[List['outputs.OpenShiftManagedClusterIdentityProviderResponse']]:
+    def identity_providers(self) -> Optional[Sequence['outputs.OpenShiftManagedClusterIdentityProviderResponse']]:
         """
         Type of authentication profile to use.
         """
@@ -284,14 +284,14 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
     OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
     """
     def __init__(__self__, *,
-                 count: float,
+                 count: int,
                  vm_size: str,
                  name: Optional[str] = None,
                  os_type: Optional[str] = None,
                  subnet_cidr: Optional[str] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        :param float count: Number of masters (VMs) to host docker containers. The default value is 3.
+        :param int count: Number of masters (VMs) to host docker containers. The default value is 3.
         :param str vm_size: Size of agent VMs.
         :param str name: Unique name of the master pool profile in the context of the subscription and resource group.
         :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
@@ -308,7 +308,7 @@ class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> float:
+    def count(self) -> int:
         """
         Number of masters (VMs) to host docker containers. The default value is 3.
         """

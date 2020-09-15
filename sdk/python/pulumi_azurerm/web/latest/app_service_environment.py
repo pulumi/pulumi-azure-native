@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,30 +18,30 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_account_id: Optional[pulumi.Input[str]] = None,
-                 cluster_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]]] = None,
                  dns_suffix: Optional[pulumi.Input[str]] = None,
                  dynamic_cache_enabled: Optional[pulumi.Input[bool]] = None,
-                 front_end_scale_factor: Optional[pulumi.Input[float]] = None,
+                 front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  has_linux_workers: Optional[pulumi.Input[bool]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
-                 ipssl_address_count: Optional[pulumi.Input[float]] = None,
+                 ipssl_address_count: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 multi_role_count: Optional[pulumi.Input[float]] = None,
+                 multi_role_count: Optional[pulumi.Input[int]] = None,
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control_list: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
+                 network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ssl_cert_key_vault_id: Optional[pulumi.Input[str]] = None,
                  ssl_cert_key_vault_secret_name: Optional[pulumi.Input[str]] = None,
                  suspended: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_whitelisted_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
-                 worker_pools: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
+                 worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -51,32 +51,32 @@ class AppServiceEnvironment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_account_id: API Management Account associated with the App Service Environment.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
         :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
         :param pulumi.Input[bool] dynamic_cache_enabled: True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
                (most likely because NSG blocked the incoming traffic).
-        :param pulumi.Input[float] front_end_scale_factor: Scale factor for front-ends.
+        :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[bool] has_linux_workers: Flag that displays whether an ASE has linux workers or not
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-        :param pulumi.Input[float] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
+        :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[float] multi_role_count: Number of front-end instances.
+        :param pulumi.Input[int] multi_role_count: Number of front-end instances.
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]] network_access_control_list: Access control list for controlling traffic to the App Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]] network_access_control_list: Access control list for controlling traffic to the App Service Environment.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] ssl_cert_key_vault_id: Key Vault ID for ILB App Service Environment default SSL certificate
         :param pulumi.Input[str] ssl_cert_key_vault_secret_name: Key Vault Secret Name for ILB App Service Environment default SSL certificate
         :param pulumi.Input[bool] suspended: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
                 (most likely because NSG blocked the incoming traffic).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network: Description of the Virtual Network.
         :param pulumi.Input[str] vnet_name: Name of the Virtual Network for the App Service Environment.
         :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]] worker_pools: Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -200,7 +200,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> pulumi.Output[Optional[List['outputs.NameValuePairResponse']]]:
+    def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.NameValuePairResponse']]]:
         """
         Custom settings for changing the behavior of the App Service Environment.
         """
@@ -224,7 +224,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultFrontEndScaleFactor")
-    def default_front_end_scale_factor(self) -> pulumi.Output[float]:
+    def default_front_end_scale_factor(self) -> pulumi.Output[int]:
         """
         Default Scale Factor for FrontEnds.
         """
@@ -249,7 +249,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentCapacities")
-    def environment_capacities(self) -> pulumi.Output[List['outputs.StampCapacityResponse']]:
+    def environment_capacities(self) -> pulumi.Output[Sequence['outputs.StampCapacityResponse']]:
         """
         Current total, used, and available worker capacities.
         """
@@ -273,7 +273,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontEndScaleFactor")
-    def front_end_scale_factor(self) -> pulumi.Output[Optional[float]]:
+    def front_end_scale_factor(self) -> pulumi.Output[Optional[int]]:
         """
         Scale factor for front-ends.
         """
@@ -297,7 +297,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
-    def ipssl_address_count(self) -> pulumi.Output[Optional[float]]:
+    def ipssl_address_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of IP SSL addresses reserved for the App Service Environment.
         """
@@ -337,7 +337,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfMachines")
-    def maximum_number_of_machines(self) -> pulumi.Output[float]:
+    def maximum_number_of_machines(self) -> pulumi.Output[int]:
         """
         Maximum number of VMs in the App Service Environment.
         """
@@ -345,7 +345,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="multiRoleCount")
-    def multi_role_count(self) -> pulumi.Output[Optional[float]]:
+    def multi_role_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of front-end instances.
         """
@@ -369,7 +369,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkAccessControlList")
-    def network_access_control_list(self) -> pulumi.Output[Optional[List['outputs.NetworkAccessControlEntryResponse']]]:
+    def network_access_control_list(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkAccessControlEntryResponse']]]:
         """
         Access control list for controlling traffic to the App Service Environment.
         """
@@ -450,7 +450,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeDomains")
-    def upgrade_domains(self) -> pulumi.Output[float]:
+    def upgrade_domains(self) -> pulumi.Output[int]:
         """
         Number of upgrade domains of the App Service Environment.
         """
@@ -458,7 +458,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> pulumi.Output[Optional[List[str]]]:
+    def user_whitelisted_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         User added ip ranges to whitelist on ASE db
         """
@@ -466,7 +466,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vipMappings")
-    def vip_mappings(self) -> pulumi.Output[List['outputs.VirtualIPMappingResponse']]:
+    def vip_mappings(self) -> pulumi.Output[Sequence['outputs.VirtualIPMappingResponse']]:
         """
         Description of IP SSL mapping for the App Service Environment.
         """
@@ -506,7 +506,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workerPools")
-    def worker_pools(self) -> pulumi.Output[List['outputs.WorkerPoolResponse']]:
+    def worker_pools(self) -> pulumi.Output[Sequence['outputs.WorkerPoolResponse']]:
         """
         Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
         """

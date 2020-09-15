@@ -40,11 +40,11 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         /// <summary>
         /// The deployment status summary for all deployments created by the remediation.
         /// </summary>
-        public readonly Outputs.RemediationDeploymentSummaryResponseResult DeploymentStatus;
+        public readonly Outputs.RemediationDeploymentSummaryResponse DeploymentStatus;
         /// <summary>
         /// The filters that will be applied to determine which resources to remediate.
         /// </summary>
-        public readonly Outputs.RemediationFiltersResponseResult? Filters;
+        public readonly Outputs.RemediationFiltersResponse? Filters;
         /// <summary>
         /// The time at which the remediation was last updated.
         /// </summary>
@@ -78,9 +78,9 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         private GetRemediationAtSubscriptionResult(
             string createdOn,
 
-            Outputs.RemediationDeploymentSummaryResponseResult deploymentStatus,
+            Outputs.RemediationDeploymentSummaryResponse deploymentStatus,
 
-            Outputs.RemediationFiltersResponseResult? filters,
+            Outputs.RemediationFiltersResponse? filters,
 
             string lastUpdatedOn,
 

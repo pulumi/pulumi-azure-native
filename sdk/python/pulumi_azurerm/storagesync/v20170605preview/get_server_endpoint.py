@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,11 +20,11 @@ class GetServerEndpointResult:
     Server Endpoint object.
     """
     def __init__(__self__, byte_progress=None, byte_total=None, cloud_tiering=None, current_progress_type=None, friendly_name=None, item_download_error_count=None, item_progress_count=None, item_total_count=None, item_upload_error_count=None, last_sync_success=None, last_workflow_id=None, name=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_error_context=None, sync_error_direction=None, sync_error_state=None, sync_error_state_timestamp=None, total_progress=None, type=None, volume_free_space_percent=None):
-        if byte_progress and not isinstance(byte_progress, float):
-            raise TypeError("Expected argument 'byte_progress' to be a float")
+        if byte_progress and not isinstance(byte_progress, int):
+            raise TypeError("Expected argument 'byte_progress' to be a int")
         pulumi.set(__self__, "byte_progress", byte_progress)
-        if byte_total and not isinstance(byte_total, float):
-            raise TypeError("Expected argument 'byte_total' to be a float")
+        if byte_total and not isinstance(byte_total, int):
+            raise TypeError("Expected argument 'byte_total' to be a int")
         pulumi.set(__self__, "byte_total", byte_total)
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
@@ -35,17 +35,17 @@ class GetServerEndpointResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
-        if item_download_error_count and not isinstance(item_download_error_count, float):
-            raise TypeError("Expected argument 'item_download_error_count' to be a float")
+        if item_download_error_count and not isinstance(item_download_error_count, int):
+            raise TypeError("Expected argument 'item_download_error_count' to be a int")
         pulumi.set(__self__, "item_download_error_count", item_download_error_count)
-        if item_progress_count and not isinstance(item_progress_count, float):
-            raise TypeError("Expected argument 'item_progress_count' to be a float")
+        if item_progress_count and not isinstance(item_progress_count, int):
+            raise TypeError("Expected argument 'item_progress_count' to be a int")
         pulumi.set(__self__, "item_progress_count", item_progress_count)
-        if item_total_count and not isinstance(item_total_count, float):
-            raise TypeError("Expected argument 'item_total_count' to be a float")
+        if item_total_count and not isinstance(item_total_count, int):
+            raise TypeError("Expected argument 'item_total_count' to be a int")
         pulumi.set(__self__, "item_total_count", item_total_count)
-        if item_upload_error_count and not isinstance(item_upload_error_count, float):
-            raise TypeError("Expected argument 'item_upload_error_count' to be a float")
+        if item_upload_error_count and not isinstance(item_upload_error_count, int):
+            raise TypeError("Expected argument 'item_upload_error_count' to be a int")
         pulumi.set(__self__, "item_upload_error_count", item_upload_error_count)
         if last_sync_success and not isinstance(last_sync_success, str):
             raise TypeError("Expected argument 'last_sync_success' to be a str")
@@ -77,19 +77,19 @@ class GetServerEndpointResult:
         if sync_error_state_timestamp and not isinstance(sync_error_state_timestamp, str):
             raise TypeError("Expected argument 'sync_error_state_timestamp' to be a str")
         pulumi.set(__self__, "sync_error_state_timestamp", sync_error_state_timestamp)
-        if total_progress and not isinstance(total_progress, float):
-            raise TypeError("Expected argument 'total_progress' to be a float")
+        if total_progress and not isinstance(total_progress, int):
+            raise TypeError("Expected argument 'total_progress' to be a int")
         pulumi.set(__self__, "total_progress", total_progress)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_free_space_percent and not isinstance(volume_free_space_percent, float):
-            raise TypeError("Expected argument 'volume_free_space_percent' to be a float")
+        if volume_free_space_percent and not isinstance(volume_free_space_percent, int):
+            raise TypeError("Expected argument 'volume_free_space_percent' to be a int")
         pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
 
     @property
     @pulumi.getter(name="byteProgress")
-    def byte_progress(self) -> Optional[float]:
+    def byte_progress(self) -> Optional[int]:
         """
         Bytes in progress
         """
@@ -97,7 +97,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="byteTotal")
-    def byte_total(self) -> Optional[float]:
+    def byte_total(self) -> Optional[int]:
         """
         Bytes total
         """
@@ -129,7 +129,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="itemDownloadErrorCount")
-    def item_download_error_count(self) -> Optional[float]:
+    def item_download_error_count(self) -> Optional[int]:
         """
         Item download error count.
         """
@@ -137,7 +137,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="itemProgressCount")
-    def item_progress_count(self) -> Optional[float]:
+    def item_progress_count(self) -> Optional[int]:
         """
         Item Progress Count
         """
@@ -145,7 +145,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="itemTotalCount")
-    def item_total_count(self) -> Optional[float]:
+    def item_total_count(self) -> Optional[int]:
         """
         Item Total Count
         """
@@ -153,7 +153,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="itemUploadErrorCount")
-    def item_upload_error_count(self) -> Optional[float]:
+    def item_upload_error_count(self) -> Optional[int]:
         """
         Item Upload Error Count.
         """
@@ -241,7 +241,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="totalProgress")
-    def total_progress(self) -> Optional[float]:
+    def total_progress(self) -> Optional[int]:
         """
         Total progress
         """
@@ -257,7 +257,7 @@ class GetServerEndpointResult:
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> Optional[float]:
+    def volume_free_space_percent(self) -> Optional[int]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

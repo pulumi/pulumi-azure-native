@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <summary>
         /// Links relevant to the assessment
         /// </summary>
-        public readonly Outputs.AssessmentLinksResponseResult? Links;
+        public readonly Outputs.AssessmentLinksResponse? Links;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// <summary>
         /// Details of the resource that was assessed
         /// </summary>
-        public readonly Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult> ResourceDetails;
+        public readonly Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> ResourceDetails;
         /// <summary>
         /// The result of the assessment
         /// </summary>
-        public readonly Outputs.AssessmentStatusResponseResult Status;
+        public readonly Outputs.AssessmentStatusResponse Status;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -80,13 +80,13 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
 
             string displayName,
 
-            Outputs.AssessmentLinksResponseResult? links,
+            Outputs.AssessmentLinksResponse? links,
 
             string name,
 
-            Union<Outputs.AzureResourceDetailsResponseResult, Outputs.OnPremiseResourceDetailsResponseResult> resourceDetails,
+            Union<Outputs.AzureResourceDetailsResponse, Outputs.OnPremiseResourceDetailsResponse> resourceDetails,
 
-            Outputs.AssessmentStatusResponseResult status,
+            Outputs.AssessmentStatusResponse status,
 
             string type)
         {

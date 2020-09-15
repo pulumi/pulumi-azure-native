@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetIpAllocationResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
-        if prefix_length and not isinstance(prefix_length, float):
-            raise TypeError("Expected argument 'prefix_length' to be a float")
+        if prefix_length and not isinstance(prefix_length, int):
+            raise TypeError("Expected argument 'prefix_length' to be a int")
         pulumi.set(__self__, "prefix_length", prefix_length)
         if prefix_type and not isinstance(prefix_type, str):
             raise TypeError("Expected argument 'prefix_type' to be a str")
@@ -108,7 +108,7 @@ class GetIpAllocationResult:
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[float]:
+    def prefix_length(self) -> Optional[int]:
         """
         The address prefix length for the IpAllocation.
         """

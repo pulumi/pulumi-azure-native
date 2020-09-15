@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Resources.V20151101
         /// <summary>
         /// Gets or sets the plan of the resource.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// Gets or sets the resource properties.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Resources.V20151101
 
             string name,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             ImmutableDictionary<string, object> properties,
 

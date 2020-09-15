@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
-        public readonly Outputs.CircuitResponseResult? Circuit;
+        public readonly Outputs.CircuitResponse? Circuit;
         /// <summary>
         /// The endpoints
         /// </summary>
-        public readonly Outputs.EndpointsResponseResult Endpoints;
+        public readonly Outputs.EndpointsResponse Endpoints;
         /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
-        public readonly ImmutableArray<Outputs.IdentitySourceResponseResult> IdentitySources;
+        public readonly ImmutableArray<Outputs.IdentitySourceResponse> IdentitySources;
         /// <summary>
         /// Connectivity to internet is enabled or disabled
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// The default cluster used for management
         /// </summary>
-        public readonly Outputs.ManagementClusterResponseResult ManagementCluster;
+        public readonly Outputs.ManagementClusterResponse ManagementCluster;
         /// <summary>
         /// Network used to access vCenter Server and NSX-T Manager
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// <summary>
         /// The private cloud SKU
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -118,17 +118,17 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
         [OutputConstructor]
         private GetPrivateCloudResult(
-            Outputs.CircuitResponseResult? circuit,
+            Outputs.CircuitResponse? circuit,
 
-            Outputs.EndpointsResponseResult endpoints,
+            Outputs.EndpointsResponse endpoints,
 
-            ImmutableArray<Outputs.IdentitySourceResponseResult> identitySources,
+            ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
 
             string? internet,
 
             string location,
 
-            Outputs.ManagementClusterResponseResult managementCluster,
+            Outputs.ManagementClusterResponse managementCluster,
 
             string managementNetwork,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
             string provisioningState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

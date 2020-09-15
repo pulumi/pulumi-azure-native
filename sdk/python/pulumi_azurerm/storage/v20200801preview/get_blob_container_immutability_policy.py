@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetBlobContainerImmutabilityPolicyResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, float):
-            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a float")
+        if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, int):
+            raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a int")
         pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -57,7 +57,7 @@ class GetBlobContainerImmutabilityPolicyResult:
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> Optional[float]:
+    def immutability_period_since_creation_in_days(self) -> Optional[int]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """

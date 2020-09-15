@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Parameters that define the configuration of traffic analytics.
         /// </summary>
         [Output("flowAnalyticsConfiguration")]
-        public Output<Outputs.TrafficAnalyticsPropertiesResponseResult?> FlowAnalyticsConfiguration { get; private set; } = null!;
+        public Output<Outputs.TrafficAnalyticsPropertiesResponse?> FlowAnalyticsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Parameters that define the flow log format.
         /// </summary>
         [Output("format")]
-        public Output<Outputs.FlowLogFormatParametersResponseResult?> Format { get; private set; } = null!;
+        public Output<Outputs.FlowLogFormatParametersResponse?> Format { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// Parameters that define the retention policy for flow log.
         /// </summary>
         [Output("retentionPolicy")]
-        public Output<Outputs.RetentionPolicyParametersResponseResult?> RetentionPolicy { get; private set; } = null!;
+        public Output<Outputs.RetentionPolicyParametersResponse?> RetentionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// ID of the storage account which is used to store the flow log.

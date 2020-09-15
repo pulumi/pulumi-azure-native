@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -74,13 +74,13 @@ class AliasPathResponse(dict):
     """
     def __init__(__self__, *,
                  metadata: 'outputs.AliasPathMetadataResponse',
-                 api_versions: Optional[List[str]] = None,
+                 api_versions: Optional[Sequence[str]] = None,
                  path: Optional[str] = None,
                  pattern: Optional['outputs.AliasPatternResponse'] = None):
         """
         The type of the paths for alias.
         :param 'AliasPathMetadataResponseArgs' metadata: The metadata of the alias path. If missing, fall back to the default metadata of the alias.
-        :param List[str] api_versions: The API versions.
+        :param Sequence[str] api_versions: The API versions.
         :param str path: The path of an alias.
         :param 'AliasPatternResponseArgs' pattern: The pattern for an alias path.
         """
@@ -102,7 +102,7 @@ class AliasPathResponse(dict):
 
     @property
     @pulumi.getter(name="apiVersions")
-    def api_versions(self) -> Optional[List[str]]:
+    def api_versions(self) -> Optional[Sequence[str]]:
         """
         The API versions.
         """
@@ -188,7 +188,7 @@ class AliasResponse(dict):
                  default_path: Optional[str] = None,
                  default_pattern: Optional['outputs.AliasPatternResponse'] = None,
                  name: Optional[str] = None,
-                 paths: Optional[List['outputs.AliasPathResponse']] = None,
+                 paths: Optional[Sequence['outputs.AliasPathResponse']] = None,
                  type: Optional[str] = None):
         """
         The alias type. 
@@ -196,7 +196,7 @@ class AliasResponse(dict):
         :param str default_path: The default path for an alias.
         :param 'AliasPatternResponseArgs' default_pattern: The default pattern for an alias.
         :param str name: The alias name.
-        :param List['AliasPathResponseArgs'] paths: The paths for an alias.
+        :param Sequence['AliasPathResponseArgs'] paths: The paths for an alias.
         :param str type: The type of the alias.
         """
         pulumi.set(__self__, "default_metadata", default_metadata)
@@ -245,7 +245,7 @@ class AliasResponse(dict):
 
     @property
     @pulumi.getter
-    def paths(self) -> Optional[List['outputs.AliasPathResponse']]:
+    def paths(self) -> Optional[Sequence['outputs.AliasPathResponse']]:
         """
         The paths for an alias.
         """
@@ -377,13 +377,13 @@ class DependencyResponse(dict):
     Deployment dependency information.
     """
     def __init__(__self__, *,
-                 depends_on: Optional[List['outputs.BasicDependencyResponse']] = None,
+                 depends_on: Optional[Sequence['outputs.BasicDependencyResponse']] = None,
                  id: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  resource_type: Optional[str] = None):
         """
         Deployment dependency information.
-        :param List['BasicDependencyResponseArgs'] depends_on: The list of dependencies.
+        :param Sequence['BasicDependencyResponseArgs'] depends_on: The list of dependencies.
         :param str id: The ID of the dependency.
         :param str resource_name: The dependency resource name.
         :param str resource_type: The dependency resource type.
@@ -399,7 +399,7 @@ class DependencyResponse(dict):
 
     @property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[List['outputs.BasicDependencyResponse']]:
+    def depends_on(self) -> Optional[Sequence['outputs.BasicDependencyResponse']]:
         """
         The list of dependencies.
         """
@@ -441,40 +441,40 @@ class DeploymentPropertiesExtendedResponse(dict):
     def __init__(__self__, *,
                  correlation_id: str,
                  debug_setting: 'outputs.DebugSettingResponse',
-                 dependencies: List['outputs.DependencyResponse'],
+                 dependencies: Sequence['outputs.DependencyResponse'],
                  duration: str,
                  error: 'outputs.ErrorResponseResponse',
                  mode: str,
                  on_error_deployment: 'outputs.OnErrorDeploymentExtendedResponse',
-                 output_resources: List['outputs.ResourceReferenceResponse'],
+                 output_resources: Sequence['outputs.ResourceReferenceResponse'],
                  outputs: Mapping[str, Any],
                  parameters: Mapping[str, Any],
                  parameters_link: 'outputs.ParametersLinkResponse',
-                 providers: List['outputs.ProviderResponse'],
+                 providers: Sequence['outputs.ProviderResponse'],
                  provisioning_state: str,
                  template_hash: str,
                  template_link: 'outputs.TemplateLinkResponse',
                  timestamp: str,
-                 validated_resources: List['outputs.ResourceReferenceResponse']):
+                 validated_resources: Sequence['outputs.ResourceReferenceResponse']):
         """
         Deployment properties with additional details.
         :param str correlation_id: The correlation ID of the deployment.
         :param 'DebugSettingResponseArgs' debug_setting: The debug setting of the deployment.
-        :param List['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
+        :param Sequence['DependencyResponseArgs'] dependencies: The list of deployment dependencies.
         :param str duration: The duration of the template deployment.
         :param 'ErrorResponseResponseArgs' error: The deployment error.
         :param str mode: The deployment mode. Possible values are Incremental and Complete.
         :param 'OnErrorDeploymentExtendedResponseArgs' on_error_deployment: The deployment on error behavior.
-        :param List['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
+        :param Sequence['ResourceReferenceResponseArgs'] output_resources: Array of provisioned resources.
         :param Mapping[str, Any] outputs: Key/value pairs that represent deployment output.
         :param Mapping[str, Any] parameters: Deployment parameters. 
         :param 'ParametersLinkResponseArgs' parameters_link: The URI referencing the parameters. 
-        :param List['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
+        :param Sequence['ProviderResponseArgs'] providers: The list of resource providers needed for the deployment.
         :param str provisioning_state: Denotes the state of provisioning.
         :param str template_hash: The hash produced for the template.
         :param 'TemplateLinkResponseArgs' template_link: The URI referencing the template.
         :param str timestamp: The timestamp of the template deployment.
-        :param List['ResourceReferenceResponseArgs'] validated_resources: Array of validated resources.
+        :param Sequence['ResourceReferenceResponseArgs'] validated_resources: Array of validated resources.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
         pulumi.set(__self__, "debug_setting", debug_setting)
@@ -512,7 +512,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def dependencies(self) -> List['outputs.DependencyResponse']:
+    def dependencies(self) -> Sequence['outputs.DependencyResponse']:
         """
         The list of deployment dependencies.
         """
@@ -552,7 +552,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter(name="outputResources")
-    def output_resources(self) -> List['outputs.ResourceReferenceResponse']:
+    def output_resources(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         Array of provisioned resources.
         """
@@ -584,7 +584,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter
-    def providers(self) -> List['outputs.ProviderResponse']:
+    def providers(self) -> Sequence['outputs.ProviderResponse']:
         """
         The list of resource providers needed for the deployment.
         """
@@ -624,7 +624,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     @property
     @pulumi.getter(name="validatedResources")
-    def validated_resources(self) -> List['outputs.ResourceReferenceResponse']:
+    def validated_resources(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         Array of validated resources.
         """
@@ -676,16 +676,16 @@ class ErrorResponseResponse(dict):
     The resource management error response.
     """
     def __init__(__self__, *,
-                 additional_info: List['outputs.ErrorAdditionalInfoResponse'],
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
                  code: str,
-                 details: List['outputs.ErrorResponseResponse'],
+                 details: Sequence['outputs.ErrorResponseResponse'],
                  message: str,
                  target: str):
         """
         The resource management error response.
-        :param List['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
+        :param Sequence['ErrorAdditionalInfoResponseArgs'] additional_info: The error additional info.
         :param str code: The error code.
-        :param List['ErrorResponseResponseArgs'] details: The error details.
+        :param Sequence['ErrorResponseResponseArgs'] details: The error details.
         :param str message: The error message.
         :param str target: The error target.
         """
@@ -697,7 +697,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> List['outputs.ErrorAdditionalInfoResponse']:
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
         """
         The error additional info.
         """
@@ -713,7 +713,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.ErrorResponseResponse']:
+    def details(self) -> Sequence['outputs.ErrorResponseResponse']:
         """
         The error details.
         """
@@ -997,22 +997,22 @@ class ProviderResourceTypeResponse(dict):
     Resource type managed by the resource provider.
     """
     def __init__(__self__, *,
-                 api_profiles: List['outputs.ApiProfileResponse'],
+                 api_profiles: Sequence['outputs.ApiProfileResponse'],
                  default_api_version: str,
-                 aliases: Optional[List['outputs.AliasResponse']] = None,
-                 api_versions: Optional[List[str]] = None,
+                 aliases: Optional[Sequence['outputs.AliasResponse']] = None,
+                 api_versions: Optional[Sequence[str]] = None,
                  capabilities: Optional[str] = None,
-                 locations: Optional[List[str]] = None,
+                 locations: Optional[Sequence[str]] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  resource_type: Optional[str] = None):
         """
         Resource type managed by the resource provider.
-        :param List['ApiProfileResponseArgs'] api_profiles: The API profiles for the resource provider.
+        :param Sequence['ApiProfileResponseArgs'] api_profiles: The API profiles for the resource provider.
         :param str default_api_version: The default API version.
-        :param List['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
-        :param List[str] api_versions: The API version.
+        :param Sequence['AliasResponseArgs'] aliases: The aliases that are supported by this resource type.
+        :param Sequence[str] api_versions: The API version.
         :param str capabilities: The additional capabilities offered by this resource type.
-        :param List[str] locations: The collection of locations where this resource type can be created.
+        :param Sequence[str] locations: The collection of locations where this resource type can be created.
         :param Mapping[str, str] properties: The properties.
         :param str resource_type: The resource type.
         """
@@ -1033,7 +1033,7 @@ class ProviderResourceTypeResponse(dict):
 
     @property
     @pulumi.getter(name="apiProfiles")
-    def api_profiles(self) -> List['outputs.ApiProfileResponse']:
+    def api_profiles(self) -> Sequence['outputs.ApiProfileResponse']:
         """
         The API profiles for the resource provider.
         """
@@ -1049,7 +1049,7 @@ class ProviderResourceTypeResponse(dict):
 
     @property
     @pulumi.getter
-    def aliases(self) -> Optional[List['outputs.AliasResponse']]:
+    def aliases(self) -> Optional[Sequence['outputs.AliasResponse']]:
         """
         The aliases that are supported by this resource type.
         """
@@ -1057,7 +1057,7 @@ class ProviderResourceTypeResponse(dict):
 
     @property
     @pulumi.getter(name="apiVersions")
-    def api_versions(self) -> Optional[List[str]]:
+    def api_versions(self) -> Optional[Sequence[str]]:
         """
         The API version.
         """
@@ -1073,7 +1073,7 @@ class ProviderResourceTypeResponse(dict):
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[List[str]]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         The collection of locations where this resource type can be created.
         """
@@ -1108,14 +1108,14 @@ class ProviderResponse(dict):
                  id: str,
                  registration_policy: str,
                  registration_state: str,
-                 resource_types: List['outputs.ProviderResourceTypeResponse'],
+                 resource_types: Sequence['outputs.ProviderResourceTypeResponse'],
                  namespace: Optional[str] = None):
         """
         Resource provider information.
         :param str id: The provider ID.
         :param str registration_policy: The registration policy of the resource provider.
         :param str registration_state: The registration state of the resource provider.
-        :param List['ProviderResourceTypeResponseArgs'] resource_types: The collection of provider resource types.
+        :param Sequence['ProviderResourceTypeResponseArgs'] resource_types: The collection of provider resource types.
         :param str namespace: The namespace of the resource provider.
         """
         pulumi.set(__self__, "id", id)
@@ -1151,7 +1151,7 @@ class ProviderResponse(dict):
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> List['outputs.ProviderResourceTypeResponse']:
+    def resource_types(self) -> Sequence['outputs.ProviderResourceTypeResponse']:
         """
         The collection of provider resource types.
         """
@@ -1225,7 +1225,7 @@ class SkuResponse(dict):
     SKU for the resource.
     """
     def __init__(__self__, *,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  model: Optional[str] = None,
                  name: Optional[str] = None,
@@ -1233,7 +1233,7 @@ class SkuResponse(dict):
                  tier: Optional[str] = None):
         """
         SKU for the resource.
-        :param float capacity: The SKU capacity.
+        :param int capacity: The SKU capacity.
         :param str family: The SKU family.
         :param str model: The SKU model.
         :param str name: The SKU name.
@@ -1255,7 +1255,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The SKU capacity.
         """

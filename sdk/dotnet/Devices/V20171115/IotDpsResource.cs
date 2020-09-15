@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Devices.V20171115
         /// Service specific properties for a provisioning service
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IotDpsPropertiesDescriptionResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.IotDpsPropertiesDescriptionResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// SKU info for a provisioning service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IotDpsSkuInfoResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.IotDpsSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

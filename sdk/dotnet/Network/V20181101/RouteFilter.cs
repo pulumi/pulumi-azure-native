@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// A collection of references to express route circuit peerings.
         /// </summary>
         [Output("peerings")]
-        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse>> Peerings { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// Collection of RouteFilterRules contained within a route filter.
         /// </summary>
         [Output("rules")]
-        public Output<ImmutableArray<Outputs.RouteFilterRuleResponseResult>> Rules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RouteFilterRuleResponse>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

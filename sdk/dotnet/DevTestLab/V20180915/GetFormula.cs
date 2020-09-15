@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The content of the formula.
         /// </summary>
-        public readonly Outputs.LabVirtualMachineCreationParameterResponseResult? FormulaContent;
+        public readonly Outputs.LabVirtualMachineCreationParameterResponse? FormulaContent;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// Information about a VM from which a formula is to be created.
         /// </summary>
-        public readonly Outputs.FormulaPropertiesFromVmResponseResult? Vm;
+        public readonly Outputs.FormulaPropertiesFromVmResponse? Vm;
 
         [OutputConstructor]
         private GetFormulaResult(
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
             string? description,
 
-            Outputs.LabVirtualMachineCreationParameterResponseResult? formulaContent,
+            Outputs.LabVirtualMachineCreationParameterResponse? formulaContent,
 
             string? location,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
             string uniqueIdentifier,
 
-            Outputs.FormulaPropertiesFromVmResponseResult? vm)
+            Outputs.FormulaPropertiesFromVmResponse? vm)
         {
             Author = author;
             CreationDate = creationDate;

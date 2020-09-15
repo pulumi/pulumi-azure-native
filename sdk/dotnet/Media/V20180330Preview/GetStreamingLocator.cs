@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// <summary>
         /// ContentKeys used by this Streaming Locator
         /// </summary>
-        public readonly ImmutableArray<Outputs.StreamingLocatorUserDefinedContentKeyResponseResult> ContentKeys;
+        public readonly ImmutableArray<Outputs.StreamingLocatorUserDefinedContentKeyResponse> ContentKeys;
         /// <summary>
         /// Creation time of Streaming Locator
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         private GetStreamingLocatorResult(
             string assetName,
 
-            ImmutableArray<Outputs.StreamingLocatorUserDefinedContentKeyResponseResult> contentKeys,
+            ImmutableArray<Outputs.StreamingLocatorUserDefinedContentKeyResponse> contentKeys,
 
             string created,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -22,7 +22,7 @@ __all__ = [
 class ActiveDirectoryArgs:
     def __init__(__self__, *,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
-                 backup_operators: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  organizational_unit: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class ActiveDirectoryArgs:
         """
         Active Directory
         :param pulumi.Input[str] active_directory_id: Id of the Active Directory
-        :param pulumi.Input[List[pulumi.Input[str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param pulumi.Input[str] dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param pulumi.Input[str] domain: Name of the Active Directory domain
         :param pulumi.Input[str] organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
@@ -79,14 +79,14 @@ class ActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="backupOperators")
-    def backup_operators(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def backup_operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         """
         return pulumi.get(self, "backup_operators")
 
     @backup_operators.setter
-    def backup_operators(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def backup_operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backup_operators", value)
 
     @property
@@ -193,7 +193,7 @@ class ExportPolicyRuleArgs:
                  cifs: Optional[pulumi.Input[bool]] = None,
                  nfsv3: Optional[pulumi.Input[bool]] = None,
                  nfsv41: Optional[pulumi.Input[bool]] = None,
-                 rule_index: Optional[pulumi.Input[float]] = None,
+                 rule_index: Optional[pulumi.Input[int]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
                  unix_read_write: Optional[pulumi.Input[bool]] = None):
         """
@@ -202,7 +202,7 @@ class ExportPolicyRuleArgs:
         :param pulumi.Input[bool] cifs: Allows CIFS protocol
         :param pulumi.Input[bool] nfsv3: Allows NFSv3 protocol. Enable only for NFSv3 type volumes
         :param pulumi.Input[bool] nfsv41: Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-        :param pulumi.Input[float] rule_index: Order index
+        :param pulumi.Input[int] rule_index: Order index
         :param pulumi.Input[bool] unix_read_only: Read only access
         :param pulumi.Input[bool] unix_read_write: Read and write access
         """
@@ -271,14 +271,14 @@ class ExportPolicyRuleArgs:
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[pulumi.Input[float]]:
+    def rule_index(self) -> Optional[pulumi.Input[int]]:
         """
         Order index
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: Optional[pulumi.Input[float]]):
+    def rule_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rule_index", value)
 
     @property
@@ -554,24 +554,24 @@ class VolumePropertiesDataProtectionArgs:
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]] = None):
         """
         Set of export policy rules
-        :param pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
+        :param pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]] rules: Export policy rule
         """
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]:
         """
         Export policy rule
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['ExportPolicyRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 

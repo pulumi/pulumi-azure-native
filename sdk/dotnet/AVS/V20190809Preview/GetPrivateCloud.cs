@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
         /// <summary>
         /// The properties of a private cloud resource
         /// </summary>
-        public readonly Outputs.PrivateCloudPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateCloudPropertiesResponse Properties;
         /// <summary>
         /// The private cloud SKU
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.AVS.V20190809Preview
 
             string name,
 
-            Outputs.PrivateCloudPropertiesResponseResult properties,
+            Outputs.PrivateCloudPropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

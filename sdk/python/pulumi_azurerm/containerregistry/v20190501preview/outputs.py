@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -119,8 +119,8 @@ class TokenCredentialsPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  active_directory_object: Optional['outputs.ActiveDirectoryObjectResponse'] = None,
-                 certificates: Optional[List['outputs.TokenCertificateResponse']] = None,
-                 passwords: Optional[List['outputs.TokenPasswordResponse']] = None):
+                 certificates: Optional[Sequence['outputs.TokenCertificateResponse']] = None,
+                 passwords: Optional[Sequence['outputs.TokenPasswordResponse']] = None):
         """
         The properties of the credentials that can be used for authenticating the token.
         :param 'ActiveDirectoryObjectResponseArgs' active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
@@ -142,12 +142,12 @@ class TokenCredentialsPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.TokenCertificateResponse']]:
+    def certificates(self) -> Optional[Sequence['outputs.TokenCertificateResponse']]:
         return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[List['outputs.TokenPasswordResponse']]:
+    def passwords(self) -> Optional[Sequence['outputs.TokenPasswordResponse']]:
         return pulumi.get(self, "passwords")
 
     def _translate_property(self, prop):

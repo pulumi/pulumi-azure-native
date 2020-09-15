@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Authorization.V20151101
         /// Gets or sets the policy assignment properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PolicyAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PolicyAssignmentPropertiesResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>

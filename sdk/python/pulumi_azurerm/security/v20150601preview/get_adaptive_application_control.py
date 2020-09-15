@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -70,7 +70,7 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter
-    def issues(self) -> Optional[List['outputs.AppWhitelistingIssueSummaryResponse']]:
+    def issues(self) -> Optional[Sequence['outputs.AppWhitelistingIssueSummaryResponse']]:
         return pulumi.get(self, "issues")
 
     @property
@@ -91,7 +91,7 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter(name="pathRecommendations")
-    def path_recommendations(self) -> Optional[List['outputs.PathRecommendationResponse']]:
+    def path_recommendations(self) -> Optional[Sequence['outputs.PathRecommendationResponse']]:
         return pulumi.get(self, "path_recommendations")
 
     @property
@@ -128,7 +128,7 @@ class GetAdaptiveApplicationControlResult:
 
     @property
     @pulumi.getter(name="vmRecommendations")
-    def vm_recommendations(self) -> Optional[List['outputs.VmRecommendationResponse']]:
+    def vm_recommendations(self) -> Optional[Sequence['outputs.VmRecommendationResponse']]:
         return pulumi.get(self, "vm_recommendations")
 
 

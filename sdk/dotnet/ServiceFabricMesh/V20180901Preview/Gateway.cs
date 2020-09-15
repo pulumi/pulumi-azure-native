@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Network that the Application is using.
         /// </summary>
         [Output("destinationNetwork")]
-        public Output<Outputs.NetworkRefResponseResult> DestinationNetwork { get; private set; } = null!;
+        public Output<Outputs.NetworkRefResponse> DestinationNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for http connectivity for this gateway.
         /// </summary>
         [Output("http")]
-        public Output<ImmutableArray<Outputs.HttpConfigResponseResult>> Http { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HttpConfigResponse>> Http { get; private set; } = null!;
 
         /// <summary>
         /// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Network the gateway should listen on for requests.
         /// </summary>
         [Output("sourceNetwork")]
-        public Output<Outputs.NetworkRefResponseResult> SourceNetwork { get; private set; } = null!;
+        public Output<Outputs.NetworkRefResponse> SourceNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Status of the resource.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// Configuration for tcp connectivity for this gateway.
         /// </summary>
         [Output("tcp")]
-        public Output<ImmutableArray<Outputs.TcpConfigResponseResult>> Tcp { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TcpConfigResponse>> Tcp { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

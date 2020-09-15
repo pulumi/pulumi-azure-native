@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetAgentPoolResult:
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
-        if count and not isinstance(count, float):
-            raise TypeError("Expected argument 'count' to be a float")
+        if count and not isinstance(count, int):
+            raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
@@ -32,14 +32,14 @@ class GetAgentPoolResult:
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
-        if max_count and not isinstance(max_count, float):
-            raise TypeError("Expected argument 'max_count' to be a float")
+        if max_count and not isinstance(max_count, int):
+            raise TypeError("Expected argument 'max_count' to be a int")
         pulumi.set(__self__, "max_count", max_count)
-        if max_pods and not isinstance(max_pods, float):
-            raise TypeError("Expected argument 'max_pods' to be a float")
+        if max_pods and not isinstance(max_pods, int):
+            raise TypeError("Expected argument 'max_pods' to be a int")
         pulumi.set(__self__, "max_pods", max_pods)
-        if min_count and not isinstance(min_count, float):
-            raise TypeError("Expected argument 'min_count' to be a float")
+        if min_count and not isinstance(min_count, int):
+            raise TypeError("Expected argument 'min_count' to be a int")
         pulumi.set(__self__, "min_count", min_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -53,8 +53,8 @@ class GetAgentPoolResult:
         if orchestrator_version and not isinstance(orchestrator_version, str):
             raise TypeError("Expected argument 'orchestrator_version' to be a str")
         pulumi.set(__self__, "orchestrator_version", orchestrator_version)
-        if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
-            raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
+        if os_disk_size_gb and not isinstance(os_disk_size_gb, int):
+            raise TypeError("Expected argument 'os_disk_size_gb' to be a int")
         pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
@@ -83,7 +83,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> Optional[Sequence[str]]:
         """
         Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
         """
@@ -91,7 +91,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[float]:
+    def count(self) -> Optional[int]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
         """
@@ -115,7 +115,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[float]:
+    def max_count(self) -> Optional[int]:
         """
         Maximum number of nodes for auto-scaling
         """
@@ -123,7 +123,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[float]:
+    def max_pods(self) -> Optional[int]:
         """
         Maximum number of pods that can run on a node.
         """
@@ -131,7 +131,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
+    def min_count(self) -> Optional[int]:
         """
         Minimum number of nodes for auto-scaling
         """
@@ -155,7 +155,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[List[str]]:
+    def node_taints(self) -> Optional[Sequence[str]]:
         """
         Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         """
@@ -171,7 +171,7 @@ class GetAgentPoolResult:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[float]:
+    def os_disk_size_gb(self) -> Optional[int]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """

@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// The list of partition keys according to which the data in the environment will be ordered.
         /// </summary>
         [Output("partitionKeyProperties")]
-        public Output<ImmutableArray<Outputs.PartitionKeyPropertyResponseResult>> PartitionKeyProperties { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PartitionKeyPropertyResponse>> PartitionKeyProperties { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the resource.
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.EnvironmentStatusResponseResult?> Status { get; private set; } = null!;
+        public Output<Outputs.EnvironmentStatusResponse?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.

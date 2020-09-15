@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Security.Latest
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         [Output("requests")]
-        public Output<ImmutableArray<Outputs.JitNetworkAccessRequestResponseResult>> Requests { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JitNetworkAccessRequestResponse>> Requests { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Security.Latest
         /// Configurations for Microsoft.Compute/virtualMachines resource type.
         /// </summary>
         [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponseResult>> VirtualMachines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

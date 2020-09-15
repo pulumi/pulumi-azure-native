@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Assessment']
@@ -261,7 +261,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfMachines")
-    def number_of_machines(self) -> pulumi.Output[float]:
+    def number_of_machines(self) -> pulumi.Output[int]:
         """
         Number of assessed machines part of this assessment.
         """

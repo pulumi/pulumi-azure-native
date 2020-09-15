@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class RoleAssignment(pulumi.CustomResource):
                  interactions: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  kpis: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
-                 principals: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]]] = None,
+                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]]] = None,
                  profiles: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  relationship_links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  relationships: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
@@ -54,7 +54,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] interactions: Interactions set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] kpis: Kpis set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] links: Links set for the assignment.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]] principals: The principals being assigned to.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentPrincipalArgs']]]] principals: The principals being assigned to.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] profiles: Profiles set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationship_links: The Role assignments set for the relationship links.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationships: The Role assignments set for the relationships.
@@ -217,7 +217,7 @@ class RoleAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principals(self) -> pulumi.Output[List['outputs.AssignmentPrincipalResponse']]:
+    def principals(self) -> pulumi.Output[Sequence['outputs.AssignmentPrincipalResponse']]:
         """
         The principals being assigned to.
         """

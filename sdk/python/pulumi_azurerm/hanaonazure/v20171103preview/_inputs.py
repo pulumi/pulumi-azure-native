@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,11 +19,11 @@ __all__ = [
 @pulumi.input_type
 class DiskArgs:
     def __init__(__self__, *,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Specifies the disk information fo the HANA instance
-        :param pulumi.Input[float] disk_size_gb: Specifies the size of an empty data disk in gigabytes.
+        :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param pulumi.Input[str] name: The disk name.
         """
         if disk_size_gb is not None:
@@ -33,14 +33,14 @@ class DiskArgs:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the size of an empty data disk in gigabytes.
         """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
-    def disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "disk_size_gb", value)
 
     @property
@@ -83,24 +83,24 @@ class IpAddressArgs:
 @pulumi.input_type
 class NetworkProfileArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input['IpAddressArgs']]]] = None):
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]] = None):
         """
         Specifies the network settings for the HANA instance disks.
-        :param pulumi.Input[List[pulumi.Input['IpAddressArgs']]] network_interfaces: Specifies the network interfaces for the HANA instance.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[List[pulumi.Input['IpAddressArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]]:
         """
         Specifies the network interfaces for the HANA instance.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[List[pulumi.Input['IpAddressArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
 
@@ -147,24 +147,24 @@ class OSProfileArgs:
 @pulumi.input_type
 class StorageProfileArgs:
     def __init__(__self__, *,
-                 os_disks: Optional[pulumi.Input[List[pulumi.Input['DiskArgs']]]] = None):
+                 os_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
         """
         Specifies the storage settings for the HANA instance disks.
-        :param pulumi.Input[List[pulumi.Input['DiskArgs']]] os_disks: Specifies information about the operating system disk used by the hana instance.
+        :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
         if os_disks is not None:
             pulumi.set(__self__, "os_disks", os_disks)
 
     @property
     @pulumi.getter(name="osDisks")
-    def os_disks(self) -> Optional[pulumi.Input[List[pulumi.Input['DiskArgs']]]]:
+    def os_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]:
         """
         Specifies information about the operating system disk used by the hana instance.
         """
         return pulumi.get(self, "os_disks")
 
     @os_disks.setter
-    def os_disks(self, value: Optional[pulumi.Input[List[pulumi.Input['DiskArgs']]]]):
+    def os_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]]):
         pulumi.set(self, "os_disks", value)
 
 

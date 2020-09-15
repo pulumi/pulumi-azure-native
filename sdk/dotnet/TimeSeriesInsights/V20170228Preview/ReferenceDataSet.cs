@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20170228Preview
         /// The list of key properties for the reference data set.
         /// </summary>
         [Output("keyProperties")]
-        public Output<ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponseResult>> KeyProperties { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse>> KeyProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

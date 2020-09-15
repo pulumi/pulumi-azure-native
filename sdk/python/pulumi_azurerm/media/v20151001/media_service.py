@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class MediaService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  media_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class MediaService(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
         :param pulumi.Input[str] media_service_name: Name of the Media Service.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to help categorize the resource in the Azure portal.
         """
         if __name__ is not None:
@@ -93,7 +93,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiEndpoints")
-    def api_endpoints(self) -> pulumi.Output[List['outputs.ApiEndpointResponse']]:
+    def api_endpoints(self) -> pulumi.Output[Sequence['outputs.ApiEndpointResponse']]:
         """
         Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         """
@@ -117,7 +117,7 @@ class MediaService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.StorageAccountResponse']]]:
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.StorageAccountResponse']]]:
         """
         The storage accounts for this resource.
         """

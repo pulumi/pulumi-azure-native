@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// A list of references to all availability sets in the proximity placement group.
         /// </summary>
         [Output("availabilitySets")]
-        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult>> AvailabilitySets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponse>> AvailabilitySets { get; private set; } = null!;
 
         /// <summary>
         /// Describes colocation status of the Proximity Placement Group.
         /// </summary>
         [Output("colocationStatus")]
-        public Output<Outputs.InstanceViewStatusResponseResult?> ColocationStatus { get; private set; } = null!;
+        public Output<Outputs.InstanceViewStatusResponse?> ColocationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// A list of references to all virtual machine scale sets in the proximity placement group.
         /// </summary>
         [Output("virtualMachineScaleSets")]
-        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult>> VirtualMachineScaleSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponse>> VirtualMachineScaleSets { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to all virtual machines in the proximity placement group.
         /// </summary>
         [Output("virtualMachines")]
-        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponseResult>> VirtualMachines { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceWithColocationStatusResponse>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

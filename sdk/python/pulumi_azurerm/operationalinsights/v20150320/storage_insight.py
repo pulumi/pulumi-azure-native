@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class StorageInsight(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountArgs']]] = None,
                  storage_insight_name: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -33,12 +33,12 @@ class StorageInsight(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read
         :param pulumi.Input[str] e_tag: The ETag of the storage insight.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
         :param pulumi.Input[pulumi.InputType['StorageAccountArgs']] storage_account: The storage account connection details
         :param pulumi.Input[str] storage_insight_name: Name of the storageInsightsConfigs resource
-        :param pulumi.Input[List[pulumi.Input[str]]] tables: The names of the Azure tables that the workspace should read
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: The names of the Azure tables that the workspace should read
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
         """
@@ -106,7 +106,7 @@ class StorageInsight(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> pulumi.Output[Optional[List[str]]]:
+    def containers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The names of the blob containers that the workspace should read
         """
@@ -146,7 +146,7 @@ class StorageInsight(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tables(self) -> pulumi.Output[Optional[List[str]]]:
+    def tables(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The names of the Azure tables that the workspace should read
         """

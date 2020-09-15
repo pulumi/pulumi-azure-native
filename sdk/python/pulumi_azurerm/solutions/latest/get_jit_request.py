@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -76,7 +76,7 @@ class GetJitRequestResult:
 
     @property
     @pulumi.getter(name="jitAuthorizationPolicies")
-    def jit_authorization_policies(self) -> List['outputs.JitAuthorizationPoliciesResponse']:
+    def jit_authorization_policies(self) -> Sequence['outputs.JitAuthorizationPoliciesResponse']:
         """
         The JIT authorization policies.
         """

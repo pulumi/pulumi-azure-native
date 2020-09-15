@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// Service SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ServiceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ServiceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

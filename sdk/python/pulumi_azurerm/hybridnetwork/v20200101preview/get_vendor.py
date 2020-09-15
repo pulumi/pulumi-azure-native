@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,7 +66,7 @@ class GetVendorResult:
 
     @property
     @pulumi.getter
-    def skus(self) -> List['outputs.SubResourceResponse']:
+    def skus(self) -> Sequence['outputs.SubResourceResponse']:
         """
         A list of ids of the vendor skus offered by the vendor.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,7 +30,7 @@ class ListStreamingLocatorPathsResult:
 
     @property
     @pulumi.getter(name="downloadPaths")
-    def download_paths(self) -> Optional[List[str]]:
+    def download_paths(self) -> Optional[Sequence[str]]:
         """
         Download Paths supported by current Streaming Locator
         """
@@ -38,7 +38,7 @@ class ListStreamingLocatorPathsResult:
 
     @property
     @pulumi.getter(name="streamingPaths")
-    def streaming_paths(self) -> Optional[List['outputs.StreamingPathResponseResult']]:
+    def streaming_paths(self) -> Optional[Sequence['outputs.StreamingPathResponseResult']]:
         """
         Streaming Paths supported by current Streaming Locator
         """

@@ -58,15 +58,15 @@ namespace Pulumi.AzureRM.Management.V20200301
         /// <summary>
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? Parameters;
         /// <summary>
         /// The metadata describing groups of policy definition references within the policy set definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyDefinitionGroupResponseResult> PolicyDefinitionGroups;
+        public readonly ImmutableArray<Outputs.PolicyDefinitionGroupResponse> PolicyDefinitionGroups;
         /// <summary>
         /// An array of policy definition references.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> PolicyDefinitions;
+        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> PolicyDefinitions;
         /// <summary>
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.Management.V20200301
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? parameters,
 
-            ImmutableArray<Outputs.PolicyDefinitionGroupResponseResult> policyDefinitionGroups,
+            ImmutableArray<Outputs.PolicyDefinitionGroupResponse> policyDefinitionGroups,
 
-            ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> policyDefinitions,
+            ImmutableArray<Outputs.PolicyDefinitionReferenceResponse> policyDefinitions,
 
             string? policyType,
 

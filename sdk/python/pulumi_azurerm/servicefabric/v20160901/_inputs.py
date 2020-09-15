@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -228,12 +228,12 @@ class ClientCertificateThumbprintArgs:
 @pulumi.input_type
 class ClusterHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_unhealthy_applications: Optional[pulumi.Input[float]] = None,
-                 max_percent_unhealthy_nodes: Optional[pulumi.Input[float]] = None):
+                 max_percent_unhealthy_applications: Optional[pulumi.Input[int]] = None,
+                 max_percent_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
         """
         Defines a health policy used to evaluate the health of the cluster or of a cluster node.
-        :param pulumi.Input[float] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
-        :param pulumi.Input[float] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
+        :param pulumi.Input[int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
+        :param pulumi.Input[int] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
         """
         if max_percent_unhealthy_applications is not None:
             pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
@@ -242,40 +242,40 @@ class ClusterHealthPolicyArgs:
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyApplications")
-    def max_percent_unhealthy_applications(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_unhealthy_applications(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. 
         """
         return pulumi.get(self, "max_percent_unhealthy_applications")
 
     @max_percent_unhealthy_applications.setter
-    def max_percent_unhealthy_applications(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_unhealthy_applications(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_applications", value)
 
     @property
     @pulumi.getter(name="maxPercentUnhealthyNodes")
-    def max_percent_unhealthy_nodes(self) -> Optional[pulumi.Input[float]]:
+    def max_percent_unhealthy_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. 
         """
         return pulumi.get(self, "max_percent_unhealthy_nodes")
 
     @max_percent_unhealthy_nodes.setter
-    def max_percent_unhealthy_nodes(self, value: Optional[pulumi.Input[float]]):
+    def max_percent_unhealthy_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_percent_unhealthy_nodes", value)
 
 
 @pulumi.input_type
 class ClusterUpgradeDeltaHealthPolicyArgs:
     def __init__(__self__, *,
-                 max_percent_delta_unhealthy_applications: pulumi.Input[float],
-                 max_percent_delta_unhealthy_nodes: pulumi.Input[float],
-                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[float]):
+                 max_percent_delta_unhealthy_applications: pulumi.Input[int],
+                 max_percent_delta_unhealthy_nodes: pulumi.Input[int],
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: pulumi.Input[int]):
         """
         Delta health policy for the cluster
-        :param pulumi.Input[float] max_percent_delta_unhealthy_applications: Additional unhealthy applications percentage
-        :param pulumi.Input[float] max_percent_delta_unhealthy_nodes: Additional unhealthy nodes percentage
-        :param pulumi.Input[float] max_percent_upgrade_domain_delta_unhealthy_nodes: Additional unhealthy nodes percentage per upgrade domain 
+        :param pulumi.Input[int] max_percent_delta_unhealthy_applications: Additional unhealthy applications percentage
+        :param pulumi.Input[int] max_percent_delta_unhealthy_nodes: Additional unhealthy nodes percentage
+        :param pulumi.Input[int] max_percent_upgrade_domain_delta_unhealthy_nodes: Additional unhealthy nodes percentage per upgrade domain 
         """
         pulumi.set(__self__, "max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
         pulumi.set(__self__, "max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
@@ -283,38 +283,38 @@ class ClusterUpgradeDeltaHealthPolicyArgs:
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
-    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[float]:
+    def max_percent_delta_unhealthy_applications(self) -> pulumi.Input[int]:
         """
         Additional unhealthy applications percentage
         """
         return pulumi.get(self, "max_percent_delta_unhealthy_applications")
 
     @max_percent_delta_unhealthy_applications.setter
-    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[float]):
+    def max_percent_delta_unhealthy_applications(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_delta_unhealthy_applications", value)
 
     @property
     @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
-    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[float]:
+    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
         """
         Additional unhealthy nodes percentage
         """
         return pulumi.get(self, "max_percent_delta_unhealthy_nodes")
 
     @max_percent_delta_unhealthy_nodes.setter
-    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[float]):
+    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_delta_unhealthy_nodes", value)
 
     @property
     @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[float]:
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
         """
         Additional unhealthy nodes percentage per upgrade domain 
         """
         return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
 
     @max_percent_upgrade_domain_delta_unhealthy_nodes.setter
-    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[float]):
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
 
 
@@ -565,68 +565,68 @@ class DiagnosticsStorageAccountConfigArgs:
 @pulumi.input_type
 class EndpointRangeDescriptionArgs:
     def __init__(__self__, *,
-                 end_port: pulumi.Input[float],
-                 start_port: pulumi.Input[float]):
+                 end_port: pulumi.Input[int],
+                 start_port: pulumi.Input[int]):
         """
         Port range details
-        :param pulumi.Input[float] end_port: End port of a range of ports
-        :param pulumi.Input[float] start_port: Starting port of a range of ports
+        :param pulumi.Input[int] end_port: End port of a range of ports
+        :param pulumi.Input[int] start_port: Starting port of a range of ports
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> pulumi.Input[float]:
+    def end_port(self) -> pulumi.Input[int]:
         """
         End port of a range of ports
         """
         return pulumi.get(self, "end_port")
 
     @end_port.setter
-    def end_port(self, value: pulumi.Input[float]):
+    def end_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "end_port", value)
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> pulumi.Input[float]:
+    def start_port(self) -> pulumi.Input[int]:
         """
         Starting port of a range of ports
         """
         return pulumi.get(self, "start_port")
 
     @start_port.setter
-    def start_port(self, value: pulumi.Input[float]):
+    def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
 
 @pulumi.input_type
 class NodeTypeDescriptionArgs:
     def __init__(__self__, *,
-                 client_connection_endpoint_port: pulumi.Input[float],
-                 http_gateway_endpoint_port: pulumi.Input[float],
+                 client_connection_endpoint_port: pulumi.Input[int],
+                 http_gateway_endpoint_port: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  name: pulumi.Input[str],
-                 vm_instance_count: pulumi.Input[float],
+                 vm_instance_count: pulumi.Input[int],
                  application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  durability_level: Optional[pulumi.Input[str]] = None,
                  ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 reverse_proxy_endpoint_port: Optional[pulumi.Input[float]] = None):
+                 reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
-        :param pulumi.Input[float] client_connection_endpoint_port: The TCP cluster management endpoint port
-        :param pulumi.Input[float] http_gateway_endpoint_port: The HTTP cluster management endpoint port
+        :param pulumi.Input[int] client_connection_endpoint_port: The TCP cluster management endpoint port
+        :param pulumi.Input[int] http_gateway_endpoint_port: The HTTP cluster management endpoint port
         :param pulumi.Input[bool] is_primary: Mark this as the primary node type
         :param pulumi.Input[str] name: Name of the node type
-        :param pulumi.Input[float] vm_instance_count: The number of node instances in the node type
+        :param pulumi.Input[int] vm_instance_count: The number of node instances in the node type
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: Ports used by applications
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
         :param pulumi.Input[str] durability_level: Node type durability Level
         :param pulumi.Input['EndpointRangeDescriptionArgs'] ephemeral_ports: System assigned application ports
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
-        :param pulumi.Input[float] reverse_proxy_endpoint_port: Endpoint used by reverse proxy
+        :param pulumi.Input[int] reverse_proxy_endpoint_port: Endpoint used by reverse proxy
         """
         pulumi.set(__self__, "client_connection_endpoint_port", client_connection_endpoint_port)
         pulumi.set(__self__, "http_gateway_endpoint_port", http_gateway_endpoint_port)
@@ -648,26 +648,26 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="clientConnectionEndpointPort")
-    def client_connection_endpoint_port(self) -> pulumi.Input[float]:
+    def client_connection_endpoint_port(self) -> pulumi.Input[int]:
         """
         The TCP cluster management endpoint port
         """
         return pulumi.get(self, "client_connection_endpoint_port")
 
     @client_connection_endpoint_port.setter
-    def client_connection_endpoint_port(self, value: pulumi.Input[float]):
+    def client_connection_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "client_connection_endpoint_port", value)
 
     @property
     @pulumi.getter(name="httpGatewayEndpointPort")
-    def http_gateway_endpoint_port(self) -> pulumi.Input[float]:
+    def http_gateway_endpoint_port(self) -> pulumi.Input[int]:
         """
         The HTTP cluster management endpoint port
         """
         return pulumi.get(self, "http_gateway_endpoint_port")
 
     @http_gateway_endpoint_port.setter
-    def http_gateway_endpoint_port(self, value: pulumi.Input[float]):
+    def http_gateway_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "http_gateway_endpoint_port", value)
 
     @property
@@ -696,14 +696,14 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> pulumi.Input[float]:
+    def vm_instance_count(self) -> pulumi.Input[int]:
         """
         The number of node instances in the node type
         """
         return pulumi.get(self, "vm_instance_count")
 
     @vm_instance_count.setter
-    def vm_instance_count(self, value: pulumi.Input[float]):
+    def vm_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "vm_instance_count", value)
 
     @property
@@ -768,14 +768,14 @@ class NodeTypeDescriptionArgs:
 
     @property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[float]]:
+    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[int]]:
         """
         Endpoint used by reverse proxy
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
     @reverse_proxy_endpoint_port.setter
-    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[float]]):
+    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
@@ -821,11 +821,11 @@ class SettingsParameterDescriptionArgs:
 class SettingsSectionDescriptionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 parameters: pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]):
+                 parameters: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         """
         ServiceFabric section settings
         :param pulumi.Input[str] name: The name of settings section
-        :param pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
+        :param pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]] parameters: Collection of settings in the section, each setting is a tuple consisting of setting name and value
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "parameters", parameters)
@@ -844,14 +844,14 @@ class SettingsSectionDescriptionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]:
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]:
         """
         Collection of settings in the section, each setting is a tuple consisting of setting name and value
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input[List[pulumi.Input['SettingsParameterDescriptionArgs']]]):
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['SettingsParameterDescriptionArgs']]]):
         pulumi.set(self, "parameters", value)
 
 

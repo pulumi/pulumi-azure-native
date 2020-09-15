@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The collection of groups and policies concerned with connectivity
         /// </summary>
-        public readonly Outputs.ConnectivityCollectionResponseResult Connectivity;
+        public readonly Outputs.ConnectivityCollectionResponse Connectivity;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
         /// <summary>
         /// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
         /// </summary>
-        public readonly Outputs.ScopeResponseResult? Scope;
+        public readonly Outputs.ScopeResponse? Scope;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 
         [OutputConstructor]
         private GetManagedNetworkResult(
-            Outputs.ConnectivityCollectionResponseResult connectivity,
+            Outputs.ConnectivityCollectionResponse connectivity,
 
             string etag,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.ManagedNetwork.V20190601Preview
 
             string provisioningState,
 
-            Outputs.ScopeResponseResult? scope,
+            Outputs.ScopeResponse? scope,
 
             ImmutableDictionary<string, string>? tags,
 

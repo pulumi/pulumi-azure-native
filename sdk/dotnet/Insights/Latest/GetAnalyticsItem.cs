@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Insights.Latest
         /// <summary>
         /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         /// </summary>
-        public readonly Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult Properties;
+        public readonly Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse Properties;
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Insights.Latest
 
             string? name,
 
-            Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult properties,
+            Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse properties,
 
             string? scope,
 

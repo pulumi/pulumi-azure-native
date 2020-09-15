@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// Optimized auto scale definition.
         /// </summary>
         [Output("optimizedAutoscale")]
-        public Output<Outputs.OptimizedAutoscaleResponseResult?> OptimizedAutoscale { get; private set; } = null!;
+        public Output<Outputs.OptimizedAutoscaleResponse?> OptimizedAutoscale { get; private set; } = null!;
 
         /// <summary>
         /// The provisioned state of the resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// The SKU of the cluster.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AzureSkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.AzureSkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The state of the resource.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// The cluster's external tenants.
         /// </summary>
         [Output("trustedExternalTenants")]
-        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponseResult>> TrustedExternalTenants { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TrustedExternalTenantResponse>> TrustedExternalTenants { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// Virtual network definition.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
-        public Output<Outputs.VirtualNetworkConfigurationResponseResult?> VirtualNetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkConfigurationResponse?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The availability zones of the cluster.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -127,8 +127,8 @@ class TokenCertificateArgs:
 class TokenCredentialsPropertiesArgs:
     def __init__(__self__, *,
                  active_directory_object: Optional[pulumi.Input['ActiveDirectoryObjectArgs']] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]] = None,
-                 passwords: Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]] = None):
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgs']]]] = None,
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]] = None):
         """
         The properties of the credentials that can be used for authenticating the token.
         :param pulumi.Input['ActiveDirectoryObjectArgs'] active_directory_object: The Active Directory Object that will be used for authenticating the token of a container registry.
@@ -154,20 +154,20 @@ class TokenCredentialsPropertiesArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgs']]]]:
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[List[pulumi.Input['TokenCertificateArgs']]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TokenCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]]:
+    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]]:
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input[List[pulumi.Input['TokenPasswordArgs']]]]):
+    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TokenPasswordArgs']]]]):
         pulumi.set(self, "passwords", value)
 
 

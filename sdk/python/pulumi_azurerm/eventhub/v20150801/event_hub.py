@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['EventHub']
@@ -17,10 +17,10 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 message_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 partition_count: Optional[pulumi.Input[float]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -34,10 +34,10 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[str] location: Location of the resource.
-        :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub.
+        :param pulumi.Input[int] message_retention_in_days: Number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Name of the Event Hub.
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub.
+        :param pulumi.Input[int] partition_count: Number of partitions created for the Event Hub.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] status: Enumerates the possible values for the status of the Event Hub.
         :param pulumi.Input[str] type: ARM type of the Namespace.
@@ -123,7 +123,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
-    def message_retention_in_days(self) -> pulumi.Output[Optional[float]]:
+    def message_retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Number of days to retain the events for this Event Hub.
         """
@@ -139,7 +139,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Output[Optional[float]]:
+    def partition_count(self) -> pulumi.Output[Optional[int]]:
         """
         Number of partitions created for the Event Hub.
         """
@@ -147,7 +147,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> pulumi.Output[List[str]]:
+    def partition_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         Current number of shards on the Event Hub.
         """

@@ -18,62 +18,6 @@ type ApiEndpointResponse struct {
 	MajorVersion *string `pulumi:"majorVersion"`
 }
 
-// ApiEndpointResponseInput is an input type that accepts ApiEndpointResponseArgs and ApiEndpointResponseOutput values.
-// You can construct a concrete instance of `ApiEndpointResponseInput` via:
-//
-//          ApiEndpointResponseArgs{...}
-type ApiEndpointResponseInput interface {
-	pulumi.Input
-
-	ToApiEndpointResponseOutput() ApiEndpointResponseOutput
-	ToApiEndpointResponseOutputWithContext(context.Context) ApiEndpointResponseOutput
-}
-
-// The properties for a Media Services REST API endpoint.
-type ApiEndpointResponseArgs struct {
-	// The Media Services REST endpoint.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The version of Media Services REST API.
-	MajorVersion pulumi.StringPtrInput `pulumi:"majorVersion"`
-}
-
-func (ApiEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiEndpointResponse)(nil)).Elem()
-}
-
-func (i ApiEndpointResponseArgs) ToApiEndpointResponseOutput() ApiEndpointResponseOutput {
-	return i.ToApiEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i ApiEndpointResponseArgs) ToApiEndpointResponseOutputWithContext(ctx context.Context) ApiEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointResponseOutput)
-}
-
-// ApiEndpointResponseArrayInput is an input type that accepts ApiEndpointResponseArray and ApiEndpointResponseArrayOutput values.
-// You can construct a concrete instance of `ApiEndpointResponseArrayInput` via:
-//
-//          ApiEndpointResponseArray{ ApiEndpointResponseArgs{...} }
-type ApiEndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToApiEndpointResponseArrayOutput() ApiEndpointResponseArrayOutput
-	ToApiEndpointResponseArrayOutputWithContext(context.Context) ApiEndpointResponseArrayOutput
-}
-
-type ApiEndpointResponseArray []ApiEndpointResponseInput
-
-func (ApiEndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiEndpointResponse)(nil)).Elem()
-}
-
-func (i ApiEndpointResponseArray) ToApiEndpointResponseArrayOutput() ApiEndpointResponseArrayOutput {
-	return i.ToApiEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApiEndpointResponseArray) ToApiEndpointResponseArrayOutputWithContext(ctx context.Context) ApiEndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointResponseArrayOutput)
-}
-
 // The properties for a Media Services REST API endpoint.
 type ApiEndpointResponseOutput struct{ *pulumi.OutputState }
 
@@ -184,112 +128,11 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 }
 
 // The properties of a storage account associated with this resource.
-type StorageAccountOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
-}
-
-func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {
-	return o
-}
-
-func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
-	return o
-}
-
-// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-func (o StorageAccountOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-func (o StorageAccountOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func(v StorageAccount) bool { return v.IsPrimary }).(pulumi.BoolOutput)
-}
-
-type StorageAccountArrayOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccount)(nil)).Elem()
-}
-
-func (o StorageAccountArrayOutput) ToStorageAccountArrayOutput() StorageAccountArrayOutput {
-	return o
-}
-
-func (o StorageAccountArrayOutput) ToStorageAccountArrayOutputWithContext(ctx context.Context) StorageAccountArrayOutput {
-	return o
-}
-
-func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccount {
-		return vs[0].([]StorageAccount)[vs[1].(int)]
-	}).(StorageAccountOutput)
-}
-
-// The properties of a storage account associated with this resource.
 type StorageAccountResponse struct {
 	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
 	Id string `pulumi:"id"`
 	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
 	IsPrimary bool `pulumi:"isPrimary"`
-}
-
-// StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
-// You can construct a concrete instance of `StorageAccountResponseInput` via:
-//
-//          StorageAccountResponseArgs{...}
-type StorageAccountResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponseOutput() StorageAccountResponseOutput
-	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
-}
-
-// The properties of a storage account associated with this resource.
-type StorageAccountResponseArgs struct {
-	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-	Id pulumi.StringInput `pulumi:"id"`
-	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
-}
-
-func (StorageAccountResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
-	return i.ToStorageAccountResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput)
-}
-
-// StorageAccountResponseArrayInput is an input type that accepts StorageAccountResponseArray and StorageAccountResponseArrayOutput values.
-// You can construct a concrete instance of `StorageAccountResponseArrayInput` via:
-//
-//          StorageAccountResponseArray{ StorageAccountResponseArgs{...} }
-type StorageAccountResponseArrayInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput
-	ToStorageAccountResponseArrayOutputWithContext(context.Context) StorageAccountResponseArrayOutput
-}
-
-type StorageAccountResponseArray []StorageAccountResponseInput
-
-func (StorageAccountResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountResponse)(nil)).Elem()
-}
-
-func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput {
-	return i.ToStorageAccountResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithContext(ctx context.Context) StorageAccountResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
 // The properties of a storage account associated with this resource.

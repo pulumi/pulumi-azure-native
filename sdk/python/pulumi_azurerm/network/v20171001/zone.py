@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Zone']
@@ -111,7 +111,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[float]:
+    def max_number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -127,7 +127,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -135,7 +135,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[float]:
+    def number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """

@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Databricks.Latest
         /// <summary>
         /// The workspace provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponseResult> Authorizations;
+        public readonly ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse> Authorizations;
         /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         /// </summary>
-        public readonly Outputs.CreatedByResponseResult? CreatedBy;
+        public readonly Outputs.CreatedByResponse? CreatedBy;
         /// <summary>
         /// Specifies the date and time when the workspace is created.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Databricks.Latest
         /// <summary>
         /// The workspace's custom parameters.
         /// </summary>
-        public readonly Outputs.WorkspaceCustomParametersResponseResult? Parameters;
+        public readonly Outputs.WorkspaceCustomParametersResponse? Parameters;
         /// <summary>
         /// The workspace provisioning state.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureRM.Databricks.Latest
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The details of Managed Identity of Storage Account
         /// </summary>
-        public readonly Outputs.ManagedIdentityConfigurationResponseResult? StorageAccountIdentity;
+        public readonly Outputs.ManagedIdentityConfigurationResponse? StorageAccountIdentity;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Databricks.Latest
         /// <summary>
         /// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
         /// </summary>
-        public readonly Outputs.CreatedByResponseResult? UpdatedBy;
+        public readonly Outputs.CreatedByResponse? UpdatedBy;
         /// <summary>
         /// The unique identifier of the databricks workspace in databricks control plane.
         /// </summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureRM.Databricks.Latest
 
         [OutputConstructor]
         private GetWorkspaceResult(
-            ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponseResult> authorizations,
+            ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponse> authorizations,
 
-            Outputs.CreatedByResponseResult? createdBy,
+            Outputs.CreatedByResponse? createdBy,
 
             string? createdDateTime,
 
@@ -118,13 +118,13 @@ namespace Pulumi.AzureRM.Databricks.Latest
 
             string name,
 
-            Outputs.WorkspaceCustomParametersResponseResult? parameters,
+            Outputs.WorkspaceCustomParametersResponse? parameters,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
-            Outputs.ManagedIdentityConfigurationResponseResult? storageAccountIdentity,
+            Outputs.ManagedIdentityConfigurationResponse? storageAccountIdentity,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Databricks.Latest
 
             string? uiDefinitionUri,
 
-            Outputs.CreatedByResponseResult? updatedBy,
+            Outputs.CreatedByResponse? updatedBy,
 
             string workspaceId,
 

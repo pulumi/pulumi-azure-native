@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Devices.V20200101
         /// properties of a certificate
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

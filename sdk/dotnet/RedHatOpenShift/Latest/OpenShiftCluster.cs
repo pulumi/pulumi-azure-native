@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
         /// The cluster API server profile.
         /// </summary>
         [Output("apiserverProfile")]
-        public Output<Outputs.APIServerProfileResponseResult?> ApiserverProfile { get; private set; } = null!;
+        public Output<Outputs.APIServerProfileResponse?> ApiserverProfile { get; private set; } = null!;
 
         /// <summary>
         /// The cluster profile.
         /// </summary>
         [Output("clusterProfile")]
-        public Output<Outputs.ClusterProfileResponseResult?> ClusterProfile { get; private set; } = null!;
+        public Output<Outputs.ClusterProfileResponse?> ClusterProfile { get; private set; } = null!;
 
         /// <summary>
         /// The console profile.
         /// </summary>
         [Output("consoleProfile")]
-        public Output<Outputs.ConsoleProfileResponseResult?> ConsoleProfile { get; private set; } = null!;
+        public Output<Outputs.ConsoleProfileResponse?> ConsoleProfile { get; private set; } = null!;
 
         /// <summary>
         /// The cluster ingress profiles.
         /// </summary>
         [Output("ingressProfiles")]
-        public Output<ImmutableArray<Outputs.IngressProfileResponseResult>> IngressProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IngressProfileResponse>> IngressProfiles { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
         /// The cluster master profile.
         /// </summary>
         [Output("masterProfile")]
-        public Output<Outputs.MasterProfileResponseResult?> MasterProfile { get; private set; } = null!;
+        public Output<Outputs.MasterProfileResponse?> MasterProfile { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
         /// The cluster network profile.
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// The cluster provisioning state (immutable).
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
         /// The cluster service principal profile.
         /// </summary>
         [Output("servicePrincipalProfile")]
-        public Output<Outputs.ServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
+        public Output<Outputs.ServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.RedHatOpenShift.Latest
         /// The cluster worker profiles.
         /// </summary>
         [Output("workerProfiles")]
-        public Output<ImmutableArray<Outputs.WorkerProfileResponseResult>> WorkerProfiles { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WorkerProfileResponse>> WorkerProfiles { get; private set; } = null!;
 
 
         /// <summary>

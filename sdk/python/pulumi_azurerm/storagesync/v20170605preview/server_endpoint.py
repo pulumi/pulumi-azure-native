@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['ServerEndpoint']
@@ -15,15 +15,15 @@ class ServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 byte_progress: Optional[pulumi.Input[float]] = None,
-                 byte_total: Optional[pulumi.Input[float]] = None,
+                 byte_progress: Optional[pulumi.Input[int]] = None,
+                 byte_total: Optional[pulumi.Input[int]] = None,
                  cloud_tiering: Optional[pulumi.Input[str]] = None,
                  current_progress_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 item_download_error_count: Optional[pulumi.Input[float]] = None,
-                 item_progress_count: Optional[pulumi.Input[float]] = None,
-                 item_total_count: Optional[pulumi.Input[float]] = None,
-                 item_upload_error_count: Optional[pulumi.Input[float]] = None,
+                 item_download_error_count: Optional[pulumi.Input[int]] = None,
+                 item_progress_count: Optional[pulumi.Input[int]] = None,
+                 item_total_count: Optional[pulumi.Input[int]] = None,
+                 item_upload_error_count: Optional[pulumi.Input[int]] = None,
                  last_sync_success: Optional[pulumi.Input[str]] = None,
                  last_workflow_id: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -37,8 +37,8 @@ class ServerEndpoint(pulumi.CustomResource):
                  sync_error_state: Optional[pulumi.Input[str]] = None,
                  sync_error_state_timestamp: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
-                 total_progress: Optional[pulumi.Input[float]] = None,
-                 volume_free_space_percent: Optional[pulumi.Input[float]] = None,
+                 total_progress: Optional[pulumi.Input[int]] = None,
+                 volume_free_space_percent: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -47,15 +47,15 @@ class ServerEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] byte_progress: Bytes in progress
-        :param pulumi.Input[float] byte_total: Bytes total
+        :param pulumi.Input[int] byte_progress: Bytes in progress
+        :param pulumi.Input[int] byte_total: Bytes total
         :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
         :param pulumi.Input[str] current_progress_type: current progress type.
         :param pulumi.Input[str] friendly_name: Friendly Name
-        :param pulumi.Input[float] item_download_error_count: Item download error count.
-        :param pulumi.Input[float] item_progress_count: Item Progress Count
-        :param pulumi.Input[float] item_total_count: Item Total Count
-        :param pulumi.Input[float] item_upload_error_count: Item Upload Error Count.
+        :param pulumi.Input[int] item_download_error_count: Item download error count.
+        :param pulumi.Input[int] item_progress_count: Item Progress Count
+        :param pulumi.Input[int] item_total_count: Item Total Count
+        :param pulumi.Input[int] item_upload_error_count: Item Upload Error Count.
         :param pulumi.Input[str] last_sync_success: Last Sync Success
         :param pulumi.Input[str] last_workflow_id: ServerEndpoint lastWorkflowId
         :param pulumi.Input[str] provisioning_state: ServerEndpoint Provisioning State
@@ -69,8 +69,8 @@ class ServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] sync_error_state: Sync Error State
         :param pulumi.Input[str] sync_error_state_timestamp: Sync Error State Timestamp
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
-        :param pulumi.Input[float] total_progress: Total progress
-        :param pulumi.Input[float] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
+        :param pulumi.Input[int] total_progress: Total progress
+        :param pulumi.Input[int] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -151,7 +151,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="byteProgress")
-    def byte_progress(self) -> pulumi.Output[Optional[float]]:
+    def byte_progress(self) -> pulumi.Output[Optional[int]]:
         """
         Bytes in progress
         """
@@ -159,7 +159,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="byteTotal")
-    def byte_total(self) -> pulumi.Output[Optional[float]]:
+    def byte_total(self) -> pulumi.Output[Optional[int]]:
         """
         Bytes total
         """
@@ -191,7 +191,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="itemDownloadErrorCount")
-    def item_download_error_count(self) -> pulumi.Output[Optional[float]]:
+    def item_download_error_count(self) -> pulumi.Output[Optional[int]]:
         """
         Item download error count.
         """
@@ -199,7 +199,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="itemProgressCount")
-    def item_progress_count(self) -> pulumi.Output[Optional[float]]:
+    def item_progress_count(self) -> pulumi.Output[Optional[int]]:
         """
         Item Progress Count
         """
@@ -207,7 +207,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="itemTotalCount")
-    def item_total_count(self) -> pulumi.Output[Optional[float]]:
+    def item_total_count(self) -> pulumi.Output[Optional[int]]:
         """
         Item Total Count
         """
@@ -215,7 +215,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="itemUploadErrorCount")
-    def item_upload_error_count(self) -> pulumi.Output[Optional[float]]:
+    def item_upload_error_count(self) -> pulumi.Output[Optional[int]]:
         """
         Item Upload Error Count.
         """
@@ -303,7 +303,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="totalProgress")
-    def total_progress(self) -> pulumi.Output[Optional[float]]:
+    def total_progress(self) -> pulumi.Output[Optional[int]]:
         """
         Total progress
         """
@@ -319,7 +319,7 @@ class ServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeFreeSpacePercent")
-    def volume_free_space_percent(self) -> pulumi.Output[Optional[float]]:
+    def volume_free_space_percent(self) -> pulumi.Output[Optional[int]]:
         """
         Level of free space to be maintained by Cloud Tiering if it is enabled.
         """

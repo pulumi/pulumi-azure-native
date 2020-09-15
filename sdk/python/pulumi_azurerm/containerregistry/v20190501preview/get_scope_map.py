@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -41,7 +41,7 @@ class GetScopeMapResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> List[str]:
+    def actions(self) -> Sequence[str]:
         """
         The list of scoped permissions for registry artifacts.
         E.g. repositories/repository-name/content/read,

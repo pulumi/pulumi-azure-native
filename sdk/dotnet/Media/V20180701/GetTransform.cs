@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TransformOutputResponseResult> Outputs;
+        public readonly ImmutableArray<Outputs.TransformOutputResponse> Outputs;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.Media.V20180701
 
             string name,
 
-            ImmutableArray<Outputs.TransformOutputResponseResult> outputs,
+            ImmutableArray<Outputs.TransformOutputResponse> outputs,
 
             string type)
         {

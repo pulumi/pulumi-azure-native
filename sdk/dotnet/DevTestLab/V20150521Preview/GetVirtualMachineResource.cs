@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
-        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponseResult? ArtifactDeploymentStatus;
+        public readonly Outputs.ArtifactDeploymentStatusPropertiesResponse? ArtifactDeploymentStatus;
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
         /// <summary>
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
-        public readonly Outputs.GalleryImageReferenceResponseResult? GalleryImageReference;
+        public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
         /// <summary>
         /// A value indicating whether this virtual machine uses an SSH key for authentication.
         /// </summary>
@@ -144,9 +144,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
 
         [OutputConstructor]
         private GetVirtualMachineResourceResult(
-            Outputs.ArtifactDeploymentStatusPropertiesResponseResult? artifactDeploymentStatus,
+            Outputs.ArtifactDeploymentStatusPropertiesResponse? artifactDeploymentStatus,
 
-            ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult> artifacts,
+            ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
 
             string? computeId,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20150521Preview
 
             string? fqdn,
 
-            Outputs.GalleryImageReferenceResponseResult? galleryImageReference,
+            Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
             bool? isAuthenticationWithSshKey,
 

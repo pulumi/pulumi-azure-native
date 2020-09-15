@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Logic.Latest
         /// The partner content.
         /// </summary>
         [Output("content")]
-        public Output<Outputs.PartnerContentResponseResult> Content { get; private set; } = null!;
+        public Output<Outputs.PartnerContentResponse> Content { get; private set; } = null!;
 
         /// <summary>
         /// The created time.

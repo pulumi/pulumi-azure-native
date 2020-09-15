@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetDatabaseResult:
     A database resource.
     """
     def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_replica_count=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
-        if auto_pause_delay and not isinstance(auto_pause_delay, float):
-            raise TypeError("Expected argument 'auto_pause_delay' to be a float")
+        if auto_pause_delay and not isinstance(auto_pause_delay, int):
+            raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
@@ -72,11 +72,11 @@ class GetDatabaseResult:
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
-        if max_log_size_bytes and not isinstance(max_log_size_bytes, float):
-            raise TypeError("Expected argument 'max_log_size_bytes' to be a float")
+        if max_log_size_bytes and not isinstance(max_log_size_bytes, int):
+            raise TypeError("Expected argument 'max_log_size_bytes' to be a int")
         pulumi.set(__self__, "max_log_size_bytes", max_log_size_bytes)
-        if max_size_bytes and not isinstance(max_size_bytes, float):
-            raise TypeError("Expected argument 'max_size_bytes' to be a float")
+        if max_size_bytes and not isinstance(max_size_bytes, int):
+            raise TypeError("Expected argument 'max_size_bytes' to be a int")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if min_capacity and not isinstance(min_capacity, float):
             raise TypeError("Expected argument 'min_capacity' to be a float")
@@ -87,8 +87,8 @@ class GetDatabaseResult:
         if paused_date and not isinstance(paused_date, str):
             raise TypeError("Expected argument 'paused_date' to be a str")
         pulumi.set(__self__, "paused_date", paused_date)
-        if read_replica_count and not isinstance(read_replica_count, float):
-            raise TypeError("Expected argument 'read_replica_count' to be a float")
+        if read_replica_count and not isinstance(read_replica_count, int):
+            raise TypeError("Expected argument 'read_replica_count' to be a int")
         pulumi.set(__self__, "read_replica_count", read_replica_count)
         if read_scale and not isinstance(read_scale, str):
             raise TypeError("Expected argument 'read_scale' to be a str")
@@ -141,7 +141,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="autoPauseDelay")
-    def auto_pause_delay(self) -> Optional[float]:
+    def auto_pause_delay(self) -> Optional[int]:
         """
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
@@ -293,7 +293,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxLogSizeBytes")
-    def max_log_size_bytes(self) -> float:
+    def max_log_size_bytes(self) -> int:
         """
         The max log size for this database.
         """
@@ -301,7 +301,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> Optional[float]:
+    def max_size_bytes(self) -> Optional[int]:
         """
         The max size of the database expressed in bytes.
         """
@@ -333,7 +333,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="readReplicaCount")
-    def read_replica_count(self) -> Optional[float]:
+    def read_replica_count(self) -> Optional[int]:
         """
         The number of readonly secondary replicas associated with the database.
         """

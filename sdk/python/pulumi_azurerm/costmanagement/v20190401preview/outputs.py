@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -154,20 +154,20 @@ class NotificationResponse(dict):
     The notification associated with a budget.
     """
     def __init__(__self__, *,
-                 contact_emails: List[str],
+                 contact_emails: Sequence[str],
                  enabled: bool,
                  operator: str,
                  threshold: float,
-                 contact_groups: Optional[List[str]] = None,
-                 contact_roles: Optional[List[str]] = None):
+                 contact_groups: Optional[Sequence[str]] = None,
+                 contact_roles: Optional[Sequence[str]] = None):
         """
         The notification associated with a budget.
-        :param List[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param bool enabled: The notification is enabled or not.
         :param str operator: The comparison operator.
         :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param List[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param List[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -180,7 +180,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> List[str]:
+    def contact_emails(self) -> Sequence[str]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
@@ -212,7 +212,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[List[str]]:
+    def contact_groups(self) -> Optional[Sequence[str]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded.
         """
@@ -220,7 +220,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[List[str]]:
+    def contact_roles(self) -> Optional[Sequence[str]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """
@@ -312,12 +312,12 @@ class ReportConfigComparisonExpressionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         The comparison expression to be used in the report.
         :param str name: The name of the column to use in comparison.
         :param str operator: The operator to use for comparison.
-        :param List[str] values: Array of values to use for comparison
+        :param Sequence[str] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -341,7 +341,7 @@ class ReportConfigComparisonExpressionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Array of values to use for comparison
         """
@@ -357,17 +357,17 @@ class ReportConfigDatasetConfigurationResponse(dict):
     The configuration of dataset in the report.
     """
     def __init__(__self__, *,
-                 columns: Optional[List[str]] = None):
+                 columns: Optional[Sequence[str]] = None):
         """
         The configuration of dataset in the report.
-        :param List[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List[str]]:
+    def columns(self) -> Optional[Sequence[str]]:
         """
         Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
@@ -387,16 +387,16 @@ class ReportConfigDatasetResponse(dict):
                  configuration: Optional['outputs.ReportConfigDatasetConfigurationResponse'] = None,
                  filter: Optional['outputs.ReportConfigFilterResponse'] = None,
                  granularity: Optional[str] = None,
-                 grouping: Optional[List['outputs.ReportConfigGroupingResponse']] = None,
-                 sorting: Optional[List['outputs.ReportConfigSortingResponse']] = None):
+                 grouping: Optional[Sequence['outputs.ReportConfigGroupingResponse']] = None,
+                 sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
         :param Mapping[str, 'ReportConfigAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param 'ReportConfigDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param 'ReportConfigFilterResponseArgs' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param List['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        :param List['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
+        :param Sequence['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -445,7 +445,7 @@ class ReportConfigDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional[List['outputs.ReportConfigGroupingResponse']]:
+    def grouping(self) -> Optional[Sequence['outputs.ReportConfigGroupingResponse']]:
         """
         Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
@@ -453,7 +453,7 @@ class ReportConfigDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def sorting(self) -> Optional[List['outputs.ReportConfigSortingResponse']]:
+    def sorting(self) -> Optional[Sequence['outputs.ReportConfigSortingResponse']]:
         """
         Array of order by expression to use in the report.
         """
@@ -469,17 +469,17 @@ class ReportConfigFilterResponse(dict):
     The filter expression to be used in the report.
     """
     def __init__(__self__, *,
-                 and_: Optional[List['outputs.ReportConfigFilterResponse']] = None,
+                 and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimension: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  not_: Optional['outputs.ReportConfigFilterResponse'] = None,
-                 or_: Optional[List['outputs.ReportConfigFilterResponse']] = None,
+                 or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  tag: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param List['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
         :param 'ReportConfigFilterResponseArgs' not_: The logical "NOT" expression.
-        :param List['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -495,7 +495,7 @@ class ReportConfigFilterResponse(dict):
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[List['outputs.ReportConfigFilterResponse']]:
+    def and_(self) -> Optional[Sequence['outputs.ReportConfigFilterResponse']]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
@@ -519,7 +519,7 @@ class ReportConfigFilterResponse(dict):
 
     @property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[List['outputs.ReportConfigFilterResponse']]:
+    def or_(self) -> Optional[Sequence['outputs.ReportConfigFilterResponse']]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """

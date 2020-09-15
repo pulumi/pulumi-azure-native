@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Sql.V20150501Preview
         /// The Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Kind of sql server. This is metadata used for the Azure portal experience.

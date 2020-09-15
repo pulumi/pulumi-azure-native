@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Automation.Latest
         /// Gets or sets the runbook the webhook is associated with.
         /// </summary>
         [Output("runbook")]
-        public Output<Outputs.RunbookAssociationPropertyResponseResult?> Runbook { get; private set; } = null!;
+        public Output<Outputs.RunbookAssociationPropertyResponse?> Runbook { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

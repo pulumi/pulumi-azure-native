@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,8 +19,8 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 registration_virtual_networks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
-                 resolution_virtual_networks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 registration_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 resolution_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
@@ -35,8 +35,8 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The etag of the zone.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
@@ -122,7 +122,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[float]:
+    def max_number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -138,7 +138,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -146,7 +146,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[float]:
+    def number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         """
@@ -154,7 +154,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationVirtualNetworks")
-    def registration_virtual_networks(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def registration_virtual_networks(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         """
@@ -162,7 +162,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolutionVirtualNetworks")
-    def resolution_virtual_networks(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def resolution_virtual_networks(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """

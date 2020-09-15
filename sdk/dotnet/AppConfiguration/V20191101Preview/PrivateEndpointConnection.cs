@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191101Preview
         /// The resource of private endpoint.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning status of the private endpoint connection.

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Managed identity for this blueprint assignment.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of this blueprint assignment.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Defines how resources deployed by a blueprint assignment are locked.
         /// </summary>
         [Output("locks")]
-        public Output<Outputs.AssignmentLockSettingsResponseResult?> Locks { get; private set; } = null!;
+        public Output<Outputs.AssignmentLockSettingsResponse?> Locks { get; private set; } = null!;
 
         /// <summary>
         /// Name of this resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Blueprint assignment parameter values.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterValueResponseResult>> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterValueResponse>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// State of the blueprint assignment.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Names and locations of resource group placeholders.
         /// </summary>
         [Output("resourceGroups")]
-        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponseResult>> ResourceGroups { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ResourceGroupValueResponse>> ResourceGroups { get; private set; } = null!;
 
         /// <summary>
         /// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// Status of blueprint assignment. This field is readonly.
         /// </summary>
         [Output("status")]
-        public Output<Outputs.AssignmentStatusResponseResult> Status { get; private set; } = null!;
+        public Output<Outputs.AssignmentStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// Type of this resource.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets list of authorizations
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets CircuitProvisioningState state of the resource 
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets list of peerings
         /// </summary>
         [Output("peerings")]
-        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse>> Peerings { get; private set; } = null!;
 
         /// <summary>
         /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets ServiceProviderProperties
         /// </summary>
         [Output("serviceProviderProperties")]
-        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult?> ServiceProviderProperties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse?> ServiceProviderProperties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets ServiceProviderProvisioningState state of the resource 
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Gets or sets sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ExpressRouteCircuitSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

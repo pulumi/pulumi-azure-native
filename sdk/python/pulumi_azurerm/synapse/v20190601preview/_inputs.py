@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -40,11 +40,11 @@ __all__ = [
 @pulumi.input_type
 class AutoPausePropertiesArgs:
     def __init__(__self__, *,
-                 delay_in_minutes: Optional[pulumi.Input[float]] = None,
+                 delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Auto-pausing properties of a Big Data pool powered by Apache Spark
-        :param pulumi.Input[float] delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
+        :param pulumi.Input[int] delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
         :param pulumi.Input[bool] enabled: Whether auto-pausing is enabled for the Big Data pool.
         """
         if delay_in_minutes is not None:
@@ -54,14 +54,14 @@ class AutoPausePropertiesArgs:
 
     @property
     @pulumi.getter(name="delayInMinutes")
-    def delay_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Number of minutes of idle time before the Big Data pool is automatically paused.
         """
         return pulumi.get(self, "delay_in_minutes")
 
     @delay_in_minutes.setter
-    def delay_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def delay_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "delay_in_minutes", value)
 
     @property
@@ -81,13 +81,13 @@ class AutoPausePropertiesArgs:
 class AutoScalePropertiesArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 max_node_count: Optional[pulumi.Input[float]] = None,
-                 min_node_count: Optional[pulumi.Input[float]] = None):
+                 max_node_count: Optional[pulumi.Input[int]] = None,
+                 min_node_count: Optional[pulumi.Input[int]] = None):
         """
         Auto-scaling properties of a Big Data pool powered by Apache Spark
         :param pulumi.Input[bool] enabled: Whether automatic scaling is enabled for the Big Data pool.
-        :param pulumi.Input[float] max_node_count: The maximum number of nodes the Big Data pool can support.
-        :param pulumi.Input[float] min_node_count: The minimum number of nodes the Big Data pool can support.
+        :param pulumi.Input[int] max_node_count: The maximum number of nodes the Big Data pool can support.
+        :param pulumi.Input[int] min_node_count: The minimum number of nodes the Big Data pool can support.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -110,26 +110,26 @@ class AutoScalePropertiesArgs:
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> Optional[pulumi.Input[float]]:
+    def max_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "max_node_count")
 
     @max_node_count.setter
-    def max_node_count(self, value: Optional[pulumi.Input[float]]):
+    def max_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_node_count", value)
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[pulumi.Input[float]]:
+    def min_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of nodes the Big Data pool can support.
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: Optional[pulumi.Input[float]]):
+    def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
 
 
@@ -393,17 +393,17 @@ class IntegrationRuntimeComputePropertiesArgs:
     def __init__(__self__, *,
                  data_flow_properties: Optional[pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_parallel_executions_per_node: Optional[pulumi.Input[float]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
-                 number_of_nodes: Optional[pulumi.Input[float]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
                  v_net_properties: Optional[pulumi.Input['IntegrationRuntimeVNetPropertiesArgs']] = None):
         """
         The compute resource properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataFlowPropertiesArgs'] data_flow_properties: Data flow properties for managed integration runtime.
         :param pulumi.Input[str] location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
-        :param pulumi.Input[float] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param pulumi.Input[str] node_size: The node size requirement to managed integration runtime.
-        :param pulumi.Input[float] number_of_nodes: The required number of nodes for managed integration runtime.
+        :param pulumi.Input[int] number_of_nodes: The required number of nodes for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeVNetPropertiesArgs'] v_net_properties: VNet properties for managed integration runtime.
         """
         if data_flow_properties is not None:
@@ -445,14 +445,14 @@ class IntegrationRuntimeComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="maxParallelExecutionsPerNode")
-    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[float]]:
+    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum parallel executions count per node for managed integration runtime.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
     @max_parallel_executions_per_node.setter
-    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[float]]):
+    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_parallel_executions_per_node", value)
 
     @property
@@ -469,14 +469,14 @@ class IntegrationRuntimeComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="numberOfNodes")
-    def number_of_nodes(self) -> Optional[pulumi.Input[float]]:
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
         The required number of nodes for managed integration runtime.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @number_of_nodes.setter
-    def number_of_nodes(self, value: Optional[pulumi.Input[float]]):
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_nodes", value)
 
     @property
@@ -536,13 +536,13 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
                  compute_type: Optional[pulumi.Input[str]] = None,
-                 core_count: Optional[pulumi.Input[float]] = None,
-                 time_to_live: Optional[pulumi.Input[float]] = None):
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
         :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job.
-        :param pulumi.Input[float] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
-        :param pulumi.Input[float] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
+        :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
+        :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
@@ -565,26 +565,26 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
 
     @property
     @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[pulumi.Input[float]]:
+    def core_count(self) -> Optional[pulumi.Input[int]]:
         """
         Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         """
         return pulumi.get(self, "core_count")
 
     @core_count.setter
-    def core_count(self, value: Optional[pulumi.Input[float]]):
+    def core_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "core_count", value)
 
     @property
     @pulumi.getter(name="timeToLive")
-    def time_to_live(self) -> Optional[pulumi.Input[float]]:
+    def time_to_live(self) -> Optional[pulumi.Input[int]]:
         """
         Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "time_to_live")
 
     @time_to_live.setter
-    def time_to_live(self, value: Optional[pulumi.Input[float]]):
+    def time_to_live(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_to_live", value)
 
 
@@ -723,7 +723,7 @@ class IntegrationRuntimeSsisPropertiesArgs:
                  custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
                  data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
                  edition: Optional[pulumi.Input[str]] = None,
-                 express_custom_setup_properties: Optional[pulumi.Input[List[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
+                 express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
                  license_type: Optional[pulumi.Input[str]] = None):
         """
         SSIS properties for managed integration runtime.
@@ -731,7 +731,7 @@ class IntegrationRuntimeSsisPropertiesArgs:
         :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param pulumi.Input[str] edition: The edition for the SSIS Integration Runtime
-        :param pulumi.Input[List[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param pulumi.Input[str] license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
@@ -797,14 +797,14 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter(name="expressCustomSetupProperties")
-    def express_custom_setup_properties(self) -> Optional[pulumi.Input[List[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
+    def express_custom_setup_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]:
         """
         Custom setup without script properties for a SSIS integration runtime.
         """
         return pulumi.get(self, "express_custom_setup_properties")
 
     @express_custom_setup_properties.setter
-    def express_custom_setup_properties(self, value: Optional[pulumi.Input[List[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
+    def express_custom_setup_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]]):
         pulumi.set(self, "express_custom_setup_properties", value)
 
     @property
@@ -823,12 +823,12 @@ class IntegrationRuntimeSsisPropertiesArgs:
 @pulumi.input_type
 class IntegrationRuntimeVNetPropertiesArgs:
     def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
                  v_net_id: Optional[pulumi.Input[str]] = None):
         """
         VNet properties for managed integration runtime.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param pulumi.Input[str] subnet: The name of the subnet this integration runtime will join.
         :param pulumi.Input[str] v_net_id: The ID of the VNet that this integration runtime will join.
         """
@@ -841,14 +841,14 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
     @property
     @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Resource IDs of the public IP addresses that this integration runtime will use.
         """
         return pulumi.get(self, "public_ips")
 
     @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ips", value)
 
     @property
@@ -1247,12 +1247,12 @@ class SelfHostedIntegrationRuntimeArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         SQL pool SKU
-        :param pulumi.Input[float] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[str] name: The SKU name
         :param pulumi.Input[str] tier: The service tier
         """
@@ -1265,14 +1265,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -1328,12 +1328,12 @@ class VirtualNetworkProfileArgs:
 class VulnerabilityAssessmentRecurringScansPropertiesArgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param pulumi.Input[bool] email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -1357,14 +1357,14 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property

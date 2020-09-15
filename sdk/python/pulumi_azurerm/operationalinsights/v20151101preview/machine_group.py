@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,13 +17,13 @@ class MachineGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  group_type: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]]] = None,
+                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,13 +34,13 @@ class MachineGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+        :param pulumi.Input[int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         :param pulumi.Input[str] display_name: User defined name for the group
         :param pulumi.Input[str] etag: Resource ETAG.
         :param pulumi.Input[str] group_type: Type of the machine group
         :param pulumi.Input[str] kind: Additional resource type qualifier.
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         :param pulumi.Input[str] resource_group_name: Resource group name within the specified subscriptionId.
         :param pulumi.Input[str] workspace_name: OMS workspace containing the resources of interest.
         """
@@ -108,7 +108,7 @@ class MachineGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Output[Optional[float]]:
+    def count(self) -> pulumi.Output[Optional[int]]:
         """
         Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         """
@@ -148,7 +148,7 @@ class MachineGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def machines(self) -> pulumi.Output[Optional[List['outputs.MachineReferenceWithHintsResponse']]]:
+    def machines(self) -> pulumi.Output[Optional[Sequence['outputs.MachineReferenceWithHintsResponse']]]:
         """
         References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         """

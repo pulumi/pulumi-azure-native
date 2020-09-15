@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20161201
         /// Gets an array of references to the network interface IP configurations using subnet.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.IPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20161201
         /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
         [Output("networkSecurityGroup")]
-        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+        public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Network.V20161201
         /// Gets an array of references to the external resources using subnet.
         /// </summary>
         [Output("resourceNavigationLinks")]
-        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponseResult>> ResourceNavigationLinks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponse>> ResourceNavigationLinks { get; private set; } = null!;
 
         /// <summary>
         /// The reference of the RouteTable resource.
         /// </summary>
         [Output("routeTable")]
-        public Output<Outputs.RouteTableResponseResult?> RouteTable { get; private set; } = null!;
+        public Output<Outputs.RouteTableResponse?> RouteTable { get; private set; } = null!;
 
 
         /// <summary>

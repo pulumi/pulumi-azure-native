@@ -79,56 +79,6 @@ func (i DashboardLensMap) ToDashboardLensMapOutputWithContext(ctx context.Contex
 }
 
 // A dashboard lens.
-type DashboardLensOutput struct{ *pulumi.OutputState }
-
-func (DashboardLensOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardLens)(nil)).Elem()
-}
-
-func (o DashboardLensOutput) ToDashboardLensOutput() DashboardLensOutput {
-	return o
-}
-
-func (o DashboardLensOutput) ToDashboardLensOutputWithContext(ctx context.Context) DashboardLensOutput {
-	return o
-}
-
-// The dashboard len's metadata.
-func (o DashboardLensOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardLens) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
-}
-
-// The lens order.
-func (o DashboardLensOutput) Order() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardLens) int { return v.Order }).(pulumi.IntOutput)
-}
-
-// The dashboard parts.
-func (o DashboardLensOutput) Parts() DashboardPartsMapOutput {
-	return o.ApplyT(func(v DashboardLens) map[string]DashboardParts { return v.Parts }).(DashboardPartsMapOutput)
-}
-
-type DashboardLensMapOutput struct{ *pulumi.OutputState }
-
-func (DashboardLensMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardLens)(nil)).Elem()
-}
-
-func (o DashboardLensMapOutput) ToDashboardLensMapOutput() DashboardLensMapOutput {
-	return o
-}
-
-func (o DashboardLensMapOutput) ToDashboardLensMapOutputWithContext(ctx context.Context) DashboardLensMapOutput {
-	return o
-}
-
-func (o DashboardLensMapOutput) MapIndex(k pulumi.StringInput) DashboardLensOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DashboardLens {
-		return vs[0].(map[string]DashboardLens)[vs[1].(string)]
-	}).(DashboardLensOutput)
-}
-
-// A dashboard lens.
 type DashboardLensResponse struct {
 	// The dashboard len's metadata.
 	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
@@ -136,64 +86,6 @@ type DashboardLensResponse struct {
 	Order int `pulumi:"order"`
 	// The dashboard parts.
 	Parts map[string]DashboardPartsResponse `pulumi:"parts"`
-}
-
-// DashboardLensResponseInput is an input type that accepts DashboardLensResponseArgs and DashboardLensResponseOutput values.
-// You can construct a concrete instance of `DashboardLensResponseInput` via:
-//
-//          DashboardLensResponseArgs{...}
-type DashboardLensResponseInput interface {
-	pulumi.Input
-
-	ToDashboardLensResponseOutput() DashboardLensResponseOutput
-	ToDashboardLensResponseOutputWithContext(context.Context) DashboardLensResponseOutput
-}
-
-// A dashboard lens.
-type DashboardLensResponseArgs struct {
-	// The dashboard len's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
-	// The lens order.
-	Order pulumi.IntInput `pulumi:"order"`
-	// The dashboard parts.
-	Parts DashboardPartsResponseMapInput `pulumi:"parts"`
-}
-
-func (DashboardLensResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardLensResponse)(nil)).Elem()
-}
-
-func (i DashboardLensResponseArgs) ToDashboardLensResponseOutput() DashboardLensResponseOutput {
-	return i.ToDashboardLensResponseOutputWithContext(context.Background())
-}
-
-func (i DashboardLensResponseArgs) ToDashboardLensResponseOutputWithContext(ctx context.Context) DashboardLensResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseOutput)
-}
-
-// DashboardLensResponseMapInput is an input type that accepts DashboardLensResponseMap and DashboardLensResponseMapOutput values.
-// You can construct a concrete instance of `DashboardLensResponseMapInput` via:
-//
-//          DashboardLensResponseMap{ "key": DashboardLensResponseArgs{...} }
-type DashboardLensResponseMapInput interface {
-	pulumi.Input
-
-	ToDashboardLensResponseMapOutput() DashboardLensResponseMapOutput
-	ToDashboardLensResponseMapOutputWithContext(context.Context) DashboardLensResponseMapOutput
-}
-
-type DashboardLensResponseMap map[string]DashboardLensResponseInput
-
-func (DashboardLensResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardLensResponse)(nil)).Elem()
-}
-
-func (i DashboardLensResponseMap) ToDashboardLensResponseMapOutput() DashboardLensResponseMapOutput {
-	return i.ToDashboardLensResponseMapOutputWithContext(context.Background())
-}
-
-func (i DashboardLensResponseMap) ToDashboardLensResponseMapOutputWithContext(ctx context.Context) DashboardLensResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseMapOutput)
 }
 
 // A dashboard lens.
@@ -310,51 +202,6 @@ func (i DashboardPartsMap) ToDashboardPartsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsMapOutput)
 }
 
-// A dashboard part.
-type DashboardPartsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPartsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardParts)(nil)).Elem()
-}
-
-func (o DashboardPartsOutput) ToDashboardPartsOutput() DashboardPartsOutput {
-	return o
-}
-
-func (o DashboardPartsOutput) ToDashboardPartsOutputWithContext(ctx context.Context) DashboardPartsOutput {
-	return o
-}
-
-// The dashboard part's metadata.
-func (o DashboardPartsOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardParts) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
-}
-
-// The dashboard's part position.
-func (o DashboardPartsOutput) Position() DashboardPartsPositionOutput {
-	return o.ApplyT(func(v DashboardParts) DashboardPartsPosition { return v.Position }).(DashboardPartsPositionOutput)
-}
-
-type DashboardPartsMapOutput struct{ *pulumi.OutputState }
-
-func (DashboardPartsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardParts)(nil)).Elem()
-}
-
-func (o DashboardPartsMapOutput) ToDashboardPartsMapOutput() DashboardPartsMapOutput {
-	return o
-}
-
-func (o DashboardPartsMapOutput) ToDashboardPartsMapOutputWithContext(ctx context.Context) DashboardPartsMapOutput {
-	return o
-}
-
-func (o DashboardPartsMapOutput) MapIndex(k pulumi.StringInput) DashboardPartsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DashboardParts {
-		return vs[0].(map[string]DashboardParts)[vs[1].(string)]
-	}).(DashboardPartsOutput)
-}
-
 // The dashboard's part position.
 type DashboardPartsPosition struct {
 	// The dashboard's part column span.
@@ -406,108 +253,12 @@ func (i DashboardPartsPositionArgs) ToDashboardPartsPositionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsPositionOutput)
 }
 
-// The dashboard's part position.
-type DashboardPartsPositionOutput struct{ *pulumi.OutputState }
-
-func (DashboardPartsPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPartsPosition)(nil)).Elem()
-}
-
-func (o DashboardPartsPositionOutput) ToDashboardPartsPositionOutput() DashboardPartsPositionOutput {
-	return o
-}
-
-func (o DashboardPartsPositionOutput) ToDashboardPartsPositionOutputWithContext(ctx context.Context) DashboardPartsPositionOutput {
-	return o
-}
-
-// The dashboard's part column span.
-func (o DashboardPartsPositionOutput) ColSpan() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) int { return v.ColSpan }).(pulumi.IntOutput)
-}
-
-// The dashboard part's metadata.
-func (o DashboardPartsPositionOutput) Metadata() pulumi.MapMapOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) map[string]map[string]interface{} { return v.Metadata }).(pulumi.MapMapOutput)
-}
-
-// The dashboard's part row span.
-func (o DashboardPartsPositionOutput) RowSpan() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) int { return v.RowSpan }).(pulumi.IntOutput)
-}
-
-// The dashboard's part x coordinate.
-func (o DashboardPartsPositionOutput) X() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) int { return v.X }).(pulumi.IntOutput)
-}
-
-// The dashboard's part y coordinate.
-func (o DashboardPartsPositionOutput) Y() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardPartsPosition) int { return v.Y }).(pulumi.IntOutput)
-}
-
 // A dashboard part.
 type DashboardPartsResponse struct {
 	// The dashboard part's metadata.
 	Metadata map[string]map[string]interface{} `pulumi:"metadata"`
 	// The dashboard's part position.
 	Position DashboardPartsResponsePosition `pulumi:"position"`
-}
-
-// DashboardPartsResponseInput is an input type that accepts DashboardPartsResponseArgs and DashboardPartsResponseOutput values.
-// You can construct a concrete instance of `DashboardPartsResponseInput` via:
-//
-//          DashboardPartsResponseArgs{...}
-type DashboardPartsResponseInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponseOutput() DashboardPartsResponseOutput
-	ToDashboardPartsResponseOutputWithContext(context.Context) DashboardPartsResponseOutput
-}
-
-// A dashboard part.
-type DashboardPartsResponseArgs struct {
-	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
-	// The dashboard's part position.
-	Position DashboardPartsResponsePositionInput `pulumi:"position"`
-}
-
-func (DashboardPartsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPartsResponse)(nil)).Elem()
-}
-
-func (i DashboardPartsResponseArgs) ToDashboardPartsResponseOutput() DashboardPartsResponseOutput {
-	return i.ToDashboardPartsResponseOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponseArgs) ToDashboardPartsResponseOutputWithContext(ctx context.Context) DashboardPartsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseOutput)
-}
-
-// DashboardPartsResponseMapInput is an input type that accepts DashboardPartsResponseMap and DashboardPartsResponseMapOutput values.
-// You can construct a concrete instance of `DashboardPartsResponseMapInput` via:
-//
-//          DashboardPartsResponseMap{ "key": DashboardPartsResponseArgs{...} }
-type DashboardPartsResponseMapInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponseMapOutput() DashboardPartsResponseMapOutput
-	ToDashboardPartsResponseMapOutputWithContext(context.Context) DashboardPartsResponseMapOutput
-}
-
-type DashboardPartsResponseMap map[string]DashboardPartsResponseInput
-
-func (DashboardPartsResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardPartsResponse)(nil)).Elem()
-}
-
-func (i DashboardPartsResponseMap) ToDashboardPartsResponseMapOutput() DashboardPartsResponseMapOutput {
-	return i.ToDashboardPartsResponseMapOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponseMap) ToDashboardPartsResponseMapOutputWithContext(ctx context.Context) DashboardPartsResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseMapOutput)
 }
 
 // A dashboard part.
@@ -567,43 +318,6 @@ type DashboardPartsResponsePosition struct {
 	X int `pulumi:"x"`
 	// The dashboard's part y coordinate.
 	Y int `pulumi:"y"`
-}
-
-// DashboardPartsResponsePositionInput is an input type that accepts DashboardPartsResponsePositionArgs and DashboardPartsResponsePositionOutput values.
-// You can construct a concrete instance of `DashboardPartsResponsePositionInput` via:
-//
-//          DashboardPartsResponsePositionArgs{...}
-type DashboardPartsResponsePositionInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponsePositionOutput() DashboardPartsResponsePositionOutput
-	ToDashboardPartsResponsePositionOutputWithContext(context.Context) DashboardPartsResponsePositionOutput
-}
-
-// The dashboard's part position.
-type DashboardPartsResponsePositionArgs struct {
-	// The dashboard's part column span.
-	ColSpan pulumi.IntInput `pulumi:"colSpan"`
-	// The dashboard part's metadata.
-	Metadata pulumi.MapMapInput `pulumi:"metadata"`
-	// The dashboard's part row span.
-	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
-	// The dashboard's part x coordinate.
-	X pulumi.IntInput `pulumi:"x"`
-	// The dashboard's part y coordinate.
-	Y pulumi.IntInput `pulumi:"y"`
-}
-
-func (DashboardPartsResponsePositionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPartsResponsePosition)(nil)).Elem()
-}
-
-func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutput() DashboardPartsResponsePositionOutput {
-	return i.ToDashboardPartsResponsePositionOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutputWithContext(ctx context.Context) DashboardPartsResponsePositionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponsePositionOutput)
 }
 
 // The dashboard's part position.

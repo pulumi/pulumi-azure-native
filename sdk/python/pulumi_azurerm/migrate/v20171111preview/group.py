@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['Group']
@@ -17,7 +17,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 machines: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +30,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
-        :param pulumi.Input[List[pulumi.Input[str]]] machines: List of machine names that are part of this group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] machines: List of machine names that are part of this group.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         """
@@ -97,7 +97,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def assessments(self) -> pulumi.Output[List[str]]:
+    def assessments(self) -> pulumi.Output[Sequence[str]]:
         """
         List of References to Assessments created on this group.
         """
@@ -121,7 +121,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def machines(self) -> pulumi.Output[List[str]]:
+    def machines(self) -> pulumi.Output[Sequence[str]]:
         """
         List of machine names that are part of this group.
         """

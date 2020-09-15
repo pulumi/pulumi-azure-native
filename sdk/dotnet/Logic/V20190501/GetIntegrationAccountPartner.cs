@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// <summary>
         /// The partner content.
         /// </summary>
-        public readonly Outputs.PartnerContentResponseResult Content;
+        public readonly Outputs.PartnerContentResponse Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         private GetIntegrationAccountPartnerResult(
             string changedTime,
 
-            Outputs.PartnerContentResponseResult content,
+            Outputs.PartnerContentResponse content,
 
             string createdTime,
 

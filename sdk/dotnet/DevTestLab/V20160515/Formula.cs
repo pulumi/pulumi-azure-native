@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The content of the formula.
         /// </summary>
         [Output("formulaContent")]
-        public Output<Outputs.LabVirtualMachineCreationParameterResponseResult?> FormulaContent { get; private set; } = null!;
+        public Output<Outputs.LabVirtualMachineCreationParameterResponse?> FormulaContent { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// Information about a VM from which a formula is to be created.
         /// </summary>
         [Output("vm")]
-        public Output<Outputs.FormulaPropertiesFromVmResponseResult?> Vm { get; private set; } = null!;
+        public Output<Outputs.FormulaPropertiesFromVmResponse?> Vm { get; private set; } = null!;
 
 
         /// <summary>

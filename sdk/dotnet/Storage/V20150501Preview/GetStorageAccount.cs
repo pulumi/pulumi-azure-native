@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// <summary>
         /// Gets the user assigned custom domain assigned to this storage account.
         /// </summary>
-        public readonly Outputs.CustomDomainResponseResult? CustomDomain;
+        public readonly Outputs.CustomDomainResponse? CustomDomain;
         /// <summary>
         /// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
         /// </summary>
-        public readonly Outputs.EndpointsResponseResult? PrimaryEndpoints;
+        public readonly Outputs.EndpointsResponse? PrimaryEndpoints;
         /// <summary>
         /// Gets the location of the primary for the storage account.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
         /// <summary>
         /// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
         /// </summary>
-        public readonly Outputs.EndpointsResponseResult? SecondaryEndpoints;
+        public readonly Outputs.EndpointsResponse? SecondaryEndpoints;
         /// <summary>
         /// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
 
             string? creationTime,
 
-            Outputs.CustomDomainResponseResult? customDomain,
+            Outputs.CustomDomainResponse? customDomain,
 
             string? lastGeoFailoverTime,
 
@@ -114,13 +114,13 @@ namespace Pulumi.AzureRM.Storage.V20150501Preview
 
             string name,
 
-            Outputs.EndpointsResponseResult? primaryEndpoints,
+            Outputs.EndpointsResponse? primaryEndpoints,
 
             string? primaryLocation,
 
             string? provisioningState,
 
-            Outputs.EndpointsResponseResult? secondaryEndpoints,
+            Outputs.EndpointsResponse? secondaryEndpoints,
 
             string? secondaryLocation,
 

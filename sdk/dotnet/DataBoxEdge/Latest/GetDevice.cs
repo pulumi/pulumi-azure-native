@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// <summary>
         /// The SKU type.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
         /// </summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
 
             string serialNumber,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

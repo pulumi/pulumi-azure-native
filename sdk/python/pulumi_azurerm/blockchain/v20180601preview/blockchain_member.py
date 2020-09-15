@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class BlockchainMember(pulumi.CustomResource):
                  consortium_management_account_password: Optional[pulumi.Input[str]] = None,
                  consortium_member_display_name: Optional[pulumi.Input[str]] = None,
                  consortium_role: Optional[pulumi.Input[str]] = None,
-                 firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
+                 firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class BlockchainMember(pulumi.CustomResource):
         :param pulumi.Input[str] consortium_management_account_password: Sets the managed consortium management account password.
         :param pulumi.Input[str] consortium_member_display_name: Gets the display name of the member in the consortium.
         :param pulumi.Input[str] consortium_role: Gets the role of the member in the consortium.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]] firewall_rules: Gets or sets firewall rules
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]] firewall_rules: Gets or sets firewall rules
         :param pulumi.Input[str] location: The GEO location of the blockchain service.
         :param pulumi.Input[str] password: Sets the basic auth password of the blockchain member.
         :param pulumi.Input[str] protocol: Gets or sets the blockchain protocol.
@@ -168,7 +168,7 @@ class BlockchainMember(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> pulumi.Output[Optional[List['outputs.FirewallRuleResponse']]]:
+    def firewall_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallRuleResponse']]]:
         """
         Gets or sets firewall rules
         """

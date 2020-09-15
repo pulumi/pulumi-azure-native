@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Managed identity for this blueprint assignment.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse Identity;
         /// <summary>
         /// The location of this blueprint assignment.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Defines how resources deployed by a blueprint assignment are locked.
         /// </summary>
-        public readonly Outputs.AssignmentLockSettingsResponseResult? Locks;
+        public readonly Outputs.AssignmentLockSettingsResponse? Locks;
         /// <summary>
         /// Name of this resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Blueprint assignment parameter values.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterValueResponseResult> Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterValueResponse> Parameters;
         /// <summary>
         /// State of the blueprint assignment.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Names and locations of resource group placeholders.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ResourceGroupValueResponseResult> ResourceGroups;
+        public readonly ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> ResourceGroups;
         /// <summary>
         /// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
         /// <summary>
         /// Status of blueprint assignment. This field is readonly.
         /// </summary>
-        public readonly Outputs.AssignmentStatusResponseResult Status;
+        public readonly Outputs.AssignmentStatusResponse Status;
         /// <summary>
         /// Type of this resource.
         /// </summary>
@@ -100,23 +100,23 @@ namespace Pulumi.AzureRM.Blueprint.V20181101Preview
 
             string? displayName,
 
-            Outputs.ManagedServiceIdentityResponseResult identity,
+            Outputs.ManagedServiceIdentityResponse identity,
 
             string location,
 
-            Outputs.AssignmentLockSettingsResponseResult? locks,
+            Outputs.AssignmentLockSettingsResponse? locks,
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterValueResponseResult> parameters,
+            ImmutableDictionary<string, Outputs.ParameterValueResponse> parameters,
 
             string provisioningState,
 
-            ImmutableDictionary<string, Outputs.ResourceGroupValueResponseResult> resourceGroups,
+            ImmutableDictionary<string, Outputs.ResourceGroupValueResponse> resourceGroups,
 
             string? scope,
 
-            Outputs.AssignmentStatusResponseResult status,
+            Outputs.AssignmentStatusResponse status,
 
             string type)
         {

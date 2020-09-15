@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -93,7 +93,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter
-    def mappings(self) -> Optional[List['outputs.TypePropertiesMappingResponse']]:
+    def mappings(self) -> Optional[Sequence['outputs.TypePropertiesMappingResponse']]:
         """
         The set of properties mappings between the source and target Types.
         """
@@ -117,7 +117,7 @@ class GetLinkResult:
 
     @property
     @pulumi.getter(name="participantPropertyReferences")
-    def participant_property_references(self) -> List['outputs.ParticipantPropertyReferenceResponse']:
+    def participant_property_references(self) -> Sequence['outputs.ParticipantPropertyReferenceResponse']:
         """
         The properties that represent the participating profile.
         """

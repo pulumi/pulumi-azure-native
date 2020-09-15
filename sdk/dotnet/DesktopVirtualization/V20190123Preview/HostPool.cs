@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.DesktopVirtualization.V20190123Preview
         /// The registration info of HostPool.
         /// </summary>
         [Output("registrationInfo")]
-        public Output<Outputs.RegistrationInfoResponseResult?> RegistrationInfo { get; private set; } = null!;
+        public Output<Outputs.RegistrationInfoResponse?> RegistrationInfo { get; private set; } = null!;
 
         /// <summary>
         /// The ring number of HostPool.

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.Latest
         /// LinkedWorkspace specific properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.LinkedWorkspacePropsResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.LinkedWorkspacePropsResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type of linked workspace.

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// Properties of the cluster SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ClusterSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ClusterSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Status of the Cluster resource

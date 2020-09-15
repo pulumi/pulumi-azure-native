@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -93,7 +93,7 @@ class ACIServiceResponseResponse(dict):
                  environment_image_request: Optional['outputs.ACIServiceResponseResponseEnvironmentImageRequest'] = None,
                  kv_tags: Optional[Mapping[str, str]] = None,
                  location: Optional[str] = None,
-                 models: Optional[List['outputs.ModelResponse']] = None,
+                 models: Optional[Sequence['outputs.ModelResponse']] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  public_fqdn: Optional[str] = None,
                  public_ip: Optional[str] = None,
@@ -120,7 +120,7 @@ class ACIServiceResponseResponse(dict):
         :param 'ACIServiceResponseResponseEnvironmentImageRequestArgs' environment_image_request: The Environment, models and assets used for inferencing.
         :param Mapping[str, str] kv_tags: The service tag dictionary. Tags are mutable.
         :param str location: The name of the Azure location/region.
-        :param List['ModelResponseArgs'] models: The list of models.
+        :param Sequence['ModelResponseArgs'] models: The list of models.
         :param Mapping[str, str] properties: The service property dictionary. Properties are immutable.
         :param str public_fqdn: The public Fqdn for the service.
         :param str public_ip: The public IP address for the service.
@@ -312,7 +312,7 @@ class ACIServiceResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def models(self) -> Optional[List['outputs.ModelResponse']]:
+    def models(self) -> Optional[Sequence['outputs.ModelResponse']]:
         """
         The list of models.
         """
@@ -469,20 +469,20 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
     The Environment, models and assets used for inferencing.
     """
     def __init__(__self__, *,
-                 assets: Optional[List['outputs.ImageAssetResponse']] = None,
+                 assets: Optional[Sequence['outputs.ImageAssetResponse']] = None,
                  driver_program: Optional[str] = None,
                  environment: Optional['outputs.EnvironmentImageResponseResponseEnvironment'] = None,
                  environment_reference: Optional['outputs.EnvironmentImageResponseResponseEnvironmentReference'] = None,
-                 model_ids: Optional[List[str]] = None,
-                 models: Optional[List['outputs.ModelResponse']] = None):
+                 model_ids: Optional[Sequence[str]] = None,
+                 models: Optional[Sequence['outputs.ModelResponse']] = None):
         """
         The Environment, models and assets used for inferencing.
-        :param List['ImageAssetResponseArgs'] assets: The list of assets.
+        :param Sequence['ImageAssetResponseArgs'] assets: The list of assets.
         :param str driver_program: The name of the driver file.
         :param 'EnvironmentImageResponseResponseEnvironmentArgs' environment: The details of the AZURE ML environment.
         :param 'EnvironmentImageResponseResponseEnvironmentReferenceArgs' environment_reference: The unique identifying details of the AZURE ML environment.
-        :param List[str] model_ids: The list of model Ids.
-        :param List['ModelResponseArgs'] models: The list of models.
+        :param Sequence[str] model_ids: The list of model Ids.
+        :param Sequence['ModelResponseArgs'] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -499,7 +499,7 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
 
     @property
     @pulumi.getter
-    def assets(self) -> Optional[List['outputs.ImageAssetResponse']]:
+    def assets(self) -> Optional[Sequence['outputs.ImageAssetResponse']]:
         """
         The list of assets.
         """
@@ -531,7 +531,7 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
 
     @property
     @pulumi.getter(name="modelIds")
-    def model_ids(self) -> Optional[List[str]]:
+    def model_ids(self) -> Optional[Sequence[str]]:
         """
         The list of model Ids.
         """
@@ -539,7 +539,7 @@ class ACIServiceResponseResponseEnvironmentImageRequest(dict):
 
     @property
     @pulumi.getter
-    def models(self) -> Optional[List['outputs.ModelResponse']]:
+    def models(self) -> Optional[Sequence['outputs.ModelResponse']]:
         """
         The list of models.
         """
@@ -597,7 +597,7 @@ class AKSResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -609,7 +609,7 @@ class AKSResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -665,7 +665,7 @@ class AKSResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -721,16 +721,16 @@ class AKSResponseProperties(dict):
     AKS properties
     """
     def __init__(__self__, *,
-                 system_services: List['outputs.SystemServiceResponse'],
-                 agent_count: Optional[float] = None,
+                 system_services: Sequence['outputs.SystemServiceResponse'],
+                 agent_count: Optional[int] = None,
                  agent_vm_size: Optional[str] = None,
                  aks_networking_configuration: Optional['outputs.AksNetworkingConfigurationResponse'] = None,
                  cluster_fqdn: Optional[str] = None,
                  ssl_configuration: Optional['outputs.SslConfigurationResponse'] = None):
         """
         AKS properties
-        :param List['SystemServiceResponseArgs'] system_services: System services
-        :param float agent_count: Number of agents
+        :param Sequence['SystemServiceResponseArgs'] system_services: System services
+        :param int agent_count: Number of agents
         :param str agent_vm_size: Agent virtual machine size
         :param 'AksNetworkingConfigurationResponseArgs' aks_networking_configuration: AKS networking configuration for vnet
         :param str cluster_fqdn: Cluster full qualified domain name
@@ -750,7 +750,7 @@ class AKSResponseProperties(dict):
 
     @property
     @pulumi.getter(name="systemServices")
-    def system_services(self) -> List['outputs.SystemServiceResponse']:
+    def system_services(self) -> Sequence['outputs.SystemServiceResponse']:
         """
         System services
         """
@@ -758,7 +758,7 @@ class AKSResponseProperties(dict):
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[float]:
+    def agent_count(self) -> Optional[int]:
         """
         Number of agents
         """
@@ -1080,7 +1080,7 @@ class AmlComputeResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1092,7 +1092,7 @@ class AmlComputeResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1148,7 +1148,7 @@ class AmlComputeResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1206,10 +1206,10 @@ class AmlComputeResponseProperties(dict):
     def __init__(__self__, *,
                  allocation_state: str,
                  allocation_state_transition_time: str,
-                 current_node_count: float,
-                 errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 current_node_count: int,
+                 errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  node_state_counts: 'outputs.NodeStateCountsResponse',
-                 target_node_count: float,
+                 target_node_count: int,
                  remote_login_port_public_access: Optional[str] = None,
                  scale_settings: Optional['outputs.ScaleSettingsResponse'] = None,
                  subnet: Optional['outputs.ResourceIdResponse'] = None,
@@ -1220,10 +1220,10 @@ class AmlComputeResponseProperties(dict):
         AML Compute properties
         :param str allocation_state: Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.
         :param str allocation_state_transition_time: The time at which the compute entered its current allocation state.
-        :param float current_node_count: The number of compute nodes currently assigned to the compute.
-        :param List['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
+        :param int current_node_count: The number of compute nodes currently assigned to the compute.
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] errors: Collection of errors encountered by various compute nodes during node setup.
         :param 'NodeStateCountsResponseArgs' node_state_counts: Counts of various node states on the compute.
-        :param float target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
+        :param int target_node_count: The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         :param str remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param 'ScaleSettingsResponseArgs' scale_settings: Scale settings for AML Compute
         :param 'ResourceIdResponseArgs' subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -1268,7 +1268,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter(name="currentNodeCount")
-    def current_node_count(self) -> float:
+    def current_node_count(self) -> int:
         """
         The number of compute nodes currently assigned to the compute.
         """
@@ -1276,7 +1276,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter
-    def errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Collection of errors encountered by various compute nodes during node setup.
         """
@@ -1292,7 +1292,7 @@ class AmlComputeResponseProperties(dict):
 
     @property
     @pulumi.getter(name="targetNodeCount")
-    def target_node_count(self) -> float:
+    def target_node_count(self) -> int:
         """
         The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.
         """
@@ -1357,14 +1357,14 @@ class ContainerResourceRequirementsResponse(dict):
     """
     def __init__(__self__, *,
                  cpu: Optional[float] = None,
-                 fpga: Optional[float] = None,
-                 gpu: Optional[float] = None,
+                 fpga: Optional[int] = None,
+                 gpu: Optional[int] = None,
                  memory_in_gb: Optional[float] = None):
         """
         The resource requirements for the container (cpu and memory).
         :param float cpu: The number of CPU cores on the container.
-        :param float fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-        :param float gpu: The number of GPU cores in the container.
+        :param int fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        :param int gpu: The number of GPU cores in the container.
         :param float memory_in_gb: The amount of memory on the container in GB.
         """
         if cpu is not None:
@@ -1386,7 +1386,7 @@ class ContainerResourceRequirementsResponse(dict):
 
     @property
     @pulumi.getter
-    def fpga(self) -> Optional[float]:
+    def fpga(self) -> Optional[int]:
         """
         The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
         """
@@ -1394,7 +1394,7 @@ class ContainerResourceRequirementsResponse(dict):
 
     @property
     @pulumi.getter
-    def gpu(self) -> Optional[float]:
+    def gpu(self) -> Optional[int]:
         """
         The number of GPU cores in the container.
         """
@@ -1422,7 +1422,7 @@ class DataFactoryResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1433,7 +1433,7 @@ class DataFactoryResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1486,7 +1486,7 @@ class DataFactoryResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1538,7 +1538,7 @@ class DataLakeAnalyticsResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1550,7 +1550,7 @@ class DataLakeAnalyticsResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1605,7 +1605,7 @@ class DataLakeAnalyticsResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -1684,7 +1684,7 @@ class DatabricksResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -1696,7 +1696,7 @@ class DatabricksResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -1751,7 +1751,7 @@ class DatabricksResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -2081,12 +2081,12 @@ class ErrorResponseResponse(dict):
     """
     def __init__(__self__, *,
                  code: str,
-                 details: List['outputs.ErrorDetailResponse'],
+                 details: Sequence['outputs.ErrorDetailResponse'],
                  message: str):
         """
         Error response information.
         :param str code: Error code.
-        :param List['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -2103,7 +2103,7 @@ class ErrorResponseResponse(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.ErrorDetailResponse']:
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         An array of error detail objects.
         """
@@ -2131,7 +2131,7 @@ class HDInsightResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -2143,7 +2143,7 @@ class HDInsightResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -2198,7 +2198,7 @@ class HDInsightResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -2250,11 +2250,11 @@ class HDInsightResponseProperties(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
-                 ssh_port: Optional[float] = None):
+                 ssh_port: Optional[int] = None):
         """
         :param str address: Public IP address of the master node of the cluster.
         :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for master node of the cluster
-        :param float ssh_port: Port open for ssh connections on the master node of the cluster.
+        :param int ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -2281,7 +2281,7 @@ class HDInsightResponseProperties(dict):
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[float]:
+    def ssh_port(self) -> Optional[int]:
         """
         Port open for ssh connections on the master node of the cluster.
         """
@@ -2656,20 +2656,20 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
     Settings for a R environment.
     """
     def __init__(__self__, *,
-                 bio_conductor_packages: Optional[List[str]] = None,
-                 cran_packages: Optional[List['outputs.RCranPackageResponse']] = None,
-                 custom_url_packages: Optional[List[str]] = None,
-                 git_hub_packages: Optional[List['outputs.RGitHubPackageResponseResponse']] = None,
+                 bio_conductor_packages: Optional[Sequence[str]] = None,
+                 cran_packages: Optional[Sequence['outputs.RCranPackageResponse']] = None,
+                 custom_url_packages: Optional[Sequence[str]] = None,
+                 git_hub_packages: Optional[Sequence['outputs.RGitHubPackageResponseResponse']] = None,
                  r_version: Optional[str] = None,
                  rscript_path: Optional[str] = None,
                  snapshot_date: Optional[str] = None,
                  user_managed: Optional[bool] = None):
         """
         Settings for a R environment.
-        :param List[str] bio_conductor_packages: The packages from Bioconductor.
-        :param List['RCranPackageResponseArgs'] cran_packages: The CRAN packages to use.
-        :param List[str] custom_url_packages: The packages from custom urls.
-        :param List['RGitHubPackageResponseResponseArgs'] git_hub_packages: The packages directly from GitHub.
+        :param Sequence[str] bio_conductor_packages: The packages from Bioconductor.
+        :param Sequence['RCranPackageResponseArgs'] cran_packages: The CRAN packages to use.
+        :param Sequence[str] custom_url_packages: The packages from custom urls.
+        :param Sequence['RGitHubPackageResponseResponseArgs'] git_hub_packages: The packages directly from GitHub.
         :param str r_version: The version of R to be installed
         :param str rscript_path: The Rscript path to use if an environment build is not required.
                The path specified gets used to call the user script.
@@ -2695,7 +2695,7 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
 
     @property
     @pulumi.getter(name="bioConductorPackages")
-    def bio_conductor_packages(self) -> Optional[List[str]]:
+    def bio_conductor_packages(self) -> Optional[Sequence[str]]:
         """
         The packages from Bioconductor.
         """
@@ -2703,7 +2703,7 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
 
     @property
     @pulumi.getter(name="cranPackages")
-    def cran_packages(self) -> Optional[List['outputs.RCranPackageResponse']]:
+    def cran_packages(self) -> Optional[Sequence['outputs.RCranPackageResponse']]:
         """
         The CRAN packages to use.
         """
@@ -2711,7 +2711,7 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
 
     @property
     @pulumi.getter(name="customUrlPackages")
-    def custom_url_packages(self) -> Optional[List[str]]:
+    def custom_url_packages(self) -> Optional[Sequence[str]]:
         """
         The packages from custom urls.
         """
@@ -2719,7 +2719,7 @@ class ModelEnvironmentDefinitionResponseResponseR(dict):
 
     @property
     @pulumi.getter(name="gitHubPackages")
-    def git_hub_packages(self) -> Optional[List['outputs.RGitHubPackageResponseResponse']]:
+    def git_hub_packages(self) -> Optional[Sequence['outputs.RGitHubPackageResponseResponse']]:
         """
         The packages directly from GitHub.
         """
@@ -2768,14 +2768,14 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
     The configuration for a Spark environment.
     """
     def __init__(__self__, *,
-                 packages: Optional[List['outputs.SparkMavenPackageResponse']] = None,
+                 packages: Optional[Sequence['outputs.SparkMavenPackageResponse']] = None,
                  precache_packages: Optional[bool] = None,
-                 repositories: Optional[List[str]] = None):
+                 repositories: Optional[Sequence[str]] = None):
         """
         The configuration for a Spark environment.
-        :param List['SparkMavenPackageResponseArgs'] packages: The Spark packages to use.
+        :param Sequence['SparkMavenPackageResponseArgs'] packages: The Spark packages to use.
         :param bool precache_packages: Whether to precache the packages.
-        :param List[str] repositories: The list of spark repositories.
+        :param Sequence[str] repositories: The list of spark repositories.
         """
         if packages is not None:
             pulumi.set(__self__, "packages", packages)
@@ -2786,7 +2786,7 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
 
     @property
     @pulumi.getter
-    def packages(self) -> Optional[List['outputs.SparkMavenPackageResponse']]:
+    def packages(self) -> Optional[Sequence['outputs.SparkMavenPackageResponse']]:
         """
         The Spark packages to use.
         """
@@ -2802,7 +2802,7 @@ class ModelEnvironmentDefinitionResponseResponseSpark(dict):
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[List[str]]:
+    def repositories(self) -> Optional[Sequence[str]]:
         """
         The list of spark repositories.
         """
@@ -2822,8 +2822,8 @@ class ModelResponse(dict):
                  name: str,
                  url: str,
                  created_time: Optional[str] = None,
-                 datasets: Optional[List['outputs.DatasetReferenceResponse']] = None,
-                 derived_model_ids: Optional[List[str]] = None,
+                 datasets: Optional[Sequence['outputs.DatasetReferenceResponse']] = None,
+                 derived_model_ids: Optional[Sequence[str]] = None,
                  description: Optional[str] = None,
                  experiment_name: Optional[str] = None,
                  framework: Optional[str] = None,
@@ -2838,15 +2838,15 @@ class ModelResponse(dict):
                  sample_input_data: Optional[str] = None,
                  sample_output_data: Optional[str] = None,
                  unpack: Optional[bool] = None,
-                 version: Optional[float] = None):
+                 version: Optional[int] = None):
         """
         An Azure Machine Learning Model.
         :param str mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
         :param str name: The Model name.
         :param str url: The URL of the Model. Usually a SAS URL.
         :param str created_time: The Model creation time (UTC).
-        :param List['DatasetReferenceResponseArgs'] datasets: The list of datasets associated with the model.
-        :param List[str] derived_model_ids: Models derived from this model
+        :param Sequence['DatasetReferenceResponseArgs'] datasets: The list of datasets associated with the model.
+        :param Sequence[str] derived_model_ids: Models derived from this model
         :param str description: The Model description text.
         :param str experiment_name: The name of the experiment where this model was created.
         :param str framework: The Model framework.
@@ -2861,7 +2861,7 @@ class ModelResponse(dict):
         :param str sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param str sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param bool unpack: Indicates whether we need to unpack the Model during docker Image creation.
-        :param float version: The Model version assigned by Model Management Service.
+        :param int version: The Model version assigned by Model Management Service.
         """
         pulumi.set(__self__, "mime_type", mime_type)
         pulumi.set(__self__, "name", name)
@@ -2937,7 +2937,7 @@ class ModelResponse(dict):
 
     @property
     @pulumi.getter
-    def datasets(self) -> Optional[List['outputs.DatasetReferenceResponse']]:
+    def datasets(self) -> Optional[Sequence['outputs.DatasetReferenceResponse']]:
         """
         The list of datasets associated with the model.
         """
@@ -2945,7 +2945,7 @@ class ModelResponse(dict):
 
     @property
     @pulumi.getter(name="derivedModelIds")
-    def derived_model_ids(self) -> Optional[List[str]]:
+    def derived_model_ids(self) -> Optional[Sequence[str]]:
         """
         Models derived from this model
         """
@@ -3065,7 +3065,7 @@ class ModelResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[float]:
+    def version(self) -> Optional[int]:
         """
         The Model version assigned by Model Management Service.
         """
@@ -3081,20 +3081,20 @@ class NodeStateCountsResponse(dict):
     Counts of various compute node states on the amlCompute.
     """
     def __init__(__self__, *,
-                 idle_node_count: float,
-                 leaving_node_count: float,
-                 preempted_node_count: float,
-                 preparing_node_count: float,
-                 running_node_count: float,
-                 unusable_node_count: float):
+                 idle_node_count: int,
+                 leaving_node_count: int,
+                 preempted_node_count: int,
+                 preparing_node_count: int,
+                 running_node_count: int,
+                 unusable_node_count: int):
         """
         Counts of various compute node states on the amlCompute.
-        :param float idle_node_count: Number of compute nodes in idle state.
-        :param float leaving_node_count: Number of compute nodes which are leaving the amlCompute.
-        :param float preempted_node_count: Number of compute nodes which are in preempted state.
-        :param float preparing_node_count: Number of compute nodes which are being prepared.
-        :param float running_node_count: Number of compute nodes which are running jobs.
-        :param float unusable_node_count: Number of compute nodes which are in unusable state.
+        :param int idle_node_count: Number of compute nodes in idle state.
+        :param int leaving_node_count: Number of compute nodes which are leaving the amlCompute.
+        :param int preempted_node_count: Number of compute nodes which are in preempted state.
+        :param int preparing_node_count: Number of compute nodes which are being prepared.
+        :param int running_node_count: Number of compute nodes which are running jobs.
+        :param int unusable_node_count: Number of compute nodes which are in unusable state.
         """
         pulumi.set(__self__, "idle_node_count", idle_node_count)
         pulumi.set(__self__, "leaving_node_count", leaving_node_count)
@@ -3105,7 +3105,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="idleNodeCount")
-    def idle_node_count(self) -> float:
+    def idle_node_count(self) -> int:
         """
         Number of compute nodes in idle state.
         """
@@ -3113,7 +3113,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="leavingNodeCount")
-    def leaving_node_count(self) -> float:
+    def leaving_node_count(self) -> int:
         """
         Number of compute nodes which are leaving the amlCompute.
         """
@@ -3121,7 +3121,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="preemptedNodeCount")
-    def preempted_node_count(self) -> float:
+    def preempted_node_count(self) -> int:
         """
         Number of compute nodes which are in preempted state.
         """
@@ -3129,7 +3129,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="preparingNodeCount")
-    def preparing_node_count(self) -> float:
+    def preparing_node_count(self) -> int:
         """
         Number of compute nodes which are being prepared.
         """
@@ -3137,7 +3137,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="runningNodeCount")
-    def running_node_count(self) -> float:
+    def running_node_count(self) -> int:
         """
         Number of compute nodes which are running jobs.
         """
@@ -3145,7 +3145,7 @@ class NodeStateCountsResponse(dict):
 
     @property
     @pulumi.getter(name="unusableNodeCount")
-    def unusable_node_count(self) -> float:
+    def unusable_node_count(self) -> int:
         """
         Number of compute nodes which are in unusable state.
         """
@@ -3440,7 +3440,7 @@ class RegistryListCredentialsResultResponseResult(dict):
     def __init__(__self__, *,
                  location: str,
                  username: str,
-                 passwords: Optional[List['outputs.PasswordResponseResult']] = None):
+                 passwords: Optional[Sequence['outputs.PasswordResponseResult']] = None):
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "username", username)
         if passwords is not None:
@@ -3458,7 +3458,7 @@ class RegistryListCredentialsResultResponseResult(dict):
 
     @property
     @pulumi.getter
-    def passwords(self) -> Optional[List['outputs.PasswordResponseResult']]:
+    def passwords(self) -> Optional[Sequence['outputs.PasswordResponseResult']]:
         return pulumi.get(self, "passwords")
 
 
@@ -3493,13 +3493,13 @@ class ScaleSettingsResponse(dict):
     scale settings for AML Compute
     """
     def __init__(__self__, *,
-                 max_node_count: float,
-                 min_node_count: Optional[float] = None,
+                 max_node_count: int,
+                 min_node_count: Optional[int] = None,
                  node_idle_time_before_scale_down: Optional[str] = None):
         """
         scale settings for AML Compute
-        :param float max_node_count: Max number of nodes to use
-        :param float min_node_count: Min number of nodes to use
+        :param int max_node_count: Max number of nodes to use
+        :param int min_node_count: Min number of nodes to use
         :param str node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
@@ -3510,7 +3510,7 @@ class ScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> float:
+    def max_node_count(self) -> int:
         """
         Max number of nodes to use
         """
@@ -3518,7 +3518,7 @@ class ScaleSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[float]:
+    def min_node_count(self) -> Optional[int]:
         """
         Min number of nodes to use
         """
@@ -3543,12 +3543,12 @@ class ServiceResponseBaseResponseError(dict):
     """
     def __init__(__self__, *,
                  code: str,
-                 details: List['outputs.ErrorDetailResponse'],
+                 details: Sequence['outputs.ErrorDetailResponse'],
                  message: str):
         """
         The error details.
         :param str code: Error code.
-        :param List['ErrorDetailResponseArgs'] details: An array of error detail objects.
+        :param Sequence['ErrorDetailResponseArgs'] details: An array of error detail objects.
         :param str message: Error message.
         """
         pulumi.set(__self__, "code", code)
@@ -3565,7 +3565,7 @@ class ServiceResponseBaseResponseError(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.ErrorDetailResponse']:
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
         An array of error detail objects.
         """
@@ -3938,7 +3938,7 @@ class VirtualMachineResponse(dict):
                  created_on: str,
                  is_attached_compute: bool,
                  modified_on: str,
-                 provisioning_errors: List['outputs.MachineLearningServiceErrorResponse'],
+                 provisioning_errors: Sequence['outputs.MachineLearningServiceErrorResponse'],
                  provisioning_state: str,
                  compute_location: Optional[str] = None,
                  description: Optional[str] = None,
@@ -3950,7 +3950,7 @@ class VirtualMachineResponse(dict):
         :param str created_on: The date and time when the compute was created.
         :param bool is_attached_compute: Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
         :param str modified_on: The date and time when the compute was last modified.
-        :param List['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
+        :param Sequence['MachineLearningServiceErrorResponseArgs'] provisioning_errors: Errors during provisioning
         :param str provisioning_state: The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
         :param str compute_location: Location for the underlying compute
         :param str description: The description of the Machine Learning compute.
@@ -4005,7 +4005,7 @@ class VirtualMachineResponse(dict):
 
     @property
     @pulumi.getter(name="provisioningErrors")
-    def provisioning_errors(self) -> List['outputs.MachineLearningServiceErrorResponse']:
+    def provisioning_errors(self) -> Sequence['outputs.MachineLearningServiceErrorResponse']:
         """
         Errors during provisioning
         """
@@ -4057,12 +4057,12 @@ class VirtualMachineResponseProperties(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  administrator_account: Optional['outputs.VirtualMachineSshCredentialsResponse'] = None,
-                 ssh_port: Optional[float] = None,
+                 ssh_port: Optional[int] = None,
                  virtual_machine_size: Optional[str] = None):
         """
         :param str address: Public IP address of the virtual machine.
         :param 'VirtualMachineSshCredentialsResponseArgs' administrator_account: Admin credentials for virtual machine
-        :param float ssh_port: Port open for ssh connections.
+        :param int ssh_port: Port open for ssh connections.
         :param str virtual_machine_size: Virtual Machine size
         """
         if address is not None:
@@ -4092,7 +4092,7 @@ class VirtualMachineResponseProperties(dict):
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[float]:
+    def ssh_port(self) -> Optional[int]:
         """
         Port open for ssh connections.
         """

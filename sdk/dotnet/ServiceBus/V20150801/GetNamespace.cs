@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         /// <summary>
         /// SKU of the namespace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// State of the namespace.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? status,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetBandwidthScheduleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if rate_in_mbps and not isinstance(rate_in_mbps, float):
-            raise TypeError("Expected argument 'rate_in_mbps' to be a float")
+        if rate_in_mbps and not isinstance(rate_in_mbps, int):
+            raise TypeError("Expected argument 'rate_in_mbps' to be a int")
         pulumi.set(__self__, "rate_in_mbps", rate_in_mbps)
         if start and not isinstance(start, str):
             raise TypeError("Expected argument 'start' to be a str")
@@ -41,7 +41,7 @@ class GetBandwidthScheduleResult:
 
     @property
     @pulumi.getter
-    def days(self) -> List[str]:
+    def days(self) -> Sequence[str]:
         """
         The days of the week when this schedule is applicable.
         """
@@ -57,7 +57,7 @@ class GetBandwidthScheduleResult:
 
     @property
     @pulumi.getter(name="rateInMbps")
-    def rate_in_mbps(self) -> float:
+    def rate_in_mbps(self) -> int:
         """
         The bandwidth rate in Mbps.
         """

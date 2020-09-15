@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -56,7 +56,7 @@ class GetStorageTargetResult:
 
     @property
     @pulumi.getter
-    def junctions(self) -> Optional[List['outputs.NamespaceJunctionResponse']]:
+    def junctions(self) -> Optional[Sequence['outputs.NamespaceJunctionResponse']]:
         """
         List of cache namespace to target namespace associations.
         """

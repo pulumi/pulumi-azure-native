@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -30,24 +30,24 @@ __all__ = [
 @pulumi.input_type
 class AkamaiAccessControlArgs:
     def __init__(__self__, *,
-                 akamai_signature_header_authentication_key_list: Optional[pulumi.Input[List[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None):
+                 akamai_signature_header_authentication_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None):
         """
         Akamai access control
-        :param pulumi.Input[List[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_key_list: authentication key list
+        :param pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_key_list: authentication key list
         """
         if akamai_signature_header_authentication_key_list is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
-    def akamai_signature_header_authentication_key_list(self) -> Optional[pulumi.Input[List[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]:
+    def akamai_signature_header_authentication_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]:
         """
         authentication key list
         """
         return pulumi.get(self, "akamai_signature_header_authentication_key_list")
 
     @akamai_signature_header_authentication_key_list.setter
-    def akamai_signature_header_authentication_key_list(self, value: Optional[pulumi.Input[List[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]):
+    def akamai_signature_header_authentication_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]]):
         pulumi.set(self, "akamai_signature_header_authentication_key_list", value)
 
 
@@ -150,48 +150,48 @@ class CrossSiteAccessPoliciesArgs:
 @pulumi.input_type
 class HlsArgs:
     def __init__(__self__, *,
-                 fragments_per_ts_segment: Optional[pulumi.Input[float]] = None):
+                 fragments_per_ts_segment: Optional[pulumi.Input[int]] = None):
         """
         The HLS configuration.
-        :param pulumi.Input[float] fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
+        :param pulumi.Input[int] fragments_per_ts_segment: The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         if fragments_per_ts_segment is not None:
             pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
-    def fragments_per_ts_segment(self) -> Optional[pulumi.Input[float]]:
+    def fragments_per_ts_segment(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         return pulumi.get(self, "fragments_per_ts_segment")
 
     @fragments_per_ts_segment.setter
-    def fragments_per_ts_segment(self, value: Optional[pulumi.Input[float]]):
+    def fragments_per_ts_segment(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "fragments_per_ts_segment", value)
 
 
 @pulumi.input_type
 class IPAccessControlArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[List[pulumi.Input['IPRangeArgs']]]] = None):
+                 allow: Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]] = None):
         """
         The IP access control.
-        :param pulumi.Input[List[pulumi.Input['IPRangeArgs']]] allow: The IP allow list.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]] allow: The IP allow list.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[List[pulumi.Input['IPRangeArgs']]]]:
+    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]]:
         """
         The IP allow list.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[List[pulumi.Input['IPRangeArgs']]]]):
+    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]]):
         pulumi.set(self, "allow", value)
 
 
@@ -200,12 +200,12 @@ class IPRangeArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 subnet_prefix_length: Optional[pulumi.Input[float]] = None):
+                 subnet_prefix_length: Optional[pulumi.Input[int]] = None):
         """
         The IP address range in the CIDR scheme.
         :param pulumi.Input[str] address: The IP address.
         :param pulumi.Input[str] name: The friendly name for the IP address range.
-        :param pulumi.Input[float] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
+        :param pulumi.Input[int] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -240,14 +240,14 @@ class IPRangeArgs:
 
     @property
     @pulumi.getter(name="subnetPrefixLength")
-    def subnet_prefix_length(self) -> Optional[pulumi.Input[float]]:
+    def subnet_prefix_length(self) -> Optional[pulumi.Input[int]]:
         """
         The subnet mask prefix length (see CIDR notation).
         """
         return pulumi.get(self, "subnet_prefix_length")
 
     @subnet_prefix_length.setter
-    def subnet_prefix_length(self, value: Optional[pulumi.Input[float]]):
+    def subnet_prefix_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "subnet_prefix_length", value)
 
 
@@ -337,14 +337,14 @@ class LiveEventInputArgs:
                  streaming_protocol: pulumi.Input[str],
                  access_control: Optional[pulumi.Input['LiveEventInputAccessControlArgs']] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
                  key_frame_interval_duration: Optional[pulumi.Input[str]] = None):
         """
         The Live Event input.
         :param pulumi.Input[str] streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
         :param pulumi.Input['LiveEventInputAccessControlArgs'] access_control: The access control for LiveEvent Input.
         :param pulumi.Input[str] access_token: A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        :param pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the Live Event.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the Live Event.
         :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 timespan duration of the key frame interval duration.
         """
         pulumi.set(__self__, "streaming_protocol", streaming_protocol)
@@ -395,14 +395,14 @@ class LiveEventInputArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]:
         """
         The input endpoints for the Live Event.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -526,14 +526,14 @@ class LiveEventPreviewArgs:
     def __init__(__self__, *,
                  access_control: Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']] = None,
                  alternative_media_id: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
                  preview_locator: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The Live Event preview.
         :param pulumi.Input['LiveEventPreviewAccessControlArgs'] access_control: The access control for LiveEvent preview.
         :param pulumi.Input[str] alternative_media_id: An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        :param pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The endpoints for preview.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The endpoints for preview.
         :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
         :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
@@ -574,14 +574,14 @@ class LiveEventPreviewArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]:
         """
         The endpoints for preview.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[List[pulumi.Input['LiveEventEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -636,12 +636,12 @@ class LiveEventPreviewAccessControlArgs:
 @pulumi.input_type
 class LiveEventTranscriptionArgs:
     def __init__(__self__, *,
-                 input_track_selection: Optional[pulumi.Input[List[pulumi.Input['LiveEventInputTrackSelectionArgs']]]] = None,
+                 input_track_selection: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  output_transcription_track: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']] = None):
         """
         Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
-        :param pulumi.Input[List[pulumi.Input['LiveEventInputTrackSelectionArgs']]] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         :param pulumi.Input[str] language: Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         :param pulumi.Input['LiveEventOutputTranscriptionTrackArgs'] output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
@@ -654,14 +654,14 @@ class LiveEventTranscriptionArgs:
 
     @property
     @pulumi.getter(name="inputTrackSelection")
-    def input_track_selection(self) -> Optional[pulumi.Input[List[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]:
+    def input_track_selection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]:
         """
         Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
         """
         return pulumi.get(self, "input_track_selection")
 
     @input_track_selection.setter
-    def input_track_selection(self, value: Optional[pulumi.Input[List[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]):
+    def input_track_selection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]]):
         pulumi.set(self, "input_track_selection", value)
 
     @property

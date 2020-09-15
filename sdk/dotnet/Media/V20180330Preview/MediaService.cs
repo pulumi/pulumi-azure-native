@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Media.V20180330Preview
         /// The storage accounts for this resource.
         /// </summary>
         [Output("storageAccounts")]
-        public Output<ImmutableArray<Outputs.StorageAccountResponseResult>> StorageAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StorageAccountResponse>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

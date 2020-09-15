@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         /// Gets the provisioning state of the Just-in-Time policy.
         /// </summary>
         public readonly string ProvisioningState;
-        public readonly ImmutableArray<Outputs.JitNetworkAccessRequestResponseResult> Requests;
+        public readonly ImmutableArray<Outputs.JitNetworkAccessRequestResponse> Requests;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
         /// <summary>
         /// Configurations for Microsoft.Compute/virtualMachines resource type.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponseResult> VirtualMachines;
+        public readonly ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse> VirtualMachines;
 
         [OutputConstructor]
         private GetJitNetworkAccessPolicyResult(
@@ -81,11 +81,11 @@ namespace Pulumi.AzureRM.Security.V20150601Preview
 
             string provisioningState,
 
-            ImmutableArray<Outputs.JitNetworkAccessRequestResponseResult> requests,
+            ImmutableArray<Outputs.JitNetworkAccessRequestResponse> requests,
 
             string type,
 
-            ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponseResult> virtualMachines)
+            ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse> virtualMachines)
         {
             Kind = kind;
             Location = location;

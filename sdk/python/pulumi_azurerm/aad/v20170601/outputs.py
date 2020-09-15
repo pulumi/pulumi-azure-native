@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -367,12 +367,12 @@ class NotificationSettingsResponse(dict):
     Settings for notification
     """
     def __init__(__self__, *,
-                 additional_recipients: Optional[List[str]] = None,
+                 additional_recipients: Optional[Sequence[str]] = None,
                  notify_dc_admins: Optional[str] = None,
                  notify_global_admins: Optional[str] = None):
         """
         Settings for notification
-        :param List[str] additional_recipients: The list of additional recipients
+        :param Sequence[str] additional_recipients: The list of additional recipients
         :param str notify_dc_admins: Should domain controller admins be notified
         :param str notify_global_admins: Should global admins be notified
         """
@@ -385,7 +385,7 @@ class NotificationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="additionalRecipients")
-    def additional_recipients(self) -> Optional[List[str]]:
+    def additional_recipients(self) -> Optional[Sequence[str]]:
         """
         The list of additional recipients
         """

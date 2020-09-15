@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// The reference to the databricks virtual network address space.
         /// </summary>
         [Output("databricksAddressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> DatabricksAddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> DatabricksAddressSpace { get; private set; } = null!;
 
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Output("databricksVirtualNetwork")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult?> DatabricksVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork?> DatabricksVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// Name of the virtual network peering resource
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// The reference to the remote virtual network address space.
         /// </summary>
         [Output("remoteAddressSpace")]
-        public Output<Outputs.AddressSpaceResponseResult?> RemoteAddressSpace { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> RemoteAddressSpace { get; private set; } = null!;
 
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Output("remoteVirtualNetwork")]
-        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult> RemoteVirtualNetwork { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork> RemoteVirtualNetwork { get; private set; } = null!;
 
         /// <summary>
         /// type of the virtual network peering resource

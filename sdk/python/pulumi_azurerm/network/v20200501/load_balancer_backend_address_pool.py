@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 load_balancer_backend_addresses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
+                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]] load_balancer_backend_addresses: An array of backend addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -102,7 +102,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
-    def backend_ip_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceIPConfigurationResponse']]:
+    def backend_ip_configurations(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
         """
         An array of references to IP addresses defined in network interfaces.
         """
@@ -118,7 +118,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddresses")
-    def load_balancer_backend_addresses(self) -> pulumi.Output[Optional[List['outputs.LoadBalancerBackendAddressResponse']]]:
+    def load_balancer_backend_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']]]:
         """
         An array of backend addresses.
         """
@@ -126,7 +126,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def load_balancing_rules(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         An array of references to load balancing rules that use this backend address pool.
         """
@@ -150,7 +150,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def outbound_rules(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         An array of references to outbound rules that use this backend address pool.
         """

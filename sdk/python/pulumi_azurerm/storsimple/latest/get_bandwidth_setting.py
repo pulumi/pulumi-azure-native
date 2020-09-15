@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -33,8 +33,8 @@ class GetBandwidthSettingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if volume_count and not isinstance(volume_count, float):
-            raise TypeError("Expected argument 'volume_count' to be a float")
+        if volume_count and not isinstance(volume_count, int):
+            raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
 
     @property
@@ -55,7 +55,7 @@ class GetBandwidthSettingResult:
 
     @property
     @pulumi.getter
-    def schedules(self) -> List['outputs.BandwidthScheduleResponse']:
+    def schedules(self) -> Sequence['outputs.BandwidthScheduleResponse']:
         """
         The schedules.
         """
@@ -71,7 +71,7 @@ class GetBandwidthSettingResult:
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> float:
+    def volume_count(self) -> int:
         """
         The number of volumes that uses the bandwidth setting.
         """

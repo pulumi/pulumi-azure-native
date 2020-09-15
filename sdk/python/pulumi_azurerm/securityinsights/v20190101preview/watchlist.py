@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Watchlist(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class Watchlist(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
-                 watchlist_items: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WatchlistItemArgs']]]]] = None,
+                 watchlist_items: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WatchlistItemArgs']]]]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the watchlist
         :param pulumi.Input[str] display_name: The display name of the watchlist
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
         :param pulumi.Input[str] last_updated_time_utc: The last time the watchlist was updated
         :param pulumi.Input[str] notes: The notes of the watchlist
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
@@ -61,7 +61,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to.
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the watchlist
         :param pulumi.Input[str] watchlist_alias: Watchlist Alias
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WatchlistItemArgs']]]] watchlist_items: List of watchlist items.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WatchlistItemArgs']]]] watchlist_items: List of watchlist items.
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         :param pulumi.Input[str] workspace_id: The workspaceId where the watchlist belongs to.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -193,7 +193,7 @@ class Watchlist(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of labels relevant to this watchlist
         """
@@ -265,7 +265,7 @@ class Watchlist(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="watchlistItems")
-    def watchlist_items(self) -> pulumi.Output[Optional[List['outputs.WatchlistItemResponse']]]:
+    def watchlist_items(self) -> pulumi.Output[Optional[Sequence['outputs.WatchlistItemResponse']]]:
         """
         List of watchlist items.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetFirewallPolicyRuleCollectionGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if priority and not isinstance(priority, float):
-            raise TypeError("Expected argument 'priority' to be a float")
+        if priority and not isinstance(priority, int):
+            raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -58,7 +58,7 @@ class GetFirewallPolicyRuleCollectionGroupResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority of the Firewall Policy Rule Collection Group resource.
         """
@@ -74,7 +74,7 @@ class GetFirewallPolicyRuleCollectionGroupResult:
 
     @property
     @pulumi.getter(name="ruleCollections")
-    def rule_collections(self) -> Optional[List[Any]]:
+    def rule_collections(self) -> Optional[Sequence[Any]]:
         """
         Group of Firewall Policy rule collections.
         """

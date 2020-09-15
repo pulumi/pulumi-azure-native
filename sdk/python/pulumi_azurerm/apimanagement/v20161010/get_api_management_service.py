@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -90,7 +90,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[List['outputs.AdditionalRegionResponse']]:
+    def additional_locations(self) -> Optional[Sequence['outputs.AdditionalRegionResponse']]:
         """
         Additional datacenter locations of the API Management service.
         """
@@ -130,7 +130,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> Optional[List['outputs.HostnameConfigurationResponse']]:
+    def hostname_configurations(self) -> Optional[Sequence['outputs.HostnameConfigurationResponse']]:
         """
         Custom hostname configuration of the API Management service.
         """
@@ -218,7 +218,7 @@ class GetApiManagementServiceResult:
 
     @property
     @pulumi.getter(name="staticIPs")
-    def static_ips(self) -> List[str]:
+    def static_ips(self) -> Sequence[str]:
         """
         Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
         """

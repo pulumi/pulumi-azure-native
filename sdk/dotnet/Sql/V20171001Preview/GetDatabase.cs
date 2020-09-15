@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// <summary>
         /// The name and tier of the SKU.
         /// </summary>
-        public readonly Outputs.SkuResponseResult CurrentSku;
+        public readonly Outputs.SkuResponse CurrentSku;
         /// <summary>
         /// The ID of the database.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
         /// Get-AzSqlServerServiceObjective -Location &lt;location&gt;
         /// ````
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Specifies the time that the database was deleted.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 
             string currentServiceObjectiveName,
 
-            Outputs.SkuResponseResult currentSku,
+            Outputs.SkuResponse currentSku,
 
             string databaseId,
 
@@ -288,7 +288,7 @@ namespace Pulumi.AzureRM.Sql.V20171001Preview
 
             string? sampleName,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? sourceDatabaseDeletionDate,
 

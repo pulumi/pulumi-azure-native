@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -72,13 +72,13 @@ class ManagementLockOwnerArgs:
 @pulumi.input_type
 class ParameterDefinitionsValueArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]] = None,
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  default_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The definition of a parameter that can be provided to the policy.
-        :param pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]] allowed_values: The allowed values for the parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] allowed_values: The allowed values for the parameter.
         :param pulumi.Input[Mapping[str, Any]] default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
         :param pulumi.Input[str] type: The data type of the parameter.
@@ -94,14 +94,14 @@ class ParameterDefinitionsValueArgs:
 
     @property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]:
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         The allowed values for the parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[List[pulumi.Input[Mapping[str, Any]]]]]):
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "allowed_values", value)
 
     @property
@@ -208,12 +208,12 @@ class ParameterValuesValueArgs:
 @pulumi.input_type
 class PermissionArgs:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 not_actions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Role definition permissions.
-        :param pulumi.Input[List[pulumi.Input[str]]] actions: Allowed actions.
-        :param pulumi.Input[List[pulumi.Input[str]]] not_actions: Denied actions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Allowed actions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_actions: Denied actions.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -222,26 +222,26 @@ class PermissionArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed actions.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def not_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Denied actions.
         """
         return pulumi.get(self, "not_actions")
 
     @not_actions.setter
-    def not_actions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def not_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "not_actions", value)
 
 
@@ -336,13 +336,13 @@ class PolicyDefinitionGroupArgs:
 class PolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[str],
-                 group_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
         """
         The policy definition reference.
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition.
-        :param pulumi.Input[List[pulumi.Input[str]]] group_names: The name of the groups that this policy definition reference belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_names: The name of the groups that this policy definition reference belongs to.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterValuesValueArgs']]] parameters: The parameter values for the referenced policy rule. The keys are the parameter names.
         :param pulumi.Input[str] policy_definition_reference_id: A unique id (within the policy set definition) for this policy definition reference.
         """
@@ -368,14 +368,14 @@ class PolicyDefinitionReferenceArgs:
 
     @property
     @pulumi.getter(name="groupNames")
-    def group_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The name of the groups that this policy definition reference belongs to.
         """
         return pulumi.get(self, "group_names")
 
     @group_names.setter
-    def group_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "group_names", value)
 
     @property

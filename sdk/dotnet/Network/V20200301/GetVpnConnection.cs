@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> IpsecPolicies;
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponse> IpsecPolicies;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// Id of the connected vpn site.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? RemoteVpnSite;
+        public readonly Outputs.SubResourceResponse? RemoteVpnSite;
         /// <summary>
         /// Routing weight for vpn connection.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// <summary>
         /// List of all vpn site link connections to the gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VpnSiteLinkConnectionResponseResult> VpnLinkConnections;
+        public readonly ImmutableArray<Outputs.VpnSiteLinkConnectionResponse> VpnLinkConnections;
 
         [OutputConstructor]
         private GetVpnConnectionResult(
@@ -142,13 +142,13 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             int ingressBytesTransferred,
 
-            ImmutableArray<Outputs.IpsecPolicyResponseResult> ipsecPolicies,
+            ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
 
             string? name,
 
             string provisioningState,
 
-            Outputs.SubResourceResponseResult? remoteVpnSite,
+            Outputs.SubResourceResponse? remoteVpnSite,
 
             int? routingWeight,
 
@@ -160,7 +160,7 @@ namespace Pulumi.AzureRM.Network.V20200301
 
             string? vpnConnectionProtocolType,
 
-            ImmutableArray<Outputs.VpnSiteLinkConnectionResponseResult> vpnLinkConnections)
+            ImmutableArray<Outputs.VpnSiteLinkConnectionResponse> vpnLinkConnections)
         {
             ConnectionBandwidth = connectionBandwidth;
             ConnectionStatus = connectionStatus;

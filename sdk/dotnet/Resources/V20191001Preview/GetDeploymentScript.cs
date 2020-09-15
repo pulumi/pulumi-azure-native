@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Resources.V20191001Preview
         /// <summary>
         /// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse Identity;
         /// <summary>
         /// Type of the script.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Resources.V20191001Preview
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Resources.V20191001Preview
 
         [OutputConstructor]
         private GetDeploymentScriptResult(
-            Outputs.ManagedServiceIdentityResponseResult identity,
+            Outputs.ManagedServiceIdentityResponse identity,
 
             string kind,
 
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Resources.V20191001Preview
 
             string name,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 

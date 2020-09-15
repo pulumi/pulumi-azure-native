@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Consumption.V20180131
         /// The current amount of cost which is being tracked for a budget.
         /// </summary>
         [Output("currentSpend")]
-        public Output<Outputs.CurrentSpendResponseResult> CurrentSpend { get; private set; } = null!;
+        public Output<Outputs.CurrentSpendResponse> CurrentSpend { get; private set; } = null!;
 
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Consumption.V20180131
         /// May be used to filter budgets by resource group, resource, or meter.
         /// </summary>
         [Output("filters")]
-        public Output<Outputs.FiltersResponseResult?> Filters { get; private set; } = null!;
+        public Output<Outputs.FiltersResponse?> Filters { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Consumption.V20180131
         /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
         [Output("notifications")]
-        public Output<ImmutableDictionary<string, Outputs.NotificationResponseResult>?> Notifications { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.NotificationResponse>?> Notifications { get; private set; } = null!;
 
         /// <summary>
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Consumption.V20180131
         /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         /// </summary>
         [Output("timePeriod")]
-        public Output<Outputs.BudgetTimePeriodResponseResult> TimePeriod { get; private set; } = null!;
+        public Output<Outputs.BudgetTimePeriodResponse> TimePeriod { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

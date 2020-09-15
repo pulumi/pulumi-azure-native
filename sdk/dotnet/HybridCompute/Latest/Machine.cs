@@ -54,16 +54,16 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
         /// Details about the error state.
         /// </summary>
         [Output("errorDetails")]
-        public Output<ImmutableArray<Outputs.ErrorDetailResponseResult>> ErrorDetails { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ErrorDetailResponse>> ErrorDetails { get; private set; } = null!;
 
         /// <summary>
         /// Machine Extensions information
         /// </summary>
         [Output("extensions")]
-        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponseResult>> Extensions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponse>> Extensions { get; private set; } = null!;
 
         [Output("identity")]
-        public Output<Outputs.MachineResponseIdentityResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.MachineResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The time of the last status change.
@@ -81,7 +81,7 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
         /// Metadata pertaining to the geographic location of the resource.
         /// </summary>
         [Output("locationData")]
-        public Output<Outputs.LocationDataResponseResult?> LocationData { get; private set; } = null!;
+        public Output<Outputs.LocationDataResponse?> LocationData { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the hybrid machine FQDN.
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.HybridCompute.Latest
         /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
         [Output("osProfile")]
-        public Output<Outputs.MachinePropertiesResponseOsProfileResult?> OsProfile { get; private set; } = null!;
+        public Output<Outputs.MachinePropertiesResponseOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Operating System product SKU.

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// <summary>
         /// Defines whether to send email notifications about new security alerts
         /// </summary>
-        public readonly Outputs.SecurityContactPropertiesResponseAlertNotificationsResult? AlertNotifications;
+        public readonly Outputs.SecurityContactPropertiesResponseAlertNotifications? AlertNotifications;
         /// <summary>
         /// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
         /// <summary>
         /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
         /// </summary>
-        public readonly Outputs.SecurityContactPropertiesResponseNotificationsByRoleResult? NotificationsByRole;
+        public readonly Outputs.SecurityContactPropertiesResponseNotificationsByRole? NotificationsByRole;
         /// <summary>
         /// The security contact's phone number
         /// </summary>
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Security.V20200101Preview
 
         [OutputConstructor]
         private GetSecurityContactResult(
-            Outputs.SecurityContactPropertiesResponseAlertNotificationsResult? alertNotifications,
+            Outputs.SecurityContactPropertiesResponseAlertNotifications? alertNotifications,
 
             string? emails,
 
             string name,
 
-            Outputs.SecurityContactPropertiesResponseNotificationsByRoleResult? notificationsByRole,
+            Outputs.SecurityContactPropertiesResponseNotificationsByRole? notificationsByRole,
 
             string? phone,
 

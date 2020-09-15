@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// Data flow properties.
         /// </summary>
-        public readonly Outputs.MappingDataFlowResponseResult Properties;
+        public readonly Outputs.MappingDataFlowResponse Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
             string name,
 
-            Outputs.MappingDataFlowResponseResult properties,
+            Outputs.MappingDataFlowResponse properties,
 
             string type)
         {

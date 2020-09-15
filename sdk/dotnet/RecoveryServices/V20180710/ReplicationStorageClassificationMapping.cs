@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710
         /// Properties of the storage mapping object.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.StorageClassificationMappingPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.StorageClassificationMappingPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

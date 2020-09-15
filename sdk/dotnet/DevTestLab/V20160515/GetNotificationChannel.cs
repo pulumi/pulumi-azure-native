@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// <summary>
         /// The list of event for which this notification is enabled.
         /// </summary>
-        public readonly ImmutableArray<Outputs.EventResponseResult> Events;
+        public readonly ImmutableArray<Outputs.EventResponse> Events;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
 
             string? description,
 
-            ImmutableArray<Outputs.EventResponseResult> events,
+            ImmutableArray<Outputs.EventResponse> events,
 
             string? location,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -106,7 +106,7 @@ class Prefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def events(self) -> pulumi.Output[List['outputs.PeeringServicePrefixEventResponse']]:
+    def events(self) -> pulumi.Output[Sequence['outputs.PeeringServicePrefixEventResponse']]:
         """
         The list of events for peering service prefix
         """

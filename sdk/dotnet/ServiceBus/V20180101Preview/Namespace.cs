@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         /// Properties of BYOK Encryption description
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         /// Properties of SKU
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SBSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SBSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

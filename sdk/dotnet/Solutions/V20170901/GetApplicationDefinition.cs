@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// <summary>
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationArtifactResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplicationArtifactResponse> Artifacts;
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationResponseResult> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> Authorizations;
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureRM.Solutions.V20170901
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
-            ImmutableArray<Outputs.ApplicationArtifactResponseResult> artifacts,
+            ImmutableArray<Outputs.ApplicationArtifactResponse> artifacts,
 
-            ImmutableArray<Outputs.ApplicationProviderAuthorizationResponseResult> authorizations,
+            ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse> authorizations,
 
             ImmutableDictionary<string, object>? createUiDefinition,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
 
             string? displayName,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? isEnabled,
 
@@ -132,7 +132,7 @@ namespace Pulumi.AzureRM.Solutions.V20170901
 
             string? packageFileUri,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -76,7 +76,7 @@ class CertificateDetailsResponse(dict):
                  signature_algorithm: str,
                  subject: str,
                  thumbprint: str,
-                 version: float):
+                 version: int):
         """
         SSL certificate details.
         :param str issuer: Certificate Issuer.
@@ -87,7 +87,7 @@ class CertificateDetailsResponse(dict):
         :param str signature_algorithm: Certificate Signature algorithm.
         :param str subject: Certificate Subject.
         :param str thumbprint: Certificate Thumbprint.
-        :param float version: Certificate Version.
+        :param int version: Certificate Version.
         """
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "not_after", not_after)
@@ -165,7 +165,7 @@ class CertificateDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> int:
         """
         Certificate Version.
         """

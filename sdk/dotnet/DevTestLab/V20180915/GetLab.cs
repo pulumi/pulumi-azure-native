@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The properties of any lab announcement associated with this lab
         /// </summary>
-        public readonly Outputs.LabAnnouncementPropertiesResponseResult? Announcement;
+        public readonly Outputs.LabAnnouncementPropertiesResponse? Announcement;
         /// <summary>
         /// The lab's artifact storage account.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// <summary>
         /// The properties of any lab support message associated with this lab
         /// </summary>
-        public readonly Outputs.LabSupportPropertiesResponseResult? Support;
+        public readonly Outputs.LabSupportPropertiesResponse? Support;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
         [OutputConstructor]
         private GetLabResult(
-            Outputs.LabAnnouncementPropertiesResponseResult? announcement,
+            Outputs.LabAnnouncementPropertiesResponse? announcement,
 
             string artifactsStorageAccount,
 
@@ -182,7 +182,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
             string publicIpId,
 
-            Outputs.LabSupportPropertiesResponseResult? support,
+            Outputs.LabSupportPropertiesResponse? support,
 
             ImmutableDictionary<string, string>? tags,
 

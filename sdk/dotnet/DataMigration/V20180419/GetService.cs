@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
         /// <summary>
         /// Service SKU
         /// </summary>
-        public readonly Outputs.ServiceSkuResponseResult? Sku;
+        public readonly Outputs.ServiceSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180419
 
             string? publicKey,
 
-            Outputs.ServiceSkuResponseResult? sku,
+            Outputs.ServiceSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -23,16 +23,16 @@ class ErrorDefinitionResponseResult(dict):
     Error definition.
     """
     def __init__(__self__, *,
-                 additional_info: List['outputs.TypedErrorInfoResponseResult'],
+                 additional_info: Sequence['outputs.TypedErrorInfoResponseResult'],
                  code: str,
-                 details: List['outputs.ErrorDefinitionResponseResult'],
+                 details: Sequence['outputs.ErrorDefinitionResponseResult'],
                  message: str,
                  target: str):
         """
         Error definition.
-        :param List['TypedErrorInfoResponseArgs'] additional_info: Additional scenario specific error details.
+        :param Sequence['TypedErrorInfoResponseArgs'] additional_info: Additional scenario specific error details.
         :param str code: Service specific error code which serves as the substatus for the HTTP error code.
-        :param List['ErrorDefinitionResponseArgs'] details: Internal error details.
+        :param Sequence['ErrorDefinitionResponseArgs'] details: Internal error details.
         :param str message: Description of the error.
         :param str target: The target of the error.
         """
@@ -44,7 +44,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter(name="additionalInfo")
-    def additional_info(self) -> List['outputs.TypedErrorInfoResponseResult']:
+    def additional_info(self) -> Sequence['outputs.TypedErrorInfoResponseResult']:
         """
         Additional scenario specific error details.
         """
@@ -60,7 +60,7 @@ class ErrorDefinitionResponseResult(dict):
 
     @property
     @pulumi.getter
-    def details(self) -> List['outputs.ErrorDefinitionResponseResult']:
+    def details(self) -> Sequence['outputs.ErrorDefinitionResponseResult']:
         """
         Internal error details.
         """
@@ -177,14 +177,14 @@ class RemediationDeploymentSummaryResponse(dict):
     The deployment status summary for all deployments created by the remediation.
     """
     def __init__(__self__, *,
-                 failed_deployments: Optional[float] = None,
-                 successful_deployments: Optional[float] = None,
-                 total_deployments: Optional[float] = None):
+                 failed_deployments: Optional[int] = None,
+                 successful_deployments: Optional[int] = None,
+                 total_deployments: Optional[int] = None):
         """
         The deployment status summary for all deployments created by the remediation.
-        :param float failed_deployments: The number of deployments required by the remediation that have failed.
-        :param float successful_deployments: The number of deployments required by the remediation that have succeeded.
-        :param float total_deployments: The number of deployments required by the remediation.
+        :param int failed_deployments: The number of deployments required by the remediation that have failed.
+        :param int successful_deployments: The number of deployments required by the remediation that have succeeded.
+        :param int total_deployments: The number of deployments required by the remediation.
         """
         if failed_deployments is not None:
             pulumi.set(__self__, "failed_deployments", failed_deployments)
@@ -195,7 +195,7 @@ class RemediationDeploymentSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="failedDeployments")
-    def failed_deployments(self) -> Optional[float]:
+    def failed_deployments(self) -> Optional[int]:
         """
         The number of deployments required by the remediation that have failed.
         """
@@ -203,7 +203,7 @@ class RemediationDeploymentSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="successfulDeployments")
-    def successful_deployments(self) -> Optional[float]:
+    def successful_deployments(self) -> Optional[int]:
         """
         The number of deployments required by the remediation that have succeeded.
         """
@@ -211,7 +211,7 @@ class RemediationDeploymentSummaryResponse(dict):
 
     @property
     @pulumi.getter(name="totalDeployments")
-    def total_deployments(self) -> Optional[float]:
+    def total_deployments(self) -> Optional[int]:
         """
         The number of deployments required by the remediation.
         """
@@ -227,17 +227,17 @@ class RemediationFiltersResponse(dict):
     The filters that will be applied to determine which resources to remediate.
     """
     def __init__(__self__, *,
-                 locations: Optional[List[str]] = None):
+                 locations: Optional[Sequence[str]] = None):
         """
         The filters that will be applied to determine which resources to remediate.
-        :param List[str] locations: The resource locations that will be remediated.
+        :param Sequence[str] locations: The resource locations that will be remediated.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[List[str]]:
+    def locations(self) -> Optional[Sequence[str]]:
         """
         The resource locations that will be remediated.
         """

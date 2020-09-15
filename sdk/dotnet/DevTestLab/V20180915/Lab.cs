@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The properties of any lab announcement associated with this lab
         /// </summary>
         [Output("announcement")]
-        public Output<Outputs.LabAnnouncementPropertiesResponseResult?> Announcement { get; private set; } = null!;
+        public Output<Outputs.LabAnnouncementPropertiesResponse?> Announcement { get; private set; } = null!;
 
         /// <summary>
         /// The lab's artifact storage account.
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The properties of any lab support message associated with this lab
         /// </summary>
         [Output("support")]
-        public Output<Outputs.LabSupportPropertiesResponseResult?> Support { get; private set; } = null!;
+        public Output<Outputs.LabSupportPropertiesResponse?> Support { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

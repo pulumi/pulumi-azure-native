@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,13 +18,13 @@ class Profile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_entity_set_name: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]]] = None,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  entity_type: Optional[pulumi.Input[str]] = None,
-                 fields: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
-                 instances_count: Optional[pulumi.Input[float]] = None,
+                 instances_count: Optional[pulumi.Input[int]] = None,
                  large_image: Optional[pulumi.Input[str]] = None,
                  localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
                  medium_image: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class Profile(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_item_type_link: Optional[pulumi.Input[str]] = None,
                  small_image: Optional[pulumi.Input[str]] = None,
-                 strong_ids: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
+                 strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]]] = None,
                  timestamp_field_name: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -44,13 +44,13 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[str]]]]] attributes: The attributes for the Type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] attributes: The attributes for the Type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display names for the property.
         :param pulumi.Input[str] entity_type: Type of entity.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Profile.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[float] instances_count: The instance count.
+        :param pulumi.Input[int] instances_count: The instance count.
         :param pulumi.Input[str] large_image: Large Image associated with the Property or EntityType.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]] localized_attributes: Any custom localized attributes for the Type.
         :param pulumi.Input[str] medium_image: Medium Image associated with the Property or EntityType.
@@ -58,7 +58,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] schema_item_type_link: The schema org link. This helps ACI identify and suggest semantic models.
         :param pulumi.Input[str] small_image: Small Image associated with the Property or EntityType.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StrongIdArgs']]]] strong_ids: The strong IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StrongIdArgs']]]] strong_ids: The strong IDs.
         :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
         :param pulumi.Input[str] type_name: The name of the entity.
         """
@@ -144,7 +144,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Output[Optional[Mapping[str, List[str]]]]:
+    def attributes(self) -> pulumi.Output[Optional[Mapping[str, Sequence[str]]]]:
         """
         The attributes for the Type.
         """
@@ -176,7 +176,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fields(self) -> pulumi.Output[Optional[List['outputs.PropertyDefinitionResponse']]]:
+    def fields(self) -> pulumi.Output[Optional[Sequence['outputs.PropertyDefinitionResponse']]]:
         """
         The properties of the Profile.
         """
@@ -184,7 +184,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instancesCount")
-    def instances_count(self) -> pulumi.Output[Optional[float]]:
+    def instances_count(self) -> pulumi.Output[Optional[int]]:
         """
         The instance count.
         """
@@ -256,7 +256,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="strongIds")
-    def strong_ids(self) -> pulumi.Output[Optional[List['outputs.StrongIdResponse']]]:
+    def strong_ids(self) -> pulumi.Output[Optional[Sequence['outputs.StrongIdResponse']]]:
         """
         The strong IDs.
         """

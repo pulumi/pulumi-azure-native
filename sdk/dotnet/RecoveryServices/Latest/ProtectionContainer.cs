@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// ProtectionContainerResource properties
         /// </summary>
         [Output("properties")]
-        public Output<Union<Outputs.AzureSqlContainerResponseResult, Union<Outputs.AzureStorageContainerResponseResult, Union<Outputs.AzureWorkloadContainerResponseResult, Union<Outputs.DpmContainerResponseResult, Union<Outputs.GenericContainerResponseResult, Union<Outputs.IaaSVMContainerResponseResult, Outputs.MabContainerResponseResult>>>>>>> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

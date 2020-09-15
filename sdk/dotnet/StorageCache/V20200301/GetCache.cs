@@ -46,15 +46,15 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Specifies encryption settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheEncryptionSettingsResponseResult? EncryptionSettings;
+        public readonly Outputs.CacheEncryptionSettingsResponse? EncryptionSettings;
         /// <summary>
         /// Health of the Cache.
         /// </summary>
-        public readonly Outputs.CacheHealthResponseResult Health;
+        public readonly Outputs.CacheHealthResponse Health;
         /// <summary>
         /// The identity of the cache, if configured.
         /// </summary>
-        public readonly Outputs.CacheIdentityResponseResult? Identity;
+        public readonly Outputs.CacheIdentityResponse? Identity;
         /// <summary>
         /// Region name string.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Specifies network settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheNetworkSettingsResponseResult? NetworkSettings;
+        public readonly Outputs.CacheNetworkSettingsResponse? NetworkSettings;
         /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
@@ -78,11 +78,11 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Specifies security settings of the cache.
         /// </summary>
-        public readonly Outputs.CacheSecuritySettingsResponseResult? SecuritySettings;
+        public readonly Outputs.CacheSecuritySettingsResponse? SecuritySettings;
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
-        public readonly Outputs.CacheResponseSkuResult? Sku;
+        public readonly Outputs.CacheResponseSku? Sku;
         /// <summary>
         /// Subnet used for the Cache.
         /// </summary>
@@ -98,17 +98,17 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// <summary>
         /// Upgrade status of the Cache.
         /// </summary>
-        public readonly Outputs.CacheUpgradeStatusResponseResult? UpgradeStatus;
+        public readonly Outputs.CacheUpgradeStatusResponse? UpgradeStatus;
 
         [OutputConstructor]
         private GetCacheResult(
             int? cacheSizeGB,
 
-            Outputs.CacheEncryptionSettingsResponseResult? encryptionSettings,
+            Outputs.CacheEncryptionSettingsResponse? encryptionSettings,
 
-            Outputs.CacheHealthResponseResult health,
+            Outputs.CacheHealthResponse health,
 
-            Outputs.CacheIdentityResponseResult? identity,
+            Outputs.CacheIdentityResponse? identity,
 
             string? location,
 
@@ -116,13 +116,13 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
 
             string name,
 
-            Outputs.CacheNetworkSettingsResponseResult? networkSettings,
+            Outputs.CacheNetworkSettingsResponse? networkSettings,
 
             string? provisioningState,
 
-            Outputs.CacheSecuritySettingsResponseResult? securitySettings,
+            Outputs.CacheSecuritySettingsResponse? securitySettings,
 
-            Outputs.CacheResponseSkuResult? sku,
+            Outputs.CacheResponseSku? sku,
 
             string? subnet,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
 
             string type,
 
-            Outputs.CacheUpgradeStatusResponseResult? upgradeStatus)
+            Outputs.CacheUpgradeStatusResponse? upgradeStatus)
         {
             CacheSizeGB = cacheSizeGB;
             EncryptionSettings = encryptionSettings;

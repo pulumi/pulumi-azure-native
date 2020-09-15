@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -80,7 +80,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> Optional[List[str]]:
+    def address_prefixes(self) -> Optional[Sequence[str]]:
         """
         List of  address prefixes for the subnet.
         """
@@ -88,7 +88,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
-    def delegations(self) -> Optional[List['outputs.DelegationResponse']]:
+    def delegations(self) -> Optional[Sequence['outputs.DelegationResponse']]:
         """
         Gets an array of references to the delegations on the subnet.
         """
@@ -104,7 +104,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="interfaceEndpoints")
-    def interface_endpoints(self) -> List['outputs.InterfaceEndpointResponse']:
+    def interface_endpoints(self) -> Sequence['outputs.InterfaceEndpointResponse']:
         """
         An array of references to interface endpoints 
         """
@@ -112,7 +112,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurationProfiles")
-    def ip_configuration_profiles(self) -> List['outputs.IPConfigurationProfileResponse']:
+    def ip_configuration_profiles(self) -> Sequence['outputs.IPConfigurationProfileResponse']:
         """
         Array of IP configuration profiles which reference this subnet.
         """
@@ -120,7 +120,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.IPConfigurationResponse']:
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
         """
         Gets an array of references to the network interface IP configurations using subnet.
         """
@@ -160,7 +160,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="resourceNavigationLinks")
-    def resource_navigation_links(self) -> Optional[List['outputs.ResourceNavigationLinkResponse']]:
+    def resource_navigation_links(self) -> Optional[Sequence['outputs.ResourceNavigationLinkResponse']]:
         """
         Gets an array of references to the external resources using subnet.
         """
@@ -176,7 +176,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceAssociationLinks")
-    def service_association_links(self) -> Optional[List['outputs.ServiceAssociationLinkResponse']]:
+    def service_association_links(self) -> Optional[Sequence['outputs.ServiceAssociationLinkResponse']]:
         """
         Gets an array of references to services injecting into this subnet.
         """
@@ -184,7 +184,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpointPolicies")
-    def service_endpoint_policies(self) -> Optional[List['outputs.ServiceEndpointPolicyResponse']]:
+    def service_endpoint_policies(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyResponse']]:
         """
         An array of service endpoint policies.
         """
@@ -192,7 +192,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[List['outputs.ServiceEndpointPropertiesFormatResponse']]:
+    def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]:
         """
         An array of service endpoints.
         """

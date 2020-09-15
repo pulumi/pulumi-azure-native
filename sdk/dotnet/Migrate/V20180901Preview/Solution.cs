@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Migrate.V20180901Preview
         /// Gets or sets the properties of the solution.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SolutionPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.SolutionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets the type of this REST resource.

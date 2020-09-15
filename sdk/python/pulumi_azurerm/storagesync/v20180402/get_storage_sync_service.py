@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,8 +26,8 @@ class GetStorageSyncServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if storage_sync_service_status and not isinstance(storage_sync_service_status, float):
-            raise TypeError("Expected argument 'storage_sync_service_status' to be a float")
+        if storage_sync_service_status and not isinstance(storage_sync_service_status, int):
+            raise TypeError("Expected argument 'storage_sync_service_status' to be a int")
         pulumi.set(__self__, "storage_sync_service_status", storage_sync_service_status)
         if storage_sync_service_uid and not isinstance(storage_sync_service_uid, str):
             raise TypeError("Expected argument 'storage_sync_service_uid' to be a str")
@@ -57,7 +57,7 @@ class GetStorageSyncServiceResult:
 
     @property
     @pulumi.getter(name="storageSyncServiceStatus")
-    def storage_sync_service_status(self) -> float:
+    def storage_sync_service_status(self) -> int:
         """
         Storage Sync service status.
         """

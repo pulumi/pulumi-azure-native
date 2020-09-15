@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The reference to the azure stack edge device.
         /// </summary>
         [Output("azureStackEdge")]
-        public Output<Outputs.SubResourceResponseResult?> AzureStackEdge { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> AzureStackEdge { get; private set; } = null!;
 
         /// <summary>
         /// The type of the hybrid network device.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// The list of virtual network functions deployed on the hybrid network device.
         /// </summary>
         [Output("virtualNetworkFunctions")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualNetworkFunctions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualNetworkFunctions { get; private set; } = null!;
 
 
         /// <summary>

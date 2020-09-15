@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// <summary>
         /// Specifies the hardware settings for the HANA instance.
         /// </summary>
-        public readonly Outputs.HardwareProfileResponseResult? HardwareProfile;
+        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
         /// Hardware revision of a HANA instance
         /// </summary>
@@ -62,11 +62,11 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// <summary>
         /// Specifies the network settings for the HANA instance.
         /// </summary>
-        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.NetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// Specifies the operating system settings for the HANA instance.
         /// </summary>
-        public readonly Outputs.OSProfileResponseResult? OsProfile;
+        public readonly Outputs.OSProfileResponse? OsProfile;
         /// <summary>
         /// ARM ID of another HanaInstance that will share a network with this HanaInstance
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         /// <summary>
         /// Specifies the storage settings for the HANA instance disks.
         /// </summary>
-        public readonly Outputs.StorageProfileResponseResult? StorageProfile;
+        public readonly Outputs.StorageProfileResponse? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
         private GetHanaInstanceResult(
             string hanaInstanceId,
 
-            Outputs.HardwareProfileResponseResult? hardwareProfile,
+            Outputs.HardwareProfileResponse? hardwareProfile,
 
             string hwRevision,
 
@@ -108,9 +108,9 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
 
             string name,
 
-            Outputs.NetworkProfileResponseResult? networkProfile,
+            Outputs.NetworkProfileResponse? networkProfile,
 
-            Outputs.OSProfileResponseResult? osProfile,
+            Outputs.OSProfileResponse? osProfile,
 
             string? partnerNodeId,
 
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.HanaOnAzure.V20171103Preview
 
             string proximityPlacementGroup,
 
-            Outputs.StorageProfileResponseResult? storageProfile,
+            Outputs.StorageProfileResponse? storageProfile,
 
             ImmutableDictionary<string, string> tags,
 

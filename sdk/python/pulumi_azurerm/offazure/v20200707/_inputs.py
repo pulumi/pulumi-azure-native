@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,12 +20,12 @@ class MasterSitePropertiesArgs:
     def __init__(__self__, *,
                  allow_multiple_sites: Optional[pulumi.Input[bool]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
-                 sites: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Class for site properties.
         :param pulumi.Input[bool] allow_multiple_sites: Value indicating whether multiple sites per site type are allowed.
         :param pulumi.Input[str] public_network_access: State of public network access.
-        :param pulumi.Input[List[pulumi.Input[str]]] sites: List of sites that are a part of Master Site.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sites: List of sites that are a part of Master Site.
         """
         if allow_multiple_sites is not None:
             pulumi.set(__self__, "allow_multiple_sites", allow_multiple_sites)
@@ -60,14 +60,14 @@ class MasterSitePropertiesArgs:
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of sites that are a part of Master Site.
         """
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "sites", value)
 
 

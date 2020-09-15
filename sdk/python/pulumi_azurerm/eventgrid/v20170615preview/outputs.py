@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -68,13 +68,13 @@ class EventSubscriptionFilterResponse(dict):
     Filter for the Event Subscription
     """
     def __init__(__self__, *,
-                 included_event_types: Optional[List[str]] = None,
+                 included_event_types: Optional[Sequence[str]] = None,
                  is_subject_case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription
-        :param List[str] included_event_types: A list of applicable event types that need to be part of the event subscription. 
+        :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. 
                If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
                should be compared in a case sensitive manner.
@@ -95,7 +95,7 @@ class EventSubscriptionFilterResponse(dict):
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> Optional[List[str]]:
+    def included_event_types(self) -> Optional[Sequence[str]]:
         """
         A list of applicable event types that need to be part of the event subscription. 
         If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -24,13 +24,13 @@ __all__ = [
 @pulumi.input_type
 class LocationThresholdRuleConditionArgs:
     def __init__(__self__, *,
-                 failed_location_count: pulumi.Input[float],
+                 failed_location_count: pulumi.Input[int],
                  odata_type: pulumi.Input[str],
                  data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         A rule condition based on a certain number of locations failing.
-        :param pulumi.Input[float] failed_location_count: the number of locations that must fail to activate the alert.
+        :param pulumi.Input[int] failed_location_count: the number of locations that must fail to activate the alert.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -44,14 +44,14 @@ class LocationThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter(name="failedLocationCount")
-    def failed_location_count(self) -> pulumi.Input[float]:
+    def failed_location_count(self) -> pulumi.Input[int]:
         """
         the number of locations that must fail to activate the alert.
         """
         return pulumi.get(self, "failed_location_count")
 
     @failed_location_count.setter
-    def failed_location_count(self, value: pulumi.Input[float]):
+    def failed_location_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "failed_location_count", value)
 
     @property
@@ -205,11 +205,11 @@ class ManagementEventRuleConditionArgs:
 @pulumi.input_type
 class RetentionPolicyArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[float],
+                 days: pulumi.Input[int],
                  enabled: pulumi.Input[bool]):
         """
         Specifies the retention policy for the log.
-        :param pulumi.Input[float] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+        :param pulumi.Input[int] days: the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         :param pulumi.Input[bool] enabled: a value indicating whether the retention policy is enabled.
         """
         pulumi.set(__self__, "days", days)
@@ -217,14 +217,14 @@ class RetentionPolicyArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[float]:
+    def days(self) -> pulumi.Input[int]:
         """
         the number of days for the retention in days. A value of 0 will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[float]):
+    def days(self, value: pulumi.Input[int]):
         pulumi.set(self, "days", value)
 
     @property
@@ -244,12 +244,12 @@ class RetentionPolicyArgs:
 class RuleEmailActionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 custom_emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  send_to_service_owners: Optional[pulumi.Input[bool]] = None):
         """
         Specifies the action to send email when the rule condition is evaluated. The discriminator is always RuleEmailAction in this case.
         :param pulumi.Input[str] odata_type: specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: the list of administrator's custom email addresses to notify of the activation of the alert.
         :param pulumi.Input[bool] send_to_service_owners: Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.RuleEmailAction')
@@ -272,14 +272,14 @@ class RuleEmailActionArgs:
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def custom_emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         the list of administrator's custom email addresses to notify of the activation of the alert.
         """
         return pulumi.get(self, "custom_emails")
 
     @custom_emails.setter
-    def custom_emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def custom_emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "custom_emails", value)
 
     @property

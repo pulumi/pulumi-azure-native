@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for daily snapshots
         /// </summary>
         [Output("dailySchedule")]
-        public Output<Outputs.DailyScheduleResponseResult?> DailySchedule { get; private set; } = null!;
+        public Output<Outputs.DailyScheduleResponse?> DailySchedule { get; private set; } = null!;
 
         /// <summary>
         /// The property to decide policy is enabled or not
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for hourly snapshots
         /// </summary>
         [Output("hourlySchedule")]
-        public Output<Outputs.HourlyScheduleResponseResult?> HourlySchedule { get; private set; } = null!;
+        public Output<Outputs.HourlyScheduleResponse?> HourlySchedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for monthly snapshots
         /// </summary>
         [Output("monthlySchedule")]
-        public Output<Outputs.MonthlyScheduleResponseResult?> MonthlySchedule { get; private set; } = null!;
+        public Output<Outputs.MonthlyScheduleResponse?> MonthlySchedule { get; private set; } = null!;
 
         /// <summary>
         /// Snapshot policy name
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.NetApp.Latest
         /// Schedule for weekly snapshots
         /// </summary>
         [Output("weeklySchedule")]
-        public Output<Outputs.WeeklyScheduleResponseResult?> WeeklySchedule { get; private set; } = null!;
+        public Output<Outputs.WeeklyScheduleResponse?> WeeklySchedule { get; private set; } = null!;
 
 
         /// <summary>

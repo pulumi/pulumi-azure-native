@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -75,7 +75,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> Optional[List['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]:
+    def agent_pool_profiles(self) -> Optional[Sequence['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]:
         """
         Configuration of OpenShift cluster VMs.
         """
@@ -187,7 +187,7 @@ class GetOpenShiftManagedClusterResult:
 
     @property
     @pulumi.getter(name="routerProfiles")
-    def router_profiles(self) -> Optional[List['outputs.OpenShiftRouterProfileResponse']]:
+    def router_profiles(self) -> Optional[Sequence['outputs.OpenShiftRouterProfileResponse']]:
         """
         Configuration for OpenShift router(s).
         """

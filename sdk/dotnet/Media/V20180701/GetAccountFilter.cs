@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// The first quality.
         /// </summary>
-        public readonly Outputs.FirstQualityResponseResult? FirstQuality;
+        public readonly Outputs.FirstQualityResponse? FirstQuality;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// <summary>
         /// The presentation time range.
         /// </summary>
-        public readonly Outputs.PresentationTimeRangeResponseResult? PresentationTimeRange;
+        public readonly Outputs.PresentationTimeRangeResponse? PresentationTimeRange;
         /// <summary>
         /// The tracks selection conditions.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FilterTrackSelectionResponseResult> Tracks;
+        public readonly ImmutableArray<Outputs.FilterTrackSelectionResponse> Tracks;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,13 +68,13 @@ namespace Pulumi.AzureRM.Media.V20180701
 
         [OutputConstructor]
         private GetAccountFilterResult(
-            Outputs.FirstQualityResponseResult? firstQuality,
+            Outputs.FirstQualityResponse? firstQuality,
 
             string name,
 
-            Outputs.PresentationTimeRangeResponseResult? presentationTimeRange,
+            Outputs.PresentationTimeRangeResponse? presentationTimeRange,
 
-            ImmutableArray<Outputs.FilterTrackSelectionResponseResult> tracks,
+            ImmutableArray<Outputs.FilterTrackSelectionResponse> tracks,
 
             string type)
         {

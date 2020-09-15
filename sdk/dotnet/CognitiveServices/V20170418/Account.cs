@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// The identity of Cognitive Services account.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Kind of the resource.
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418
         /// Properties of Cognitive Services account.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CognitiveServicesAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CognitiveServicesAccountPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of Cognitive Services account.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.

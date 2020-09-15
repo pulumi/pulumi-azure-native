@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Cdn.V20190415
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         /// </summary>
-        public readonly Outputs.SkuResponseResult Sku;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Cdn.V20190415
 
             string resourceState,
 
-            Outputs.SkuResponseResult sku,
+            Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

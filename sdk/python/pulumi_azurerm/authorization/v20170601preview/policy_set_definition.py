@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 policy_definitions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -36,7 +36,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[Mapping[str, Any]] metadata: The policy set definition metadata.
         :param pulumi.Input[Mapping[str, Any]] parameters: The policy set definition parameters that can be used in policy definition references.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
@@ -138,7 +138,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> pulumi.Output[List['outputs.PolicyDefinitionReferenceResponse']]:
+    def policy_definitions(self) -> pulumi.Output[Sequence['outputs.PolicyDefinitionReferenceResponse']]:
         """
         An array of policy definition references.
         """

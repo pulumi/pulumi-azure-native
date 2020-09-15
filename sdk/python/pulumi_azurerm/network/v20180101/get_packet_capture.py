@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetPacketCaptureResult:
     Information about packet capture session.
     """
     def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None, type=None):
-        if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
-            raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
+        if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, int):
+            raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a int")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
@@ -42,11 +42,11 @@ class GetPacketCaptureResult:
         if target and not isinstance(target, str):
             raise TypeError("Expected argument 'target' to be a str")
         pulumi.set(__self__, "target", target)
-        if time_limit_in_seconds and not isinstance(time_limit_in_seconds, float):
-            raise TypeError("Expected argument 'time_limit_in_seconds' to be a float")
+        if time_limit_in_seconds and not isinstance(time_limit_in_seconds, int):
+            raise TypeError("Expected argument 'time_limit_in_seconds' to be a int")
         pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
-        if total_bytes_per_session and not isinstance(total_bytes_per_session, float):
-            raise TypeError("Expected argument 'total_bytes_per_session' to be a float")
+        if total_bytes_per_session and not isinstance(total_bytes_per_session, int):
+            raise TypeError("Expected argument 'total_bytes_per_session' to be a int")
         pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -54,7 +54,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="bytesToCapturePerPacket")
-    def bytes_to_capture_per_packet(self) -> Optional[float]:
+    def bytes_to_capture_per_packet(self) -> Optional[int]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
@@ -67,7 +67,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[List['outputs.PacketCaptureFilterResponse']]:
+    def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterResponse']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -104,7 +104,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="timeLimitInSeconds")
-    def time_limit_in_seconds(self) -> Optional[float]:
+    def time_limit_in_seconds(self) -> Optional[int]:
         """
         Maximum duration of the capture session in seconds.
         """
@@ -112,7 +112,7 @@ class GetPacketCaptureResult:
 
     @property
     @pulumi.getter(name="totalBytesPerSession")
-    def total_bytes_per_session(self) -> Optional[float]:
+    def total_bytes_per_session(self) -> Optional[int]:
         """
         Maximum size of the capture output.
         """

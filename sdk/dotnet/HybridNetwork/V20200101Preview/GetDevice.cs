@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The reference to the azure stack edge device.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? AzureStackEdge;
+        public readonly Outputs.SubResourceResponse? AzureStackEdge;
         /// <summary>
         /// The type of the hybrid network device.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
         /// <summary>
         /// The list of virtual network functions deployed on the hybrid network device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualNetworkFunctions;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualNetworkFunctions;
 
         [OutputConstructor]
         private GetDeviceResult(
-            Outputs.SubResourceResponseResult? azureStackEdge,
+            Outputs.SubResourceResponse? azureStackEdge,
 
             string deviceType,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.HybridNetwork.V20200101Preview
 
             string type,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> virtualNetworkFunctions)
+            ImmutableArray<Outputs.SubResourceResponse> virtualNetworkFunctions)
         {
             AzureStackEdge = azureStackEdge;
             DeviceType = deviceType;

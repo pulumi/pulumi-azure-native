@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -87,7 +87,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter
-    def aliases(self) -> Optional[List['outputs.KpiAliasResponse']]:
+    def aliases(self) -> Optional[Sequence['outputs.KpiAliasResponse']]:
         """
         The aliases.
         """
@@ -151,7 +151,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter
-    def extracts(self) -> Optional[List['outputs.KpiExtractResponse']]:
+    def extracts(self) -> Optional[Sequence['outputs.KpiExtractResponse']]:
         """
         The KPI extracts.
         """
@@ -175,7 +175,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[List[str]]:
+    def group_by(self) -> Optional[Sequence[str]]:
         """
         the group by properties for the KPI.
         """
@@ -183,7 +183,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="groupByMetadata")
-    def group_by_metadata(self) -> List['outputs.KpiGroupByMetadataResponse']:
+    def group_by_metadata(self) -> Sequence['outputs.KpiGroupByMetadataResponse']:
         """
         The KPI GroupByMetadata.
         """
@@ -207,7 +207,7 @@ class GetKpiResult:
 
     @property
     @pulumi.getter(name="participantProfilesMetadata")
-    def participant_profiles_metadata(self) -> List['outputs.KpiParticipantProfilesMetadataResponse']:
+    def participant_profiles_metadata(self) -> Sequence['outputs.KpiParticipantProfilesMetadataResponse']:
         """
         The participant profiles.
         """

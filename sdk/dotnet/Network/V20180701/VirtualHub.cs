@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// list of all vnet connections with this VirtualHub.
         /// </summary>
         [Output("hubVirtualNetworkConnections")]
-        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult>> HubVirtualNetworkConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse>> HubVirtualNetworkConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// The VirtualWAN to which the VirtualHub belongs
         /// </summary>
         [Output("virtualWan")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualWan { get; private set; } = null!;
 
 
         /// <summary>

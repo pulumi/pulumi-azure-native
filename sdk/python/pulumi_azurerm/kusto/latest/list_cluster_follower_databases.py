@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,7 +27,7 @@ class ListClusterFollowerDatabasesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List['outputs.FollowerDatabaseDefinitionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.FollowerDatabaseDefinitionResponseResult']]:
         """
         The list of follower database result.
         """

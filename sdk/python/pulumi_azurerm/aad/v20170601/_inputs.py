@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -145,12 +145,12 @@ class LdapsSettingsArgs:
 @pulumi.input_type
 class NotificationSettingsArgs:
     def __init__(__self__, *,
-                 additional_recipients: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_dc_admins: Optional[pulumi.Input[str]] = None,
                  notify_global_admins: Optional[pulumi.Input[str]] = None):
         """
         Settings for notification
-        :param pulumi.Input[List[pulumi.Input[str]]] additional_recipients: The list of additional recipients
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The list of additional recipients
         :param pulumi.Input[str] notify_dc_admins: Should domain controller admins be notified
         :param pulumi.Input[str] notify_global_admins: Should global admins be notified
         """
@@ -163,14 +163,14 @@ class NotificationSettingsArgs:
 
     @property
     @pulumi.getter(name="additionalRecipients")
-    def additional_recipients(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of additional recipients
         """
         return pulumi.get(self, "additional_recipients")
 
     @additional_recipients.setter
-    def additional_recipients(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "additional_recipients", value)
 
     @property

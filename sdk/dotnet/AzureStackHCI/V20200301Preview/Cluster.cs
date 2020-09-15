@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.AzureStackHCI.V20200301Preview
         /// Properties reported by cluster agent.
         /// </summary>
         [Output("reportedProperties")]
-        public Output<Outputs.ClusterReportedPropertiesResponseResult?> ReportedProperties { get; private set; } = null!;
+        public Output<Outputs.ClusterReportedPropertiesResponse?> ReportedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Status of the cluster agent.

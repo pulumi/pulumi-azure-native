@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -113,7 +113,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="childPolicies")
-    def child_policies(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def child_policies(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of references to Child Firewall Policies
         """
@@ -129,7 +129,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def firewalls(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def firewalls(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of references to Azure Firewalls that this Firewall Policy is associated with
         """
@@ -161,7 +161,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleGroups")
-    def rule_groups(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def rule_groups(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of references to FirewallPolicyRuleGroups
         """

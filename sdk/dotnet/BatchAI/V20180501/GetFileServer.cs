@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// <summary>
         /// Information about disks attached to File Server VM.
         /// </summary>
-        public readonly Outputs.DataDisksResponseResult? DataDisks;
+        public readonly Outputs.DataDisksResponse? DataDisks;
         /// <summary>
         /// File Server mount settings.
         /// </summary>
-        public readonly Outputs.MountSettingsResponseResult MountSettings;
+        public readonly Outputs.MountSettingsResponse MountSettings;
         /// <summary>
         /// The name of the resource.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// <summary>
         /// SSH configuration for accessing the File Server node.
         /// </summary>
-        public readonly Outputs.SshConfigurationResponseResult? SshConfiguration;
+        public readonly Outputs.SshConfigurationResponse? SshConfiguration;
         /// <summary>
         /// File Server virtual network subnet resource ID.
         /// </summary>
-        public readonly Outputs.ResourceIdResponseResult? Subnet;
+        public readonly Outputs.ResourceIdResponse? Subnet;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -90,9 +90,9 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         private GetFileServerResult(
             string creationTime,
 
-            Outputs.DataDisksResponseResult? dataDisks,
+            Outputs.DataDisksResponse? dataDisks,
 
-            Outputs.MountSettingsResponseResult mountSettings,
+            Outputs.MountSettingsResponse mountSettings,
 
             string name,
 
@@ -100,9 +100,9 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
 
             string provisioningStateTransitionTime,
 
-            Outputs.SshConfigurationResponseResult? sshConfiguration,
+            Outputs.SshConfigurationResponse? sshConfiguration,
 
-            Outputs.ResourceIdResponseResult? subnet,
+            Outputs.ResourceIdResponse? subnet,
 
             string type,
 

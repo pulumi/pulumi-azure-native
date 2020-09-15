@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -137,7 +137,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[List['outputs.ApplicationArtifactResponse']]:
+    def artifacts(self) -> pulumi.Output[Sequence['outputs.ApplicationArtifactResponse']]:
         """
         The collection of managed application artifacts.
         """
@@ -145,7 +145,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[List['outputs.ApplicationAuthorizationResponse']]:
+    def authorizations(self) -> pulumi.Output[Sequence['outputs.ApplicationAuthorizationResponse']]:
         """
         The  read-only authorizations property that is retrieved from the application package.
         """

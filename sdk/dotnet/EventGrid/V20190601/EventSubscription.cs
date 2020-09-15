@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// The DeadLetter destination of the event subscription.
         /// </summary>
         [Output("deadLetterDestination")]
-        public Output<Outputs.StorageBlobDeadLetterDestinationResponseResult?> DeadLetterDestination { get; private set; } = null!;
+        public Output<Outputs.StorageBlobDeadLetterDestinationResponse?> DeadLetterDestination { get; private set; } = null!;
 
         /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Output("destination")]
-        public Output<Union<Outputs.EventHubEventSubscriptionDestinationResponseResult, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponseResult, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponseResult, Union<Outputs.StorageQueueEventSubscriptionDestinationResponseResult, Outputs.WebHookEventSubscriptionDestinationResponseResult>>>>?> Destination { get; private set; } = null!;
+        public Output<Union<Outputs.EventHubEventSubscriptionDestinationResponse, Union<Outputs.HybridConnectionEventSubscriptionDestinationResponse, Union<Outputs.ServiceBusQueueEventSubscriptionDestinationResponse, Union<Outputs.StorageQueueEventSubscriptionDestinationResponse, Outputs.WebHookEventSubscriptionDestinationResponse>>>>?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Expiration time of the event subscription.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// Information about the filter for the event subscription.
         /// </summary>
         [Output("filter")]
-        public Output<Outputs.EventSubscriptionFilterResponseResult?> Filter { get; private set; } = null!;
+        public Output<Outputs.EventSubscriptionFilterResponse?> Filter { get; private set; } = null!;
 
         /// <summary>
         /// List of user defined labels.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
         /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
         [Output("retryPolicy")]
-        public Output<Outputs.RetryPolicyResponseResult?> RetryPolicy { get; private set; } = null!;
+        public Output<Outputs.RetryPolicyResponse?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Name of the topic of the event subscription.

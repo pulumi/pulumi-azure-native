@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -138,11 +138,11 @@ class EncryptionSettingsCollectionResponse(dict):
     """
     def __init__(__self__, *,
                  enabled: bool,
-                 encryption_settings: Optional[List['outputs.EncryptionSettingsElementResponse']] = None):
+                 encryption_settings: Optional[Sequence['outputs.EncryptionSettingsElementResponse']] = None):
         """
         Encryption settings for disk or snapshot
         :param bool enabled: Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        :param List['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
+        :param Sequence['EncryptionSettingsElementResponseArgs'] encryption_settings: A collection of encryption settings, one for each disk volume.
         """
         pulumi.set(__self__, "enabled", enabled)
         if encryption_settings is not None:
@@ -158,7 +158,7 @@ class EncryptionSettingsCollectionResponse(dict):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[List['outputs.EncryptionSettingsElementResponse']]:
+    def encryption_settings(self) -> Optional[Sequence['outputs.EncryptionSettingsElementResponse']]:
         """
         A collection of encryption settings, one for each disk volume.
         """
@@ -213,11 +213,11 @@ class ImageDiskReferenceResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 lun: Optional[float] = None):
+                 lun: Optional[int] = None):
         """
         The source image used for creating the disk.
         :param str id: A relative uri containing either a Platform Image Repository or user image reference.
-        :param float lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+        :param int lun: If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """
         pulumi.set(__self__, "id", id)
         if lun is not None:
@@ -233,7 +233,7 @@ class ImageDiskReferenceResponse(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[float]:
+    def lun(self) -> Optional[int]:
         """
         If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
         """

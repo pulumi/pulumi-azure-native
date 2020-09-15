@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -82,16 +82,16 @@ class RecommendedIndexResponse(dict):
     """
     def __init__(__self__, *,
                  action: str,
-                 columns: List[str],
+                 columns: Sequence[str],
                  created: str,
-                 estimated_impact: List['outputs.OperationImpactResponse'],
+                 estimated_impact: Sequence['outputs.OperationImpactResponse'],
                  id: str,
-                 included_columns: List[str],
+                 included_columns: Sequence[str],
                  index_script: str,
                  index_type: str,
                  last_modified: str,
                  name: str,
-                 reported_impact: List['outputs.OperationImpactResponse'],
+                 reported_impact: Sequence['outputs.OperationImpactResponse'],
                  schema: str,
                  state: str,
                  table: str,
@@ -99,16 +99,16 @@ class RecommendedIndexResponse(dict):
         """
         Represents a database recommended index.
         :param str action: The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
-        :param List[str] columns: Columns over which to build index
+        :param Sequence[str] columns: Columns over which to build index
         :param str created: The UTC datetime showing when this resource was created (ISO8601 format).
-        :param List['OperationImpactResponseArgs'] estimated_impact: The estimated impact of doing recommended index action.
+        :param Sequence['OperationImpactResponseArgs'] estimated_impact: The estimated impact of doing recommended index action.
         :param str id: Resource ID.
-        :param List[str] included_columns: The list of column names to be included in the index
+        :param Sequence[str] included_columns: The list of column names to be included in the index
         :param str index_script: The full build index script
         :param str index_type: The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
         :param str last_modified: The UTC datetime of when was this resource last changed (ISO8601 format).
         :param str name: Resource name.
-        :param List['OperationImpactResponseArgs'] reported_impact: The values reported after index action is complete.
+        :param Sequence['OperationImpactResponseArgs'] reported_impact: The values reported after index action is complete.
         :param str schema: The schema where table to build index over resides
         :param str state: The current recommendation state.
         :param str table: The table on which to build index.
@@ -140,7 +140,7 @@ class RecommendedIndexResponse(dict):
 
     @property
     @pulumi.getter
-    def columns(self) -> List[str]:
+    def columns(self) -> Sequence[str]:
         """
         Columns over which to build index
         """
@@ -156,7 +156,7 @@ class RecommendedIndexResponse(dict):
 
     @property
     @pulumi.getter(name="estimatedImpact")
-    def estimated_impact(self) -> List['outputs.OperationImpactResponse']:
+    def estimated_impact(self) -> Sequence['outputs.OperationImpactResponse']:
         """
         The estimated impact of doing recommended index action.
         """
@@ -172,7 +172,7 @@ class RecommendedIndexResponse(dict):
 
     @property
     @pulumi.getter(name="includedColumns")
-    def included_columns(self) -> List[str]:
+    def included_columns(self) -> Sequence[str]:
         """
         The list of column names to be included in the index
         """
@@ -212,7 +212,7 @@ class RecommendedIndexResponse(dict):
 
     @property
     @pulumi.getter(name="reportedImpact")
-    def reported_impact(self) -> List['outputs.OperationImpactResponse']:
+    def reported_impact(self) -> Sequence['outputs.OperationImpactResponse']:
         """
         The values reported after index action is complete.
         """
@@ -278,7 +278,7 @@ class ServiceTierAdvisorResponse(dict):
                  observation_period_start: str,
                  overall_recommendation_service_level_objective: str,
                  overall_recommendation_service_level_objective_id: str,
-                 service_level_objective_usage_metrics: List['outputs.SloUsageMetricResponse'],
+                 service_level_objective_usage_metrics: Sequence['outputs.SloUsageMetricResponse'],
                  type: str,
                  usage_based_recommendation_service_level_objective: str,
                  usage_based_recommendation_service_level_objective_id: str):
@@ -302,7 +302,7 @@ class ServiceTierAdvisorResponse(dict):
         :param str observation_period_start: The observation period start (ISO8601 format).
         :param str overall_recommendation_service_level_objective: Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
         :param str overall_recommendation_service_level_objective_id: Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
-        :param List['SloUsageMetricResponseArgs'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+        :param Sequence['SloUsageMetricResponseArgs'] service_level_objective_usage_metrics: Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
         :param str type: Resource type.
         :param str usage_based_recommendation_service_level_objective: Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
         :param str usage_based_recommendation_service_level_objective_id: Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
@@ -476,7 +476,7 @@ class ServiceTierAdvisorResponse(dict):
 
     @property
     @pulumi.getter(name="serviceLevelObjectiveUsageMetrics")
-    def service_level_objective_usage_metrics(self) -> List['outputs.SloUsageMetricResponse']:
+    def service_level_objective_usage_metrics(self) -> Sequence['outputs.SloUsageMetricResponse']:
         """
         Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
         """

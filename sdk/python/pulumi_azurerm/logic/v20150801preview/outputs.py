@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -699,7 +699,7 @@ class AS2ValidationSettingsResponse(dict):
                  compress_message: Optional[bool] = None,
                  encrypt_message: Optional[bool] = None,
                  encryption_algorithm: Optional[str] = None,
-                 interchange_duplicates_validity_days: Optional[float] = None,
+                 interchange_duplicates_validity_days: Optional[int] = None,
                  override_message_properties: Optional[bool] = None,
                  sign_message: Optional[bool] = None):
         """
@@ -709,7 +709,7 @@ class AS2ValidationSettingsResponse(dict):
         :param bool compress_message: The value indicating whether the message has to be compressed.
         :param bool encrypt_message: The value indicating whether the message has to be encrypted.
         :param str encryption_algorithm: The encryption algorithm.
-        :param float interchange_duplicates_validity_days: The number of days to look back for duplicate interchange.
+        :param int interchange_duplicates_validity_days: The number of days to look back for duplicate interchange.
         :param bool override_message_properties: The value indicating whether to override incoming message properties with those in agreement.
         :param bool sign_message: The value indicating whether the message has to be signed.
         """
@@ -782,7 +782,7 @@ class AS2ValidationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeDuplicatesValidityDays")
-    def interchange_duplicates_validity_days(self) -> Optional[float]:
+    def interchange_duplicates_validity_days(self) -> Optional[int]:
         """
         The number of days to look back for duplicate interchange.
         """
@@ -857,16 +857,16 @@ class AgreementContentResponse(dict):
 @pulumi.output_type
 class B2BPartnerContentResponse(dict):
     def __init__(__self__, *,
-                 business_identities: Optional[List['outputs.BusinessIdentityResponse']] = None):
+                 business_identities: Optional[Sequence['outputs.BusinessIdentityResponse']] = None):
         """
-        :param List['BusinessIdentityResponseArgs'] business_identities: The list of partner business identities.
+        :param Sequence['BusinessIdentityResponseArgs'] business_identities: The list of partner business identities.
         """
         if business_identities is not None:
             pulumi.set(__self__, "business_identities", business_identities)
 
     @property
     @pulumi.getter(name="businessIdentities")
-    def business_identities(self) -> Optional[List['outputs.BusinessIdentityResponse']]:
+    def business_identities(self) -> Optional[Sequence['outputs.BusinessIdentityResponse']]:
         """
         The list of partner business identities.
         """
@@ -913,10 +913,10 @@ class BusinessIdentityResponse(dict):
 @pulumi.output_type
 class EdifactAcknowledgementSettingsResponse(dict):
     def __init__(__self__, *,
-                 acknowledgement_control_number_lower_bound: Optional[float] = None,
+                 acknowledgement_control_number_lower_bound: Optional[int] = None,
                  acknowledgement_control_number_prefix: Optional[str] = None,
                  acknowledgement_control_number_suffix: Optional[str] = None,
-                 acknowledgement_control_number_upper_bound: Optional[float] = None,
+                 acknowledgement_control_number_upper_bound: Optional[int] = None,
                  batch_functional_acknowledgements: Optional[bool] = None,
                  batch_technical_acknowledgements: Optional[bool] = None,
                  need_functional_acknowledgement: Optional[bool] = None,
@@ -925,10 +925,10 @@ class EdifactAcknowledgementSettingsResponse(dict):
                  rollover_acknowledgement_control_number: Optional[bool] = None,
                  send_synchronous_acknowledgement: Optional[bool] = None):
         """
-        :param float acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
+        :param int acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
         :param str acknowledgement_control_number_prefix: The acknowledgement control number prefix.
         :param str acknowledgement_control_number_suffix: The acknowledgement control number suffix.
-        :param float acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
+        :param int acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
         :param bool batch_functional_acknowledgements: The value indicating whether to batch functional acknowledgements.
         :param bool batch_technical_acknowledgements: The value indicating whether to batch the technical acknowledgements.
         :param bool need_functional_acknowledgement: The value indicating whether functional acknowledgement is needed.
@@ -962,7 +962,7 @@ class EdifactAcknowledgementSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
-    def acknowledgement_control_number_lower_bound(self) -> Optional[float]:
+    def acknowledgement_control_number_lower_bound(self) -> Optional[int]:
         """
         The acknowledgement control number lower bound.
         """
@@ -986,7 +986,7 @@ class EdifactAcknowledgementSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberUpperBound")
-    def acknowledgement_control_number_upper_bound(self) -> Optional[float]:
+    def acknowledgement_control_number_upper_bound(self) -> Optional[int]:
         """
         The acknowledgement control number upper bound.
         """
@@ -1089,29 +1089,29 @@ class EdifactAgreementContentResponse(dict):
 @pulumi.output_type
 class EdifactDelimiterOverrideResponse(dict):
     def __init__(__self__, *,
-                 component_separator: Optional[float] = None,
-                 data_element_separator: Optional[float] = None,
+                 component_separator: Optional[int] = None,
+                 data_element_separator: Optional[int] = None,
                  decimal_point_indicator: Optional[str] = None,
                  message_association_assigned_code: Optional[str] = None,
                  message_id: Optional[str] = None,
                  message_release: Optional[str] = None,
                  message_version: Optional[str] = None,
-                 release_indicator: Optional[float] = None,
-                 repetition_separator: Optional[float] = None,
-                 segment_terminator: Optional[float] = None,
+                 release_indicator: Optional[int] = None,
+                 repetition_separator: Optional[int] = None,
+                 segment_terminator: Optional[int] = None,
                  segment_terminator_suffix: Optional[str] = None,
                  target_namespace: Optional[str] = None):
         """
-        :param float component_separator: The component separator.
-        :param float data_element_separator: The data element separator.
+        :param int component_separator: The component separator.
+        :param int data_element_separator: The data element separator.
         :param str decimal_point_indicator: The decimal point indicator.
         :param str message_association_assigned_code: The message association assigned code.
         :param str message_id: The message id.
         :param str message_release: The message release version.
         :param str message_version: The message version.
-        :param float release_indicator: The release indicator.
-        :param float repetition_separator: The repetition separator.
-        :param float segment_terminator: The segment terminator.
+        :param int release_indicator: The release indicator.
+        :param int repetition_separator: The repetition separator.
+        :param int segment_terminator: The segment terminator.
         :param str segment_terminator_suffix: The segment terminator suffix.
         :param str target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
@@ -1142,7 +1142,7 @@ class EdifactDelimiterOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="componentSeparator")
-    def component_separator(self) -> Optional[float]:
+    def component_separator(self) -> Optional[int]:
         """
         The component separator.
         """
@@ -1150,7 +1150,7 @@ class EdifactDelimiterOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="dataElementSeparator")
-    def data_element_separator(self) -> Optional[float]:
+    def data_element_separator(self) -> Optional[int]:
         """
         The data element separator.
         """
@@ -1198,7 +1198,7 @@ class EdifactDelimiterOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="releaseIndicator")
-    def release_indicator(self) -> Optional[float]:
+    def release_indicator(self) -> Optional[int]:
         """
         The release indicator.
         """
@@ -1206,7 +1206,7 @@ class EdifactDelimiterOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="repetitionSeparator")
-    def repetition_separator(self) -> Optional[float]:
+    def repetition_separator(self) -> Optional[int]:
         """
         The repetition separator.
         """
@@ -1214,7 +1214,7 @@ class EdifactDelimiterOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="segmentTerminator")
-    def segment_terminator(self) -> Optional[float]:
+    def segment_terminator(self) -> Optional[int]:
         """
         The segment terminator.
         """
@@ -1445,17 +1445,17 @@ class EdifactEnvelopeSettingsResponse(dict):
                  group_application_sender_id: Optional[str] = None,
                  group_application_sender_qualifier: Optional[str] = None,
                  group_association_assigned_code: Optional[str] = None,
-                 group_control_number_lower_bound: Optional[float] = None,
+                 group_control_number_lower_bound: Optional[int] = None,
                  group_control_number_prefix: Optional[str] = None,
                  group_control_number_suffix: Optional[str] = None,
-                 group_control_number_upper_bound: Optional[float] = None,
+                 group_control_number_upper_bound: Optional[int] = None,
                  group_controlling_agency_code: Optional[str] = None,
                  group_message_release: Optional[str] = None,
                  group_message_version: Optional[str] = None,
-                 interchange_control_number_lower_bound: Optional[float] = None,
+                 interchange_control_number_lower_bound: Optional[int] = None,
                  interchange_control_number_prefix: Optional[str] = None,
                  interchange_control_number_suffix: Optional[str] = None,
-                 interchange_control_number_upper_bound: Optional[float] = None,
+                 interchange_control_number_upper_bound: Optional[int] = None,
                  is_test_interchange: Optional[bool] = None,
                  overwrite_existing_transaction_set_control_number: Optional[bool] = None,
                  processing_priority_code: Optional[str] = None,
@@ -1470,10 +1470,10 @@ class EdifactEnvelopeSettingsResponse(dict):
                  sender_internal_identification: Optional[str] = None,
                  sender_internal_sub_identification: Optional[str] = None,
                  sender_reverse_routing_address: Optional[str] = None,
-                 transaction_set_control_number_lower_bound: Optional[float] = None,
+                 transaction_set_control_number_lower_bound: Optional[int] = None,
                  transaction_set_control_number_prefix: Optional[str] = None,
                  transaction_set_control_number_suffix: Optional[str] = None,
-                 transaction_set_control_number_upper_bound: Optional[float] = None):
+                 transaction_set_control_number_upper_bound: Optional[int] = None):
         """
         :param str application_reference_id: The application reference id.
         :param bool apply_delimiter_string_advice: The value indicating whether to apply delimiter string advice.
@@ -1487,17 +1487,17 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param str group_application_sender_id: The group application sender id.
         :param str group_application_sender_qualifier: The group application sender qualifier.
         :param str group_association_assigned_code: The group association assigned code.
-        :param float group_control_number_lower_bound: The group control number lower bound.
+        :param int group_control_number_lower_bound: The group control number lower bound.
         :param str group_control_number_prefix: The group control number prefix.
         :param str group_control_number_suffix: The group control number suffix.
-        :param float group_control_number_upper_bound: The group control number upper bound.
+        :param int group_control_number_upper_bound: The group control number upper bound.
         :param str group_controlling_agency_code: The group controlling agency code.
         :param str group_message_release: The group message release.
         :param str group_message_version: The group message version.
-        :param float interchange_control_number_lower_bound: The interchange control number lower bound.
+        :param int interchange_control_number_lower_bound: The interchange control number lower bound.
         :param str interchange_control_number_prefix: The interchange control number prefix.
         :param str interchange_control_number_suffix: The interchange control number suffix.
-        :param float interchange_control_number_upper_bound: The interchange control number upper bound.
+        :param int interchange_control_number_upper_bound: The interchange control number upper bound.
         :param bool is_test_interchange: The value indicating whether the message is a test interchange.
         :param bool overwrite_existing_transaction_set_control_number: The value indicating whether to overwrite existing transaction set control number.
         :param str processing_priority_code: The processing priority code.
@@ -1512,10 +1512,10 @@ class EdifactEnvelopeSettingsResponse(dict):
         :param str sender_internal_identification: The sender internal identification.
         :param str sender_internal_sub_identification: The sender internal sub identification.
         :param str sender_reverse_routing_address: The sender reverse routing address.
-        :param float transaction_set_control_number_lower_bound: The transaction set control number lower bound.
+        :param int transaction_set_control_number_lower_bound: The transaction set control number lower bound.
         :param str transaction_set_control_number_prefix: The transaction set control number prefix.
         :param str transaction_set_control_number_suffix: The transaction set control number suffix.
-        :param float transaction_set_control_number_upper_bound: The transaction set control number upper bound.
+        :param int transaction_set_control_number_upper_bound: The transaction set control number upper bound.
         """
         if application_reference_id is not None:
             pulumi.set(__self__, "application_reference_id", application_reference_id)
@@ -1698,7 +1698,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberLowerBound")
-    def group_control_number_lower_bound(self) -> Optional[float]:
+    def group_control_number_lower_bound(self) -> Optional[int]:
         """
         The group control number lower bound.
         """
@@ -1722,7 +1722,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberUpperBound")
-    def group_control_number_upper_bound(self) -> Optional[float]:
+    def group_control_number_upper_bound(self) -> Optional[int]:
         """
         The group control number upper bound.
         """
@@ -1754,7 +1754,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberLowerBound")
-    def interchange_control_number_lower_bound(self) -> Optional[float]:
+    def interchange_control_number_lower_bound(self) -> Optional[int]:
         """
         The interchange control number lower bound.
         """
@@ -1778,7 +1778,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberUpperBound")
-    def interchange_control_number_upper_bound(self) -> Optional[float]:
+    def interchange_control_number_upper_bound(self) -> Optional[int]:
         """
         The interchange control number upper bound.
         """
@@ -1898,7 +1898,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberLowerBound")
-    def transaction_set_control_number_lower_bound(self) -> Optional[float]:
+    def transaction_set_control_number_lower_bound(self) -> Optional[int]:
         """
         The transaction set control number lower bound.
         """
@@ -1922,7 +1922,7 @@ class EdifactEnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberUpperBound")
-    def transaction_set_control_number_upper_bound(self) -> Optional[float]:
+    def transaction_set_control_number_upper_bound(self) -> Optional[int]:
         """
         The transaction set control number upper bound.
         """
@@ -1937,25 +1937,25 @@ class EdifactFramingSettingsResponse(dict):
     def __init__(__self__, *,
                  character_encoding: Optional[str] = None,
                  character_set: Optional[str] = None,
-                 component_separator: Optional[float] = None,
-                 data_element_separator: Optional[float] = None,
+                 component_separator: Optional[int] = None,
+                 data_element_separator: Optional[int] = None,
                  decimal_point_indicator: Optional[str] = None,
-                 protocol_version: Optional[float] = None,
-                 release_indicator: Optional[float] = None,
-                 repetition_separator: Optional[float] = None,
-                 segment_terminator: Optional[float] = None,
+                 protocol_version: Optional[int] = None,
+                 release_indicator: Optional[int] = None,
+                 repetition_separator: Optional[int] = None,
+                 segment_terminator: Optional[int] = None,
                  segment_terminator_suffix: Optional[str] = None,
                  service_code_list_directory_version: Optional[str] = None):
         """
         :param str character_encoding: The character encoding.
         :param str character_set: The EDIFACT frame setting characterSet.
-        :param float component_separator: The component separator.
-        :param float data_element_separator: The data element separator.
+        :param int component_separator: The component separator.
+        :param int data_element_separator: The data element separator.
         :param str decimal_point_indicator: The EDIFACT frame setting decimal indicator.
-        :param float protocol_version: The protocol version.
-        :param float release_indicator: The release indicator.
-        :param float repetition_separator: The repetition separator.
-        :param float segment_terminator: The segment terminator.
+        :param int protocol_version: The protocol version.
+        :param int release_indicator: The release indicator.
+        :param int repetition_separator: The repetition separator.
+        :param int segment_terminator: The segment terminator.
         :param str segment_terminator_suffix: The EDIFACT frame setting segment terminator suffix.
         :param str service_code_list_directory_version: The service code list directory version.
         """
@@ -2000,7 +2000,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="componentSeparator")
-    def component_separator(self) -> Optional[float]:
+    def component_separator(self) -> Optional[int]:
         """
         The component separator.
         """
@@ -2008,7 +2008,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="dataElementSeparator")
-    def data_element_separator(self) -> Optional[float]:
+    def data_element_separator(self) -> Optional[int]:
         """
         The data element separator.
         """
@@ -2024,7 +2024,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="protocolVersion")
-    def protocol_version(self) -> Optional[float]:
+    def protocol_version(self) -> Optional[int]:
         """
         The protocol version.
         """
@@ -2032,7 +2032,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="releaseIndicator")
-    def release_indicator(self) -> Optional[float]:
+    def release_indicator(self) -> Optional[int]:
         """
         The release indicator.
         """
@@ -2040,7 +2040,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="repetitionSeparator")
-    def repetition_separator(self) -> Optional[float]:
+    def repetition_separator(self) -> Optional[int]:
         """
         The repetition separator.
         """
@@ -2048,7 +2048,7 @@ class EdifactFramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="segmentTerminator")
-    def segment_terminator(self) -> Optional[float]:
+    def segment_terminator(self) -> Optional[int]:
         """
         The segment terminator.
         """
@@ -2238,27 +2238,27 @@ class EdifactProcessingSettingsResponse(dict):
 class EdifactProtocolSettingsResponse(dict):
     def __init__(__self__, *,
                  acknowledgement_settings: Optional['outputs.EdifactAcknowledgementSettingsResponse'] = None,
-                 edifact_delimiter_overrides: Optional[List['outputs.EdifactDelimiterOverrideResponse']] = None,
-                 envelope_overrides: Optional[List['outputs.EdifactEnvelopeOverrideResponse']] = None,
+                 edifact_delimiter_overrides: Optional[Sequence['outputs.EdifactDelimiterOverrideResponse']] = None,
+                 envelope_overrides: Optional[Sequence['outputs.EdifactEnvelopeOverrideResponse']] = None,
                  envelope_settings: Optional['outputs.EdifactEnvelopeSettingsResponse'] = None,
                  framing_settings: Optional['outputs.EdifactFramingSettingsResponse'] = None,
                  message_filter: Optional['outputs.EdifactMessageFilterResponse'] = None,
-                 message_filter_list: Optional[List['outputs.EdifactMessageIdentifierResponse']] = None,
+                 message_filter_list: Optional[Sequence['outputs.EdifactMessageIdentifierResponse']] = None,
                  processing_settings: Optional['outputs.EdifactProcessingSettingsResponse'] = None,
-                 schema_references: Optional[List['outputs.EdifactSchemaReferenceResponse']] = None,
-                 validation_overrides: Optional[List['outputs.EdifactValidationOverrideResponse']] = None,
+                 schema_references: Optional[Sequence['outputs.EdifactSchemaReferenceResponse']] = None,
+                 validation_overrides: Optional[Sequence['outputs.EdifactValidationOverrideResponse']] = None,
                  validation_settings: Optional['outputs.EdifactValidationSettingsResponse'] = None):
         """
         :param 'EdifactAcknowledgementSettingsResponseArgs' acknowledgement_settings: The EDIFACT acknowledgement settings.
-        :param List['EdifactDelimiterOverrideResponseArgs'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
-        :param List['EdifactEnvelopeOverrideResponseArgs'] envelope_overrides: The EDIFACT envelope override settings.
+        :param Sequence['EdifactDelimiterOverrideResponseArgs'] edifact_delimiter_overrides: The EDIFACT delimiter override settings.
+        :param Sequence['EdifactEnvelopeOverrideResponseArgs'] envelope_overrides: The EDIFACT envelope override settings.
         :param 'EdifactEnvelopeSettingsResponseArgs' envelope_settings: The EDIFACT envelope settings.
         :param 'EdifactFramingSettingsResponseArgs' framing_settings: The EDIFACT framing settings.
         :param 'EdifactMessageFilterResponseArgs' message_filter: The EDIFACT message filter.
-        :param List['EdifactMessageIdentifierResponseArgs'] message_filter_list: The EDIFACT message filter list.
+        :param Sequence['EdifactMessageIdentifierResponseArgs'] message_filter_list: The EDIFACT message filter list.
         :param 'EdifactProcessingSettingsResponseArgs' processing_settings: The EDIFACT processing Settings.
-        :param List['EdifactSchemaReferenceResponseArgs'] schema_references: The EDIFACT schema references.
-        :param List['EdifactValidationOverrideResponseArgs'] validation_overrides: The EDIFACT validation override settings.
+        :param Sequence['EdifactSchemaReferenceResponseArgs'] schema_references: The EDIFACT schema references.
+        :param Sequence['EdifactValidationOverrideResponseArgs'] validation_overrides: The EDIFACT validation override settings.
         :param 'EdifactValidationSettingsResponseArgs' validation_settings: The EDIFACT validation settings.
         """
         if acknowledgement_settings is not None:
@@ -2294,7 +2294,7 @@ class EdifactProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="edifactDelimiterOverrides")
-    def edifact_delimiter_overrides(self) -> Optional[List['outputs.EdifactDelimiterOverrideResponse']]:
+    def edifact_delimiter_overrides(self) -> Optional[Sequence['outputs.EdifactDelimiterOverrideResponse']]:
         """
         The EDIFACT delimiter override settings.
         """
@@ -2302,7 +2302,7 @@ class EdifactProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="envelopeOverrides")
-    def envelope_overrides(self) -> Optional[List['outputs.EdifactEnvelopeOverrideResponse']]:
+    def envelope_overrides(self) -> Optional[Sequence['outputs.EdifactEnvelopeOverrideResponse']]:
         """
         The EDIFACT envelope override settings.
         """
@@ -2334,7 +2334,7 @@ class EdifactProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="messageFilterList")
-    def message_filter_list(self) -> Optional[List['outputs.EdifactMessageIdentifierResponse']]:
+    def message_filter_list(self) -> Optional[Sequence['outputs.EdifactMessageIdentifierResponse']]:
         """
         The EDIFACT message filter list.
         """
@@ -2350,7 +2350,7 @@ class EdifactProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="schemaReferences")
-    def schema_references(self) -> Optional[List['outputs.EdifactSchemaReferenceResponse']]:
+    def schema_references(self) -> Optional[Sequence['outputs.EdifactSchemaReferenceResponse']]:
         """
         The EDIFACT schema references.
         """
@@ -2358,7 +2358,7 @@ class EdifactProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="validationOverrides")
-    def validation_overrides(self) -> Optional[List['outputs.EdifactValidationOverrideResponse']]:
+    def validation_overrides(self) -> Optional[Sequence['outputs.EdifactValidationOverrideResponse']]:
         """
         The EDIFACT validation override settings.
         """
@@ -2571,7 +2571,7 @@ class EdifactValidationSettingsResponse(dict):
                  check_duplicate_group_control_number: Optional[bool] = None,
                  check_duplicate_interchange_control_number: Optional[bool] = None,
                  check_duplicate_transaction_set_control_number: Optional[bool] = None,
-                 interchange_control_number_validity_days: Optional[float] = None,
+                 interchange_control_number_validity_days: Optional[int] = None,
                  trailing_separator_policy: Optional[str] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[bool] = None,
                  validate_character_set: Optional[bool] = None,
@@ -2582,7 +2582,7 @@ class EdifactValidationSettingsResponse(dict):
         :param bool check_duplicate_group_control_number: The value indicating whether to check for duplicate group control number.
         :param bool check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.
         :param bool check_duplicate_transaction_set_control_number: The value indicating whether to check for duplicate transaction set control number.
-        :param float interchange_control_number_validity_days: The validity period of interchange control number.
+        :param int interchange_control_number_validity_days: The validity period of interchange control number.
         :param str trailing_separator_policy: The trailing separator policy.
         :param bool trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param bool validate_character_set: The value indicating whether to validate character set in the message.
@@ -2644,7 +2644,7 @@ class EdifactValidationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberValidityDays")
-    def interchange_control_number_validity_days(self) -> Optional[float]:
+    def interchange_control_number_validity_days(self) -> Optional[int]:
         """
         The validity period of interchange control number.
         """
@@ -2732,13 +2732,13 @@ class IntegrationAccountContentHashResponse(dict):
 class IntegrationAccountContentLinkResponse(dict):
     def __init__(__self__, *,
                  content_hash: Optional['outputs.IntegrationAccountContentHashResponse'] = None,
-                 content_size: Optional[float] = None,
+                 content_size: Optional[int] = None,
                  content_version: Optional[str] = None,
                  metadata: Optional[Mapping[str, Any]] = None,
                  uri: Optional[str] = None):
         """
         :param 'IntegrationAccountContentHashResponseArgs' content_hash: The content hash.
-        :param float content_size: The content size.
+        :param int content_size: The content size.
         :param str content_version: The content version.
         :param Mapping[str, Any] metadata: The metadata.
         :param str uri: The content link URI.
@@ -2764,7 +2764,7 @@ class IntegrationAccountContentLinkResponse(dict):
 
     @property
     @pulumi.getter(name="contentSize")
-    def content_size(self) -> Optional[float]:
+    def content_size(self) -> Optional[int]:
         """
         The content size.
         """
@@ -2939,10 +2939,10 @@ class PartnerContentResponse(dict):
 @pulumi.output_type
 class X12AcknowledgementSettingsResponse(dict):
     def __init__(__self__, *,
-                 acknowledgement_control_number_lower_bound: Optional[float] = None,
+                 acknowledgement_control_number_lower_bound: Optional[int] = None,
                  acknowledgement_control_number_prefix: Optional[str] = None,
                  acknowledgement_control_number_suffix: Optional[str] = None,
-                 acknowledgement_control_number_upper_bound: Optional[float] = None,
+                 acknowledgement_control_number_upper_bound: Optional[int] = None,
                  batch_functional_acknowledgements: Optional[bool] = None,
                  batch_implementation_acknowledgements: Optional[bool] = None,
                  batch_technical_acknowledgements: Optional[bool] = None,
@@ -2955,10 +2955,10 @@ class X12AcknowledgementSettingsResponse(dict):
                  rollover_acknowledgement_control_number: Optional[bool] = None,
                  send_synchronous_acknowledgement: Optional[bool] = None):
         """
-        :param float acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
+        :param int acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
         :param str acknowledgement_control_number_prefix: The acknowledgement control number prefix.
         :param str acknowledgement_control_number_suffix: The acknowledgement control number suffix.
-        :param float acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
+        :param int acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
         :param bool batch_functional_acknowledgements: The value indicating whether to batch functional acknowledgements.
         :param bool batch_implementation_acknowledgements: The value indicating whether to batch implementation acknowledgements.
         :param bool batch_technical_acknowledgements: The value indicating whether to batch the technical acknowledgements.
@@ -3004,7 +3004,7 @@ class X12AcknowledgementSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
-    def acknowledgement_control_number_lower_bound(self) -> Optional[float]:
+    def acknowledgement_control_number_lower_bound(self) -> Optional[int]:
         """
         The acknowledgement control number lower bound.
         """
@@ -3028,7 +3028,7 @@ class X12AcknowledgementSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberUpperBound")
-    def acknowledgement_control_number_upper_bound(self) -> Optional[float]:
+    def acknowledgement_control_number_upper_bound(self) -> Optional[int]:
         """
         The acknowledgement control number upper bound.
         """
@@ -3163,23 +3163,23 @@ class X12AgreementContentResponse(dict):
 @pulumi.output_type
 class X12DelimiterOverridesResponse(dict):
     def __init__(__self__, *,
-                 component_separator: Optional[float] = None,
-                 data_element_separator: Optional[float] = None,
+                 component_separator: Optional[int] = None,
+                 data_element_separator: Optional[int] = None,
                  message_id: Optional[str] = None,
                  protocol_version: Optional[str] = None,
-                 replace_character: Optional[float] = None,
+                 replace_character: Optional[int] = None,
                  replace_separators_in_payload: Optional[bool] = None,
-                 segment_terminator: Optional[float] = None,
+                 segment_terminator: Optional[int] = None,
                  segment_terminator_suffix: Optional[str] = None,
                  target_namespace: Optional[str] = None):
         """
-        :param float component_separator: The component separator.
-        :param float data_element_separator: The data element separator.
+        :param int component_separator: The component separator.
+        :param int data_element_separator: The data element separator.
         :param str message_id: The message id.
         :param str protocol_version: The protocol version.
-        :param float replace_character: The replacement character.
+        :param int replace_character: The replacement character.
         :param bool replace_separators_in_payload: The value indicating whether to replace separators in payload.
-        :param float segment_terminator: The segment terminator.
+        :param int segment_terminator: The segment terminator.
         :param str segment_terminator_suffix: The segment terminator suffix.
         :param str target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
@@ -3204,7 +3204,7 @@ class X12DelimiterOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="componentSeparator")
-    def component_separator(self) -> Optional[float]:
+    def component_separator(self) -> Optional[int]:
         """
         The component separator.
         """
@@ -3212,7 +3212,7 @@ class X12DelimiterOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="dataElementSeparator")
-    def data_element_separator(self) -> Optional[float]:
+    def data_element_separator(self) -> Optional[int]:
         """
         The data element separator.
         """
@@ -3236,7 +3236,7 @@ class X12DelimiterOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="replaceCharacter")
-    def replace_character(self) -> Optional[float]:
+    def replace_character(self) -> Optional[int]:
         """
         The replacement character.
         """
@@ -3252,7 +3252,7 @@ class X12DelimiterOverridesResponse(dict):
 
     @property
     @pulumi.getter(name="segmentTerminator")
-    def segment_terminator(self) -> Optional[float]:
+    def segment_terminator(self) -> Optional[int]:
         """
         The segment terminator.
         """
@@ -3287,7 +3287,7 @@ class X12EnvelopeOverrideResponse(dict):
                  message_id: Optional[str] = None,
                  protocol_version: Optional[str] = None,
                  receiver_application_id: Optional[str] = None,
-                 responsible_agency_code: Optional[float] = None,
+                 responsible_agency_code: Optional[int] = None,
                  sender_application_id: Optional[str] = None,
                  target_namespace: Optional[str] = None,
                  time_format: Optional[str] = None):
@@ -3298,7 +3298,7 @@ class X12EnvelopeOverrideResponse(dict):
         :param str message_id: The message id on which this envelope settings has to be applied.
         :param str protocol_version: The protocol version on which this envelope settings has to be applied.
         :param str receiver_application_id: The receiver application id.
-        :param float responsible_agency_code: The responsible agency code.
+        :param int responsible_agency_code: The responsible agency code.
         :param str sender_application_id: The sender application id.
         :param str target_namespace: The target namespace on which this envelope settings has to be applied.
         :param str time_format: The time format.
@@ -3374,7 +3374,7 @@ class X12EnvelopeOverrideResponse(dict):
 
     @property
     @pulumi.getter(name="responsibleAgencyCode")
-    def responsible_agency_code(self) -> Optional[float]:
+    def responsible_agency_code(self) -> Optional[int]:
         """
         The responsible agency code.
         """
@@ -3411,53 +3411,53 @@ class X12EnvelopeOverrideResponse(dict):
 @pulumi.output_type
 class X12EnvelopeSettingsResponse(dict):
     def __init__(__self__, *,
-                 control_standards_id: Optional[float] = None,
+                 control_standards_id: Optional[int] = None,
                  control_version_number: Optional[str] = None,
                  enable_default_group_headers: Optional[bool] = None,
                  functional_group_id: Optional[str] = None,
-                 group_control_number_lower_bound: Optional[float] = None,
-                 group_control_number_upper_bound: Optional[float] = None,
+                 group_control_number_lower_bound: Optional[int] = None,
+                 group_control_number_upper_bound: Optional[int] = None,
                  group_header_agency_code: Optional[str] = None,
                  group_header_date_format: Optional[str] = None,
                  group_header_time_format: Optional[str] = None,
                  group_header_version: Optional[str] = None,
-                 interchange_control_number_lower_bound: Optional[float] = None,
-                 interchange_control_number_upper_bound: Optional[float] = None,
+                 interchange_control_number_lower_bound: Optional[int] = None,
+                 interchange_control_number_upper_bound: Optional[int] = None,
                  overwrite_existing_transaction_set_control_number: Optional[bool] = None,
                  receiver_application_id: Optional[str] = None,
                  rollover_group_control_number: Optional[bool] = None,
                  rollover_interchange_control_number: Optional[bool] = None,
                  rollover_transaction_set_control_number: Optional[bool] = None,
                  sender_application_id: Optional[str] = None,
-                 transaction_set_control_number_lower_bound: Optional[float] = None,
+                 transaction_set_control_number_lower_bound: Optional[int] = None,
                  transaction_set_control_number_prefix: Optional[str] = None,
                  transaction_set_control_number_suffix: Optional[str] = None,
-                 transaction_set_control_number_upper_bound: Optional[float] = None,
+                 transaction_set_control_number_upper_bound: Optional[int] = None,
                  usage_indicator: Optional[str] = None,
                  use_control_standards_id_as_repetition_character: Optional[bool] = None):
         """
-        :param float control_standards_id: The controls standards id.
+        :param int control_standards_id: The controls standards id.
         :param str control_version_number: The control version number.
         :param bool enable_default_group_headers: The value indicating whether to enable default group headers.
         :param str functional_group_id: The functional group id.
-        :param float group_control_number_lower_bound: The group control number lower bound.
-        :param float group_control_number_upper_bound: The group control number upper bound.
+        :param int group_control_number_lower_bound: The group control number lower bound.
+        :param int group_control_number_upper_bound: The group control number upper bound.
         :param str group_header_agency_code: The group header agency code.
         :param str group_header_date_format: The group header date format.
         :param str group_header_time_format: The group header time format.
         :param str group_header_version: The group header version.
-        :param float interchange_control_number_lower_bound: The interchange  control number lower bound.
-        :param float interchange_control_number_upper_bound: The interchange  control number upper bound.
+        :param int interchange_control_number_lower_bound: The interchange  control number lower bound.
+        :param int interchange_control_number_upper_bound: The interchange  control number upper bound.
         :param bool overwrite_existing_transaction_set_control_number: The value indicating whether to overwrite existing transaction set control number.
         :param str receiver_application_id: The receiver application id.
         :param bool rollover_group_control_number: The value indicating whether to rollover group control number.
         :param bool rollover_interchange_control_number: The value indicating whether to rollover interchange control number.
         :param bool rollover_transaction_set_control_number: The value indicating whether to rollover transaction set control number.
         :param str sender_application_id: The sender application id.
-        :param float transaction_set_control_number_lower_bound: The transaction set control number lower bound.
+        :param int transaction_set_control_number_lower_bound: The transaction set control number lower bound.
         :param str transaction_set_control_number_prefix: The transaction set control number prefix.
         :param str transaction_set_control_number_suffix: The transaction set control number suffix.
-        :param float transaction_set_control_number_upper_bound: The transaction set control number upper bound.
+        :param int transaction_set_control_number_upper_bound: The transaction set control number upper bound.
         :param str usage_indicator: The usage indicator.
         :param bool use_control_standards_id_as_repetition_character: The value indicating whether to use control standards id as repetition character.
         """
@@ -3512,7 +3512,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="controlStandardsId")
-    def control_standards_id(self) -> Optional[float]:
+    def control_standards_id(self) -> Optional[int]:
         """
         The controls standards id.
         """
@@ -3544,7 +3544,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberLowerBound")
-    def group_control_number_lower_bound(self) -> Optional[float]:
+    def group_control_number_lower_bound(self) -> Optional[int]:
         """
         The group control number lower bound.
         """
@@ -3552,7 +3552,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="groupControlNumberUpperBound")
-    def group_control_number_upper_bound(self) -> Optional[float]:
+    def group_control_number_upper_bound(self) -> Optional[int]:
         """
         The group control number upper bound.
         """
@@ -3592,7 +3592,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberLowerBound")
-    def interchange_control_number_lower_bound(self) -> Optional[float]:
+    def interchange_control_number_lower_bound(self) -> Optional[int]:
         """
         The interchange  control number lower bound.
         """
@@ -3600,7 +3600,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberUpperBound")
-    def interchange_control_number_upper_bound(self) -> Optional[float]:
+    def interchange_control_number_upper_bound(self) -> Optional[int]:
         """
         The interchange  control number upper bound.
         """
@@ -3656,7 +3656,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberLowerBound")
-    def transaction_set_control_number_lower_bound(self) -> Optional[float]:
+    def transaction_set_control_number_lower_bound(self) -> Optional[int]:
         """
         The transaction set control number lower bound.
         """
@@ -3680,7 +3680,7 @@ class X12EnvelopeSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="transactionSetControlNumberUpperBound")
-    def transaction_set_control_number_upper_bound(self) -> Optional[float]:
+    def transaction_set_control_number_upper_bound(self) -> Optional[int]:
         """
         The transaction set control number upper bound.
         """
@@ -3710,19 +3710,19 @@ class X12EnvelopeSettingsResponse(dict):
 class X12FramingSettingsResponse(dict):
     def __init__(__self__, *,
                  character_set: Optional[str] = None,
-                 component_separator: Optional[float] = None,
-                 data_element_separator: Optional[float] = None,
-                 replace_character: Optional[float] = None,
+                 component_separator: Optional[int] = None,
+                 data_element_separator: Optional[int] = None,
+                 replace_character: Optional[int] = None,
                  replace_separators_in_payload: Optional[bool] = None,
-                 segment_terminator: Optional[float] = None,
+                 segment_terminator: Optional[int] = None,
                  segment_terminator_suffix: Optional[str] = None):
         """
         :param str character_set: The X12 character set.
-        :param float component_separator: The component separator.
-        :param float data_element_separator: The data element separator.
-        :param float replace_character: The replacement character.
+        :param int component_separator: The component separator.
+        :param int data_element_separator: The data element separator.
+        :param int replace_character: The replacement character.
         :param bool replace_separators_in_payload: The value indicating whether to replace separators in payload.
-        :param float segment_terminator: The segment terminator.
+        :param int segment_terminator: The segment terminator.
         :param str segment_terminator_suffix: The segment terminator suffix.
         """
         if character_set is not None:
@@ -3750,7 +3750,7 @@ class X12FramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="componentSeparator")
-    def component_separator(self) -> Optional[float]:
+    def component_separator(self) -> Optional[int]:
         """
         The component separator.
         """
@@ -3758,7 +3758,7 @@ class X12FramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="dataElementSeparator")
-    def data_element_separator(self) -> Optional[float]:
+    def data_element_separator(self) -> Optional[int]:
         """
         The data element separator.
         """
@@ -3766,7 +3766,7 @@ class X12FramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="replaceCharacter")
-    def replace_character(self) -> Optional[float]:
+    def replace_character(self) -> Optional[int]:
         """
         The replacement character.
         """
@@ -3782,7 +3782,7 @@ class X12FramingSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="segmentTerminator")
-    def segment_terminator(self) -> Optional[float]:
+    def segment_terminator(self) -> Optional[int]:
         """
         The segment terminator.
         """
@@ -3976,30 +3976,30 @@ class X12ProcessingSettingsResponse(dict):
 class X12ProtocolSettingsResponse(dict):
     def __init__(__self__, *,
                  acknowledgement_settings: Optional['outputs.X12AcknowledgementSettingsResponse'] = None,
-                 envelope_overrides: Optional[List['outputs.X12EnvelopeOverrideResponse']] = None,
+                 envelope_overrides: Optional[Sequence['outputs.X12EnvelopeOverrideResponse']] = None,
                  envelope_settings: Optional['outputs.X12EnvelopeSettingsResponse'] = None,
                  framing_settings: Optional['outputs.X12FramingSettingsResponse'] = None,
                  message_filter: Optional['outputs.X12MessageFilterResponse'] = None,
-                 message_filter_list: Optional[List['outputs.X12MessageIdentifierResponse']] = None,
+                 message_filter_list: Optional[Sequence['outputs.X12MessageIdentifierResponse']] = None,
                  processing_settings: Optional['outputs.X12ProcessingSettingsResponse'] = None,
-                 schema_references: Optional[List['outputs.X12SchemaReferenceResponse']] = None,
+                 schema_references: Optional[Sequence['outputs.X12SchemaReferenceResponse']] = None,
                  security_settings: Optional['outputs.X12SecuritySettingsResponse'] = None,
-                 validation_overrides: Optional[List['outputs.X12ValidationOverrideResponse']] = None,
+                 validation_overrides: Optional[Sequence['outputs.X12ValidationOverrideResponse']] = None,
                  validation_settings: Optional['outputs.X12ValidationSettingsResponse'] = None,
-                 x12_delimiter_overrides: Optional[List['outputs.X12DelimiterOverridesResponse']] = None):
+                 x12_delimiter_overrides: Optional[Sequence['outputs.X12DelimiterOverridesResponse']] = None):
         """
         :param 'X12AcknowledgementSettingsResponseArgs' acknowledgement_settings: The X12 acknowledgment settings.
-        :param List['X12EnvelopeOverrideResponseArgs'] envelope_overrides: The X12 envelope override settings.
+        :param Sequence['X12EnvelopeOverrideResponseArgs'] envelope_overrides: The X12 envelope override settings.
         :param 'X12EnvelopeSettingsResponseArgs' envelope_settings: The X12 envelope settings.
         :param 'X12FramingSettingsResponseArgs' framing_settings: The X12 framing settings.
         :param 'X12MessageFilterResponseArgs' message_filter: The X12 message filter.
-        :param List['X12MessageIdentifierResponseArgs'] message_filter_list: The X12 message filter list.
+        :param Sequence['X12MessageIdentifierResponseArgs'] message_filter_list: The X12 message filter list.
         :param 'X12ProcessingSettingsResponseArgs' processing_settings: The X12 processing settings.
-        :param List['X12SchemaReferenceResponseArgs'] schema_references: The X12 schema references.
+        :param Sequence['X12SchemaReferenceResponseArgs'] schema_references: The X12 schema references.
         :param 'X12SecuritySettingsResponseArgs' security_settings: The X12 security settings.
-        :param List['X12ValidationOverrideResponseArgs'] validation_overrides: The X12 validation override settings.
+        :param Sequence['X12ValidationOverrideResponseArgs'] validation_overrides: The X12 validation override settings.
         :param 'X12ValidationSettingsResponseArgs' validation_settings: The X12 validation settings.
-        :param List['X12DelimiterOverridesResponseArgs'] x12_delimiter_overrides: The X12 delimiter override settings.
+        :param Sequence['X12DelimiterOverridesResponseArgs'] x12_delimiter_overrides: The X12 delimiter override settings.
         """
         if acknowledgement_settings is not None:
             pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
@@ -4036,7 +4036,7 @@ class X12ProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="envelopeOverrides")
-    def envelope_overrides(self) -> Optional[List['outputs.X12EnvelopeOverrideResponse']]:
+    def envelope_overrides(self) -> Optional[Sequence['outputs.X12EnvelopeOverrideResponse']]:
         """
         The X12 envelope override settings.
         """
@@ -4068,7 +4068,7 @@ class X12ProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="messageFilterList")
-    def message_filter_list(self) -> Optional[List['outputs.X12MessageIdentifierResponse']]:
+    def message_filter_list(self) -> Optional[Sequence['outputs.X12MessageIdentifierResponse']]:
         """
         The X12 message filter list.
         """
@@ -4084,7 +4084,7 @@ class X12ProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="schemaReferences")
-    def schema_references(self) -> Optional[List['outputs.X12SchemaReferenceResponse']]:
+    def schema_references(self) -> Optional[Sequence['outputs.X12SchemaReferenceResponse']]:
         """
         The X12 schema references.
         """
@@ -4100,7 +4100,7 @@ class X12ProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="validationOverrides")
-    def validation_overrides(self) -> Optional[List['outputs.X12ValidationOverrideResponse']]:
+    def validation_overrides(self) -> Optional[Sequence['outputs.X12ValidationOverrideResponse']]:
         """
         The X12 validation override settings.
         """
@@ -4116,7 +4116,7 @@ class X12ProtocolSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="x12DelimiterOverrides")
-    def x12_delimiter_overrides(self) -> Optional[List['outputs.X12DelimiterOverridesResponse']]:
+    def x12_delimiter_overrides(self) -> Optional[Sequence['outputs.X12DelimiterOverridesResponse']]:
         """
         The X12 delimiter override settings.
         """
@@ -4343,7 +4343,7 @@ class X12ValidationSettingsResponse(dict):
                  check_duplicate_group_control_number: Optional[bool] = None,
                  check_duplicate_interchange_control_number: Optional[bool] = None,
                  check_duplicate_transaction_set_control_number: Optional[bool] = None,
-                 interchange_control_number_validity_days: Optional[float] = None,
+                 interchange_control_number_validity_days: Optional[int] = None,
                  trailing_separator_policy: Optional[str] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[bool] = None,
                  validate_character_set: Optional[bool] = None,
@@ -4354,7 +4354,7 @@ class X12ValidationSettingsResponse(dict):
         :param bool check_duplicate_group_control_number: The value indicating whether to check for duplicate group control number.
         :param bool check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.
         :param bool check_duplicate_transaction_set_control_number: The value indicating whether to check for duplicate transaction set control number.
-        :param float interchange_control_number_validity_days: The validity period of interchange control number.
+        :param int interchange_control_number_validity_days: The validity period of interchange control number.
         :param str trailing_separator_policy: The trailing separator policy.
         :param bool trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param bool validate_character_set: The value indicating whether to validate character set in the message.
@@ -4416,7 +4416,7 @@ class X12ValidationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="interchangeControlNumberValidityDays")
-    def interchange_control_number_validity_days(self) -> Optional[float]:
+    def interchange_control_number_validity_days(self) -> Optional[int]:
         """
         The validity period of interchange control number.
         """

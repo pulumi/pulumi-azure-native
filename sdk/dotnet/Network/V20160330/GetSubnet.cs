@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets array of references to the network interface IP configurations using subnet
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// <summary>
         /// Gets or sets the reference of the RouteTable resource
         /// </summary>
-        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        public readonly Outputs.RouteTableResponse? RouteTable;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -86,15 +86,15 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string? etag,
 
-            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
 
             string? name,
 
-            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
             string? provisioningState,
 
-            Outputs.RouteTableResponseResult? routeTable)
+            Outputs.RouteTableResponse? routeTable)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

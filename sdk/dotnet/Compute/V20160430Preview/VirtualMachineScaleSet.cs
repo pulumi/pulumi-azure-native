@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.VirtualMachineScaleSetIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
         /// The virtual machine scale set sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -78,13 +78,13 @@ namespace Pulumi.AzureRM.Compute.V20160430Preview
         /// The upgrade policy.
         /// </summary>
         [Output("upgradePolicy")]
-        public Output<Outputs.UpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
+        public Output<Outputs.UpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
         [Output("virtualMachineProfile")]
-        public Output<Outputs.VirtualMachineScaleSetVMProfileResponseResult?> VirtualMachineProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
 
         /// <summary>

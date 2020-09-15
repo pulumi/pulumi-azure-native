@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
         /// <summary>
         /// Plan for solution object supported by the OperationsManagement resource provider.
         /// </summary>
-        public readonly Outputs.SolutionPlanResponseResult? Plan;
+        public readonly Outputs.SolutionPlanResponse? Plan;
         /// <summary>
         /// Properties for solution object supported by the OperationsManagement resource provider.
         /// </summary>
-        public readonly Outputs.SolutionPropertiesResponseResult Properties;
+        public readonly Outputs.SolutionPropertiesResponse Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.OperationsManagement.V20151101Preview
 
             string name,
 
-            Outputs.SolutionPlanResponseResult? plan,
+            Outputs.SolutionPlanResponse? plan,
 
-            Outputs.SolutionPropertiesResponseResult properties,
+            Outputs.SolutionPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

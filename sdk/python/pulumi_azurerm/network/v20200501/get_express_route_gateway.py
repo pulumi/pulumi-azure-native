@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -67,7 +67,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> List['outputs.ExpressRouteConnectionResponse']:
+    def express_route_connections(self) -> Sequence['outputs.ExpressRouteConnectionResponse']:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """

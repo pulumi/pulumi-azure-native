@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -69,8 +69,8 @@ class GetBlobContainerResult:
         if public_access and not isinstance(public_access, str):
             raise TypeError("Expected argument 'public_access' to be a str")
         pulumi.set(__self__, "public_access", public_access)
-        if remaining_retention_days and not isinstance(remaining_retention_days, float):
-            raise TypeError("Expected argument 'remaining_retention_days' to be a float")
+        if remaining_retention_days and not isinstance(remaining_retention_days, int):
+            raise TypeError("Expected argument 'remaining_retention_days' to be a int")
         pulumi.set(__self__, "remaining_retention_days", remaining_retention_days)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -209,7 +209,7 @@ class GetBlobContainerResult:
 
     @property
     @pulumi.getter(name="remainingRetentionDays")
-    def remaining_retention_days(self) -> float:
+    def remaining_retention_days(self) -> int:
         """
         Remaining retention days for soft deleted blob container.
         """

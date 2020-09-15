@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -42,8 +42,8 @@ class GetNamespaceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_throughput_units and not isinstance(maximum_throughput_units, float):
-            raise TypeError("Expected argument 'maximum_throughput_units' to be a float")
+        if maximum_throughput_units and not isinstance(maximum_throughput_units, int):
+            raise TypeError("Expected argument 'maximum_throughput_units' to be a int")
         pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
         if metric_id and not isinstance(metric_id, str):
             raise TypeError("Expected argument 'metric_id' to be a str")
@@ -131,7 +131,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> Optional[float]:
+    def maximum_throughput_units(self) -> Optional[int]:
         """
         Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
         """

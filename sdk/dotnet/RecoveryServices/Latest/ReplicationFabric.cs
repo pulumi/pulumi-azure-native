@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// Fabric related data.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.FabricPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.FabricPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource Type

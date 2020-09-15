@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -59,12 +59,12 @@ class CostAllocationRuleDetailsResponse(dict):
     Resource details of the cost allocation rule
     """
     def __init__(__self__, *,
-                 source_resources: Optional[List['outputs.SourceCostAllocationResourceResponse']] = None,
-                 target_resources: Optional[List['outputs.TargetCostAllocationResourceResponse']] = None):
+                 source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
+                 target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None):
         """
         Resource details of the cost allocation rule
-        :param List['SourceCostAllocationResourceResponseArgs'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
-        :param List['TargetCostAllocationResourceResponseArgs'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['SourceCostAllocationResourceResponseArgs'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
+        :param Sequence['TargetCostAllocationResourceResponseArgs'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
         if source_resources is not None:
             pulumi.set(__self__, "source_resources", source_resources)
@@ -73,7 +73,7 @@ class CostAllocationRuleDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="sourceResources")
-    def source_resources(self) -> Optional[List['outputs.SourceCostAllocationResourceResponse']]:
+    def source_resources(self) -> Optional[Sequence['outputs.SourceCostAllocationResourceResponse']]:
         """
         Source resources for cost allocation. At this time, this list can contain no more than one element.
         """
@@ -81,7 +81,7 @@ class CostAllocationRuleDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetResources")
-    def target_resources(self) -> Optional[List['outputs.TargetCostAllocationResourceResponse']]:
+    def target_resources(self) -> Optional[Sequence['outputs.TargetCostAllocationResourceResponse']]:
         """
         Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
@@ -169,12 +169,12 @@ class SourceCostAllocationResourceResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  resource_type: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Source resources for cost allocation
         :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param str resource_type: Type of resources contained in this cost allocation rule
-        :param List[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
+        :param Sequence[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -198,7 +198,7 @@ class SourceCostAllocationResourceResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
@@ -217,13 +217,13 @@ class TargetCostAllocationResourceResponse(dict):
                  name: str,
                  policy_type: str,
                  resource_type: str,
-                 values: List['outputs.CostAllocationProportionResponse']):
+                 values: Sequence['outputs.CostAllocationProportionResponse']):
         """
         Target resources for cost allocation.
         :param str name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
         :param str policy_type: Method of cost allocation for the rule
         :param str resource_type: Type of resources contained in this cost allocation rule
-        :param List['CostAllocationProportionResponseArgs'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
+        :param Sequence['CostAllocationProportionResponseArgs'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_type", policy_type)
@@ -256,7 +256,7 @@ class TargetCostAllocationResourceResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List['outputs.CostAllocationProportionResponse']:
+    def values(self) -> Sequence['outputs.CostAllocationProportionResponse']:
         """
         Target resources for cost allocation. This list cannot contain more than 25 values.
         """

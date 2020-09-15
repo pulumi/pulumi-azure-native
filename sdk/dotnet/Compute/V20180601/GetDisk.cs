@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
-        public readonly Outputs.CreationDataResponseResult CreationData;
+        public readonly Outputs.CreationDataResponse CreationData;
         /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Encryption settings for disk or snapshot
         /// </summary>
-        public readonly Outputs.EncryptionSettingsResponseResult? EncryptionSettings;
+        public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         /// </summary>
-        public readonly Outputs.DiskSkuResponseResult? Sku;
+        public readonly Outputs.DiskSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
         [OutputConstructor]
         private GetDiskResult(
-            Outputs.CreationDataResponseResult creationData,
+            Outputs.CreationDataResponse creationData,
 
             int? diskIOPSReadWrite,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
             int? diskSizeGB,
 
-            Outputs.EncryptionSettingsResponseResult? encryptionSettings,
+            Outputs.EncryptionSettingsResponse? encryptionSettings,
 
             string location,
 
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
             string provisioningState,
 
-            Outputs.DiskSkuResponseResult? sku,
+            Outputs.DiskSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

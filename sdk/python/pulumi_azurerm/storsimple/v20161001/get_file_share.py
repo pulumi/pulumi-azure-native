@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetFileShareResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
+        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, int):
+            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a int")
         pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
         if monitoring_status and not isinstance(monitoring_status, str):
             raise TypeError("Expected argument 'monitoring_status' to be a str")
@@ -38,8 +38,8 @@ class GetFileShareResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
+        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, int):
+            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a int")
         pulumi.set(__self__, "provisioned_capacity_in_bytes", provisioned_capacity_in_bytes)
         if share_status and not isinstance(share_status, str):
             raise TypeError("Expected argument 'share_status' to be a str")
@@ -47,8 +47,8 @@ class GetFileShareResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
-            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
+        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, int):
+            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a int")
         pulumi.set(__self__, "used_capacity_in_bytes", used_capacity_in_bytes)
 
     @property
@@ -77,7 +77,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
-    def local_used_capacity_in_bytes(self) -> float:
+    def local_used_capacity_in_bytes(self) -> int:
         """
         The local used capacity in Bytes.
         """
@@ -101,7 +101,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="provisionedCapacityInBytes")
-    def provisioned_capacity_in_bytes(self) -> float:
+    def provisioned_capacity_in_bytes(self) -> int:
         """
         The total provisioned capacity in Bytes
         """
@@ -125,7 +125,7 @@ class GetFileShareResult:
 
     @property
     @pulumi.getter(name="usedCapacityInBytes")
-    def used_capacity_in_bytes(self) -> float:
+    def used_capacity_in_bytes(self) -> int:
         """
         The used capacity in Bytes.
         """

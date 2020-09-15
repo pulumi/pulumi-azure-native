@@ -54,11 +54,11 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
         /// <summary>
         /// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
         /// </summary>
-        public readonly Outputs.ServiceAuthConfigurationResponseResult? ServiceAuthConfiguration;
+        public readonly Outputs.ServiceAuthConfigurationResponse? ServiceAuthConfiguration;
         /// <summary>
         /// The SSL configuration for the services.
         /// </summary>
-        public readonly Outputs.SslConfigurationResponseResult? SslConfiguration;
+        public readonly Outputs.SslConfigurationResponse? SslConfiguration;
         /// <summary>
         /// Credentials for the Storage Account.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Pulumi.AzureRM.MachineLearningCompute.V20170801Preview
 
             Outputs.ContainerServiceCredentialsResponseResult? containerService,
 
-            Outputs.ServiceAuthConfigurationResponseResult? serviceAuthConfiguration,
+            Outputs.ServiceAuthConfigurationResponse? serviceAuthConfiguration,
 
-            Outputs.SslConfigurationResponseResult? sslConfiguration,
+            Outputs.SslConfigurationResponse? sslConfiguration,
 
             Outputs.StorageAccountCredentialsResponseResult? storageAccount)
         {

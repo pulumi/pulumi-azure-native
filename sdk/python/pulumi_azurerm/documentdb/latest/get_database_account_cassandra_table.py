@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetDatabaseAccountCassandraTableResult:
     An Azure Cosmos DB Cassandra table.
     """
     def __init__(__self__, default_ttl=None, location=None, name=None, schema=None, tags=None, type=None):
-        if default_ttl and not isinstance(default_ttl, float):
-            raise TypeError("Expected argument 'default_ttl' to be a float")
+        if default_ttl and not isinstance(default_ttl, int):
+            raise TypeError("Expected argument 'default_ttl' to be a int")
         pulumi.set(__self__, "default_ttl", default_ttl)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -42,7 +42,7 @@ class GetDatabaseAccountCassandraTableResult:
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> Optional[float]:
+    def default_ttl(self) -> Optional[int]:
         """
         Time to live of the Cosmos DB Cassandra table
         """

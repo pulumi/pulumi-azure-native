@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
     public partial class ConnectedCluster : Pulumi.CustomResource
     {
         [Output("aadProfile")]
-        public Output<Outputs.ConnectedClusterAADProfileResponseResult> AadProfile { get; private set; } = null!;
+        public Output<Outputs.ConnectedClusterAADProfileResponse> AadProfile { get; private set; } = null!;
 
         /// <summary>
         /// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.Kubernetes.V20200101Preview
         /// The identity of the connected cluster.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ConnectedClusterIdentityResponseResult> Identity { get; private set; } = null!;
+        public Output<Outputs.ConnectedClusterIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Kubernetes version of the connected cluster resource

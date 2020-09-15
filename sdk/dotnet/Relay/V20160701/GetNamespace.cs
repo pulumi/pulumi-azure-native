@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Relay.V20160701
         /// <summary>
         /// Sku of the Namespace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Relay.V20160701
 
             string serviceBusEndpoint,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.CostManagement.V20190301Preview
         /// Collection information
         /// </summary>
         [Output("collectionInfo")]
-        public Output<Outputs.ConnectorCollectionInfoResponseResult> CollectionInfo { get; private set; } = null!;
+        public Output<Outputs.ConnectorCollectionInfoResponse> CollectionInfo { get; private set; } = null!;
 
         /// <summary>
         /// Connector definition creation datetime

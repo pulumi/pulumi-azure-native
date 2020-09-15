@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.DelegationResponseResult> Delegations;
+        public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// Array of IP configuration profiles which reference this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponseResult> IpConfigurationProfiles;
+        public readonly ImmutableArray<Outputs.IPConfigurationProfileResponse> IpConfigurationProfiles;
         /// <summary>
         /// An array of references to the network interface IP configurations using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// Nat gateway associated with this subnet.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? NatGateway;
+        public readonly Outputs.SubResourceResponse? NatGateway;
         /// <summary>
         /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
-        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        public readonly Outputs.NetworkSecurityGroupResponse? NetworkSecurityGroup;
         /// <summary>
         /// Enable or Disable apply network policies on private end point in the subnet.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// An array of references to private endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointResponseResult> PrivateEndpoints;
+        public readonly ImmutableArray<Outputs.PrivateEndpointResponse> PrivateEndpoints;
         /// <summary>
         /// Enable or Disable apply network policies on private link service in the subnet.
         /// </summary>
@@ -110,23 +110,23 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// <summary>
         /// An array of references to the external resources using subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponse> ResourceNavigationLinks;
         /// <summary>
         /// The reference to the RouteTable resource.
         /// </summary>
-        public readonly Outputs.RouteTableResponseResult? RouteTable;
+        public readonly Outputs.RouteTableResponse? RouteTable;
         /// <summary>
         /// An array of references to services injecting into this subnet.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> ServiceAssociationLinks;
+        public readonly ImmutableArray<Outputs.ServiceAssociationLinkResponse> ServiceAssociationLinks;
         /// <summary>
         /// An array of service endpoint policies.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> ServiceEndpointPolicies;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPolicyResponse> ServiceEndpointPolicies;
         /// <summary>
         /// An array of service endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
 
         [OutputConstructor]
         private GetSubnetResult(
@@ -134,23 +134,23 @@ namespace Pulumi.AzureRM.Network.V20191201
 
             ImmutableArray<string> addressPrefixes,
 
-            ImmutableArray<Outputs.DelegationResponseResult> delegations,
+            ImmutableArray<Outputs.DelegationResponse> delegations,
 
             string etag,
 
-            ImmutableArray<Outputs.IPConfigurationProfileResponseResult> ipConfigurationProfiles,
+            ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
 
-            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
 
             string? name,
 
-            Outputs.SubResourceResponseResult? natGateway,
+            Outputs.SubResourceResponse? natGateway,
 
-            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+            Outputs.NetworkSecurityGroupResponse? networkSecurityGroup,
 
             string? privateEndpointNetworkPolicies,
 
-            ImmutableArray<Outputs.PrivateEndpointResponseResult> privateEndpoints,
+            ImmutableArray<Outputs.PrivateEndpointResponse> privateEndpoints,
 
             string? privateLinkServiceNetworkPolicies,
 
@@ -158,15 +158,15 @@ namespace Pulumi.AzureRM.Network.V20191201
 
             string purpose,
 
-            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+            ImmutableArray<Outputs.ResourceNavigationLinkResponse> resourceNavigationLinks,
 
-            Outputs.RouteTableResponseResult? routeTable,
+            Outputs.RouteTableResponse? routeTable,
 
-            ImmutableArray<Outputs.ServiceAssociationLinkResponseResult> serviceAssociationLinks,
+            ImmutableArray<Outputs.ServiceAssociationLinkResponse> serviceAssociationLinks,
 
-            ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult> serviceEndpointPolicies,
+            ImmutableArray<Outputs.ServiceEndpointPolicyResponse> serviceEndpointPolicies,
 
-            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult> serviceEndpoints)
+            ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;

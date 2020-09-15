@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// Properties of the Deployment resource
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DeploymentResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.DeploymentResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sku of the Deployment resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,8 +39,8 @@ class GetWorkspaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        if retention_in_days and not isinstance(retention_in_days, int):
+            raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -105,7 +105,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> Optional[int]:
         """
         The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus. 
         """

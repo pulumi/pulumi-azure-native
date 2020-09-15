@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Authorization.Latest
         /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The policy rule.

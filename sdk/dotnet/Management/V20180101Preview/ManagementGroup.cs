@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Management.V20180101Preview
         /// The list of children.
         /// </summary>
         [Output("children")]
-        public Output<ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult>> Children { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ManagementGroupChildInfoResponse>> Children { get; private set; } = null!;
 
         /// <summary>
         /// The details of a management group.
         /// </summary>
         [Output("details")]
-        public Output<Outputs.ManagementGroupDetailsResponseResult?> Details { get; private set; } = null!;
+        public Output<Outputs.ManagementGroupDetailsResponse?> Details { get; private set; } = null!;
 
         /// <summary>
         /// The friendly name of the management group.

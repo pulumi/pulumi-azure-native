@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// If the schedule will occur once each day of the week, specify the daily recurrence.
         /// </summary>
         [Output("dailyRecurrence")]
-        public Output<Outputs.DayDetailsResponseResult?> DailyRecurrence { get; private set; } = null!;
+        public Output<Outputs.DayDetailsResponse?> DailyRecurrence { get; private set; } = null!;
 
         /// <summary>
         /// If the schedule will occur multiple times a day, specify the hourly recurrence.
         /// </summary>
         [Output("hourlyRecurrence")]
-        public Output<Outputs.HourDetailsResponseResult?> HourlyRecurrence { get; private set; } = null!;
+        public Output<Outputs.HourDetailsResponse?> HourlyRecurrence { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// Notification settings.
         /// </summary>
         [Output("notificationSettings")]
-        public Output<Outputs.NotificationSettingsResponseResult?> NotificationSettings { get; private set; } = null!;
+        public Output<Outputs.NotificationSettingsResponse?> NotificationSettings { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning status of the resource.
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// If the schedule will occur only some days of the week, specify the weekly recurrence.
         /// </summary>
         [Output("weeklyRecurrence")]
-        public Output<Outputs.WeekDetailsResponseResult?> WeeklyRecurrence { get; private set; } = null!;
+        public Output<Outputs.WeekDetailsResponse?> WeeklyRecurrence { get; private set; } = null!;
 
 
         /// <summary>

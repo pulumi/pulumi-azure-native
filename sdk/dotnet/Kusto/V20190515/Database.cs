@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// The statistics of the database.
         /// </summary>
         [Output("statistics")]
-        public Output<Outputs.DatabaseStatisticsResponseResult?> Statistics { get; private set; } = null!;
+        public Output<Outputs.DatabaseStatisticsResponse?> Statistics { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

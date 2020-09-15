@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Describes the disallowed disk types.
         /// </summary>
-        public readonly Outputs.DisallowedResponseResult? Disallowed;
+        public readonly Outputs.DisallowedResponse? Disallowed;
         /// <summary>
         /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// This is the gallery Image Definition identifier.
         /// </summary>
-        public readonly Outputs.GalleryImageIdentifierResponseResult Identifier;
+        public readonly Outputs.GalleryImageIdentifierResponse Identifier;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureRM.Compute.V20180601
         /// <summary>
         /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
         /// </summary>
-        public readonly Outputs.ImagePurchasePlanResponseResult? PurchasePlan;
+        public readonly Outputs.ImagePurchasePlanResponse? PurchasePlan;
         /// <summary>
         /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
         /// </summary>
-        public readonly Outputs.RecommendedMachineConfigurationResponseResult? Recommended;
+        public readonly Outputs.RecommendedMachineConfigurationResponse? Recommended;
         /// <summary>
         /// The release note uri.
         /// </summary>
@@ -114,13 +114,13 @@ namespace Pulumi.AzureRM.Compute.V20180601
         private GetGalleryImageResult(
             string? description,
 
-            Outputs.DisallowedResponseResult? disallowed,
+            Outputs.DisallowedResponse? disallowed,
 
             string? endOfLifeDate,
 
             string? eula,
 
-            Outputs.GalleryImageIdentifierResponseResult identifier,
+            Outputs.GalleryImageIdentifierResponse identifier,
 
             string location,
 
@@ -134,9 +134,9 @@ namespace Pulumi.AzureRM.Compute.V20180601
 
             string provisioningState,
 
-            Outputs.ImagePurchasePlanResponseResult? purchasePlan,
+            Outputs.ImagePurchasePlanResponse? purchasePlan,
 
-            Outputs.RecommendedMachineConfigurationResponseResult? recommended,
+            Outputs.RecommendedMachineConfigurationResponse? recommended,
 
             string? releaseNoteUri,
 

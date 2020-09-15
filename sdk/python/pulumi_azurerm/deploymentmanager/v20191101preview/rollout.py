@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class Rollout(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rollout_name: Optional[pulumi.Input[str]] = None,
-                 step_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StepGroupArgs']]]]] = None,
+                 step_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepGroupArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_service_topology_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -40,7 +40,7 @@ class Rollout(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rollout_name: The rollout name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StepGroupArgs']]]] step_groups: The list of step groups that define the orchestration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StepGroupArgs']]]] step_groups: The list of step groups that define the orchestration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] target_service_topology_id: The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
         """
@@ -154,7 +154,7 @@ class Rollout(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stepGroups")
-    def step_groups(self) -> pulumi.Output[List['outputs.StepGroupResponse']]:
+    def step_groups(self) -> pulumi.Output[Sequence['outputs.StepGroupResponse']]:
         """
         The list of step groups that define the orchestration.
         """

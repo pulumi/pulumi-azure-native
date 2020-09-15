@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The properties of the mapping.
         /// </summary>
         [Output("mappingProperties")]
-        public Output<Outputs.ConnectorMappingPropertiesResponseResult> MappingProperties { get; private set; } = null!;
+        public Output<Outputs.ConnectorMappingPropertiesResponse> MappingProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

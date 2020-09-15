@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -27,7 +27,7 @@ class ListDeviceFailoverTarsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List['outputs.FailoverTargetResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.FailoverTargetResponseResult']]:
         """
         The list of all the failover targets.
         """
@@ -46,7 +46,7 @@ class AwaitableListDeviceFailoverTarsResult(ListDeviceFailoverTarsResult):
 def list_device_failover_tars(manager_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               source_device_name: Optional[str] = None,
-                              volume_containers: Optional[List[str]] = None,
+                              volume_containers: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
     Use this data source to access information about an existing resource.
@@ -54,7 +54,7 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     :param str source_device_name: The source device name on which failover is performed.
-    :param List[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
+    :param Sequence[str] volume_containers: The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
     """
     __args__ = dict()
     __args__['managerName'] = manager_name

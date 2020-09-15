@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The list of all referenced PublicIpPrefixes.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PublicIpPrefixes;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIpPrefixes;
         /// <summary>
         /// The resource GUID property of the custom IP prefix resource.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string provisioningState,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> publicIpPrefixes,
+            ImmutableArray<Outputs.SubResourceResponse> publicIpPrefixes,
 
             string resourceGuid,
 

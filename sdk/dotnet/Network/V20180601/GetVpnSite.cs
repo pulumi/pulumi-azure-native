@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// The AddressSpace that contains an array of IP address ranges.
         /// </summary>
-        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        public readonly Outputs.AddressSpaceResponse? AddressSpace;
         /// <summary>
         /// The set of bgp properties.
         /// </summary>
-        public readonly Outputs.BgpSettingsResponseResult? BgpProperties;
+        public readonly Outputs.BgpSettingsResponse? BgpProperties;
         /// <summary>
         /// The device properties
         /// </summary>
-        public readonly Outputs.DevicePropertiesResponseResult? DeviceProperties;
+        public readonly Outputs.DevicePropertiesResponse? DeviceProperties;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -86,15 +86,15 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// The VirtualWAN to which the vpnSite belongs
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualWAN;
+        public readonly Outputs.SubResourceResponse? VirtualWAN;
 
         [OutputConstructor]
         private GetVpnSiteResult(
-            Outputs.AddressSpaceResponseResult? addressSpace,
+            Outputs.AddressSpaceResponse? addressSpace,
 
-            Outputs.BgpSettingsResponseResult? bgpProperties,
+            Outputs.BgpSettingsResponse? bgpProperties,
 
-            Outputs.DevicePropertiesResponseResult? deviceProperties,
+            Outputs.DevicePropertiesResponse? deviceProperties,
 
             string etag,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Network.V20180601
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualWAN)
+            Outputs.SubResourceResponse? virtualWAN)
         {
             AddressSpace = addressSpace;
             BgpProperties = bgpProperties;

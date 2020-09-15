@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// <summary>
         /// The contact details.
         /// </summary>
-        public readonly Outputs.ContactDetailsResponseResult ContactInformation;
+        public readonly Outputs.ContactDetailsResponse ContactInformation;
         /// <summary>
         /// Current status of the order.
         /// </summary>
-        public readonly Outputs.OrderStatusResponseResult? CurrentStatus;
+        public readonly Outputs.OrderStatusResponse? CurrentStatus;
         /// <summary>
         /// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackingInfoResponseResult> DeliveryTrackingInfo;
+        public readonly ImmutableArray<Outputs.TrackingInfoResponse> DeliveryTrackingInfo;
         /// <summary>
         /// The object name.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// <summary>
         /// List of status changes in the order.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OrderStatusResponseResult> OrderHistory;
+        public readonly ImmutableArray<Outputs.OrderStatusResponse> OrderHistory;
         /// <summary>
         /// Tracking information for the package returned from the customer whether it has an original or a replacement device.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TrackingInfoResponseResult> ReturnTrackingInfo;
+        public readonly ImmutableArray<Outputs.TrackingInfoResponse> ReturnTrackingInfo;
         /// <summary>
         /// Serial number of the device.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// <summary>
         /// The shipping address.
         /// </summary>
-        public readonly Outputs.AddressResponseResult ShippingAddress;
+        public readonly Outputs.AddressResponse ShippingAddress;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
@@ -78,21 +78,21 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
 
         [OutputConstructor]
         private GetOrderResult(
-            Outputs.ContactDetailsResponseResult contactInformation,
+            Outputs.ContactDetailsResponse contactInformation,
 
-            Outputs.OrderStatusResponseResult? currentStatus,
+            Outputs.OrderStatusResponse? currentStatus,
 
-            ImmutableArray<Outputs.TrackingInfoResponseResult> deliveryTrackingInfo,
+            ImmutableArray<Outputs.TrackingInfoResponse> deliveryTrackingInfo,
 
             string name,
 
-            ImmutableArray<Outputs.OrderStatusResponseResult> orderHistory,
+            ImmutableArray<Outputs.OrderStatusResponse> orderHistory,
 
-            ImmutableArray<Outputs.TrackingInfoResponseResult> returnTrackingInfo,
+            ImmutableArray<Outputs.TrackingInfoResponse> returnTrackingInfo,
 
             string serialNumber,
 
-            Outputs.AddressResponseResult shippingAddress,
+            Outputs.AddressResponse shippingAddress,
 
             string type)
         {

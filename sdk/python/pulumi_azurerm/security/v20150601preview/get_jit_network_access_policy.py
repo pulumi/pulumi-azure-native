@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -74,7 +74,7 @@ class GetJitNetworkAccessPolicyResult:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[List['outputs.JitNetworkAccessRequestResponse']]:
+    def requests(self) -> Optional[Sequence['outputs.JitNetworkAccessRequestResponse']]:
         return pulumi.get(self, "requests")
 
     @property
@@ -87,7 +87,7 @@ class GetJitNetworkAccessPolicyResult:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> List['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
+    def virtual_machines(self) -> Sequence['outputs.JitNetworkAccessPolicyVirtualMachineResponse']:
         """
         Configurations for Microsoft.Compute/virtualMachines resource type.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -135,7 +135,7 @@ class ExportPolicyRuleResponse(dict):
                  cifs: Optional[bool] = None,
                  nfsv3: Optional[bool] = None,
                  nfsv4: Optional[bool] = None,
-                 rule_index: Optional[float] = None,
+                 rule_index: Optional[int] = None,
                  unix_read_only: Optional[bool] = None,
                  unix_read_write: Optional[bool] = None):
         """
@@ -144,7 +144,7 @@ class ExportPolicyRuleResponse(dict):
         :param bool cifs: Allows CIFS protocol
         :param bool nfsv3: Allows NFSv3 protocol
         :param bool nfsv4: Allows NFSv4 protocol
-        :param float rule_index: Order index
+        :param int rule_index: Order index
         :param bool unix_read_only: Read only access
         :param bool unix_read_write: Read and write access
         """
@@ -197,7 +197,7 @@ class ExportPolicyRuleResponse(dict):
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> Optional[float]:
+    def rule_index(self) -> Optional[int]:
         """
         Order index
         """
@@ -229,7 +229,7 @@ class VolumePropertiesResponseExportPolicy(dict):
     Export policy rule
     """
     def __init__(__self__, *,
-                 rules: Optional[List['outputs.ExportPolicyRuleResponse']] = None):
+                 rules: Optional[Sequence['outputs.ExportPolicyRuleResponse']] = None):
         """
         Export policy rule
         """
@@ -238,7 +238,7 @@ class VolumePropertiesResponseExportPolicy(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.ExportPolicyRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.ExportPolicyRuleResponse']]:
         return pulumi.get(self, "rules")
 
     def _translate_property(self, prop):

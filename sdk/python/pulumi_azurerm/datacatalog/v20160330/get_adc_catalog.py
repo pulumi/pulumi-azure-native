@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetADCCatalogResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if units and not isinstance(units, float):
-            raise TypeError("Expected argument 'units' to be a float")
+        if units and not isinstance(units, int):
+            raise TypeError("Expected argument 'units' to be a int")
         pulumi.set(__self__, "units", units)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
@@ -57,7 +57,7 @@ class GetADCCatalogResult:
 
     @property
     @pulumi.getter
-    def admins(self) -> Optional[List['outputs.PrincipalsResponse']]:
+    def admins(self) -> Optional[Sequence['outputs.PrincipalsResponse']]:
         """
         Azure data catalog admin list.
         """
@@ -129,7 +129,7 @@ class GetADCCatalogResult:
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[float]:
+    def units(self) -> Optional[int]:
         """
         Azure data catalog units.
         """
@@ -137,7 +137,7 @@ class GetADCCatalogResult:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[List['outputs.PrincipalsResponse']]:
+    def users(self) -> Optional[Sequence['outputs.PrincipalsResponse']]:
         """
         Azure data catalog user list.
         """

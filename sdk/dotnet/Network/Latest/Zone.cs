@@ -54,13 +54,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
         [Output("registrationVirtualNetworks")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> RegistrationVirtualNetworks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> RegistrationVirtualNetworks { get; private set; } = null!;
 
         /// <summary>
         /// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
         [Output("resolutionVirtualNetworks")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> ResolutionVirtualNetworks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> ResolutionVirtualNetworks { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

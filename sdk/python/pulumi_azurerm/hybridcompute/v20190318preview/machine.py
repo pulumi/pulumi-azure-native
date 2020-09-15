@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -134,7 +134,7 @@ class Machine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="errorDetails")
-    def error_details(self) -> pulumi.Output[List['outputs.ErrorDetailResponse']]:
+    def error_details(self) -> pulumi.Output[Sequence['outputs.ErrorDetailResponse']]:
         """
         Details about the error state.
         """

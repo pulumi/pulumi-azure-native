@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// The first quality.
         /// </summary>
         [Output("firstQuality")]
-        public Output<Outputs.FirstQualityResponseResult?> FirstQuality { get; private set; } = null!;
+        public Output<Outputs.FirstQualityResponse?> FirstQuality { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// The presentation time range.
         /// </summary>
         [Output("presentationTimeRange")]
-        public Output<Outputs.PresentationTimeRangeResponseResult?> PresentationTimeRange { get; private set; } = null!;
+        public Output<Outputs.PresentationTimeRangeResponse?> PresentationTimeRange { get; private set; } = null!;
 
         /// <summary>
         /// The tracks selection conditions.
         /// </summary>
         [Output("tracks")]
-        public Output<ImmutableArray<Outputs.FilterTrackSelectionResponseResult>> Tracks { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FilterTrackSelectionResponse>> Tracks { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

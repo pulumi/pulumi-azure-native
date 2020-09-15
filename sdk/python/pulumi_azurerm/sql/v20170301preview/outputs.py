@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -25,16 +25,16 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
     Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
     """
     def __init__(__self__, *,
-                 result: List[str]):
+                 result: Sequence[str]):
         """
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
-        :param List[str] result: The rule baseline result
+        :param Sequence[str] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
 
     @property
     @pulumi.getter
-    def result(self) -> List[str]:
+    def result(self) -> Sequence[str]:
         """
         The rule baseline result
         """
@@ -173,18 +173,18 @@ class JobStepExecutionOptionsResponse(dict):
     The execution options of a job step.
     """
     def __init__(__self__, *,
-                 initial_retry_interval_seconds: Optional[float] = None,
-                 maximum_retry_interval_seconds: Optional[float] = None,
-                 retry_attempts: Optional[float] = None,
+                 initial_retry_interval_seconds: Optional[int] = None,
+                 maximum_retry_interval_seconds: Optional[int] = None,
+                 retry_attempts: Optional[int] = None,
                  retry_interval_backoff_multiplier: Optional[float] = None,
-                 timeout_seconds: Optional[float] = None):
+                 timeout_seconds: Optional[int] = None):
         """
         The execution options of a job step.
-        :param float initial_retry_interval_seconds: Initial delay between retries for job step execution.
-        :param float maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
-        :param float retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
+        :param int initial_retry_interval_seconds: Initial delay between retries for job step execution.
+        :param int maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
+        :param int retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
         :param float retry_interval_backoff_multiplier: The backoff multiplier for the time between retries.
-        :param float timeout_seconds: Execution timeout for the job step.
+        :param int timeout_seconds: Execution timeout for the job step.
         """
         if initial_retry_interval_seconds is not None:
             pulumi.set(__self__, "initial_retry_interval_seconds", initial_retry_interval_seconds)
@@ -199,7 +199,7 @@ class JobStepExecutionOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="initialRetryIntervalSeconds")
-    def initial_retry_interval_seconds(self) -> Optional[float]:
+    def initial_retry_interval_seconds(self) -> Optional[int]:
         """
         Initial delay between retries for job step execution.
         """
@@ -207,7 +207,7 @@ class JobStepExecutionOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="maximumRetryIntervalSeconds")
-    def maximum_retry_interval_seconds(self) -> Optional[float]:
+    def maximum_retry_interval_seconds(self) -> Optional[int]:
         """
         The maximum amount of time to wait between retries for job step execution.
         """
@@ -215,7 +215,7 @@ class JobStepExecutionOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="retryAttempts")
-    def retry_attempts(self) -> Optional[float]:
+    def retry_attempts(self) -> Optional[int]:
         """
         Maximum number of times the job step will be reattempted if the first attempt fails.
         """
@@ -231,7 +231,7 @@ class JobStepExecutionOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[float]:
+    def timeout_seconds(self) -> Optional[int]:
         """
         Execution timeout for the job step.
         """
@@ -451,14 +451,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         An ARM Resource SKU.
         :param str name: The name of the SKU, typically, a letter + Number code, e.g. P3.
-        :param float capacity: Capacity of the particular SKU.
+        :param int capacity: Capacity of the particular SKU.
         :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param str size: Size of the particular SKU
         :param str tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
@@ -483,7 +483,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Capacity of the particular SKU.
         """
@@ -524,12 +524,12 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  email_subscription_admins: Optional[bool] = None,
-                 emails: Optional[List[str]] = None,
+                 emails: Optional[Sequence[str]] = None,
                  is_enabled: Optional[bool] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
         :param bool email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
-        :param List[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
+        :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param bool is_enabled: Recurring scans state.
         """
         if email_subscription_admins is not None:
@@ -549,7 +549,7 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[List[str]]:
+    def emails(self) -> Optional[Sequence[str]]:
         """
         Specifies an array of e-mail addresses to which the scan notification is sent.
         """

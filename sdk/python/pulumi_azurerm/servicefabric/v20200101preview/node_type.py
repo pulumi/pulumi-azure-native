@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,20 +20,20 @@ class NodeType(pulumi.CustomResource):
                  application_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 data_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 data_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  ephemeral_ports: Optional[pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']]] = None,
                  is_primary: Optional[pulumi.Input[bool]] = None,
                  node_type_name: Optional[pulumi.Input[str]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vm_extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
+                 vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
                  vm_image_sku: Optional[pulumi.Input[str]] = None,
                  vm_image_version: Optional[pulumi.Input[str]] = None,
-                 vm_instance_count: Optional[pulumi.Input[float]] = None,
-                 vm_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
+                 vm_instance_count: Optional[pulumi.Input[int]] = None,
+                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,20 +46,20 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[float] data_disk_size_gb: Disk size for each vm in the node type in GBs.
+        :param pulumi.Input[int] data_disk_size_gb: Disk size for each vm in the node type in GBs.
         :param pulumi.Input[pulumi.InputType['EndpointRangeDescriptionArgs']] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
         :param pulumi.Input[bool] is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param pulumi.Input[str] node_type_name: The name of the node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
         :param pulumi.Input[str] vm_image_sku: The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
         :param pulumi.Input[str] vm_image_version: The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-        :param pulumi.Input[float] vm_instance_count: The number of nodes in the node type.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]] vm_secrets: The secrets to install in the virtual machines.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VaultSecretGroupArgs']]]] vm_secrets: The secrets to install in the virtual machines.
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
         if __name__ is not None:
@@ -154,7 +154,7 @@ class NodeType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> pulumi.Output[float]:
+    def data_disk_size_gb(self) -> pulumi.Output[int]:
         """
         Disk size for each vm in the node type in GBs.
         """
@@ -218,7 +218,7 @@ class NodeType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmExtensions")
-    def vm_extensions(self) -> pulumi.Output[Optional[List['outputs.VMSSExtensionResponse']]]:
+    def vm_extensions(self) -> pulumi.Output[Optional[Sequence['outputs.VMSSExtensionResponse']]]:
         """
         Set of extensions that should be installed onto the virtual machines.
         """
@@ -258,7 +258,7 @@ class NodeType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmInstanceCount")
-    def vm_instance_count(self) -> pulumi.Output[float]:
+    def vm_instance_count(self) -> pulumi.Output[int]:
         """
         The number of nodes in the node type.
         """
@@ -266,7 +266,7 @@ class NodeType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> pulumi.Output[Optional[List['outputs.VaultSecretGroupResponse']]]:
+    def vm_secrets(self) -> pulumi.Output[Optional[Sequence['outputs.VaultSecretGroupResponse']]]:
         """
         The secrets to install in the virtual machines.
         """

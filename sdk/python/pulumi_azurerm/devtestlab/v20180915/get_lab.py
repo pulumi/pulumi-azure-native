@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -176,7 +176,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsLinux")
-    def mandatory_artifacts_resource_ids_linux(self) -> Optional[List[str]]:
+    def mandatory_artifacts_resource_ids_linux(self) -> Optional[Sequence[str]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         """
@@ -184,7 +184,7 @@ class GetLabResult:
 
     @property
     @pulumi.getter(name="mandatoryArtifactsResourceIdsWindows")
-    def mandatory_artifacts_resource_ids_windows(self) -> Optional[List[str]]:
+    def mandatory_artifacts_resource_ids_windows(self) -> Optional[Sequence[str]]:
         """
         The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         """

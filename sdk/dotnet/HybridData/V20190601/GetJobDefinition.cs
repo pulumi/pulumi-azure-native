@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
         /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CustomerSecretResponseResult> CustomerSecrets;
+        public readonly ImmutableArray<Outputs.CustomerSecretResponse> CustomerSecrets;
         /// <summary>
         /// A generic json used differently by each data service type.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
         /// <summary>
         /// Schedule for running the job definition
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScheduleResponseResult> Schedules;
+        public readonly ImmutableArray<Outputs.ScheduleResponse> Schedules;
         /// <summary>
         /// State of the job definition.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
 
         [OutputConstructor]
         private GetJobDefinitionResult(
-            ImmutableArray<Outputs.CustomerSecretResponseResult> customerSecrets,
+            ImmutableArray<Outputs.CustomerSecretResponse> customerSecrets,
 
             ImmutableDictionary<string, object>? dataServiceInput,
 
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
 
             string? runLocation,
 
-            ImmutableArray<Outputs.ScheduleResponseResult> schedules,
+            ImmutableArray<Outputs.ScheduleResponse> schedules,
 
             string state,
 

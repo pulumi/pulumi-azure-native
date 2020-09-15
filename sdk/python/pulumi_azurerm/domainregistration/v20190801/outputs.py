@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -227,12 +227,12 @@ class DomainPurchaseConsentResponse(dict):
     def __init__(__self__, *,
                  agreed_at: Optional[str] = None,
                  agreed_by: Optional[str] = None,
-                 agreement_keys: Optional[List[str]] = None):
+                 agreement_keys: Optional[Sequence[str]] = None):
         """
         Domain purchase consent object, representing acceptance of applicable legal agreements.
         :param str agreed_at: Timestamp when the agreements were accepted.
         :param str agreed_by: Client IP address.
-        :param List[str] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+        :param Sequence[str] agreement_keys: List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
         if agreed_at is not None:
             pulumi.set(__self__, "agreed_at", agreed_at)
@@ -259,7 +259,7 @@ class DomainPurchaseConsentResponse(dict):
 
     @property
     @pulumi.getter(name="agreementKeys")
-    def agreement_keys(self) -> Optional[List[str]]:
+    def agreement_keys(self) -> Optional[Sequence[str]]:
         """
         List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
         """
@@ -280,7 +280,7 @@ class HostNameResponse(dict):
                  custom_host_name_dns_record_type: Optional[str] = None,
                  host_name_type: Optional[str] = None,
                  name: Optional[str] = None,
-                 site_names: Optional[List[str]] = None):
+                 site_names: Optional[Sequence[str]] = None):
         """
         Details of a hostname derived from a domain.
         :param str azure_resource_name: Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
@@ -288,7 +288,7 @@ class HostNameResponse(dict):
         :param str custom_host_name_dns_record_type: Type of the DNS record.
         :param str host_name_type: Type of the hostname.
         :param str name: Name of the hostname.
-        :param List[str] site_names: List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
+        :param Sequence[str] site_names: List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
         """
         if azure_resource_name is not None:
             pulumi.set(__self__, "azure_resource_name", azure_resource_name)
@@ -345,7 +345,7 @@ class HostNameResponse(dict):
 
     @property
     @pulumi.getter(name="siteNames")
-    def site_names(self) -> Optional[List[str]]:
+    def site_names(self) -> Optional[Sequence[str]]:
         """
         List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
         """

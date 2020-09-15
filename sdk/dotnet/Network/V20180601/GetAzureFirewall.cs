@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// Collection of application rule collections used by a Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> ApplicationRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> ApplicationRuleCollections;
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20180601
         /// <summary>
         /// Collection of network rule collections used by a Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> NetworkRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> NetworkRuleCollections;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -78,17 +78,17 @@ namespace Pulumi.AzureRM.Network.V20180601
 
         [OutputConstructor]
         private GetAzureFirewallResult(
-            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> applicationRuleCollections,
 
             string etag,
 
-            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> networkRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> networkRuleCollections,
 
             string? provisioningState,
 

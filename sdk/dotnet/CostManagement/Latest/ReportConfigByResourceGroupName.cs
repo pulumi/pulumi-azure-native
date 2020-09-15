@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.CostManagement.Latest
         /// Has definition for the report config.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.ReportConfigDefinitionResponseResult> Definition { get; private set; } = null!;
+        public Output<Outputs.ReportConfigDefinitionResponse> Definition { get; private set; } = null!;
 
         /// <summary>
         /// Has delivery information for the report config.
         /// </summary>
         [Output("deliveryInfo")]
-        public Output<Outputs.ReportConfigDeliveryInfoResponseResult> DeliveryInfo { get; private set; } = null!;
+        public Output<Outputs.ReportConfigDeliveryInfoResponse> DeliveryInfo { get; private set; } = null!;
 
         /// <summary>
         /// The format of the report being delivered.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.CostManagement.Latest
         /// Has schedule information for the report config.
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.ReportConfigScheduleResponseResult?> Schedule { get; private set; } = null!;
+        public Output<Outputs.ReportConfigScheduleResponse?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

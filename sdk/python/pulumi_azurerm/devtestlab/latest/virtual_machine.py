@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,13 +19,13 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  artifact_deployment_status: Optional[pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
                  compute_id: Optional[pulumi.Input[str]] = None,
                  created_by_user: Optional[pulumi.Input[str]] = None,
                  created_by_user_id: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  custom_image_id: Optional[pulumi.Input[str]] = None,
-                 data_disk_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]]] = None,
+                 data_disk_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class VirtualMachine(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]]] = None,
+                 schedule_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  ssh_key: Optional[pulumi.Input[str]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -63,13 +63,13 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']] artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[str] compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
         :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
         :param pulumi.Input[str] created_date: The creation date of the virtual machine.
         :param pulumi.Input[str] custom_image_id: The custom image identifier of the virtual machine.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataDiskPropertiesArgs']]]] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
         :param pulumi.Input[bool] disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param pulumi.Input[str] environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param pulumi.Input[str] expiration_date: The expiration date for VM.
@@ -90,7 +90,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password of the virtual machine administrator.
         :param pulumi.Input[str] plan_id: The id of the plan associated with the virtual machine image
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]] schedule_parameters: Virtual Machine schedules to be created
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleCreationParameterArgs']]]] schedule_parameters: Virtual Machine schedules to be created
         :param pulumi.Input[str] size: The size of the virtual machine.
         :param pulumi.Input[str] ssh_key: The SSH key of the virtual machine administrator.
         :param pulumi.Input[str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
@@ -214,7 +214,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ArtifactInstallPropertiesResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -270,7 +270,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDiskParameters")
-    def data_disk_parameters(self) -> pulumi.Output[Optional[List['outputs.DataDiskPropertiesResponse']]]:
+    def data_disk_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataDiskPropertiesResponse']]]:
         """
         New or existing data disks to attach to the virtual machine after creation
         """
@@ -430,7 +430,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduleParameters")
-    def schedule_parameters(self) -> pulumi.Output[Optional[List['outputs.ScheduleCreationParameterResponse']]]:
+    def schedule_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduleCreationParameterResponse']]]:
         """
         Virtual Machine schedules to be created
         """

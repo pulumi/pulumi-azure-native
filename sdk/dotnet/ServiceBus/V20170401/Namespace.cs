@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         /// Properties of Sku
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SBSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SBSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

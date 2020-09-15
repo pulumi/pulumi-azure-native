@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -34,12 +34,12 @@ class CloudToDevicePropertiesArgs:
     def __init__(__self__, *,
                  default_ttl_as_iso8601: Optional[pulumi.Input[str]] = None,
                  feedback: Optional[pulumi.Input['FeedbackPropertiesArgs']] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None):
+                 max_delivery_count: Optional[pulumi.Input[int]] = None):
         """
         The IoT hub cloud-to-device messaging properties.
         :param pulumi.Input[str] default_ttl_as_iso8601: The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param pulumi.Input['FeedbackPropertiesArgs'] feedback: The properties of the feedback queue for cloud-to-device messages.
-        :param pulumi.Input[float] max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param pulumi.Input[int] max_delivery_count: The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if default_ttl_as_iso8601 is not None:
             pulumi.set(__self__, "default_ttl_as_iso8601", default_ttl_as_iso8601)
@@ -74,26 +74,26 @@ class CloudToDevicePropertiesArgs:
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[float]]:
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
         """
         The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[float]]):
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_count", value)
 
 
 @pulumi.input_type
 class EventHubPropertiesArgs:
     def __init__(__self__, *,
-                 partition_count: Optional[pulumi.Input[float]] = None,
-                 retention_time_in_days: Optional[pulumi.Input[float]] = None):
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 retention_time_in_days: Optional[pulumi.Input[int]] = None):
         """
         The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
-        :param pulumi.Input[float] partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-        :param pulumi.Input[float] retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+        :param pulumi.Input[int] partition_count: The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+        :param pulumi.Input[int] retention_time_in_days: The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
@@ -102,39 +102,39 @@ class EventHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> Optional[pulumi.Input[float]]:
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
         """
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: Optional[pulumi.Input[float]]):
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "partition_count", value)
 
     @property
     @pulumi.getter(name="retentionTimeInDays")
-    def retention_time_in_days(self) -> Optional[pulumi.Input[float]]:
+    def retention_time_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
         """
         return pulumi.get(self, "retention_time_in_days")
 
     @retention_time_in_days.setter
-    def retention_time_in_days(self, value: Optional[pulumi.Input[float]]):
+    def retention_time_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_time_in_days", value)
 
 
 @pulumi.input_type
 class FallbackRoutePropertiesArgs:
     def __init__(__self__, *,
-                 endpoint_names: pulumi.Input[List[pulumi.Input[str]]],
+                 endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  source: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None):
         """
         The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
-        :param pulumi.Input[List[pulumi.Input[str]]] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether the fallback route is enabled.
         :param pulumi.Input[str] source: The source to which the routing rule is to be applied to. For example, DeviceMessages
         :param pulumi.Input[str] condition: The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -147,14 +147,14 @@ class FallbackRoutePropertiesArgs:
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def endpoint_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         """
         return pulumi.get(self, "endpoint_names")
 
     @endpoint_names.setter
-    def endpoint_names(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def endpoint_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "endpoint_names", value)
 
     @property
@@ -198,12 +198,12 @@ class FallbackRoutePropertiesArgs:
 class FeedbackPropertiesArgs:
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[pulumi.Input[str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
                  ttl_as_iso8601: Optional[pulumi.Input[str]] = None):
         """
         The properties of the feedback queue for cloud-to-device messages.
         :param pulumi.Input[str] lock_duration_as_iso8601: The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-        :param pulumi.Input[float] max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+        :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         :param pulumi.Input[str] ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         if lock_duration_as_iso8601 is not None:
@@ -227,14 +227,14 @@ class FeedbackPropertiesArgs:
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[float]]:
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[float]]):
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @property
@@ -253,26 +253,26 @@ class FeedbackPropertiesArgs:
 @pulumi.input_type
 class IotHubPropertiesArgs:
     def __init__(__self__, *,
-                 authorization_policies: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
+                 authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
                  cloud_to_device: Optional[pulumi.Input['CloudToDevicePropertiesArgs']] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
                  features: Optional[pulumi.Input[str]] = None,
-                 ip_filter_rules: Optional[pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  operations_monitoring_properties: Optional[pulumi.Input['OperationsMonitoringPropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['RoutingPropertiesArgs']] = None,
                  storage_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]] = None):
         """
         The properties of an IoT hub.
-        :param pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
         :param pulumi.Input['CloudToDevicePropertiesArgs'] cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param pulumi.Input[str] comments: IoT hub comments.
         :param pulumi.Input[bool] enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
         :param pulumi.Input[str] features: The capabilities and features enabled for the IoT hub.
-        :param pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
+        :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input['OperationsMonitoringPropertiesArgs'] operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations, Routes, D2CTwinOperations, C2DTwinOperations, TwinQueries, JobsOperations, DirectMethods.
         :param pulumi.Input['RoutingPropertiesArgs'] routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
@@ -303,14 +303,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="authorizationPolicies")
-    def authorization_policies(self) -> Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]]:
+    def authorization_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]]:
         """
         The shared access policies you can use to secure a connection to the IoT hub.
         """
         return pulumi.get(self, "authorization_policies")
 
     @authorization_policies.setter
-    def authorization_policies(self, value: Optional[pulumi.Input[List[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]]):
+    def authorization_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]]):
         pulumi.set(self, "authorization_policies", value)
 
     @property
@@ -375,14 +375,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]]]:
+    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]:
         """
         The IP filter rules.
         """
         return pulumi.get(self, "ip_filter_rules")
 
     @ip_filter_rules.setter
-    def ip_filter_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['IpFilterRuleArgs']]]]):
+    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
         pulumi.set(self, "ip_filter_rules", value)
 
     @property
@@ -437,11 +437,11 @@ class IotHubPropertiesArgs:
 @pulumi.input_type
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
-                 capacity: pulumi.Input[float],
+                 capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
         Information about the SKU of the IoT hub.
-        :param pulumi.Input[float] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+        :param pulumi.Input[int] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         :param pulumi.Input[str] name: The name of the SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -449,14 +449,14 @@ class IotHubSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Input[float]:
+    def capacity(self) -> pulumi.Input[int]:
         """
         The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: pulumi.Input[float]):
+    def capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -529,12 +529,12 @@ class IpFilterRuleArgs:
 class MessagingEndpointPropertiesArgs:
     def __init__(__self__, *,
                  lock_duration_as_iso8601: Optional[pulumi.Input[str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
                  ttl_as_iso8601: Optional[pulumi.Input[str]] = None):
         """
         The properties of the messaging endpoints used by this IoT hub.
         :param pulumi.Input[str] lock_duration_as_iso8601: The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-        :param pulumi.Input[float] max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
+        :param pulumi.Input[int] max_delivery_count: The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         :param pulumi.Input[str] ttl_as_iso8601: The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
         if lock_duration_as_iso8601 is not None:
@@ -558,14 +558,14 @@ class MessagingEndpointPropertiesArgs:
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[pulumi.Input[float]]:
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
         """
         return pulumi.get(self, "max_delivery_count")
 
     @max_delivery_count.setter
-    def max_delivery_count(self, value: Optional[pulumi.Input[float]]):
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_delivery_count", value)
 
     @property
@@ -604,14 +604,14 @@ class OperationsMonitoringPropertiesArgs:
 @pulumi.input_type
 class RoutePropertiesArgs:
     def __init__(__self__, *,
-                 endpoint_names: pulumi.Input[List[pulumi.Input[str]]],
+                 endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  name: pulumi.Input[str],
                  source: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None):
         """
         The properties of a routing rule that your IoT hub uses to route messages to endpoints.
-        :param pulumi.Input[List[pulumi.Input[str]]] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether a route is enabled.
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as DeviceMessages.
@@ -626,14 +626,14 @@ class RoutePropertiesArgs:
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def endpoint_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         """
         return pulumi.get(self, "endpoint_names")
 
     @endpoint_names.setter
-    def endpoint_names(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def endpoint_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "endpoint_names", value)
 
     @property
@@ -688,16 +688,16 @@ class RoutePropertiesArgs:
 @pulumi.input_type
 class RoutingEndpointsArgs:
     def __init__(__self__, *,
-                 event_hubs: Optional[pulumi.Input[List[pulumi.Input['RoutingEventHubPropertiesArgs']]]] = None,
-                 service_bus_queues: Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]] = None,
-                 service_bus_topics: Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]] = None,
-                 storage_containers: Optional[pulumi.Input[List[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]] = None):
+                 event_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]]] = None,
+                 service_bus_queues: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]] = None,
+                 service_bus_topics: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]] = None,
+                 storage_containers: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param pulumi.Input[List[pulumi.Input['RoutingEventHubPropertiesArgs']]] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-        :param pulumi.Input[List[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-        :param pulumi.Input[List[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-        :param pulumi.Input[List[pulumi.Input['RoutingStorageContainerPropertiesArgs']]] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
@@ -710,50 +710,50 @@ class RoutingEndpointsArgs:
 
     @property
     @pulumi.getter(name="eventHubs")
-    def event_hubs(self) -> Optional[pulumi.Input[List[pulumi.Input['RoutingEventHubPropertiesArgs']]]]:
+    def event_hubs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]]]:
         """
         The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         """
         return pulumi.get(self, "event_hubs")
 
     @event_hubs.setter
-    def event_hubs(self, value: Optional[pulumi.Input[List[pulumi.Input['RoutingEventHubPropertiesArgs']]]]):
+    def event_hubs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingEventHubPropertiesArgs']]]]):
         pulumi.set(self, "event_hubs", value)
 
     @property
     @pulumi.getter(name="serviceBusQueues")
-    def service_bus_queues(self) -> Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]]:
+    def service_bus_queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]]:
         """
         The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
         """
         return pulumi.get(self, "service_bus_queues")
 
     @service_bus_queues.setter
-    def service_bus_queues(self, value: Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]]):
+    def service_bus_queues(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusQueueEndpointPropertiesArgs']]]]):
         pulumi.set(self, "service_bus_queues", value)
 
     @property
     @pulumi.getter(name="serviceBusTopics")
-    def service_bus_topics(self) -> Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]]:
+    def service_bus_topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]]:
         """
         The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         """
         return pulumi.get(self, "service_bus_topics")
 
     @service_bus_topics.setter
-    def service_bus_topics(self, value: Optional[pulumi.Input[List[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]]):
+    def service_bus_topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingServiceBusTopicEndpointPropertiesArgs']]]]):
         pulumi.set(self, "service_bus_topics", value)
 
     @property
     @pulumi.getter(name="storageContainers")
-    def storage_containers(self) -> Optional[pulumi.Input[List[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]]:
+    def storage_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]]:
         """
         The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
         return pulumi.get(self, "storage_containers")
 
     @storage_containers.setter
-    def storage_containers(self, value: Optional[pulumi.Input[List[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]]):
+    def storage_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingStorageContainerPropertiesArgs']]]]):
         pulumi.set(self, "storage_containers", value)
 
 
@@ -832,12 +832,12 @@ class RoutingPropertiesArgs:
     def __init__(__self__, *,
                  endpoints: Optional[pulumi.Input['RoutingEndpointsArgs']] = None,
                  fallback_route: Optional[pulumi.Input['FallbackRoutePropertiesArgs']] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input['RoutePropertiesArgs']]]] = None):
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]]] = None):
         """
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input['RoutingEndpointsArgs'] endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param pulumi.Input['FallbackRoutePropertiesArgs'] fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
-        :param pulumi.Input[List[pulumi.Input['RoutePropertiesArgs']]] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -872,14 +872,14 @@ class RoutingPropertiesArgs:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[List[pulumi.Input['RoutePropertiesArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]]]:
         """
         The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[List[pulumi.Input['RoutePropertiesArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePropertiesArgs']]]]):
         pulumi.set(self, "routes", value)
 
 
@@ -1029,10 +1029,10 @@ class RoutingStorageContainerPropertiesArgs:
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 batch_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+                 batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
-                 max_chunk_size_in_bytes: Optional[pulumi.Input[float]] = None,
+                 max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1040,10 +1040,10 @@ class RoutingStorageContainerPropertiesArgs:
         :param pulumi.Input[str] connection_string: The connection string of the storage account.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
         :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, operationsMonitoringEvents, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
+        :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avroDeflate'. Default value is 'avro'.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-        :param pulumi.Input[float] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+        :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] resource_group: The name of the resource group of the storage account.
         :param pulumi.Input[str] subscription_id: The subscription identifier of the storage account.
         """
@@ -1101,14 +1101,14 @@ class RoutingStorageContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="batchFrequencyInSeconds")
-    def batch_frequency_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def batch_frequency_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         """
         return pulumi.get(self, "batch_frequency_in_seconds")
 
     @batch_frequency_in_seconds.setter
-    def batch_frequency_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def batch_frequency_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "batch_frequency_in_seconds", value)
 
     @property
@@ -1137,14 +1137,14 @@ class RoutingStorageContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
-    def max_chunk_size_in_bytes(self) -> Optional[pulumi.Input[float]]:
+    def max_chunk_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
         """
         Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         """
         return pulumi.get(self, "max_chunk_size_in_bytes")
 
     @max_chunk_size_in_bytes.setter
-    def max_chunk_size_in_bytes(self, value: Optional[pulumi.Input[float]]):
+    def max_chunk_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_chunk_size_in_bytes", value)
 
     @property

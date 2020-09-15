@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Management.V20200101Preview
         /// <summary>
         /// The list of logs settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsResponseResult> Logs;
+        public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> Logs;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Management.V20200101Preview
 
             string? location,
 
-            ImmutableArray<Outputs.ManagementGroupLogSettingsResponseResult> logs,
+            ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> logs,
 
             string name,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// Configuration for auto scaling.
         /// </summary>
         [Output("autoScaleConfiguration")]
-        public Output<Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult?> AutoScaleConfiguration { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration?> AutoScaleConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// List of ExpressRoute connections to the ExpressRoute gateway.
         /// </summary>
         [Output("expressRouteConnections")]
-        public Output<ImmutableArray<Outputs.ExpressRouteConnectionResponseResult>> ExpressRouteConnections { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteConnectionResponse>> ExpressRouteConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.VirtualHubIdResponseResult> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.VirtualHubIdResponse> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

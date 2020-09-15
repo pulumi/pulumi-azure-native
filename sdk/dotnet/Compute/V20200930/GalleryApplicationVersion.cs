@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Compute.V20200930
         /// The publishing profile of a gallery image version.
         /// </summary>
         [Output("publishingProfile")]
-        public Output<Outputs.GalleryApplicationVersionPublishingProfileResponseResult> PublishingProfile { get; private set; } = null!;
+        public Output<Outputs.GalleryApplicationVersionPublishingProfileResponse> PublishingProfile { get; private set; } = null!;
 
         /// <summary>
         /// This is the replication status of the gallery image version.
         /// </summary>
         [Output("replicationStatus")]
-        public Output<Outputs.ReplicationStatusResponseResult> ReplicationStatus { get; private set; } = null!;
+        public Output<Outputs.ReplicationStatusResponse> ReplicationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -85,7 +85,7 @@ class GetVirtualMachineScaleSetExtensionResult:
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         Collection of extension names after which this extension needs to be provisioned.
         """

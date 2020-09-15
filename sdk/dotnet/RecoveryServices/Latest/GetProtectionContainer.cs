@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <summary>
         /// ProtectionContainerResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureSqlContainerResponseResult, Union<Outputs.AzureStorageContainerResponseResult, Union<Outputs.AzureWorkloadContainerResponseResult, Union<Outputs.DpmContainerResponseResult, Union<Outputs.GenericContainerResponseResult, Union<Outputs.IaaSVMContainerResponseResult, Outputs.MabContainerResponseResult>>>>>> Properties;
+        public readonly Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 
             string name,
 
-            Union<Outputs.AzureSqlContainerResponseResult, Union<Outputs.AzureStorageContainerResponseResult, Union<Outputs.AzureWorkloadContainerResponseResult, Union<Outputs.DpmContainerResponseResult, Union<Outputs.GenericContainerResponseResult, Union<Outputs.IaaSVMContainerResponseResult, Outputs.MabContainerResponseResult>>>>>> properties,
+            Union<Outputs.AzureSqlContainerResponse, Union<Outputs.AzureStorageContainerResponse, Union<Outputs.AzureWorkloadContainerResponse, Union<Outputs.DpmContainerResponse, Union<Outputs.GenericContainerResponse, Union<Outputs.IaaSVMContainerResponse, Outputs.MabContainerResponse>>>>>> properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Union<Outputs.AutomationActionEventHubResponseResult, Union<Outputs.AutomationActionLogicAppResponseResult, Outputs.AutomationActionWorkspaceResponseResult>>>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.AutomationActionEventHubResponse, Union<Outputs.AutomationActionLogicAppResponse, Outputs.AutomationActionWorkspaceResponse>>>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The security automation description.
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
         /// </summary>
         [Output("scopes")]
-        public Output<ImmutableArray<Outputs.AutomationScopeResponseResult>> Scopes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AutomationScopeResponse>> Scopes { get; private set; } = null!;
 
         /// <summary>
         /// A collection of the source event types which evaluate the security automation set of rules.
         /// </summary>
         [Output("sources")]
-        public Output<ImmutableArray<Outputs.AutomationSourceResponseResult>> Sources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AutomationSourceResponse>> Sources { get; private set; } = null!;
 
         /// <summary>
         /// A list of key value pairs that describe the resource.

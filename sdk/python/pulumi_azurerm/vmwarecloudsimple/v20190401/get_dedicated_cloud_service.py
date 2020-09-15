@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetDedicatedCloudServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if nodes and not isinstance(nodes, float):
-            raise TypeError("Expected argument 'nodes' to be a float")
+        if nodes and not isinstance(nodes, int):
+            raise TypeError("Expected argument 'nodes' to be a int")
         pulumi.set(__self__, "nodes", nodes)
         if service_url and not isinstance(service_url, str):
             raise TypeError("Expected argument 'service_url' to be a str")
@@ -79,7 +79,7 @@ class GetDedicatedCloudServiceResult:
 
     @property
     @pulumi.getter
-    def nodes(self) -> float:
+    def nodes(self) -> int:
         """
         total nodes purchased
         """

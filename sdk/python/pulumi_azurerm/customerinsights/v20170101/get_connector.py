@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetConnectorResult:
     The connector resource format.
     """
     def __init__(__self__, connector_id=None, connector_name=None, connector_properties=None, connector_type=None, created=None, description=None, display_name=None, is_internal=None, last_modified=None, name=None, state=None, tenant_id=None, type=None):
-        if connector_id and not isinstance(connector_id, float):
-            raise TypeError("Expected argument 'connector_id' to be a float")
+        if connector_id and not isinstance(connector_id, int):
+            raise TypeError("Expected argument 'connector_id' to be a int")
         pulumi.set(__self__, "connector_id", connector_id)
         if connector_name and not isinstance(connector_name, str):
             raise TypeError("Expected argument 'connector_name' to be a str")
@@ -62,7 +62,7 @@ class GetConnectorResult:
 
     @property
     @pulumi.getter(name="connectorId")
-    def connector_id(self) -> float:
+    def connector_id(self) -> int:
         """
         ID of the connector.
         """

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Management.V20200501
         /// The ID of the parent management group.
         /// </summary>
         [Output("parent")]
-        public Output<Outputs.DescendantParentGroupInfoResponseResult?> Parent { get; private set; } = null!;
+        public Output<Outputs.DescendantParentGroupInfoResponse?> Parent { get; private set; } = null!;
 
         /// <summary>
         /// The state of the subscription.

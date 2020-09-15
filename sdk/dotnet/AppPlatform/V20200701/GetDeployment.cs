@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         /// <summary>
         /// Properties of the Deployment resource
         /// </summary>
-        public readonly Outputs.DeploymentResourcePropertiesResponseResult Properties;
+        public readonly Outputs.DeploymentResourcePropertiesResponse Properties;
         /// <summary>
         /// Sku of the Deployment resource
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -72,9 +72,9 @@ namespace Pulumi.AzureRM.AppPlatform.V20200701
         private GetDeploymentResult(
             string name,
 
-            Outputs.DeploymentResourcePropertiesResponseResult properties,
+            Outputs.DeploymentResourcePropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string type)
         {

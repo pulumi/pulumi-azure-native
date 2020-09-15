@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// Managed service identity of the factory.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.FactoryIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.FactoryIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// VSTS repo information of the factory.
         /// </summary>
         [Output("vstsConfiguration")]
-        public Output<Outputs.FactoryVSTSConfigurationResponseResult?> VstsConfiguration { get; private set; } = null!;
+        public Output<Outputs.FactoryVSTSConfigurationResponse?> VstsConfiguration { get; private set; } = null!;
 
 
         /// <summary>

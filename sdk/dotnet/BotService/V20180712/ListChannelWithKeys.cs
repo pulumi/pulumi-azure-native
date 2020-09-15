@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.BotService.V20180712
         /// <summary>
         /// The set of properties specific to bot channel resource
         /// </summary>
-        public readonly Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>> Properties;
+        public readonly Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>> Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureRM.BotService.V20180712
 
             string name,
 
-            Union<Outputs.DirectLineChannelResponseResult, Union<Outputs.EmailChannelResponseResult, Union<Outputs.FacebookChannelResponseResult, Union<Outputs.KikChannelResponseResult, Union<Outputs.MsTeamsChannelResponseResult, Union<Outputs.SkypeChannelResponseResult, Union<Outputs.SlackChannelResponseResult, Union<Outputs.SmsChannelResponseResult, Union<Outputs.TelegramChannelResponseResult, Outputs.WebChatChannelResponseResult>>>>>>>>> properties,
+            Union<Outputs.DirectLineChannelResponse, Union<Outputs.EmailChannelResponse, Union<Outputs.FacebookChannelResponse, Union<Outputs.KikChannelResponse, Union<Outputs.MsTeamsChannelResponse, Union<Outputs.SkypeChannelResponse, Union<Outputs.SlackChannelResponse, Union<Outputs.SmsChannelResponse, Union<Outputs.TelegramChannelResponse, Outputs.WebChatChannelResponse>>>>>>>>> properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

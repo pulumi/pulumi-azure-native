@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetDisasterRecoveryConfigResult:
         if partner_namespace and not isinstance(partner_namespace, str):
             raise TypeError("Expected argument 'partner_namespace' to be a str")
         pulumi.set(__self__, "partner_namespace", partner_namespace)
-        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, float):
-            raise TypeError("Expected argument 'pending_replication_operations_count' to be a float")
+        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, int):
+            raise TypeError("Expected argument 'pending_replication_operations_count' to be a int")
         pulumi.set(__self__, "pending_replication_operations_count", pending_replication_operations_count)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
@@ -68,7 +68,7 @@ class GetDisasterRecoveryConfigResult:
 
     @property
     @pulumi.getter(name="pendingReplicationOperationsCount")
-    def pending_replication_operations_count(self) -> float:
+    def pending_replication_operations_count(self) -> int:
         """
         Number of entities pending to be replicated.
         """

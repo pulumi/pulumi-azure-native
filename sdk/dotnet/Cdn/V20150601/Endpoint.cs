@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         /// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponse>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status of the endpoint.

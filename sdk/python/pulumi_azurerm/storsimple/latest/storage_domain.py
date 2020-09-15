@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class StorageDomain(pulumi.CustomResource):
                  encryption_status: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_credential_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 storage_account_credential_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +35,7 @@ class StorageDomain(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_status: The encryption status "Enabled | Disabled".
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
         :param pulumi.Input[str] storage_domain_name: The storage domain name.
         """
         if __name__ is not None:
@@ -125,7 +125,7 @@ class StorageDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountCredentialIds")
-    def storage_account_credential_ids(self) -> pulumi.Output[List[str]]:
+    def storage_account_credential_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         The storage account credentials.
         """

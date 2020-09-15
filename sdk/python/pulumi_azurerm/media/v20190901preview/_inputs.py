@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -18,13 +18,13 @@ __all__ = [
 class MediaGraphAssetSinkArgs:
     def __init__(__self__, *,
                  asset_name: pulumi.Input[str],
-                 inputs: pulumi.Input[List[pulumi.Input[str]]],
+                 inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  odata_type: pulumi.Input[str]):
         """
         Asset sink
         :param pulumi.Input[str] asset_name: Asset name
-        :param pulumi.Input[List[pulumi.Input[str]]] inputs: Sink inputs
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: Sink inputs
         :param pulumi.Input[str] name: Sink name
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         """
@@ -47,14 +47,14 @@ class MediaGraphAssetSinkArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def inputs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Sink inputs
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def inputs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "inputs", value)
 
     @property

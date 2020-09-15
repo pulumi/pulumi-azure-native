@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -143,16 +143,16 @@ class EnvironmentSizeResponse(dict):
     def __init__(__self__, *,
                  max_price: float,
                  min_memory: float,
-                 min_number_of_cores: float,
+                 min_number_of_cores: int,
                  name: Optional[str] = None,
-                 vm_sizes: Optional[List['outputs.SizeInfoResponse']] = None):
+                 vm_sizes: Optional[Sequence['outputs.SizeInfoResponse']] = None):
         """
         Represents a size category supported by this Lab Account (small, medium or large)
         :param float max_price: The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
         :param float min_memory: The amount of memory available (in GB). This is the minimum amount of memory within this tier.
-        :param float min_number_of_cores: The number of cores a VM of this size has. This is the minimum number of cores within this tier.
+        :param int min_number_of_cores: The number of cores a VM of this size has. This is the minimum number of cores within this tier.
         :param str name: The size category
-        :param List['SizeInfoResponseArgs'] vm_sizes: Represents a set of compute sizes that can serve this given size type
+        :param Sequence['SizeInfoResponseArgs'] vm_sizes: Represents a set of compute sizes that can serve this given size type
         """
         pulumi.set(__self__, "max_price", max_price)
         pulumi.set(__self__, "min_memory", min_memory)
@@ -180,7 +180,7 @@ class EnvironmentSizeResponse(dict):
 
     @property
     @pulumi.getter(name="minNumberOfCores")
-    def min_number_of_cores(self) -> float:
+    def min_number_of_cores(self) -> int:
         """
         The number of cores a VM of this size has. This is the minimum number of cores within this tier.
         """
@@ -196,7 +196,7 @@ class EnvironmentSizeResponse(dict):
 
     @property
     @pulumi.getter(name="vmSizes")
-    def vm_sizes(self) -> Optional[List['outputs.SizeInfoResponse']]:
+    def vm_sizes(self) -> Optional[Sequence['outputs.SizeInfoResponse']]:
         """
         Represents a set of compute sizes that can serve this given size type
         """
@@ -579,7 +579,7 @@ class ResourceSettingsResponse(dict):
     Represents resource specific settings
     """
     def __init__(__self__, *,
-                 cores: float,
+                 cores: int,
                  id: str,
                  image_name: str,
                  reference_vm: 'outputs.ReferenceVmResponse',
@@ -587,7 +587,7 @@ class ResourceSettingsResponse(dict):
                  size: Optional[str] = None):
         """
         Represents resource specific settings
-        :param float cores: The translated compute cores of the virtual machine
+        :param int cores: The translated compute cores of the virtual machine
         :param str id: The unique id of the resource setting
         :param str image_name: The name of the image used to created the environment setting
         :param 'ReferenceVmResponseArgs' reference_vm: Details specific to Reference Vm
@@ -605,7 +605,7 @@ class ResourceSettingsResponse(dict):
 
     @property
     @pulumi.getter
-    def cores(self) -> float:
+    def cores(self) -> int:
         """
         The translated compute cores of the virtual machine
         """
@@ -661,17 +661,17 @@ class SizeConfigurationPropertiesResponse(dict):
     Represents the size configuration under the lab account
     """
     def __init__(__self__, *,
-                 environment_sizes: Optional[List['outputs.EnvironmentSizeResponse']] = None):
+                 environment_sizes: Optional[Sequence['outputs.EnvironmentSizeResponse']] = None):
         """
         Represents the size configuration under the lab account
-        :param List['EnvironmentSizeResponseArgs'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
+        :param Sequence['EnvironmentSizeResponseArgs'] environment_sizes: Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
         """
         if environment_sizes is not None:
             pulumi.set(__self__, "environment_sizes", environment_sizes)
 
     @property
     @pulumi.getter(name="environmentSizes")
-    def environment_sizes(self) -> Optional[List['outputs.EnvironmentSizeResponse']]:
+    def environment_sizes(self) -> Optional[Sequence['outputs.EnvironmentSizeResponse']]:
         """
         Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
         """
@@ -689,13 +689,13 @@ class SizeInfoResponse(dict):
     def __init__(__self__, *,
                  compute_size: Optional[str] = None,
                  memory: Optional[float] = None,
-                 number_of_cores: Optional[float] = None,
+                 number_of_cores: Optional[int] = None,
                  price: Optional[float] = None):
         """
         Contains detailed information about a size
         :param str compute_size: Represents the actual compute size, e.g. Standard_A2_v2.
         :param float memory: The amount of memory available (in GB).
-        :param float number_of_cores: The number of cores a VM of this size has.
+        :param int number_of_cores: The number of cores a VM of this size has.
         :param float price: The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
         """
         if compute_size is not None:
@@ -725,7 +725,7 @@ class SizeInfoResponse(dict):
 
     @property
     @pulumi.getter(name="numberOfCores")
-    def number_of_cores(self) -> Optional[float]:
+    def number_of_cores(self) -> Optional[int]:
         """
         The number of cores a VM of this size has.
         """

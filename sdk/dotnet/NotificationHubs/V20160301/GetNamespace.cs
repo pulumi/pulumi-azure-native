@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
 
             string? serviceBusEndpoint,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? status,
 

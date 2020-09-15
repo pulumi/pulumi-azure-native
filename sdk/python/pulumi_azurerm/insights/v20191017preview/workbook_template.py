@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,10 +18,10 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
-                 localized: Optional[pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkbookTemplateLocalizedGalleryArgs']]]]]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+                 localized: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateLocalizedGalleryArgs']]]]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -35,10 +35,10 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: Workbook galleries supported by the template.
-        :param pulumi.Input[Mapping[str, pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkbookTemplateLocalizedGalleryArgs']]]]]] localized: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: Workbook galleries supported by the template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateLocalizedGalleryArgs']]]]]] localized: Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[float] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
+        :param pulumi.Input[int] priority: Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -116,7 +116,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def galleries(self) -> pulumi.Output[List['outputs.WorkbookTemplateGalleryResponse']]:
+    def galleries(self) -> pulumi.Output[Sequence['outputs.WorkbookTemplateGalleryResponse']]:
         """
         Workbook galleries supported by the template.
         """
@@ -124,7 +124,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def localized(self) -> pulumi.Output[Optional[Mapping[str, List['outputs.WorkbookTemplateLocalizedGalleryResponse']]]]:
+    def localized(self) -> pulumi.Output[Optional[Mapping[str, Sequence['outputs.WorkbookTemplateLocalizedGalleryResponse']]]]:
         """
         Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         """
@@ -148,7 +148,7 @@ class WorkbookTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
         """

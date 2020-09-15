@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// List of activities in pipeline.
         /// </summary>
         [Output("activities")]
-        public Output<ImmutableArray<Union<Outputs.ControlActivityResponseResult, Outputs.ExecutionActivityResponseResult>>> Activities { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.ControlActivityResponse, Outputs.ExecutionActivityResponse>>> Activities { get; private set; } = null!;
 
         /// <summary>
         /// List of tags that can be used for describing the Pipeline.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
         [Output("folder")]
-        public Output<Outputs.PipelineResponseFolderResult?> Folder { get; private set; } = null!;
+        public Output<Outputs.PipelineResponseFolder?> Folder { get; private set; } = null!;
 
         /// <summary>
         /// The resource name.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// List of parameters for pipeline.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// Dimensions emitted by Pipeline.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// List of variables for pipeline.
         /// </summary>
         [Output("variables")]
-        public Output<ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>?> Variables { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, Outputs.VariableSpecificationResponse>?> Variables { get; private set; } = null!;
 
 
         /// <summary>

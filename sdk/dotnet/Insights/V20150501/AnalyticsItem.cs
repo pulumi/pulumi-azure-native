@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.

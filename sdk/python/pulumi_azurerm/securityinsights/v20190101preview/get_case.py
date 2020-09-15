@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetCaseResult:
     Represents a case in Azure Security Insights.
     """
     def __init__(__self__, case_number=None, close_reason=None, closed_reason_text=None, created_time_utc=None, description=None, end_time_utc=None, etag=None, labels=None, last_comment=None, last_updated_time_utc=None, name=None, owner=None, related_alert_ids=None, severity=None, start_time_utc=None, status=None, tactics=None, title=None, total_comments=None, type=None):
-        if case_number and not isinstance(case_number, float):
-            raise TypeError("Expected argument 'case_number' to be a float")
+        if case_number and not isinstance(case_number, int):
+            raise TypeError("Expected argument 'case_number' to be a int")
         pulumi.set(__self__, "case_number", case_number)
         if close_reason and not isinstance(close_reason, str):
             raise TypeError("Expected argument 'close_reason' to be a str")
@@ -75,8 +75,8 @@ class GetCaseResult:
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
-        if total_comments and not isinstance(total_comments, float):
-            raise TypeError("Expected argument 'total_comments' to be a float")
+        if total_comments and not isinstance(total_comments, int):
+            raise TypeError("Expected argument 'total_comments' to be a int")
         pulumi.set(__self__, "total_comments", total_comments)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -84,7 +84,7 @@ class GetCaseResult:
 
     @property
     @pulumi.getter(name="caseNumber")
-    def case_number(self) -> float:
+    def case_number(self) -> int:
         """
         a sequential number
         """
@@ -140,7 +140,7 @@ class GetCaseResult:
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> Optional[Sequence[str]]:
         """
         List of labels relevant to this case
         """
@@ -180,7 +180,7 @@ class GetCaseResult:
 
     @property
     @pulumi.getter(name="relatedAlertIds")
-    def related_alert_ids(self) -> List[str]:
+    def related_alert_ids(self) -> Sequence[str]:
         """
         List of related alert identifiers
         """
@@ -212,7 +212,7 @@ class GetCaseResult:
 
     @property
     @pulumi.getter
-    def tactics(self) -> List[str]:
+    def tactics(self) -> Sequence[str]:
         """
         The tactics associated with case
         """
@@ -228,7 +228,7 @@ class GetCaseResult:
 
     @property
     @pulumi.getter(name="totalComments")
-    def total_comments(self) -> float:
+    def total_comments(self) -> int:
         """
         the number of total comments in the case
         """

@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The properties of the Profile.
         /// </summary>
         [Output("fields")]
-        public Output<ImmutableArray<Outputs.PropertyDefinitionResponseResult>> Fields { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PropertyDefinitionResponse>> Fields { get; private set; } = null!;
 
         /// <summary>
         /// The instance count.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// The strong IDs.
         /// </summary>
         [Output("strongIds")]
-        public Output<ImmutableArray<Outputs.StrongIdResponseResult>> StrongIds { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StrongIdResponse>> StrongIds { get; private set; } = null!;
 
         /// <summary>
         /// The hub name.

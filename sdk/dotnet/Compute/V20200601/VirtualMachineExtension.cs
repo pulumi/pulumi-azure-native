@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// The virtual machine extension instance view.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.VirtualMachineExtensionInstanceViewResponseResult?> InstanceView { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Collection of groups user is part of.
         /// </summary>
         [Output("groups")]
-        public Output<ImmutableArray<Outputs.GroupContractResponseResult>> Groups { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GroupContractResponse>> Groups { get; private set; } = null!;
 
         /// <summary>
         /// Collection of user identities.
         /// </summary>
         [Output("identities")]
-        public Output<ImmutableArray<Outputs.UserIdentityContractResponseResult>> Identities { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UserIdentityContractResponse>> Identities { get; private set; } = null!;
 
         /// <summary>
         /// Last name.

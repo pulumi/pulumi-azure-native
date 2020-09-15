@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -21,14 +21,14 @@ class GetVpnConnectionResult:
     VpnConnection Resource.
     """
     def __init__(__self__, connection_bandwidth=None, connection_status=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_weight=None, shared_key=None, vpn_connection_protocol_type=None):
-        if connection_bandwidth and not isinstance(connection_bandwidth, float):
-            raise TypeError("Expected argument 'connection_bandwidth' to be a float")
+        if connection_bandwidth and not isinstance(connection_bandwidth, int):
+            raise TypeError("Expected argument 'connection_bandwidth' to be a int")
         pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
-        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
-            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
@@ -42,8 +42,8 @@ class GetVpnConnectionResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
-            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
         if ipsec_policies and not isinstance(ipsec_policies, list):
             raise TypeError("Expected argument 'ipsec_policies' to be a list")
@@ -57,8 +57,8 @@ class GetVpnConnectionResult:
         if remote_vpn_site and not isinstance(remote_vpn_site, dict):
             raise TypeError("Expected argument 'remote_vpn_site' to be a dict")
         pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
+        if routing_weight and not isinstance(routing_weight, int):
+            raise TypeError("Expected argument 'routing_weight' to be a int")
         pulumi.set(__self__, "routing_weight", routing_weight)
         if shared_key and not isinstance(shared_key, str):
             raise TypeError("Expected argument 'shared_key' to be a str")
@@ -69,7 +69,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="connectionBandwidth")
-    def connection_bandwidth(self) -> Optional[float]:
+    def connection_bandwidth(self) -> Optional[int]:
         """
         Expected bandwidth in MBPS.
         """
@@ -85,7 +85,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> float:
+    def egress_bytes_transferred(self) -> int:
         """
         Egress bytes transferred.
         """
@@ -125,7 +125,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> float:
+    def ingress_bytes_transferred(self) -> int:
         """
         Ingress bytes transferred.
         """
@@ -133,7 +133,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[List['outputs.IpsecPolicyResponse']]:
+    def ipsec_policies(self) -> Optional[Sequence['outputs.IpsecPolicyResponse']]:
         """
         The IPSec Policies to be considered by this connection.
         """
@@ -165,7 +165,7 @@ class GetVpnConnectionResult:
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> Optional[float]:
+    def routing_weight(self) -> Optional[int]:
         """
         Routing weight for vpn connection.
         """

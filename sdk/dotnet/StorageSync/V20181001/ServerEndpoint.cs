@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.StorageSync.V20181001
         /// Server Endpoint properties.
         /// </summary>
         [Output("syncStatus")]
-        public Output<Outputs.ServerEndpointHealthResponseResult?> SyncStatus { get; private set; } = null!;
+        public Output<Outputs.ServerEndpointHealthResponse?> SyncStatus { get; private set; } = null!;
 
         /// <summary>
         /// Tier files older than days.

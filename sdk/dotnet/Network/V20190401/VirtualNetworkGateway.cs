@@ -24,13 +24,13 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Output("bgpSettings")]
-        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+        public Output<Outputs.BgpSettingsResponse?> BgpSettings { get; private set; } = null!;
 
         /// <summary>
         /// The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         /// </summary>
         [Output("customRoutes")]
-        public Output<Outputs.AddressSpaceResponseResult?> CustomRoutes { get; private set; } = null!;
+        public Output<Outputs.AddressSpaceResponse?> CustomRoutes { get; private set; } = null!;
 
         /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         /// </summary>
         [Output("gatewayDefaultSite")]
-        public Output<Outputs.SubResourceResponseResult?> GatewayDefaultSite { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> GatewayDefaultSite { get; private set; } = null!;
 
         /// <summary>
         /// The type of this virtual network gateway.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// IP configurations for virtual network gateway.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.VirtualNetworkGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkGatewaySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
         [Output("vpnClientConfiguration")]
-        public Output<Outputs.VpnClientConfigurationResponseResult?> VpnClientConfiguration { get; private set; } = null!;
+        public Output<Outputs.VpnClientConfigurationResponse?> VpnClientConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The type of this virtual network gateway.

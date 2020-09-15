@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
         /// <summary>
         /// The SKU of the resource
         /// </summary>
-        public readonly Outputs.SKUResponseResult Sku;
+        public readonly Outputs.SKUResponse Sku;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
 
             string name,
 
-            Outputs.SKUResponseResult sku,
+            Outputs.SKUResponse sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,17 +57,17 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_degree_of_parallelism and not isinstance(max_degree_of_parallelism, float):
-            raise TypeError("Expected argument 'max_degree_of_parallelism' to be a float")
+        if max_degree_of_parallelism and not isinstance(max_degree_of_parallelism, int):
+            raise TypeError("Expected argument 'max_degree_of_parallelism' to be a int")
         pulumi.set(__self__, "max_degree_of_parallelism", max_degree_of_parallelism)
-        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, float):
-            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a float")
+        if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, int):
+            raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a int")
         pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
-        if max_job_count and not isinstance(max_job_count, float):
-            raise TypeError("Expected argument 'max_job_count' to be a float")
+        if max_job_count and not isinstance(max_job_count, int):
+            raise TypeError("Expected argument 'max_job_count' to be a int")
         pulumi.set(__self__, "max_job_count", max_job_count)
-        if min_priority_per_job and not isinstance(min_priority_per_job, float):
-            raise TypeError("Expected argument 'min_priority_per_job' to be a float")
+        if min_priority_per_job and not isinstance(min_priority_per_job, int):
+            raise TypeError("Expected argument 'min_priority_per_job' to be a int")
         pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -78,8 +78,8 @@ class GetAccountResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if query_store_retention and not isinstance(query_store_retention, float):
-            raise TypeError("Expected argument 'query_store_retention' to be a float")
+        if query_store_retention and not isinstance(query_store_retention, int):
+            raise TypeError("Expected argument 'query_store_retention' to be a int")
         pulumi.set(__self__, "query_store_retention", query_store_retention)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
@@ -87,11 +87,11 @@ class GetAccountResult:
         if storage_accounts and not isinstance(storage_accounts, list):
             raise TypeError("Expected argument 'storage_accounts' to be a list")
         pulumi.set(__self__, "storage_accounts", storage_accounts)
-        if system_max_degree_of_parallelism and not isinstance(system_max_degree_of_parallelism, float):
-            raise TypeError("Expected argument 'system_max_degree_of_parallelism' to be a float")
+        if system_max_degree_of_parallelism and not isinstance(system_max_degree_of_parallelism, int):
+            raise TypeError("Expected argument 'system_max_degree_of_parallelism' to be a int")
         pulumi.set(__self__, "system_max_degree_of_parallelism", system_max_degree_of_parallelism)
-        if system_max_job_count and not isinstance(system_max_job_count, float):
-            raise TypeError("Expected argument 'system_max_job_count' to be a float")
+        if system_max_job_count and not isinstance(system_max_job_count, int):
+            raise TypeError("Expected argument 'system_max_job_count' to be a int")
         pulumi.set(__self__, "system_max_job_count", system_max_job_count)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -110,7 +110,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="computePolicies")
-    def compute_policies(self) -> List['outputs.ComputePolicyResponse']:
+    def compute_policies(self) -> Sequence['outputs.ComputePolicyResponse']:
         """
         The list of compute policies associated with this account.
         """
@@ -134,7 +134,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="dataLakeStoreAccounts")
-    def data_lake_store_accounts(self) -> List['outputs.DataLakeStoreAccountInformationResponse']:
+    def data_lake_store_accounts(self) -> Sequence['outputs.DataLakeStoreAccountInformationResponse']:
         """
         The list of Data Lake Store accounts associated with this account.
         """
@@ -166,7 +166,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="firewallRules")
-    def firewall_rules(self) -> List['outputs.FirewallRuleResponse']:
+    def firewall_rules(self) -> Sequence['outputs.FirewallRuleResponse']:
         """
         The list of firewall rules associated with this account.
         """
@@ -198,7 +198,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelism")
-    def max_degree_of_parallelism(self) -> float:
+    def max_degree_of_parallelism(self) -> int:
         """
         The maximum supported degree of parallelism for this account.
         """
@@ -206,7 +206,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> float:
+    def max_degree_of_parallelism_per_job(self) -> int:
         """
         The maximum supported degree of parallelism per job for this account.
         """
@@ -214,7 +214,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="maxJobCount")
-    def max_job_count(self) -> float:
+    def max_job_count(self) -> int:
         """
         The maximum supported jobs running under the account at the same time.
         """
@@ -222,7 +222,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> float:
+    def min_priority_per_job(self) -> int:
         """
         The minimum supported priority per job for this account.
         """
@@ -254,7 +254,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="queryStoreRetention")
-    def query_store_retention(self) -> float:
+    def query_store_retention(self) -> int:
         """
         The number of days that job metadata is retained.
         """
@@ -270,7 +270,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> List['outputs.StorageAccountInformationResponse']:
+    def storage_accounts(self) -> Sequence['outputs.StorageAccountInformationResponse']:
         """
         The list of Azure Blob Storage accounts associated with this account.
         """
@@ -278,7 +278,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="systemMaxDegreeOfParallelism")
-    def system_max_degree_of_parallelism(self) -> float:
+    def system_max_degree_of_parallelism(self) -> int:
         """
         The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
         """
@@ -286,7 +286,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="systemMaxJobCount")
-    def system_max_job_count(self) -> float:
+    def system_max_job_count(self) -> int:
         """
         The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
         """

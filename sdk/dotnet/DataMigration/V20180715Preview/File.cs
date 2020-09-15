@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataMigration.V20180715Preview
         /// Custom file properties
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ProjectFilePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ProjectFilePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

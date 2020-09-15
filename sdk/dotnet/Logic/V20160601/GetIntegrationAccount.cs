@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The sku.
         /// </summary>
-        public readonly Outputs.IntegrationAccountSkuResponseResult? Sku;
+        public readonly Outputs.IntegrationAccountSkuResponse? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
             string name,
 
-            Outputs.IntegrationAccountSkuResponseResult? sku,
+            Outputs.IntegrationAccountSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

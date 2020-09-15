@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,26 +17,26 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_types_to_compress: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  delivery_policy: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 geo_filters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]]] = None,
+                 geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]]] = None,
                  is_compression_enabled: Optional[pulumi.Input[bool]] = None,
                  is_http_allowed: Optional[pulumi.Input[bool]] = None,
                  is_https_allowed: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  optimization_type: Optional[pulumi.Input[str]] = None,
-                 origin_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]]] = None,
+                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
                  probe_path: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 url_signing_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]]] = None,
+                 url_signing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]]] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -46,26 +46,26 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] default_origin_group: A reference to the origin group.
         :param pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoFilterArgs']]]] geo_filters: List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] optimization_type: Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginGroupArgs']]]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         :param pulumi.Input[str] origin_host_header: The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
         :param pulumi.Input[str] origin_path: A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The source of the content being delivered via CDN.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The source of the content being delivered via CDN.
         :param pulumi.Input[str] probe_path: Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]] url_signing_keys: List of keys used to validate the signed URL hashes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]] url_signing_keys: List of keys used to validate the signed URL hashes.
         :param pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']] web_application_firewall_policy_link: Defines the Web Application Firewall policy for the endpoint (if applicable)
         """
         if __name__ is not None:
@@ -149,7 +149,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
-    def content_types_to_compress(self) -> pulumi.Output[Optional[List[str]]]:
+    def content_types_to_compress(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of content types on which compression applies. The value should be a valid MIME type.
         """
@@ -173,7 +173,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> pulumi.Output[Optional[List['outputs.GeoFilterResponse']]]:
+    def geo_filters(self) -> pulumi.Output[Optional[Sequence['outputs.GeoFilterResponse']]]:
         """
         List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         """
@@ -237,7 +237,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> pulumi.Output[Optional[List['outputs.DeepCreatedOriginGroupResponse']]]:
+    def origin_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DeepCreatedOriginGroupResponse']]]:
         """
         The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         """
@@ -261,7 +261,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Output[List['outputs.DeepCreatedOriginResponse']]:
+    def origins(self) -> pulumi.Output[Sequence['outputs.DeepCreatedOriginResponse']]:
         """
         The source of the content being delivered via CDN.
         """
@@ -317,7 +317,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlSigningKeys")
-    def url_signing_keys(self) -> pulumi.Output[Optional[List['outputs.UrlSigningKeyResponse']]]:
+    def url_signing_keys(self) -> pulumi.Output[Optional[Sequence['outputs.UrlSigningKeyResponse']]]:
         """
         List of keys used to validate the signed URL hashes.
         """

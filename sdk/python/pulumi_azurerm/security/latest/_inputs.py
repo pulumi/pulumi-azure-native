@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -36,12 +36,12 @@ __all__ = [
 @pulumi.input_type
 class AllowlistCustomAlertRuleArgs:
     def __init__(__self__, *,
-                 allowlist_values: pulumi.Input[List[pulumi.Input[str]]],
+                 allowlist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowlist_values: The values to allow. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
@@ -51,14 +51,14 @@ class AllowlistCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="allowlistValues")
-    def allowlist_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowlist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The values to allow. The format of the values depends on the rule type.
         """
         return pulumi.get(self, "allowlist_values")
 
     @allowlist_values.setter
-    def allowlist_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowlist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowlist_values", value)
 
     @property
@@ -167,12 +167,12 @@ class AzureResourceDetailsArgs:
 @pulumi.input_type
 class DenylistCustomAlertRuleArgs:
     def __init__(__self__, *,
-                 denylist_values: pulumi.Input[List[pulumi.Input[str]]],
+                 denylist_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is denied.
-        :param pulumi.Input[List[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denylist_values: The values to deny. The format of the values depends on the rule type.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
@@ -182,14 +182,14 @@ class DenylistCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="denylistValues")
-    def denylist_values(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def denylist_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The values to deny. The format of the values depends on the rule type.
         """
         return pulumi.get(self, "denylist_values")
 
     @denylist_values.setter
-    def denylist_values(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def denylist_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "denylist_values", value)
 
     @property
@@ -221,11 +221,11 @@ class DenylistCustomAlertRuleArgs:
 class JitNetworkAccessPolicyVirtualMachineArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 ports: pulumi.Input[List[pulumi.Input['JitNetworkAccessPortRuleArgs']]],
+                 ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]],
                  public_ip_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: Resource ID of the virtual machine that is linked to this policy
-        :param pulumi.Input[List[pulumi.Input['JitNetworkAccessPortRuleArgs']]] ports: Port configurations for the virtual machine
+        :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]] ports: Port configurations for the virtual machine
         :param pulumi.Input[str] public_ip_address: Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
         pulumi.set(__self__, "id", id)
@@ -247,14 +247,14 @@ class JitNetworkAccessPolicyVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> pulumi.Input[List[pulumi.Input['JitNetworkAccessPortRuleArgs']]]:
+    def ports(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]]:
         """
         Port configurations for the virtual machine
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: pulumi.Input[List[pulumi.Input['JitNetworkAccessPortRuleArgs']]]):
+    def ports(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPortRuleArgs']]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -274,14 +274,14 @@ class JitNetworkAccessPolicyVirtualMachineArgs:
 class JitNetworkAccessPortRuleArgs:
     def __init__(__self__, *,
                  max_request_access_duration: pulumi.Input[str],
-                 number: pulumi.Input[float],
+                 number: pulumi.Input[int],
                  protocol: pulumi.Input[str],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
-                 allowed_source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] max_request_access_duration: Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
         :param pulumi.Input[str] allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         """
         pulumi.set(__self__, "max_request_access_duration", max_request_access_duration)
         pulumi.set(__self__, "number", number)
@@ -305,11 +305,11 @@ class JitNetworkAccessPortRuleArgs:
 
     @property
     @pulumi.getter
-    def number(self) -> pulumi.Input[float]:
+    def number(self) -> pulumi.Input[int]:
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: pulumi.Input[float]):
+    def number(self, value: pulumi.Input[int]):
         pulumi.set(self, "number", value)
 
     @property
@@ -335,14 +335,14 @@ class JitNetworkAccessPortRuleArgs:
 
     @property
     @pulumi.getter(name="allowedSourceAddressPrefixes")
-    def allowed_source_address_prefixes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         """
         return pulumi.get(self, "allowed_source_address_prefixes")
 
     @allowed_source_address_prefixes.setter
-    def allowed_source_address_prefixes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_source_address_prefixes", value)
 
 
@@ -351,7 +351,7 @@ class JitNetworkAccessRequestArgs:
     def __init__(__self__, *,
                  requestor: pulumi.Input[str],
                  start_time_utc: pulumi.Input[str],
-                 virtual_machines: pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]],
+                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]],
                  justification: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] requestor: The identity of the person who made the request
@@ -390,11 +390,11 @@ class JitNetworkAccessRequestArgs:
 
     @property
     @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]:
+    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]:
         return pulumi.get(self, "virtual_machines")
 
     @virtual_machines.setter
-    def virtual_machines(self, value: pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]):
+    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]):
         pulumi.set(self, "virtual_machines", value)
 
     @property
@@ -414,19 +414,19 @@ class JitNetworkAccessRequestArgs:
 class JitNetworkAccessRequestPortArgs:
     def __init__(__self__, *,
                  end_time_utc: pulumi.Input[str],
-                 number: pulumi.Input[float],
+                 number: pulumi.Input[int],
                  status: pulumi.Input[str],
                  status_reason: pulumi.Input[str],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
-                 allowed_source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 mapped_port: Optional[pulumi.Input[float]] = None):
+                 allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mapped_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] end_time_utc: The date & time at which the request ends in UTC
         :param pulumi.Input[str] status: The status of the port
         :param pulumi.Input[str] status_reason: A description of why the `status` has its value
         :param pulumi.Input[str] allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-        :param pulumi.Input[float] mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        :param pulumi.Input[int] mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
         """
         pulumi.set(__self__, "end_time_utc", end_time_utc)
         pulumi.set(__self__, "number", number)
@@ -453,11 +453,11 @@ class JitNetworkAccessRequestPortArgs:
 
     @property
     @pulumi.getter
-    def number(self) -> pulumi.Input[float]:
+    def number(self) -> pulumi.Input[int]:
         return pulumi.get(self, "number")
 
     @number.setter
-    def number(self, value: pulumi.Input[float]):
+    def number(self, value: pulumi.Input[int]):
         pulumi.set(self, "number", value)
 
     @property
@@ -498,26 +498,26 @@ class JitNetworkAccessRequestPortArgs:
 
     @property
     @pulumi.getter(name="allowedSourceAddressPrefixes")
-    def allowed_source_address_prefixes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         """
         return pulumi.get(self, "allowed_source_address_prefixes")
 
     @allowed_source_address_prefixes.setter
-    def allowed_source_address_prefixes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_source_address_prefixes", value)
 
     @property
     @pulumi.getter(name="mappedPort")
-    def mapped_port(self) -> Optional[pulumi.Input[float]]:
+    def mapped_port(self) -> Optional[pulumi.Input[int]]:
         """
         The port which is mapped to this port's `number` in the Azure Firewall, if applicable
         """
         return pulumi.get(self, "mapped_port")
 
     @mapped_port.setter
-    def mapped_port(self, value: Optional[pulumi.Input[float]]):
+    def mapped_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "mapped_port", value)
 
 
@@ -525,10 +525,10 @@ class JitNetworkAccessRequestPortArgs:
 class JitNetworkAccessRequestVirtualMachineArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 ports: pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
+                 ports: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
         """
         :param pulumi.Input[str] id: Resource ID of the virtual machine that is linked to this policy
-        :param pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestPortArgs']]] ports: The ports that were opened for the virtual machine
+        :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]] ports: The ports that were opened for the virtual machine
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ports", ports)
@@ -547,14 +547,14 @@ class JitNetworkAccessRequestVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestPortArgs']]]:
+    def ports(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]]:
         """
         The ports that were opened for the virtual machine
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: pulumi.Input[List[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
+    def ports(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
         pulumi.set(self, "ports", value)
 
 
@@ -651,8 +651,8 @@ class PathRecommendationArgs:
                  path: Optional[pulumi.Input[str]] = None,
                  publisher_info: Optional[pulumi.Input['PublisherInfoArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 user_sids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 usernames: Optional[pulumi.Input[List[pulumi.Input['UserRecommendationArgs']]]] = None):
+                 user_sids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 usernames: Optional[pulumi.Input[Sequence[pulumi.Input['UserRecommendationArgs']]]] = None):
         """
         Represents a path that is recommended to be allowed and its properties
         :param pulumi.Input[str] action: The recommendation action of the machine or rule
@@ -768,20 +768,20 @@ class PathRecommendationArgs:
 
     @property
     @pulumi.getter(name="userSids")
-    def user_sids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def user_sids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "user_sids")
 
     @user_sids.setter
-    def user_sids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def user_sids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_sids", value)
 
     @property
     @pulumi.getter
-    def usernames(self) -> Optional[pulumi.Input[List[pulumi.Input['UserRecommendationArgs']]]]:
+    def usernames(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserRecommendationArgs']]]]:
         return pulumi.get(self, "usernames")
 
     @usernames.setter
-    def usernames(self, value: Optional[pulumi.Input[List[pulumi.Input['UserRecommendationArgs']]]]):
+    def usernames(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserRecommendationArgs']]]]):
         pulumi.set(self, "usernames", value)
 
 
@@ -1027,13 +1027,13 @@ class SecurityAssessmentMetadataPropertiesArgs:
                  assessment_type: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  severity: pulumi.Input[str],
-                 category: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  implementation_effort: Optional[pulumi.Input[str]] = None,
                  partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
-                 threats: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_impact: Optional[pulumi.Input[str]] = None):
         """
         Describes properties of an assessment metadata.
@@ -1105,11 +1105,11 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "category", value)
 
     @property
@@ -1174,11 +1174,11 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter
-    def threats(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "threats")
 
     @threats.setter
-    def threats(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "threats", value)
 
     @property
@@ -1236,14 +1236,14 @@ class SecurityAssessmentPartnerDataArgs:
 class ThresholdCustomAlertRuleArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
-                 max_threshold: pulumi.Input[float],
-                 min_threshold: pulumi.Input[float],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
                  rule_type: pulumi.Input[str]):
         """
         A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
-        :param pulumi.Input[float] max_threshold: The maximum threshold.
-        :param pulumi.Input[float] min_threshold: The minimum threshold.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -1265,26 +1265,26 @@ class ThresholdCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> pulumi.Input[float]:
+    def max_threshold(self) -> pulumi.Input[int]:
         """
         The maximum threshold.
         """
         return pulumi.get(self, "max_threshold")
 
     @max_threshold.setter
-    def max_threshold(self, value: pulumi.Input[float]):
+    def max_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_threshold", value)
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> pulumi.Input[float]:
+    def min_threshold(self) -> pulumi.Input[int]:
         """
         The minimum threshold.
         """
         return pulumi.get(self, "min_threshold")
 
     @min_threshold.setter
-    def min_threshold(self, value: pulumi.Input[float]):
+    def min_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_threshold", value)
 
     @property
@@ -1304,15 +1304,15 @@ class ThresholdCustomAlertRuleArgs:
 class TimeWindowCustomAlertRuleArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
-                 max_threshold: pulumi.Input[float],
-                 min_threshold: pulumi.Input[float],
+                 max_threshold: pulumi.Input[int],
+                 min_threshold: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
                  time_window_size: pulumi.Input[str]):
         """
         A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
         :param pulumi.Input[bool] is_enabled: Status of the custom alert.
-        :param pulumi.Input[float] max_threshold: The maximum threshold.
-        :param pulumi.Input[float] min_threshold: The minimum threshold.
+        :param pulumi.Input[int] max_threshold: The maximum threshold.
+        :param pulumi.Input[int] min_threshold: The minimum threshold.
         :param pulumi.Input[str] rule_type: The type of the custom alert rule.
         :param pulumi.Input[str] time_window_size: The time window size in iso8601 format.
         """
@@ -1336,26 +1336,26 @@ class TimeWindowCustomAlertRuleArgs:
 
     @property
     @pulumi.getter(name="maxThreshold")
-    def max_threshold(self) -> pulumi.Input[float]:
+    def max_threshold(self) -> pulumi.Input[int]:
         """
         The maximum threshold.
         """
         return pulumi.get(self, "max_threshold")
 
     @max_threshold.setter
-    def max_threshold(self, value: pulumi.Input[float]):
+    def max_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_threshold", value)
 
     @property
     @pulumi.getter(name="minThreshold")
-    def min_threshold(self) -> pulumi.Input[float]:
+    def min_threshold(self) -> pulumi.Input[int]:
         """
         The minimum threshold.
         """
         return pulumi.get(self, "min_threshold")
 
     @min_threshold.setter
-    def min_threshold(self, value: pulumi.Input[float]):
+    def min_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_threshold", value)
 
     @property
@@ -1387,11 +1387,11 @@ class TimeWindowCustomAlertRuleArgs:
 class UserDefinedResourcesPropertiesArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
-                 query_subscriptions: pulumi.Input[List[pulumi.Input[str]]]):
+                 query_subscriptions: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-        :param pulumi.Input[List[pulumi.Input[str]]] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "query_subscriptions", query_subscriptions)
@@ -1410,14 +1410,14 @@ class UserDefinedResourcesPropertiesArgs:
 
     @property
     @pulumi.getter(name="querySubscriptions")
-    def query_subscriptions(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def query_subscriptions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of Azure subscription ids on which the user defined resources query should be executed.
         """
         return pulumi.get(self, "query_subscriptions")
 
     @query_subscriptions.setter
-    def query_subscriptions(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def query_subscriptions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "query_subscriptions", value)
 
 

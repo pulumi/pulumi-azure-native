@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListDomainRecommendationsResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.NameIdentifierResponseResult']:
+    def value(self) -> Sequence['outputs.NameIdentifierResponseResult']:
         """
         Collection of resources.
         """
@@ -56,13 +56,13 @@ class AwaitableListDomainRecommendationsResult(ListDomainRecommendationsResult):
 
 
 def list_domain_recommendations(keywords: Optional[str] = None,
-                                max_domain_recommendations: Optional[float] = None,
+                                max_domain_recommendations: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainRecommendationsResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str keywords: Keywords to be used for generating domain recommendations.
-    :param float max_domain_recommendations: Maximum number of recommendations.
+    :param int max_domain_recommendations: Maximum number of recommendations.
     """
     __args__ = dict()
     __args__['keywords'] = keywords

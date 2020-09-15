@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Sql.V20200202Preview
         /// Group members information for the server trust group.
         /// </summary>
         [Output("groupMembers")]
-        public Output<ImmutableArray<Outputs.ServerInfoResponseResult>> GroupMembers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServerInfoResponse>> GroupMembers { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.

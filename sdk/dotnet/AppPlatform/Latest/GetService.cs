@@ -50,11 +50,11 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
         /// <summary>
         /// Properties of the Service resource
         /// </summary>
-        public readonly Outputs.ClusterResourcePropertiesResponseResult Properties;
+        public readonly Outputs.ClusterResourcePropertiesResponse Properties;
         /// <summary>
         /// Sku of the Service resource
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
@@ -70,9 +70,9 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
 
             string name,
 
-            Outputs.ClusterResourcePropertiesResponseResult properties,
+            Outputs.ClusterResourcePropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20190802Preview
         /// The machine extension instance view.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.MachineExtensionInstanceViewResponseResult?> InstanceView { get; private set; } = null!;
+        public Output<Outputs.MachineExtensionInstanceViewResponse?> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

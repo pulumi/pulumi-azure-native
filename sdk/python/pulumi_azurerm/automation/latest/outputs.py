@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -35,11 +35,11 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
     """
     def __init__(__self__, *,
                  day: Optional[str] = None,
-                 occurrence: Optional[float] = None):
+                 occurrence: Optional[int] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
         :param str day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param float occurrence: Occurrence of the week within the month. Must be between 1 and 5
+        :param int occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -56,7 +56,7 @@ class AdvancedScheduleMonthlyOccurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[float]:
+    def occurrence(self) -> Optional[int]:
         """
         Occurrence of the week within the month. Must be between 1 and 5
         """
@@ -72,14 +72,14 @@ class AdvancedScheduleResponse(dict):
     The properties of the create Advanced Schedule.
     """
     def __init__(__self__, *,
-                 month_days: Optional[List[float]] = None,
-                 monthly_occurrences: Optional[List['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
-                 week_days: Optional[List[str]] = None):
+                 month_days: Optional[Sequence[int]] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']] = None,
+                 week_days: Optional[Sequence[str]] = None):
         """
         The properties of the create Advanced Schedule.
-        :param List[float] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
-        :param List['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
-        :param List[str] week_days: Days of the week that the job should execute on.
+        :param Sequence[int] month_days: Days of the month that the job should execute on. Must be between 1 and 31.
+        :param Sequence['AdvancedScheduleMonthlyOccurrenceResponseArgs'] monthly_occurrences: Occurrences of days within a month.
+        :param Sequence[str] week_days: Days of the week that the job should execute on.
         """
         if month_days is not None:
             pulumi.set(__self__, "month_days", month_days)
@@ -90,7 +90,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[List[float]]:
+    def month_days(self) -> Optional[Sequence[int]]:
         """
         Days of the month that the job should execute on. Must be between 1 and 31.
         """
@@ -98,7 +98,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[List['outputs.AdvancedScheduleMonthlyOccurrenceResponse']]:
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.AdvancedScheduleMonthlyOccurrenceResponse']]:
         """
         Occurrences of days within a month.
         """
@@ -106,7 +106,7 @@ class AdvancedScheduleResponse(dict):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> Optional[Sequence[str]]:
         """
         Days of the week that the job should execute on.
         """
@@ -324,13 +324,13 @@ class DscConfigurationParameterResponse(dict):
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
-                 position: Optional[float] = None,
+                 position: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Definition of the configuration parameter type.
         :param str default_value: Gets or sets the default value of parameter.
         :param bool is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param float position: Get or sets the position of the parameter.
+        :param int position: Get or sets the position of the parameter.
         :param str type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -360,7 +360,7 @@ class DscConfigurationParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[float]:
+    def position(self) -> Optional[int]:
         """
         Get or sets the position of the parameter.
         """
@@ -542,14 +542,14 @@ class RunbookDraftResponse(dict):
                  draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
                  in_edit: Optional[bool] = None,
                  last_modified_time: Optional[str] = None,
-                 output_types: Optional[List[str]] = None,
+                 output_types: Optional[Sequence[str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param str creation_time: Gets or sets the creation time of the runbook draft.
         :param 'ContentLinkResponseArgs' draft_content_link: Gets or sets the draft runbook content link.
         :param bool in_edit: Gets or sets whether runbook is in edit mode.
         :param str last_modified_time: Gets or sets the last modified time of the runbook draft.
-        :param List[str] output_types: Gets or sets the runbook output types.
+        :param Sequence[str] output_types: Gets or sets the runbook output types.
         :param Mapping[str, 'RunbookParameterResponseArgs'] parameters: Gets or sets the runbook draft parameters.
         """
         if creation_time is not None:
@@ -599,7 +599,7 @@ class RunbookDraftResponse(dict):
 
     @property
     @pulumi.getter(name="outputTypes")
-    def output_types(self) -> Optional[List[str]]:
+    def output_types(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the runbook output types.
         """
@@ -625,13 +625,13 @@ class RunbookParameterResponse(dict):
     def __init__(__self__, *,
                  default_value: Optional[str] = None,
                  is_mandatory: Optional[bool] = None,
-                 position: Optional[float] = None,
+                 position: Optional[int] = None,
                  type: Optional[str] = None):
         """
         Definition of the runbook parameter type.
         :param str default_value: Gets or sets the default value of parameter.
         :param bool is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
-        :param float position: Get or sets the position of the parameter.
+        :param int position: Get or sets the position of the parameter.
         :param str type: Gets or sets the type of the parameter.
         """
         if default_value is not None:
@@ -661,7 +661,7 @@ class RunbookParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[float]:
+    def position(self) -> Optional[int]:
         """
         Get or sets the position of the parameter.
         """
@@ -712,12 +712,12 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None):
         """
         The account SKU.
         :param str name: Gets or sets the SKU name of the account.
-        :param float capacity: Gets or sets the SKU capacity.
+        :param int capacity: Gets or sets the SKU capacity.
         :param str family: Gets or sets the SKU family.
         """
         pulumi.set(__self__, "name", name)
@@ -736,7 +736,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Gets or sets the SKU capacity.
         """

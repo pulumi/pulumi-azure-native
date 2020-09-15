@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -21,14 +21,14 @@ __all__ = [
 @pulumi.input_type
 class GuestOSCustomizationArgs:
     def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Guest OS Customization properties
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_servers: List of dns servers to use
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of dns servers to use
         :param pulumi.Input[str] host_name: Virtual Machine hostname
         :param pulumi.Input[str] password: Password for login
         :param pulumi.Input[str] policy_id: id of customization policy
@@ -47,14 +47,14 @@ class GuestOSCustomizationArgs:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of dns servers to use
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @property
@@ -110,8 +110,8 @@ class GuestOSCustomizationArgs:
 class GuestOSNICCustomizationArgs:
     def __init__(__self__, *,
                  allocation: Optional[pulumi.Input[str]] = None,
-                 dns_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 gateway: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
                  primary_wins_server: Optional[pulumi.Input[str]] = None,
@@ -119,8 +119,8 @@ class GuestOSNICCustomizationArgs:
         """
         Guest OS nic customization
         :param pulumi.Input[str] allocation: IP address allocation method
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_servers: List of dns servers to use
-        :param pulumi.Input[List[pulumi.Input[str]]] gateway: Gateway addresses assigned to nic
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of dns servers to use
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway: Gateway addresses assigned to nic
         :param pulumi.Input[str] ip_address: Static ip address for nic
         :param pulumi.Input[str] mask: Network mask for nic
         :param pulumi.Input[str] primary_wins_server: primary WINS server for Windows
@@ -155,26 +155,26 @@ class GuestOSNICCustomizationArgs:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of dns servers to use
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def gateway(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gateway addresses assigned to nic
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def gateway(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "gateway", value)
 
     @property
@@ -341,13 +341,13 @@ class VirtualDiskArgs:
     def __init__(__self__, *,
                  controller_id: pulumi.Input[str],
                  independence_mode: pulumi.Input[str],
-                 total_size: pulumi.Input[float],
+                 total_size: pulumi.Input[int],
                  virtual_disk_id: Optional[pulumi.Input[str]] = None):
         """
         Virtual disk model
         :param pulumi.Input[str] controller_id: Disk's Controller id
         :param pulumi.Input[str] independence_mode: Disk's independence mode type
-        :param pulumi.Input[float] total_size: Disk's total size
+        :param pulumi.Input[int] total_size: Disk's total size
         :param pulumi.Input[str] virtual_disk_id: Disk's id
         """
         pulumi.set(__self__, "controller_id", controller_id)
@@ -382,14 +382,14 @@ class VirtualDiskArgs:
 
     @property
     @pulumi.getter(name="totalSize")
-    def total_size(self) -> pulumi.Input[float]:
+    def total_size(self) -> pulumi.Input[int]:
         """
         Disk's total size
         """
         return pulumi.get(self, "total_size")
 
     @total_size.setter
-    def total_size(self, value: pulumi.Input[float]):
+    def total_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "total_size", value)
 
     @property
@@ -434,7 +434,7 @@ class VirtualNicArgs:
                  network: pulumi.Input['VirtualNetworkArgs'],
                  nic_type: pulumi.Input[str],
                  customization: Optional[pulumi.Input['GuestOSNICCustomizationArgs']] = None,
-                 ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  power_on_boot: Optional[pulumi.Input[bool]] = None,
                  virtual_nic_id: Optional[pulumi.Input[str]] = None):
@@ -443,7 +443,7 @@ class VirtualNicArgs:
         :param pulumi.Input['VirtualNetworkArgs'] network: Virtual Network
         :param pulumi.Input[str] nic_type: NIC type
         :param pulumi.Input['GuestOSNICCustomizationArgs'] customization: guest OS customization for nic
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_addresses: NIC ip address
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: NIC ip address
         :param pulumi.Input[str] mac_address: NIC MAC address
         :param pulumi.Input[bool] power_on_boot: Is NIC powered on/off on boot
         :param pulumi.Input[str] virtual_nic_id: NIC id
@@ -499,14 +499,14 @@ class VirtualNicArgs:
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         NIC ip address
         """
         return pulumi.get(self, "ip_addresses")
 
     @ip_addresses.setter
-    def ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
     @property

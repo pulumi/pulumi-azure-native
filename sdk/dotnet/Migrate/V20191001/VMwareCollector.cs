@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Migrate.V20191001
         public Output<string> Name { get; private set; } = null!;
 
         [Output("properties")]
-        public Output<Outputs.CollectorPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CollectorPropertiesResponse> Properties { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

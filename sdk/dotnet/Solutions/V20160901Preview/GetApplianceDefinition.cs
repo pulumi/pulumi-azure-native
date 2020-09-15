@@ -42,11 +42,11 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// <summary>
         /// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceArtifactResponseResult> Artifacts;
+        public readonly ImmutableArray<Outputs.ApplianceArtifactResponse> Artifacts;
         /// <summary>
         /// The appliance provider authorizations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplianceProviderAuthorizationResponseResult> Authorizations;
+        public readonly ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> Authorizations;
         /// <summary>
         /// The appliance definition description.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -94,15 +94,15 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
 
         [OutputConstructor]
         private GetApplianceDefinitionResult(
-            ImmutableArray<Outputs.ApplianceArtifactResponseResult> artifacts,
+            ImmutableArray<Outputs.ApplianceArtifactResponse> artifacts,
 
-            ImmutableArray<Outputs.ApplianceProviderAuthorizationResponseResult> authorizations,
+            ImmutableArray<Outputs.ApplianceProviderAuthorizationResponse> authorizations,
 
             string? description,
 
             string? displayName,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Solutions.V20160901Preview
 
             string packageFileUri,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

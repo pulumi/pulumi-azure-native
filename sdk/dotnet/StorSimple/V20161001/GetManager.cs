@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// <summary>
         /// Specifies if the Manager is Garda or Helsinki
         /// </summary>
-        public readonly Outputs.ManagerIntrinsicSettingsResponseResult? CisIntrinsicSettings;
+        public readonly Outputs.ManagerIntrinsicSettingsResponse? CisIntrinsicSettings;
         /// <summary>
         /// ETag of the Manager
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// <summary>
         /// Specifies the Sku
         /// </summary>
-        public readonly Outputs.ManagerSkuResponseResult? Sku;
+        public readonly Outputs.ManagerSkuResponse? Sku;
         /// <summary>
         /// Tags attached to the Manager
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
         [OutputConstructor]
         private GetManagerResult(
-            Outputs.ManagerIntrinsicSettingsResponseResult? cisIntrinsicSettings,
+            Outputs.ManagerIntrinsicSettingsResponse? cisIntrinsicSettings,
 
             string? etag,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
             string provisioningState,
 
-            Outputs.ManagerSkuResponseResult? sku,
+            Outputs.ManagerSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class BuildTask(pulumi.CustomResource):
                  source_repository: Optional[pulumi.Input[pulumi.InputType['SourceRepositoryPropertiesArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +44,7 @@ class BuildTask(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SourceRepositoryPropertiesArgs']] source_repository: The properties that describes the source(code) for the build task.
         :param pulumi.Input[str] status: The current status of build task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[float] timeout: Build timeout in seconds.
+        :param pulumi.Input[int] timeout: Build timeout in seconds.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -189,7 +189,7 @@ class BuildTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Build timeout in seconds.
         """

@@ -70,11 +70,11 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceResponse? ExpressRouteCircuitPeering;
         /// <summary>
         /// IPv6 Address PrefixProperties of the express route circuit connection.
         /// </summary>
-        public readonly Outputs.Ipv6CircuitConnectionConfigResponseResult? Ipv6CircuitConnectionConfig;
+        public readonly Outputs.Ipv6CircuitConnectionConfigResponse? Ipv6CircuitConnectionConfig;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceResponse? PeerExpressRouteCircuitPeering;
         /// <summary>
         /// The provisioning state of the express route circuit connection resource.
         /// </summary>
@@ -102,13 +102,13 @@ namespace Pulumi.AzureRM.Network.V20200401
 
             string etag,
 
-            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
+            Outputs.SubResourceResponse? expressRouteCircuitPeering,
 
-            Outputs.Ipv6CircuitConnectionConfigResponseResult? ipv6CircuitConnectionConfig,
+            Outputs.Ipv6CircuitConnectionConfigResponse? ipv6CircuitConnectionConfig,
 
             string? name,
 
-            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+            Outputs.SubResourceResponse? peerExpressRouteCircuitPeering,
 
             string provisioningState,
 

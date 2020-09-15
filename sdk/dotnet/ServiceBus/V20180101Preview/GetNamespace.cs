@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         /// <summary>
         /// Properties of BYOK Encryption description
         /// </summary>
-        public readonly Outputs.EncryptionResponseResult? Encryption;
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         /// <summary>
         /// Properties of SKU
         /// </summary>
-        public readonly Outputs.SBSkuResponseResult? Sku;
+        public readonly Outputs.SBSkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
         private GetNamespaceResult(
             string createdAt,
 
-            Outputs.EncryptionResponseResult? encryption,
+            Outputs.EncryptionResponse? encryption,
 
             string location,
 
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.ServiceBus.V20180101Preview
 
             string serviceBusEndpoint,
 
-            Outputs.SBSkuResponseResult? sku,
+            Outputs.SBSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -117,7 +117,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter
-    def kpis(self) -> Optional[List['outputs.KpiPropertiesResponse']]:
+    def kpis(self) -> Optional[Sequence['outputs.KpiPropertiesResponse']]:
         """
         List of KPIs to show in Cost Analysis UI.
         """
@@ -149,7 +149,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter
-    def pivots(self) -> Optional[List['outputs.PivotPropertiesResponse']]:
+    def pivots(self) -> Optional[Sequence['outputs.PivotPropertiesResponse']]:
         """
         Configuration of 3 sub-views in the Cost Analysis UI.
         """

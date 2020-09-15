@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,11 +19,11 @@ class DataDiskImageResponseResult(dict):
     Data disk image.
     """
     def __init__(__self__, *,
-                 lun: float,
+                 lun: int,
                  source_blob_sas_uri: str):
         """
         Data disk image.
-        :param float lun: The LUN.
+        :param int lun: The LUN.
         :param str source_blob_sas_uri: SAS key for source blob.
         """
         pulumi.set(__self__, "lun", lun)
@@ -31,7 +31,7 @@ class DataDiskImageResponseResult(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         The LUN.
         """

@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// API specific properties.
         /// </summary>
-        public readonly Outputs.ApiPropertiesResponseResult? ApiProperties;
+        public readonly Outputs.ApiPropertiesResponse? ApiProperties;
         /// <summary>
         /// The object representing the policy for taking backups on an account.
         /// </summary>
-        public readonly Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? BackupPolicy;
+        public readonly Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>? BackupPolicy;
         /// <summary>
         /// List of Cosmos DB capabilities for the account
         /// </summary>
-        public readonly ImmutableArray<Outputs.CapabilityResponseResult> Capabilities;
+        public readonly ImmutableArray<Outputs.CapabilityResponse> Capabilities;
         /// <summary>
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
@@ -58,11 +58,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// The consistency policy for the Cosmos DB database account.
         /// </summary>
-        public readonly Outputs.ConsistencyPolicyResponseResult? ConsistencyPolicy;
+        public readonly Outputs.ConsistencyPolicyResponse? ConsistencyPolicy;
         /// <summary>
         /// The CORS policy for the Cosmos DB database account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CorsPolicyResponseResult> Cors;
+        public readonly ImmutableArray<Outputs.CorsPolicyResponse> Cors;
         /// <summary>
         /// Enum to indicate the mode of account creation.
         /// </summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// An array that contains the regions ordered by their failover priorities.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FailoverPolicyResponseResult> FailoverPolicies;
+        public readonly ImmutableArray<Outputs.FailoverPolicyResponse> FailoverPolicies;
         /// <summary>
         /// Identity for the resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// A unique identifier assigned to the database account
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// List of IpRules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpAddressOrRangeResponseResult> IpRules;
+        public readonly ImmutableArray<Outputs.IpAddressOrRangeResponse> IpRules;
         /// <summary>
         /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// An array that contains all of the locations enabled for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationResponseResult> Locations;
+        public readonly ImmutableArray<Outputs.LocationResponse> Locations;
         /// <summary>
         /// The name of the ARM resource.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// List of Private Endpoint Connections configured for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
         /// </summary>
@@ -154,15 +154,15 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// An array that contains of the read locations enabled for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationResponseResult> ReadLocations;
+        public readonly ImmutableArray<Outputs.LocationResponse> ReadLocations;
         /// <summary>
         /// Parameters to indicate the information about the restore.
         /// </summary>
-        public readonly Outputs.RestoreParametersResponseResult? RestoreParameters;
+        public readonly Outputs.RestoreParametersResponse? RestoreParameters;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
-        public readonly Outputs.SystemDataResponseResult SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
@@ -174,25 +174,25 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
         /// <summary>
         /// List of Virtual Network ACL rules configured for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponseResult> VirtualNetworkRules;
+        public readonly ImmutableArray<Outputs.VirtualNetworkRuleResponse> VirtualNetworkRules;
         /// <summary>
         /// An array that contains the write location for the Cosmos DB account.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LocationResponseResult> WriteLocations;
+        public readonly ImmutableArray<Outputs.LocationResponse> WriteLocations;
 
         [OutputConstructor]
         private GetDatabaseAccountResult(
-            Outputs.ApiPropertiesResponseResult? apiProperties,
+            Outputs.ApiPropertiesResponse? apiProperties,
 
-            Union<Outputs.ContinuousModeBackupPolicyResponseResult, Outputs.PeriodicModeBackupPolicyResponseResult>? backupPolicy,
+            Union<Outputs.ContinuousModeBackupPolicyResponse, Outputs.PeriodicModeBackupPolicyResponse>? backupPolicy,
 
-            ImmutableArray<Outputs.CapabilityResponseResult> capabilities,
+            ImmutableArray<Outputs.CapabilityResponse> capabilities,
 
             string? connectorOffer,
 
-            Outputs.ConsistencyPolicyResponseResult? consistencyPolicy,
+            Outputs.ConsistencyPolicyResponse? consistencyPolicy,
 
-            ImmutableArray<Outputs.CorsPolicyResponseResult> cors,
+            ImmutableArray<Outputs.CorsPolicyResponse> cors,
 
             string? createMode,
 
@@ -212,13 +212,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
 
             bool? enableMultipleWriteLocations,
 
-            ImmutableArray<Outputs.FailoverPolicyResponseResult> failoverPolicies,
+            ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
 
-            Outputs.ManagedServiceIdentityResponseResult? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string instanceId,
 
-            ImmutableArray<Outputs.IpAddressOrRangeResponseResult> ipRules,
+            ImmutableArray<Outputs.IpAddressOrRangeResponse> ipRules,
 
             bool? isVirtualNetworkFilterEnabled,
 
@@ -228,29 +228,29 @@ namespace Pulumi.AzureRM.DocumentDB.V20200601Preview
 
             string? location,
 
-            ImmutableArray<Outputs.LocationResponseResult> locations,
+            ImmutableArray<Outputs.LocationResponse> locations,
 
             string name,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string? provisioningState,
 
             string? publicNetworkAccess,
 
-            ImmutableArray<Outputs.LocationResponseResult> readLocations,
+            ImmutableArray<Outputs.LocationResponse> readLocations,
 
-            Outputs.RestoreParametersResponseResult? restoreParameters,
+            Outputs.RestoreParametersResponse? restoreParameters,
 
-            Outputs.SystemDataResponseResult systemData,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VirtualNetworkRuleResponseResult> virtualNetworkRules,
+            ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules,
 
-            ImmutableArray<Outputs.LocationResponseResult> writeLocations)
+            ImmutableArray<Outputs.LocationResponse> writeLocations)
         {
             ApiProperties = apiProperties;
             BackupPolicy = backupPolicy;

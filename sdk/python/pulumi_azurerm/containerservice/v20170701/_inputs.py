@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -28,22 +28,22 @@ class ContainerServiceAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
-                 ports: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  storage_profile: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[float] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[List[pulumi.Input[float]]] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] ports: Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -90,14 +90,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -114,14 +114,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -138,14 +138,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -262,18 +262,18 @@ class ContainerServiceMasterProfileArgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  first_consecutive_static_ip: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  storage_profile: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service master.
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the master pool.
         :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[float] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
+        :param pulumi.Input[int] count: Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         :param pulumi.Input[str] first_consecutive_static_ip: FirstConsecutiveStaticIP used to specify the first static ip of masters.
-        :param pulumi.Input[float] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         :param pulumi.Input[str] storage_profile: Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
@@ -316,14 +316,14 @@ class ContainerServiceMasterProfileArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -340,14 +340,14 @@ class ContainerServiceMasterProfileArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -472,23 +472,23 @@ class ContainerServiceServicePrincipalProfileArgs:
 @pulumi.input_type
 class ContainerServiceSshConfigurationArgs:
     def __init__(__self__, *,
-                 public_keys: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+                 public_keys: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         """
         SSH configuration for Linux-based VMs running on Azure.
-        :param pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         pulumi.set(__self__, "public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
-    def public_keys(self) -> pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
+    def public_keys(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]:
         """
         The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         return pulumi.get(self, "public_keys")
 
     @public_keys.setter
-    def public_keys(self, value: pulumi.Input[List[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
+    def public_keys(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceSshPublicKeyArgs']]]):
         pulumi.set(self, "public_keys", value)
 
 

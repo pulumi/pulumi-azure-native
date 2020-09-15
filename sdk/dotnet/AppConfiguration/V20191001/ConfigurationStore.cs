@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         /// The managed identity information, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         /// The sku of the configuration store.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

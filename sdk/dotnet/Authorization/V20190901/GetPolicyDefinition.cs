@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         /// <summary>
         /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? parameters,
 
             ImmutableDictionary<string, object>? policyRule,
 

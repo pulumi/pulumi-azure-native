@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -56,7 +56,7 @@ class GetIpGroupResult:
 
     @property
     @pulumi.getter
-    def firewalls(self) -> List['outputs.SubResourceResponse']:
+    def firewalls(self) -> Sequence['outputs.SubResourceResponse']:
         """
         List of references to Azure resources that this IpGroups is associated with.
         """
@@ -64,7 +64,7 @@ class GetIpGroupResult:
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         IpAddresses/IpAddressPrefixes in the IpGroups resource.
         """

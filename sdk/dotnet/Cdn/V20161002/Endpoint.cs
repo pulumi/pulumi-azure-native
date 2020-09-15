@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
         [Output("geoFilters")]
-        public Output<ImmutableArray<Outputs.GeoFilterResponseResult>> GeoFilters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GeoFilterResponse>> GeoFilters { get; private set; } = null!;
 
         /// <summary>
         /// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// The source of the content being delivered via CDN.
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponse>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status of the endpoint.

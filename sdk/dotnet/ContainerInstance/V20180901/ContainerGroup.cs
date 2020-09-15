@@ -18,31 +18,31 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180901
         /// The containers within the container group.
         /// </summary>
         [Output("containers")]
-        public Output<ImmutableArray<Outputs.ContainerResponseResult>> Containers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerResponse>> Containers { get; private set; } = null!;
 
         /// <summary>
         /// The diagnostic information for a container group.
         /// </summary>
         [Output("diagnostics")]
-        public Output<Outputs.ContainerGroupDiagnosticsResponseResult?> Diagnostics { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupDiagnosticsResponse?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
         [Output("imageRegistryCredentials")]
-        public Output<ImmutableArray<Outputs.ImageRegistryCredentialResponseResult>> ImageRegistryCredentials { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ImageRegistryCredentialResponse>> ImageRegistryCredentials { get; private set; } = null!;
 
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.ContainerGroupResponseInstanceViewResult> InstanceView { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupResponseInstanceView> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
         [Output("ipAddress")]
-        public Output<Outputs.IpAddressResponseResult?> IpAddress { get; private set; } = null!;
+        public Output<Outputs.IpAddressResponse?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180901
         /// The network profile information for a container group.
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.ContainerGroupNetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// The operating system type required by the containers in the container group.
@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180901
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
         [Output("volumes")]
-        public Output<ImmutableArray<Outputs.VolumeResponseResult>> Volumes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VolumeResponse>> Volumes { get; private set; } = null!;
 
 
         /// <summary>

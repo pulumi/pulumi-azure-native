@@ -18,37 +18,37 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// Specifies the settings for Caffe job.
         /// </summary>
         [Output("caffeSettings")]
-        public Output<Outputs.CaffeSettingsResponseResult?> CaffeSettings { get; private set; } = null!;
+        public Output<Outputs.CaffeSettingsResponse?> CaffeSettings { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the settings for Chainer job.
         /// </summary>
         [Output("chainerSettings")]
-        public Output<Outputs.ChainerSettingsResponseResult?> ChainerSettings { get; private set; } = null!;
+        public Output<Outputs.ChainerSettingsResponse?> ChainerSettings { get; private set; } = null!;
 
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
         [Output("cluster")]
-        public Output<Outputs.ResourceIdResponseResult?> Cluster { get; private set; } = null!;
+        public Output<Outputs.ResourceIdResponse?> Cluster { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
         /// </summary>
         [Output("cntkSettings")]
-        public Output<Outputs.CNTKsettingsResponseResult?> CntkSettings { get; private set; } = null!;
+        public Output<Outputs.CNTKsettingsResponse?> CntkSettings { get; private set; } = null!;
 
         /// <summary>
         /// Constraints associated with the Job.
         /// </summary>
         [Output("constraints")]
-        public Output<Outputs.JobPropertiesResponseConstraintsResult?> Constraints { get; private set; } = null!;
+        public Output<Outputs.JobPropertiesResponseConstraints?> Constraints { get; private set; } = null!;
 
         /// <summary>
         /// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         /// </summary>
         [Output("containerSettings")]
-        public Output<Outputs.ContainerSettingsResponseResult?> ContainerSettings { get; private set; } = null!;
+        public Output<Outputs.ContainerSettingsResponse?> ContainerSettings { get; private set; } = null!;
 
         /// <summary>
         /// The creation time of the job.
@@ -60,19 +60,19 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// Specifies the settings for a custom tool kit job.
         /// </summary>
         [Output("customToolkitSettings")]
-        public Output<Outputs.CustomToolkitSettingsResponseResult?> CustomToolkitSettings { get; private set; } = null!;
+        public Output<Outputs.CustomToolkitSettingsResponse?> CustomToolkitSettings { get; private set; } = null!;
 
         /// <summary>
         /// Batch AI services sets the following environment variables for all jobs: AZ_BATCHAI_INPUT_id, AZ_BATCHAI_OUTPUT_id, AZ_BATCHAI_NUM_GPUS_PER_NODE, For distributed TensorFlow jobs, following additional environment variables are set by the Batch AI Service: AZ_BATCHAI_PS_HOSTS, AZ_BATCHAI_WORKER_HOSTS.
         /// </summary>
         [Output("environmentVariables")]
-        public Output<ImmutableArray<Outputs.EnvironmentSettingResponseResult>> EnvironmentVariables { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EnvironmentSettingResponse>> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
         /// Contains information about the execution of a job in the Azure Batch service.
         /// </summary>
         [Output("executionInfo")]
-        public Output<Outputs.JobPropertiesResponseExecutionInfoResult?> ExecutionInfo { get; private set; } = null!;
+        public Output<Outputs.JobPropertiesResponseExecutionInfo?> ExecutionInfo { get; private set; } = null!;
 
         /// <summary>
         /// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
@@ -93,13 +93,13 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         public Output<string?> ExperimentName { get; private set; } = null!;
 
         [Output("inputDirectories")]
-        public Output<ImmutableArray<Outputs.InputDirectoryResponseResult>> InputDirectories { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InputDirectoryResponse>> InputDirectories { get; private set; } = null!;
 
         /// <summary>
         /// The specified actions will run on all the nodes that are part of the job
         /// </summary>
         [Output("jobPreparation")]
-        public Output<Outputs.JobPreparationResponseResult?> JobPreparation { get; private set; } = null!;
+        public Output<Outputs.JobPreparationResponse?> JobPreparation { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         public Output<int?> NodeCount { get; private set; } = null!;
 
         [Output("outputDirectories")]
-        public Output<ImmutableArray<Outputs.OutputDirectoryResponseResult>> OutputDirectories { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OutputDirectoryResponse>> OutputDirectories { get; private set; } = null!;
 
         /// <summary>
         /// Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// Specifies the settings for TensorFlow job.
         /// </summary>
         [Output("tensorFlowSettings")]
-        public Output<Outputs.TensorFlowSettingsResponseResult?> TensorFlowSettings { get; private set; } = null!;
+        public Output<Outputs.TensorFlowSettingsResponse?> TensorFlowSettings { get; private set; } = null!;
 
         /// <summary>
         /// Possible values are: cntk, tensorflow, caffe, caffe2, chainer, custom.

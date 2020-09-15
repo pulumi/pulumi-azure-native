@@ -49,7 +49,7 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// <summary>
         /// This element contains all the errors encountered by various compute nodes during node setup.
         /// </summary>
-        public readonly ImmutableArray<Outputs.BatchAIErrorResponseResult> Errors;
+        public readonly ImmutableArray<Outputs.BatchAIErrorResponse> Errors;
         /// <summary>
         /// The location of the resource
         /// </summary>
@@ -61,11 +61,11 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// <summary>
         /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         /// </summary>
-        public readonly Outputs.NodeSetupResponseResult? NodeSetup;
+        public readonly Outputs.NodeSetupResponse? NodeSetup;
         /// <summary>
         /// Counts of various compute node states on the cluster.
         /// </summary>
-        public readonly Outputs.NodeStateCountsResponseResult NodeStateCounts;
+        public readonly Outputs.NodeStateCountsResponse NodeStateCounts;
         /// <summary>
         /// Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
         /// </summary>
@@ -74,11 +74,11 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// <summary>
         /// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
         /// </summary>
-        public readonly Outputs.ScaleSettingsResponseResult? ScaleSettings;
+        public readonly Outputs.ScaleSettingsResponse? ScaleSettings;
         /// <summary>
         /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         /// </summary>
-        public readonly Outputs.ResourceIdResponseResult? Subnet;
+        public readonly Outputs.ResourceIdResponse? Subnet;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -90,11 +90,11 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
         /// <summary>
         /// Settings for user account that gets created on each on the nodes of a cluster.
         /// </summary>
-        public readonly Outputs.UserAccountSettingsResponseResult? UserAccountSettings;
+        public readonly Outputs.UserAccountSettingsResponse? UserAccountSettings;
         /// <summary>
         /// Settings for OS image.
         /// </summary>
-        public readonly Outputs.VirtualMachineConfigurationResponseResult? VirtualMachineConfiguration;
+        public readonly Outputs.VirtualMachineConfigurationResponse? VirtualMachineConfiguration;
         /// <summary>
         /// The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
         /// </summary>
@@ -114,31 +114,31 @@ namespace Pulumi.AzureRM.BatchAI.V20170901Preview
 
             int currentNodeCount,
 
-            ImmutableArray<Outputs.BatchAIErrorResponseResult> errors,
+            ImmutableArray<Outputs.BatchAIErrorResponse> errors,
 
             string location,
 
             string name,
 
-            Outputs.NodeSetupResponseResult? nodeSetup,
+            Outputs.NodeSetupResponse? nodeSetup,
 
-            Outputs.NodeStateCountsResponseResult nodeStateCounts,
+            Outputs.NodeStateCountsResponse nodeStateCounts,
 
             string provisioningState,
 
             string provisioningStateTransitionTime,
 
-            Outputs.ScaleSettingsResponseResult? scaleSettings,
+            Outputs.ScaleSettingsResponse? scaleSettings,
 
-            Outputs.ResourceIdResponseResult? subnet,
+            Outputs.ResourceIdResponse? subnet,
 
             ImmutableDictionary<string, string> tags,
 
             string type,
 
-            Outputs.UserAccountSettingsResponseResult? userAccountSettings,
+            Outputs.UserAccountSettingsResponse? userAccountSettings,
 
-            Outputs.VirtualMachineConfigurationResponseResult? virtualMachineConfiguration,
+            Outputs.VirtualMachineConfigurationResponse? virtualMachineConfiguration,
 
             string? vmPriority,
 

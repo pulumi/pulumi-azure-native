@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIdentityResponseResult? Identity;
+        public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -86,11 +86,11 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// <summary>
         /// The upgrade policy.
         /// </summary>
-        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        public readonly Outputs.UpgradePolicyResponse? UpgradePolicy;
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponse? VirtualMachineProfile;
         /// <summary>
         /// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.Compute.V20170330
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
-            Outputs.VirtualMachineScaleSetIdentityResponseResult? identity,
+            Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
 
@@ -106,13 +106,13 @@ namespace Pulumi.AzureRM.Compute.V20170330
 
             bool? overprovision,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             string provisioningState,
 
             bool? singlePlacementGroup,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -120,9 +120,9 @@ namespace Pulumi.AzureRM.Compute.V20170330
 
             string uniqueId,
 
-            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+            Outputs.UpgradePolicyResponse? upgradePolicy,
 
-            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile,
+            Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile,
 
             ImmutableArray<string> zones)
         {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -81,7 +81,7 @@ class GetServiceEndpointPolicyDefinitionResult:
 
     @property
     @pulumi.getter(name="serviceResources")
-    def service_resources(self) -> Optional[List[str]]:
+    def service_resources(self) -> Optional[Sequence[str]]:
         """
         A list of service resources.
         """

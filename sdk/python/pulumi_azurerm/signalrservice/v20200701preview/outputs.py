@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -126,12 +126,12 @@ class NetworkACLResponse(dict):
     Network ACL
     """
     def __init__(__self__, *,
-                 allow: Optional[List[str]] = None,
-                 deny: Optional[List[str]] = None):
+                 allow: Optional[Sequence[str]] = None,
+                 deny: Optional[Sequence[str]] = None):
         """
         Network ACL
-        :param List[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        :param List[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -140,7 +140,7 @@ class NetworkACLResponse(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[List[str]]:
+    def allow(self) -> Optional[Sequence[str]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -148,7 +148,7 @@ class NetworkACLResponse(dict):
 
     @property
     @pulumi.getter
-    def deny(self) -> Optional[List[str]]:
+    def deny(self) -> Optional[Sequence[str]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -165,13 +165,13 @@ class PrivateEndpointACLResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 allow: Optional[List[str]] = None,
-                 deny: Optional[List[str]] = None):
+                 allow: Optional[Sequence[str]] = None,
+                 deny: Optional[Sequence[str]] = None):
         """
         ACL for a private endpoint
         :param str name: Name of the private endpoint connection
-        :param List[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        :param List[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param Sequence[str] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         pulumi.set(__self__, "name", name)
         if allow is not None:
@@ -189,7 +189,7 @@ class PrivateEndpointACLResponse(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[List[str]]:
+    def allow(self) -> Optional[Sequence[str]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -197,7 +197,7 @@ class PrivateEndpointACLResponse(dict):
 
     @property
     @pulumi.getter
-    def deny(self) -> Optional[List[str]]:
+    def deny(self) -> Optional[Sequence[str]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
@@ -372,7 +372,7 @@ class ResourceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
@@ -381,7 +381,7 @@ class ResourceSkuResponse(dict):
         :param str name: The name of the SKU. Required.
                
                Allowed values: Standard_S1, Free_F1
-        :param float capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
+        :param int capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
                
                If present, following values are allowed:
                    Free: 1
@@ -414,7 +414,7 @@ class ResourceSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         Optional, integer. The unit count of SignalR resource. 1 by default.
         
@@ -460,17 +460,17 @@ class ServerlessUpstreamSettingsResponse(dict):
     The settings for the Upstream when the Azure SignalR is in server-less mode.
     """
     def __init__(__self__, *,
-                 templates: Optional[List['outputs.UpstreamTemplateResponse']] = None):
+                 templates: Optional[Sequence['outputs.UpstreamTemplateResponse']] = None):
         """
         The settings for the Upstream when the Azure SignalR is in server-less mode.
-        :param List['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        :param Sequence['UpstreamTemplateResponseArgs'] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
             pulumi.set(__self__, "templates", templates)
 
     @property
     @pulumi.getter
-    def templates(self) -> Optional[List['outputs.UpstreamTemplateResponse']]:
+    def templates(self) -> Optional[Sequence['outputs.UpstreamTemplateResponse']]:
         """
         Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
@@ -486,17 +486,17 @@ class SignalRCorsSettingsResponse(dict):
     Cross-Origin Resource Sharing (CORS) settings.
     """
     def __init__(__self__, *,
-                 allowed_origins: Optional[List[str]] = None):
+                 allowed_origins: Optional[Sequence[str]] = None):
         """
         Cross-Origin Resource Sharing (CORS) settings.
-        :param List[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+        :param Sequence[str] allowed_origins: Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
         if allowed_origins is not None:
             pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Optional[List[str]]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
         """
@@ -565,12 +565,12 @@ class SignalRNetworkACLsResponse(dict):
     """
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
-                 private_endpoints: Optional[List['outputs.PrivateEndpointACLResponse']] = None,
+                 private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for SignalR
         :param str default_action: Default action when no other rule matches
-        :param List['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
+        :param Sequence['PrivateEndpointACLResponseArgs'] private_endpoints: ACLs for requests from private endpoints
         :param 'NetworkACLResponseArgs' public_network: ACL for requests from public network
         """
         if default_action is not None:
@@ -590,7 +590,7 @@ class SignalRNetworkACLsResponse(dict):
 
     @property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[List['outputs.PrivateEndpointACLResponse']]:
+    def private_endpoints(self) -> Optional[Sequence['outputs.PrivateEndpointACLResponse']]:
         """
         ACLs for requests from private endpoints
         """

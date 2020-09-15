@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.HybridData.V20190601
         /// The sku type.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource

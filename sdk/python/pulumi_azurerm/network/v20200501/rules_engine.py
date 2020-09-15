@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class RulesEngine(pulumi.CustomResource):
                  front_door_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_state: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
                  rules_engine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +33,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] resource_state: Resource status.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A list of rules that define a particular Rules Engine Configuration.
         :param pulumi.Input[str] rules_engine_name: Name of the Rules Engine which is unique within the Front Door.
         """
         if __name__ is not None:
@@ -110,7 +110,7 @@ class RulesEngine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.RulesEngineRuleResponse']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.RulesEngineRuleResponse']]]:
         """
         A list of rules that define a particular Rules Engine Configuration.
         """

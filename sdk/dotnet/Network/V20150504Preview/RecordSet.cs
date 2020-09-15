@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
         /// Gets or sets the properties of the RecordSet.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RecordSetPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.RecordSetPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

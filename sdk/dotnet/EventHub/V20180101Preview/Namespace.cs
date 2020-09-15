@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// Properties of BYOK Encryption description
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.EncryptionResponseResult?> Encryption { get; private set; } = null!;
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Properties of BYOK Identity description
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.EventHub.V20180101Preview
         /// Properties of sku resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

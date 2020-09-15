@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -375,12 +375,12 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information about Azure File Share backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of available backup copies associated with this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -415,14 +415,14 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of available backup copies associated with this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -838,12 +838,12 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_inconsistent: Optional[pulumi.Input[bool]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
         :param pulumi.Input[bool] policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies available for this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -878,14 +878,14 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies available for this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -1173,12 +1173,12 @@ class AzureSqlProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure Sql specific protected item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
         :param pulumi.Input[str] policy_state: State of the backup policy associated with this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of available backup copies associated with this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1213,14 +1213,14 @@ class AzureSqlProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of available backup copies associated with this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -1652,12 +1652,12 @@ class AzureVmWorkloadProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies available for this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
@@ -1692,14 +1692,14 @@ class AzureVmWorkloadProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies available for this backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 
@@ -2009,11 +2009,11 @@ class DPMProtectedItemExtendedInfoArgs:
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
                  on_premise_latest_recovery_point: Optional[pulumi.Input[str]] = None,
                  on_premise_oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 on_premise_recovery_point_count: Optional[pulumi.Input[float]] = None,
+                 on_premise_recovery_point_count: Optional[pulumi.Input[int]] = None,
                  protectable_object_load_path: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  protected: Optional[pulumi.Input[bool]] = None,
                  protection_group_name: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None,
                  total_disk_storage_size_in_bytes: Optional[pulumi.Input[str]] = None):
         """
         Additional information of DPM Protected item.
@@ -2025,11 +2025,11 @@ class DPMProtectedItemExtendedInfoArgs:
         :param pulumi.Input[str] oldest_recovery_point: Oldest cloud recovery point time.
         :param pulumi.Input[str] on_premise_latest_recovery_point: latest disk recovery point time.
         :param pulumi.Input[str] on_premise_oldest_recovery_point: Oldest disk recovery point time.
-        :param pulumi.Input[float] on_premise_recovery_point_count: disk recovery point count.
+        :param pulumi.Input[int] on_premise_recovery_point_count: disk recovery point count.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] protectable_object_load_path: Attribute to provide information on various DBs.
         :param pulumi.Input[bool] protected: To check if backup item is disk protected.
         :param pulumi.Input[str] protection_group_name: Protection group name of the backup item.
-        :param pulumi.Input[float] recovery_point_count: cloud recovery point count.
+        :param pulumi.Input[int] recovery_point_count: cloud recovery point count.
         :param pulumi.Input[str] total_disk_storage_size_in_bytes: total Disk storage in bytes.
         """
         if disk_storage_used_in_bytes is not None:
@@ -2159,14 +2159,14 @@ class DPMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="onPremiseRecoveryPointCount")
-    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         disk recovery point count.
         """
         return pulumi.get(self, "on_premise_recovery_point_count")
 
     @on_premise_recovery_point_count.setter
-    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "on_premise_recovery_point_count", value)
 
     @property
@@ -2207,14 +2207,14 @@ class DPMProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         cloud recovery point count.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
     @property
@@ -2233,10 +2233,10 @@ class DPMProtectedItemExtendedInfoArgs:
 @pulumi.input_type
 class DiskExclusionPropertiesArgs:
     def __init__(__self__, *,
-                 disk_lun_list: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 disk_lun_list: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  is_inclusion_list: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[float]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] disk_lun_list: List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         :param pulumi.Input[bool] is_inclusion_list: Flag to indicate whether DiskLunList is to be included/ excluded from backup.
         """
         if disk_lun_list is not None:
@@ -2246,14 +2246,14 @@ class DiskExclusionPropertiesArgs:
 
     @property
     @pulumi.getter(name="diskLunList")
-    def disk_lun_list(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def disk_lun_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
         """
         return pulumi.get(self, "disk_lun_list")
 
     @disk_lun_list.setter
-    def disk_lun_list(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def disk_lun_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "disk_lun_list", value)
 
     @property
@@ -2311,7 +2311,7 @@ class GenericProtectedItemArgs:
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
-                 protected_item_id: Optional[pulumi.Input[float]] = None,
+                 protected_item_id: Optional[pulumi.Input[int]] = None,
                  protection_state: Optional[pulumi.Input[str]] = None,
                  source_associations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -2333,7 +2333,7 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[float] protected_item_id: Data Plane Service ID of the protected item.
+        :param pulumi.Input[int] protected_item_id: Data Plane Service ID of the protected item.
         :param pulumi.Input[str] protection_state: Backup state of this backup item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
@@ -2561,14 +2561,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectedItemId")
-    def protected_item_id(self) -> Optional[pulumi.Input[float]]:
+    def protected_item_id(self) -> Optional[pulumi.Input[int]]:
         """
         Data Plane Service ID of the protected item.
         """
         return pulumi.get(self, "protected_item_id")
 
     @protected_item_id.setter
-    def protected_item_id(self, value: Optional[pulumi.Input[float]]):
+    def protected_item_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "protected_item_id", value)
 
     @property
@@ -2653,7 +2653,7 @@ class MabFileFolderProtectedItemArgs:
                  computer_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
-                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[float]] = None,
+                 deferred_delete_sync_time_in_utc: Optional[pulumi.Input[int]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs']] = None,
@@ -2676,7 +2676,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
         :param pulumi.Input[str] container_name: Unique name of container
         :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-        :param pulumi.Input[float] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
+        :param pulumi.Input[int] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['MabFileFolderProtectedItemExtendedInfoArgs'] extended_info: Additional information with this backup item.
@@ -2808,14 +2808,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="deferredDeleteSyncTimeInUTC")
-    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[float]]:
+    def deferred_delete_sync_time_in_utc(self) -> Optional[pulumi.Input[int]]:
         """
         Sync time for deferred deletion in UTC
         """
         return pulumi.get(self, "deferred_delete_sync_time_in_utc")
 
     @deferred_delete_sync_time_in_utc.setter
-    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[float]]):
+    def deferred_delete_sync_time_in_utc(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "deferred_delete_sync_time_in_utc", value)
 
     @property
@@ -2992,12 +2992,12 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
     def __init__(__self__, *,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
                  oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[float]] = None):
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
         """
         Additional information on the backed up item.
         :param pulumi.Input[str] last_refreshed_at: Last time when the agent data synced to service.
         :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available.
-        :param pulumi.Input[float] recovery_point_count: Number of backup copies associated with the backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies associated with the backup item.
         """
         if last_refreshed_at is not None:
             pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
@@ -3032,14 +3032,14 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[float]]:
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of backup copies associated with the backup item.
         """
         return pulumi.get(self, "recovery_point_count")
 
     @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[float]]):
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_count", value)
 
 

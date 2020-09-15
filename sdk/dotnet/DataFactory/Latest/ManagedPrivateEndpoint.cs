@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.DataFactory.Latest
         /// Managed private endpoint properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedPrivateEndpointResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ManagedPrivateEndpointResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

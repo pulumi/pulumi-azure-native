@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// <summary>
         /// List of recommendation configuration
         /// </summary>
-        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> RecommendationsConfiguration;
+        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> RecommendationsConfiguration;
         /// <summary>
         /// Security solution status
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
         /// <summary>
         /// Properties of the solution's user defined resources.
         /// </summary>
-        public readonly Outputs.UserDefinedResourcesPropertiesResponseResult? UserDefinedResources;
+        public readonly Outputs.UserDefinedResourcesPropertiesResponse? UserDefinedResources;
         /// <summary>
         /// Workspace resource ID
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
 
             string name,
 
-            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> recommendationsConfiguration,
+            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponse> recommendationsConfiguration,
 
             string? status,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.Security.V20170801Preview
 
             string type,
 
-            Outputs.UserDefinedResourcesPropertiesResponseResult? userDefinedResources,
+            Outputs.UserDefinedResourcesPropertiesResponse? userDefinedResources,
 
             string workspace)
         {

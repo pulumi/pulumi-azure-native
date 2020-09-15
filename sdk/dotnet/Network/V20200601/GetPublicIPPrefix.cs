@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The customIpPrefix that this prefix is associated with.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? CustomIPPrefix;
+        public readonly Outputs.SubResourceResponse? CustomIPPrefix;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The list of tags associated with the public IP prefix.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpTagResponseResult> IpTags;
+        public readonly ImmutableArray<Outputs.IpTagResponse> IpTags;
         /// <summary>
         /// The reference to load balancer frontend IP configuration associated with the public IP prefix.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult LoadBalancerFrontendIpConfiguration;
+        public readonly Outputs.SubResourceResponse LoadBalancerFrontendIpConfiguration;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The list of all referenced PublicIPAddresses.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult> PublicIPAddresses;
+        public readonly ImmutableArray<Outputs.ReferencedPublicIpAddressResponse> PublicIPAddresses;
         /// <summary>
         /// The resource GUID property of the public IP prefix resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The public IP prefix SKU.
         /// </summary>
-        public readonly Outputs.PublicIPPrefixSkuResponseResult? Sku;
+        public readonly Outputs.PublicIPPrefixSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -112,15 +112,15 @@ namespace Pulumi.AzureRM.Network.V20200601
 
         [OutputConstructor]
         private GetPublicIPPrefixResult(
-            Outputs.SubResourceResponseResult? customIPPrefix,
+            Outputs.SubResourceResponse? customIPPrefix,
 
             string etag,
 
             string ipPrefix,
 
-            ImmutableArray<Outputs.IpTagResponseResult> ipTags,
+            ImmutableArray<Outputs.IpTagResponse> ipTags,
 
-            Outputs.SubResourceResponseResult loadBalancerFrontendIpConfiguration,
+            Outputs.SubResourceResponse loadBalancerFrontendIpConfiguration,
 
             string? location,
 
@@ -132,11 +132,11 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string? publicIPAddressVersion,
 
-            ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult> publicIPAddresses,
+            ImmutableArray<Outputs.ReferencedPublicIpAddressResponse> publicIPAddresses,
 
             string resourceGuid,
 
-            Outputs.PublicIPPrefixSkuResponseResult? sku,
+            Outputs.PublicIPPrefixSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

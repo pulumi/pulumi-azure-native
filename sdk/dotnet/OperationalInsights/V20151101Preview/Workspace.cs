@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.OperationalInsights.V20151101Preview
         /// The SKU of the workspace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.

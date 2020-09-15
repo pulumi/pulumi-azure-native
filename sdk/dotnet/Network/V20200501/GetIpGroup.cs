@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// <summary>
         /// List of references to Azure resources that this IpGroups is associated with.
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Firewalls;
+        public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
         /// IpAddresses/IpAddressPrefixes in the IpGroups resource.
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         private GetIpGroupResult(
             string etag,
 
-            ImmutableArray<Outputs.SubResourceResponseResult> firewalls,
+            ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
             ImmutableArray<string> ipAddresses,
 

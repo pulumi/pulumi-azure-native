@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,17 +19,17 @@ class StreamingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
-                 events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[float]] = None,
-                 events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[float]] = None,
+                 events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+                 events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
                  events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
-                 functions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
-                 inputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
+                 functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  output_error_policy: Optional[pulumi.Input[str]] = None,
                  output_start_mode: Optional[pulumi.Input[str]] = None,
                  output_start_time: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -44,17 +44,17 @@ class StreamingJob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility_level: Controls certain runtime behaviors of the streaming job.
         :param pulumi.Input[str] data_locale: The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-        :param pulumi.Input[float] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-        :param pulumi.Input[float] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
+        :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         :param pulumi.Input[str] events_out_of_order_policy: Indicates the policy to apply to events that arrive out of order in the input event stream.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionArgs']]]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputArgs']]]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] location: Resource location. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] output_error_policy: Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
         :param pulumi.Input[str] output_start_mode: This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
         :param pulumi.Input[str] output_start_time: Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OutputArgs']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputArgs']]]] outputs: A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -166,7 +166,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
-    def events_late_arrival_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def events_late_arrival_max_delay_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
         """
@@ -174,7 +174,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
-    def events_out_of_order_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def events_out_of_order_max_delay_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         """
@@ -190,7 +190,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def functions(self) -> pulumi.Output[Optional[List['outputs.FunctionResponse']]]:
+    def functions(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionResponse']]]:
         """
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
@@ -198,7 +198,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def inputs(self) -> pulumi.Output[Optional[List['outputs.InputResponse']]]:
+    def inputs(self) -> pulumi.Output[Optional[Sequence['outputs.InputResponse']]]:
         """
         A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         """
@@ -270,7 +270,7 @@ class StreamingJob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Output[Optional[List['outputs.OutputResponse']]]:
+    def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.OutputResponse']]]:
         """
         A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         """

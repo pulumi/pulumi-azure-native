@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
         /// <summary>
         /// Properties of the configuration profile preference.
         /// </summary>
-        public readonly Outputs.ConfigurationProfilePreferencePropertiesResponseResult Properties;
+        public readonly Outputs.ConfigurationProfilePreferencePropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Automanage.V20200630Preview
 
             string name,
 
-            Outputs.ConfigurationProfilePreferencePropertiesResponseResult properties,
+            Outputs.ConfigurationProfilePreferencePropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

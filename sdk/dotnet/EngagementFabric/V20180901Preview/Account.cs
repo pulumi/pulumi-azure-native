@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.EngagementFabric.V20180901Preview
         /// The SKU of the resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SKUResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SKUResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource

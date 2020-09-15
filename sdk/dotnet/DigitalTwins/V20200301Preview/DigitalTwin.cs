@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.DigitalTwins.V20200301Preview
         /// This property is reserved for future use, and will be ignored/omitted
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.DigitalTwinsSkuInfoResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.DigitalTwinsSkuInfoResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

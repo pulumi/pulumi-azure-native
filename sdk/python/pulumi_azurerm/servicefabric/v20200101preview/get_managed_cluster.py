@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetManagedClusterResult:
         if azure_active_directory and not isinstance(azure_active_directory, dict):
             raise TypeError("Expected argument 'azure_active_directory' to be a dict")
         pulumi.set(__self__, "azure_active_directory", azure_active_directory)
-        if client_connection_port and not isinstance(client_connection_port, float):
-            raise TypeError("Expected argument 'client_connection_port' to be a float")
+        if client_connection_port and not isinstance(client_connection_port, int):
+            raise TypeError("Expected argument 'client_connection_port' to be a int")
         pulumi.set(__self__, "client_connection_port", client_connection_port)
         if clients and not isinstance(clients, list):
             raise TypeError("Expected argument 'clients' to be a list")
@@ -66,8 +66,8 @@ class GetManagedClusterResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
-        if http_gateway_connection_port and not isinstance(http_gateway_connection_port, float):
-            raise TypeError("Expected argument 'http_gateway_connection_port' to be a float")
+        if http_gateway_connection_port and not isinstance(http_gateway_connection_port, int):
+            raise TypeError("Expected argument 'http_gateway_connection_port' to be a int")
         pulumi.set(__self__, "http_gateway_connection_port", http_gateway_connection_port)
         if load_balancing_rules and not isinstance(load_balancing_rules, list):
             raise TypeError("Expected argument 'load_balancing_rules' to be a list")
@@ -117,7 +117,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="clientConnectionPort")
-    def client_connection_port(self) -> Optional[float]:
+    def client_connection_port(self) -> Optional[int]:
         """
         The port used for client connections to the cluster.
         """
@@ -125,7 +125,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter
-    def clients(self) -> Optional[List['outputs.ClientCertificateResponse']]:
+    def clients(self) -> Optional[Sequence['outputs.ClientCertificateResponse']]:
         """
         client certificates for the cluster.
         """
@@ -211,7 +211,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[List['outputs.SettingsSectionDescriptionResponse']]:
+    def fabric_settings(self) -> Optional[Sequence['outputs.SettingsSectionDescriptionResponse']]:
         """
         The list of custom fabric settings to configure the cluster.
         """
@@ -227,7 +227,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="httpGatewayConnectionPort")
-    def http_gateway_connection_port(self) -> Optional[float]:
+    def http_gateway_connection_port(self) -> Optional[int]:
         """
         The port used for http connections to the cluster.
         """
@@ -235,7 +235,7 @@ class GetManagedClusterResult:
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> Optional[List['outputs.LoadBalancingRuleResponse']]:
+    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleResponse']]:
         """
         Describes load balancing rules.
         """

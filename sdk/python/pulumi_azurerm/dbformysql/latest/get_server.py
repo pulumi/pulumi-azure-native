@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,8 +57,8 @@ class GetServerResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if replica_capacity and not isinstance(replica_capacity, float):
-            raise TypeError("Expected argument 'replica_capacity' to be a float")
+        if replica_capacity and not isinstance(replica_capacity, int):
+            raise TypeError("Expected argument 'replica_capacity' to be a int")
         pulumi.set(__self__, "replica_capacity", replica_capacity)
         if replication_role and not isinstance(replication_role, str):
             raise TypeError("Expected argument 'replication_role' to be a str")
@@ -167,7 +167,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> List['outputs.ServerPrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.ServerPrivateEndpointConnectionResponse']:
         """
         List of private endpoint connections on a server
         """
@@ -183,7 +183,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="replicaCapacity")
-    def replica_capacity(self) -> Optional[float]:
+    def replica_capacity(self) -> Optional[int]:
         """
         The maximum number of replicas that a master server can have.
         """

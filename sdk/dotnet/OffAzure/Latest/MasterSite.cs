@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.OffAzure.Latest
         /// Nested properties of Master site.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MasterSitePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.MasterSitePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Type of resource. Type = Microsoft.OffAzure/MasterSites.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -191,11 +191,11 @@ class DatabaseInfoArgs:
 class GetUserTablesSqlTaskInputArgs:
     def __init__(__self__, *,
                  connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input[str]]]):
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Input for the task that collects user tables for the given list of databases
         :param pulumi.Input['SqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
         """
         pulumi.set(__self__, "connection_info", connection_info)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -214,14 +214,14 @@ class GetUserTablesSqlTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of database names to collect tables for
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_databases", value)
 
 
@@ -339,13 +339,13 @@ class MigrateSqlServerSqlDbDatabaseInputArgs:
 @pulumi.input_type
 class MigrateSqlServerSqlDbTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Options for enabling various post migration validations. Available options, 
@@ -360,14 +360,14 @@ class MigrateSqlServerSqlDbTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -507,14 +507,14 @@ class MigrationValidationOptionsArgs:
 @pulumi.input_type
 class ServiceSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An Azure SKU instance
-        :param pulumi.Input[float] capacity: The capacity of the SKU, if it supports scaling
+        :param pulumi.Input[int] capacity: The capacity of the SKU, if it supports scaling
         :param pulumi.Input[str] family: The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
         :param pulumi.Input[str] name: The unique name of the SKU, such as 'P3'
         :param pulumi.Input[str] size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
@@ -533,14 +533,14 @@ class ServiceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity of the SKU, if it supports scaling
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property

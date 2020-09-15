@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -35,8 +35,8 @@ class GetSapMonitorResult:
         if hana_db_password_key_vault_url and not isinstance(hana_db_password_key_vault_url, str):
             raise TypeError("Expected argument 'hana_db_password_key_vault_url' to be a str")
         pulumi.set(__self__, "hana_db_password_key_vault_url", hana_db_password_key_vault_url)
-        if hana_db_sql_port and not isinstance(hana_db_sql_port, float):
-            raise TypeError("Expected argument 'hana_db_sql_port' to be a float")
+        if hana_db_sql_port and not isinstance(hana_db_sql_port, int):
+            raise TypeError("Expected argument 'hana_db_sql_port' to be a int")
         pulumi.set(__self__, "hana_db_sql_port", hana_db_sql_port)
         if hana_db_username and not isinstance(hana_db_username, str):
             raise TypeError("Expected argument 'hana_db_username' to be a str")
@@ -120,7 +120,7 @@ class GetSapMonitorResult:
 
     @property
     @pulumi.getter(name="hanaDbSqlPort")
-    def hana_db_sql_port(self) -> Optional[float]:
+    def hana_db_sql_port(self) -> Optional[int]:
         """
         Database port of the HANA instance.
         """

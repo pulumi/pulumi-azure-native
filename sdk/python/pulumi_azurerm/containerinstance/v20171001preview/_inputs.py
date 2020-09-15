@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -99,19 +99,19 @@ class ContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['ResourceRequirementsArgs'],
-                 command: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 ports: Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]] = None,
-                 volume_mounts: Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]] = None):
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
         """
         A container instance.
         :param pulumi.Input[str] image: The name of the image used to create the container instance.
         :param pulumi.Input[str] name: The user-provided name of the container instance.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
-        :param pulumi.Input[List[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
-        :param pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
-        :param pulumi.Input[List[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
-        :param pulumi.Input[List[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -163,61 +163,61 @@ class ContainerArgs:
 
     @property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The commands to execute within the container instance in exec form.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "command", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
         The environment variables to set in the container instance.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]:
         """
         The exposed ports on the container instance.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[List[pulumi.Input['ContainerPortArgs']]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]):
         pulumi.set(self, "ports", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]]:
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
         """
         The volume mounts available to the container instance.
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[List[pulumi.Input['VolumeMountArgs']]]]):
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
 
 
 @pulumi.input_type
 class ContainerPortArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         The port exposed on the container instance.
-        :param pulumi.Input[float] port: The port number exposed within the container group.
+        :param pulumi.Input[int] port: The port number exposed within the container group.
         :param pulumi.Input[str] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -226,14 +226,14 @@ class ContainerPortArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number exposed within the container group.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -344,12 +344,12 @@ class ImageRegistryCredentialArgs:
 @pulumi.input_type
 class IpAddressArgs:
     def __init__(__self__, *,
-                 ports: pulumi.Input[List[pulumi.Input['PortArgs']]],
+                 ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
                  type: pulumi.Input[str],
                  ip: Optional[pulumi.Input[str]] = None):
         """
         IP address for the container group.
-        :param pulumi.Input[List[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
+        :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
         :param pulumi.Input[str] type: Specifies if the IP is exposed to the public internet.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
         """
@@ -360,14 +360,14 @@ class IpAddressArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> pulumi.Input[List[pulumi.Input['PortArgs']]]:
+    def ports(self) -> pulumi.Input[Sequence[pulumi.Input['PortArgs']]]:
         """
         The list of ports exposed on the container group.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: pulumi.Input[List[pulumi.Input['PortArgs']]]):
+    def ports(self, value: pulumi.Input[Sequence[pulumi.Input['PortArgs']]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -398,11 +398,11 @@ class IpAddressArgs:
 @pulumi.input_type
 class PortArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  protocol: Optional[pulumi.Input[str]] = None):
         """
         The port exposed on the container group.
-        :param pulumi.Input[float] port: The port number.
+        :param pulumi.Input[int] port: The port number.
         :param pulumi.Input[str] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
@@ -411,14 +411,14 @@ class PortArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property

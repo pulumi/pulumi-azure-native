@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -57,11 +57,11 @@ class GetSubscriptionResult:
         if lock_duration and not isinstance(lock_duration, str):
             raise TypeError("Expected argument 'lock_duration' to be a str")
         pulumi.set(__self__, "lock_duration", lock_duration)
-        if max_delivery_count and not isinstance(max_delivery_count, float):
-            raise TypeError("Expected argument 'max_delivery_count' to be a float")
+        if max_delivery_count and not isinstance(max_delivery_count, int):
+            raise TypeError("Expected argument 'max_delivery_count' to be a int")
         pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        if message_count and not isinstance(message_count, float):
-            raise TypeError("Expected argument 'message_count' to be a float")
+        if message_count and not isinstance(message_count, int):
+            raise TypeError("Expected argument 'message_count' to be a int")
         pulumi.set(__self__, "message_count", message_count)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -177,7 +177,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         Number of maximum deliveries.
         """
@@ -185,7 +185,7 @@ class GetSubscriptionResult:
 
     @property
     @pulumi.getter(name="messageCount")
-    def message_count(self) -> float:
+    def message_count(self) -> int:
         """
         Number of messages.
         """

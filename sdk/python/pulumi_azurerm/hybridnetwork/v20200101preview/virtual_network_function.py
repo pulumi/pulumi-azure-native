@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_function_name: Optional[pulumi.Input[str]] = None,
-                 virtual_network_function_user_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkFunctionUserConfigurationArgs']]]]] = None,
+                 virtual_network_function_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkFunctionUserConfigurationArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,7 +44,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vendor_name: The vendor name for the hybrid network virtual network function.
         :param pulumi.Input[str] virtual_network_function_name: Resource name for the hybrid network virtual network function resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkFunctionUserConfigurationArgs']]]] virtual_network_function_user_configurations: The virtual network function configurations from the user.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkFunctionUserConfigurationArgs']]]] virtual_network_function_user_configurations: The virtual network function configurations from the user.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -222,7 +222,7 @@ class VirtualNetworkFunction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkFunctionUserConfigurations")
-    def virtual_network_function_user_configurations(self) -> pulumi.Output[Optional[List['outputs.VirtualNetworkFunctionUserConfigurationResponse']]]:
+    def virtual_network_function_user_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualNetworkFunctionUserConfigurationResponse']]]:
         """
         The virtual network function configurations from the user.
         """

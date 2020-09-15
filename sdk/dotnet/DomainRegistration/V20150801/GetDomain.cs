@@ -46,23 +46,23 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         /// <summary>
         /// Legal agreement consent
         /// </summary>
-        public readonly Outputs.DomainPurchaseConsentResponseResult? Consent;
+        public readonly Outputs.DomainPurchaseConsentResponse? Consent;
         /// <summary>
         /// Admin contact information
         /// </summary>
-        public readonly Outputs.ContactResponseResult? ContactAdmin;
+        public readonly Outputs.ContactResponse? ContactAdmin;
         /// <summary>
         /// Billing contact information
         /// </summary>
-        public readonly Outputs.ContactResponseResult? ContactBilling;
+        public readonly Outputs.ContactResponse? ContactBilling;
         /// <summary>
         /// Registrant contact information
         /// </summary>
-        public readonly Outputs.ContactResponseResult? ContactRegistrant;
+        public readonly Outputs.ContactResponse? ContactRegistrant;
         /// <summary>
         /// Technical contact information
         /// </summary>
-        public readonly Outputs.ContactResponseResult? ContactTech;
+        public readonly Outputs.ContactResponse? ContactTech;
         /// <summary>
         /// Domain creation timestamp
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         /// <summary>
         /// All hostnames derived from the domain and assigned to Azure resources
         /// </summary>
-        public readonly ImmutableArray<Outputs.HostNameResponseResult> ManagedHostNames;
+        public readonly ImmutableArray<Outputs.HostNameResponse> ManagedHostNames;
         /// <summary>
         /// Resource Name
         /// </summary>
@@ -128,15 +128,15 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         private GetDomainResult(
             bool? autoRenew,
 
-            Outputs.DomainPurchaseConsentResponseResult? consent,
+            Outputs.DomainPurchaseConsentResponse? consent,
 
-            Outputs.ContactResponseResult? contactAdmin,
+            Outputs.ContactResponse? contactAdmin,
 
-            Outputs.ContactResponseResult? contactBilling,
+            Outputs.ContactResponse? contactBilling,
 
-            Outputs.ContactResponseResult? contactRegistrant,
+            Outputs.ContactResponse? contactRegistrant,
 
-            Outputs.ContactResponseResult? contactTech,
+            Outputs.ContactResponse? contactTech,
 
             string? createdTime,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
 
             string location,
 
-            ImmutableArray<Outputs.HostNameResponseResult> managedHostNames,
+            ImmutableArray<Outputs.HostNameResponse> managedHostNames,
 
             string? name,
 

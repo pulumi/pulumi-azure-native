@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         /// <summary>
         /// The properties of a build step.
         /// </summary>
-        public readonly Outputs.DockerBuildStepResponseResult Properties;
+        public readonly Outputs.DockerBuildStepResponse Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20180201Preview
         private GetBuildStepResult(
             string name,
 
-            Outputs.DockerBuildStepResponseResult properties,
+            Outputs.DockerBuildStepResponse properties,
 
             string type)
         {

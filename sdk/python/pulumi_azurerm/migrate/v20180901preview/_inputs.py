@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -19,11 +19,11 @@ __all__ = [
 class MigrateProjectPropertiesArgs:
     def __init__(__self__, *,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 registered_tools: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 registered_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Class for migrate project properties.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the migrate project.
-        :param pulumi.Input[List[pulumi.Input[str]]] registered_tools: Gets or sets the list of tools registered with the migrate project.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -44,14 +44,14 @@ class MigrateProjectPropertiesArgs:
 
     @property
     @pulumi.getter(name="registeredTools")
-    def registered_tools(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def registered_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Gets or sets the list of tools registered with the migrate project.
         """
         return pulumi.get(self, "registered_tools")
 
     @registered_tools.setter
-    def registered_tools(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def registered_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "registered_tools", value)
 
 
@@ -78,14 +78,14 @@ class MigrateProjectTagsArgs:
 @pulumi.input_type
 class SolutionDetailsArgs:
     def __init__(__self__, *,
-                 assessment_count: Optional[pulumi.Input[float]] = None,
+                 assessment_count: Optional[pulumi.Input[int]] = None,
                  extended_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 group_count: Optional[pulumi.Input[float]] = None):
+                 group_count: Optional[pulumi.Input[int]] = None):
         """
         Class representing the details of the solution.
-        :param pulumi.Input[float] assessment_count: Gets or sets the count of assessments reported by the solution.
+        :param pulumi.Input[int] assessment_count: Gets or sets the count of assessments reported by the solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_details: Gets or sets the extended details reported by the solution.
-        :param pulumi.Input[float] group_count: Gets or sets the count of groups reported by the solution.
+        :param pulumi.Input[int] group_count: Gets or sets the count of groups reported by the solution.
         """
         if assessment_count is not None:
             pulumi.set(__self__, "assessment_count", assessment_count)
@@ -96,14 +96,14 @@ class SolutionDetailsArgs:
 
     @property
     @pulumi.getter(name="assessmentCount")
-    def assessment_count(self) -> Optional[pulumi.Input[float]]:
+    def assessment_count(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the count of assessments reported by the solution.
         """
         return pulumi.get(self, "assessment_count")
 
     @assessment_count.setter
-    def assessment_count(self, value: Optional[pulumi.Input[float]]):
+    def assessment_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "assessment_count", value)
 
     @property
@@ -120,14 +120,14 @@ class SolutionDetailsArgs:
 
     @property
     @pulumi.getter(name="groupCount")
-    def group_count(self) -> Optional[pulumi.Input[float]]:
+    def group_count(self) -> Optional[pulumi.Input[int]]:
         """
         Gets or sets the count of groups reported by the solution.
         """
         return pulumi.get(self, "group_count")
 
     @group_count.setter
-    def group_count(self, value: Optional[pulumi.Input[float]]):
+    def group_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "group_count", value)
 
 

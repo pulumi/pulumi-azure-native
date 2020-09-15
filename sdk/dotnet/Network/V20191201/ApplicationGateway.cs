@@ -18,31 +18,31 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("authenticationCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult>> AuthenticationCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponse>> AuthenticationCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Autoscale Configuration.
         /// </summary>
         [Output("autoscaleConfiguration")]
-        public Output<Outputs.ApplicationGatewayAutoscaleConfigurationResponseResult?> AutoscaleConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewayAutoscaleConfigurationResponse?> AutoscaleConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("backendHttpSettingsCollection")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult>> BackendHttpSettingsCollection { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse>> BackendHttpSettingsCollection { get; private set; } = null!;
 
         /// <summary>
         /// Custom error configurations of the application gateway resource.
         /// </summary>
         [Output("customErrorConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponseResult>> CustomErrorConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse>> CustomErrorConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Whether FIPS is enabled on the application gateway resource.
@@ -66,37 +66,37 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Reference to the FirewallPolicy resource.
         /// </summary>
         [Output("firewallPolicy")]
-        public Output<Outputs.SubResourceResponseResult?> FirewallPolicy { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> FirewallPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("frontendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("frontendPorts")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult>> FrontendPorts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse>> FrontendPorts { get; private set; } = null!;
 
         /// <summary>
         /// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("gatewayIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult>> GatewayIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> GatewayIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("httpListeners")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult>> HttpListeners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// The identity of the application gateway, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Probes of the application gateway resource.
         /// </summary>
         [Output("probes")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult>> Probes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayProbeResponse>> Probes { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the application gateway resource.
@@ -132,13 +132,13 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("redirectConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurationResponseResult>> RedirectConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurationResponse>> RedirectConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Request routing rules of the application gateway resource.
         /// </summary>
         [Output("requestRoutingRules")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult>> RequestRoutingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse>> RequestRoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the application gateway resource.
@@ -150,25 +150,25 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Rewrite rules for the application gateway resource.
         /// </summary>
         [Output("rewriteRuleSets")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponseResult>> RewriteRuleSets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponse>> RewriteRuleSets { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the application gateway resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApplicationGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewaySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("sslCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult>> SslCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
         /// SSL policy of the application gateway resource.
         /// </summary>
         [Output("sslPolicy")]
-        public Output<Outputs.ApplicationGatewaySslPolicyResponseResult?> SslPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewaySslPolicyResponse?> SslPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -180,7 +180,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("trustedRootCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificateResponseResult>> TrustedRootCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificateResponse>> TrustedRootCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -192,13 +192,13 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("urlPathMaps")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult>> UrlPathMaps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponse>> UrlPathMaps { get; private set; } = null!;
 
         /// <summary>
         /// Web application firewall configuration.
         /// </summary>
         [Output("webApplicationFirewallConfiguration")]
-        public Output<Outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponseResult?> WebApplicationFirewallConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponse?> WebApplicationFirewallConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.

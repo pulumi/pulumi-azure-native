@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -193,14 +193,14 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
     Properties of an artifact deployment.
     """
     def __init__(__self__, *,
-                 artifacts_applied: Optional[float] = None,
+                 artifacts_applied: Optional[int] = None,
                  deployment_status: Optional[str] = None,
-                 total_artifacts: Optional[float] = None):
+                 total_artifacts: Optional[int] = None):
         """
         Properties of an artifact deployment.
-        :param float artifacts_applied: The total count of the artifacts that were successfully applied.
+        :param int artifacts_applied: The total count of the artifacts that were successfully applied.
         :param str deployment_status: The deployment status of the artifact.
-        :param float total_artifacts: The total count of the artifacts that were tentatively applied.
+        :param int total_artifacts: The total count of the artifacts that were tentatively applied.
         """
         if artifacts_applied is not None:
             pulumi.set(__self__, "artifacts_applied", artifacts_applied)
@@ -211,7 +211,7 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="artifactsApplied")
-    def artifacts_applied(self) -> Optional[float]:
+    def artifacts_applied(self) -> Optional[int]:
         """
         The total count of the artifacts that were successfully applied.
         """
@@ -227,7 +227,7 @@ class ArtifactDeploymentStatusPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="totalArtifacts")
-    def total_artifacts(self) -> Optional[float]:
+    def total_artifacts(self) -> Optional[int]:
         """
         The total count of the artifacts that were tentatively applied.
         """
@@ -247,7 +247,7 @@ class ArtifactInstallPropertiesResponse(dict):
                  artifact_title: Optional[str] = None,
                  deployment_status_message: Optional[str] = None,
                  install_time: Optional[str] = None,
-                 parameters: Optional[List['outputs.ArtifactParameterPropertiesResponse']] = None,
+                 parameters: Optional[Sequence['outputs.ArtifactParameterPropertiesResponse']] = None,
                  status: Optional[str] = None,
                  vm_extension_status_message: Optional[str] = None):
         """
@@ -256,7 +256,7 @@ class ArtifactInstallPropertiesResponse(dict):
         :param str artifact_title: The artifact's title.
         :param str deployment_status_message: The status message from the deployment.
         :param str install_time: The time that the artifact starts to install on the virtual machine.
-        :param List['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
+        :param Sequence['ArtifactParameterPropertiesResponseArgs'] parameters: The parameters of the artifact.
         :param str status: The status of the artifact.
         :param str vm_extension_status_message: The status message from the virtual machine extension.
         """
@@ -309,7 +309,7 @@ class ArtifactInstallPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ArtifactParameterPropertiesResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ArtifactParameterPropertiesResponse']]:
         """
         The parameters of the artifact.
         """
@@ -380,12 +380,12 @@ class AttachNewDataDiskOptionsResponse(dict):
     """
     def __init__(__self__, *,
                  disk_name: Optional[str] = None,
-                 disk_size_gi_b: Optional[float] = None,
+                 disk_size_gi_b: Optional[int] = None,
                  disk_type: Optional[str] = None):
         """
         Properties to attach new disk to the Virtual Machine.
         :param str disk_name: The name of the disk to be attached.
-        :param float disk_size_gi_b: Size of the disk to be attached in GibiBytes.
+        :param int disk_size_gi_b: Size of the disk to be attached in GibiBytes.
         :param str disk_type: The storage type for the disk (i.e. Standard, Premium).
         """
         if disk_name is not None:
@@ -405,7 +405,7 @@ class AttachNewDataDiskOptionsResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[float]:
+    def disk_size_gi_b(self) -> Optional[int]:
         """
         Size of the disk to be attached in GibiBytes.
         """
@@ -429,17 +429,17 @@ class BulkCreationParametersResponse(dict):
     Parameters for creating multiple virtual machines as a single action.
     """
     def __init__(__self__, *,
-                 instance_count: Optional[float] = None):
+                 instance_count: Optional[int] = None):
         """
         Parameters for creating multiple virtual machines as a single action.
-        :param float instance_count: The number of virtual machine instances to create.
+        :param int instance_count: The number of virtual machine instances to create.
         """
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> Optional[float]:
+    def instance_count(self) -> Optional[int]:
         """
         The number of virtual machine instances to create.
         """
@@ -455,13 +455,13 @@ class ComputeDataDiskResponse(dict):
     A data disks attached to a virtual machine.
     """
     def __init__(__self__, *,
-                 disk_size_gi_b: Optional[float] = None,
+                 disk_size_gi_b: Optional[int] = None,
                  disk_uri: Optional[str] = None,
                  managed_disk_id: Optional[str] = None,
                  name: Optional[str] = None):
         """
         A data disks attached to a virtual machine.
-        :param float disk_size_gi_b: Gets data disk size in GiB.
+        :param int disk_size_gi_b: Gets data disk size in GiB.
         :param str disk_uri: When backed by a blob, the URI of underlying blob.
         :param str managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
         :param str name: Gets data disk name.
@@ -477,7 +477,7 @@ class ComputeDataDiskResponse(dict):
 
     @property
     @pulumi.getter(name="diskSizeGiB")
-    def disk_size_gi_b(self) -> Optional[float]:
+    def disk_size_gi_b(self) -> Optional[int]:
         """
         Gets data disk size in GiB.
         """
@@ -567,21 +567,21 @@ class ComputeVmPropertiesResponse(dict):
     Properties of a virtual machine returned by the Microsoft.Compute API.
     """
     def __init__(__self__, *,
-                 data_disk_ids: Optional[List[str]] = None,
-                 data_disks: Optional[List['outputs.ComputeDataDiskResponse']] = None,
+                 data_disk_ids: Optional[Sequence[str]] = None,
+                 data_disks: Optional[Sequence['outputs.ComputeDataDiskResponse']] = None,
                  network_interface_id: Optional[str] = None,
                  os_disk_id: Optional[str] = None,
                  os_type: Optional[str] = None,
-                 statuses: Optional[List['outputs.ComputeVmInstanceViewStatusResponse']] = None,
+                 statuses: Optional[Sequence['outputs.ComputeVmInstanceViewStatusResponse']] = None,
                  vm_size: Optional[str] = None):
         """
         Properties of a virtual machine returned by the Microsoft.Compute API.
-        :param List[str] data_disk_ids: Gets data disks blob uri for the virtual machine.
-        :param List['ComputeDataDiskResponseArgs'] data_disks: Gets all data disks attached to the virtual machine.
+        :param Sequence[str] data_disk_ids: Gets data disks blob uri for the virtual machine.
+        :param Sequence['ComputeDataDiskResponseArgs'] data_disks: Gets all data disks attached to the virtual machine.
         :param str network_interface_id: Gets the network interface ID of the virtual machine.
         :param str os_disk_id: Gets OS disk blob uri for the virtual machine.
         :param str os_type: Gets the OS type of the virtual machine.
-        :param List['ComputeVmInstanceViewStatusResponseArgs'] statuses: Gets the statuses of the virtual machine.
+        :param Sequence['ComputeVmInstanceViewStatusResponseArgs'] statuses: Gets the statuses of the virtual machine.
         :param str vm_size: Gets the size of the virtual machine.
         """
         if data_disk_ids is not None:
@@ -601,7 +601,7 @@ class ComputeVmPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskIds")
-    def data_disk_ids(self) -> Optional[List[str]]:
+    def data_disk_ids(self) -> Optional[Sequence[str]]:
         """
         Gets data disks blob uri for the virtual machine.
         """
@@ -609,7 +609,7 @@ class ComputeVmPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.ComputeDataDiskResponse']]:
+    def data_disks(self) -> Optional[Sequence['outputs.ComputeDataDiskResponse']]:
         """
         Gets all data disks attached to the virtual machine.
         """
@@ -641,7 +641,7 @@ class ComputeVmPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[List['outputs.ComputeVmInstanceViewStatusResponse']]:
+    def statuses(self) -> Optional[Sequence['outputs.ComputeVmInstanceViewStatusResponse']]:
         """
         Gets the statuses of the virtual machine.
         """
@@ -929,11 +929,11 @@ class EnvironmentDeploymentPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  arm_template_id: Optional[str] = None,
-                 parameters: Optional[List['outputs.ArmTemplateParameterPropertiesResponse']] = None):
+                 parameters: Optional[Sequence['outputs.ArmTemplateParameterPropertiesResponse']] = None):
         """
         Properties of an environment deployment.
         :param str arm_template_id: The Azure Resource Manager template's identifier.
-        :param List['ArmTemplateParameterPropertiesResponseArgs'] parameters: The parameters of the Azure Resource Manager template.
+        :param Sequence['ArmTemplateParameterPropertiesResponseArgs'] parameters: The parameters of the Azure Resource Manager template.
         """
         if arm_template_id is not None:
             pulumi.set(__self__, "arm_template_id", arm_template_id)
@@ -950,7 +950,7 @@ class EnvironmentDeploymentPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[List['outputs.ArmTemplateParameterPropertiesResponse']]:
+    def parameters(self) -> Optional[Sequence['outputs.ArmTemplateParameterPropertiesResponse']]:
         """
         The parameters of the Azure Resource Manager template.
         """
@@ -1130,17 +1130,17 @@ class HourDetailsResponse(dict):
     Properties of an hourly schedule.
     """
     def __init__(__self__, *,
-                 minute: Optional[float] = None):
+                 minute: Optional[int] = None):
         """
         Properties of an hourly schedule.
-        :param float minute: Minutes of the hour the schedule will run.
+        :param int minute: Minutes of the hour the schedule will run.
         """
         if minute is not None:
             pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> Optional[float]:
+    def minute(self) -> Optional[int]:
         """
         Minutes of the hour the schedule will run.
         """
@@ -1218,13 +1218,13 @@ class InboundNatRuleResponse(dict):
     A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
     """
     def __init__(__self__, *,
-                 backend_port: Optional[float] = None,
-                 frontend_port: Optional[float] = None,
+                 backend_port: Optional[int] = None,
+                 frontend_port: Optional[int] = None,
                  transport_protocol: Optional[str] = None):
         """
         A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
-        :param float backend_port: The port to which the external traffic will be redirected.
-        :param float frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+        :param int backend_port: The port to which the external traffic will be redirected.
+        :param int frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         :param str transport_protocol: The transport protocol for the endpoint.
         """
         if backend_port is not None:
@@ -1236,7 +1236,7 @@ class InboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> Optional[int]:
         """
         The port to which the external traffic will be redirected.
         """
@@ -1244,7 +1244,7 @@ class InboundNatRuleResponse(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> Optional[int]:
         """
         The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
         """
@@ -1427,14 +1427,14 @@ class LabVirtualMachineCreationParameterResponse(dict):
     def __init__(__self__, *,
                  allow_claim: Optional[bool] = None,
                  artifact_deployment_status: Optional['outputs.ArtifactDeploymentStatusPropertiesResponse'] = None,
-                 artifacts: Optional[List['outputs.ArtifactInstallPropertiesResponse']] = None,
+                 artifacts: Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']] = None,
                  bulk_creation_parameters: Optional['outputs.BulkCreationParametersResponse'] = None,
                  compute_id: Optional[str] = None,
                  created_by_user: Optional[str] = None,
                  created_by_user_id: Optional[str] = None,
                  created_date: Optional[str] = None,
                  custom_image_id: Optional[str] = None,
-                 data_disk_parameters: Optional[List['outputs.DataDiskPropertiesResponse']] = None,
+                 data_disk_parameters: Optional[Sequence['outputs.DataDiskPropertiesResponse']] = None,
                  disallow_public_ip_address: Optional[bool] = None,
                  environment_id: Optional[str] = None,
                  expiration_date: Optional[str] = None,
@@ -1453,7 +1453,7 @@ class LabVirtualMachineCreationParameterResponse(dict):
                  owner_user_principal_name: Optional[str] = None,
                  password: Optional[str] = None,
                  plan_id: Optional[str] = None,
-                 schedule_parameters: Optional[List['outputs.ScheduleCreationParameterResponse']] = None,
+                 schedule_parameters: Optional[Sequence['outputs.ScheduleCreationParameterResponse']] = None,
                  size: Optional[str] = None,
                  ssh_key: Optional[str] = None,
                  storage_type: Optional[str] = None,
@@ -1464,14 +1464,14 @@ class LabVirtualMachineCreationParameterResponse(dict):
         Properties for creating a virtual machine.
         :param bool allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param 'ArtifactDeploymentStatusPropertiesResponseArgs' artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param List['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
+        :param Sequence['ArtifactInstallPropertiesResponseArgs'] artifacts: The artifacts to be installed on the virtual machine.
         :param 'BulkCreationParametersResponseArgs' bulk_creation_parameters: The number of virtual machine instances to create.
         :param str compute_id: The resource identifier (Microsoft.Compute) of the virtual machine.
         :param str created_by_user: The email address of creator of the virtual machine.
         :param str created_by_user_id: The object identifier of the creator of the virtual machine.
         :param str created_date: The creation date of the virtual machine.
         :param str custom_image_id: The custom image identifier of the virtual machine.
-        :param List['DataDiskPropertiesResponseArgs'] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
+        :param Sequence['DataDiskPropertiesResponseArgs'] data_disk_parameters: New or existing data disks to attach to the virtual machine after creation
         :param bool disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
         :param str environment_id: The resource ID of the environment that contains this virtual machine, if any.
         :param str expiration_date: The expiration date for VM.
@@ -1490,7 +1490,7 @@ class LabVirtualMachineCreationParameterResponse(dict):
         :param str owner_user_principal_name: The user principal name of the virtual machine owner.
         :param str password: The password of the virtual machine administrator.
         :param str plan_id: The id of the plan associated with the virtual machine image
-        :param List['ScheduleCreationParameterResponseArgs'] schedule_parameters: Virtual Machine schedules to be created
+        :param Sequence['ScheduleCreationParameterResponseArgs'] schedule_parameters: Virtual Machine schedules to be created
         :param str size: The size of the virtual machine.
         :param str ssh_key: The SSH key of the virtual machine administrator.
         :param str storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
@@ -1587,7 +1587,7 @@ class LabVirtualMachineCreationParameterResponse(dict):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -1643,7 +1643,7 @@ class LabVirtualMachineCreationParameterResponse(dict):
 
     @property
     @pulumi.getter(name="dataDiskParameters")
-    def data_disk_parameters(self) -> Optional[List['outputs.DataDiskPropertiesResponse']]:
+    def data_disk_parameters(self) -> Optional[Sequence['outputs.DataDiskPropertiesResponse']]:
         """
         New or existing data disks to attach to the virtual machine after creation
         """
@@ -1795,7 +1795,7 @@ class LabVirtualMachineCreationParameterResponse(dict):
 
     @property
     @pulumi.getter(name="scheduleParameters")
-    def schedule_parameters(self) -> Optional[List['outputs.ScheduleCreationParameterResponse']]:
+    def schedule_parameters(self) -> Optional[Sequence['outputs.ScheduleCreationParameterResponse']]:
         """
         Virtual Machine schedules to be created
         """
@@ -2010,14 +2010,14 @@ class NotificationSettingsResponse(dict):
                  email_recipient: Optional[str] = None,
                  notification_locale: Optional[str] = None,
                  status: Optional[str] = None,
-                 time_in_minutes: Optional[float] = None,
+                 time_in_minutes: Optional[int] = None,
                  webhook_url: Optional[str] = None):
         """
         Notification settings for a schedule.
         :param str email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param str notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param str status: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-        :param float time_in_minutes: Time in minutes before event at which notification will be sent.
+        :param int time_in_minutes: Time in minutes before event at which notification will be sent.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
         if email_recipient is not None:
@@ -2057,7 +2057,7 @@ class NotificationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[float]:
+    def time_in_minutes(self) -> Optional[int]:
         """
         Time in minutes before event at which notification will be sent.
         """
@@ -2081,11 +2081,11 @@ class PortResponse(dict):
     Properties of a network port.
     """
     def __init__(__self__, *,
-                 backend_port: Optional[float] = None,
+                 backend_port: Optional[int] = None,
                  transport_protocol: Optional[str] = None):
         """
         Properties of a network port.
-        :param float backend_port: Backend port of the target virtual machine.
+        :param int backend_port: Backend port of the target virtual machine.
         :param str transport_protocol: Protocol type of the port.
         """
         if backend_port is not None:
@@ -2095,7 +2095,7 @@ class PortResponse(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> Optional[float]:
+    def backend_port(self) -> Optional[int]:
         """
         Backend port of the target virtual machine.
         """
@@ -2465,17 +2465,17 @@ class SharedPublicIpAddressConfigurationResponse(dict):
     Properties of a virtual machine that determine how it is connected to a load balancer.
     """
     def __init__(__self__, *,
-                 inbound_nat_rules: Optional[List['outputs.InboundNatRuleResponse']] = None):
+                 inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None):
         """
         Properties of a virtual machine that determine how it is connected to a load balancer.
-        :param List['InboundNatRuleResponseArgs'] inbound_nat_rules: The incoming NAT rules
+        :param Sequence['InboundNatRuleResponseArgs'] inbound_nat_rules: The incoming NAT rules
         """
         if inbound_nat_rules is not None:
             pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[List['outputs.InboundNatRuleResponse']]:
+    def inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNatRuleResponse']]:
         """
         The incoming NAT rules
         """
@@ -2627,17 +2627,17 @@ class SubnetSharedPublicIpAddressConfigurationResponse(dict):
     Configuration for public IP address sharing.
     """
     def __init__(__self__, *,
-                 allowed_ports: Optional[List['outputs.PortResponse']] = None):
+                 allowed_ports: Optional[Sequence['outputs.PortResponse']] = None):
         """
         Configuration for public IP address sharing.
-        :param List['PortResponseArgs'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
+        :param Sequence['PortResponseArgs'] allowed_ports: Backend ports that virtual machines on this subnet are allowed to expose
         """
         if allowed_ports is not None:
             pulumi.set(__self__, "allowed_ports", allowed_ports)
 
     @property
     @pulumi.getter(name="allowedPorts")
-    def allowed_ports(self) -> Optional[List['outputs.PortResponse']]:
+    def allowed_ports(self) -> Optional[Sequence['outputs.PortResponse']]:
         """
         Backend ports that virtual machines on this subnet are allowed to expose
         """
@@ -2766,11 +2766,11 @@ class WeekDetailsResponse(dict):
     """
     def __init__(__self__, *,
                  time: Optional[str] = None,
-                 weekdays: Optional[List[str]] = None):
+                 weekdays: Optional[Sequence[str]] = None):
         """
         Properties of a weekly schedule.
         :param str time: The time of the day the schedule will occur.
-        :param List[str] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+        :param Sequence[str] weekdays: The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """
         if time is not None:
             pulumi.set(__self__, "time", time)
@@ -2787,7 +2787,7 @@ class WeekDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Optional[List[str]]:
+    def weekdays(self) -> Optional[Sequence[str]]:
         """
         The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
         """

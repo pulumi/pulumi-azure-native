@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
+                 agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]]] = None,
                  auth_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  master_pool_profile: Optional[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']]] = None,
@@ -28,7 +28,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                  refresh_cluster: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 router_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
+                 router_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,7 +38,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAuthProfileArgs']] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['OpenShiftManagedClusterMasterPoolProfileArgs']] master_pool_profile: Configuration for OpenShift master VMs.
@@ -49,7 +49,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] refresh_cluster: Allows node rotation
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_name_: The name of the OpenShift managed cluster resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftRouterProfileArgs']]]] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -124,7 +124,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> pulumi.Output[Optional[List['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]]:
+    def agent_pool_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.OpenShiftManagedClusterAgentPoolProfileResponse']]]:
         """
         Configuration of OpenShift cluster VMs.
         """
@@ -236,7 +236,7 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routerProfiles")
-    def router_profiles(self) -> pulumi.Output[Optional[List['outputs.OpenShiftRouterProfileResponse']]]:
+    def router_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.OpenShiftRouterProfileResponse']]]:
         """
         Configuration for OpenShift router(s).
         """

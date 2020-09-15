@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// Describes custom rules inside the policy
         /// </summary>
         [Output("customRules")]
-        public Output<Outputs.CustomRulesResponseResult?> CustomRules { get; private set; } = null!;
+        public Output<Outputs.CustomRulesResponse?> CustomRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// Describes managed rules inside the policy
         /// </summary>
         [Output("managedRules")]
-        public Output<Outputs.ManagedRuleSetsResponseResult?> ManagedRules { get; private set; } = null!;
+        public Output<Outputs.ManagedRuleSetsResponse?> ManagedRules { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// Describes  policySettings for policy
         /// </summary>
         [Output("policySettings")]
-        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+        public Output<Outputs.PolicySettingsResponse?> PolicySettings { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the WebApplicationFirewallPolicy.

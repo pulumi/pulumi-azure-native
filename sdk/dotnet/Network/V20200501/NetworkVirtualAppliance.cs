@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Network Virtual Appliance SKU.
         /// </summary>
         [Output("nvaSku")]
-        public Output<Outputs.VirtualApplianceSkuPropertiesResponseResult?> NvaSku { get; private set; } = null!;
+        public Output<Outputs.VirtualApplianceSkuPropertiesResponse?> NvaSku { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -90,19 +90,19 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         [Output("virtualApplianceNics")]
-        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult>> VirtualApplianceNics { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse>> VirtualApplianceNics { get; private set; } = null!;
 
         /// <summary>
         /// List of references to VirtualApplianceSite.
         /// </summary>
         [Output("virtualApplianceSites")]
-        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualApplianceSites { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualApplianceSites { get; private set; } = null!;
 
         /// <summary>
         /// The Virtual Hub where Network Virtual Appliance is being deployed.
         /// </summary>
         [Output("virtualHub")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

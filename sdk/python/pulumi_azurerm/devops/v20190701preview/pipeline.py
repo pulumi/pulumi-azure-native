@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -135,7 +135,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineId")
-    def pipeline_id(self) -> pulumi.Output[float]:
+    def pipeline_id(self) -> pulumi.Output[int]:
         """
         Unique identifier of the Azure Pipeline within the Azure DevOps Project.
         """

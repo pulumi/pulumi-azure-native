@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// <summary>
         /// Properties of the trigger.
         /// </summary>
-        public readonly Union<Outputs.ChainingTriggerResponseResult, Union<Outputs.MultiplePipelineTriggerResponseResult, Union<Outputs.RerunTumblingWindowTriggerResponseResult, Outputs.TumblingWindowTriggerResponseResult>>> Properties;
+        public readonly Union<Outputs.ChainingTriggerResponse, Union<Outputs.MultiplePipelineTriggerResponse, Union<Outputs.RerunTumblingWindowTriggerResponse, Outputs.TumblingWindowTriggerResponse>>> Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
             string name,
 
-            Union<Outputs.ChainingTriggerResponseResult, Union<Outputs.MultiplePipelineTriggerResponseResult, Union<Outputs.RerunTumblingWindowTriggerResponseResult, Outputs.TumblingWindowTriggerResponseResult>>> properties,
+            Union<Outputs.ChainingTriggerResponse, Union<Outputs.MultiplePipelineTriggerResponse, Union<Outputs.RerunTumblingWindowTriggerResponse, Outputs.TumblingWindowTriggerResponse>>> properties,
 
             string type)
         {

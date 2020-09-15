@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ADCCatalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 admins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
                  enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -26,8 +26,8 @@ class ADCCatalog(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  successfully_provisioned: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 units: Optional[pulumi.Input[float]] = None,
-                 users: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
+                 units: Optional[pulumi.Input[int]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +36,7 @@ class ADCCatalog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
         :param pulumi.Input[str] catalog_name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[str] etag: Resource etag
@@ -45,8 +45,8 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Azure data catalog SKU.
         :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[float] units: Azure data catalog units.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
+        :param pulumi.Input[int] units: Azure data catalog units.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] users: Azure data catalog user list.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,7 +110,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def admins(self) -> pulumi.Output[Optional[List['outputs.PrincipalsResponse']]]:
+    def admins(self) -> pulumi.Output[Optional[Sequence['outputs.PrincipalsResponse']]]:
         """
         Azure data catalog admin list.
         """
@@ -182,7 +182,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def units(self) -> pulumi.Output[Optional[float]]:
+    def units(self) -> pulumi.Output[Optional[int]]:
         """
         Azure data catalog units.
         """
@@ -190,7 +190,7 @@ class ADCCatalog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Output[Optional[List['outputs.PrincipalsResponse']]]:
+    def users(self) -> pulumi.Output[Optional[Sequence['outputs.PrincipalsResponse']]]:
         """
         Azure data catalog user list.
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// The allowed subnets of the virtual network.
         /// </summary>
         [Output("allowedSubnets")]
-        public Output<ImmutableArray<Outputs.SubnetResponseResult>> AllowedSubnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetResponse>> AllowedSubnets { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the virtual network.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// The external subnet properties.
         /// </summary>
         [Output("externalSubnets")]
-        public Output<ImmutableArray<Outputs.ExternalSubnetResponseResult>> ExternalSubnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExternalSubnetResponse>> ExternalSubnets { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.DevTestLab.Latest
         /// The subnet overrides of the virtual network.
         /// </summary>
         [Output("subnetOverrides")]
-        public Output<ImmutableArray<Outputs.SubnetOverrideResponseResult>> SubnetOverrides { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetOverrideResponse>> SubnetOverrides { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

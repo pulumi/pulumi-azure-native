@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Media.V20151001
         /// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         /// </summary>
         [Output("apiEndpoints")]
-        public Output<ImmutableArray<Outputs.ApiEndpointResponseResult>> ApiEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApiEndpointResponse>> ApiEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Media.V20151001
         /// The storage accounts for this resource.
         /// </summary>
         [Output("storageAccounts")]
-        public Output<ImmutableArray<Outputs.StorageAccountResponseResult>> StorageAccounts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StorageAccountResponse>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
         /// Tags to help categorize the resource in the Azure portal.

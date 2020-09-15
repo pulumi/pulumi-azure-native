@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -28,7 +28,7 @@ class ListConnectionConsentLinksResult:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[List['outputs.ConsentLinkDefinitionResponseResult']]:
+    def value(self) -> Optional[Sequence['outputs.ConsentLinkDefinitionResponseResult']]:
         """
         Collection of resources
         """
@@ -45,14 +45,14 @@ class AwaitableListConnectionConsentLinksResult(ListConnectionConsentLinksResult
 
 
 def list_connection_consent_links(connection_name: Optional[str] = None,
-                                  parameters: Optional[List[pulumi.InputType['ConsentLinkParameterDefinitionArgs']]] = None,
+                                  parameters: Optional[Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']]] = None,
                                   resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConnectionConsentLinksResult:
     """
     Use this data source to access information about an existing resource.
 
     :param str connection_name: Connection name
-    :param List[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
+    :param Sequence[pulumi.InputType['ConsentLinkParameterDefinitionArgs']] parameters: Collection of resources
     :param str resource_group_name: The resource group
     """
     __args__ = dict()

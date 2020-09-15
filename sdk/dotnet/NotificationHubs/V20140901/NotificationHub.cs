@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20140901
         /// Gets or sets properties of the NotificationHub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.NotificationHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.NotificationHubPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets tags of the NotificationHub.

@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
         /// Gets or sets the properties of the zone.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ZonePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ZonePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

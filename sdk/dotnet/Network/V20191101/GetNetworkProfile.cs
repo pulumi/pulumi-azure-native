@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of chid container network interface configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult> ContainerNetworkInterfaceConfigurations;
+        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponse> ContainerNetworkInterfaceConfigurations;
         /// <summary>
         /// List of child container network interfaces.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult> ContainerNetworkInterfaces;
+        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceResponse> ContainerNetworkInterfaces;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureRM.Network.V20191101
 
         [OutputConstructor]
         private GetNetworkProfileResult(
-            ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponseResult> containerNetworkInterfaceConfigurations,
+            ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponse> containerNetworkInterfaceConfigurations,
 
-            ImmutableArray<Outputs.ContainerNetworkInterfaceResponseResult> containerNetworkInterfaces,
+            ImmutableArray<Outputs.ContainerNetworkInterfaceResponse> containerNetworkInterfaces,
 
             string etag,
 

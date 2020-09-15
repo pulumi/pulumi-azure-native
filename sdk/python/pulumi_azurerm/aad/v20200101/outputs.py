@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -358,12 +358,12 @@ class NotificationSettingsResponse(dict):
     Settings for notification
     """
     def __init__(__self__, *,
-                 additional_recipients: Optional[List[str]] = None,
+                 additional_recipients: Optional[Sequence[str]] = None,
                  notify_dc_admins: Optional[str] = None,
                  notify_global_admins: Optional[str] = None):
         """
         Settings for notification
-        :param List[str] additional_recipients: The list of additional recipients
+        :param Sequence[str] additional_recipients: The list of additional recipients
         :param str notify_dc_admins: Should domain controller admins be notified
         :param str notify_global_admins: Should global admins be notified
         """
@@ -376,7 +376,7 @@ class NotificationSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="additionalRecipients")
-    def additional_recipients(self) -> Optional[List[str]]:
+    def additional_recipients(self) -> Optional[Sequence[str]]:
         """
         The list of additional recipients
         """
@@ -408,11 +408,11 @@ class ReplicaSetResponse(dict):
     Replica Set Definition
     """
     def __init__(__self__, *,
-                 domain_controller_ip_address: List[str],
+                 domain_controller_ip_address: Sequence[str],
                  external_access_ip_address: str,
-                 health_alerts: List['outputs.HealthAlertResponse'],
+                 health_alerts: Sequence['outputs.HealthAlertResponse'],
                  health_last_evaluated: str,
-                 health_monitors: List['outputs.HealthMonitorResponse'],
+                 health_monitors: Sequence['outputs.HealthMonitorResponse'],
                  replica_set_id: str,
                  service_status: str,
                  vnet_site_id: str,
@@ -420,11 +420,11 @@ class ReplicaSetResponse(dict):
                  subnet_id: Optional[str] = None):
         """
         Replica Set Definition
-        :param List[str] domain_controller_ip_address: List of Domain Controller IP Address
+        :param Sequence[str] domain_controller_ip_address: List of Domain Controller IP Address
         :param str external_access_ip_address: External access ip address.
-        :param List['HealthAlertResponseArgs'] health_alerts: List of Domain Health Alerts
+        :param Sequence['HealthAlertResponseArgs'] health_alerts: List of Domain Health Alerts
         :param str health_last_evaluated: Last domain evaluation run DateTime
-        :param List['HealthMonitorResponseArgs'] health_monitors: List of Domain Health Monitors
+        :param Sequence['HealthMonitorResponseArgs'] health_monitors: List of Domain Health Monitors
         :param str replica_set_id: ReplicaSet Id
         :param str service_status: Status of Domain Service instance
         :param str vnet_site_id: Virtual network site id
@@ -446,7 +446,7 @@ class ReplicaSetResponse(dict):
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
-    def domain_controller_ip_address(self) -> List[str]:
+    def domain_controller_ip_address(self) -> Sequence[str]:
         """
         List of Domain Controller IP Address
         """
@@ -462,7 +462,7 @@ class ReplicaSetResponse(dict):
 
     @property
     @pulumi.getter(name="healthAlerts")
-    def health_alerts(self) -> List['outputs.HealthAlertResponse']:
+    def health_alerts(self) -> Sequence['outputs.HealthAlertResponse']:
         """
         List of Domain Health Alerts
         """
@@ -478,7 +478,7 @@ class ReplicaSetResponse(dict):
 
     @property
     @pulumi.getter(name="healthMonitors")
-    def health_monitors(self) -> List['outputs.HealthMonitorResponse']:
+    def health_monitors(self) -> Sequence['outputs.HealthMonitorResponse']:
         """
         List of Domain Health Monitors
         """

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401.Outputs
         /// <summary>
         /// Error while fetching the secrets.
         /// </summary>
-        public readonly Outputs.CloudErrorResponseResult Error;
+        public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
         /// Whether passkey was provided by user.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.DataBox.V20200401.Outputs
 
             ImmutableArray<Outputs.DiskSecretResponseResult> diskSecrets,
 
-            Outputs.CloudErrorResponseResult error,
+            Outputs.CloudErrorResponse error,
 
             bool isPasskeyUserDefined,
 

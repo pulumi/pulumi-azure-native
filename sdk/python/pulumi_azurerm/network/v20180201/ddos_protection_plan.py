@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -151,7 +151,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def virtual_networks(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
         """

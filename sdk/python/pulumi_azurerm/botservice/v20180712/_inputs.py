@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -51,7 +51,7 @@ class BotPropertiesArgs:
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Bot.
@@ -63,7 +63,7 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights App Id
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
-        :param pulumi.Input[List[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -182,14 +182,14 @@ class BotPropertiesArgs:
 
     @property
     @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def luis_app_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Collection of LUIS App Ids
         """
         return pulumi.get(self, "luis_app_ids")
 
     @luis_app_ids.setter
-    def luis_app_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def luis_app_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "luis_app_ids", value)
 
     @property
@@ -250,7 +250,7 @@ class ConnectionSettingPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_display_name: Optional[pulumi.Input[str]] = None,
                  service_provider_id: Optional[pulumi.Input[str]] = None):
@@ -258,7 +258,7 @@ class ConnectionSettingPropertiesArgs:
         Properties for a Connection Setting Item
         :param pulumi.Input[str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[str] client_secret: Client Secret associated with the Connection Setting
-        :param pulumi.Input[List[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
         :param pulumi.Input[str] scopes: Scopes associated with the Connection Setting
         :param pulumi.Input[str] service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param pulumi.Input[str] service_provider_id: Service Provider Id associated with the Connection Setting
@@ -302,14 +302,14 @@ class ConnectionSettingPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ConnectionSettingParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]]:
         """
         Service Provider Parameters associated with the Connection Setting
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ConnectionSettingParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -391,24 +391,24 @@ class DirectLineChannelArgs:
 @pulumi.input_type
 class DirectLineChannelPropertiesArgs:
     def __init__(__self__, *,
-                 sites: Optional[pulumi.Input[List[pulumi.Input['DirectLineSiteArgs']]]] = None):
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None):
         """
         The parameters to provide for the Direct Line channel.
-        :param pulumi.Input[List[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
+        :param pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
         """
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[List[pulumi.Input['DirectLineSiteArgs']]]]:
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]:
         """
         The list of Direct Line sites
         """
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[List[pulumi.Input['DirectLineSiteArgs']]]]):
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]):
         pulumi.set(self, "sites", value)
 
 
@@ -420,7 +420,7 @@ class DirectLineSiteArgs:
                  is_v3_enabled: pulumi.Input[bool],
                  site_name: pulumi.Input[str],
                  is_secure_site_enabled: Optional[pulumi.Input[bool]] = None,
-                 trusted_origins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A site for the Direct Line channel
         :param pulumi.Input[bool] is_enabled: Whether this site is enabled for DirectLine channel.
@@ -428,7 +428,7 @@ class DirectLineSiteArgs:
         :param pulumi.Input[bool] is_v3_enabled: Whether this site is enabled for Bot Framework V1 protocol.
         :param pulumi.Input[str] site_name: Site name
         :param pulumi.Input[bool] is_secure_site_enabled: Whether this site is enabled for authentication with Bot Framework.
-        :param pulumi.Input[List[pulumi.Input[str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
@@ -501,14 +501,14 @@ class DirectLineSiteArgs:
 
     @property
     @pulumi.getter(name="trustedOrigins")
-    def trusted_origins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def trusted_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
         return pulumi.get(self, "trusted_origins")
 
     @trusted_origins.setter
-    def trusted_origins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def trusted_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "trusted_origins", value)
 
 
@@ -676,11 +676,11 @@ class EnterpriseChannelNodeArgs:
 @pulumi.input_type
 class EnterpriseChannelPropertiesArgs:
     def __init__(__self__, *,
-                 nodes: pulumi.Input[List[pulumi.Input['EnterpriseChannelNodeArgs']]],
+                 nodes: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]],
                  state: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Enterprise Channel.
-        :param pulumi.Input[List[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
+        :param pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
         :param pulumi.Input[str] state: The current state of the Enterprise Channel.
         """
         pulumi.set(__self__, "nodes", nodes)
@@ -689,14 +689,14 @@ class EnterpriseChannelPropertiesArgs:
 
     @property
     @pulumi.getter
-    def nodes(self) -> pulumi.Input[List[pulumi.Input['EnterpriseChannelNodeArgs']]]:
+    def nodes(self) -> pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]]:
         """
         The nodes associated with the Enterprise Channel.
         """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: pulumi.Input[List[pulumi.Input['EnterpriseChannelNodeArgs']]]):
+    def nodes(self, value: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]]):
         pulumi.set(self, "nodes", value)
 
     @property
@@ -757,13 +757,13 @@ class FacebookChannelPropertiesArgs:
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
                  is_enabled: pulumi.Input[bool],
-                 pages: Optional[pulumi.Input[List[pulumi.Input['FacebookPageArgs']]]] = None):
+                 pages: Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]] = None):
         """
         The parameters to provide for the Facebook channel.
         :param pulumi.Input[str] app_id: Facebook application id
         :param pulumi.Input[str] app_secret: Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
-        :param pulumi.Input[List[pulumi.Input['FacebookPageArgs']]] pages: The list of Facebook pages
+        :param pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]] pages: The list of Facebook pages
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -809,14 +809,14 @@ class FacebookChannelPropertiesArgs:
 
     @property
     @pulumi.getter
-    def pages(self) -> Optional[pulumi.Input[List[pulumi.Input['FacebookPageArgs']]]]:
+    def pages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]]:
         """
         The list of Facebook pages
         """
         return pulumi.get(self, "pages")
 
     @pages.setter
-    def pages(self, value: Optional[pulumi.Input[List[pulumi.Input['FacebookPageArgs']]]]):
+    def pages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FacebookPageArgs']]]]):
         pulumi.set(self, "pages", value)
 
 
@@ -1654,24 +1654,24 @@ class WebChatChannelArgs:
 @pulumi.input_type
 class WebChatChannelPropertiesArgs:
     def __init__(__self__, *,
-                 sites: Optional[pulumi.Input[List[pulumi.Input['WebChatSiteArgs']]]] = None):
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]] = None):
         """
         The parameters to provide for the Web Chat channel.
-        :param pulumi.Input[List[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
+        :param pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
         """
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
 
     @property
     @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[List[pulumi.Input['WebChatSiteArgs']]]]:
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]:
         """
         The list of Web Chat sites
         """
         return pulumi.get(self, "sites")
 
     @sites.setter
-    def sites(self, value: Optional[pulumi.Input[List[pulumi.Input['WebChatSiteArgs']]]]):
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]):
         pulumi.set(self, "sites", value)
 
 

@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ImportExport.Latest
         /// <summary>
         /// Specifies the job identity details
         /// </summary>
-        public readonly Outputs.IdentityDetailsResponseResult? Identity;
+        public readonly Outputs.IdentityDetailsResponse? Identity;
         /// <summary>
         /// Specifies the Azure location where the job is created.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.ImportExport.Latest
         /// <summary>
         /// Specifies the job properties
         /// </summary>
-        public readonly Outputs.JobDetailsResponseResult Properties;
+        public readonly Outputs.JobDetailsResponse Properties;
         /// <summary>
         /// Specifies the tags that are assigned to the job.
         /// </summary>
@@ -66,13 +66,13 @@ namespace Pulumi.AzureRM.ImportExport.Latest
 
         [OutputConstructor]
         private GetJobResult(
-            Outputs.IdentityDetailsResponseResult? identity,
+            Outputs.IdentityDetailsResponse? identity,
 
             string? location,
 
             string name,
 
-            Outputs.JobDetailsResponseResult properties,
+            Outputs.JobDetailsResponse properties,
 
             ImmutableDictionary<string, object>? tags,
 

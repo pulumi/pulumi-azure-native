@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
         /// Properties of the vault
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.VaultPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.VaultPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags assigned to the key vault resource.

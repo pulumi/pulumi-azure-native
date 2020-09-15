@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -47,7 +47,7 @@ class GetAttachedDatabaseConfigurationResult:
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
-    def attached_database_names(self) -> List[str]:
+    def attached_database_names(self) -> Sequence[str]:
         """
         The list of databases from the clusterResourceId which are currently attached to the cluster.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -69,14 +69,14 @@ class SkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 capacity: Optional[float] = None,
+                 capacity: Optional[int] = None,
                  family: Optional[str] = None,
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Billing information related properties of a server.
         :param str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
-        :param float capacity: The scale up/out capacity, representing server's compute units.
+        :param int capacity: The scale up/out capacity, representing server's compute units.
         :param str family: The family of hardware.
         :param str size: The size code, to be interpreted by resource as appropriate.
         :param str tier: The tier of the particular SKU, e.g. Basic.
@@ -101,7 +101,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The scale up/out capacity, representing server's compute units.
         """
@@ -141,16 +141,16 @@ class StorageProfileResponse(dict):
     Storage Profile properties of a server
     """
     def __init__(__self__, *,
-                 backup_retention_days: Optional[float] = None,
+                 backup_retention_days: Optional[int] = None,
                  geo_redundant_backup: Optional[str] = None,
                  storage_autogrow: Optional[str] = None,
-                 storage_mb: Optional[float] = None):
+                 storage_mb: Optional[int] = None):
         """
         Storage Profile properties of a server
-        :param float backup_retention_days: Backup retention days for the server.
+        :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: Enable Geo-redundant or not for server backup.
         :param str storage_autogrow: Enable Storage Auto Grow.
-        :param float storage_mb: Max storage allowed for a server.
+        :param int storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -163,7 +163,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[float]:
+    def backup_retention_days(self) -> Optional[int]:
         """
         Backup retention days for the server.
         """
@@ -187,7 +187,7 @@ class StorageProfileResponse(dict):
 
     @property
     @pulumi.getter(name="storageMB")
-    def storage_mb(self) -> Optional[float]:
+    def storage_mb(self) -> Optional[int]:
         """
         Max storage allowed for a server.
         """

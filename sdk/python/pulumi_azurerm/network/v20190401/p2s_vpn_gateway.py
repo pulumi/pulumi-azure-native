@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -27,7 +27,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  vpn_client_address_pool: Optional[pulumi.Input[pulumi.InputType['AddressSpaceArgs']]] = None,
-                 vpn_gateway_scale_unit: Optional[pulumi.Input[float]] = None,
+                 vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,7 +46,7 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] vpn_client_address_pool: The reference of the address space resource which represents Address space for P2S VpnClient.
-        :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
+        :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -202,7 +202,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[float]]:
+    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[int]]:
         """
         The scale unit for this p2s vpn gateway.
         """

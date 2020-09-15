@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -144,14 +144,14 @@ class AKSArgs:
 @pulumi.input_type
 class AKSPropertiesArgs:
     def __init__(__self__, *,
-                 agent_count: Optional[pulumi.Input[float]] = None,
+                 agent_count: Optional[pulumi.Input[int]] = None,
                  agent_vm_size: Optional[pulumi.Input[str]] = None,
                  aks_networking_configuration: Optional[pulumi.Input['AksNetworkingConfigurationArgs']] = None,
                  cluster_fqdn: Optional[pulumi.Input[str]] = None,
                  ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None):
         """
         AKS properties
-        :param pulumi.Input[float] agent_count: Number of agents
+        :param pulumi.Input[int] agent_count: Number of agents
         :param pulumi.Input[str] agent_vm_size: Agent virtual machine size
         :param pulumi.Input['AksNetworkingConfigurationArgs'] aks_networking_configuration: AKS networking configuration for vnet
         :param pulumi.Input[str] cluster_fqdn: Cluster full qualified domain name
@@ -170,14 +170,14 @@ class AKSPropertiesArgs:
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[pulumi.Input[float]]:
+    def agent_count(self) -> Optional[pulumi.Input[int]]:
         """
         Number of agents
         """
         return pulumi.get(self, "agent_count")
 
     @agent_count.setter
-    def agent_count(self, value: Optional[pulumi.Input[float]]):
+    def agent_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "agent_count", value)
 
     @property
@@ -560,14 +560,14 @@ class AmlComputePropertiesArgs:
 class ContainerResourceRequirementsArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[float]] = None,
-                 fpga: Optional[pulumi.Input[float]] = None,
-                 gpu: Optional[pulumi.Input[float]] = None,
+                 fpga: Optional[pulumi.Input[int]] = None,
+                 gpu: Optional[pulumi.Input[int]] = None,
                  memory_in_gb: Optional[pulumi.Input[float]] = None):
         """
         The resource requirements for the container (cpu and memory).
         :param pulumi.Input[float] cpu: The number of CPU cores on the container.
-        :param pulumi.Input[float] fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
-        :param pulumi.Input[float] gpu: The number of GPU cores in the container.
+        :param pulumi.Input[int] fpga: The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
+        :param pulumi.Input[int] gpu: The number of GPU cores in the container.
         :param pulumi.Input[float] memory_in_gb: The amount of memory on the container in GB.
         """
         if cpu is not None:
@@ -593,26 +593,26 @@ class ContainerResourceRequirementsArgs:
 
     @property
     @pulumi.getter
-    def fpga(self) -> Optional[pulumi.Input[float]]:
+    def fpga(self) -> Optional[pulumi.Input[int]]:
         """
         The number of FPGA PCIE devices exposed to the container. Must be multiple of 2.
         """
         return pulumi.get(self, "fpga")
 
     @fpga.setter
-    def fpga(self, value: Optional[pulumi.Input[float]]):
+    def fpga(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "fpga", value)
 
     @property
     @pulumi.getter
-    def gpu(self) -> Optional[pulumi.Input[float]]:
+    def gpu(self) -> Optional[pulumi.Input[int]]:
         """
         The number of GPU cores in the container.
         """
         return pulumi.get(self, "gpu")
 
     @gpu.setter
-    def gpu(self, value: Optional[pulumi.Input[float]]):
+    def gpu(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "gpu", value)
 
     @property
@@ -631,20 +631,20 @@ class ContainerResourceRequirementsArgs:
 @pulumi.input_type
 class CreateServiceRequestEnvironmentImageRequestArgs:
     def __init__(__self__, *,
-                 assets: Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]] = None,
+                 assets: Optional[pulumi.Input[Sequence[pulumi.Input['ImageAssetArgs']]]] = None,
                  driver_program: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentArgs']] = None,
                  environment_reference: Optional[pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs']] = None,
-                 model_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 models: Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]] = None):
+                 model_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 models: Optional[pulumi.Input[Sequence[pulumi.Input['ModelArgs']]]] = None):
         """
         The Environment, models and assets needed for inferencing.
-        :param pulumi.Input[List[pulumi.Input['ImageAssetArgs']]] assets: The list of assets.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageAssetArgs']]] assets: The list of assets.
         :param pulumi.Input[str] driver_program: The name of the driver file.
         :param pulumi.Input['EnvironmentImageRequestEnvironmentArgs'] environment: The details of the AZURE ML environment.
         :param pulumi.Input['EnvironmentImageRequestEnvironmentReferenceArgs'] environment_reference: The unique identifying details of the AZURE ML environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] model_ids: The list of model Ids.
-        :param pulumi.Input[List[pulumi.Input['ModelArgs']]] models: The list of models.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] model_ids: The list of model Ids.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelArgs']]] models: The list of models.
         """
         if assets is not None:
             pulumi.set(__self__, "assets", assets)
@@ -661,14 +661,14 @@ class CreateServiceRequestEnvironmentImageRequestArgs:
 
     @property
     @pulumi.getter
-    def assets(self) -> Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]]:
+    def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageAssetArgs']]]]:
         """
         The list of assets.
         """
         return pulumi.get(self, "assets")
 
     @assets.setter
-    def assets(self, value: Optional[pulumi.Input[List[pulumi.Input['ImageAssetArgs']]]]):
+    def assets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageAssetArgs']]]]):
         pulumi.set(self, "assets", value)
 
     @property
@@ -709,26 +709,26 @@ class CreateServiceRequestEnvironmentImageRequestArgs:
 
     @property
     @pulumi.getter(name="modelIds")
-    def model_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def model_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of model Ids.
         """
         return pulumi.get(self, "model_ids")
 
     @model_ids.setter
-    def model_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def model_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "model_ids", value)
 
     @property
     @pulumi.getter
-    def models(self) -> Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]]:
+    def models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelArgs']]]]:
         """
         The list of models.
         """
         return pulumi.get(self, "models")
 
     @models.setter
-    def models(self, value: Optional[pulumi.Input[List[pulumi.Input['ModelArgs']]]]):
+    def models(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelArgs']]]]):
         pulumi.set(self, "models", value)
 
 
@@ -1396,11 +1396,11 @@ class HDInsightPropertiesArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[float]] = None):
+                 ssh_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
         :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
-        :param pulumi.Input[float] ssh_port: Port open for ssh connections on the master node of the cluster.
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -1435,14 +1435,14 @@ class HDInsightPropertiesArgs:
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[float]]:
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
         """
         Port open for ssh connections on the master node of the cluster.
         """
         return pulumi.get(self, "ssh_port")
 
     @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[float]]):
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ssh_port", value)
 
 
@@ -1642,8 +1642,8 @@ class ModelArgs:
                  name: pulumi.Input[str],
                  url: pulumi.Input[str],
                  created_time: Optional[pulumi.Input[str]] = None,
-                 datasets: Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]] = None,
-                 derived_model_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 derived_model_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
                  framework: Optional[pulumi.Input[str]] = None,
@@ -1658,15 +1658,15 @@ class ModelArgs:
                  sample_input_data: Optional[pulumi.Input[str]] = None,
                  sample_output_data: Optional[pulumi.Input[str]] = None,
                  unpack: Optional[pulumi.Input[bool]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
+                 version: Optional[pulumi.Input[int]] = None):
         """
         An Azure Machine Learning Model.
         :param pulumi.Input[str] mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
         :param pulumi.Input[str] name: The Model name.
         :param pulumi.Input[str] url: The URL of the Model. Usually a SAS URL.
         :param pulumi.Input[str] created_time: The Model creation time (UTC).
-        :param pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]] datasets: The list of datasets associated with the model.
-        :param pulumi.Input[List[pulumi.Input[str]]] derived_model_ids: Models derived from this model
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: The list of datasets associated with the model.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] derived_model_ids: Models derived from this model
         :param pulumi.Input[str] description: The Model description text.
         :param pulumi.Input[str] experiment_name: The name of the experiment where this model was created.
         :param pulumi.Input[str] framework: The Model framework.
@@ -1681,7 +1681,7 @@ class ModelArgs:
         :param pulumi.Input[str] sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param pulumi.Input[str] sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
         :param pulumi.Input[bool] unpack: Indicates whether we need to unpack the Model during docker Image creation.
-        :param pulumi.Input[float] version: The Model version assigned by Model Management Service.
+        :param pulumi.Input[int] version: The Model version assigned by Model Management Service.
         """
         pulumi.set(__self__, "mime_type", mime_type)
         pulumi.set(__self__, "name", name)
@@ -1773,26 +1773,26 @@ class ModelArgs:
 
     @property
     @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]]:
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
         """
         The list of datasets associated with the model.
         """
         return pulumi.get(self, "datasets")
 
     @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[List[pulumi.Input['DatasetReferenceArgs']]]]):
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
         pulumi.set(self, "datasets", value)
 
     @property
     @pulumi.getter(name="derivedModelIds")
-    def derived_model_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def derived_model_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Models derived from this model
         """
         return pulumi.get(self, "derived_model_ids")
 
     @derived_model_ids.setter
-    def derived_model_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def derived_model_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "derived_model_ids", value)
 
     @property
@@ -1965,14 +1965,14 @@ class ModelArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
+    def version(self) -> Optional[pulumi.Input[int]]:
         """
         The Model version assigned by Model Management Service.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
+    def version(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "version", value)
 
 
@@ -2147,20 +2147,20 @@ class ModelEnvironmentDefinitionPythonArgs:
 @pulumi.input_type
 class ModelEnvironmentDefinitionRArgs:
     def __init__(__self__, *,
-                 bio_conductor_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 cran_packages: Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]] = None,
-                 custom_url_packages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 git_hub_packages: Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]] = None,
+                 bio_conductor_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cran_packages: Optional[pulumi.Input[Sequence[pulumi.Input['RCranPackageArgs']]]] = None,
+                 custom_url_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 git_hub_packages: Optional[pulumi.Input[Sequence[pulumi.Input['RGitHubPackageArgs']]]] = None,
                  r_version: Optional[pulumi.Input[str]] = None,
                  rscript_path: Optional[pulumi.Input[str]] = None,
                  snapshot_date: Optional[pulumi.Input[str]] = None,
                  user_managed: Optional[pulumi.Input[bool]] = None):
         """
         Settings for a R environment.
-        :param pulumi.Input[List[pulumi.Input[str]]] bio_conductor_packages: The packages from Bioconductor.
-        :param pulumi.Input[List[pulumi.Input['RCranPackageArgs']]] cran_packages: The CRAN packages to use.
-        :param pulumi.Input[List[pulumi.Input[str]]] custom_url_packages: The packages from custom urls.
-        :param pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]] git_hub_packages: The packages directly from GitHub.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bio_conductor_packages: The packages from Bioconductor.
+        :param pulumi.Input[Sequence[pulumi.Input['RCranPackageArgs']]] cran_packages: The CRAN packages to use.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_url_packages: The packages from custom urls.
+        :param pulumi.Input[Sequence[pulumi.Input['RGitHubPackageArgs']]] git_hub_packages: The packages directly from GitHub.
         :param pulumi.Input[str] r_version: The version of R to be installed
         :param pulumi.Input[str] rscript_path: The Rscript path to use if an environment build is not required.
                The path specified gets used to call the user script.
@@ -2186,50 +2186,50 @@ class ModelEnvironmentDefinitionRArgs:
 
     @property
     @pulumi.getter(name="bioConductorPackages")
-    def bio_conductor_packages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def bio_conductor_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The packages from Bioconductor.
         """
         return pulumi.get(self, "bio_conductor_packages")
 
     @bio_conductor_packages.setter
-    def bio_conductor_packages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def bio_conductor_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "bio_conductor_packages", value)
 
     @property
     @pulumi.getter(name="cranPackages")
-    def cran_packages(self) -> Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]]:
+    def cran_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RCranPackageArgs']]]]:
         """
         The CRAN packages to use.
         """
         return pulumi.get(self, "cran_packages")
 
     @cran_packages.setter
-    def cran_packages(self, value: Optional[pulumi.Input[List[pulumi.Input['RCranPackageArgs']]]]):
+    def cran_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RCranPackageArgs']]]]):
         pulumi.set(self, "cran_packages", value)
 
     @property
     @pulumi.getter(name="customUrlPackages")
-    def custom_url_packages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def custom_url_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The packages from custom urls.
         """
         return pulumi.get(self, "custom_url_packages")
 
     @custom_url_packages.setter
-    def custom_url_packages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def custom_url_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "custom_url_packages", value)
 
     @property
     @pulumi.getter(name="gitHubPackages")
-    def git_hub_packages(self) -> Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]]:
+    def git_hub_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RGitHubPackageArgs']]]]:
         """
         The packages directly from GitHub.
         """
         return pulumi.get(self, "git_hub_packages")
 
     @git_hub_packages.setter
-    def git_hub_packages(self, value: Optional[pulumi.Input[List[pulumi.Input['RGitHubPackageArgs']]]]):
+    def git_hub_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RGitHubPackageArgs']]]]):
         pulumi.set(self, "git_hub_packages", value)
 
     @property
@@ -2285,14 +2285,14 @@ class ModelEnvironmentDefinitionRArgs:
 @pulumi.input_type
 class ModelEnvironmentDefinitionSparkArgs:
     def __init__(__self__, *,
-                 packages: Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]] = None,
+                 packages: Optional[pulumi.Input[Sequence[pulumi.Input['SparkMavenPackageArgs']]]] = None,
                  precache_packages: Optional[pulumi.Input[bool]] = None,
-                 repositories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The configuration for a Spark environment.
-        :param pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]] packages: The Spark packages to use.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkMavenPackageArgs']]] packages: The Spark packages to use.
         :param pulumi.Input[bool] precache_packages: Whether to precache the packages.
-        :param pulumi.Input[List[pulumi.Input[str]]] repositories: The list of spark repositories.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The list of spark repositories.
         """
         if packages is not None:
             pulumi.set(__self__, "packages", packages)
@@ -2303,14 +2303,14 @@ class ModelEnvironmentDefinitionSparkArgs:
 
     @property
     @pulumi.getter
-    def packages(self) -> Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]]:
+    def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkMavenPackageArgs']]]]:
         """
         The Spark packages to use.
         """
         return pulumi.get(self, "packages")
 
     @packages.setter
-    def packages(self, value: Optional[pulumi.Input[List[pulumi.Input['SparkMavenPackageArgs']]]]):
+    def packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkMavenPackageArgs']]]]):
         pulumi.set(self, "packages", value)
 
     @property
@@ -2327,14 +2327,14 @@ class ModelEnvironmentDefinitionSparkArgs:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of spark repositories.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
 
@@ -2498,13 +2498,13 @@ class ResourceIdArgs:
 @pulumi.input_type
 class ScaleSettingsArgs:
     def __init__(__self__, *,
-                 max_node_count: pulumi.Input[float],
-                 min_node_count: Optional[pulumi.Input[float]] = None,
+                 max_node_count: pulumi.Input[int],
+                 min_node_count: Optional[pulumi.Input[int]] = None,
                  node_idle_time_before_scale_down: Optional[pulumi.Input[str]] = None):
         """
         scale settings for AML Compute
-        :param pulumi.Input[float] max_node_count: Max number of nodes to use
-        :param pulumi.Input[float] min_node_count: Min number of nodes to use
+        :param pulumi.Input[int] max_node_count: Max number of nodes to use
+        :param pulumi.Input[int] min_node_count: Min number of nodes to use
         :param pulumi.Input[str] node_idle_time_before_scale_down: Node Idle Time before scaling down amlCompute. This string needs to be in the RFC Format.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
@@ -2515,26 +2515,26 @@ class ScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> pulumi.Input[float]:
+    def max_node_count(self) -> pulumi.Input[int]:
         """
         Max number of nodes to use
         """
         return pulumi.get(self, "max_node_count")
 
     @max_node_count.setter
-    def max_node_count(self, value: pulumi.Input[float]):
+    def max_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_node_count", value)
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> Optional[pulumi.Input[float]]:
+    def min_node_count(self) -> Optional[pulumi.Input[int]]:
         """
         Min number of nodes to use
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: Optional[pulumi.Input[float]]):
+    def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
 
     @property
@@ -2956,12 +2956,12 @@ class VirtualMachinePropertiesArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[float]] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None,
                  virtual_machine_size: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address: Public IP address of the virtual machine.
         :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for virtual machine
-        :param pulumi.Input[float] ssh_port: Port open for ssh connections.
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections.
         :param pulumi.Input[str] virtual_machine_size: Virtual Machine size
         """
         if address is not None:
@@ -2999,14 +2999,14 @@ class VirtualMachinePropertiesArgs:
 
     @property
     @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[float]]:
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
         """
         Port open for ssh connections.
         """
         return pulumi.get(self, "ssh_port")
 
     @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[float]]):
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ssh_port", value)
 
     @property

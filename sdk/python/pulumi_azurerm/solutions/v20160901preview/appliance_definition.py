@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,8 +18,8 @@ class ApplianceDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  appliance_definition_name: Optional[pulumi.Input[str]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplianceArtifactArgs']]]]] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplianceProviderAuthorizationArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplianceArtifactArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplianceProviderAuthorizationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
@@ -39,8 +39,8 @@ class ApplianceDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_definition_name: The name of the appliance definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplianceArtifactArgs']]]] artifacts: The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplianceProviderAuthorizationArgs']]]] authorizations: The appliance provider authorizations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplianceArtifactArgs']]]] artifacts: The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplianceProviderAuthorizationArgs']]]] authorizations: The appliance provider authorizations.
         :param pulumi.Input[str] description: The appliance definition description.
         :param pulumi.Input[str] display_name: The appliance definition display name.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
@@ -120,7 +120,7 @@ class ApplianceDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ApplianceArtifactResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ApplianceArtifactResponse']]]:
         """
         The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
         """
@@ -128,7 +128,7 @@ class ApplianceDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[List['outputs.ApplianceProviderAuthorizationResponse']]:
+    def authorizations(self) -> pulumi.Output[Sequence['outputs.ApplianceProviderAuthorizationResponse']]:
         """
         The appliance provider authorizations.
         """

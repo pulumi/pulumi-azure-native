@@ -46,13 +46,13 @@ namespace Pulumi.AzureRM.Resources.V20151101
         /// <summary>
         /// Gets or sets deployment properties.
         /// </summary>
-        public readonly Outputs.DeploymentPropertiesExtendedResponseResult Properties;
+        public readonly Outputs.DeploymentPropertiesExtendedResponse Properties;
 
         [OutputConstructor]
         private GetDeploymentResult(
             string name,
 
-            Outputs.DeploymentPropertiesExtendedResponseResult properties)
+            Outputs.DeploymentPropertiesExtendedResponse properties)
         {
             Name = name;
             Properties = properties;

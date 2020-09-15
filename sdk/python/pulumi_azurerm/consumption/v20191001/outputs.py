@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -26,12 +26,12 @@ class BudgetComparisonExpressionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         The comparison expression to be used in the budgets.
         :param str name: The name of the column to use in comparison.
         :param str operator: The operator to use for comparison.
-        :param List[str] values: Array of values to use for comparison
+        :param Sequence[str] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -55,7 +55,7 @@ class BudgetComparisonExpressionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Array of values to use for comparison
         """
@@ -109,13 +109,13 @@ class BudgetFilterResponse(dict):
     May be used to filter budgets by resource group, resource, or meter.
     """
     def __init__(__self__, *,
-                 and_: Optional[List['outputs.BudgetFilterPropertiesResponse']] = None,
+                 and_: Optional[Sequence['outputs.BudgetFilterPropertiesResponse']] = None,
                  dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
                  not_: Optional['outputs.BudgetFilterPropertiesResponse'] = None,
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
-        :param List['BudgetFilterPropertiesResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param Sequence['BudgetFilterPropertiesResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'BudgetComparisonExpressionResponseArgs' dimensions: Has comparison expression for a dimension
         :param 'BudgetFilterPropertiesResponseArgs' not_: The logical "NOT" expression.
         :param 'BudgetComparisonExpressionResponseArgs' tags: Has comparison expression for a tag
@@ -131,7 +131,7 @@ class BudgetFilterResponse(dict):
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[List['outputs.BudgetFilterPropertiesResponse']]:
+    def and_(self) -> Optional[Sequence['outputs.BudgetFilterPropertiesResponse']]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
@@ -244,21 +244,21 @@ class NotificationResponse(dict):
     The notification associated with a budget.
     """
     def __init__(__self__, *,
-                 contact_emails: List[str],
+                 contact_emails: Sequence[str],
                  enabled: bool,
                  operator: str,
                  threshold: float,
-                 contact_groups: Optional[List[str]] = None,
-                 contact_roles: Optional[List[str]] = None,
+                 contact_groups: Optional[Sequence[str]] = None,
+                 contact_roles: Optional[Sequence[str]] = None,
                  threshold_type: Optional[str] = None):
         """
         The notification associated with a budget.
-        :param List[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param bool enabled: The notification is enabled or not.
         :param str operator: The comparison operator.
         :param float threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-        :param List[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
-        :param List[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
+        :param Sequence[str] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
         :param str threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
@@ -274,7 +274,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactEmails")
-    def contact_emails(self) -> List[str]:
+    def contact_emails(self) -> Sequence[str]:
         """
         Email addresses to send the budget notification to when the threshold is exceeded.
         """
@@ -306,7 +306,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactGroups")
-    def contact_groups(self) -> Optional[List[str]]:
+    def contact_groups(self) -> Optional[Sequence[str]]:
         """
         Action groups to send the budget notification to when the threshold is exceeded.
         """
@@ -314,7 +314,7 @@ class NotificationResponse(dict):
 
     @property
     @pulumi.getter(name="contactRoles")
-    def contact_roles(self) -> Optional[List[str]]:
+    def contact_roles(self) -> Optional[Sequence[str]]:
         """
         Contact roles to send the budget notification to when the threshold is exceeded.
         """

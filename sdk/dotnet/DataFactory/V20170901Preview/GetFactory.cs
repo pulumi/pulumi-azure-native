@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
-        public readonly Outputs.FactoryIdentityResponseResult? Identity;
+        public readonly Outputs.FactoryIdentityResponse? Identity;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -74,13 +74,13 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
         /// <summary>
         /// VSTS repo information of the factory.
         /// </summary>
-        public readonly Outputs.FactoryVSTSConfigurationResponseResult? VstsConfiguration;
+        public readonly Outputs.FactoryVSTSConfigurationResponse? VstsConfiguration;
 
         [OutputConstructor]
         private GetFactoryResult(
             string createTime,
 
-            Outputs.FactoryIdentityResponseResult? identity,
+            Outputs.FactoryIdentityResponse? identity,
 
             string? location,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.DataFactory.V20170901Preview
 
             string version,
 
-            Outputs.FactoryVSTSConfigurationResponseResult? vstsConfiguration)
+            Outputs.FactoryVSTSConfigurationResponse? vstsConfiguration)
         {
             CreateTime = createTime;
             Identity = identity;

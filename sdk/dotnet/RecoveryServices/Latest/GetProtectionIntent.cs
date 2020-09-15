@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <summary>
         /// ProtectionIntentResource properties
         /// </summary>
-        public readonly Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponseResult, Outputs.AzureResourceProtectionIntentResponseResult> Properties;
+        public readonly Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse> Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 
             string name,
 
-            Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponseResult, Outputs.AzureResourceProtectionIntentResponseResult> properties,
+            Union<Outputs.AzureRecoveryServiceVaultProtectionIntentResponse, Outputs.AzureResourceProtectionIntentResponse> properties,
 
             ImmutableDictionary<string, string>? tags,
 

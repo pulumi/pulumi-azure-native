@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// The reference of the Virtual Network Tap resource.
         /// </summary>
         [Output("virtualNetworkTap")]
-        public Output<Outputs.VirtualNetworkTapResponseResult?> VirtualNetworkTap { get; private set; } = null!;
+        public Output<Outputs.VirtualNetworkTapResponse?> VirtualNetworkTap { get; private set; } = null!;
 
 
         /// <summary>

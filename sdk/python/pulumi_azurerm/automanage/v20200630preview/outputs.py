@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -194,13 +194,13 @@ class ConfigurationProfilePreferenceVmBackupResponse(dict):
     Automanage configuration profile VM Backup preferences.
     """
     def __init__(__self__, *,
-                 instant_rp_retention_range_in_days: Optional[float] = None,
+                 instant_rp_retention_range_in_days: Optional[int] = None,
                  retention_policy: Optional[str] = None,
                  schedule_policy: Optional[str] = None,
                  time_zone: Optional[str] = None):
         """
         Automanage configuration profile VM Backup preferences.
-        :param float instant_rp_retention_range_in_days: Instant RP retention policy range in days
+        :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param str retention_policy: Retention policy with the details on backup copy retention ranges.
         :param str schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: Pacific Standard Time
@@ -216,7 +216,7 @@ class ConfigurationProfilePreferenceVmBackupResponse(dict):
 
     @property
     @pulumi.getter(name="instantRpRetentionRangeInDays")
-    def instant_rp_retention_range_in_days(self) -> Optional[float]:
+    def instant_rp_retention_range_in_days(self) -> Optional[int]:
         """
         Instant RP retention policy range in days
         """

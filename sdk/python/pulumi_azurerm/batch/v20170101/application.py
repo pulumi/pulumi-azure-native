@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -117,7 +117,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def packages(self) -> pulumi.Output[Optional[List['outputs.ApplicationPackageResponse']]]:
+    def packages(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationPackageResponse']]]:
         """
         The list of packages under this application.
         """

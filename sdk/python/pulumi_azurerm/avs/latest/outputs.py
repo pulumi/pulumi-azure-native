@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -261,14 +261,14 @@ class ManagementClusterResponse(dict):
     The properties of a default cluster
     """
     def __init__(__self__, *,
-                 cluster_id: float,
-                 cluster_size: float,
-                 hosts: List[str]):
+                 cluster_id: int,
+                 cluster_size: int,
+                 hosts: Sequence[str]):
         """
         The properties of a default cluster
-        :param float cluster_id: The identity
-        :param float cluster_size: The cluster size
-        :param List[str] hosts: The hosts
+        :param int cluster_id: The identity
+        :param int cluster_size: The cluster size
+        :param Sequence[str] hosts: The hosts
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "cluster_size", cluster_size)
@@ -276,7 +276,7 @@ class ManagementClusterResponse(dict):
 
     @property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> float:
+    def cluster_id(self) -> int:
         """
         The identity
         """
@@ -284,7 +284,7 @@ class ManagementClusterResponse(dict):
 
     @property
     @pulumi.getter(name="clusterSize")
-    def cluster_size(self) -> float:
+    def cluster_size(self) -> int:
         """
         The cluster size
         """
@@ -292,7 +292,7 @@ class ManagementClusterResponse(dict):
 
     @property
     @pulumi.getter
-    def hosts(self) -> List[str]:
+    def hosts(self) -> Sequence[str]:
         """
         The hosts
         """

@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplicationArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplicationProviderAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationProviderAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A value indicating whether the package is enabled or not.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

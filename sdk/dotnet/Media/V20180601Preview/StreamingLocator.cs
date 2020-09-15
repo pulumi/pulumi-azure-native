@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Media.V20180601Preview
         /// ContentKeys used by this Streaming Locator
         /// </summary>
         [Output("contentKeys")]
-        public Output<ImmutableArray<Outputs.StreamingLocatorContentKeyResponseResult>> ContentKeys { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StreamingLocatorContentKeyResponse>> ContentKeys { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of Streaming Locator

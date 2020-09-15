@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -76,7 +76,7 @@ class GetStaticSiteResult:
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> List[str]:
+    def custom_domains(self) -> Sequence[str]:
         """
         The custom domains associated with this static site.
         """

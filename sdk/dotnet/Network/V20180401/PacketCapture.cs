@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20180401
         public Output<string?> Etag { get; private set; } = null!;
 
         [Output("filters")]
-        public Output<ImmutableArray<Outputs.PacketCaptureFilterResponseResult>> Filters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PacketCaptureFilterResponse>> Filters { get; private set; } = null!;
 
         /// <summary>
         /// Name of the packet capture session.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// Describes the storage location for a packet capture session.
         /// </summary>
         [Output("storageLocation")]
-        public Output<Outputs.PacketCaptureStorageLocationResponseResult> StorageLocation { get; private set; } = null!;
+        public Output<Outputs.PacketCaptureStorageLocationResponse> StorageLocation { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the targeted resource, only VM is currently supported.

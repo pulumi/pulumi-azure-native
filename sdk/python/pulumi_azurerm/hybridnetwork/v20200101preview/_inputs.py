@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -94,13 +94,13 @@ class ImageReferenceArgs:
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
                  vm_switch_type: Optional[pulumi.Input[str]] = None):
         """
         Network interface properties.
-        :param pulumi.Input[List[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
         :param pulumi.Input[str] vm_switch_type: The type of VM switch
@@ -116,14 +116,14 @@ class NetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
         """
         A list of IP configurations of the network interface.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -166,7 +166,7 @@ class NetworkInterfaceArgs:
 @pulumi.input_type
 class NetworkInterfaceIPConfigurationArgs:
     def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gateway: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_allocation_method: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class NetworkInterfaceIPConfigurationArgs:
                  subnet: Optional[pulumi.Input[str]] = None):
         """
         Network interface IP configuration properties.
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
         :param pulumi.Input[str] gateway: The value of the gateway.
         :param pulumi.Input[str] ip_address: The value of the IP address.
         :param pulumi.Input[str] ip_allocation_method: IP address allocation method.
@@ -196,14 +196,14 @@ class NetworkInterfaceIPConfigurationArgs:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of DNS servers IP addresses.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @property
@@ -351,7 +351,7 @@ class SubResourceArgs:
 class VirtualNetworkFunctionRoleConfigurationArgs:
     def __init__(__self__, *,
                  image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None,
@@ -361,7 +361,7 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
         """
         Virtual network function role configuration.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: The definition of image reference.
-        :param pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configurations.
         :param pulumi.Input['OsProfileArgs'] os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of virtual network function.
         :param pulumi.Input[str] role_name: The name of the virtual network function role.
         :param pulumi.Input[str] role_type: Role type.
@@ -400,14 +400,14 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         The network interface configurations.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property
@@ -486,36 +486,36 @@ class VirtualNetworkFunctionRoleConfigurationArgs:
 @pulumi.input_type
 class VirtualNetworkFunctionTemplateArgs:
     def __init__(__self__, *,
-                 virutal_network_function_role_configurations: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]] = None):
+                 virutal_network_function_role_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]] = None):
         """
         The virtual network function template.
-        :param pulumi.Input[List[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]] virutal_network_function_role_configurations: An array of virtual network function role definitions.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]] virutal_network_function_role_configurations: An array of virtual network function role definitions.
         """
         if virutal_network_function_role_configurations is not None:
             pulumi.set(__self__, "virutal_network_function_role_configurations", virutal_network_function_role_configurations)
 
     @property
     @pulumi.getter(name="virutalNetworkFunctionRoleConfigurations")
-    def virutal_network_function_role_configurations(self) -> Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]]:
+    def virutal_network_function_role_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]]:
         """
         An array of virtual network function role definitions.
         """
         return pulumi.get(self, "virutal_network_function_role_configurations")
 
     @virutal_network_function_role_configurations.setter
-    def virutal_network_function_role_configurations(self, value: Optional[pulumi.Input[List[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]]):
+    def virutal_network_function_role_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkFunctionRoleConfigurationArgs']]]]):
         pulumi.set(self, "virutal_network_function_role_configurations", value)
 
 
 @pulumi.input_type
 class VirtualNetworkFunctionUserConfigurationArgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  user_data_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         The virtual network function user configuration.
-        :param pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configuration.
         :param pulumi.Input[str] role_name: The name of the virtual network function role.
         :param pulumi.Input[Mapping[str, Any]] user_data_parameters: The user data parameters from the customer.
         """
@@ -528,14 +528,14 @@ class VirtualNetworkFunctionUserConfigurationArgs:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]:
         """
         The network interface configuration.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[List[pulumi.Input['NetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property

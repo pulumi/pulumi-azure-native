@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ApplicationDefinitionArtifactResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationDefinitionArtifactResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The managed application provider authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The managed application deployment policy.
         /// </summary>
         [Output("deploymentPolicy")]
-        public Output<Outputs.ApplicationDeploymentPolicyResponseResult?> DeploymentPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationDeploymentPolicyResponse?> DeploymentPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The managed application definition description.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The managed application locking policy.
         /// </summary>
         [Output("lockingPolicy")]
-        public Output<Outputs.ApplicationPackageLockingPolicyDefinitionResponseResult?> LockingPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationPackageLockingPolicyDefinitionResponse?> LockingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The managed application management policy that determines publisher's access to the managed resource group.
         /// </summary>
         [Output("managementPolicy")]
-        public Output<Outputs.ApplicationManagementPolicyResponseResult?> ManagementPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationManagementPolicyResponse?> ManagementPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -102,7 +102,7 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The managed application notification policy.
         /// </summary>
         [Output("notificationPolicy")]
-        public Output<Outputs.ApplicationNotificationPolicyResponseResult?> NotificationPolicy { get; private set; } = null!;
+        public Output<Outputs.ApplicationNotificationPolicyResponse?> NotificationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The managed application definition package file Uri. Use this element
@@ -114,13 +114,13 @@ namespace Pulumi.AzureRM.Solutions.V20200821Preview
         /// The managed application provider policies.
         /// </summary>
         [Output("policies")]
-        public Output<ImmutableArray<Outputs.ApplicationPolicyResponseResult>> Policies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationPolicyResponse>> Policies { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The storage account id for bring your own storage scenario.

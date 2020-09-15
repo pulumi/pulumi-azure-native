@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetVirtualRouterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_router_asn and not isinstance(virtual_router_asn, float):
-            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
+        if virtual_router_asn and not isinstance(virtual_router_asn, int):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a int")
         pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
         if virtual_router_ips and not isinstance(virtual_router_ips, list):
             raise TypeError("Expected argument 'virtual_router_ips' to be a list")
@@ -97,7 +97,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> List['outputs.SubResourceResponse']:
+    def peerings(self) -> Sequence['outputs.SubResourceResponse']:
         """
         List of references to VirtualRouterPeerings
         """
@@ -129,7 +129,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter(name="virtualRouterAsn")
-    def virtual_router_asn(self) -> Optional[float]:
+    def virtual_router_asn(self) -> Optional[int]:
         """
         VirtualRouter ASN.
         """
@@ -137,7 +137,7 @@ class GetVirtualRouterResult:
 
     @property
     @pulumi.getter(name="virtualRouterIps")
-    def virtual_router_ips(self) -> Optional[List[str]]:
+    def virtual_router_ips(self) -> Optional[Sequence[str]]:
         """
         VirtualRouter IPs
         """

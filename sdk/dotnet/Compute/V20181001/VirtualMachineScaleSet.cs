@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// Policy for automatic repairs.
         /// </summary>
         [Output("automaticRepairsPolicy")]
-        public Output<Outputs.AutomaticRepairsPolicyResponseResult?> AutomaticRepairsPolicy { get; private set; } = null!;
+        public Output<Outputs.AutomaticRepairsPolicyResponse?> AutomaticRepairsPolicy { get; private set; } = null!;
 
         /// <summary>
         /// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.VirtualMachineScaleSetIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Output("plan")]
-        public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
+        public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
         /// Fault Domain count for each placement group.
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
         /// </summary>
         [Output("proximityPlacementGroup")]
-        public Output<Outputs.SubResourceResponseResult?> ProximityPlacementGroup { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> ProximityPlacementGroup { get; private set; } = null!;
 
         /// <summary>
         /// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// The virtual machine scale set sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -108,13 +108,13 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// The upgrade policy.
         /// </summary>
         [Output("upgradePolicy")]
-        public Output<Outputs.UpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
+        public Output<Outputs.UpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
         [Output("virtualMachineProfile")]
-        public Output<Outputs.VirtualMachineScaleSetVMProfileResponseResult?> VirtualMachineProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
         /// <summary>
         /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.

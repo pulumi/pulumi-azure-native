@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -75,8 +75,8 @@ class GetComponentResult:
         if request_source and not isinstance(request_source, str):
             raise TypeError("Expected argument 'request_source' to be a str")
         pulumi.set(__self__, "request_source", request_source)
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        if retention_in_days and not isinstance(retention_in_days, int):
+            raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sampling_percentage and not isinstance(sampling_percentage, float):
             raise TypeError("Expected argument 'sampling_percentage' to be a float")
@@ -213,7 +213,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceResponse']:
         """
         List of linked private link scope resources.
         """
@@ -237,7 +237,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> Optional[int]:
         """
         Retention period in days.
         """

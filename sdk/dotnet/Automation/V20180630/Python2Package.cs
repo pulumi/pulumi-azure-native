@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// Gets or sets the contentLink of the module.
         /// </summary>
         [Output("contentLink")]
-        public Output<Outputs.ContentLinkResponseResult?> ContentLink { get; private set; } = null!;
+        public Output<Outputs.ContentLinkResponse?> ContentLink { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the creation time.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// Gets or sets the error info of the module.
         /// </summary>
         [Output("error")]
-        public Output<Outputs.ModuleErrorInfoResponseResult?> Error { get; private set; } = null!;
+        public Output<Outputs.ModuleErrorInfoResponse?> Error { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the etag of the resource.

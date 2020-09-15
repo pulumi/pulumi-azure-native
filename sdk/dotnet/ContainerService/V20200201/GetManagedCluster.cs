@@ -42,23 +42,23 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// Profile of Azure Active Directory configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterAADProfileResponseResult? AadProfile;
+        public readonly Outputs.ManagedClusterAADProfileResponse? AadProfile;
         /// <summary>
         /// Profile of managed cluster add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? AddonProfiles;
         /// <summary>
         /// Properties of the agent pool.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
         /// Access profile for managed cluster API server.
         /// </summary>
-        public readonly Outputs.ManagedClusterAPIServerAccessProfileResponseResult? ApiServerAccessProfile;
+        public readonly Outputs.ManagedClusterAPIServerAccessProfileResponse? ApiServerAccessProfile;
         /// <summary>
         /// Parameters to be applied to the cluster-autoscaler when enabled
         /// </summary>
-        public readonly Outputs.ManagedClusterPropertiesResponseAutoScalerProfileResult? AutoScalerProfile;
+        public readonly Outputs.ManagedClusterPropertiesResponseAutoScalerProfile? AutoScalerProfile;
         /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// The identity of the managed cluster, if configured.
         /// </summary>
-        public readonly Outputs.ManagedClusterIdentityResponseResult? Identity;
+        public readonly Outputs.ManagedClusterIdentityResponse? Identity;
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? IdentityProfile;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>? IdentityProfile;
         /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// Profile for Linux VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileResponse? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ContainerServiceNetworkProfileResponseResult? NetworkProfile;
+        public readonly Outputs.ContainerServiceNetworkProfileResponse? NetworkProfile;
         /// <summary>
         /// Name of the resource group containing agent pool nodes.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         /// </summary>
-        public readonly Outputs.ManagedClusterServicePrincipalProfileResponseResult? ServicePrincipalProfile;
+        public readonly Outputs.ManagedClusterServicePrincipalProfileResponse? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -138,19 +138,19 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
         /// <summary>
         /// Profile for Windows VMs in the container service cluster.
         /// </summary>
-        public readonly Outputs.ManagedClusterWindowsProfileResponseResult? WindowsProfile;
+        public readonly Outputs.ManagedClusterWindowsProfileResponse? WindowsProfile;
 
         [OutputConstructor]
         private GetManagedClusterResult(
-            Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
+            Outputs.ManagedClusterAADProfileResponse? aadProfile,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponse>? addonProfiles,
 
-            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponse> agentPoolProfiles,
 
-            Outputs.ManagedClusterAPIServerAccessProfileResponseResult? apiServerAccessProfile,
+            Outputs.ManagedClusterAPIServerAccessProfileResponse? apiServerAccessProfile,
 
-            Outputs.ManagedClusterPropertiesResponseAutoScalerProfileResult? autoScalerProfile,
+            Outputs.ManagedClusterPropertiesResponseAutoScalerProfile? autoScalerProfile,
 
             string? diskEncryptionSetID,
 
@@ -162,13 +162,13 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
 
             string fqdn,
 
-            Outputs.ManagedClusterIdentityResponseResult? identity,
+            Outputs.ManagedClusterIdentityResponse? identity,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? identityProfile,
+            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfile>? identityProfile,
 
             string? kubernetesVersion,
 
-            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
+            Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
 
             string location,
 
@@ -176,7 +176,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
 
             string name,
 
-            Outputs.ContainerServiceNetworkProfileResponseResult? networkProfile,
+            Outputs.ContainerServiceNetworkProfileResponse? networkProfile,
 
             string? nodeResourceGroup,
 
@@ -184,13 +184,13 @@ namespace Pulumi.AzureRM.ContainerService.V20200201
 
             string provisioningState,
 
-            Outputs.ManagedClusterServicePrincipalProfileResponseResult? servicePrincipalProfile,
+            Outputs.ManagedClusterServicePrincipalProfileResponse? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.ManagedClusterWindowsProfileResponseResult? windowsProfile)
+            Outputs.ManagedClusterWindowsProfileResponse? windowsProfile)
         {
             AadProfile = aadProfile;
             AddonProfiles = addonProfiles;

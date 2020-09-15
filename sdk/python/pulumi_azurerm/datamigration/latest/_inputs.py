@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -870,12 +870,12 @@ class GetTdeCertificatesSqlTaskInputArgs:
     def __init__(__self__, *,
                  backup_file_share: pulumi.Input['FileShareArgs'],
                  connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 selected_certificates: pulumi.Input[List[pulumi.Input['SelectedCertificateInputArgs']]]):
+                 selected_certificates: pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]]):
         """
         Input for the task that gets TDE certificates in Base64 encoded format.
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for file share to be used for temporarily storing files.
         :param pulumi.Input['SqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
-        :param pulumi.Input[List[pulumi.Input['SelectedCertificateInputArgs']]] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
         pulumi.set(__self__, "backup_file_share", backup_file_share)
         pulumi.set(__self__, "connection_info", connection_info)
@@ -907,14 +907,14 @@ class GetTdeCertificatesSqlTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedCertificates")
-    def selected_certificates(self) -> pulumi.Input[List[pulumi.Input['SelectedCertificateInputArgs']]]:
+    def selected_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]]:
         """
         List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
         return pulumi.get(self, "selected_certificates")
 
     @selected_certificates.setter
-    def selected_certificates(self, value: pulumi.Input[List[pulumi.Input['SelectedCertificateInputArgs']]]):
+    def selected_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]]):
         pulumi.set(self, "selected_certificates", value)
 
 
@@ -960,14 +960,14 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
 @pulumi.input_type
 class GetUserTablesSqlSyncTaskInputArgs:
     def __init__(__self__, *,
-                 selected_source_databases: pulumi.Input[List[pulumi.Input[str]]],
-                 selected_target_databases: pulumi.Input[List[pulumi.Input[str]]],
+                 selected_source_databases: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 selected_target_databases: pulumi.Input[Sequence[pulumi.Input[str]]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs']):
         """
         Input for the task that collects user tables for the given list of databases
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_source_databases: List of source database names to collect tables for
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_target_databases: List of target database names to collect tables for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_source_databases: List of source database names to collect tables for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_target_databases: List of target database names to collect tables for
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for SQL Server
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Connection information for SQL DB
         """
@@ -978,26 +978,26 @@ class GetUserTablesSqlSyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedSourceDatabases")
-    def selected_source_databases(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def selected_source_databases(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of source database names to collect tables for
         """
         return pulumi.get(self, "selected_source_databases")
 
     @selected_source_databases.setter
-    def selected_source_databases(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def selected_source_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_source_databases", value)
 
     @property
     @pulumi.getter(name="selectedTargetDatabases")
-    def selected_target_databases(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def selected_target_databases(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of target database names to collect tables for
         """
         return pulumi.get(self, "selected_target_databases")
 
     @selected_target_databases.setter
-    def selected_target_databases(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def selected_target_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_target_databases", value)
 
     @property
@@ -1068,11 +1068,11 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
 class GetUserTablesSqlTaskInputArgs:
     def __init__(__self__, *,
                  connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input[str]]]):
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Input for the task that collects user tables for the given list of databases
         :param pulumi.Input['SqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
         """
         pulumi.set(__self__, "connection_info", connection_info)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -1091,14 +1091,14 @@ class GetUserTablesSqlTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of database names to collect tables for
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "selected_databases", value)
 
 
@@ -1302,12 +1302,12 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
 @pulumi.input_type
 class MigrateMySqlAzureDbForMySqlSyncTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['MySqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['MySqlConnectionInfoArgs']):
         """
         Input for the task that migrates MySQL databases to Azure Database for MySQL for online migrations
-        :param pulumi.Input[List[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['MySqlConnectionInfoArgs'] source_connection_info: Connection information for source MySQL
         :param pulumi.Input['MySqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for MySQL
         """
@@ -1317,14 +1317,14 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -1482,12 +1482,12 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
 @pulumi.input_type
 class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['PostgreSqlConnectionInfoArgs']):
         """
         Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
-        :param pulumi.Input[List[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] source_connection_info: Connection information for source PostgreSQL
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
@@ -1497,14 +1497,14 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -1782,13 +1782,13 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
 @pulumi.input_type
 class MigrateSqlServerSqlDbSyncTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database for online migrations
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Validation options
@@ -1801,14 +1801,14 @@ class MigrateSqlServerSqlDbSyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -1890,13 +1890,13 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
 @pulumi.input_type
 class MigrateSqlServerSqlDbTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None):
         """
         Input for the task that migrates on-prem SQL Server databases to Azure SQL Database
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Options for enabling various post migration validations. Available options, 
@@ -1911,14 +1911,14 @@ class MigrateSqlServerSqlDbTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -2004,13 +2004,13 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  restore_database_name: pulumi.Input[str],
-                 backup_file_paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 backup_file_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None):
         """
         Database specific information for SQL to Azure SQL DB Managed Instance migration task inputs
         :param pulumi.Input[str] name: Name of the database
         :param pulumi.Input[str] restore_database_name: Name of the database at destination
-        :param pulumi.Input[List[pulumi.Input[str]]] backup_file_paths: The list of backup files to be used in case of existing backups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_file_paths: The list of backup files to be used in case of existing backups.
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for backing up this database.
         """
         pulumi.set(__self__, "name", name)
@@ -2046,14 +2046,14 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
 
     @property
     @pulumi.getter(name="backupFilePaths")
-    def backup_file_paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def backup_file_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of backup files to be used in case of existing backups.
         """
         return pulumi.get(self, "backup_file_paths")
 
     @backup_file_paths.setter
-    def backup_file_paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def backup_file_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "backup_file_paths", value)
 
     @property
@@ -2073,7 +2073,7 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
 class MigrateSqlServerSqlMISyncTaskInputArgs:
     def __init__(__self__, *,
                  azure_app: pulumi.Input['AzureActiveDirectoryAppArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  storage_resource_id: pulumi.Input[str],
                  target_connection_info: pulumi.Input['MiSqlConnectionInfoArgs'],
@@ -2081,7 +2081,7 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
         :param pulumi.Input['AzureActiveDirectoryAppArgs'] azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for source SQL Server
         :param pulumi.Input[str] storage_resource_id: Fully qualified resourceId of storage
         :param pulumi.Input['MiSqlConnectionInfoArgs'] target_connection_info: Connection information for Azure SQL Database Managed Instance
@@ -2109,14 +2109,14 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -2211,23 +2211,23 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
 class MigrateSqlServerSqlMITaskInputArgs:
     def __init__(__self__, *,
                  backup_blob_share: pulumi.Input['BlobShareArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
                  backup_mode: Optional[pulumi.Input[str]] = None,
-                 selected_agent_jobs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 selected_logins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 selected_agent_jobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance.
         :param pulumi.Input['BlobShareArgs'] backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
         :param pulumi.Input[str] backup_mode: Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_agent_jobs: Agent Jobs to migrate.
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_logins: Logins to migrate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_agent_jobs: Agent Jobs to migrate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate.
         """
         pulumi.set(__self__, "backup_blob_share", backup_blob_share)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -2256,14 +2256,14 @@ class MigrateSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -2316,26 +2316,26 @@ class MigrateSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedAgentJobs")
-    def selected_agent_jobs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def selected_agent_jobs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Agent Jobs to migrate.
         """
         return pulumi.get(self, "selected_agent_jobs")
 
     @selected_agent_jobs.setter
-    def selected_agent_jobs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def selected_agent_jobs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "selected_agent_jobs", value)
 
     @property
     @pulumi.getter(name="selectedLogins")
-    def selected_logins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def selected_logins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Logins to migrate.
         """
         return pulumi.get(self, "selected_logins")
 
     @selected_logins.setter
-    def selected_logins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def selected_logins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "selected_logins", value)
 
 
@@ -2437,14 +2437,14 @@ class MigrationValidationOptionsArgs:
 @pulumi.input_type
 class MySqlConnectionInfoArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  server_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Information for connecting to MySQL server
-        :param pulumi.Input[float] port: Port for Server
+        :param pulumi.Input[int] port: Port for Server
         :param pulumi.Input[str] server_name: Name of the server
         :param pulumi.Input[str] type: Type of connection info
         :param pulumi.Input[str] password: Password credential.
@@ -2460,14 +2460,14 @@ class MySqlConnectionInfoArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Port for Server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -2522,7 +2522,7 @@ class MySqlConnectionInfoArgs:
 @pulumi.input_type
 class PostgreSqlConnectionInfoArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  server_name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -2530,7 +2530,7 @@ class PostgreSqlConnectionInfoArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Information for connecting to PostgreSQL server
-        :param pulumi.Input[float] port: Port for Server
+        :param pulumi.Input[int] port: Port for Server
         :param pulumi.Input[str] server_name: Name of the server
         :param pulumi.Input[str] type: Type of connection info
         :param pulumi.Input[str] database_name: Name of the database
@@ -2549,14 +2549,14 @@ class PostgreSqlConnectionInfoArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Port for Server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -2661,14 +2661,14 @@ class SelectedCertificateInputArgs:
 @pulumi.input_type
 class ServiceSkuArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         An Azure SKU instance
-        :param pulumi.Input[float] capacity: The capacity of the SKU, if it supports scaling
+        :param pulumi.Input[int] capacity: The capacity of the SKU, if it supports scaling
         :param pulumi.Input[str] family: The SKU family, used when the service has multiple performance classes within a tier, such as 'A', 'D', etc. for virtual machines
         :param pulumi.Input[str] name: The unique name of the SKU, such as 'P3'
         :param pulumi.Input[str] size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
@@ -2687,14 +2687,14 @@ class ServiceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         The capacity of the SKU, if it supports scaling
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
     @property
@@ -2939,7 +2939,7 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
 class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
     def __init__(__self__, *,
                  azure_app: pulumi.Input['AzureActiveDirectoryAppArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  storage_resource_id: pulumi.Input[str],
                  target_connection_info: pulumi.Input['MiSqlConnectionInfoArgs'],
@@ -2947,7 +2947,7 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
         """
         Input for task that migrates SQL Server databases to Azure SQL Database Managed Instance online scenario.
         :param pulumi.Input['AzureActiveDirectoryAppArgs'] azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for source SQL Server
         :param pulumi.Input[str] storage_resource_id: Fully qualified resourceId of storage
         :param pulumi.Input['MiSqlConnectionInfoArgs'] target_connection_info: Connection information for Azure SQL Database Managed Instance
@@ -2975,14 +2975,14 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -3077,21 +3077,21 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
 class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
     def __init__(__self__, *,
                  backup_blob_share: pulumi.Input['BlobShareArgs'],
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
                  backup_mode: Optional[pulumi.Input[str]] = None,
-                 selected_logins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
         :param pulumi.Input['BlobShareArgs'] backup_blob_share: SAS URI of Azure Storage Account Container to be used for storing backup files.
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
         :param pulumi.Input[str] backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
-        :param pulumi.Input[List[pulumi.Input[str]]] selected_logins: Logins to migrate
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate
         """
         pulumi.set(__self__, "backup_blob_share", backup_blob_share)
         pulumi.set(__self__, "selected_databases", selected_databases)
@@ -3118,14 +3118,14 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property
@@ -3178,14 +3178,14 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedLogins")
-    def selected_logins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def selected_logins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Logins to migrate
         """
         return pulumi.get(self, "selected_logins")
 
     @selected_logins.setter
-    def selected_logins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def selected_logins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "selected_logins", value)
 
 
@@ -3231,12 +3231,12 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
 @pulumi.input_type
 class ValidateSyncMigrationInputSqlServerTaskInputArgs:
     def __init__(__self__, *,
-                 selected_databases: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]],
+                 selected_databases: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]],
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs']):
         """
         Input for task that validates migration input for SQL sync migrations
-        :param pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
+        :param pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]] selected_databases: Databases to migrate
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source SQL server
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         """
@@ -3246,14 +3246,14 @@ class ValidateSyncMigrationInputSqlServerTaskInputArgs:
 
     @property
     @pulumi.getter(name="selectedDatabases")
-    def selected_databases(self) -> pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]:
+    def selected_databases(self) -> pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]:
         """
         Databases to migrate
         """
         return pulumi.get(self, "selected_databases")
 
     @selected_databases.setter
-    def selected_databases(self, value: pulumi.Input[List[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]):
+    def selected_databases(self, value: pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]):
         pulumi.set(self, "selected_databases", value)
 
     @property

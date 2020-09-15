@@ -46,11 +46,11 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Network that the Application is using.
         /// </summary>
-        public readonly Outputs.NetworkRefResponseResult DestinationNetwork;
+        public readonly Outputs.NetworkRefResponse DestinationNetwork;
         /// <summary>
         /// Configuration for http connectivity for this gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HttpConfigResponseResult> Http;
+        public readonly ImmutableArray<Outputs.HttpConfigResponse> Http;
         /// <summary>
         /// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Network the gateway should listen on for requests.
         /// </summary>
-        public readonly Outputs.NetworkRefResponseResult SourceNetwork;
+        public readonly Outputs.NetworkRefResponse SourceNetwork;
         /// <summary>
         /// Status of the resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         /// <summary>
         /// Configuration for tcp connectivity for this gateway.
         /// </summary>
-        public readonly ImmutableArray<Outputs.TcpConfigResponseResult> Tcp;
+        public readonly ImmutableArray<Outputs.TcpConfigResponse> Tcp;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -96,9 +96,9 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
         private GetGatewayResult(
             string? description,
 
-            Outputs.NetworkRefResponseResult destinationNetwork,
+            Outputs.NetworkRefResponse destinationNetwork,
 
-            ImmutableArray<Outputs.HttpConfigResponseResult> http,
+            ImmutableArray<Outputs.HttpConfigResponse> http,
 
             string ipAddress,
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 
             string provisioningState,
 
-            Outputs.NetworkRefResponseResult sourceNetwork,
+            Outputs.NetworkRefResponse sourceNetwork,
 
             string status,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureRM.ServiceFabricMesh.V20180901Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.TcpConfigResponseResult> tcp,
+            ImmutableArray<Outputs.TcpConfigResponse> tcp,
 
             string type)
         {

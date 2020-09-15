@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.Relay.V20170401
         /// SKU of the namespace.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

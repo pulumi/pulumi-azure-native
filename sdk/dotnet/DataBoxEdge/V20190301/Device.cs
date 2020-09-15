@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         /// The SKU type.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).

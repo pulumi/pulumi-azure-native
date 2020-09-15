@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceResponse? ExpressRouteCircuitPeering;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// <summary>
         /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        public readonly Outputs.SubResourceResponse? PeerExpressRouteCircuitPeering;
         /// <summary>
         /// The provisioning state of the express route circuit connection resource.
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureRM.Network.V20190801
 
             string etag,
 
-            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
+            Outputs.SubResourceResponse? expressRouteCircuitPeering,
 
             string? name,
 
-            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+            Outputs.SubResourceResponse? peerExpressRouteCircuitPeering,
 
             string provisioningState,
 

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Insights.V20180601Preview
         /// the array of data source object which are configured to collect and send data
         /// </summary>
         [Output("dataSources")]
-        public Output<ImmutableArray<Outputs.DataSourceResponseResult>> DataSources { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataSourceResponse>> DataSources { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

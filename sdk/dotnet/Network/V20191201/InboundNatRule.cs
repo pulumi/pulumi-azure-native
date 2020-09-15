@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
         /// </summary>
         [Output("backendIPConfiguration")]
-        public Output<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfiguration { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceIPConfigurationResponse> BackendIPConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// A reference to frontend IP addresses.
         /// </summary>
         [Output("frontendIPConfiguration")]
-        public Output<Outputs.SubResourceResponseResult?> FrontendIPConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> FrontendIPConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.

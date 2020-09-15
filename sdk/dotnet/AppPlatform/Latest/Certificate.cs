@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
         /// Properties of the certificate resource payload.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CertificatePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

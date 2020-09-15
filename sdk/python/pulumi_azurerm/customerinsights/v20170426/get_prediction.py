@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -105,7 +105,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter
-    def grades(self) -> Optional[List['outputs.PredictionResponseGrades']]:
+    def grades(self) -> Optional[Sequence['outputs.PredictionResponseGrades']]:
         """
         The prediction grades.
         """
@@ -113,7 +113,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter(name="involvedInteractionTypes")
-    def involved_interaction_types(self) -> Optional[List[str]]:
+    def involved_interaction_types(self) -> Optional[Sequence[str]]:
         """
         Interaction types involved in the prediction.
         """
@@ -121,7 +121,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter(name="involvedKpiTypes")
-    def involved_kpi_types(self) -> Optional[List[str]]:
+    def involved_kpi_types(self) -> Optional[Sequence[str]]:
         """
         KPI types involved in the prediction.
         """
@@ -129,7 +129,7 @@ class GetPredictionResult:
 
     @property
     @pulumi.getter(name="involvedRelationships")
-    def involved_relationships(self) -> Optional[List[str]]:
+    def involved_relationships(self) -> Optional[Sequence[str]]:
         """
         Relationships involved in the prediction.
         """

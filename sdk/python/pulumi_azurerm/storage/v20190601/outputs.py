@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -175,11 +175,11 @@ class BlobRestoreParametersResponse(dict):
     Blob restore parameters
     """
     def __init__(__self__, *,
-                 blob_ranges: List['outputs.BlobRestoreRangeResponse'],
+                 blob_ranges: Sequence['outputs.BlobRestoreRangeResponse'],
                  time_to_restore: str):
         """
         Blob restore parameters
-        :param List['BlobRestoreRangeResponseArgs'] blob_ranges: Blob ranges to restore.
+        :param Sequence['BlobRestoreRangeResponseArgs'] blob_ranges: Blob ranges to restore.
         :param str time_to_restore: Restore blob to the specified time.
         """
         pulumi.set(__self__, "blob_ranges", blob_ranges)
@@ -187,7 +187,7 @@ class BlobRestoreParametersResponse(dict):
 
     @property
     @pulumi.getter(name="blobRanges")
-    def blob_ranges(self) -> List['outputs.BlobRestoreRangeResponse']:
+    def blob_ranges(self) -> Sequence['outputs.BlobRestoreRangeResponse']:
         """
         Blob ranges to restore.
         """
@@ -801,16 +801,16 @@ class ImmutabilityPolicyPropertiesResponse(dict):
     def __init__(__self__, *,
                  etag: str,
                  state: str,
-                 update_history: List['outputs.UpdateHistoryPropertyResponse'],
+                 update_history: Sequence['outputs.UpdateHistoryPropertyResponse'],
                  allow_protected_append_writes: Optional[bool] = None,
-                 immutability_period_since_creation_in_days: Optional[float] = None):
+                 immutability_period_since_creation_in_days: Optional[int] = None):
         """
         The properties of an ImmutabilityPolicy of a blob container.
         :param str etag: ImmutabilityPolicy Etag.
         :param str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-        :param List['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
+        :param Sequence['UpdateHistoryPropertyResponseArgs'] update_history: The ImmutabilityPolicy update history of the blob container.
         :param bool allow_protected_append_writes: This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
-        :param float immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "state", state)
@@ -838,7 +838,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="updateHistory")
-    def update_history(self) -> List['outputs.UpdateHistoryPropertyResponse']:
+    def update_history(self) -> Sequence['outputs.UpdateHistoryPropertyResponse']:
         """
         The ImmutabilityPolicy update history of the blob container.
         """
@@ -854,7 +854,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> Optional[float]:
+    def immutability_period_since_creation_in_days(self) -> Optional[int]:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """
@@ -943,11 +943,11 @@ class LegalHoldPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  has_legal_hold: bool,
-                 tags: Optional[List['outputs.TagPropertyResponse']] = None):
+                 tags: Optional[Sequence['outputs.TagPropertyResponse']] = None):
         """
         The LegalHold property of a blob container.
         :param bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-        :param List['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
+        :param Sequence['TagPropertyResponseArgs'] tags: The list of LegalHold tags of a blob container.
         """
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
         if tags is not None:
@@ -963,7 +963,7 @@ class LegalHoldPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List['outputs.TagPropertyResponse']]:
+    def tags(self) -> Optional[Sequence['outputs.TagPropertyResponse']]:
         """
         The list of LegalHold tags of a blob container.
         """
@@ -1104,14 +1104,14 @@ class ManagementPolicyFilterResponse(dict):
     Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
     """
     def __init__(__self__, *,
-                 blob_types: List[str],
-                 blob_index_match: Optional[List['outputs.TagFilterResponse']] = None,
-                 prefix_match: Optional[List[str]] = None):
+                 blob_types: Sequence[str],
+                 blob_index_match: Optional[Sequence['outputs.TagFilterResponse']] = None,
+                 prefix_match: Optional[Sequence[str]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
-        :param List[str] blob_types: An array of predefined enum values. Only blockBlob is supported.
-        :param List['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
-        :param List[str] prefix_match: An array of strings for prefixes to be match.
+        :param Sequence[str] blob_types: An array of predefined enum values. Only blockBlob is supported.
+        :param Sequence['TagFilterResponseArgs'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
+        :param Sequence[str] prefix_match: An array of strings for prefixes to be match.
         """
         pulumi.set(__self__, "blob_types", blob_types)
         if blob_index_match is not None:
@@ -1121,7 +1121,7 @@ class ManagementPolicyFilterResponse(dict):
 
     @property
     @pulumi.getter(name="blobTypes")
-    def blob_types(self) -> List[str]:
+    def blob_types(self) -> Sequence[str]:
         """
         An array of predefined enum values. Only blockBlob is supported.
         """
@@ -1129,7 +1129,7 @@ class ManagementPolicyFilterResponse(dict):
 
     @property
     @pulumi.getter(name="blobIndexMatch")
-    def blob_index_match(self) -> Optional[List['outputs.TagFilterResponse']]:
+    def blob_index_match(self) -> Optional[Sequence['outputs.TagFilterResponse']]:
         """
         An array of blob index tag based filters, there can be at most 10 tag filters
         """
@@ -1137,7 +1137,7 @@ class ManagementPolicyFilterResponse(dict):
 
     @property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[List[str]]:
+    def prefix_match(self) -> Optional[Sequence[str]]:
         """
         An array of strings for prefixes to be match.
         """
@@ -1212,16 +1212,16 @@ class ManagementPolicySchemaResponse(dict):
     The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
     """
     def __init__(__self__, *,
-                 rules: List['outputs.ManagementPolicyRuleResponse']):
+                 rules: Sequence['outputs.ManagementPolicyRuleResponse']):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-        :param List['ManagementPolicyRuleResponseArgs'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        :param Sequence['ManagementPolicyRuleResponseArgs'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.ManagementPolicyRuleResponse']:
+    def rules(self) -> Sequence['outputs.ManagementPolicyRuleResponse']:
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         """
@@ -1265,14 +1265,14 @@ class NetworkRuleSetResponse(dict):
     def __init__(__self__, *,
                  default_action: str,
                  bypass: Optional[str] = None,
-                 ip_rules: Optional[List['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[List['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         Network rule set
         :param str default_action: Specifies the default action of allow or deny when no other rules match.
         :param str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        :param List['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
-        :param List['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
+        :param Sequence['IPRuleResponseArgs'] ip_rules: Sets the IP ACL rules
+        :param Sequence['VirtualNetworkRuleResponseArgs'] virtual_network_rules: Sets the virtual network rules
         """
         pulumi.set(__self__, "default_action", default_action)
         if bypass is not None:
@@ -1300,7 +1300,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.IPRuleResponse']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
         """
         Sets the IP ACL rules
         """
@@ -1308,7 +1308,7 @@ class NetworkRuleSetResponse(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.VirtualNetworkRuleResponse']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
         """
         Sets the virtual network rules
         """
@@ -1325,11 +1325,11 @@ class ObjectReplicationPolicyFilterResponse(dict):
     """
     def __init__(__self__, *,
                  min_creation_time: Optional[str] = None,
-                 prefix_match: Optional[List[str]] = None):
+                 prefix_match: Optional[Sequence[str]] = None):
         """
         Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
         :param str min_creation_time: Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-        :param List[str] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
+        :param Sequence[str] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
         if min_creation_time is not None:
             pulumi.set(__self__, "min_creation_time", min_creation_time)
@@ -1346,7 +1346,7 @@ class ObjectReplicationPolicyFilterResponse(dict):
 
     @property
     @pulumi.getter(name="prefixMatch")
-    def prefix_match(self) -> Optional[List[str]]:
+    def prefix_match(self) -> Optional[Sequence[str]]:
         """
         Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
@@ -1964,7 +1964,7 @@ class UpdateHistoryPropertyResponse(dict):
     An update history of the ImmutabilityPolicy of a blob container.
     """
     def __init__(__self__, *,
-                 immutability_period_since_creation_in_days: float,
+                 immutability_period_since_creation_in_days: int,
                  object_identifier: str,
                  tenant_id: str,
                  timestamp: str,
@@ -1972,7 +1972,7 @@ class UpdateHistoryPropertyResponse(dict):
                  upn: str):
         """
         An update history of the ImmutabilityPolicy of a blob container.
-        :param float immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
+        :param int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param str object_identifier: Returns the Object ID of the user who updated the ImmutabilityPolicy.
         :param str tenant_id: Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
         :param str timestamp: Returns the date and time the ImmutabilityPolicy was updated.
@@ -1988,7 +1988,7 @@ class UpdateHistoryPropertyResponse(dict):
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
-    def immutability_period_since_creation_in_days(self) -> float:
+    def immutability_period_since_creation_in_days(self) -> int:
         """
         The immutability period for the blobs in the container since the policy creation, in days.
         """

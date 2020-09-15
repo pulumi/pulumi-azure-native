@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The DNS settings in network interface.
         /// </summary>
         [Output("dnsSettings")]
-        public Output<Outputs.NetworkInterfaceDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceDnsSettingsResponse?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
         /// A reference to the dscp configuration to which the network interface is linked.
         /// </summary>
         [Output("dscpConfiguration")]
-        public Output<Outputs.SubResourceResponseResult> DscpConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> DscpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// If the network interface is accelerated networking enabled.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// A list of IPConfigurations of the network interface.
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
         [Output("networkSecurityGroup")]
-        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+        public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Whether this is a primary network interface on a virtual machine.
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// A reference to the private endpoint to which the network interface is linked.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponseResult> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the network interface resource.
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// A list of TapConfigurations of the network interface.
         /// </summary>
         [Output("tapConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult>> TapConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponse>> TapConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.Network.Latest
         /// The reference to a virtual machine.
         /// </summary>
         [Output("virtualMachine")]
-        public Output<Outputs.SubResourceResponseResult> VirtualMachine { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> VirtualMachine { get; private set; } = null!;
 
 
         /// <summary>

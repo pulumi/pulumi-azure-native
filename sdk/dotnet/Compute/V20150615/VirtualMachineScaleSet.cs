@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// The virtual machine scale set sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -60,13 +60,13 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// The upgrade policy.
         /// </summary>
         [Output("upgradePolicy")]
-        public Output<Outputs.UpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
+        public Output<Outputs.UpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine profile.
         /// </summary>
         [Output("virtualMachineProfile")]
-        public Output<Outputs.VirtualMachineScaleSetVMProfileResponseResult?> VirtualMachineProfile { get; private set; } = null!;
+        public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
 
         /// <summary>

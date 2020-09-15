@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Management.Latest
         /// <summary>
         /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Management.Latest
 
             string name,
 
-            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponse>? parameters,
 
             ImmutableDictionary<string, object>? policyRule,
 

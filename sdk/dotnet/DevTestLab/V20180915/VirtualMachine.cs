@@ -24,19 +24,19 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The applicable schedule for the virtual machine.
         /// </summary>
         [Output("applicableSchedule")]
-        public Output<Outputs.ApplicableScheduleResponseResult> ApplicableSchedule { get; private set; } = null!;
+        public Output<Outputs.ApplicableScheduleResponse> ApplicableSchedule { get; private set; } = null!;
 
         /// <summary>
         /// The artifact deployment status for the virtual machine.
         /// </summary>
         [Output("artifactDeploymentStatus")]
-        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponseResult?> ArtifactDeploymentStatus { get; private set; } = null!;
+        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponse?> ArtifactDeploymentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The artifacts to be installed on the virtual machine.
         /// </summary>
         [Output("artifacts")]
-        public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult>> Artifacts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponse>> Artifacts { get; private set; } = null!;
 
         /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The compute virtual machine properties.
         /// </summary>
         [Output("computeVm")]
-        public Output<Outputs.ComputeVmPropertiesResponseResult> ComputeVm { get; private set; } = null!;
+        public Output<Outputs.ComputeVmPropertiesResponse> ComputeVm { get; private set; } = null!;
 
         /// <summary>
         /// The email address of creator of the virtual machine.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// New or existing data disks to attach to the virtual machine after creation
         /// </summary>
         [Output("dataDiskParameters")]
-        public Output<ImmutableArray<Outputs.DataDiskPropertiesResponseResult>> DataDiskParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataDiskPropertiesResponse>> DataDiskParameters { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the virtual machine is to be created without a public IP address.
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The Microsoft Azure Marketplace image reference of the virtual machine.
         /// </summary>
         [Output("galleryImageReference")]
-        public Output<Outputs.GalleryImageReferenceResponseResult?> GalleryImageReference { get; private set; } = null!;
+        public Output<Outputs.GalleryImageReferenceResponse?> GalleryImageReference { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The network interface properties.
         /// </summary>
         [Output("networkInterface")]
-        public Output<Outputs.NetworkInterfacePropertiesResponseResult?> NetworkInterface { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfacePropertiesResponse?> NetworkInterface { get; private set; } = null!;
 
         /// <summary>
         /// The notes of the virtual machine.
@@ -198,7 +198,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// Virtual Machine schedules to be created
         /// </summary>
         [Output("scheduleParameters")]
-        public Output<ImmutableArray<Outputs.ScheduleCreationParameterResponseResult>> ScheduleParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ScheduleCreationParameterResponse>> ScheduleParameters { get; private set; } = null!;
 
         /// <summary>
         /// The size of the virtual machine.

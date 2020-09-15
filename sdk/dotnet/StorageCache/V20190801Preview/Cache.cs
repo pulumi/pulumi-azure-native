@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Health of the cache.
         /// </summary>
         [Output("health")]
-        public Output<Outputs.CacheHealthResponseResult> Health { get; private set; } = null!;
+        public Output<Outputs.CacheHealthResponse> Health { get; private set; } = null!;
 
         /// <summary>
         /// Region name string.
@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Sku for the cache.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.CacheResponseSkuResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.CacheResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Subnet used for the cache.
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.StorageCache.V20190801Preview
         /// Upgrade status of the cache.
         /// </summary>
         [Output("upgradeStatus")]
-        public Output<Outputs.CacheUpgradeStatusResponseResult?> UpgradeStatus { get; private set; } = null!;
+        public Output<Outputs.CacheUpgradeStatusResponse?> UpgradeStatus { get; private set; } = null!;
 
 
         /// <summary>

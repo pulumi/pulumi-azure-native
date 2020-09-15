@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
         /// <summary>
         /// Properties of the private endpoint object.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
         /// Approval state of the private link connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
         /// Provisioning state of the private endpoint connection.
         /// </summary>
@@ -80,9 +80,9 @@ namespace Pulumi.AzureRM.KeyVault.V20200401Preview
 
             string name,
 
-            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string? provisioningState,
 

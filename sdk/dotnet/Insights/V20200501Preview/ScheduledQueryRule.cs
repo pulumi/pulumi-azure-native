@@ -15,13 +15,13 @@ namespace Pulumi.AzureRM.Insights.V20200501Preview
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.ActionResponseResult>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ActionResponse>> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The rule criteria that defines the conditions of the scheduled query rule.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.ScheduledQueryRuleCriteriaResponseResult?> Criteria { get; private set; } = null!;
+        public Output<Outputs.ScheduledQueryRuleCriteriaResponse?> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// The description of the scheduled query rule.

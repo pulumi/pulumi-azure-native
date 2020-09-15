@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -38,7 +38,7 @@ class ListJobOutputFilesResult:
 
     @property
     @pulumi.getter
-    def value(self) -> List['outputs.FileResponseResult']:
+    def value(self) -> Sequence['outputs.FileResponseResult']:
         """
         The collection of returned job files.
         """
@@ -56,8 +56,8 @@ class AwaitableListJobOutputFilesResult(ListJobOutputFilesResult):
 
 
 def list_job_output_files(job_name: Optional[str] = None,
-                          linkexpiryinminutes: Optional[float] = None,
-                          max_results: Optional[float] = None,
+                          linkexpiryinminutes: Optional[int] = None,
+                          max_results: Optional[int] = None,
                           outputdirectoryid: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListJobOutputFilesResult:
@@ -65,8 +65,8 @@ def list_job_output_files(job_name: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str job_name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-    :param float linkexpiryinminutes: The number of minutes after which the download link will expire.
-    :param float max_results: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
+    :param int linkexpiryinminutes: The number of minutes after which the download link will expire.
+    :param int max_results: The maximum number of items to return in the response. A maximum of 1000 files can be returned.
     :param str outputdirectoryid: Id of the job output directory. This is the OutputDirectory-->id parameter that is given by the user during Create Job.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """

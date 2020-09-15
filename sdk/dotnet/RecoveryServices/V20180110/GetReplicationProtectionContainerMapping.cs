@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
         /// <summary>
         /// The custom data.
         /// </summary>
-        public readonly Outputs.ProtectionContainerMappingPropertiesResponseResult Properties;
+        public readonly Outputs.ProtectionContainerMappingPropertiesResponse Properties;
         /// <summary>
         /// Resource Type
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180110
 
             string name,
 
-            Outputs.ProtectionContainerMappingPropertiesResponseResult properties,
+            Outputs.ProtectionContainerMappingPropertiesResponse properties,
 
             string type)
         {

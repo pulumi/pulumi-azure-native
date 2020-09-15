@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -36,8 +36,8 @@ class GetCloudConnectorResult:
         if credentials_secret and not isinstance(credentials_secret, str):
             raise TypeError("Expected argument 'credentials_secret' to be a str")
         pulumi.set(__self__, "credentials_secret", credentials_secret)
-        if days_trial_remaining and not isinstance(days_trial_remaining, float):
-            raise TypeError("Expected argument 'days_trial_remaining' to be a float")
+        if days_trial_remaining and not isinstance(days_trial_remaining, int):
+            raise TypeError("Expected argument 'days_trial_remaining' to be a int")
         pulumi.set(__self__, "days_trial_remaining", days_trial_remaining)
         if default_management_group_id and not isinstance(default_management_group_id, str):
             raise TypeError("Expected argument 'default_management_group_id' to be a str")
@@ -118,7 +118,7 @@ class GetCloudConnectorResult:
 
     @property
     @pulumi.getter(name="daysTrialRemaining")
-    def days_trial_remaining(self) -> float:
+    def days_trial_remaining(self) -> int:
         """
         Number of days remaining of trial
         """

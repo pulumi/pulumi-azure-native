@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -230,7 +230,7 @@ class AutomationActionWorkspaceArgs:
 @pulumi.input_type
 class AutomationRuleSetArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[List[pulumi.Input['AutomationTriggeringRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]] = None):
         """
         A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
         """
@@ -239,11 +239,11 @@ class AutomationRuleSetArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[List[pulumi.Input['AutomationTriggeringRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]]:
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[List[pulumi.Input['AutomationTriggeringRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationTriggeringRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -291,11 +291,11 @@ class AutomationScopeArgs:
 class AutomationSourceArgs:
     def __init__(__self__, *,
                  event_source: Optional[pulumi.Input[str]] = None,
-                 rule_sets: Optional[pulumi.Input[List[pulumi.Input['AutomationRuleSetArgs']]]] = None):
+                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]] = None):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
         :param pulumi.Input[str] event_source: A valid event source type.
-        :param pulumi.Input[List[pulumi.Input['AutomationRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
@@ -316,14 +316,14 @@ class AutomationSourceArgs:
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[pulumi.Input[List[pulumi.Input['AutomationRuleSetArgs']]]]:
+    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]]:
         """
         A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         return pulumi.get(self, "rule_sets")
 
     @rule_sets.setter
-    def rule_sets(self, value: Optional[pulumi.Input[List[pulumi.Input['AutomationRuleSetArgs']]]]):
+    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
 
@@ -532,22 +532,22 @@ class ScopeElementArgs:
 @pulumi.input_type
 class SuppressionAlertsScopeArgs:
     def __init__(__self__, *,
-                 all_of: pulumi.Input[List[pulumi.Input['ScopeElementArgs']]]):
+                 all_of: pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]):
         """
-        :param pulumi.Input[List[pulumi.Input['ScopeElementArgs']]] all_of: All the conditions inside need to be true in order to suppress the alert
+        :param pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]] all_of: All the conditions inside need to be true in order to suppress the alert
         """
         pulumi.set(__self__, "all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> pulumi.Input[List[pulumi.Input['ScopeElementArgs']]]:
+    def all_of(self) -> pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]:
         """
         All the conditions inside need to be true in order to suppress the alert
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: pulumi.Input[List[pulumi.Input['ScopeElementArgs']]]):
+    def all_of(self, value: pulumi.Input[Sequence[pulumi.Input['ScopeElementArgs']]]):
         pulumi.set(self, "all_of", value)
 
 

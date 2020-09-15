@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -79,7 +79,7 @@ class GetNotificationHubResult:
 
     @property
     @pulumi.getter(name="authorizationRules")
-    def authorization_rules(self) -> Optional[List['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
+    def authorization_rules(self) -> Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']]:
         """
         The AuthorizationRules of the created NotificationHub
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_types_to_compress: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  is_compression_enabled: Optional[pulumi.Input[bool]] = None,
                  is_http_allowed: Optional[pulumi.Input[bool]] = None,
@@ -25,7 +25,7 @@ class Endpoint(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
         :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
@@ -46,7 +46,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Endpoint location
         :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used for origin requests.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] query_string_caching_behavior: Defines the query string caching behavior.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
@@ -125,7 +125,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypesToCompress")
-    def content_types_to_compress(self) -> pulumi.Output[Optional[List[str]]]:
+    def content_types_to_compress(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
         """
@@ -197,7 +197,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Output[Optional[List['outputs.DeepCreatedOriginResponse']]]:
+    def origins(self) -> pulumi.Output[Optional[Sequence['outputs.DeepCreatedOriginResponse']]]:
         """
         The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,25 +20,25 @@ class SecurityRule(pulumi.CustomResource):
                  access: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_address_prefix: Optional[pulumi.Input[str]] = None,
-                 destination_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 destination_application_security_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
+                 destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  destination_port_range: Optional[pulumi.Input[str]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_rule_name: Optional[pulumi.Input[str]] = None,
                  source_address_prefix: Optional[pulumi.Input[str]] = None,
-                 source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 source_application_security_groups: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
+                 source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  source_port_range: Optional[pulumi.Input[str]] = None,
-                 source_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -50,25 +50,25 @@ class SecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] access: The network traffic is allowed or denied.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-        :param pulumi.Input[List[pulumi.Input[str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] destination_application_security_groups: The application security group specified as destination.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] destination_application_security_groups: The application security group specified as destination.
         :param pulumi.Input[str] destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-        :param pulumi.Input[List[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
         :param pulumi.Input[str] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
-        :param pulumi.Input[float] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[str] protocol: Network protocol this rule applies to.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] security_rule_name: The name of the security rule.
         :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-        :param pulumi.Input[List[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] source_application_security_groups: The application security group specified as source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_address_prefixes: The CIDR or source IP ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] source_application_security_groups: The application security group specified as source.
         :param pulumi.Input[str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-        :param pulumi.Input[List[pulumi.Input[str]]] source_port_ranges: The source port ranges.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -173,7 +173,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
+    def destination_address_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The destination address prefixes. CIDR or destination IP ranges.
         """
@@ -181,7 +181,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationApplicationSecurityGroups")
-    def destination_application_security_groups(self) -> pulumi.Output[Optional[List['outputs.ApplicationSecurityGroupResponse']]]:
+    def destination_application_security_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]]:
         """
         The application security group specified as destination.
         """
@@ -197,7 +197,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> pulumi.Output[Optional[List[str]]]:
+    def destination_port_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The destination port ranges.
         """
@@ -229,7 +229,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[Optional[float]]:
+    def priority(self) -> pulumi.Output[Optional[int]]:
         """
         The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -261,7 +261,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
+    def source_address_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The CIDR or source IP ranges.
         """
@@ -269,7 +269,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceApplicationSecurityGroups")
-    def source_application_security_groups(self) -> pulumi.Output[Optional[List['outputs.ApplicationSecurityGroupResponse']]]:
+    def source_application_security_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]]:
         """
         The application security group specified as source.
         """
@@ -285,7 +285,7 @@ class SecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> pulumi.Output[Optional[List[str]]]:
+    def source_port_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The source port ranges.
         """

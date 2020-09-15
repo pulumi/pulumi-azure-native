@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
         [Output("healthProbeSettings")]
-        public Output<Outputs.HealthProbeParametersResponseResult?> HealthProbeSettings { get; private set; } = null!;
+        public Output<Outputs.HealthProbeParametersResponse?> HealthProbeSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.ResourceReferenceResponseResult>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceReferenceResponse>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status of the origin group.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         /// </summary>
         [Output("responseBasedOriginErrorDetectionSettings")]
-        public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult?> ResponseBasedOriginErrorDetectionSettings { get; private set; } = null!;
+        public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponse?> ResponseBasedOriginErrorDetectionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.

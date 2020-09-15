@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,23 +17,23 @@ class RecordSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
-                 aaaa_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
+                 a_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]]] = None,
+                 aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]]] = None,
                  cname_record: Optional[pulumi.Input[pulumi.InputType['CnameRecordArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 mx_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
+                 mx_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ns_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
-                 ptr_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
+                 ns_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]]] = None,
+                 ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]]] = None,
                  record_type: Optional[pulumi.Input[str]] = None,
                  relative_record_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  soa_record: Optional[pulumi.Input[pulumi.InputType['SoaRecordArgs']]] = None,
-                 srv_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
-                 txt_records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
+                 srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
+                 txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -44,23 +44,23 @@ class RecordSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] aaaa_records: The list of AAAA records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AaaaRecordArgs']]]] aaaa_records: The list of AAAA records in the record set.
         :param pulumi.Input[pulumi.InputType['CnameRecordArgs']] cname_record: The CNAME record in the  record set.
         :param pulumi.Input[str] etag: The etag of the record set.
         :param pulumi.Input[str] id: The ID of the record set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata attached to the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordArgs']]]] mx_records: The list of MX records in the record set.
         :param pulumi.Input[str] name: The name of the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] ns_records: The list of NS records in the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] ptr_records: The list of PTR records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NsRecordArgs']]]] ns_records: The list of NS records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PtrRecordArgs']]]] ptr_records: The list of PTR records in the record set.
         :param pulumi.Input[str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
         :param pulumi.Input[str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SoaRecordArgs']] soa_record: The SOA record in the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
-        :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
+        :param pulumi.Input[int] ttl: The TTL (time-to-live) of the records in the record set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] type: The type of the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
         """
@@ -136,7 +136,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aRecords")
-    def a_records(self) -> pulumi.Output[Optional[List['outputs.ARecordResponse']]]:
+    def a_records(self) -> pulumi.Output[Optional[Sequence['outputs.ARecordResponse']]]:
         """
         The list of A records in the record set.
         """
@@ -144,7 +144,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aaaaRecords")
-    def aaaa_records(self) -> pulumi.Output[Optional[List['outputs.AaaaRecordResponse']]]:
+    def aaaa_records(self) -> pulumi.Output[Optional[Sequence['outputs.AaaaRecordResponse']]]:
         """
         The list of AAAA records in the record set.
         """
@@ -176,7 +176,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mxRecords")
-    def mx_records(self) -> pulumi.Output[Optional[List['outputs.MxRecordResponse']]]:
+    def mx_records(self) -> pulumi.Output[Optional[Sequence['outputs.MxRecordResponse']]]:
         """
         The list of MX records in the record set.
         """
@@ -192,7 +192,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nsRecords")
-    def ns_records(self) -> pulumi.Output[Optional[List['outputs.NsRecordResponse']]]:
+    def ns_records(self) -> pulumi.Output[Optional[Sequence['outputs.NsRecordResponse']]]:
         """
         The list of NS records in the record set.
         """
@@ -200,7 +200,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ptrRecords")
-    def ptr_records(self) -> pulumi.Output[Optional[List['outputs.PtrRecordResponse']]]:
+    def ptr_records(self) -> pulumi.Output[Optional[Sequence['outputs.PtrRecordResponse']]]:
         """
         The list of PTR records in the record set.
         """
@@ -216,7 +216,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="srvRecords")
-    def srv_records(self) -> pulumi.Output[Optional[List['outputs.SrvRecordResponse']]]:
+    def srv_records(self) -> pulumi.Output[Optional[Sequence['outputs.SrvRecordResponse']]]:
         """
         The list of SRV records in the record set.
         """
@@ -224,7 +224,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[Optional[float]]:
+    def ttl(self) -> pulumi.Output[Optional[int]]:
         """
         The TTL (time-to-live) of the records in the record set.
         """
@@ -232,7 +232,7 @@ class RecordSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="txtRecords")
-    def txt_records(self) -> pulumi.Output[Optional[List['outputs.TxtRecordResponse']]]:
+    def txt_records(self) -> pulumi.Output[Optional[Sequence['outputs.TxtRecordResponse']]]:
         """
         The list of TXT records in the record set.
         """

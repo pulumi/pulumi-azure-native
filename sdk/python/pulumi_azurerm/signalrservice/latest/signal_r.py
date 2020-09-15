@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class SignalR(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cors: Optional[pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']]] = None,
-                 features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]]] = None,
                  host_name_prefix: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class SignalR(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]] features: List of SignalR featureFlags. e.g. ServiceMode.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignalRFeatureArgs']]]] features: List of SignalR featureFlags. e.g. ServiceMode.
                
                FeatureFlags that are not included in the parameters for the update operation will not be modified.
                And the response will only include featureFlags that are explicitly set. 
@@ -139,7 +139,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[List['outputs.SignalRFeatureResponse']]]:
+    def features(self) -> pulumi.Output[Optional[Sequence['outputs.SignalRFeatureResponse']]]:
         """
         List of SignalR featureFlags. e.g. ServiceMode.
         
@@ -201,7 +201,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> pulumi.Output[List['outputs.PrivateEndpointConnectionResponse']]:
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
         Private endpoint connections to the SignalR resource.
         """
@@ -217,7 +217,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> pulumi.Output[float]:
+    def public_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client side usage.
         """
@@ -225,7 +225,7 @@ class SignalR(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> pulumi.Output[float]:
+    def server_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side usage.
         """

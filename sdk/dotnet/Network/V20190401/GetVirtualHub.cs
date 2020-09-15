@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The expressRouteGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? ExpressRouteGateway;
+        public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? P2SVpnGateway;
+        public readonly Outputs.SubResourceResponse? P2SVpnGateway;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The routeTable associated with this virtual hub.
         /// </summary>
-        public readonly Outputs.VirtualHubRouteTableResponseResult? RouteTable;
+        public readonly Outputs.VirtualHubRouteTableResponse? RouteTable;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// List of all vnet connections with this VirtualHub.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> VirtualNetworkConnections;
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> VirtualNetworkConnections;
         /// <summary>
         /// The VirtualWAN to which the VirtualHub belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualWan;
+        public readonly Outputs.SubResourceResponse? VirtualWan;
         /// <summary>
         /// The VpnGateway associated with this VirtualHub.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VpnGateway;
+        public readonly Outputs.SubResourceResponse? VpnGateway;
 
         [OutputConstructor]
         private GetVirtualHubResult(
@@ -98,27 +98,27 @@ namespace Pulumi.AzureRM.Network.V20190401
 
             string etag,
 
-            Outputs.SubResourceResponseResult? expressRouteGateway,
+            Outputs.SubResourceResponse? expressRouteGateway,
 
             string location,
 
             string name,
 
-            Outputs.SubResourceResponseResult? p2SVpnGateway,
+            Outputs.SubResourceResponse? p2SVpnGateway,
 
             string? provisioningState,
 
-            Outputs.VirtualHubRouteTableResponseResult? routeTable,
+            Outputs.VirtualHubRouteTableResponse? routeTable,
 
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> virtualNetworkConnections,
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> virtualNetworkConnections,
 
-            Outputs.SubResourceResponseResult? virtualWan,
+            Outputs.SubResourceResponse? virtualWan,
 
-            Outputs.SubResourceResponseResult? vpnGateway)
+            Outputs.SubResourceResponse? vpnGateway)
         {
             AddressPrefix = addressPrefix;
             Etag = etag;

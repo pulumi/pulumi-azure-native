@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// The Private Atlas resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PrivateAtlasPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.PrivateAtlasPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

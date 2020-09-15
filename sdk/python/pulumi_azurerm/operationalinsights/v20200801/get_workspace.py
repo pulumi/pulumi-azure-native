@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -45,8 +45,8 @@ class GetWorkspaceResult:
         if public_network_access_for_query and not isinstance(public_network_access_for_query, str):
             raise TypeError("Expected argument 'public_network_access_for_query' to be a str")
         pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        if retention_in_days and not isinstance(retention_in_days, int):
+            raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -95,7 +95,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="privateLinkScopedResources")
-    def private_link_scoped_resources(self) -> List['outputs.PrivateLinkScopedResourceResponse']:
+    def private_link_scoped_resources(self) -> Sequence['outputs.PrivateLinkScopedResourceResponse']:
         """
         List of linked private link scope resources.
         """
@@ -127,7 +127,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> Optional[int]:
         """
         The workspace data retention in days, between 30 and 730.
         """

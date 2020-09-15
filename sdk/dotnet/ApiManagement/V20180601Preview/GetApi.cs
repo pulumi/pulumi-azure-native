@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// An API Version Set contains the common configuration for a set of API Versions relating 
         /// </summary>
-        public readonly Outputs.ApiVersionSetContractDetailsResponseResult? ApiVersionSet;
+        public readonly Outputs.ApiVersionSetContractDetailsResponse? ApiVersionSet;
         /// <summary>
         /// A resource identifier for the related ApiVersionSet.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Collection of authentication settings included into this API.
         /// </summary>
-        public readonly Outputs.AuthenticationSettingsContractResponseResult? AuthenticationSettings;
+        public readonly Outputs.AuthenticationSettingsContractResponse? AuthenticationSettings;
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
         /// <summary>
         /// Protocols over which API is made available.
         /// </summary>
-        public readonly Outputs.SubscriptionKeyParameterNamesContractResponseResult? SubscriptionKeyParameterNames;
+        public readonly Outputs.SubscriptionKeyParameterNamesContractResponse? SubscriptionKeyParameterNames;
         /// <summary>
         /// Specifies whether an API or Product subscription is required for accessing the API.
         /// </summary>
@@ -134,11 +134,11 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 
             string? apiVersionDescription,
 
-            Outputs.ApiVersionSetContractDetailsResponseResult? apiVersionSet,
+            Outputs.ApiVersionSetContractDetailsResponse? apiVersionSet,
 
             string? apiVersionSetId,
 
-            Outputs.AuthenticationSettingsContractResponseResult? authenticationSettings,
+            Outputs.AuthenticationSettingsContractResponse? authenticationSettings,
 
             string? description,
 
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20180601Preview
 
             string? serviceUrl,
 
-            Outputs.SubscriptionKeyParameterNamesContractResponseResult? subscriptionKeyParameterNames,
+            Outputs.SubscriptionKeyParameterNamesContractResponse? subscriptionKeyParameterNames,
 
             bool? subscriptionRequired,
 

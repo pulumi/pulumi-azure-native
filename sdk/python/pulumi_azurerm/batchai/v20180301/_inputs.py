@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -101,9 +101,9 @@ class AppInsightsReferenceArgs:
 @pulumi.input_type
 class AutoScaleSettingsArgs:
     def __init__(__self__, *,
-                 maximum_node_count: pulumi.Input[float],
-                 minimum_node_count: pulumi.Input[float],
-                 initial_node_count: Optional[pulumi.Input[float]] = None):
+                 maximum_node_count: pulumi.Input[int],
+                 minimum_node_count: pulumi.Input[int],
+                 initial_node_count: Optional[pulumi.Input[int]] = None):
         """
         The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
         """
@@ -114,29 +114,29 @@ class AutoScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="maximumNodeCount")
-    def maximum_node_count(self) -> pulumi.Input[float]:
+    def maximum_node_count(self) -> pulumi.Input[int]:
         return pulumi.get(self, "maximum_node_count")
 
     @maximum_node_count.setter
-    def maximum_node_count(self, value: pulumi.Input[float]):
+    def maximum_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum_node_count", value)
 
     @property
     @pulumi.getter(name="minimumNodeCount")
-    def minimum_node_count(self) -> pulumi.Input[float]:
+    def minimum_node_count(self) -> pulumi.Input[int]:
         return pulumi.get(self, "minimum_node_count")
 
     @minimum_node_count.setter
-    def minimum_node_count(self, value: pulumi.Input[float]):
+    def minimum_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "minimum_node_count", value)
 
     @property
     @pulumi.getter(name="initialNodeCount")
-    def initial_node_count(self) -> Optional[pulumi.Input[float]]:
+    def initial_node_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "initial_node_count")
 
     @initial_node_count.setter
-    def initial_node_count(self, value: Optional[pulumi.Input[float]]):
+    def initial_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "initial_node_count", value)
 
 
@@ -350,14 +350,14 @@ class CNTKsettingsArgs:
                  command_line_args: Optional[pulumi.Input[str]] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
                  language_type: Optional[pulumi.Input[str]] = None,
-                 process_count: Optional[pulumi.Input[float]] = None,
+                 process_count: Optional[pulumi.Input[int]] = None,
                  python_interpreter_path: Optional[pulumi.Input[str]] = None,
                  python_script_file_path: Optional[pulumi.Input[str]] = None):
         """
         Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
         :param pulumi.Input[str] config_file_path: This property can be specified only if the languageType is 'BrainScript'.
         :param pulumi.Input[str] language_type: Valid values are 'BrainScript' or 'Python'.
-        :param pulumi.Input[float] process_count: The default value for this property is equal to nodeCount property
+        :param pulumi.Input[int] process_count: The default value for this property is equal to nodeCount property
         :param pulumi.Input[str] python_interpreter_path: This property can be specified only if the languageType is 'Python'.
         :param pulumi.Input[str] python_script_file_path: This property can be specified only if the languageType is 'Python'.
         """
@@ -409,14 +409,14 @@ class CNTKsettingsArgs:
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[pulumi.Input[float]]:
+    def process_count(self) -> Optional[pulumi.Input[int]]:
         """
         The default value for this property is equal to nodeCount property
         """
         return pulumi.get(self, "process_count")
 
     @process_count.setter
-    def process_count(self, value: Optional[pulumi.Input[float]]):
+    def process_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count", value)
 
     @property
@@ -492,13 +492,13 @@ class CaffeSettingsArgs:
     def __init__(__self__, *,
                  command_line_args: Optional[pulumi.Input[str]] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 process_count: Optional[pulumi.Input[float]] = None,
+                 process_count: Optional[pulumi.Input[int]] = None,
                  python_interpreter_path: Optional[pulumi.Input[str]] = None,
                  python_script_file_path: Optional[pulumi.Input[str]] = None):
         """
         Specifies the settings for Caffe job.
         :param pulumi.Input[str] config_file_path: This property cannot be specified if pythonScriptFilePath is specified.
-        :param pulumi.Input[float] process_count: The default value for this property is equal to nodeCount property
+        :param pulumi.Input[int] process_count: The default value for this property is equal to nodeCount property
         :param pulumi.Input[str] python_interpreter_path: This property can be specified only if the pythonScriptFilePath is specified.
         :param pulumi.Input[str] python_script_file_path: This property cannot be specified if configFilePath is specified.
         """
@@ -536,14 +536,14 @@ class CaffeSettingsArgs:
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[pulumi.Input[float]]:
+    def process_count(self) -> Optional[pulumi.Input[int]]:
         """
         The default value for this property is equal to nodeCount property
         """
         return pulumi.get(self, "process_count")
 
     @process_count.setter
-    def process_count(self, value: Optional[pulumi.Input[float]]):
+    def process_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count", value)
 
     @property
@@ -576,11 +576,11 @@ class ChainerSettingsArgs:
     def __init__(__self__, *,
                  python_script_file_path: pulumi.Input[str],
                  command_line_args: Optional[pulumi.Input[str]] = None,
-                 process_count: Optional[pulumi.Input[float]] = None,
+                 process_count: Optional[pulumi.Input[int]] = None,
                  python_interpreter_path: Optional[pulumi.Input[str]] = None):
         """
         Specifies the settings for Chainer job.
-        :param pulumi.Input[float] process_count: The default value for this property is equal to nodeCount property
+        :param pulumi.Input[int] process_count: The default value for this property is equal to nodeCount property
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
         if command_line_args is not None:
@@ -610,14 +610,14 @@ class ChainerSettingsArgs:
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[pulumi.Input[float]]:
+    def process_count(self) -> Optional[pulumi.Input[int]]:
         """
         The default value for this property is equal to nodeCount property
         """
         return pulumi.get(self, "process_count")
 
     @process_count.setter
-    def process_count(self, value: Optional[pulumi.Input[float]]):
+    def process_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count", value)
 
     @property
@@ -676,8 +676,8 @@ class CustomToolkitSettingsArgs:
 @pulumi.input_type
 class DataDisksArgs:
     def __init__(__self__, *,
-                 disk_count: pulumi.Input[float],
-                 disk_size_in_gb: pulumi.Input[float],
+                 disk_count: pulumi.Input[int],
+                 disk_size_in_gb: pulumi.Input[int],
                  storage_account_type: pulumi.Input[str],
                  caching_type: Optional[pulumi.Input[str]] = None):
         """
@@ -691,20 +691,20 @@ class DataDisksArgs:
 
     @property
     @pulumi.getter(name="diskCount")
-    def disk_count(self) -> pulumi.Input[float]:
+    def disk_count(self) -> pulumi.Input[int]:
         return pulumi.get(self, "disk_count")
 
     @disk_count.setter
-    def disk_count(self, value: pulumi.Input[float]):
+    def disk_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "disk_count", value)
 
     @property
     @pulumi.getter(name="diskSizeInGB")
-    def disk_size_in_gb(self) -> pulumi.Input[float]:
+    def disk_size_in_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "disk_size_in_gb")
 
     @disk_size_in_gb.setter
-    def disk_size_in_gb(self, value: pulumi.Input[float]):
+    def disk_size_in_gb(self, value: pulumi.Input[int]):
         pulumi.set(self, "disk_size_in_gb", value)
 
     @property
@@ -1103,11 +1103,11 @@ class KeyVaultSecretReferenceArgs:
 @pulumi.input_type
 class ManualScaleSettingsArgs:
     def __init__(__self__, *,
-                 target_node_count: pulumi.Input[float],
+                 target_node_count: pulumi.Input[int],
                  node_deallocation_option: Optional[pulumi.Input[str]] = None):
         """
         Manual scale settings for the cluster.
-        :param pulumi.Input[float] target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+        :param pulumi.Input[int] target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
         :param pulumi.Input[str] node_deallocation_option: The default value is requeue.
         """
         pulumi.set(__self__, "target_node_count", target_node_count)
@@ -1116,14 +1116,14 @@ class ManualScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="targetNodeCount")
-    def target_node_count(self) -> pulumi.Input[float]:
+    def target_node_count(self) -> pulumi.Input[int]:
         """
         Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
         """
         return pulumi.get(self, "target_node_count")
 
     @target_node_count.setter
-    def target_node_count(self, value: pulumi.Input[float]):
+    def target_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_node_count", value)
 
     @property
@@ -1142,14 +1142,14 @@ class ManualScaleSettingsArgs:
 @pulumi.input_type
 class MountVolumesArgs:
     def __init__(__self__, *,
-                 azure_blob_file_systems: Optional[pulumi.Input[List[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]] = None,
-                 azure_file_shares: Optional[pulumi.Input[List[pulumi.Input['AzureFileShareReferenceArgs']]]] = None,
-                 file_servers: Optional[pulumi.Input[List[pulumi.Input['FileServerReferenceArgs']]]] = None,
-                 unmanaged_file_systems: Optional[pulumi.Input[List[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]] = None):
+                 azure_blob_file_systems: Optional[pulumi.Input[Sequence[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]] = None,
+                 azure_file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFileShareReferenceArgs']]]] = None,
+                 file_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FileServerReferenceArgs']]]] = None,
+                 unmanaged_file_systems: Optional[pulumi.Input[Sequence[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]] = None):
         """
         Details of volumes to mount on the cluster.
-        :param pulumi.Input[List[pulumi.Input['AzureBlobFileSystemReferenceArgs']]] azure_blob_file_systems: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-        :param pulumi.Input[List[pulumi.Input['AzureFileShareReferenceArgs']]] azure_file_shares: References to Azure File Shares that are to be mounted to the cluster nodes.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureBlobFileSystemReferenceArgs']]] azure_blob_file_systems: References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureFileShareReferenceArgs']]] azure_file_shares: References to Azure File Shares that are to be mounted to the cluster nodes.
         """
         if azure_blob_file_systems is not None:
             pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
@@ -1162,44 +1162,44 @@ class MountVolumesArgs:
 
     @property
     @pulumi.getter(name="azureBlobFileSystems")
-    def azure_blob_file_systems(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]]:
+    def azure_blob_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]]:
         """
         References to Azure Blob FUSE that are to be mounted to the cluster nodes.
         """
         return pulumi.get(self, "azure_blob_file_systems")
 
     @azure_blob_file_systems.setter
-    def azure_blob_file_systems(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]]):
+    def azure_blob_file_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureBlobFileSystemReferenceArgs']]]]):
         pulumi.set(self, "azure_blob_file_systems", value)
 
     @property
     @pulumi.getter(name="azureFileShares")
-    def azure_file_shares(self) -> Optional[pulumi.Input[List[pulumi.Input['AzureFileShareReferenceArgs']]]]:
+    def azure_file_shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureFileShareReferenceArgs']]]]:
         """
         References to Azure File Shares that are to be mounted to the cluster nodes.
         """
         return pulumi.get(self, "azure_file_shares")
 
     @azure_file_shares.setter
-    def azure_file_shares(self, value: Optional[pulumi.Input[List[pulumi.Input['AzureFileShareReferenceArgs']]]]):
+    def azure_file_shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFileShareReferenceArgs']]]]):
         pulumi.set(self, "azure_file_shares", value)
 
     @property
     @pulumi.getter(name="fileServers")
-    def file_servers(self) -> Optional[pulumi.Input[List[pulumi.Input['FileServerReferenceArgs']]]]:
+    def file_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileServerReferenceArgs']]]]:
         return pulumi.get(self, "file_servers")
 
     @file_servers.setter
-    def file_servers(self, value: Optional[pulumi.Input[List[pulumi.Input['FileServerReferenceArgs']]]]):
+    def file_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileServerReferenceArgs']]]]):
         pulumi.set(self, "file_servers", value)
 
     @property
     @pulumi.getter(name="unmanagedFileSystems")
-    def unmanaged_file_systems(self) -> Optional[pulumi.Input[List[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]]:
+    def unmanaged_file_systems(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]]:
         return pulumi.get(self, "unmanaged_file_systems")
 
     @unmanaged_file_systems.setter
-    def unmanaged_file_systems(self, value: Optional[pulumi.Input[List[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]]):
+    def unmanaged_file_systems(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UnmanagedFileSystemReferenceArgs']]]]):
         pulumi.set(self, "unmanaged_file_systems", value)
 
 
@@ -1425,12 +1425,12 @@ class PyTorchSettingsArgs:
                  python_script_file_path: pulumi.Input[str],
                  command_line_args: Optional[pulumi.Input[str]] = None,
                  communication_backend: Optional[pulumi.Input[str]] = None,
-                 process_count: Optional[pulumi.Input[float]] = None,
+                 process_count: Optional[pulumi.Input[int]] = None,
                  python_interpreter_path: Optional[pulumi.Input[str]] = None):
         """
         Specifies the settings for pyTorch job.
         :param pulumi.Input[str] communication_backend: Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
-        :param pulumi.Input[float] process_count: The default value for this property is equal to nodeCount property.
+        :param pulumi.Input[int] process_count: The default value for this property is equal to nodeCount property.
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
         if command_line_args is not None:
@@ -1474,14 +1474,14 @@ class PyTorchSettingsArgs:
 
     @property
     @pulumi.getter(name="processCount")
-    def process_count(self) -> Optional[pulumi.Input[float]]:
+    def process_count(self) -> Optional[pulumi.Input[int]]:
         """
         The default value for this property is equal to nodeCount property.
         """
         return pulumi.get(self, "process_count")
 
     @process_count.setter
-    def process_count(self, value: Optional[pulumi.Input[float]]):
+    def process_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "process_count", value)
 
     @property
@@ -1562,14 +1562,14 @@ class SetupTaskArgs:
     def __init__(__self__, *,
                  command_line: pulumi.Input[str],
                  std_out_err_path_prefix: pulumi.Input[str],
-                 environment_variables: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  run_elevated: Optional[pulumi.Input[bool]] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]] = None):
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]] = None):
         """
         Specifies a setup task which can be used to customize the compute nodes of the cluster.
         :param pulumi.Input[str] std_out_err_path_prefix: The prefix of a path where the Batch AI service will upload the stdout and stderr of the setup task.
         :param pulumi.Input[bool] run_elevated: Note. Non-elevated tasks are run under an account added into sudoer list and can perform sudo when required.
-        :param pulumi.Input[List[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]] secrets: Server will never report values of these variables back.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]] secrets: Server will never report values of these variables back.
         """
         pulumi.set(__self__, "command_line", command_line)
         pulumi.set(__self__, "std_out_err_path_prefix", std_out_err_path_prefix)
@@ -1603,11 +1603,11 @@ class SetupTaskArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -1624,14 +1624,14 @@ class SetupTaskArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]]:
         """
         Server will never report values of these variables back.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[List[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableWithSecretValueArgs']]]]):
         pulumi.set(self, "secrets", value)
 
 
@@ -1639,11 +1639,11 @@ class SetupTaskArgs:
 class SshConfigurationArgs:
     def __init__(__self__, *,
                  user_account_settings: pulumi.Input['UserAccountSettingsArgs'],
-                 public_ips_to_allow: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 public_ips_to_allow: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         SSH configuration settings for the VM
         :param pulumi.Input['UserAccountSettingsArgs'] user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips_to_allow: Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
         """
         pulumi.set(__self__, "user_account_settings", user_account_settings)
         if public_ips_to_allow is not None:
@@ -1663,14 +1663,14 @@ class SshConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIPsToAllow")
-    def public_ips_to_allow(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def public_ips_to_allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
         """
         return pulumi.get(self, "public_ips_to_allow")
 
     @public_ips_to_allow.setter
-    def public_ips_to_allow(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def public_ips_to_allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ips_to_allow", value)
 
 
@@ -1680,16 +1680,16 @@ class TensorFlowSettingsArgs:
                  python_script_file_path: pulumi.Input[str],
                  master_command_line_args: Optional[pulumi.Input[str]] = None,
                  parameter_server_command_line_args: Optional[pulumi.Input[str]] = None,
-                 parameter_server_count: Optional[pulumi.Input[float]] = None,
+                 parameter_server_count: Optional[pulumi.Input[int]] = None,
                  python_interpreter_path: Optional[pulumi.Input[str]] = None,
                  worker_command_line_args: Optional[pulumi.Input[str]] = None,
-                 worker_count: Optional[pulumi.Input[float]] = None):
+                 worker_count: Optional[pulumi.Input[int]] = None):
         """
         Specifies the settings for TensorFlow job.
         :param pulumi.Input[str] parameter_server_command_line_args: This property is optional for single machine training.
-        :param pulumi.Input[float] parameter_server_count: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
+        :param pulumi.Input[int] parameter_server_count: If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
         :param pulumi.Input[str] worker_command_line_args: This property is optional for single machine training.
-        :param pulumi.Input[float] worker_count: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+        :param pulumi.Input[int] worker_count: If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
         """
         pulumi.set(__self__, "python_script_file_path", python_script_file_path)
         if master_command_line_args is not None:
@@ -1737,14 +1737,14 @@ class TensorFlowSettingsArgs:
 
     @property
     @pulumi.getter(name="parameterServerCount")
-    def parameter_server_count(self) -> Optional[pulumi.Input[float]]:
+    def parameter_server_count(self) -> Optional[pulumi.Input[int]]:
         """
         If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
         """
         return pulumi.get(self, "parameter_server_count")
 
     @parameter_server_count.setter
-    def parameter_server_count(self, value: Optional[pulumi.Input[float]]):
+    def parameter_server_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "parameter_server_count", value)
 
     @property
@@ -1770,14 +1770,14 @@ class TensorFlowSettingsArgs:
 
     @property
     @pulumi.getter(name="workerCount")
-    def worker_count(self) -> Optional[pulumi.Input[float]]:
+    def worker_count(self) -> Optional[pulumi.Input[int]]:
         """
         If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
         """
         return pulumi.get(self, "worker_count")
 
     @worker_count.setter
-    def worker_count(self, value: Optional[pulumi.Input[float]]):
+    def worker_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "worker_count", value)
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -64,7 +64,7 @@ class GetReferenceDataSetResult:
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> List['outputs.ReferenceDataSetKeyPropertyResponse']:
+    def key_properties(self) -> Sequence['outputs.ReferenceDataSetKeyPropertyResponse']:
         """
         The list of key properties for the reference data set.
         """

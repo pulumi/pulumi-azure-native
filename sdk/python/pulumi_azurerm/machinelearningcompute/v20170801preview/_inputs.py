@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -26,19 +26,19 @@ __all__ = [
 class AcsClusterPropertiesArgs:
     def __init__(__self__, *,
                  orchestrator_type: pulumi.Input[str],
-                 agent_count: Optional[pulumi.Input[float]] = None,
+                 agent_count: Optional[pulumi.Input[int]] = None,
                  agent_vm_size: Optional[pulumi.Input[str]] = None,
-                 master_count: Optional[pulumi.Input[float]] = None,
+                 master_count: Optional[pulumi.Input[int]] = None,
                  orchestrator_properties: Optional[pulumi.Input['KubernetesClusterPropertiesArgs']] = None,
-                 system_services: Optional[pulumi.Input[List[pulumi.Input['SystemServiceArgs']]]] = None):
+                 system_services: Optional[pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]]] = None):
         """
         Information about the container service backing the cluster
         :param pulumi.Input[str] orchestrator_type: Type of orchestrator. It cannot be changed once the cluster is created.
-        :param pulumi.Input[float] agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+        :param pulumi.Input[int] agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         :param pulumi.Input[str] agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
-        :param pulumi.Input[float] master_count: The number of master nodes in the container service.
+        :param pulumi.Input[int] master_count: The number of master nodes in the container service.
         :param pulumi.Input['KubernetesClusterPropertiesArgs'] orchestrator_properties: Orchestrator specific properties
-        :param pulumi.Input[List[pulumi.Input['SystemServiceArgs']]] system_services: The system services deployed to the cluster
+        :param pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]] system_services: The system services deployed to the cluster
         """
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
         if agent_count is not None:
@@ -66,14 +66,14 @@ class AcsClusterPropertiesArgs:
 
     @property
     @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[pulumi.Input[float]]:
+    def agent_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of agent nodes in the Container Service. This can be changed to scale the cluster.
         """
         return pulumi.get(self, "agent_count")
 
     @agent_count.setter
-    def agent_count(self, value: Optional[pulumi.Input[float]]):
+    def agent_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "agent_count", value)
 
     @property
@@ -90,14 +90,14 @@ class AcsClusterPropertiesArgs:
 
     @property
     @pulumi.getter(name="masterCount")
-    def master_count(self) -> Optional[pulumi.Input[float]]:
+    def master_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of master nodes in the container service.
         """
         return pulumi.get(self, "master_count")
 
     @master_count.setter
-    def master_count(self, value: Optional[pulumi.Input[float]]):
+    def master_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "master_count", value)
 
     @property
@@ -114,14 +114,14 @@ class AcsClusterPropertiesArgs:
 
     @property
     @pulumi.getter(name="systemServices")
-    def system_services(self) -> Optional[pulumi.Input[List[pulumi.Input['SystemServiceArgs']]]]:
+    def system_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]]]:
         """
         The system services deployed to the cluster
         """
         return pulumi.get(self, "system_services")
 
     @system_services.setter
-    def system_services(self, value: Optional[pulumi.Input[List[pulumi.Input['SystemServiceArgs']]]]):
+    def system_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]]]):
         pulumi.set(self, "system_services", value)
 
 
@@ -152,16 +152,16 @@ class AppInsightsPropertiesArgs:
 @pulumi.input_type
 class AutoScaleConfigurationArgs:
     def __init__(__self__, *,
-                 max_replicas: Optional[pulumi.Input[float]] = None,
-                 min_replicas: Optional[pulumi.Input[float]] = None,
-                 refresh_period_in_seconds: Optional[pulumi.Input[float]] = None,
+                 max_replicas: Optional[pulumi.Input[int]] = None,
+                 min_replicas: Optional[pulumi.Input[int]] = None,
+                 refresh_period_in_seconds: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  target_utilization: Optional[pulumi.Input[float]] = None):
         """
         AutoScale configuration properties.
-        :param pulumi.Input[float] max_replicas: The maximum number of replicas for each service.
-        :param pulumi.Input[float] min_replicas: The minimum number of replicas for each service.
-        :param pulumi.Input[float] refresh_period_in_seconds: Refresh period in seconds.
+        :param pulumi.Input[int] max_replicas: The maximum number of replicas for each service.
+        :param pulumi.Input[int] min_replicas: The minimum number of replicas for each service.
+        :param pulumi.Input[int] refresh_period_in_seconds: Refresh period in seconds.
         :param pulumi.Input[str] status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param pulumi.Input[float] target_utilization: The target utilization.
         """
@@ -178,38 +178,38 @@ class AutoScaleConfigurationArgs:
 
     @property
     @pulumi.getter(name="maxReplicas")
-    def max_replicas(self) -> Optional[pulumi.Input[float]]:
+    def max_replicas(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of replicas for each service.
         """
         return pulumi.get(self, "max_replicas")
 
     @max_replicas.setter
-    def max_replicas(self, value: Optional[pulumi.Input[float]]):
+    def max_replicas(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_replicas", value)
 
     @property
     @pulumi.getter(name="minReplicas")
-    def min_replicas(self) -> Optional[pulumi.Input[float]]:
+    def min_replicas(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of replicas for each service.
         """
         return pulumi.get(self, "min_replicas")
 
     @min_replicas.setter
-    def min_replicas(self, value: Optional[pulumi.Input[float]]):
+    def min_replicas(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_replicas", value)
 
     @property
     @pulumi.getter(name="refreshPeriodInSeconds")
-    def refresh_period_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def refresh_period_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Refresh period in seconds.
         """
         return pulumi.get(self, "refresh_period_in_seconds")
 
     @refresh_period_in_seconds.setter
-    def refresh_period_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def refresh_period_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "refresh_period_in_seconds", value)
 
     @property

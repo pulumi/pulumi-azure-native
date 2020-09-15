@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The application security group specified as destination.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> DestinationApplicationSecurityGroups;
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> DestinationApplicationSecurityGroups;
         /// <summary>
         /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.Network.V20190601
         /// <summary>
         /// The application security group specified as source.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> SourceApplicationSecurityGroups;
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> SourceApplicationSecurityGroups;
         /// <summary>
         /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.Network.V20190601
 
             ImmutableArray<string> destinationAddressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> destinationApplicationSecurityGroups,
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> destinationApplicationSecurityGroups,
 
             string? destinationPortRange,
 
@@ -150,7 +150,7 @@ namespace Pulumi.AzureRM.Network.V20190601
 
             ImmutableArray<string> sourceAddressPrefixes,
 
-            ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> sourceApplicationSecurityGroups,
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> sourceApplicationSecurityGroups,
 
             string? sourcePortRange,
 

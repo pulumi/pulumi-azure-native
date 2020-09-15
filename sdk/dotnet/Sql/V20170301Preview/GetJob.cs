@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
         /// <summary>
         /// Schedule properties of the job.
         /// </summary>
-        public readonly Outputs.JobScheduleResponseResult? Schedule;
+        public readonly Outputs.JobScheduleResponse? Schedule;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Sql.V20170301Preview
 
             string name,
 
-            Outputs.JobScheduleResponseResult? schedule,
+            Outputs.JobScheduleResponse? schedule,
 
             string type,
 

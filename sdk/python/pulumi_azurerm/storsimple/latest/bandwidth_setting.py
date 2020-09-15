@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class BandwidthSetting(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]] schedules: The schedules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]] schedules: The schedules.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,7 +113,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Output[List['outputs.BandwidthScheduleResponse']]:
+    def schedules(self) -> pulumi.Output[Sequence['outputs.BandwidthScheduleResponse']]:
         """
         The schedules.
         """
@@ -129,7 +129,7 @@ class BandwidthSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> pulumi.Output[float]:
+    def volume_count(self) -> pulumi.Output[int]:
         """
         The number of volumes that uses the bandwidth setting.
         """

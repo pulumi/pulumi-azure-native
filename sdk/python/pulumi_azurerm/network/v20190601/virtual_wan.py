@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class VirtualWan(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
-                 p2_s_vpn_server_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
+                 p2_s_vpn_server_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_provider_name: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] office365_local_breakout_category: The office local breakout category.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SVpnServerConfigurationArgs']]]] p2_s_vpn_server_configurations: List of all P2SVpnServerConfigurations associated with the virtual wan.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] security_provider_name: The Security Provider name.
@@ -174,7 +174,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SVpnServerConfigurations")
-    def p2_s_vpn_server_configurations(self) -> pulumi.Output[Optional[List['outputs.P2SVpnServerConfigurationResponse']]]:
+    def p2_s_vpn_server_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.P2SVpnServerConfigurationResponse']]]:
         """
         List of all P2SVpnServerConfigurations associated with the virtual wan.
         """
@@ -214,7 +214,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubs")
-    def virtual_hubs(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def virtual_hubs(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of VirtualHubs in the VirtualWAN.
         """
@@ -222,7 +222,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnSites")
-    def vpn_sites(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def vpn_sites(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of VpnSites in the VirtualWAN.
         """

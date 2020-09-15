@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,25 +19,25 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['CreationDataArgs']]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
-                 disk_iops_read_only: Optional[pulumi.Input[float]] = None,
-                 disk_iops_read_write: Optional[pulumi.Input[float]] = None,
-                 disk_m_bps_read_only: Optional[pulumi.Input[float]] = None,
-                 disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+                 disk_iops_read_only: Optional[pulumi.Input[int]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_m_bps_read_only: Optional[pulumi.Input[int]] = None,
+                 disk_m_bps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_name: Optional[pulumi.Input[str]] = None,
-                 disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
                  disk_state: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  encryption_settings_collection: Optional[pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_shares: Optional[pulumi.Input[float]] = None,
+                 max_shares: Optional[pulumi.Input[int]] = None,
                  network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['DiskSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,25 +48,25 @@ class Disk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[str] disk_access_id: ARM id of the DiskAccess resource for using private endpoints on disks.
-        :param pulumi.Input[float] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-        :param pulumi.Input[float] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-        :param pulumi.Input[float] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[int] disk_iops_read_only: The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_m_bps_read_only: The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        :param pulumi.Input[int] disk_m_bps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         :param pulumi.Input[str] disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        :param pulumi.Input[int] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         :param pulumi.Input[str] disk_state: The state of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
         :param pulumi.Input[pulumi.InputType['EncryptionSettingsCollectionArgs']] encryption_settings_collection: Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
         :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[float] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+        :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network.
         :param pulumi.Input[str] os_type: The Operating System type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['DiskSkuArgs']] sku: The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The Logical zone list for Disk.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -167,7 +167,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadOnly")
-    def disk_iops_read_only(self) -> pulumi.Output[Optional[float]]:
+    def disk_iops_read_only(self) -> pulumi.Output[Optional[int]]:
         """
         The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
         """
@@ -175,7 +175,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIOPSReadWrite")
-    def disk_iops_read_write(self) -> pulumi.Output[Optional[float]]:
+    def disk_iops_read_write(self) -> pulumi.Output[Optional[int]]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -183,7 +183,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadOnly")
-    def disk_m_bps_read_only(self) -> pulumi.Output[Optional[float]]:
+    def disk_m_bps_read_only(self) -> pulumi.Output[Optional[int]]:
         """
         The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -191,7 +191,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMBpsReadWrite")
-    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[float]]:
+    def disk_m_bps_read_write(self) -> pulumi.Output[Optional[int]]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
         """
@@ -199,7 +199,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeBytes")
-    def disk_size_bytes(self) -> pulumi.Output[float]:
+    def disk_size_bytes(self) -> pulumi.Output[int]:
         """
         The size of the disk in bytes. This field is read only.
         """
@@ -207,7 +207,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> pulumi.Output[Optional[float]]:
+    def disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """
@@ -263,7 +263,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedByExtended")
-    def managed_by_extended(self) -> pulumi.Output[List[str]]:
+    def managed_by_extended(self) -> pulumi.Output[Sequence[str]]:
         """
         List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         """
@@ -271,7 +271,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxShares")
-    def max_shares(self) -> pulumi.Output[Optional[float]]:
+    def max_shares(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         """
@@ -311,7 +311,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareInfo")
-    def share_info(self) -> pulumi.Output[List['outputs.ShareInfoElementResponse']]:
+    def share_info(self) -> pulumi.Output[Sequence['outputs.ShareInfoElementResponse']]:
         """
         Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
         """
@@ -367,7 +367,7 @@ class Disk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The Logical zone list for Disk.
         """

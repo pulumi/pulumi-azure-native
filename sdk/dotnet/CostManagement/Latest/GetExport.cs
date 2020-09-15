@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.CostManagement.Latest
         /// <summary>
         /// Has the definition for the export.
         /// </summary>
-        public readonly Outputs.ExportDefinitionResponseResult Definition;
+        public readonly Outputs.ExportDefinitionResponse Definition;
         /// <summary>
         /// Has delivery information for the export.
         /// </summary>
-        public readonly Outputs.ExportDeliveryInfoResponseResult DeliveryInfo;
+        public readonly Outputs.ExportDeliveryInfoResponse DeliveryInfo;
         /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
@@ -72,11 +72,11 @@ namespace Pulumi.AzureRM.CostManagement.Latest
         /// <summary>
         /// If requested, has the most recent execution history for the export.
         /// </summary>
-        public readonly Outputs.ExportExecutionListResultResponseResult? RunHistory;
+        public readonly Outputs.ExportExecutionListResultResponse? RunHistory;
         /// <summary>
         /// Has schedule information for the export.
         /// </summary>
-        public readonly Outputs.ExportScheduleResponseResult? Schedule;
+        public readonly Outputs.ExportScheduleResponse? Schedule;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -84,9 +84,9 @@ namespace Pulumi.AzureRM.CostManagement.Latest
 
         [OutputConstructor]
         private GetExportResult(
-            Outputs.ExportDefinitionResponseResult definition,
+            Outputs.ExportDefinitionResponse definition,
 
-            Outputs.ExportDeliveryInfoResponseResult deliveryInfo,
+            Outputs.ExportDeliveryInfoResponse deliveryInfo,
 
             string? eTag,
 
@@ -96,9 +96,9 @@ namespace Pulumi.AzureRM.CostManagement.Latest
 
             string nextRunTimeEstimate,
 
-            Outputs.ExportExecutionListResultResponseResult? runHistory,
+            Outputs.ExportExecutionListResultResponse? runHistory,
 
-            Outputs.ExportScheduleResponseResult? schedule,
+            Outputs.ExportScheduleResponse? schedule,
 
             string type)
         {

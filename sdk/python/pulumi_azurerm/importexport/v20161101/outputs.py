@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -62,7 +62,7 @@ class DriveStatusResponse(dict):
     """
     def __init__(__self__, *,
                  bit_locker_key: Optional[str] = None,
-                 bytes_succeeded: Optional[float] = None,
+                 bytes_succeeded: Optional[int] = None,
                  copy_status: Optional[str] = None,
                  drive_header_hash: Optional[str] = None,
                  drive_id: Optional[str] = None,
@@ -70,13 +70,13 @@ class DriveStatusResponse(dict):
                  manifest_file: Optional[str] = None,
                  manifest_hash: Optional[str] = None,
                  manifest_uri: Optional[str] = None,
-                 percent_complete: Optional[float] = None,
+                 percent_complete: Optional[int] = None,
                  state: Optional[str] = None,
                  verbose_log_uri: Optional[str] = None):
         """
         Provides information about the drive's status
         :param str bit_locker_key: The BitLocker key used to encrypt the drive.
-        :param float bytes_succeeded: Bytes successfully transferred for the drive.
+        :param int bytes_succeeded: Bytes successfully transferred for the drive.
         :param str copy_status: Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
         :param str drive_header_hash: The drive header hash value.
         :param str drive_id: The drive's hardware serial number, without spaces.
@@ -84,7 +84,7 @@ class DriveStatusResponse(dict):
         :param str manifest_file: The relative path of the manifest file on the drive. 
         :param str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param str manifest_uri: A URI that points to the blob containing the drive manifest file. 
-        :param float percent_complete: Percentage completed for the drive. 
+        :param int percent_complete: Percentage completed for the drive. 
         :param str state: The drive's current state. 
         :param str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
@@ -123,7 +123,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="bytesSucceeded")
-    def bytes_succeeded(self) -> Optional[float]:
+    def bytes_succeeded(self) -> Optional[int]:
         """
         Bytes successfully transferred for the drive.
         """
@@ -187,7 +187,7 @@ class DriveStatusResponse(dict):
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[float]:
+    def percent_complete(self) -> Optional[int]:
         """
         Percentage completed for the drive. 
         """
@@ -220,13 +220,13 @@ class ExportResponse(dict):
     """
     def __init__(__self__, *,
                  blob_listblob_path: Optional[str] = None,
-                 blob_path: Optional[List[str]] = None,
-                 blob_path_prefix: Optional[List[str]] = None):
+                 blob_path: Optional[Sequence[str]] = None,
+                 blob_path_prefix: Optional[Sequence[str]] = None):
         """
         A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
         :param str blob_listblob_path: The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
-        :param List[str] blob_path: A collection of blob-path strings.
-        :param List[str] blob_path_prefix: A collection of blob-prefix strings.
+        :param Sequence[str] blob_path: A collection of blob-path strings.
+        :param Sequence[str] blob_path_prefix: A collection of blob-prefix strings.
         """
         if blob_listblob_path is not None:
             pulumi.set(__self__, "blob_listblob_path", blob_listblob_path)
@@ -245,7 +245,7 @@ class ExportResponse(dict):
 
     @property
     @pulumi.getter(name="blobPath")
-    def blob_path(self) -> Optional[List[str]]:
+    def blob_path(self) -> Optional[Sequence[str]]:
         """
         A collection of blob-path strings.
         """
@@ -253,7 +253,7 @@ class ExportResponse(dict):
 
     @property
     @pulumi.getter(name="blobPathPrefix")
-    def blob_path_prefix(self) -> Optional[List[str]]:
+    def blob_path_prefix(self) -> Optional[Sequence[str]]:
         """
         A collection of blob-prefix strings.
         """
@@ -273,12 +273,12 @@ class JobDetailsResponse(dict):
                  cancel_requested: Optional[bool] = None,
                  delivery_package: Optional['outputs.PackageInfomationResponse'] = None,
                  diagnostics_path: Optional[str] = None,
-                 drive_list: Optional[List['outputs.DriveStatusResponse']] = None,
+                 drive_list: Optional[Sequence['outputs.DriveStatusResponse']] = None,
                  export: Optional['outputs.ExportResponse'] = None,
                  incomplete_blob_list_uri: Optional[str] = None,
                  job_type: Optional[str] = None,
                  log_level: Optional[str] = None,
-                 percent_complete: Optional[float] = None,
+                 percent_complete: Optional[int] = None,
                  provisioning_state: Optional[str] = None,
                  return_address: Optional['outputs.ReturnAddressResponse'] = None,
                  return_package: Optional['outputs.PackageInfomationResponse'] = None,
@@ -292,12 +292,12 @@ class JobDetailsResponse(dict):
         :param bool cancel_requested: Indicates whether a request has been submitted to cancel the job.
         :param 'PackageInfomationResponseArgs' delivery_package: Contains information about the package being shipped by the customer to the Microsoft data center. 
         :param str diagnostics_path: The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-        :param List['DriveStatusResponseArgs'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
+        :param Sequence['DriveStatusResponseArgs'] drive_list: List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         :param 'ExportResponseArgs' export: A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
         :param str incomplete_blob_list_uri: A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
         :param str job_type: The type of job
         :param str log_level: Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-        :param float percent_complete: Overall percentage completed for the job.
+        :param int percent_complete: Overall percentage completed for the job.
         :param str provisioning_state: Specifies the provisioning state of the job.
         :param 'ReturnAddressResponseArgs' return_address: Specifies the return address information for the job. 
         :param 'PackageInfomationResponseArgs' return_package: Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned. 
@@ -375,7 +375,7 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="driveList")
-    def drive_list(self) -> Optional[List['outputs.DriveStatusResponse']]:
+    def drive_list(self) -> Optional[Sequence['outputs.DriveStatusResponse']]:
         """
         List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
         """
@@ -415,7 +415,7 @@ class JobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="percentComplete")
-    def percent_complete(self) -> Optional[float]:
+    def percent_complete(self) -> Optional[int]:
         """
         Overall percentage completed for the job.
         """
@@ -488,13 +488,13 @@ class PackageInfomationResponse(dict):
     """
     def __init__(__self__, *,
                  carrier_name: str,
-                 drive_count: float,
+                 drive_count: int,
                  ship_date: str,
                  tracking_number: str):
         """
         Contains information about the package being shipped by the customer to the Microsoft data center.
         :param str carrier_name: The name of the carrier that is used to ship the import or export drives.
-        :param float drive_count: The number of drives included in the package.
+        :param int drive_count: The number of drives included in the package.
         :param str ship_date: The date when the package is shipped.
         :param str tracking_number: The tracking number of the package.
         """
@@ -513,7 +513,7 @@ class PackageInfomationResponse(dict):
 
     @property
     @pulumi.getter(name="driveCount")
-    def drive_count(self) -> float:
+    def drive_count(self) -> int:
         """
         The number of drives included in the package.
         """

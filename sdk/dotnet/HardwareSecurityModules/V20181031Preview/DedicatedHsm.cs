@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
         /// Specifies the network interfaces of the dedicated hsm.
         /// </summary>
         [Output("networkProfile")]
-        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state.
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.HardwareSecurityModules.V20181031Preview
         /// SKU details
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// This field will be used when RP does not support Availability zones.

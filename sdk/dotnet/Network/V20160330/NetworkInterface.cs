@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Gets or sets DNS Settings in  NetworkInterface
         /// </summary>
         [Output("dnsSettings")]
-        public Output<Outputs.NetworkInterfaceDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+        public Output<Outputs.NetworkInterfaceDnsSettingsResponse?> DnsSettings { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets whether IPForwarding is enabled on the NIC
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Gets or sets list of IPConfigurations of the NetworkInterface
         /// </summary>
         [Output("ipConfigurations")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
         [Output("networkSecurityGroup")]
-        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+        public Output<Outputs.NetworkSecurityGroupResponse?> NetworkSecurityGroup { get; private set; } = null!;
 
         /// <summary>
         /// Gets whether this is a primary NIC on a virtual machine
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Gets or sets the reference of a VirtualMachine
         /// </summary>
         [Output("virtualMachine")]
-        public Output<Outputs.SubResourceResponseResult?> VirtualMachine { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse?> VirtualMachine { get; private set; } = null!;
 
 
         /// <summary>

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class PrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_dns_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
+                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 manual_private_link_service_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connections: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
+                 private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -34,12 +34,12 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] private_link_service_connections: A grouping of information about the connection to the remote resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -107,7 +107,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDnsConfigs")
-    def custom_dns_configs(self) -> pulumi.Output[Optional[List['outputs.CustomDnsConfigPropertiesFormatResponse']]]:
+    def custom_dns_configs(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']]]:
         """
         An array of custom dns configurations.
         """
@@ -131,7 +131,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateLinkServiceConnectionResponse']]]:
+    def manual_private_link_service_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]]:
         """
         A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         """
@@ -147,7 +147,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[List['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceResponse']]:
         """
         An array of references to the network interfaces created for this private endpoint.
         """
@@ -155,7 +155,7 @@ class PrivateEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkServiceConnections")
-    def private_link_service_connections(self) -> pulumi.Output[Optional[List['outputs.PrivateLinkServiceConnectionResponse']]]:
+    def private_link_service_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]]:
         """
         A grouping of information about the connection to the remote resource.
         """

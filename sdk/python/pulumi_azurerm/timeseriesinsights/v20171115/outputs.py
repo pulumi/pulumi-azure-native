@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -202,11 +202,11 @@ class SkuResponse(dict):
     The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
     """
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str):
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-        :param float capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+        :param int capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
         :param str name: The name of this SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -214,7 +214,7 @@ class SkuResponse(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -55,8 +55,8 @@ class ListSiteBackupStatusSecretsSlotResult:
         if scheduled and not isinstance(scheduled, bool):
             raise TypeError("Expected argument 'scheduled' to be a bool")
         pulumi.set(__self__, "scheduled", scheduled)
-        if size_in_bytes and not isinstance(size_in_bytes, float):
-            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        if size_in_bytes and not isinstance(size_in_bytes, int):
+            raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
@@ -70,8 +70,8 @@ class ListSiteBackupStatusSecretsSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if website_size_in_bytes and not isinstance(website_size_in_bytes, float):
-            raise TypeError("Expected argument 'website_size_in_bytes' to be a float")
+        if website_size_in_bytes and not isinstance(website_size_in_bytes, int):
+            raise TypeError("Expected argument 'website_size_in_bytes' to be a int")
         pulumi.set(__self__, "website_size_in_bytes", website_size_in_bytes)
 
     @property
@@ -100,7 +100,7 @@ class ListSiteBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[List['outputs.DatabaseBackupSettingResponseResult']]:
+    def databases(self) -> Optional[Sequence['outputs.DatabaseBackupSettingResponseResult']]:
         """
         List of databases included in the backup
         """
@@ -164,7 +164,7 @@ class ListSiteBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="sizeInBytes")
-    def size_in_bytes(self) -> Optional[float]:
+    def size_in_bytes(self) -> Optional[int]:
         """
         Size of the backup in bytes
         """
@@ -204,7 +204,7 @@ class ListSiteBackupStatusSecretsSlotResult:
 
     @property
     @pulumi.getter(name="websiteSizeInBytes")
-    def website_size_in_bytes(self) -> Optional[float]:
+    def website_size_in_bytes(self) -> Optional[int]:
         """
         Size of the original web app which has been backed up
         """
@@ -238,7 +238,7 @@ class AwaitableListSiteBackupStatusSecretsSlotResult(ListSiteBackupStatusSecrets
 
 def list_site_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                          backup_schedule: Optional[pulumi.InputType['BackupScheduleArgs']] = None,
-                                         databases: Optional[List[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
+                                         databases: Optional[Sequence[pulumi.InputType['DatabaseBackupSettingArgs']]] = None,
                                          enabled: Optional[bool] = None,
                                          id: Optional[str] = None,
                                          kind: Optional[str] = None,
@@ -255,7 +255,7 @@ def list_site_backup_status_secrets_slot(backup_id: Optional[str] = None,
 
     :param str backup_id: Id of backup
     :param pulumi.InputType['BackupScheduleArgs'] backup_schedule: Schedule for the backup if it is executed periodically
-    :param List[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup
+    :param Sequence[pulumi.InputType['DatabaseBackupSettingArgs']] databases: Databases included in the backup
     :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
     :param str id: Resource Id
     :param str kind: Kind of resource

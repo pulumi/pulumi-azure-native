@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.AppPlatform.Latest
         /// Properties of the custom domain resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CustomDomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CustomDomainPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

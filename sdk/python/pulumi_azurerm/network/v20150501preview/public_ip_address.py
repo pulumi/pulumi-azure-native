@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class PublicIpAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_settings: Optional[pulumi.Input[pulumi.InputType['PublicIpAddressDnsSettingsArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class PublicIpAddress(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PublicIpAddressDnsSettingsArgs']] dns_settings: Gets or sets FQDN of the DNS record associated with the public IP address
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
-        :param pulumi.Input[float] idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
+        :param pulumi.Input[int] idle_timeout_in_minutes: Gets or sets the idle timeout of the public IP address
         :param pulumi.Input[str] ip_address: Gets the assigned public IP address
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] ip_configuration: Gets a reference to the network interface IP configurations using this public IP address
         :param pulumi.Input[str] location: Resource location
@@ -133,7 +133,7 @@ class PublicIpAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Gets or sets the idle timeout of the public IP address
         """

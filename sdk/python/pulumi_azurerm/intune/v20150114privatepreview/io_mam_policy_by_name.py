@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['IoMAMPolicyByName']
@@ -32,7 +32,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
                  managed_browser: Optional[pulumi.Input[str]] = None,
                  offline_wipe_timeout: Optional[pulumi.Input[str]] = None,
                  pin: Optional[pulumi.Input[str]] = None,
-                 pin_num_retry: Optional[pulumi.Input[float]] = None,
+                 pin_num_retry: Optional[pulumi.Input[int]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  touch_id: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numOfApps")
-    def num_of_apps(self) -> pulumi.Output[float]:
+    def num_of_apps(self) -> pulumi.Output[int]:
         return pulumi.get(self, "num_of_apps")
 
     @property
@@ -232,7 +232,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pinNumRetry")
-    def pin_num_retry(self) -> pulumi.Output[Optional[float]]:
+    def pin_num_retry(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "pin_num_retry")
 
     @property

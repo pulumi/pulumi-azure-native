@@ -56,11 +56,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// Describes the destination of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorDestinationResponseResult? Destination;
+        public readonly Outputs.ConnectionMonitorDestinationResponse? Destination;
         /// <summary>
         /// List of connection monitor endpoints.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionMonitorEndpointResponseResult> Endpoints;
+        public readonly ImmutableArray<Outputs.ConnectionMonitorEndpointResponse> Endpoints;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of connection monitor outputs.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionMonitorOutputResponseResult> Outputs;
+        public readonly ImmutableArray<Outputs.ConnectionMonitorOutputResponse> Outputs;
         /// <summary>
         /// The provisioning state of the connection monitor.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// Describes the source of connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorSourceResponseResult? Source;
+        public readonly Outputs.ConnectionMonitorSourceResponse? Source;
         /// <summary>
         /// The date and time when the connection monitor was started.
         /// </summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// <summary>
         /// List of connection monitor test configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionMonitorTestConfigurationResponseResult> TestConfigurations;
+        public readonly ImmutableArray<Outputs.ConnectionMonitorTestConfigurationResponse> TestConfigurations;
         /// <summary>
         /// List of connection monitor test groups.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectionMonitorTestGroupResponseResult> TestGroups;
+        public readonly ImmutableArray<Outputs.ConnectionMonitorTestGroupResponse> TestGroups;
         /// <summary>
         /// Connection monitor type.
         /// </summary>
@@ -124,9 +124,9 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string connectionMonitorType,
 
-            Outputs.ConnectionMonitorDestinationResponseResult? destination,
+            Outputs.ConnectionMonitorDestinationResponse? destination,
 
-            ImmutableArray<Outputs.ConnectionMonitorEndpointResponseResult> endpoints,
+            ImmutableArray<Outputs.ConnectionMonitorEndpointResponse> endpoints,
 
             string etag,
 
@@ -140,19 +140,19 @@ namespace Pulumi.AzureRM.Network.V20191101
 
             string? notes,
 
-            ImmutableArray<Outputs.ConnectionMonitorOutputResponseResult> outputs,
+            ImmutableArray<Outputs.ConnectionMonitorOutputResponse> outputs,
 
             string provisioningState,
 
-            Outputs.ConnectionMonitorSourceResponseResult? source,
+            Outputs.ConnectionMonitorSourceResponse? source,
 
             string startTime,
 
             ImmutableDictionary<string, string>? tags,
 
-            ImmutableArray<Outputs.ConnectionMonitorTestConfigurationResponseResult> testConfigurations,
+            ImmutableArray<Outputs.ConnectionMonitorTestConfigurationResponse> testConfigurations,
 
-            ImmutableArray<Outputs.ConnectionMonitorTestGroupResponseResult> testGroups,
+            ImmutableArray<Outputs.ConnectionMonitorTestGroupResponse> testGroups,
 
             string type)
         {

@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
-        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
         /// <summary>
         /// The location of the resource.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// <summary>
         /// The resource specific settings
         /// </summary>
-        public readonly Outputs.ResourceSettingsResponseResult ResourceSettings;
+        public readonly Outputs.ResourceSettingsResponse ResourceSettings;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
 
             string lastPublished,
 
-            Outputs.LatestOperationResultResponseResult latestOperationResult,
+            Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
 
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.LabServices.V20181015
 
             string publishingState,
 
-            Outputs.ResourceSettingsResponseResult resourceSettings,
+            Outputs.ResourceSettingsResponse resourceSettings,
 
             ImmutableDictionary<string, string>? tags,
 

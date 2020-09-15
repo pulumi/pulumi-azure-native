@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         /// </summary>
         [Output("hostingEnvironmentProfile")]
-        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+        public Output<Outputs.HostingEnvironmentProfileResponse?> HostingEnvironmentProfile { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource
@@ -85,7 +85,7 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Describes a sku for a scalable resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuDescriptionResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// App Service Plan Status

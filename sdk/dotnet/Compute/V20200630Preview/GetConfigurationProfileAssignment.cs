@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         /// <summary>
         /// Properties of the configuration profile assignment.
         /// </summary>
-        public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponseResult Properties;
+        public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Compute.V20200630Preview
         private GetConfigurationProfileAssignmentResult(
             string name,
 
-            Outputs.ConfigurationProfileAssignmentPropertiesResponseResult properties,
+            Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
 
             string type)
         {

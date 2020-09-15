@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.Devices.V20180122
         /// The properties of an IoT hub.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IotHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.IotHubPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Information about the SKU of the IoT hub.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.IotHubSkuInfoResponseResult> Sku { get; private set; } = null!;
+        public Output<Outputs.IotHubSkuInfoResponse> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

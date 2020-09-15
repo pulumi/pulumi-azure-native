@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class VirtualMachine(pulumi.CustomResource):
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  applicable_schedule: Optional[pulumi.Input[pulumi.InputType['ApplicableScheduleArgs']]] = None,
                  artifact_deployment_status: Optional[pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']]] = None,
-                 artifacts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
+                 artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]]] = None,
                  compute_vm: Optional[pulumi.Input[pulumi.InputType['ComputeVmPropertiesArgs']]] = None,
                  created_by_user: Optional[pulumi.Input[str]] = None,
                  created_by_user_id: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input[pulumi.InputType['ApplicableScheduleArgs']] applicable_schedule: The applicable schedule for the virtual machine.
         :param pulumi.Input[pulumi.InputType['ArtifactDeploymentStatusPropertiesArgs']] artifact_deployment_status: The artifact deployment status for the virtual machine.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactInstallPropertiesArgs']]]] artifacts: The artifacts to be installed on the virtual machine.
         :param pulumi.Input[pulumi.InputType['ComputeVmPropertiesArgs']] compute_vm: The compute virtual machine properties.
         :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
         :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
@@ -208,7 +208,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def artifacts(self) -> pulumi.Output[Optional[List['outputs.ArtifactInstallPropertiesResponse']]]:
+    def artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]]:
         """
         The artifacts to be installed on the virtual machine.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,11 +20,11 @@ class P2sVpnGateway(pulumi.CustomResource):
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 p2_s_connection_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
+                 p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 vpn_gateway_scale_unit: Optional[pulumi.Input[float]] = None,
+                 vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
                  vpn_server_configuration: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,11 +37,11 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['P2SConnectionConfigurationArgs']]]] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The VirtualHub to which the gateway belongs.
-        :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
+        :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
         if __name__ is not None:
@@ -133,7 +133,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="p2SConnectionConfigurations")
-    def p2_s_connection_configurations(self) -> pulumi.Output[Optional[List['outputs.P2SConnectionConfigurationResponse']]]:
+    def p2_s_connection_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.P2SConnectionConfigurationResponse']]]:
         """
         List of all p2s connection configurations of the gateway.
         """
@@ -181,7 +181,7 @@ class P2sVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnGatewayScaleUnit")
-    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[float]]:
+    def vpn_gateway_scale_unit(self) -> pulumi.Output[Optional[int]]:
         """
         The scale unit for this p2s vpn gateway.
         """

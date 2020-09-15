@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -78,7 +78,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter(name="managementGroups")
-    def management_groups(self) -> Optional[List['outputs.ResourceIdResponse']]:
+    def management_groups(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
         """
         The collection of management groups covered by the Managed Network
         """
@@ -102,7 +102,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[List['outputs.ResourceIdResponse']]:
+    def subnets(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
         """
         The collection of  subnets covered by the Managed Network
         """
@@ -110,7 +110,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> Optional[List['outputs.ResourceIdResponse']]:
+    def subscriptions(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
         """
         The collection of subscriptions covered by the Managed Network
         """
@@ -126,7 +126,7 @@ class GetManagedNetworkGroupResult:
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[List['outputs.ResourceIdResponse']]:
+    def virtual_networks(self) -> Optional[Sequence['outputs.ResourceIdResponse']]:
         """
         The collection of virtual nets covered by the Managed Network
         """

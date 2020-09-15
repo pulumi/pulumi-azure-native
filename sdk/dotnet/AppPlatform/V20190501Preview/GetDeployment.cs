@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         /// <summary>
         /// Properties of the Deployment resource
         /// </summary>
-        public readonly Outputs.DeploymentResourcePropertiesResponseResult Properties;
+        public readonly Outputs.DeploymentResourcePropertiesResponse Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.AppPlatform.V20190501Preview
         private GetDeploymentResult(
             string name,
 
-            Outputs.DeploymentResourcePropertiesResponseResult properties,
+            Outputs.DeploymentResourcePropertiesResponse properties,
 
             string type)
         {

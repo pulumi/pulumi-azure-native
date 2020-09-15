@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -75,7 +75,7 @@ class GetDdosCustomPolicyResult:
 
     @property
     @pulumi.getter(name="protocolCustomSettings")
-    def protocol_custom_settings(self) -> Optional[List['outputs.ProtocolCustomSettingsFormatResponse']]:
+    def protocol_custom_settings(self) -> Optional[Sequence['outputs.ProtocolCustomSettingsFormatResponse']]:
         """
         The protocol-specific DDoS policy customization parameters.
         """
@@ -91,7 +91,7 @@ class GetDdosCustomPolicyResult:
 
     @property
     @pulumi.getter(name="publicIPAddresses")
-    def public_ip_addresses(self) -> List['outputs.SubResourceResponse']:
+    def public_ip_addresses(self) -> Sequence['outputs.SubResourceResponse']:
         """
         The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
         """

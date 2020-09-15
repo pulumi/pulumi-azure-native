@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -82,13 +82,13 @@ class ManagementAssociationPropertiesArgs:
 @pulumi.input_type
 class ManagementConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input[List[pulumi.Input['ArmTemplateParameterArgs']]],
+                 parameters: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]],
                  parent_resource_type: pulumi.Input[str],
                  template: pulumi.Input[Mapping[str, Any]],
                  application_id: Optional[pulumi.Input[str]] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
-        :param pulumi.Input[List[pulumi.Input['ArmTemplateParameterArgs']]] parameters: Parameters to run the ARM template
+        :param pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]] parameters: Parameters to run the ARM template
         :param pulumi.Input[str] parent_resource_type: The type of the parent resource.
         :param pulumi.Input[Mapping[str, Any]] template: The Json object containing the ARM template to deploy
         :param pulumi.Input[str] application_id: The applicationId of the appliance for this Management.
@@ -101,14 +101,14 @@ class ManagementConfigurationPropertiesArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input[List[pulumi.Input['ArmTemplateParameterArgs']]]:
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]]:
         """
         Parameters to run the ARM template
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input[List[pulumi.Input['ArmTemplateParameterArgs']]]):
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['ArmTemplateParameterArgs']]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -224,13 +224,13 @@ class SolutionPlanArgs:
 class SolutionPropertiesArgs:
     def __init__(__self__, *,
                  workspace_resource_id: pulumi.Input[str],
-                 contained_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 referenced_resources: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 contained_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 referenced_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Solution properties supported by the OperationsManagement resource provider.
         :param pulumi.Input[str] workspace_resource_id: The azure resourceId for the workspace where the solution will be deployed/enabled.
-        :param pulumi.Input[List[pulumi.Input[str]]] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
-        :param pulumi.Input[List[pulumi.Input[str]]] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] referenced_resources: The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """
         pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
         if contained_resources is not None:
@@ -252,26 +252,26 @@ class SolutionPropertiesArgs:
 
     @property
     @pulumi.getter(name="containedResources")
-    def contained_resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def contained_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
         """
         return pulumi.get(self, "contained_resources")
 
     @contained_resources.setter
-    def contained_resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def contained_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "contained_resources", value)
 
     @property
     @pulumi.getter(name="referencedResources")
-    def referenced_resources(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def referenced_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
         """
         return pulumi.get(self, "referenced_resources")
 
     @referenced_resources.setter
-    def referenced_resources(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def referenced_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "referenced_resources", value)
 
 

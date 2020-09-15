@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Resources.V20160201
         /// <summary>
         /// The resource group properties.
         /// </summary>
-        public readonly Outputs.ResourceGroupPropertiesResponseResult Properties;
+        public readonly Outputs.ResourceGroupPropertiesResponse Properties;
         /// <summary>
         /// The tags attached to the resource group.
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Resources.V20160201
 
             string? name,
 
-            Outputs.ResourceGroupPropertiesResponseResult properties,
+            Outputs.ResourceGroupPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags)
         {

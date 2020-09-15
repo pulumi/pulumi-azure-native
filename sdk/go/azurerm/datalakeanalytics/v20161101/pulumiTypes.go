@@ -74,51 +74,6 @@ func (i AddDataLakeStoreWithAccountParametersArray) ToAddDataLakeStoreWithAccoun
 	return pulumi.ToOutputWithContext(ctx, i).(AddDataLakeStoreWithAccountParametersArrayOutput)
 }
 
-// The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
-type AddDataLakeStoreWithAccountParametersOutput struct{ *pulumi.OutputState }
-
-func (AddDataLakeStoreWithAccountParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddDataLakeStoreWithAccountParameters)(nil)).Elem()
-}
-
-func (o AddDataLakeStoreWithAccountParametersOutput) ToAddDataLakeStoreWithAccountParametersOutput() AddDataLakeStoreWithAccountParametersOutput {
-	return o
-}
-
-func (o AddDataLakeStoreWithAccountParametersOutput) ToAddDataLakeStoreWithAccountParametersOutputWithContext(ctx context.Context) AddDataLakeStoreWithAccountParametersOutput {
-	return o
-}
-
-// The unique name of the Data Lake Store account to add.
-func (o AddDataLakeStoreWithAccountParametersOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The optional suffix for the Data Lake Store account.
-func (o AddDataLakeStoreWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
-type AddDataLakeStoreWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
-
-func (AddDataLakeStoreWithAccountParametersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AddDataLakeStoreWithAccountParameters)(nil)).Elem()
-}
-
-func (o AddDataLakeStoreWithAccountParametersArrayOutput) ToAddDataLakeStoreWithAccountParametersArrayOutput() AddDataLakeStoreWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o AddDataLakeStoreWithAccountParametersArrayOutput) ToAddDataLakeStoreWithAccountParametersArrayOutputWithContext(ctx context.Context) AddDataLakeStoreWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o AddDataLakeStoreWithAccountParametersArrayOutput) Index(i pulumi.IntInput) AddDataLakeStoreWithAccountParametersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddDataLakeStoreWithAccountParameters {
-		return vs[0].([]AddDataLakeStoreWithAccountParameters)[vs[1].(int)]
-	}).(AddDataLakeStoreWithAccountParametersOutput)
-}
-
 // The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParameters struct {
 	// The access key associated with this Azure Storage account that will be used to connect to it.
@@ -187,56 +142,6 @@ func (i AddStorageAccountWithAccountParametersArray) ToAddStorageAccountWithAcco
 	return pulumi.ToOutputWithContext(ctx, i).(AddStorageAccountWithAccountParametersArrayOutput)
 }
 
-// The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
-type AddStorageAccountWithAccountParametersOutput struct{ *pulumi.OutputState }
-
-func (AddStorageAccountWithAccountParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddStorageAccountWithAccountParameters)(nil)).Elem()
-}
-
-func (o AddStorageAccountWithAccountParametersOutput) ToAddStorageAccountWithAccountParametersOutput() AddStorageAccountWithAccountParametersOutput {
-	return o
-}
-
-func (o AddStorageAccountWithAccountParametersOutput) ToAddStorageAccountWithAccountParametersOutputWithContext(ctx context.Context) AddStorageAccountWithAccountParametersOutput {
-	return o
-}
-
-// The access key associated with this Azure Storage account that will be used to connect to it.
-func (o AddStorageAccountWithAccountParametersOutput) AccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.AccessKey }).(pulumi.StringOutput)
-}
-
-// The unique name of the Azure Storage account to add.
-func (o AddStorageAccountWithAccountParametersOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The optional suffix for the storage account.
-func (o AddStorageAccountWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
-type AddStorageAccountWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
-
-func (AddStorageAccountWithAccountParametersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AddStorageAccountWithAccountParameters)(nil)).Elem()
-}
-
-func (o AddStorageAccountWithAccountParametersArrayOutput) ToAddStorageAccountWithAccountParametersArrayOutput() AddStorageAccountWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o AddStorageAccountWithAccountParametersArrayOutput) ToAddStorageAccountWithAccountParametersArrayOutputWithContext(ctx context.Context) AddStorageAccountWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInput) AddStorageAccountWithAccountParametersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddStorageAccountWithAccountParameters {
-		return vs[0].([]AddStorageAccountWithAccountParameters)[vs[1].(int)]
-	}).(AddStorageAccountWithAccountParametersOutput)
-}
-
 // Data Lake Analytics compute policy information.
 type ComputePolicyResponse struct {
 	// The resource identifier.
@@ -253,72 +158,6 @@ type ComputePolicyResponse struct {
 	ObjectType string `pulumi:"objectType"`
 	// The resource type.
 	Type string `pulumi:"type"`
-}
-
-// ComputePolicyResponseInput is an input type that accepts ComputePolicyResponseArgs and ComputePolicyResponseOutput values.
-// You can construct a concrete instance of `ComputePolicyResponseInput` via:
-//
-//          ComputePolicyResponseArgs{...}
-type ComputePolicyResponseInput interface {
-	pulumi.Input
-
-	ToComputePolicyResponseOutput() ComputePolicyResponseOutput
-	ToComputePolicyResponseOutputWithContext(context.Context) ComputePolicyResponseOutput
-}
-
-// Data Lake Analytics compute policy information.
-type ComputePolicyResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ComputePolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyResponse)(nil)).Elem()
-}
-
-func (i ComputePolicyResponseArgs) ToComputePolicyResponseOutput() ComputePolicyResponseOutput {
-	return i.ToComputePolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyResponseArgs) ToComputePolicyResponseOutputWithContext(ctx context.Context) ComputePolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyResponseOutput)
-}
-
-// ComputePolicyResponseArrayInput is an input type that accepts ComputePolicyResponseArray and ComputePolicyResponseArrayOutput values.
-// You can construct a concrete instance of `ComputePolicyResponseArrayInput` via:
-//
-//          ComputePolicyResponseArray{ ComputePolicyResponseArgs{...} }
-type ComputePolicyResponseArrayInput interface {
-	pulumi.Input
-
-	ToComputePolicyResponseArrayOutput() ComputePolicyResponseArrayOutput
-	ToComputePolicyResponseArrayOutputWithContext(context.Context) ComputePolicyResponseArrayOutput
-}
-
-type ComputePolicyResponseArray []ComputePolicyResponseInput
-
-func (ComputePolicyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputePolicyResponse)(nil)).Elem()
-}
-
-func (i ComputePolicyResponseArray) ToComputePolicyResponseArrayOutput() ComputePolicyResponseArrayOutput {
-	return i.ToComputePolicyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyResponseArray) ToComputePolicyResponseArrayOutputWithContext(ctx context.Context) ComputePolicyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyResponseArrayOutput)
 }
 
 // Data Lake Analytics compute policy information.
@@ -467,66 +306,6 @@ func (i CreateComputePolicyWithAccountParametersArray) ToCreateComputePolicyWith
 	return pulumi.ToOutputWithContext(ctx, i).(CreateComputePolicyWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
-type CreateComputePolicyWithAccountParametersOutput struct{ *pulumi.OutputState }
-
-func (CreateComputePolicyWithAccountParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateComputePolicyWithAccountParameters)(nil)).Elem()
-}
-
-func (o CreateComputePolicyWithAccountParametersOutput) ToCreateComputePolicyWithAccountParametersOutput() CreateComputePolicyWithAccountParametersOutput {
-	return o
-}
-
-func (o CreateComputePolicyWithAccountParametersOutput) ToCreateComputePolicyWithAccountParametersOutputWithContext(ctx context.Context) CreateComputePolicyWithAccountParametersOutput {
-	return o
-}
-
-// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-func (o CreateComputePolicyWithAccountParametersOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-func (o CreateComputePolicyWithAccountParametersOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MinPriorityPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The unique name of the compute policy to create.
-func (o CreateComputePolicyWithAccountParametersOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The AAD object identifier for the entity to create a policy for.
-func (o CreateComputePolicyWithAccountParametersOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectId }).(pulumi.StringOutput)
-}
-
-// The type of AAD object the object identifier refers to.
-func (o CreateComputePolicyWithAccountParametersOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectType }).(pulumi.StringOutput)
-}
-
-type CreateComputePolicyWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
-
-func (CreateComputePolicyWithAccountParametersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CreateComputePolicyWithAccountParameters)(nil)).Elem()
-}
-
-func (o CreateComputePolicyWithAccountParametersArrayOutput) ToCreateComputePolicyWithAccountParametersArrayOutput() CreateComputePolicyWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o CreateComputePolicyWithAccountParametersArrayOutput) ToCreateComputePolicyWithAccountParametersArrayOutputWithContext(ctx context.Context) CreateComputePolicyWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o CreateComputePolicyWithAccountParametersArrayOutput) Index(i pulumi.IntInput) CreateComputePolicyWithAccountParametersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CreateComputePolicyWithAccountParameters {
-		return vs[0].([]CreateComputePolicyWithAccountParameters)[vs[1].(int)]
-	}).(CreateComputePolicyWithAccountParametersOutput)
-}
-
 // The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParameters struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -595,56 +374,6 @@ func (i CreateFirewallRuleWithAccountParametersArray) ToCreateFirewallRuleWithAc
 	return pulumi.ToOutputWithContext(ctx, i).(CreateFirewallRuleWithAccountParametersArrayOutput)
 }
 
-// The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
-type CreateFirewallRuleWithAccountParametersOutput struct{ *pulumi.OutputState }
-
-func (CreateFirewallRuleWithAccountParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateFirewallRuleWithAccountParameters)(nil)).Elem()
-}
-
-func (o CreateFirewallRuleWithAccountParametersOutput) ToCreateFirewallRuleWithAccountParametersOutput() CreateFirewallRuleWithAccountParametersOutput {
-	return o
-}
-
-func (o CreateFirewallRuleWithAccountParametersOutput) ToCreateFirewallRuleWithAccountParametersOutputWithContext(ctx context.Context) CreateFirewallRuleWithAccountParametersOutput {
-	return o
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateFirewallRuleWithAccountParametersOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// The unique name of the firewall rule to create.
-func (o CreateFirewallRuleWithAccountParametersOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateFirewallRuleWithAccountParametersOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type CreateFirewallRuleWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
-
-func (CreateFirewallRuleWithAccountParametersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CreateFirewallRuleWithAccountParameters)(nil)).Elem()
-}
-
-func (o CreateFirewallRuleWithAccountParametersArrayOutput) ToCreateFirewallRuleWithAccountParametersArrayOutput() CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o CreateFirewallRuleWithAccountParametersArrayOutput) ToCreateFirewallRuleWithAccountParametersArrayOutputWithContext(ctx context.Context) CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o
-}
-
-func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntInput) CreateFirewallRuleWithAccountParametersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CreateFirewallRuleWithAccountParameters {
-		return vs[0].([]CreateFirewallRuleWithAccountParameters)[vs[1].(int)]
-	}).(CreateFirewallRuleWithAccountParametersOutput)
-}
-
 // Data Lake Store account information.
 type DataLakeStoreAccountInformationResponse struct {
 	// The resource identifier.
@@ -655,66 +384,6 @@ type DataLakeStoreAccountInformationResponse struct {
 	Suffix string `pulumi:"suffix"`
 	// The resource type.
 	Type string `pulumi:"type"`
-}
-
-// DataLakeStoreAccountInformationResponseInput is an input type that accepts DataLakeStoreAccountInformationResponseArgs and DataLakeStoreAccountInformationResponseOutput values.
-// You can construct a concrete instance of `DataLakeStoreAccountInformationResponseInput` via:
-//
-//          DataLakeStoreAccountInformationResponseArgs{...}
-type DataLakeStoreAccountInformationResponseInput interface {
-	pulumi.Input
-
-	ToDataLakeStoreAccountInformationResponseOutput() DataLakeStoreAccountInformationResponseOutput
-	ToDataLakeStoreAccountInformationResponseOutputWithContext(context.Context) DataLakeStoreAccountInformationResponseOutput
-}
-
-// Data Lake Store account information.
-type DataLakeStoreAccountInformationResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the Data Lake Store account.
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataLakeStoreAccountInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeStoreAccountInformationResponse)(nil)).Elem()
-}
-
-func (i DataLakeStoreAccountInformationResponseArgs) ToDataLakeStoreAccountInformationResponseOutput() DataLakeStoreAccountInformationResponseOutput {
-	return i.ToDataLakeStoreAccountInformationResponseOutputWithContext(context.Background())
-}
-
-func (i DataLakeStoreAccountInformationResponseArgs) ToDataLakeStoreAccountInformationResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationResponseOutput)
-}
-
-// DataLakeStoreAccountInformationResponseArrayInput is an input type that accepts DataLakeStoreAccountInformationResponseArray and DataLakeStoreAccountInformationResponseArrayOutput values.
-// You can construct a concrete instance of `DataLakeStoreAccountInformationResponseArrayInput` via:
-//
-//          DataLakeStoreAccountInformationResponseArray{ DataLakeStoreAccountInformationResponseArgs{...} }
-type DataLakeStoreAccountInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataLakeStoreAccountInformationResponseArrayOutput() DataLakeStoreAccountInformationResponseArrayOutput
-	ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(context.Context) DataLakeStoreAccountInformationResponseArrayOutput
-}
-
-type DataLakeStoreAccountInformationResponseArray []DataLakeStoreAccountInformationResponseInput
-
-func (DataLakeStoreAccountInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataLakeStoreAccountInformationResponse)(nil)).Elem()
-}
-
-func (i DataLakeStoreAccountInformationResponseArray) ToDataLakeStoreAccountInformationResponseArrayOutput() DataLakeStoreAccountInformationResponseArrayOutput {
-	return i.ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataLakeStoreAccountInformationResponseArray) ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationResponseArrayOutput)
 }
 
 // Data Lake Store account information.
@@ -786,68 +455,6 @@ type FirewallRuleResponse struct {
 	Type string `pulumi:"type"`
 }
 
-// FirewallRuleResponseInput is an input type that accepts FirewallRuleResponseArgs and FirewallRuleResponseOutput values.
-// You can construct a concrete instance of `FirewallRuleResponseInput` via:
-//
-//          FirewallRuleResponseArgs{...}
-type FirewallRuleResponseInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseOutput() FirewallRuleResponseOutput
-	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
-}
-
-// Data Lake Analytics firewall rule information.
-type FirewallRuleResponseArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutput() FirewallRuleResponseOutput {
-	return i.ToFirewallRuleResponseOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutputWithContext(ctx context.Context) FirewallRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseOutput)
-}
-
-// FirewallRuleResponseArrayInput is an input type that accepts FirewallRuleResponseArray and FirewallRuleResponseArrayOutput values.
-// You can construct a concrete instance of `FirewallRuleResponseArrayInput` via:
-//
-//          FirewallRuleResponseArray{ FirewallRuleResponseArgs{...} }
-type FirewallRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput
-	ToFirewallRuleResponseArrayOutputWithContext(context.Context) FirewallRuleResponseArrayOutput
-}
-
-type FirewallRuleResponseArray []FirewallRuleResponseInput
-
-func (FirewallRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput {
-	return i.ToFirewallRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(ctx context.Context) FirewallRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
-}
-
 // Data Lake Analytics firewall rule information.
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
 
@@ -914,100 +521,6 @@ type SasTokenInformationResponse struct {
 	AccessToken string `pulumi:"accessToken"`
 }
 
-// SasTokenInformationResponseInput is an input type that accepts SasTokenInformationResponseArgs and SasTokenInformationResponseOutput values.
-// You can construct a concrete instance of `SasTokenInformationResponseInput` via:
-//
-//          SasTokenInformationResponseArgs{...}
-type SasTokenInformationResponseInput interface {
-	pulumi.Input
-
-	ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput
-	ToSasTokenInformationResponseOutputWithContext(context.Context) SasTokenInformationResponseOutput
-}
-
-// SAS token information.
-type SasTokenInformationResponseArgs struct {
-	// The access token for the associated Azure Storage Container.
-	AccessToken pulumi.StringInput `pulumi:"accessToken"`
-}
-
-func (SasTokenInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
-	return i.ToSasTokenInformationResponseOutputWithContext(context.Background())
-}
-
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseOutput)
-}
-
-// SasTokenInformationResponseArrayInput is an input type that accepts SasTokenInformationResponseArray and SasTokenInformationResponseArrayOutput values.
-// You can construct a concrete instance of `SasTokenInformationResponseArrayInput` via:
-//
-//          SasTokenInformationResponseArray{ SasTokenInformationResponseArgs{...} }
-type SasTokenInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput
-	ToSasTokenInformationResponseArrayOutputWithContext(context.Context) SasTokenInformationResponseArrayOutput
-}
-
-type SasTokenInformationResponseArray []SasTokenInformationResponseInput
-
-func (SasTokenInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
-	return i.ToSasTokenInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseArrayOutput)
-}
-
-// SAS token information.
-type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
-
-func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
-	return o
-}
-
-// The access token for the associated Azure Storage Container.
-func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
-}
-
-type SasTokenInformationResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (SasTokenInformationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationResponse {
-		return vs[0].([]SasTokenInformationResponse)[vs[1].(int)]
-	}).(SasTokenInformationResponseOutput)
-}
-
 // Azure Storage account information.
 type StorageAccountInformationResponse struct {
 	// The resource identifier.
@@ -1018,66 +531,6 @@ type StorageAccountInformationResponse struct {
 	Suffix string `pulumi:"suffix"`
 	// The resource type.
 	Type string `pulumi:"type"`
-}
-
-// StorageAccountInformationResponseInput is an input type that accepts StorageAccountInformationResponseArgs and StorageAccountInformationResponseOutput values.
-// You can construct a concrete instance of `StorageAccountInformationResponseInput` via:
-//
-//          StorageAccountInformationResponseArgs{...}
-type StorageAccountInformationResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountInformationResponseOutput() StorageAccountInformationResponseOutput
-	ToStorageAccountInformationResponseOutputWithContext(context.Context) StorageAccountInformationResponseOutput
-}
-
-// Azure Storage account information.
-type StorageAccountInformationResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The optional suffix for the storage account.
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountInformationResponse)(nil)).Elem()
-}
-
-func (i StorageAccountInformationResponseArgs) ToStorageAccountInformationResponseOutput() StorageAccountInformationResponseOutput {
-	return i.ToStorageAccountInformationResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountInformationResponseArgs) ToStorageAccountInformationResponseOutputWithContext(ctx context.Context) StorageAccountInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationResponseOutput)
-}
-
-// StorageAccountInformationResponseArrayInput is an input type that accepts StorageAccountInformationResponseArray and StorageAccountInformationResponseArrayOutput values.
-// You can construct a concrete instance of `StorageAccountInformationResponseArrayInput` via:
-//
-//          StorageAccountInformationResponseArray{ StorageAccountInformationResponseArgs{...} }
-type StorageAccountInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToStorageAccountInformationResponseArrayOutput() StorageAccountInformationResponseArrayOutput
-	ToStorageAccountInformationResponseArrayOutputWithContext(context.Context) StorageAccountInformationResponseArrayOutput
-}
-
-type StorageAccountInformationResponseArray []StorageAccountInformationResponseInput
-
-func (StorageAccountInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountInformationResponse)(nil)).Elem()
-}
-
-func (i StorageAccountInformationResponseArray) ToStorageAccountInformationResponseArrayOutput() StorageAccountInformationResponseArrayOutput {
-	return i.ToStorageAccountInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StorageAccountInformationResponseArray) ToStorageAccountInformationResponseArrayOutputWithContext(ctx context.Context) StorageAccountInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationResponseArrayOutput)
 }
 
 // Azure Storage account information.

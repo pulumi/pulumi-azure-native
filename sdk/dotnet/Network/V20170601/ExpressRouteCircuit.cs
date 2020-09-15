@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20170601
         /// The list of authorizations.
         /// </summary>
         [Output("authorizations")]
-        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponse>> Authorizations { get; private set; } = null!;
 
         /// <summary>
         /// The CircuitProvisioningState state of the resource.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20170601
         /// The list of peerings.
         /// </summary>
         [Output("peerings")]
-        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse>> Peerings { get; private set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20170601
         /// The ServiceProviderProperties.
         /// </summary>
         [Output("serviceProviderProperties")]
-        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult?> ServiceProviderProperties { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponse?> ServiceProviderProperties { get; private set; } = null!;
 
         /// <summary>
         /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Network.V20170601
         /// The SKU.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ExpressRouteCircuitSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ExpressRouteCircuitSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

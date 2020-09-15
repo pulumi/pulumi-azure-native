@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -325,12 +325,12 @@ class QueryComparisonExpressionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         The comparison expression to be used in the query.
         :param str name: The name of the column to use in comparison.
         :param str operator: The operator to use for comparison.
-        :param List[str] values: Array of values to use for comparison
+        :param Sequence[str] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -354,7 +354,7 @@ class QueryComparisonExpressionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Array of values to use for comparison
         """
@@ -370,17 +370,17 @@ class QueryDatasetConfigurationResponse(dict):
     The configuration of dataset in the query.
     """
     def __init__(__self__, *,
-                 columns: Optional[List[str]] = None):
+                 columns: Optional[Sequence[str]] = None):
         """
         The configuration of dataset in the query.
-        :param List[str] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        :param Sequence[str] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List[str]]:
+    def columns(self) -> Optional[Sequence[str]]:
         """
         Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
         """
@@ -400,14 +400,14 @@ class QueryDatasetResponse(dict):
                  configuration: Optional['outputs.QueryDatasetConfigurationResponse'] = None,
                  filter: Optional['outputs.QueryFilterResponse'] = None,
                  granularity: Optional[str] = None,
-                 grouping: Optional[List['outputs.QueryGroupingResponse']] = None):
+                 grouping: Optional[Sequence['outputs.QueryGroupingResponse']] = None):
         """
         The definition of data present in the query.
         :param Mapping[str, 'QueryAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         :param 'QueryDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
         :param 'QueryFilterResponseArgs' filter: Has filter expression to use in the query.
         :param str granularity: The granularity of rows in the query.
-        :param List['QueryGroupingResponseArgs'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+        :param Sequence['QueryGroupingResponseArgs'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -454,7 +454,7 @@ class QueryDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional[List['outputs.QueryGroupingResponse']]:
+    def grouping(self) -> Optional[Sequence['outputs.QueryGroupingResponse']]:
         """
         Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
@@ -530,17 +530,17 @@ class QueryFilterResponse(dict):
     The filter expression to be used in the export.
     """
     def __init__(__self__, *,
-                 and_: Optional[List['outputs.QueryFilterResponse']] = None,
+                 and_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
                  dimension: Optional['outputs.QueryComparisonExpressionResponse'] = None,
                  not_: Optional['outputs.QueryFilterResponse'] = None,
-                 or_: Optional[List['outputs.QueryFilterResponse']] = None,
+                 or_: Optional[Sequence['outputs.QueryFilterResponse']] = None,
                  tag: Optional['outputs.QueryComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the export.
-        :param List['QueryFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param Sequence['QueryFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'QueryComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
         :param 'QueryFilterResponseArgs' not_: The logical "NOT" expression.
-        :param List['QueryFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param Sequence['QueryFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'QueryComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -556,7 +556,7 @@ class QueryFilterResponse(dict):
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[List['outputs.QueryFilterResponse']]:
+    def and_(self) -> Optional[Sequence['outputs.QueryFilterResponse']]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
@@ -580,7 +580,7 @@ class QueryFilterResponse(dict):
 
     @property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[List['outputs.QueryFilterResponse']]:
+    def or_(self) -> Optional[Sequence['outputs.QueryFilterResponse']]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """
@@ -714,12 +714,12 @@ class ReportConfigComparisonExpressionResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         The comparison expression to be used in the report.
         :param str name: The name of the column to use in comparison.
         :param str operator: The operator to use for comparison.
-        :param List[str] values: Array of values to use for comparison
+        :param Sequence[str] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operator", operator)
@@ -743,7 +743,7 @@ class ReportConfigComparisonExpressionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Array of values to use for comparison
         """
@@ -759,17 +759,17 @@ class ReportConfigDatasetConfigurationResponse(dict):
     The configuration of dataset in the report.
     """
     def __init__(__self__, *,
-                 columns: Optional[List[str]] = None):
+                 columns: Optional[Sequence[str]] = None):
         """
         The configuration of dataset in the report.
-        :param List[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[List[str]]:
+    def columns(self) -> Optional[Sequence[str]]:
         """
         Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
@@ -789,16 +789,16 @@ class ReportConfigDatasetResponse(dict):
                  configuration: Optional['outputs.ReportConfigDatasetConfigurationResponse'] = None,
                  filter: Optional['outputs.ReportConfigFilterResponse'] = None,
                  granularity: Optional[str] = None,
-                 grouping: Optional[List['outputs.ReportConfigGroupingResponse']] = None,
-                 sorting: Optional[List['outputs.ReportConfigSortingResponse']] = None):
+                 grouping: Optional[Sequence['outputs.ReportConfigGroupingResponse']] = None,
+                 sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None):
         """
         The definition of data present in the report.
         :param Mapping[str, 'ReportConfigAggregationResponseArgs'] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param 'ReportConfigDatasetConfigurationResponseArgs' configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param 'ReportConfigFilterResponseArgs' filter: Has filter expression to use in the report.
         :param str granularity: The granularity of rows in the report.
-        :param List['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-        :param List['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
+        :param Sequence['ReportConfigGroupingResponseArgs'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        :param Sequence['ReportConfigSortingResponseArgs'] sorting: Array of order by expression to use in the report.
         """
         if aggregation is not None:
             pulumi.set(__self__, "aggregation", aggregation)
@@ -847,7 +847,7 @@ class ReportConfigDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional[List['outputs.ReportConfigGroupingResponse']]:
+    def grouping(self) -> Optional[Sequence['outputs.ReportConfigGroupingResponse']]:
         """
         Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
@@ -855,7 +855,7 @@ class ReportConfigDatasetResponse(dict):
 
     @property
     @pulumi.getter
-    def sorting(self) -> Optional[List['outputs.ReportConfigSortingResponse']]:
+    def sorting(self) -> Optional[Sequence['outputs.ReportConfigSortingResponse']]:
         """
         Array of order by expression to use in the report.
         """
@@ -871,17 +871,17 @@ class ReportConfigFilterResponse(dict):
     The filter expression to be used in the report.
     """
     def __init__(__self__, *,
-                 and_: Optional[List['outputs.ReportConfigFilterResponse']] = None,
+                 and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  dimension: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
                  not_: Optional['outputs.ReportConfigFilterResponse'] = None,
-                 or_: Optional[List['outputs.ReportConfigFilterResponse']] = None,
+                 or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
                  tag: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None):
         """
         The filter expression to be used in the report.
-        :param List['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
+        :param Sequence['ReportConfigFilterResponseArgs'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' dimension: Has comparison expression for a dimension
         :param 'ReportConfigFilterResponseArgs' not_: The logical "NOT" expression.
-        :param List['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
+        :param Sequence['ReportConfigFilterResponseArgs'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponseArgs' tag: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -897,7 +897,7 @@ class ReportConfigFilterResponse(dict):
 
     @property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[List['outputs.ReportConfigFilterResponse']]:
+    def and_(self) -> Optional[Sequence['outputs.ReportConfigFilterResponse']]:
         """
         The logical "AND" expression. Must have at least 2 items.
         """
@@ -921,7 +921,7 @@ class ReportConfigFilterResponse(dict):
 
     @property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[List['outputs.ReportConfigFilterResponse']]:
+    def or_(self) -> Optional[Sequence['outputs.ReportConfigFilterResponse']]:
         """
         The logical "OR" expression. Must have at least 2 items.
         """

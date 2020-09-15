@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// <summary>
         /// The plan information.
         /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
+        public readonly Outputs.PlanResponse? Plan;
         /// <summary>
         /// The managed application provisioning state.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         private GetApplicationResult(
             string? applicationDefinitionId,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string kind,
 
@@ -116,11 +116,11 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 
             ImmutableDictionary<string, object>? parameters,
 
-            Outputs.PlanResponseResult? plan,
+            Outputs.PlanResponse? plan,
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

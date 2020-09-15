@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
         /// The identity block returned by ARM resource that supports managed identity.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponseResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -30,13 +30,13 @@ namespace Pulumi.AzureRM.ChangeAnalysis.V20200401Preview
         /// The properties of a configuration profile.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConfigurationProfileResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.ConfigurationProfileResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponseResult?> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

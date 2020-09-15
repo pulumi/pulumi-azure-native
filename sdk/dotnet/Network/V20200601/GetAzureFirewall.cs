@@ -46,7 +46,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> ApplicationRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> ApplicationRuleCollections;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -54,19 +54,19 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The firewallPolicy associated with this azure firewall.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? FirewallPolicy;
+        public readonly Outputs.SubResourceResponse? FirewallPolicy;
         /// <summary>
         /// IP addresses associated with AzureFirewall.
         /// </summary>
-        public readonly Outputs.HubIPAddressesResponseResult? HubIPAddresses;
+        public readonly Outputs.HubIPAddressesResponse? HubIPAddresses;
         /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// IpGroups associated with AzureFirewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallIpGroupsResponseResult> IpGroups;
+        public readonly ImmutableArray<Outputs.AzureFirewallIpGroupsResponse> IpGroups;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// IP configuration of the Azure Firewall used for management traffic.
         /// </summary>
-        public readonly Outputs.AzureFirewallIPConfigurationResponseResult? ManagementIpConfiguration;
+        public readonly Outputs.AzureFirewallIPConfigurationResponse? ManagementIpConfiguration;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> NatRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponse> NatRuleCollections;
         /// <summary>
         /// Collection of network rule collections used by Azure Firewall.
         /// </summary>
-        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> NetworkRuleCollections;
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> NetworkRuleCollections;
         /// <summary>
         /// The provisioning state of the Azure firewall resource.
         /// </summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The Azure Firewall Resource SKU.
         /// </summary>
-        public readonly Outputs.AzureFirewallSkuResponseResult? Sku;
+        public readonly Outputs.AzureFirewallSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Network.V20200601
         /// <summary>
         /// The virtualHub to which the firewall belongs.
         /// </summary>
-        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        public readonly Outputs.SubResourceResponse? VirtualHub;
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.
         /// </summary>
@@ -120,31 +120,31 @@ namespace Pulumi.AzureRM.Network.V20200601
         private GetAzureFirewallResult(
             ImmutableDictionary<string, string>? additionalProperties,
 
-            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> applicationRuleCollections,
 
             string etag,
 
-            Outputs.SubResourceResponseResult? firewallPolicy,
+            Outputs.SubResourceResponse? firewallPolicy,
 
-            Outputs.HubIPAddressesResponseResult? hubIPAddresses,
+            Outputs.HubIPAddressesResponse? hubIPAddresses,
 
-            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> ipConfigurations,
 
-            ImmutableArray<Outputs.AzureFirewallIpGroupsResponseResult> ipGroups,
+            ImmutableArray<Outputs.AzureFirewallIpGroupsResponse> ipGroups,
 
             string? location,
 
-            Outputs.AzureFirewallIPConfigurationResponseResult? managementIpConfiguration,
+            Outputs.AzureFirewallIPConfigurationResponse? managementIpConfiguration,
 
             string name,
 
-            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> natRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponse> natRuleCollections,
 
-            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> networkRuleCollections,
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponse> networkRuleCollections,
 
             string provisioningState,
 
-            Outputs.AzureFirewallSkuResponseResult? sku,
+            Outputs.AzureFirewallSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -152,7 +152,7 @@ namespace Pulumi.AzureRM.Network.V20200601
 
             string type,
 
-            Outputs.SubResourceResponseResult? virtualHub,
+            Outputs.SubResourceResponse? virtualHub,
 
             ImmutableArray<string> zones)
         {

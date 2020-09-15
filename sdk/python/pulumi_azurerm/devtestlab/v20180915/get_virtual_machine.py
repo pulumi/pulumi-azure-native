@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -165,7 +165,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter
-    def artifacts(self) -> Optional[List['outputs.ArtifactInstallPropertiesResponse']]:
+    def artifacts(self) -> Optional[Sequence['outputs.ArtifactInstallPropertiesResponse']]:
         """
         The artifacts to be installed on the virtual machine.
         """
@@ -221,7 +221,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="dataDiskParameters")
-    def data_disk_parameters(self) -> Optional[List['outputs.DataDiskPropertiesResponse']]:
+    def data_disk_parameters(self) -> Optional[Sequence['outputs.DataDiskPropertiesResponse']]:
         """
         New or existing data disks to attach to the virtual machine after creation
         """
@@ -381,7 +381,7 @@ class GetVirtualMachineResult:
 
     @property
     @pulumi.getter(name="scheduleParameters")
-    def schedule_parameters(self) -> Optional[List['outputs.ScheduleCreationParameterResponse']]:
+    def schedule_parameters(self) -> Optional[Sequence['outputs.ScheduleCreationParameterResponse']]:
         """
         Virtual Machine schedules to be created
         """

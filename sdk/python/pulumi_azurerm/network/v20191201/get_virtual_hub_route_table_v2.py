@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -39,7 +39,7 @@ class GetVirtualHubRouteTableV2Result:
 
     @property
     @pulumi.getter(name="attachedConnections")
-    def attached_connections(self) -> Optional[List[str]]:
+    def attached_connections(self) -> Optional[Sequence[str]]:
         """
         List of all connections attached to this route table v2.
         """
@@ -71,7 +71,7 @@ class GetVirtualHubRouteTableV2Result:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.VirtualHubRouteV2Response']]:
+    def routes(self) -> Optional[Sequence['outputs.VirtualHubRouteV2Response']]:
         """
         List of all routes.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -59,7 +59,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter(name="ipv6Peerings")
-    def ipv6_peerings(self) -> List['outputs.ExpressRouteCircuitPeeringResponse']:
+    def ipv6_peerings(self) -> Sequence['outputs.ExpressRouteCircuitPeeringResponse']:
         """
         A collection of references to express route circuit ipv6 peerings.
         """
@@ -83,7 +83,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> List['outputs.ExpressRouteCircuitPeeringResponse']:
+    def peerings(self) -> Sequence['outputs.ExpressRouteCircuitPeeringResponse']:
         """
         A collection of references to express route circuit peerings.
         """
@@ -99,7 +99,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.RouteFilterRuleResponse']]:
+    def rules(self) -> Optional[Sequence['outputs.RouteFilterRuleResponse']]:
         """
         Collection of RouteFilterRules contained within a route filter.
         """

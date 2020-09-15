@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -17,7 +17,7 @@ class IpGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_groups_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class IpGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_addresses: IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: IpAddresses/IpAddressPrefixes in the IpGroups resource.
         :param pulumi.Input[str] ip_groups_name: The name of the ipGroups.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -105,7 +105,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def firewalls(self) -> pulumi.Output[List['outputs.SubResourceResponse']]:
+    def firewalls(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         List of references to Azure resources that this IpGroups is associated with.
         """
@@ -113,7 +113,7 @@ class IpGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> pulumi.Output[Optional[List[str]]]:
+    def ip_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         IpAddresses/IpAddressPrefixes in the IpGroups resource.
         """

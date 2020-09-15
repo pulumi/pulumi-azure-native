@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -17,12 +17,12 @@ __all__ = [
 @pulumi.input_type
 class DashboardLensArgs:
     def __init__(__self__, *,
-                 order: pulumi.Input[float],
+                 order: pulumi.Input[int],
                  parts: pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]],
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
         """
         A dashboard lens.
-        :param pulumi.Input[float] order: The lens order.
+        :param pulumi.Input[int] order: The lens order.
         :param pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]] parts: The dashboard parts.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard len's metadata.
         """
@@ -33,14 +33,14 @@ class DashboardLensArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> pulumi.Input[float]:
+    def order(self) -> pulumi.Input[int]:
         """
         The lens order.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: pulumi.Input[float]):
+    def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
     @property
@@ -110,17 +110,17 @@ class DashboardPartsArgs:
 @pulumi.input_type
 class DashboardPartsPositionArgs:
     def __init__(__self__, *,
-                 col_span: pulumi.Input[float],
-                 row_span: pulumi.Input[float],
-                 x: pulumi.Input[float],
-                 y: pulumi.Input[float],
+                 col_span: pulumi.Input[int],
+                 row_span: pulumi.Input[int],
+                 x: pulumi.Input[int],
+                 y: pulumi.Input[int],
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
         """
         The dashboard's part position.
-        :param pulumi.Input[float] col_span: The dashboard's part column span.
-        :param pulumi.Input[float] row_span: The dashboard's part row span.
-        :param pulumi.Input[float] x: The dashboard's part x coordinate.
-        :param pulumi.Input[float] y: The dashboard's part y coordinate.
+        :param pulumi.Input[int] col_span: The dashboard's part column span.
+        :param pulumi.Input[int] row_span: The dashboard's part row span.
+        :param pulumi.Input[int] x: The dashboard's part x coordinate.
+        :param pulumi.Input[int] y: The dashboard's part y coordinate.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] metadata: The dashboard part's metadata.
         """
         pulumi.set(__self__, "col_span", col_span)
@@ -132,50 +132,50 @@ class DashboardPartsPositionArgs:
 
     @property
     @pulumi.getter(name="colSpan")
-    def col_span(self) -> pulumi.Input[float]:
+    def col_span(self) -> pulumi.Input[int]:
         """
         The dashboard's part column span.
         """
         return pulumi.get(self, "col_span")
 
     @col_span.setter
-    def col_span(self, value: pulumi.Input[float]):
+    def col_span(self, value: pulumi.Input[int]):
         pulumi.set(self, "col_span", value)
 
     @property
     @pulumi.getter(name="rowSpan")
-    def row_span(self) -> pulumi.Input[float]:
+    def row_span(self) -> pulumi.Input[int]:
         """
         The dashboard's part row span.
         """
         return pulumi.get(self, "row_span")
 
     @row_span.setter
-    def row_span(self, value: pulumi.Input[float]):
+    def row_span(self, value: pulumi.Input[int]):
         pulumi.set(self, "row_span", value)
 
     @property
     @pulumi.getter
-    def x(self) -> pulumi.Input[float]:
+    def x(self) -> pulumi.Input[int]:
         """
         The dashboard's part x coordinate.
         """
         return pulumi.get(self, "x")
 
     @x.setter
-    def x(self, value: pulumi.Input[float]):
+    def x(self, value: pulumi.Input[int]):
         pulumi.set(self, "x", value)
 
     @property
     @pulumi.getter
-    def y(self) -> pulumi.Input[float]:
+    def y(self) -> pulumi.Input[int]:
         """
         The dashboard's part y coordinate.
         """
         return pulumi.get(self, "y")
 
     @y.setter
-    def y(self, value: pulumi.Input[float]):
+    def y(self, value: pulumi.Input[int]):
         pulumi.set(self, "y", value)
 
     @property

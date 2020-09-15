@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = ['AccessControlRecord']
@@ -127,7 +127,7 @@ class AccessControlRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeCount")
-    def volume_count(self) -> pulumi.Output[float]:
+    def volume_count(self) -> pulumi.Output[int]:
         """
         The number of volumes using the access control record.
         """

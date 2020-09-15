@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -66,8 +66,8 @@ class GetDomainServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if version and not isinstance(version, float):
-            raise TypeError("Expected argument 'version' to be a float")
+        if version and not isinstance(version, int):
+            raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
 
     @property
@@ -152,7 +152,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter(name="replicaSets")
-    def replica_sets(self) -> Optional[List['outputs.ReplicaSetResponse']]:
+    def replica_sets(self) -> Optional[Sequence['outputs.ReplicaSetResponse']]:
         """
         List of ReplicaSets
         """
@@ -192,7 +192,7 @@ class GetDomainServiceResult:
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> int:
         """
         Data Model Version
         """

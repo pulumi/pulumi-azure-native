@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Security.V20190101Preview
         /// The suppression conditions
         /// </summary>
         [Output("suppressionAlertsScope")]
-        public Output<Outputs.SuppressionAlertsScopeResponseResult?> SuppressionAlertsScope { get; private set; } = null!;
+        public Output<Outputs.SuppressionAlertsScopeResponse?> SuppressionAlertsScope { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

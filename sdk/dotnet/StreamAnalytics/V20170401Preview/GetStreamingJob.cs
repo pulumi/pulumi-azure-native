@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The cluster which streaming jobs will run on.
         /// </summary>
-        public readonly Outputs.ClusterInfoResponseResult? Cluster;
+        public readonly Outputs.ClusterInfoResponse? Cluster;
         /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
@@ -84,19 +84,19 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The storage account where the custom code artifacts are located.
         /// </summary>
-        public readonly Outputs.ExternalResponseResult? Externals;
+        public readonly Outputs.ExternalResponse? Externals;
         /// <summary>
         /// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FunctionResponseResult> Functions;
+        public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
         /// <summary>
         /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
-        public readonly ImmutableArray<Outputs.InputResponseResult> Inputs;
+        public readonly ImmutableArray<Outputs.InputResponse> Inputs;
         /// <summary>
         /// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// The properties that are associated with an Azure Storage account with MSI
         /// </summary>
-        public readonly Outputs.JobStorageAccountResponseResult? JobStorageAccount;
+        public readonly Outputs.JobStorageAccountResponse? JobStorageAccount;
         /// <summary>
         /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
         /// </summary>
-        public readonly ImmutableArray<Outputs.OutputResponseResult> Outputs;
+        public readonly ImmutableArray<Outputs.OutputResponse> Outputs;
         /// <summary>
         /// Describes the provisioning status of the streaming job.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.StreamingJobSkuResponseResult? Sku;
+        public readonly Outputs.StreamingJobSkuResponse? Sku;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         /// </summary>
-        public readonly Outputs.TransformationResponseResult? Transformation;
+        public readonly Outputs.TransformationResponse? Transformation;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
 
         [OutputConstructor]
         private GetStreamingJobResult(
-            Outputs.ClusterInfoResponseResult? cluster,
+            Outputs.ClusterInfoResponse? cluster,
 
             string? compatibilityLevel,
 
@@ -182,19 +182,19 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
 
             string? eventsOutOfOrderPolicy,
 
-            Outputs.ExternalResponseResult? externals,
+            Outputs.ExternalResponse? externals,
 
-            ImmutableArray<Outputs.FunctionResponseResult> functions,
+            ImmutableArray<Outputs.FunctionResponse> functions,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
-            ImmutableArray<Outputs.InputResponseResult> inputs,
+            ImmutableArray<Outputs.InputResponse> inputs,
 
             string jobId,
 
             string jobState,
 
-            Outputs.JobStorageAccountResponseResult? jobStorageAccount,
+            Outputs.JobStorageAccountResponse? jobStorageAccount,
 
             string? jobType,
 
@@ -210,15 +210,15 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
 
             string? outputStartTime,
 
-            ImmutableArray<Outputs.OutputResponseResult> outputs,
+            ImmutableArray<Outputs.OutputResponse> outputs,
 
             string provisioningState,
 
-            Outputs.StreamingJobSkuResponseResult? sku,
+            Outputs.StreamingJobSkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            Outputs.TransformationResponseResult? transformation,
+            Outputs.TransformationResponse? transformation,
 
             string type)
         {

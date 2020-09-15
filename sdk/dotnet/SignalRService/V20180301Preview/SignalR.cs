@@ -67,7 +67,7 @@ namespace Pulumi.AzureRM.SignalRService.V20180301Preview
         /// SKU of the service.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ResourceSkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.

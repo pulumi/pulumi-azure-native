@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetDatabaseResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
-        if hot_cache_period_in_days and not isinstance(hot_cache_period_in_days, float):
-            raise TypeError("Expected argument 'hot_cache_period_in_days' to be a float")
+        if hot_cache_period_in_days and not isinstance(hot_cache_period_in_days, int):
+            raise TypeError("Expected argument 'hot_cache_period_in_days' to be a int")
         pulumi.set(__self__, "hot_cache_period_in_days", hot_cache_period_in_days)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -36,8 +36,8 @@ class GetDatabaseResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if soft_delete_period_in_days and not isinstance(soft_delete_period_in_days, float):
-            raise TypeError("Expected argument 'soft_delete_period_in_days' to be a float")
+        if soft_delete_period_in_days and not isinstance(soft_delete_period_in_days, int):
+            raise TypeError("Expected argument 'soft_delete_period_in_days' to be a int")
         pulumi.set(__self__, "soft_delete_period_in_days", soft_delete_period_in_days)
         if statistics and not isinstance(statistics, dict):
             raise TypeError("Expected argument 'statistics' to be a dict")
@@ -59,7 +59,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="hotCachePeriodInDays")
-    def hot_cache_period_in_days(self) -> Optional[float]:
+    def hot_cache_period_in_days(self) -> Optional[int]:
         """
         The number of days of data that should be kept in cache for fast queries.
         """
@@ -91,7 +91,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="softDeletePeriodInDays")
-    def soft_delete_period_in_days(self) -> float:
+    def soft_delete_period_in_days(self) -> int:
         """
         The number of days data should be kept before it stops being accessible to queries.
         """

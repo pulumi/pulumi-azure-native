@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// A reference to the service being brought into the virtual network.
         /// </summary>
         [Output("endpointService")]
-        public Output<Outputs.EndpointServiceResponseResult?> EndpointService { get; private set; } = null!;
+        public Output<Outputs.EndpointServiceResponse?> EndpointService { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// A read-only property that identifies who created this interface endpoint.
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20181101
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubnetResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

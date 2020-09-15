@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.BotService.V20180712
         /// <summary>
         /// The set of properties specific to bot channel resource
         /// </summary>
-        public readonly Outputs.ConnectionSettingPropertiesResponseResult Properties;
+        public readonly Outputs.ConnectionSettingPropertiesResponse Properties;
         /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -88,9 +88,9 @@ namespace Pulumi.AzureRM.BotService.V20180712
 
             string name,
 
-            Outputs.ConnectionSettingPropertiesResponseResult properties,
+            Outputs.ConnectionSettingPropertiesResponse properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

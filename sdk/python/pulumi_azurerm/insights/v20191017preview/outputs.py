@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -180,14 +180,14 @@ class WorkbookTemplateGalleryResponse(dict):
     def __init__(__self__, *,
                  category: Optional[str] = None,
                  name: Optional[str] = None,
-                 order: Optional[float] = None,
+                 order: Optional[int] = None,
                  resource_type: Optional[str] = None,
                  type: Optional[str] = None):
         """
         Gallery information for a workbook template.
         :param str category: Category for the gallery.
         :param str name: Name of the workbook template in the gallery.
-        :param float order: Order of the template within the gallery.
+        :param int order: Order of the template within the gallery.
         :param str resource_type: Azure resource type supported by the gallery.
         :param str type: Type of workbook supported by the workbook template.
         """
@@ -220,7 +220,7 @@ class WorkbookTemplateGalleryResponse(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[float]:
+    def order(self) -> Optional[int]:
         """
         Order of the template within the gallery.
         """
@@ -252,11 +252,11 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
     Localized template data and gallery information.
     """
     def __init__(__self__, *,
-                 galleries: Optional[List['outputs.WorkbookTemplateGalleryResponse']] = None,
+                 galleries: Optional[Sequence['outputs.WorkbookTemplateGalleryResponse']] = None,
                  template_data: Optional[Mapping[str, Any]] = None):
         """
         Localized template data and gallery information.
-        :param List['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
+        :param Sequence['WorkbookTemplateGalleryResponseArgs'] galleries: Workbook galleries supported by the template.
         :param Mapping[str, Any] template_data: Valid JSON object containing workbook template payload.
         """
         if galleries is not None:
@@ -266,7 +266,7 @@ class WorkbookTemplateLocalizedGalleryResponse(dict):
 
     @property
     @pulumi.getter
-    def galleries(self) -> Optional[List['outputs.WorkbookTemplateGalleryResponse']]:
+    def galleries(self) -> Optional[Sequence['outputs.WorkbookTemplateGalleryResponse']]:
         """
         Workbook galleries supported by the template.
         """

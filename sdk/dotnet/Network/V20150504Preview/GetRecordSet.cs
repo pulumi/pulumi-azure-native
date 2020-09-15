@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
         /// <summary>
         /// Gets or sets the properties of the RecordSet.
         /// </summary>
-        public readonly Outputs.RecordSetPropertiesResponseResult Properties;
+        public readonly Outputs.RecordSetPropertiesResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20150504Preview
 
             string name,
 
-            Outputs.RecordSetPropertiesResponseResult properties,
+            Outputs.RecordSetPropertiesResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -66,11 +66,11 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
         /// <summary>
         /// Service properties
         /// </summary>
-        public readonly Union<Outputs.ACIServiceResponseResponseResult, Outputs.AKSVariantResponseResponseResult> Properties;
+        public readonly Union<Outputs.ACIServiceResponseResponse, Outputs.AKSVariantResponseResponse> Properties;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200515Preview
 
         [OutputConstructor]
         private GetMachineLearningServiceResult(
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? location,
 
             string name,
 
-            Union<Outputs.ACIServiceResponseResponseResult, Outputs.AKSVariantResponseResponseResult> properties,
+            Union<Outputs.ACIServiceResponseResponse, Outputs.AKSVariantResponseResponse> properties,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 

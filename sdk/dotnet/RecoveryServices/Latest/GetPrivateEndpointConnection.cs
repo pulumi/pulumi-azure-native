@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
         /// <summary>
         /// PrivateEndpointConnectionResource properties
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionResponseResult Properties;
+        public readonly Outputs.PrivateEndpointConnectionResponse Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.RecoveryServices.Latest
 
             string name,
 
-            Outputs.PrivateEndpointConnectionResponseResult properties,
+            Outputs.PrivateEndpointConnectionResponse properties,
 
             ImmutableDictionary<string, string>? tags,
 

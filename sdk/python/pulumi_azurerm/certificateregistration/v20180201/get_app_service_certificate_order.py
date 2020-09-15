@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -48,8 +48,8 @@ class GetAppServiceCertificateOrderResult:
         if is_private_key_external and not isinstance(is_private_key_external, bool):
             raise TypeError("Expected argument 'is_private_key_external' to be a bool")
         pulumi.set(__self__, "is_private_key_external", is_private_key_external)
-        if key_size and not isinstance(key_size, float):
-            raise TypeError("Expected argument 'key_size' to be a float")
+        if key_size and not isinstance(key_size, int):
+            raise TypeError("Expected argument 'key_size' to be a int")
         pulumi.set(__self__, "key_size", key_size)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -90,13 +90,13 @@ class GetAppServiceCertificateOrderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if validity_in_years and not isinstance(validity_in_years, float):
-            raise TypeError("Expected argument 'validity_in_years' to be a float")
+        if validity_in_years and not isinstance(validity_in_years, int):
+            raise TypeError("Expected argument 'validity_in_years' to be a int")
         pulumi.set(__self__, "validity_in_years", validity_in_years)
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
-    def app_service_certificate_not_renewable_reasons(self) -> List[str]:
+    def app_service_certificate_not_renewable_reasons(self) -> Sequence[str]:
         """
         Reasons why App Service Certificate is not renewable at the current moment.
         """
@@ -168,7 +168,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[float]:
+    def key_size(self) -> Optional[int]:
         """
         Certificate key size.
         """
@@ -280,7 +280,7 @@ class GetAppServiceCertificateOrderResult:
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> Optional[float]:
+    def validity_in_years(self) -> Optional[int]:
         """
         Duration in years (must be between 1 and 3).
         """

@@ -48,11 +48,11 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureFunctionOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureSynapseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.EventHubV2OutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>>>>? Datasource;
+        public readonly Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureFunctionOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureSynapseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.EventHubV2OutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>>>>? Datasource;
         /// <summary>
         /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         /// </summary>
-        public readonly Outputs.DiagnosticsResponseResult Diagnostics;
+        public readonly Outputs.DiagnosticsResponse Diagnostics;
         /// <summary>
         /// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Union<Outputs.CustomClrSerializationResponseResult, Union<Outputs.JsonSerializationResponseResult, Outputs.ParquetSerializationResponseResult>>>>? Serialization;
+        public readonly Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? Serialization;
         public readonly double? SizeWindow;
         public readonly string? TimeWindow;
         /// <summary>
@@ -74,15 +74,15 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20170401Preview
 
         [OutputConstructor]
         private GetOutputResult(
-            Union<Outputs.AzureDataLakeStoreOutputDataSourceResponseResult, Union<Outputs.AzureFunctionOutputDataSourceResponseResult, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponseResult, Union<Outputs.AzureSynapseOutputDataSourceResponseResult, Union<Outputs.AzureTableOutputDataSourceResponseResult, Union<Outputs.BlobOutputDataSourceResponseResult, Union<Outputs.DocumentDbOutputDataSourceResponseResult, Union<Outputs.EventHubOutputDataSourceResponseResult, Union<Outputs.EventHubV2OutputDataSourceResponseResult, Union<Outputs.PowerBIOutputDataSourceResponseResult, Union<Outputs.ServiceBusQueueOutputDataSourceResponseResult, Outputs.ServiceBusTopicOutputDataSourceResponseResult>>>>>>>>>>>? datasource,
+            Union<Outputs.AzureDataLakeStoreOutputDataSourceResponse, Union<Outputs.AzureFunctionOutputDataSourceResponse, Union<Outputs.AzureSqlDatabaseOutputDataSourceResponse, Union<Outputs.AzureSynapseOutputDataSourceResponse, Union<Outputs.AzureTableOutputDataSourceResponse, Union<Outputs.BlobOutputDataSourceResponse, Union<Outputs.DocumentDbOutputDataSourceResponse, Union<Outputs.EventHubOutputDataSourceResponse, Union<Outputs.EventHubV2OutputDataSourceResponse, Union<Outputs.PowerBIOutputDataSourceResponse, Union<Outputs.ServiceBusQueueOutputDataSourceResponse, Outputs.ServiceBusTopicOutputDataSourceResponse>>>>>>>>>>>? datasource,
 
-            Outputs.DiagnosticsResponseResult diagnostics,
+            Outputs.DiagnosticsResponse diagnostics,
 
             string etag,
 
             string? name,
 
-            Union<Outputs.AvroSerializationResponseResult, Union<Outputs.CsvSerializationResponseResult, Union<Outputs.CustomClrSerializationResponseResult, Union<Outputs.JsonSerializationResponseResult, Outputs.ParquetSerializationResponseResult>>>>? serialization,
+            Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Union<Outputs.CustomClrSerializationResponse, Union<Outputs.JsonSerializationResponse, Outputs.ParquetSerializationResponse>>>>? serialization,
 
             double? sizeWindow,
 

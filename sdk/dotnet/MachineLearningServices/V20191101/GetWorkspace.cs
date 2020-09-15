@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.IdentityResponseResult? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
 
             string? friendlyName,
 
-            Outputs.IdentityResponseResult? identity,
+            Outputs.IdentityResponse? identity,
 
             string? keyVault,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20191101
 
             string provisioningState,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             string? storageAccount,
 

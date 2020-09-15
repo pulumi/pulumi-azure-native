@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
         /// <summary>
         /// List of load balancer configurations for an availability group listener.
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoadBalancerConfigurationResponseResult> LoadBalancerConfigurations;
+        public readonly ImmutableArray<Outputs.LoadBalancerConfigurationResponse> LoadBalancerConfigurations;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureRM.SqlVirtualMachine.V20170301Preview
 
             bool? createDefaultAvailabilityGroupIfNotExist,
 
-            ImmutableArray<Outputs.LoadBalancerConfigurationResponseResult> loadBalancerConfigurations,
+            ImmutableArray<Outputs.LoadBalancerConfigurationResponse> loadBalancerConfigurations,
 
             string name,
 

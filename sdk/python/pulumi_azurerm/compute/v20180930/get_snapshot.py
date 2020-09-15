@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetSnapshotResult:
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        if disk_size_gb and not isinstance(disk_size_gb, int):
+            raise TypeError("Expected argument 'disk_size_gb' to be a int")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
             raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
@@ -71,7 +71,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="diskSizeGB")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class Subnet(pulumi.CustomResource):
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] address_prefix: Gets or sets Address prefix for the subnet.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_configurations: Gets array of references to the network interface IP configurations using subnet
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_configurations: Gets array of references to the network interface IP configurations using subnet
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] network_security_group: Gets or sets the reference of the NetworkSecurityGroup resource
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -128,7 +128,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[Optional[List['outputs.SubResourceResponse']]]:
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
         """
         Gets array of references to the network interface IP configurations using subnet
         """

@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The applicable schedule for the virtual machine.
         /// </summary>
         [Output("applicableSchedule")]
-        public Output<Outputs.ApplicableScheduleResponseResult> ApplicableSchedule { get; private set; } = null!;
+        public Output<Outputs.ApplicableScheduleResponse> ApplicableSchedule { get; private set; } = null!;
 
         /// <summary>
         /// The resource id of the environment under which the service fabric resource is present

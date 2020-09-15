@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.DataBoxEdge.Latest
         /// Encrypted storage key.
         /// </summary>
         [Output("accountKey")]
-        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> AccountKey { get; private set; } = null!;
+        public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccountKey { get; private set; } = null!;
 
         /// <summary>
         /// Type of storage accessed on the storage account.

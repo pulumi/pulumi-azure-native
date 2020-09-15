@@ -18,13 +18,13 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets backend address pool of application gateway resource
         /// </summary>
         [Output("backendAddressPools")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponse>> BackendAddressPools { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets backend http settings of application gateway resource
         /// </summary>
         [Output("backendHttpSettingsCollection")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult>> BackendHttpSettingsCollection { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse>> BackendHttpSettingsCollection { get; private set; } = null!;
 
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
@@ -36,25 +36,25 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets frontend IP addresses of application gateway resource
         /// </summary>
         [Output("frontendIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponse>> FrontendIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets frontend ports of application gateway resource
         /// </summary>
         [Output("frontendPorts")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult>> FrontendPorts { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponse>> FrontendPorts { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets subnets of application gateway resource
         /// </summary>
         [Output("gatewayIPConfigurations")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult>> GatewayIPConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> GatewayIPConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets HTTP listeners of application gateway resource
         /// </summary>
         [Output("httpListeners")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult>> HttpListeners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets request routing rules of application gateway resource
         /// </summary>
         [Output("requestRoutingRules")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult>> RequestRoutingRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponse>> RequestRoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets resource guid property of the ApplicationGateway resource
@@ -96,13 +96,13 @@ namespace Pulumi.AzureRM.Network.V20150501Preview
         /// Gets or sets sku of application gateway resource
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.ApplicationGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewaySkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets ssl certificates of application gateway resource
         /// </summary>
         [Output("sslCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult>> SslCertificates { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponse>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

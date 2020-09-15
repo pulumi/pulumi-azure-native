@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// <summary>
         /// Properties of agent pools
         /// </summary>
-        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> AgentPoolProfiles;
         /// <summary>
         /// Properties for Diagnostic Agent
         /// </summary>
-        public readonly Outputs.ContainerServiceDiagnosticsProfileResponseResult? DiagnosticsProfile;
+        public readonly Outputs.ContainerServiceDiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
         /// Properties for Linux VMs
         /// </summary>
-        public readonly Outputs.ContainerServiceLinuxProfileResponseResult LinuxProfile;
+        public readonly Outputs.ContainerServiceLinuxProfileResponse LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// <summary>
         /// Properties of master agents
         /// </summary>
-        public readonly Outputs.ContainerServiceMasterProfileResponseResult MasterProfile;
+        public readonly Outputs.ContainerServiceMasterProfileResponse MasterProfile;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// <summary>
         /// Properties of orchestrator
         /// </summary>
-        public readonly Outputs.ContainerServiceOrchestratorProfileResponseResult? OrchestratorProfile;
+        public readonly Outputs.ContainerServiceOrchestratorProfileResponse? OrchestratorProfile;
         /// <summary>
         /// Gets the provisioning state, which only appears in the response.
         /// </summary>
@@ -82,23 +82,23 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
         /// <summary>
         /// Properties of Windows VMs
         /// </summary>
-        public readonly Outputs.ContainerServiceWindowsProfileResponseResult? WindowsProfile;
+        public readonly Outputs.ContainerServiceWindowsProfileResponse? WindowsProfile;
 
         [OutputConstructor]
         private GetContainerServiceResult(
-            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponse> agentPoolProfiles,
 
-            Outputs.ContainerServiceDiagnosticsProfileResponseResult? diagnosticsProfile,
+            Outputs.ContainerServiceDiagnosticsProfileResponse? diagnosticsProfile,
 
-            Outputs.ContainerServiceLinuxProfileResponseResult linuxProfile,
+            Outputs.ContainerServiceLinuxProfileResponse linuxProfile,
 
             string location,
 
-            Outputs.ContainerServiceMasterProfileResponseResult masterProfile,
+            Outputs.ContainerServiceMasterProfileResponse masterProfile,
 
             string name,
 
-            Outputs.ContainerServiceOrchestratorProfileResponseResult? orchestratorProfile,
+            Outputs.ContainerServiceOrchestratorProfileResponse? orchestratorProfile,
 
             string provisioningState,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AzureRM.ContainerService.V20151101Preview
 
             string type,
 
-            Outputs.ContainerServiceWindowsProfileResponseResult? windowsProfile)
+            Outputs.ContainerServiceWindowsProfileResponse? windowsProfile)
         {
             AgentPoolProfiles = agentPoolProfiles;
             DiagnosticsProfile = diagnosticsProfile;

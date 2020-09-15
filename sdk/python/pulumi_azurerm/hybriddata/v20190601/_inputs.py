@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 
 __all__ = [
@@ -71,11 +71,11 @@ class CustomerSecretArgs:
 class ScheduleArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_list: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 policy_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Schedule for the job run.
         :param pulumi.Input[str] name: Name of the schedule.
-        :param pulumi.Input[List[pulumi.Input[str]]] policy_list: A list of repetition intervals in ISO 8601 format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_list: A list of repetition intervals in ISO 8601 format.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -96,14 +96,14 @@ class ScheduleArgs:
 
     @property
     @pulumi.getter(name="policyList")
-    def policy_list(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def policy_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of repetition intervals in ISO 8601 format.
         """
         return pulumi.get(self, "policy_list")
 
     @policy_list.setter
-    def policy_list(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def policy_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "policy_list", value)
 
 

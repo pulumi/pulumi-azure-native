@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Maps.V20200201Preview
         /// The Creator resource properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.CreatorPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<Outputs.CreatorPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

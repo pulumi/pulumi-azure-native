@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The auto-approval list of the private link service.
         /// </summary>
-        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? AutoApproval;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApproval? AutoApproval;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -64,11 +64,11 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// An array of references to the private link service IP configuration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponseResult> IpConfigurations;
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> IpConfigurations;
         /// <summary>
         /// An array of references to the load balancer IP configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> LoadBalancerFrontendIpConfigurations;
+        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> LoadBalancerFrontendIpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -80,11 +80,11 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// Gets an array of references to the network interfaces created for this private link service.
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponse> NetworkInterfaces;
         /// <summary>
         /// An array of list about connections to the private endpoint.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state of the private link service.
         /// </summary>
@@ -100,29 +100,29 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// <summary>
         /// The visibility list of the private link service.
         /// </summary>
-        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? Visibility;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibility? Visibility;
 
         [OutputConstructor]
         private GetPrivateLinkServiceResult(
             string alias,
 
-            Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? autoApproval,
+            Outputs.PrivateLinkServicePropertiesResponseAutoApproval? autoApproval,
 
             string? etag,
 
             ImmutableArray<string> fqdns,
 
-            ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponseResult> ipConfigurations,
+            ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> ipConfigurations,
 
-            ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> loadBalancerFrontendIpConfigurations,
+            ImmutableArray<Outputs.FrontendIPConfigurationResponse> loadBalancerFrontendIpConfigurations,
 
             string? location,
 
             string name,
 
-            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+            ImmutableArray<Outputs.NetworkInterfaceResponse> networkInterfaces,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult> privateEndpointConnections,
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
 
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Network.V20190401
 
             string type,
 
-            Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? visibility)
+            Outputs.PrivateLinkServicePropertiesResponseVisibility? visibility)
         {
             Alias = alias;
             AutoApproval = autoApproval;

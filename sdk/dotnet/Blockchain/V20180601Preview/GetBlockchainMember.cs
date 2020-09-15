@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// <summary>
         /// Gets or sets firewall rules
         /// </summary>
-        public readonly ImmutableArray<Outputs.FirewallRuleResponseResult> FirewallRules;
+        public readonly ImmutableArray<Outputs.FirewallRuleResponse> FirewallRules;
         /// <summary>
         /// The GEO location of the blockchain service.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// <summary>
         /// Gets or sets the blockchain member Sku.
         /// </summary>
-        public readonly Outputs.SkuResponseResult? Sku;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describes the resource.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
         /// <summary>
         /// Gets or sets the blockchain validator nodes Sku.
         /// </summary>
-        public readonly Outputs.BlockchainMemberNodesSkuResponseResult? ValidatorNodesSku;
+        public readonly Outputs.BlockchainMemberNodesSkuResponse? ValidatorNodesSku;
 
         [OutputConstructor]
         private GetBlockchainMemberResult(
@@ -130,7 +130,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
 
             string dns,
 
-            ImmutableArray<Outputs.FirewallRuleResponseResult> firewallRules,
+            ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
 
             string? location,
 
@@ -146,7 +146,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
 
             string rootContractAddress,
 
-            Outputs.SkuResponseResult? sku,
+            Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AzureRM.Blockchain.V20180601Preview
 
             string userName,
 
-            Outputs.BlockchainMemberNodesSkuResponseResult? validatorNodesSku)
+            Outputs.BlockchainMemberNodesSkuResponse? validatorNodesSku)
         {
             Consortium = consortium;
             ConsortiumManagementAccountAddress = consortiumManagementAccountAddress;

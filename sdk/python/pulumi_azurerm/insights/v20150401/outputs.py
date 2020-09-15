@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
 
@@ -32,12 +32,12 @@ class AutoscaleNotificationResponse(dict):
     def __init__(__self__, *,
                  operation: str,
                  email: Optional['outputs.EmailNotificationResponse'] = None,
-                 webhooks: Optional[List['outputs.WebhookNotificationResponse']] = None):
+                 webhooks: Optional[Sequence['outputs.WebhookNotificationResponse']] = None):
         """
         Autoscale notification.
         :param str operation: the operation associated with the notification and its value must be "scale"
         :param 'EmailNotificationResponseArgs' email: the email notification.
-        :param List['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
+        :param Sequence['WebhookNotificationResponseArgs'] webhooks: the collection of webhook notifications.
         """
         pulumi.set(__self__, "operation", operation)
         if email is not None:
@@ -63,7 +63,7 @@ class AutoscaleNotificationResponse(dict):
 
     @property
     @pulumi.getter
-    def webhooks(self) -> Optional[List['outputs.WebhookNotificationResponse']]:
+    def webhooks(self) -> Optional[Sequence['outputs.WebhookNotificationResponse']]:
         """
         the collection of webhook notifications.
         """
@@ -81,14 +81,14 @@ class AutoscaleProfileResponse(dict):
     def __init__(__self__, *,
                  capacity: 'outputs.ScaleCapacityResponse',
                  name: str,
-                 rules: List['outputs.ScaleRuleResponse'],
+                 rules: Sequence['outputs.ScaleRuleResponse'],
                  fixed_date: Optional['outputs.TimeWindowResponse'] = None,
                  recurrence: Optional['outputs.RecurrenceResponse'] = None):
         """
         Autoscale profile.
         :param 'ScaleCapacityResponseArgs' capacity: the number of instances that can be used during this profile.
         :param str name: the name of the profile.
-        :param List['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
+        :param Sequence['ScaleRuleResponseArgs'] rules: the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         :param 'TimeWindowResponseArgs' fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param 'RecurrenceResponseArgs' recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
@@ -118,7 +118,7 @@ class AutoscaleProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.ScaleRuleResponse']:
+    def rules(self) -> Sequence['outputs.ScaleRuleResponse']:
         """
         the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.
         """
@@ -150,12 +150,12 @@ class EmailNotificationResponse(dict):
     Email notification of an autoscale event.
     """
     def __init__(__self__, *,
-                 custom_emails: Optional[List[str]] = None,
+                 custom_emails: Optional[Sequence[str]] = None,
                  send_to_subscription_administrator: Optional[bool] = None,
                  send_to_subscription_co_administrators: Optional[bool] = None):
         """
         Email notification of an autoscale event.
-        :param List[str] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
+        :param Sequence[str] custom_emails: the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         :param bool send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param bool send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
@@ -168,7 +168,7 @@ class EmailNotificationResponse(dict):
 
     @property
     @pulumi.getter(name="customEmails")
-    def custom_emails(self) -> Optional[List[str]]:
+    def custom_emails(self) -> Optional[Sequence[str]]:
         """
         the custom e-mails list. This value can be null or empty, in which case this attribute will be ignored.
         """
@@ -208,7 +208,7 @@ class MetricTriggerResponse(dict):
                  time_aggregation: str,
                  time_grain: str,
                  time_window: str,
-                 dimensions: Optional[List['outputs.ScaleRuleMetricDimensionResponse']] = None,
+                 dimensions: Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']] = None,
                  metric_namespace: Optional[str] = None):
         """
         The trigger that results in a scaling action.
@@ -220,7 +220,7 @@ class MetricTriggerResponse(dict):
         :param str time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param str time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param str time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
-        :param List['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
+        :param Sequence['ScaleRuleMetricDimensionResponseArgs'] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         :param str metric_namespace: the namespace of the metric that defines what the rule monitors.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -302,7 +302,7 @@ class MetricTriggerResponse(dict):
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[List['outputs.ScaleRuleMetricDimensionResponse']]:
+    def dimensions(self) -> Optional[Sequence['outputs.ScaleRuleMetricDimensionResponse']]:
         """
         List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
         """
@@ -362,15 +362,15 @@ class RecurrentScheduleResponse(dict):
     The scheduling constraints for when the profile begins.
     """
     def __init__(__self__, *,
-                 days: List[str],
-                 hours: List[float],
-                 minutes: List[float],
+                 days: Sequence[str],
+                 hours: Sequence[int],
+                 minutes: Sequence[int],
                  time_zone: str):
         """
         The scheduling constraints for when the profile begins.
-        :param List[str] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
-        :param List[float] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
-        :param List[float] minutes: A collection of minutes at which the profile takes effect at.
+        :param Sequence[str] days: the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
+        :param Sequence[int] hours: A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
+        :param Sequence[int] minutes: A collection of minutes at which the profile takes effect at.
         :param str time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         pulumi.set(__self__, "days", days)
@@ -380,7 +380,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> List[str]:
+    def days(self) -> Sequence[str]:
         """
         the collection of days that the profile takes effect on. Possible values are Sunday through Saturday.
         """
@@ -388,7 +388,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def hours(self) -> List[float]:
+    def hours(self) -> Sequence[int]:
         """
         A collection of hours that the profile takes effect on. Values supported are 0 to 23 on the 24-hour clock (AM/PM times are not supported).
         """
@@ -396,7 +396,7 @@ class RecurrentScheduleResponse(dict):
 
     @property
     @pulumi.getter
-    def minutes(self) -> List[float]:
+    def minutes(self) -> Sequence[int]:
         """
         A collection of minutes at which the profile takes effect at.
         """
@@ -528,12 +528,12 @@ class ScaleRuleMetricDimensionResponse(dict):
     def __init__(__self__, *,
                  dimension_name: str,
                  operator: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         Specifies an auto scale rule metric dimension.
         :param str dimension_name: Name of the dimension.
         :param str operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-        :param List[str] values: list of dimension values. For example: ["App1","App2"].
+        :param Sequence[str] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
         pulumi.set(__self__, "operator", operator)
@@ -557,7 +557,7 @@ class ScaleRuleMetricDimensionResponse(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         list of dimension values. For example: ["App1","App2"].
         """
