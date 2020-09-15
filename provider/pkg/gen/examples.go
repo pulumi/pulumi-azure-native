@@ -162,6 +162,10 @@ func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log(programBody)
+	return generateExampleProgramsFromText(example, programBody, languages, bindOptions...)
+}
+func generateExampleProgramsFromText(example provider.AzureAPIExample, programBody string, languages []string,
+	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
 		return nil, fmt.Errorf("failed to parse IR - file: %s: %v", example.Location, err)

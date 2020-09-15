@@ -6,10 +6,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-nextgen/provider/pkg/provider"
+	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2"
 	"github.com/stretchr/testify/require"
 )
 
@@ -323,7 +325,7 @@ func TestFlattenInput(t *testing.T) {
 				},
 			},
 		},
-	}[3:] {
+	} {
 		t.Run(test.name, func(t *testing.T) {
 			in := test.input["parameters"].(map[string]interface{})
 			params := map[string]provider.AzureAPIParameter{}
@@ -343,4 +345,76 @@ func TestFlattenInput(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestGenerateExamples(t *testing.T) {
+	var metadata provider.AzureAPIMetadata
+	// TODO - Requires `make generate_schema` to be run first
+	// turn this into a proper unit test instead
+	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
+	require.NoError(t, err)
+	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
+	f.Close()
+	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
+
+	for _, test := range []struct {
+		name     string
+		inputPCL string
+		err      error
+	}{
+		{
+			name: "privateLinkForAzureAd",
+			inputPCL: `
+resource privateLinkForAzureAd "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd" {
+	allTenants = false
+	name = "myOrgPrivateLinkPolicy"
+	ownerTenantId = "950f8bca-bf4d-4a41-ad10-034e792a243d"
+	policyName = "ddb1"
+	resourceGroup = "myOrgVnetRG"
+	resourceGroupName = "rg1"
+	resourceName = "myOrgVnetPrivateLink"
+	subscriptionId = "57849194-ea1f-470b-abda-d195b25634c1"
+	tenants = [
+			"3616657d-1c80-41ae-9d83-2a2776f2c9be",
+			"727b6ef1-18ab-4627-ac95-3f9cd945ed87"
+	]
+}`,
+		},
+		{
+			name: "supportPlanType",
+			inputPCL: `
+resource supportPlanType "azure-nextgen:addons/latest:SupportPlanType" {
+	planTypeName = "Standard"
+	providerName = "Canonical"
+}`,
+		},
+		{
+			name: "azureADMetric",
+			inputPCL: `
+resource azureADMetric "azure-nextgen:aadiam/v20200701preview:azureADMetric" {
+	azureADMetricsName = "ddb1"
+	location = "West US"
+	resourceGroupName = "rg1"
+	tags = {}
+}`,
+		},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			wd, _ := os.Getwd()
+			path := filepath.Join(wd, "../../../bin")
+			os.Setenv("PATH", path)
+			langs, err := generateExampleProgramsFromText(
+				provider.AzureAPIExample{Location: test.name},
+				test.inputPCL,
+				[]string{"nodejs", "python", "dotnet", "go"},
+				hcl2Cache)
+			if test.err != nil {
+				require.Error(t, err)
+				return
+			}
+			t.Logf("%#v\n", langs)
+			t.Logf("%s", langs["go"])
+		})
+	}
+
 }

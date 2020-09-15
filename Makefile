@@ -30,7 +30,7 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
 
-local_generate:: codegen provider
+local_generate:: codegen generate_schema provider
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
 	echo "Finished generating schema."
 
