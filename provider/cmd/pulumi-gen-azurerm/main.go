@@ -52,7 +52,9 @@ func main() {
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azurerm")
 			docsProviders := openapi.SingleVersion(azureProviders)
-			docsPkgSpec, _, resExamples, err := gen.PulumiSchema(docsProviders)
+			var docsPkgSpec *schema.PackageSpec
+			var resExamples map[string][]provider.AzureAPIExample
+			docsPkgSpec, _, resExamples, err = gen.PulumiSchema(docsProviders)
 			if err != nil {
 				break
 			}

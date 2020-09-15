@@ -39,7 +39,8 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, resExamples map[string][]provider.AzureAPIExample, languages []string) error {
+func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
+	resExamples map[string][]provider.AzureAPIExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
@@ -48,7 +49,10 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 	// cache to speed up code generation
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
 	for _, pulumiToken := range sortedKeys {
-		bar.Add(1)
+		err := bar.Add(1)
+		if err != nil {
+			return err
+		}
 
 		if shouldExclude(pulumiToken) {
 			log.Printf("Skipping '%s' since it matches exclusion pattern", pulumiToken)
@@ -96,7 +100,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 			}
 
 			if _, ok := exampleJSON["parameters"].(map[string]interface{}); !ok {
-				fmt.Printf("Expect parameters to be a map, received: %T for resource: %s, skipping.", exampleJSON["parameters"], pulumiToken)
+				fmt.Printf("Expect parameters to be a map, received: %T for resource: %s, skipping.",
+					exampleJSON["parameters"], pulumiToken)
 				continue
 			}
 			exampleParams := exampleJSON["parameters"].(map[string]interface{})
@@ -153,7 +158,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata, 
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
 
-func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body, languages []string, bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
+func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body, languages []string,
+	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log(programBody)
 	parser := syntax.NewParser()
@@ -162,8 +168,10 @@ func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body,
 	}
 	if parser.Diagnostics.HasErrors() {
 		fmt.Print(programBody)
-		parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
-
+		err := parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
+		if err != nil {
+			log.Printf("failed to write diagnostics: %v", err)
+		}
 	}
 
 	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
@@ -171,8 +179,11 @@ func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body,
 		log.Fatalf("failed to bind program: %v", err)
 	}
 	if diags.HasErrors() {
-		log.Printf(programBody)
-		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+		log.Print(programBody)
+		err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+		if err != nil {
+			log.Printf("failed to write diagnostics: %v", err)
+		}
 	}
 
 	languageExample := languageToExampleProgram{}
@@ -226,12 +237,16 @@ func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[st
 		return nil, err
 	}
 	if d.HasErrors() {
-		program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(d)
+		err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(d)
+		if err != nil {
+			log.Printf("failed to write diagnostics: %v", err)
+		}
 	}
 	return
 }
 
-func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string, examplesRenderData *resourceExamplesRenderData) error {
+func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string,
+	examplesRenderData *resourceExamplesRenderData) error {
 	const tmpl = `
 
 {{"{{% examples %}}"}}
@@ -313,7 +328,7 @@ func flattenInput(
 		if _, ok := containers[k]; ok {
 			contained, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("property %s is expected to be a map, recieved: %T", k, v)
+				return nil, fmt.Errorf("property %s is expected to be a map, received: %T", k, v)
 			}
 			flattened, err := flattenInput(contained, resourceParams, types)
 			if err != nil {
@@ -333,7 +348,7 @@ func flattenInput(
 		if paramMetadata.Body != nil {
 			inBody, ok := v.(map[string]interface{})
 			if !ok {
-				return nil, fmt.Errorf("expect body for param %s to be a map, recieved %T", k, v)
+				return nil, fmt.Errorf("expect body for param %s to be a map, received %T", k, v)
 			}
 			bodyVals, ok := inBody["properties"]
 			if !ok {
@@ -369,7 +384,8 @@ func flattenInput(
 	return out, nil
 }
 
-func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType, val interface{}) interface{} {
+func transformProperty(prop *provider.AzureAPIProperty, types map[string]provider.AzureAPIType,
+	val interface{}) interface{} {
 	switch reflect.TypeOf(val).Kind() {
 	case reflect.Map:
 		if prop.Ref == "" {
@@ -398,7 +414,8 @@ func transformProperty(prop *provider.AzureAPIProperty, types map[string]provide
 	return val
 }
 
-func transformProperties(props map[string]provider.AzureAPIProperty, types map[string]provider.AzureAPIType, values map[string]interface{}) map[string]interface{} {
+func transformProperties(props map[string]provider.AzureAPIProperty, types map[string]provider.AzureAPIType,
+	values map[string]interface{}) map[string]interface{} {
 	containers := codegen.NewStringSet()
 	for _, v := range props {
 		if v.Container != "" {

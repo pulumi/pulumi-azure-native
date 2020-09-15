@@ -4,6 +4,7 @@ package gen
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -20,6 +21,10 @@ func TestFlattenInput(t *testing.T) {
 	require.NoError(t, err)
 	require.NoError(t, json.NewDecoder(f).Decode(&metadata))
 	f.Close()
+
+	resourceID := func(s string) string {
+		return fmt.Sprintf("/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/%s", s)
+	}
 
 	for _, test := range []struct {
 		name         string
@@ -59,7 +64,7 @@ func TestFlattenInput(t *testing.T) {
 							},
 							"networkProfile": map[string]interface{}{
 								"networkInterfaces": []map[string]interface{}{{
-									"id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+									"id": resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
 									"properties": map[string]interface{}{
 										"primary": true,
 									},
@@ -71,7 +76,7 @@ func TestFlattenInput(t *testing.T) {
 								"adminPassword": "{your-password}",
 							},
 							"availabilitySet": map[string]interface{}{
-								"id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+								"id": resourceID("Microsoft.Compute/availabilitySets/{existing-availability-set-name}"),
 							},
 						},
 					},
@@ -81,7 +86,7 @@ func TestFlattenInput(t *testing.T) {
 				"vmName":            "myVM",
 				"resourceGroupName": "myResourceGroup",
 				"availabilitySet": map[string]interface{}{
-					"id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+					"id": resourceID("Microsoft.Compute/availabilitySets/{existing-availability-set-name}"),
 				},
 				"hardwareProfile": map[string]interface{}{
 					"vmSize": "Standard_D1_v2",
@@ -89,7 +94,7 @@ func TestFlattenInput(t *testing.T) {
 				"networkProfile": map[string]interface{}{
 					"networkInterfaces": []map[string]interface{}{
 						{
-							"id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+							"id": resourceID("Microsoft.Network/networkInterfaces/{existing-nic-name}"),
 							//"primary": true,
 						},
 					},
