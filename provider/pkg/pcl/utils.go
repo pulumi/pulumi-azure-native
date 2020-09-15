@@ -1,6 +1,7 @@
 package pcl
 
 import (
+	"strings"
 	"unicode"
 	"unicode/utf8"
 
@@ -60,8 +61,7 @@ func ObjectConsItem(key string, value model.Expression) model.ObjectConsItem {
 	}
 }
 
-// Invoke returns a new call to `invoke` with the given token and inputs. The inputs are combined into an
-// ObjectConsExpression.
+// Invoke returns a new function call expression which invokes the specified function.
 func Invoke(token string, inputs ...model.ObjectConsItem) *model.FunctionCallExpression {
 	args := []model.Expression{QuotedLit(token)}
 	if len(inputs) != 0 {
@@ -81,4 +81,33 @@ func RelativeTraversal(source model.Expression, attr string) *model.RelativeTrav
 		Traversal: hcl.Traversal{hcl.TraverseAttr{Name: attr}},
 		Parts:     []model.Traversable{model.DynamicType, model.DynamicType},
 	}
+}
+
+// MakeLegalIdentifier deletes characters that are not allowed in HCL2 identifiers with underscores. No attempt is
+// made to ensure that the result is unique.
+func MakeLegalIdentifier(name string) string {
+	var builder strings.Builder
+	for i, c := range name {
+		if isLegalIdentifierPart(c) {
+			if i == 0 && !isLegalIdentifierStart(c) {
+				builder.WriteRune('_')
+			}
+			builder.WriteRune(c)
+		}
+	}
+	if builder.Len() == 0 {
+		return "x"
+	}
+	return builder.String()
+}
+
+// isLegalIdentifierStart returns true if it is legal for c to be the first character of an HCL2 identifier.
+func isLegalIdentifierStart(c rune) bool {
+	return c == '$' || c == '_' ||
+		unicode.In(c, unicode.Lu, unicode.Ll, unicode.Lt, unicode.Lm, unicode.Lo, unicode.Nl)
+}
+
+// isLegalIdentifierPart returns true if it is legal for c to be part of an HCL2 identifier.
+func isLegalIdentifierPart(c rune) bool {
+	return isLegalIdentifierStart(c) || unicode.In(c, unicode.Mn, unicode.Mc, unicode.Nd, unicode.Pc)
 }

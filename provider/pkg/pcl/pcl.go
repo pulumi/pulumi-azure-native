@@ -15,16 +15,16 @@ var null = &model.Variable{
 	VariableType: model.NoneType,
 }
 
-// RenderValue renders an AST node that represents a YAML value as its equivalent PCL. Most nodes are rendered as one
-// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.). Function calls are the lone
-// exception; see renderFunction for more details.
+// RenderValue renders an object that represents a json value into PCL. Most nodes are rendered as one
+// would expect (e.g. sequences -> tuple construction, maps -> object construction, etc.).
 func RenderValue(node interface{}) (model.Expression, error) {
 	if node == nil {
 		return model.VariableReference(null), nil
 	}
 
+	typ := reflect.TypeOf(node)
 	val := reflect.ValueOf(node)
-	kind := reflect.TypeOf(node).Kind()
+	kind := typ.Kind()
 	switch kind {
 	case reflect.Slice:
 		var expressions []model.Expression
@@ -82,6 +82,13 @@ func RenderValue(node interface{}) (model.Expression, error) {
 		return &model.ObjectConsExpression{
 			Items: items,
 		}, nil
+	case reflect.Ptr:
+		nodeExpr, ok := node.(model.Expression)
+		if !ok {
+			// only expect model.Expression as the embedded interface
+			panic(val)
+		}
+		return nodeExpr, nil
 	default:
 		contract.Failf("unexpected type %T", node)
 		return nil, nil
