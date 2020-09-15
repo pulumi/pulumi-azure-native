@@ -12,15 +12,15 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'azurerm', '${PLUGIN_VERSION}'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'azure-nextgen', '${PLUGIN_VERSION}'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""
-                There was an error installing the azurerm resource provider plugin.
+                There was an error installing the azure-nextgen resource provider plugin.
                 It looks like `pulumi` is not installed on your system.
                 Please visit https://pulumi.com/ to install the Pulumi CLI.
                 You may try manually installing the plugin by running
-                `pulumi plugin install resource azurerm ${PLUGIN_VERSION}`
+                `pulumi plugin install resource azure-nextgen ${PLUGIN_VERSION}`
                 """)
             else:
                 raise
@@ -31,23 +31,23 @@ def readme():
         return f.read()
 
 
-setup(name='pulumi_azurerm',
+setup(name='pulumi_azure_nextgen',
       version='${VERSION}',
-      description="A Pulumi package for creating and managing Azure resources.",
+      description="A Next Generation Pulumi package for creating and managing Azure resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi azure azurerm',
+      keywords='pulumi azure azure-nextgen',
       url='https://pulumi.com',
       project_urls={
-          'Repository': 'https://github.com/pulumi/pulumi-azurerm'
+          'Repository': 'https://github.com/pulumi/pulumi-azure-nextgen'
       },
       license='Apache-2.0',
       packages=find_packages(),
       package_data={
-          'pulumi_azurerm': [
+          'pulumi_azure_nextgen': [
               'py.typed'
           ]
       },
