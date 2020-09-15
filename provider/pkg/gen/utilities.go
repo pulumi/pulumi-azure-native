@@ -41,6 +41,11 @@ func toLowerCamel(s string) string {
 	return toCamelInitCase(s, false)
 }
 
+// toUpperCamel converts a string to UpperCamelCase.
+func toUpperCamel(s string) string {
+	return toCamelInitCase(s, true)
+}
+
 func toCamelInitCase(s string, initCase bool) string {
 	s = strings.Trim(s, " ")
 	n := ""
