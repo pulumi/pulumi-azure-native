@@ -1,5 +1,6 @@
-// Disabling this
+// +build integration
 
+// Disable the above or run with -tags=integration
 package gen
 
 import (
